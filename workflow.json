@@ -10298,7 +10298,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v0.2.4",
+            "text": "🧩 Универсальный воркфлоу · v0.2.5",
             "size": "M",
             "align": "left"
           },
@@ -10391,6 +10391,12 @@
             "blur": null,
             "label": null,
             "scale": 100
+          },
+          "adapt": {
+            "mode": "stretch",
+            "max": 10000,
+            "unit": "%",
+            "align": "center"
           }
         },
         {
@@ -11940,6 +11946,12 @@
             "blur": null,
             "label": null,
             "scale": 100
+          },
+          "adapt": {
+            "mode": "stretch",
+            "max": 10000,
+            "unit": "%",
+            "align": "center"
           }
         },
         {
