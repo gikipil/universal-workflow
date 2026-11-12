@@ -10,7 +10,7 @@ export const factoryloralist_v0217={type:'factoryloralist_v0217',label:'Поль
  slots:[{id:'bank',label:'User LoRA bank',accepts:['STRING'],required:true}],props:[],size:{w:336,h:504,minW:250,minH:200},
  mount(ctx){
     const root=el('div'),list=el('div'),error=el('div'),add=el('button','','＋ Добавить LoRA');let stamp='',instances=[],updates=[];
-    Object.assign(root.style,{display:'flex',flexDirection:'column',gap:'12px',padding:'12px',width:'100%',boxSizing:'border-box'});Object.assign(list.style,{display:'flex',flexDirection:'column',gap:'16px'});Object.assign(error.style,{fontSize:'12px',color:'#ffa4b2'});error.hidden=true;
+    Object.assign(root.style,{display:'flex',flexDirection:'column',gap:'12px',padding:'12px',width:'100%',boxSizing:'border-box',borderRadius:'11px',background:'linear-gradient(180deg,#a55b9c20,transparent 64px)',boxShadow:'inset 0 2px 0 #df80c944'});Object.assign(list.style,{display:'flex',flexDirection:'column',gap:'16px'});Object.assign(error.style,{fontSize:'12px',color:'#ffa4b2'});error.hidden=true;
     add.type='button';Object.assign(add.style,{height:'44px',width:'100%',border:'1px solid #bc72cf',borderRadius:'10px',background:'linear-gradient(110deg,#573044,#643681)',color:'#ffd2f2',font:'inherit',fontWeight:'650',cursor:'pointer'});root.append(list,error,add);ctx.body.append(root);ctx.body.style.flex='1 1 auto';if(ctx.body.parentElement)ctx.body.parentElement.style.padding='0';
     const read=()=>{try{return JSON.parse(ctx.get('bank'));}catch{return null;}};
     function fail(err){error.hidden=false;error.textContent=err.message||String(err);update();}
