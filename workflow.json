@@ -10001,7 +10001,7 @@
       "id": "krea_two_pass_ui",
       "page": {
         "w": 1200,
-        "h": 1732,
+        "h": 1620,
         "bg": {
           "type": "gradient",
           "color": "#111318",
@@ -10274,7 +10274,7 @@
           "id": "p1",
           "name": "Первая генерация",
           "kind": "page",
-          "len": 1732,
+          "len": 1620,
           "control": {
             "nodes": [],
             "groups": [],
@@ -10298,7 +10298,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v0.2.7",
+            "text": "🧩 Универсальный воркфлоу · v0.2.8",
             "size": "M",
             "align": "left"
           },
@@ -10401,7 +10401,7 @@
         },
         {
           "id": "generation_mode",
-          "type": "factorygenmode_v027",
+          "type": "factorygenmode_v028",
           "page": "p1",
           "x": 36,
           "y": 208,
@@ -10491,6 +10491,11 @@
               "src": "src_k2module_two",
               "kind": "widget",
               "name": "stage2_scheduler"
+            },
+            "raw_negative": {
+              "src": "src_k2module_negative",
+              "kind": "widget",
+              "name": "text"
             }
           },
           "props": {},
@@ -11521,63 +11526,11 @@
           }
         },
         {
-          "id": "negative",
-          "type": "prompt",
-          "page": "p1",
-          "x": 24,
-          "y": 1380,
-          "w": 1152,
-          "h": 96,
-          "z": 2,
-          "parent": null,
-          "hidden": false,
-          "locked": true,
-          "slots": {
-            "value": {
-              "src": "src_k2module_negative",
-              "kind": "widget",
-              "name": "text"
-            },
-            "enabled": {
-              "src": "src_k2module_mode",
-              "kind": "widget",
-              "name": "index"
-            }
-          },
-          "props": {
-            "label": "🔴 Негативный промт · только Raw в режиме Raw → Turbo",
-            "placeholder": "Что исключить из результата…",
-            "counter": false,
-            "spell": false,
-            "weights": true,
-            "mono": false,
-            "afterWith": "prompt",
-            "afterGap": 16,
-            "enabledEquals": 2,
-            "disabledMessage": "Доступен только в режиме Raw → Turbo"
-          },
-          "look": {
-            "style": null,
-            "shape": null,
-            "accent": "#ef717d",
-            "bg": "#281b20",
-            "field": "#2e2026",
-            "text": "#e8eaf0",
-            "labelColor": "#ffa0a8",
-            "border": "#8e4655",
-            "radius": 12,
-            "shadow": null,
-            "blur": null,
-            "label": null,
-            "scale": 100
-          }
-        },
-        {
           "id": "generate",
           "type": "generate",
           "page": "p1",
           "x": 24,
-          "y": 1652,
+          "y": 1540,
           "w": 1152,
           "h": 56,
           "z": 2,
@@ -12811,7 +12764,7 @@
           "type": "prompt",
           "page": "p1",
           "x": 24,
-          "y": 1492,
+          "y": 1380,
           "w": 1152,
           "h": 144,
           "z": 2,
@@ -12837,7 +12790,7 @@
             "spell": false,
             "weights": true,
             "mono": false,
-            "afterWith": "negative",
+            "afterWith": "prompt",
             "afterGap": 16
           },
           "look": {
