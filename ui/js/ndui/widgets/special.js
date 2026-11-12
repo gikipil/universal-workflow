@@ -185,12 +185,12 @@ export const modelpicker = {
         const open = () => {
             if (ctx.editing && !ctx.info("value").bound) return;
             const fo = folderOf();
-            const sliderStyle = ctx.prop("pickerStyle") === "slider";
+            const sliderStyle = ["slider", "lora"].includes(ctx.prop("pickerStyle"));
             return popup(ctx, f, {
                 width: sliderStyle ? 640 : 560, maxH: sliderStyle ? 600 : 520,
                 build(box, close) {
                     box.classList.add("ndk-mp-pop");
-                    if (sliderStyle) decorateSliderPicker(box, close);
+                    if (sliderStyle) decorateSliderPicker(box, close, ctx.prop("pickerStyle"));
                     const head = el("div", "ndk-mp-head");
                     const search = el("div", "ndk-pop-search"); search.append(icon("search", 15));
                     const input = el("input", "ndk-input"); input.placeholder = ctx.tr("Search"); input.spellcheck = false; input.style.padding = "0";
