@@ -10298,7 +10298,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v0.2.11",
+            "text": "🧩 Универсальный воркфлоу · v0.2.12",
             "size": "M",
             "align": "left"
           },
@@ -10557,7 +10557,7 @@
         },
         {
           "id": "resolution",
-          "type": "factorysize_v0211",
+          "type": "factorysize_v0212",
           "page": "p1",
           "x": 36,
           "y": 412,
