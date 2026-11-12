@@ -2200,6 +2200,3005 @@
       "bgcolor": "#355"
     },
     {
+      "id": 75,
+      "type": "SetNode",
+      "pos": [
+        52,
+        128
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "collapsed": true,
+        "pinned": true
+      },
+      "order": 107,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "link": 56
+        }
+      ],
+      "outputs": [
+        {
+          "name": "*",
+          "type": "MODEL",
+          "links": []
+        }
+      ],
+      "title": "Set_GEN2_KREA_BASE",
+      "properties": {
+        "Node name for S&R": "SetNode",
+        "aux_id": "kijai/ComfyUI-KJNodes",
+        "previousName": "GEN2_KREA_BASE"
+      },
+      "widgets_values": [
+        "GEN2_KREA_BASE"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 76,
+      "type": "SetNode",
+      "pos": [
+        52,
+        278
+      ],
+      "size": [
+        228.4966796875,
+        40
+      ],
+      "flags": {
+        "collapsed": true,
+        "pinned": true
+      },
+      "order": 109,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "link": 57
+        }
+      ],
+      "outputs": [
+        {
+          "name": "*",
+          "type": "CLIP",
+          "links": []
+        }
+      ],
+      "title": "Set_GEN2_KREA_CLIP_BASE",
+      "properties": {
+        "Node name for S&R": "SetNode",
+        "aux_id": "kijai/ComfyUI-KJNodes",
+        "previousName": "GEN2_KREA_CLIP_BASE"
+      },
+      "widgets_values": [
+        "GEN2_KREA_CLIP_BASE"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 78,
+      "type": "SetNode",
+      "pos": [
+        3352,
+        128
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "collapsed": true,
+        "pinned": true
+      },
+      "order": 114,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "link": 58
+        }
+      ],
+      "outputs": [
+        {
+          "name": "*",
+          "type": "INT",
+          "links": []
+        }
+      ],
+      "title": "Set_GEN2_SEED",
+      "properties": {
+        "Node name for S&R": "SetNode",
+        "aux_id": "kijai/ComfyUI-KJNodes",
+        "previousName": "GEN2_SEED"
+      },
+      "widgets_values": [
+        "GEN2_SEED"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 80,
+      "type": "SetNode",
+      "pos": [
+        3352,
+        308
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "collapsed": true,
+        "pinned": true
+      },
+      "order": 115,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "FLOAT",
+          "type": "FLOAT",
+          "link": 59
+        }
+      ],
+      "outputs": [
+        {
+          "name": "*",
+          "type": "FLOAT",
+          "links": []
+        }
+      ],
+      "title": "Set_GEN2_DENOISE",
+      "properties": {
+        "Node name for S&R": "SetNode",
+        "aux_id": "kijai/ComfyUI-KJNodes",
+        "previousName": "GEN2_DENOISE"
+      },
+      "widgets_values": [
+        "GEN2_DENOISE"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 82,
+      "type": "SetNode",
+      "pos": [
+        3852,
+        128
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "collapsed": true,
+        "pinned": true
+      },
+      "order": 116,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "link": 60
+        }
+      ],
+      "outputs": [
+        {
+          "name": "*",
+          "type": "STRING",
+          "links": []
+        }
+      ],
+      "title": "Set_GEN2_PROMPT",
+      "properties": {
+        "Node name for S&R": "SetNode",
+        "aux_id": "kijai/ComfyUI-KJNodes",
+        "previousName": "GEN2_PROMPT"
+      },
+      "widgets_values": [
+        "GEN2_PROMPT"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 84,
+      "type": "GetNode",
+      "pos": [
+        3352,
+        508
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "collapsed": true,
+        "pinned": true
+      },
+      "order": 44,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            61
+          ]
+        }
+      ],
+      "title": "Get_GEN2_KREA_BASE",
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "aux_id": "kijai/ComfyUI-KJNodes"
+      },
+      "widgets_values": [
+        "GEN2_KREA_BASE"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 85,
+      "type": "GetNode",
+      "pos": [
+        3352,
+        508
+      ],
+      "size": [
+        229.9595703125,
+        40
+      ],
+      "flags": {
+        "collapsed": true,
+        "pinned": true
+      },
+      "order": 45,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            62
+          ]
+        }
+      ],
+      "title": "Get_GEN2_KREA_CLIP_BASE",
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "aux_id": "kijai/ComfyUI-KJNodes"
+      },
+      "widgets_values": [
+        "GEN2_KREA_CLIP_BASE"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 88,
+      "type": "GetNode",
+      "pos": [
+        3852,
+        728
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "collapsed": true,
+        "pinned": true
+      },
+      "order": 46,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            65
+          ]
+        }
+      ],
+      "title": "Get_GEN1_WIDTH",
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "aux_id": "kijai/ComfyUI-KJNodes"
+      },
+      "widgets_values": [
+        "GEN1_WIDTH"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 89,
+      "type": "GetNode",
+      "pos": [
+        3852,
+        728
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "collapsed": true,
+        "pinned": true
+      },
+      "order": 47,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            66
+          ]
+        }
+      ],
+      "title": "Get_GEN1_HEIGHT",
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "aux_id": "kijai/ComfyUI-KJNodes"
+      },
+      "widgets_values": [
+        "GEN1_HEIGHT"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 90,
+      "type": "SetNode",
+      "pos": [
+        3852,
+        728
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "collapsed": true,
+        "pinned": true
+      },
+      "order": 166,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "link": 67
+        }
+      ],
+      "outputs": [
+        {
+          "name": "*",
+          "type": "MODEL",
+          "links": []
+        }
+      ],
+      "title": "Set_GEN2_K_MODEL",
+      "properties": {
+        "Node name for S&R": "SetNode",
+        "aux_id": "kijai/ComfyUI-KJNodes",
+        "previousName": "GEN2_K_MODEL"
+      },
+      "widgets_values": [
+        "GEN2_K_MODEL"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 94,
+      "type": "SetNode",
+      "pos": [
+        3352,
+        1438
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "collapsed": true,
+        "pinned": true
+      },
+      "order": 119,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "link": 68
+        }
+      ],
+      "outputs": [
+        {
+          "name": "*",
+          "type": "VAE",
+          "links": []
+        }
+      ],
+      "title": "Set_GEN2_Z_VAE",
+      "properties": {
+        "Node name for S&R": "SetNode",
+        "aux_id": "kijai/ComfyUI-KJNodes",
+        "previousName": "GEN2_Z_VAE"
+      },
+      "widgets_values": [
+        "GEN2_Z_VAE"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 96,
+      "type": "SetNode",
+      "pos": [
+        3352,
+        1618
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "collapsed": true,
+        "pinned": true
+      },
+      "order": 147,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "link": 71
+        }
+      ],
+      "outputs": [
+        {
+          "name": "*",
+          "type": "MODEL",
+          "links": []
+        }
+      ],
+      "title": "Set_GEN2_Z_MODEL",
+      "properties": {
+        "Node name for S&R": "SetNode",
+        "aux_id": "kijai/ComfyUI-KJNodes",
+        "previousName": "GEN2_Z_MODEL"
+      },
+      "widgets_values": [
+        "GEN2_Z_MODEL"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 98,
+      "type": "GetNode",
+      "pos": [
+        4352,
+        128
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "collapsed": true,
+        "pinned": true
+      },
+      "order": 51,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            73
+          ]
+        }
+      ],
+      "title": "Get_GEN2_PROMPT",
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "aux_id": "kijai/ComfyUI-KJNodes"
+      },
+      "widgets_values": [
+        "GEN2_PROMPT"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 99,
+      "type": "SetNode",
+      "pos": [
+        4352,
+        128
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "collapsed": true,
+        "pinned": true
+      },
+      "order": 158,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "link": 74
+        }
+      ],
+      "outputs": [
+        {
+          "name": "*",
+          "type": "CONDITIONING",
+          "links": []
+        }
+      ],
+      "title": "Set_GEN2_K_POS",
+      "properties": {
+        "Node name for S&R": "SetNode",
+        "aux_id": "kijai/ComfyUI-KJNodes",
+        "previousName": "GEN2_K_POS"
+      },
+      "widgets_values": [
+        "GEN2_K_POS"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 100,
+      "type": "ConditioningZeroOut",
+      "pos": [
+        4352,
+        128
+      ],
+      "size": [
+        217.593359375,
+        40
+      ],
+      "flags": {
+        "collapsed": true,
+        "pinned": true
+      },
+      "order": 159,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "conditioning",
+          "name": "conditioning",
+          "type": "CONDITIONING",
+          "link": 75
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "CONDITIONING",
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            76
+          ]
+        }
+      ],
+      "title": "Техническое нулевое условие",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.30.2",
+        "Node name for S&R": "ConditioningZeroOut"
+      },
+      "widgets_values": [],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 101,
+      "type": "SetNode",
+      "pos": [
+        4364,
+        176
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "collapsed": true,
+        "pinned": true
+      },
+      "order": 167,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "link": 76
+        }
+      ],
+      "outputs": [
+        {
+          "name": "*",
+          "type": "CONDITIONING",
+          "links": []
+        }
+      ],
+      "title": "Set_GEN2_K_NEG",
+      "properties": {
+        "Node name for S&R": "SetNode",
+        "aux_id": "kijai/ComfyUI-KJNodes",
+        "previousName": "GEN2_K_NEG"
+      },
+      "widgets_values": [
+        "GEN2_K_NEG"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 102,
+      "type": "VAEEncode",
+      "pos": [
+        4352,
+        162
+      ],
+      "size": [
+        207.6470703125,
+        46
+      ],
+      "flags": {
+        "collapsed": true,
+        "pinned": true
+      },
+      "order": 120,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "pixels",
+          "name": "pixels",
+          "type": "IMAGE",
+          "link": 77
+        },
+        {
+          "localized_name": "vae",
+          "name": "vae",
+          "type": "VAE",
+          "link": 78
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "LATENT",
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            79
+          ]
+        }
+      ],
+      "title": "Техническое кодирование K",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.30.2",
+        "Node name for S&R": "VAEEncode"
+      },
+      "widgets_values": [],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 103,
+      "type": "GetNode",
+      "pos": [
+        4364,
+        210
+      ],
+      "size": [
+        213.819921875,
+        40
+      ],
+      "flags": {
+        "collapsed": true,
+        "pinned": true
+      },
+      "order": 52,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            77
+          ]
+        }
+      ],
+      "title": "Get_GEN1_RESULT_IMAGE",
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "aux_id": "kijai/ComfyUI-KJNodes"
+      },
+      "widgets_values": [
+        "GEN1_RESULT_IMAGE"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 104,
+      "type": "GetNode",
+      "pos": [
+        4364,
+        210
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "collapsed": true,
+        "pinned": true
+      },
+      "order": 53,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            78
+          ]
+        }
+      ],
+      "title": "Get_GEN1_VAE",
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "aux_id": "kijai/ComfyUI-KJNodes"
+      },
+      "widgets_values": [
+        "GEN1_VAE"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 105,
+      "type": "SetNode",
+      "pos": [
+        4364,
+        210
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "collapsed": true,
+        "pinned": true
+      },
+      "order": 149,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "link": 79
+        }
+      ],
+      "outputs": [
+        {
+          "name": "*",
+          "type": "LATENT",
+          "links": []
+        }
+      ],
+      "title": "Set_GEN2_K_LATENT",
+      "properties": {
+        "Node name for S&R": "SetNode",
+        "aux_id": "kijai/ComfyUI-KJNodes",
+        "previousName": "GEN2_K_LATENT"
+      },
+      "widgets_values": [
+        "GEN2_K_LATENT"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 107,
+      "type": "GetNode",
+      "pos": [
+        4352,
+        1078
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "collapsed": true,
+        "pinned": true
+      },
+      "order": 54,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            81
+          ]
+        }
+      ],
+      "title": "Get_GEN2_PROMPT",
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "aux_id": "kijai/ComfyUI-KJNodes"
+      },
+      "widgets_values": [
+        "GEN2_PROMPT"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 108,
+      "type": "SetNode",
+      "pos": [
+        4352,
+        1078
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "collapsed": true,
+        "pinned": true
+      },
+      "order": 160,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "link": 82
+        }
+      ],
+      "outputs": [
+        {
+          "name": "*",
+          "type": "CONDITIONING",
+          "links": []
+        }
+      ],
+      "title": "Set_GEN2_Z_POS",
+      "properties": {
+        "Node name for S&R": "SetNode",
+        "aux_id": "kijai/ComfyUI-KJNodes",
+        "previousName": "GEN2_Z_POS"
+      },
+      "widgets_values": [
+        "GEN2_Z_POS"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 109,
+      "type": "ConditioningZeroOut",
+      "pos": [
+        4352,
+        1078
+      ],
+      "size": [
+        217.593359375,
+        40
+      ],
+      "flags": {
+        "collapsed": true,
+        "pinned": true
+      },
+      "order": 161,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "conditioning",
+          "name": "conditioning",
+          "type": "CONDITIONING",
+          "link": 83
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "CONDITIONING",
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            84
+          ]
+        }
+      ],
+      "title": "Техническое нулевое условие",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.30.2",
+        "Node name for S&R": "ConditioningZeroOut"
+      },
+      "widgets_values": [],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 110,
+      "type": "SetNode",
+      "pos": [
+        4364,
+        1126
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "collapsed": true,
+        "pinned": true
+      },
+      "order": 168,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "link": 84
+        }
+      ],
+      "outputs": [
+        {
+          "name": "*",
+          "type": "CONDITIONING",
+          "links": []
+        }
+      ],
+      "title": "Set_GEN2_Z_NEG",
+      "properties": {
+        "Node name for S&R": "SetNode",
+        "aux_id": "kijai/ComfyUI-KJNodes",
+        "previousName": "GEN2_Z_NEG"
+      },
+      "widgets_values": [
+        "GEN2_Z_NEG"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 111,
+      "type": "VAEEncode",
+      "pos": [
+        4352,
+        1112
+      ],
+      "size": [
+        207.0455078125,
+        46
+      ],
+      "flags": {
+        "collapsed": true,
+        "pinned": true
+      },
+      "order": 121,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "pixels",
+          "name": "pixels",
+          "type": "IMAGE",
+          "link": 85
+        },
+        {
+          "localized_name": "vae",
+          "name": "vae",
+          "type": "VAE",
+          "link": 86
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "LATENT",
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            87
+          ]
+        }
+      ],
+      "title": "Техническое кодирование Z",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.30.2",
+        "Node name for S&R": "VAEEncode"
+      },
+      "widgets_values": [],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 112,
+      "type": "GetNode",
+      "pos": [
+        4364,
+        1160
+      ],
+      "size": [
+        213.819921875,
+        40
+      ],
+      "flags": {
+        "collapsed": true,
+        "pinned": true
+      },
+      "order": 55,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            85
+          ]
+        }
+      ],
+      "title": "Get_GEN1_RESULT_IMAGE",
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "aux_id": "kijai/ComfyUI-KJNodes"
+      },
+      "widgets_values": [
+        "GEN1_RESULT_IMAGE"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 113,
+      "type": "GetNode",
+      "pos": [
+        4364,
+        1160
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "collapsed": true,
+        "pinned": true
+      },
+      "order": 56,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            86
+          ]
+        }
+      ],
+      "title": "Get_GEN2_Z_VAE",
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "aux_id": "kijai/ComfyUI-KJNodes"
+      },
+      "widgets_values": [
+        "GEN2_Z_VAE"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 114,
+      "type": "SetNode",
+      "pos": [
+        4364,
+        1160
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "collapsed": true,
+        "pinned": true
+      },
+      "order": 150,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "link": 87
+        }
+      ],
+      "outputs": [
+        {
+          "name": "*",
+          "type": "LATENT",
+          "links": []
+        }
+      ],
+      "title": "Set_GEN2_Z_LATENT",
+      "properties": {
+        "Node name for S&R": "SetNode",
+        "aux_id": "kijai/ComfyUI-KJNodes",
+        "previousName": "GEN2_Z_LATENT"
+      },
+      "widgets_values": [
+        "GEN2_Z_LATENT"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 116,
+      "type": "GetNode",
+      "pos": [
+        4852,
+        128
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "collapsed": true,
+        "pinned": true
+      },
+      "order": 57,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            88
+          ]
+        }
+      ],
+      "title": "Get_GEN2_K_MODEL",
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "aux_id": "kijai/ComfyUI-KJNodes"
+      },
+      "widgets_values": [
+        "GEN2_K_MODEL"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 117,
+      "type": "GetNode",
+      "pos": [
+        4852,
+        128
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "collapsed": true,
+        "pinned": true
+      },
+      "order": 58,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            89
+          ]
+        }
+      ],
+      "title": "Get_GEN2_K_POS",
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "aux_id": "kijai/ComfyUI-KJNodes"
+      },
+      "widgets_values": [
+        "GEN2_K_POS"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 118,
+      "type": "GetNode",
+      "pos": [
+        4852,
+        128
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "collapsed": true,
+        "pinned": true
+      },
+      "order": 59,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            90
+          ]
+        }
+      ],
+      "title": "Get_GEN2_K_NEG",
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "aux_id": "kijai/ComfyUI-KJNodes"
+      },
+      "widgets_values": [
+        "GEN2_K_NEG"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 119,
+      "type": "GetNode",
+      "pos": [
+        4852,
+        128
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "collapsed": true,
+        "pinned": true
+      },
+      "order": 60,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            91
+          ]
+        }
+      ],
+      "title": "Get_GEN2_K_LATENT",
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "aux_id": "kijai/ComfyUI-KJNodes"
+      },
+      "widgets_values": [
+        "GEN2_K_LATENT"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 120,
+      "type": "GetNode",
+      "pos": [
+        4852,
+        128
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "collapsed": true,
+        "pinned": true
+      },
+      "order": 61,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            92
+          ]
+        }
+      ],
+      "title": "Get_GEN2_SEED",
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "aux_id": "kijai/ComfyUI-KJNodes"
+      },
+      "widgets_values": [
+        "GEN2_SEED"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 121,
+      "type": "GetNode",
+      "pos": [
+        4852,
+        128
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "collapsed": true,
+        "pinned": true
+      },
+      "order": 62,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "FLOAT",
+          "type": "FLOAT",
+          "links": [
+            93
+          ]
+        }
+      ],
+      "title": "Get_GEN2_DENOISE",
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "aux_id": "kijai/ComfyUI-KJNodes"
+      },
+      "widgets_values": [
+        "GEN2_DENOISE"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 122,
+      "type": "VAEDecode",
+      "pos": [
+        4852,
+        128
+      ],
+      "size": [
+        220.983984375,
+        46
+      ],
+      "flags": {
+        "collapsed": true,
+        "pinned": true
+      },
+      "order": 151,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "samples",
+          "name": "samples",
+          "type": "LATENT",
+          "link": 94
+        },
+        {
+          "localized_name": "vae",
+          "name": "vae",
+          "type": "VAE",
+          "link": 95
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "IMAGE",
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            96
+          ]
+        }
+      ],
+      "title": "Техническое декодирование K",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.30.2",
+        "Node name for S&R": "VAEDecode"
+      },
+      "widgets_values": [],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 123,
+      "type": "GetNode",
+      "pos": [
+        4864,
+        176
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "collapsed": true,
+        "pinned": true
+      },
+      "order": 63,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            95
+          ]
+        }
+      ],
+      "title": "Get_GEN1_VAE",
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "aux_id": "kijai/ComfyUI-KJNodes"
+      },
+      "widgets_values": [
+        "GEN1_VAE"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 124,
+      "type": "SetNode",
+      "pos": [
+        4864,
+        176
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "collapsed": true,
+        "pinned": true
+      },
+      "order": 162,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "link": 96
+        }
+      ],
+      "outputs": [
+        {
+          "name": "*",
+          "type": "IMAGE",
+          "links": []
+        }
+      ],
+      "title": "Set_GEN2_ROUTE_1",
+      "properties": {
+        "Node name for S&R": "SetNode",
+        "aux_id": "kijai/ComfyUI-KJNodes",
+        "previousName": "GEN2_ROUTE_1"
+      },
+      "widgets_values": [
+        "GEN2_ROUTE_1"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 126,
+      "type": "GetNode",
+      "pos": [
+        5352,
+        128
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "collapsed": true,
+        "pinned": true
+      },
+      "order": 64,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            97
+          ]
+        }
+      ],
+      "title": "Get_GEN2_K_MODEL",
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "aux_id": "kijai/ComfyUI-KJNodes"
+      },
+      "widgets_values": [
+        "GEN2_K_MODEL"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 127,
+      "type": "GetNode",
+      "pos": [
+        5352,
+        128
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "collapsed": true,
+        "pinned": true
+      },
+      "order": 65,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            98
+          ]
+        }
+      ],
+      "title": "Get_GEN2_K_POS",
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "aux_id": "kijai/ComfyUI-KJNodes"
+      },
+      "widgets_values": [
+        "GEN2_K_POS"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 128,
+      "type": "GetNode",
+      "pos": [
+        5352,
+        128
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "collapsed": true,
+        "pinned": true
+      },
+      "order": 66,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            99
+          ]
+        }
+      ],
+      "title": "Get_GEN2_K_NEG",
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "aux_id": "kijai/ComfyUI-KJNodes"
+      },
+      "widgets_values": [
+        "GEN2_K_NEG"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 129,
+      "type": "GetNode",
+      "pos": [
+        5352,
+        128
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "collapsed": true,
+        "pinned": true
+      },
+      "order": 67,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            100
+          ]
+        }
+      ],
+      "title": "Get_GEN2_K_LATENT",
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "aux_id": "kijai/ComfyUI-KJNodes"
+      },
+      "widgets_values": [
+        "GEN2_K_LATENT"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 130,
+      "type": "GetNode",
+      "pos": [
+        5352,
+        128
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "collapsed": true,
+        "pinned": true
+      },
+      "order": 68,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            101
+          ]
+        }
+      ],
+      "title": "Get_GEN2_SEED",
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "aux_id": "kijai/ComfyUI-KJNodes"
+      },
+      "widgets_values": [
+        "GEN2_SEED"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 131,
+      "type": "GetNode",
+      "pos": [
+        5352,
+        128
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "collapsed": true,
+        "pinned": true
+      },
+      "order": 69,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "FLOAT",
+          "type": "FLOAT",
+          "links": [
+            102
+          ]
+        }
+      ],
+      "title": "Get_GEN2_DENOISE",
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "aux_id": "kijai/ComfyUI-KJNodes"
+      },
+      "widgets_values": [
+        "GEN2_DENOISE"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 132,
+      "type": "VAEDecode",
+      "pos": [
+        5352,
+        128
+      ],
+      "size": [
+        220.983984375,
+        46
+      ],
+      "flags": {
+        "collapsed": true,
+        "pinned": true
+      },
+      "order": 152,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "samples",
+          "name": "samples",
+          "type": "LATENT",
+          "link": 103
+        },
+        {
+          "localized_name": "vae",
+          "name": "vae",
+          "type": "VAE",
+          "link": 104
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "IMAGE",
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            105
+          ]
+        }
+      ],
+      "title": "Техническое декодирование K",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.30.2",
+        "Node name for S&R": "VAEDecode"
+      },
+      "widgets_values": [],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 133,
+      "type": "GetNode",
+      "pos": [
+        5364,
+        176
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "collapsed": true,
+        "pinned": true
+      },
+      "order": 70,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            104
+          ]
+        }
+      ],
+      "title": "Get_GEN1_VAE",
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "aux_id": "kijai/ComfyUI-KJNodes"
+      },
+      "widgets_values": [
+        "GEN1_VAE"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 134,
+      "type": "SetNode",
+      "pos": [
+        5364,
+        176
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "collapsed": true,
+        "pinned": true
+      },
+      "order": 163,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "link": 105
+        }
+      ],
+      "outputs": [
+        {
+          "name": "*",
+          "type": "IMAGE",
+          "links": []
+        }
+      ],
+      "title": "Set_GEN2_ROUTE_2",
+      "properties": {
+        "Node name for S&R": "SetNode",
+        "aux_id": "kijai/ComfyUI-KJNodes",
+        "previousName": "GEN2_ROUTE_2"
+      },
+      "widgets_values": [
+        "GEN2_ROUTE_2"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 136,
+      "type": "GetNode",
+      "pos": [
+        4852,
+        1078
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "collapsed": true,
+        "pinned": true
+      },
+      "order": 71,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            106
+          ]
+        }
+      ],
+      "title": "Get_GEN2_Z_MODEL",
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "aux_id": "kijai/ComfyUI-KJNodes"
+      },
+      "widgets_values": [
+        "GEN2_Z_MODEL"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 137,
+      "type": "GetNode",
+      "pos": [
+        4852,
+        1078
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "collapsed": true,
+        "pinned": true
+      },
+      "order": 72,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            107
+          ]
+        }
+      ],
+      "title": "Get_GEN2_Z_POS",
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "aux_id": "kijai/ComfyUI-KJNodes"
+      },
+      "widgets_values": [
+        "GEN2_Z_POS"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 138,
+      "type": "GetNode",
+      "pos": [
+        4852,
+        1078
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "collapsed": true,
+        "pinned": true
+      },
+      "order": 73,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            108
+          ]
+        }
+      ],
+      "title": "Get_GEN2_Z_NEG",
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "aux_id": "kijai/ComfyUI-KJNodes"
+      },
+      "widgets_values": [
+        "GEN2_Z_NEG"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 139,
+      "type": "GetNode",
+      "pos": [
+        4852,
+        1078
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "collapsed": true,
+        "pinned": true
+      },
+      "order": 74,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            109
+          ]
+        }
+      ],
+      "title": "Get_GEN2_Z_LATENT",
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "aux_id": "kijai/ComfyUI-KJNodes"
+      },
+      "widgets_values": [
+        "GEN2_Z_LATENT"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 140,
+      "type": "GetNode",
+      "pos": [
+        4852,
+        1078
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "collapsed": true,
+        "pinned": true
+      },
+      "order": 75,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            110
+          ]
+        }
+      ],
+      "title": "Get_GEN2_SEED",
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "aux_id": "kijai/ComfyUI-KJNodes"
+      },
+      "widgets_values": [
+        "GEN2_SEED"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 141,
+      "type": "GetNode",
+      "pos": [
+        4852,
+        1078
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "collapsed": true,
+        "pinned": true
+      },
+      "order": 76,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "FLOAT",
+          "type": "FLOAT",
+          "links": [
+            111
+          ]
+        }
+      ],
+      "title": "Get_GEN2_DENOISE",
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "aux_id": "kijai/ComfyUI-KJNodes"
+      },
+      "widgets_values": [
+        "GEN2_DENOISE"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 142,
+      "type": "VAEDecode",
+      "pos": [
+        4852,
+        1078
+      ],
+      "size": [
+        220.382421875,
+        46
+      ],
+      "flags": {
+        "collapsed": true,
+        "pinned": true
+      },
+      "order": 153,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "samples",
+          "name": "samples",
+          "type": "LATENT",
+          "link": 112
+        },
+        {
+          "localized_name": "vae",
+          "name": "vae",
+          "type": "VAE",
+          "link": 113
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "IMAGE",
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            114
+          ]
+        }
+      ],
+      "title": "Техническое декодирование Z",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.30.2",
+        "Node name for S&R": "VAEDecode"
+      },
+      "widgets_values": [],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 143,
+      "type": "GetNode",
+      "pos": [
+        4864,
+        1126
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "collapsed": true,
+        "pinned": true
+      },
+      "order": 77,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            113
+          ]
+        }
+      ],
+      "title": "Get_GEN2_Z_VAE",
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "aux_id": "kijai/ComfyUI-KJNodes"
+      },
+      "widgets_values": [
+        "GEN2_Z_VAE"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 144,
+      "type": "SetNode",
+      "pos": [
+        4864,
+        1126
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "collapsed": true,
+        "pinned": true
+      },
+      "order": 164,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "link": 114
+        }
+      ],
+      "outputs": [
+        {
+          "name": "*",
+          "type": "IMAGE",
+          "links": []
+        }
+      ],
+      "title": "Set_GEN2_ROUTE_3",
+      "properties": {
+        "Node name for S&R": "SetNode",
+        "aux_id": "kijai/ComfyUI-KJNodes",
+        "previousName": "GEN2_ROUTE_3"
+      },
+      "widgets_values": [
+        "GEN2_ROUTE_3"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 146,
+      "type": "GetNode",
+      "pos": [
+        5352,
+        1078
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "collapsed": true,
+        "pinned": true
+      },
+      "order": 78,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            115
+          ]
+        }
+      ],
+      "title": "Get_GEN2_Z_MODEL",
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "aux_id": "kijai/ComfyUI-KJNodes"
+      },
+      "widgets_values": [
+        "GEN2_Z_MODEL"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 147,
+      "type": "GetNode",
+      "pos": [
+        5352,
+        1078
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "collapsed": true,
+        "pinned": true
+      },
+      "order": 79,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            116
+          ]
+        }
+      ],
+      "title": "Get_GEN2_Z_POS",
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "aux_id": "kijai/ComfyUI-KJNodes"
+      },
+      "widgets_values": [
+        "GEN2_Z_POS"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 148,
+      "type": "GetNode",
+      "pos": [
+        5352,
+        1078
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "collapsed": true,
+        "pinned": true
+      },
+      "order": 80,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            117
+          ]
+        }
+      ],
+      "title": "Get_GEN2_Z_NEG",
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "aux_id": "kijai/ComfyUI-KJNodes"
+      },
+      "widgets_values": [
+        "GEN2_Z_NEG"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 149,
+      "type": "GetNode",
+      "pos": [
+        5352,
+        1078
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "collapsed": true,
+        "pinned": true
+      },
+      "order": 81,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            118
+          ]
+        }
+      ],
+      "title": "Get_GEN2_Z_LATENT",
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "aux_id": "kijai/ComfyUI-KJNodes"
+      },
+      "widgets_values": [
+        "GEN2_Z_LATENT"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 150,
+      "type": "GetNode",
+      "pos": [
+        5352,
+        1078
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "collapsed": true,
+        "pinned": true
+      },
+      "order": 82,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            119
+          ]
+        }
+      ],
+      "title": "Get_GEN2_SEED",
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "aux_id": "kijai/ComfyUI-KJNodes"
+      },
+      "widgets_values": [
+        "GEN2_SEED"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 151,
+      "type": "GetNode",
+      "pos": [
+        5352,
+        1078
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "collapsed": true,
+        "pinned": true
+      },
+      "order": 83,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "FLOAT",
+          "type": "FLOAT",
+          "links": [
+            120
+          ]
+        }
+      ],
+      "title": "Get_GEN2_DENOISE",
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "aux_id": "kijai/ComfyUI-KJNodes"
+      },
+      "widgets_values": [
+        "GEN2_DENOISE"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 152,
+      "type": "VAEDecode",
+      "pos": [
+        5352,
+        1078
+      ],
+      "size": [
+        220.382421875,
+        46
+      ],
+      "flags": {
+        "collapsed": true,
+        "pinned": true
+      },
+      "order": 154,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "samples",
+          "name": "samples",
+          "type": "LATENT",
+          "link": 121
+        },
+        {
+          "localized_name": "vae",
+          "name": "vae",
+          "type": "VAE",
+          "link": 122
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "IMAGE",
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            123
+          ]
+        }
+      ],
+      "title": "Техническое декодирование Z",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.30.2",
+        "Node name for S&R": "VAEDecode"
+      },
+      "widgets_values": [],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 153,
+      "type": "GetNode",
+      "pos": [
+        5364,
+        1126
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "collapsed": true,
+        "pinned": true
+      },
+      "order": 84,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            122
+          ]
+        }
+      ],
+      "title": "Get_GEN2_Z_VAE",
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "aux_id": "kijai/ComfyUI-KJNodes"
+      },
+      "widgets_values": [
+        "GEN2_Z_VAE"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 154,
+      "type": "SetNode",
+      "pos": [
+        5364,
+        1126
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "collapsed": true,
+        "pinned": true
+      },
+      "order": 165,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "link": 123
+        }
+      ],
+      "outputs": [
+        {
+          "name": "*",
+          "type": "IMAGE",
+          "links": []
+        }
+      ],
+      "title": "Set_GEN2_ROUTE_4",
+      "properties": {
+        "Node name for S&R": "SetNode",
+        "aux_id": "kijai/ComfyUI-KJNodes",
+        "previousName": "GEN2_ROUTE_4"
+      },
+      "widgets_values": [
+        "GEN2_ROUTE_4"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 156,
+      "type": "GetNode",
+      "pos": [
+        3852,
+        1078
+      ],
+      "size": [
+        213.819921875,
+        40
+      ],
+      "flags": {
+        "collapsed": true,
+        "pinned": true
+      },
+      "order": 85,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            124
+          ]
+        }
+      ],
+      "title": "Get_GEN1_RESULT_IMAGE",
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "aux_id": "kijai/ComfyUI-KJNodes"
+      },
+      "widgets_values": [
+        "GEN1_RESULT_IMAGE"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 157,
+      "type": "GetNode",
+      "pos": [
+        3852,
+        1078
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "collapsed": true,
+        "pinned": true
+      },
+      "order": 86,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            125
+          ]
+        }
+      ],
+      "title": "Get_GEN2_ROUTE_1",
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "aux_id": "kijai/ComfyUI-KJNodes"
+      },
+      "widgets_values": [
+        "GEN2_ROUTE_1"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 158,
+      "type": "GetNode",
+      "pos": [
+        3852,
+        1078
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "collapsed": true,
+        "pinned": true
+      },
+      "order": 87,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            126
+          ]
+        }
+      ],
+      "title": "Get_GEN2_ROUTE_2",
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "aux_id": "kijai/ComfyUI-KJNodes"
+      },
+      "widgets_values": [
+        "GEN2_ROUTE_2"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 159,
+      "type": "GetNode",
+      "pos": [
+        3852,
+        1078
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "collapsed": true,
+        "pinned": true
+      },
+      "order": 88,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            127
+          ]
+        }
+      ],
+      "title": "Get_GEN2_ROUTE_3",
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "aux_id": "kijai/ComfyUI-KJNodes"
+      },
+      "widgets_values": [
+        "GEN2_ROUTE_3"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 160,
+      "type": "GetNode",
+      "pos": [
+        3852,
+        1078
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "collapsed": true,
+        "pinned": true
+      },
+      "order": 89,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            128
+          ]
+        }
+      ],
+      "title": "Get_GEN2_ROUTE_4",
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "aux_id": "kijai/ComfyUI-KJNodes"
+      },
+      "widgets_values": [
+        "GEN2_ROUTE_4"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 161,
+      "type": "SetNode",
+      "pos": [
+        3852,
+        1078
+      ],
+      "size": [
+        215.20078125,
+        40
+      ],
+      "flags": {
+        "collapsed": true,
+        "pinned": true
+      },
+      "order": 155,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "link": 129
+        }
+      ],
+      "outputs": [
+        {
+          "name": "*",
+          "type": "IMAGE",
+          "links": []
+        }
+      ],
+      "title": "Set_GEN2_RESULT_IMAGE",
+      "properties": {
+        "Node name for S&R": "SetNode",
+        "aux_id": "kijai/ComfyUI-KJNodes",
+        "previousName": "GEN2_RESULT_IMAGE"
+      },
+      "widgets_values": [
+        "GEN2_RESULT_IMAGE"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 163,
+      "type": "GetNode",
+      "pos": [
+        5852,
+        128
+      ],
+      "size": [
+        216.663671875,
+        40
+      ],
+      "flags": {
+        "collapsed": true,
+        "pinned": true
+      },
+      "order": 90,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            130
+          ]
+        }
+      ],
+      "title": "Get_GEN2_RESULT_IMAGE",
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "aux_id": "kijai/ComfyUI-KJNodes"
+      },
+      "widgets_values": [
+        "GEN2_RESULT_IMAGE"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 165,
+      "type": "GetNode",
+      "pos": [
+        6552,
+        128
+      ],
+      "size": [
+        213.819921875,
+        40
+      ],
+      "flags": {
+        "collapsed": true,
+        "pinned": true
+      },
+      "order": 91,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            131
+          ]
+        }
+      ],
+      "title": "Get_GEN1_RESULT_IMAGE",
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "aux_id": "kijai/ComfyUI-KJNodes"
+      },
+      "widgets_values": [
+        "GEN1_RESULT_IMAGE"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 166,
+      "type": "GetNode",
+      "pos": [
+        6552,
+        128
+      ],
+      "size": [
+        216.663671875,
+        40
+      ],
+      "flags": {
+        "collapsed": true,
+        "pinned": true
+      },
+      "order": 92,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            132
+          ]
+        }
+      ],
+      "title": "Get_GEN2_RESULT_IMAGE",
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "aux_id": "kijai/ComfyUI-KJNodes"
+      },
+      "widgets_values": [
+        "GEN2_RESULT_IMAGE"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 168,
+      "type": "GetNode",
+      "pos": [
+        5852,
+        1078
+      ],
+      "size": [
+        216.663671875,
+        40
+      ],
+      "flags": {
+        "collapsed": true,
+        "pinned": true
+      },
+      "order": 93,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            133
+          ]
+        }
+      ],
+      "title": "Get_GEN2_RESULT_IMAGE",
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "aux_id": "kijai/ComfyUI-KJNodes"
+      },
+      "widgets_values": [
+        "GEN2_RESULT_IMAGE"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
       "id": 1,
       "type": "UNETLoader",
       "pos": [
@@ -3911,92 +6910,6 @@
       "bgcolor": "#653"
     },
     {
-      "id": 75,
-      "type": "SetNode",
-      "pos": [
-        52,
-        128
-      ],
-      "size": [
-        210,
-        40
-      ],
-      "flags": {
-        "collapsed": true,
-        "pinned": true
-      },
-      "order": 107,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "MODEL",
-          "type": "MODEL",
-          "link": 56
-        }
-      ],
-      "outputs": [
-        {
-          "name": "*",
-          "type": "MODEL",
-          "links": []
-        }
-      ],
-      "title": "Set_GEN2_KREA_BASE",
-      "properties": {
-        "Node name for S&R": "SetNode",
-        "aux_id": "kijai/ComfyUI-KJNodes",
-        "previousName": "GEN2_KREA_BASE"
-      },
-      "widgets_values": [
-        "GEN2_KREA_BASE"
-      ],
-      "color": "#233",
-      "bgcolor": "#355"
-    },
-    {
-      "id": 76,
-      "type": "SetNode",
-      "pos": [
-        52,
-        278
-      ],
-      "size": [
-        228.4966796875,
-        40
-      ],
-      "flags": {
-        "collapsed": true,
-        "pinned": true
-      },
-      "order": 109,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "CLIP",
-          "type": "CLIP",
-          "link": 57
-        }
-      ],
-      "outputs": [
-        {
-          "name": "*",
-          "type": "CLIP",
-          "links": []
-        }
-      ],
-      "title": "Set_GEN2_KREA_CLIP_BASE",
-      "properties": {
-        "Node name for S&R": "SetNode",
-        "aux_id": "kijai/ComfyUI-KJNodes",
-        "previousName": "GEN2_KREA_CLIP_BASE"
-      },
-      "widgets_values": [
-        "GEN2_KREA_CLIP_BASE"
-      ],
-      "color": "#233",
-      "bgcolor": "#355"
-    },
-    {
       "id": 77,
       "type": "Seed (rgthree)",
       "pos": [
@@ -4043,49 +6956,6 @@
       ],
       "color": "#232",
       "bgcolor": "#353"
-    },
-    {
-      "id": 78,
-      "type": "SetNode",
-      "pos": [
-        3352,
-        128
-      ],
-      "size": [
-        210,
-        40
-      ],
-      "flags": {
-        "collapsed": true,
-        "pinned": true
-      },
-      "order": 114,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "INT",
-          "type": "INT",
-          "link": 58
-        }
-      ],
-      "outputs": [
-        {
-          "name": "*",
-          "type": "INT",
-          "links": []
-        }
-      ],
-      "title": "Set_GEN2_SEED",
-      "properties": {
-        "Node name for S&R": "SetNode",
-        "aux_id": "kijai/ComfyUI-KJNodes",
-        "previousName": "GEN2_SEED"
-      },
-      "widgets_values": [
-        "GEN2_SEED"
-      ],
-      "color": "#233",
-      "bgcolor": "#355"
     },
     {
       "id": 79,
@@ -4141,49 +7011,6 @@
       "bgcolor": "#353"
     },
     {
-      "id": 80,
-      "type": "SetNode",
-      "pos": [
-        3352,
-        308
-      ],
-      "size": [
-        210,
-        40
-      ],
-      "flags": {
-        "collapsed": true,
-        "pinned": true
-      },
-      "order": 115,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "FLOAT",
-          "type": "FLOAT",
-          "link": 59
-        }
-      ],
-      "outputs": [
-        {
-          "name": "*",
-          "type": "FLOAT",
-          "links": []
-        }
-      ],
-      "title": "Set_GEN2_DENOISE",
-      "properties": {
-        "Node name for S&R": "SetNode",
-        "aux_id": "kijai/ComfyUI-KJNodes",
-        "previousName": "GEN2_DENOISE"
-      },
-      "widgets_values": [
-        "GEN2_DENOISE"
-      ],
-      "color": "#233",
-      "bgcolor": "#355"
-    },
-    {
       "id": 81,
       "type": "PrimitiveStringMultiline",
       "pos": [
@@ -4235,49 +7062,6 @@
       ],
       "color": "#507548",
       "bgcolor": "#709762"
-    },
-    {
-      "id": 82,
-      "type": "SetNode",
-      "pos": [
-        3852,
-        128
-      ],
-      "size": [
-        210,
-        40
-      ],
-      "flags": {
-        "collapsed": true,
-        "pinned": true
-      },
-      "order": 116,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "STRING",
-          "type": "STRING",
-          "link": 60
-        }
-      ],
-      "outputs": [
-        {
-          "name": "*",
-          "type": "STRING",
-          "links": []
-        }
-      ],
-      "title": "Set_GEN2_PROMPT",
-      "properties": {
-        "Node name for S&R": "SetNode",
-        "aux_id": "kijai/ComfyUI-KJNodes",
-        "previousName": "GEN2_PROMPT"
-      },
-      "widgets_values": [
-        "GEN2_PROMPT"
-      ],
-      "color": "#233",
-      "bgcolor": "#355"
     },
     {
       "id": 83,
@@ -4385,82 +7169,6 @@
       ],
       "color": "#323",
       "bgcolor": "#535"
-    },
-    {
-      "id": 84,
-      "type": "GetNode",
-      "pos": [
-        3352,
-        508
-      ],
-      "size": [
-        210,
-        40
-      ],
-      "flags": {
-        "collapsed": true,
-        "pinned": true
-      },
-      "order": 44,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "MODEL",
-          "type": "MODEL",
-          "links": [
-            61
-          ]
-        }
-      ],
-      "title": "Get_GEN2_KREA_BASE",
-      "properties": {
-        "Node name for S&R": "GetNode",
-        "aux_id": "kijai/ComfyUI-KJNodes"
-      },
-      "widgets_values": [
-        "GEN2_KREA_BASE"
-      ],
-      "color": "#233",
-      "bgcolor": "#355"
-    },
-    {
-      "id": 85,
-      "type": "GetNode",
-      "pos": [
-        3352,
-        508
-      ],
-      "size": [
-        229.9595703125,
-        40
-      ],
-      "flags": {
-        "collapsed": true,
-        "pinned": true
-      },
-      "order": 45,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "CLIP",
-          "type": "CLIP",
-          "links": [
-            62
-          ]
-        }
-      ],
-      "title": "Get_GEN2_KREA_CLIP_BASE",
-      "properties": {
-        "Node name for S&R": "GetNode",
-        "aux_id": "kijai/ComfyUI-KJNodes"
-      },
-      "widgets_values": [
-        "GEN2_KREA_CLIP_BASE"
-      ],
-      "color": "#233",
-      "bgcolor": "#355"
     },
     {
       "id": 86,
@@ -4617,125 +7325,6 @@
       ],
       "color": "#232",
       "bgcolor": "#353"
-    },
-    {
-      "id": 88,
-      "type": "GetNode",
-      "pos": [
-        3852,
-        728
-      ],
-      "size": [
-        210,
-        40
-      ],
-      "flags": {
-        "collapsed": true,
-        "pinned": true
-      },
-      "order": 46,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "INT",
-          "type": "INT",
-          "links": [
-            65
-          ]
-        }
-      ],
-      "title": "Get_GEN1_WIDTH",
-      "properties": {
-        "Node name for S&R": "GetNode",
-        "aux_id": "kijai/ComfyUI-KJNodes"
-      },
-      "widgets_values": [
-        "GEN1_WIDTH"
-      ],
-      "color": "#233",
-      "bgcolor": "#355"
-    },
-    {
-      "id": 89,
-      "type": "GetNode",
-      "pos": [
-        3852,
-        728
-      ],
-      "size": [
-        210,
-        40
-      ],
-      "flags": {
-        "collapsed": true,
-        "pinned": true
-      },
-      "order": 47,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "INT",
-          "type": "INT",
-          "links": [
-            66
-          ]
-        }
-      ],
-      "title": "Get_GEN1_HEIGHT",
-      "properties": {
-        "Node name for S&R": "GetNode",
-        "aux_id": "kijai/ComfyUI-KJNodes"
-      },
-      "widgets_values": [
-        "GEN1_HEIGHT"
-      ],
-      "color": "#233",
-      "bgcolor": "#355"
-    },
-    {
-      "id": 90,
-      "type": "SetNode",
-      "pos": [
-        3852,
-        728
-      ],
-      "size": [
-        210,
-        40
-      ],
-      "flags": {
-        "collapsed": true,
-        "pinned": true
-      },
-      "order": 166,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "MODEL",
-          "type": "MODEL",
-          "link": 67
-        }
-      ],
-      "outputs": [
-        {
-          "name": "*",
-          "type": "MODEL",
-          "links": []
-        }
-      ],
-      "title": "Set_GEN2_K_MODEL",
-      "properties": {
-        "Node name for S&R": "SetNode",
-        "aux_id": "kijai/ComfyUI-KJNodes",
-        "previousName": "GEN2_K_MODEL"
-      },
-      "widgets_values": [
-        "GEN2_K_MODEL"
-      ],
-      "color": "#233",
-      "bgcolor": "#355"
     },
     {
       "id": 91,
@@ -4916,49 +7505,6 @@
       "bgcolor": "#353"
     },
     {
-      "id": 94,
-      "type": "SetNode",
-      "pos": [
-        3352,
-        1438
-      ],
-      "size": [
-        210,
-        40
-      ],
-      "flags": {
-        "collapsed": true,
-        "pinned": true
-      },
-      "order": 119,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "VAE",
-          "type": "VAE",
-          "link": 68
-        }
-      ],
-      "outputs": [
-        {
-          "name": "*",
-          "type": "VAE",
-          "links": []
-        }
-      ],
-      "title": "Set_GEN2_Z_VAE",
-      "properties": {
-        "Node name for S&R": "SetNode",
-        "aux_id": "kijai/ComfyUI-KJNodes",
-        "previousName": "GEN2_Z_VAE"
-      },
-      "widgets_values": [
-        "GEN2_Z_VAE"
-      ],
-      "color": "#233",
-      "bgcolor": "#355"
-    },
-    {
       "id": 95,
       "type": "Power Lora Loader (rgthree)",
       "pos": [
@@ -5060,49 +7606,6 @@
       "bgcolor": "#535"
     },
     {
-      "id": 96,
-      "type": "SetNode",
-      "pos": [
-        3352,
-        1618
-      ],
-      "size": [
-        210,
-        40
-      ],
-      "flags": {
-        "collapsed": true,
-        "pinned": true
-      },
-      "order": 147,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "MODEL",
-          "type": "MODEL",
-          "link": 71
-        }
-      ],
-      "outputs": [
-        {
-          "name": "*",
-          "type": "MODEL",
-          "links": []
-        }
-      ],
-      "title": "Set_GEN2_Z_MODEL",
-      "properties": {
-        "Node name for S&R": "SetNode",
-        "aux_id": "kijai/ComfyUI-KJNodes",
-        "previousName": "GEN2_Z_MODEL"
-      },
-      "widgets_values": [
-        "GEN2_Z_MODEL"
-      ],
-      "color": "#233",
-      "bgcolor": "#355"
-    },
-    {
       "id": 97,
       "type": "CLIPTextEncode",
       "pos": [
@@ -5159,345 +7662,6 @@
       "bgcolor": "#709762"
     },
     {
-      "id": 98,
-      "type": "GetNode",
-      "pos": [
-        4352,
-        128
-      ],
-      "size": [
-        210,
-        40
-      ],
-      "flags": {
-        "collapsed": true,
-        "pinned": true
-      },
-      "order": 51,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "STRING",
-          "type": "STRING",
-          "links": [
-            73
-          ]
-        }
-      ],
-      "title": "Get_GEN2_PROMPT",
-      "properties": {
-        "Node name for S&R": "GetNode",
-        "aux_id": "kijai/ComfyUI-KJNodes"
-      },
-      "widgets_values": [
-        "GEN2_PROMPT"
-      ],
-      "color": "#233",
-      "bgcolor": "#355"
-    },
-    {
-      "id": 99,
-      "type": "SetNode",
-      "pos": [
-        4352,
-        128
-      ],
-      "size": [
-        210,
-        40
-      ],
-      "flags": {
-        "collapsed": true,
-        "pinned": true
-      },
-      "order": 158,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "CONDITIONING",
-          "type": "CONDITIONING",
-          "link": 74
-        }
-      ],
-      "outputs": [
-        {
-          "name": "*",
-          "type": "CONDITIONING",
-          "links": []
-        }
-      ],
-      "title": "Set_GEN2_K_POS",
-      "properties": {
-        "Node name for S&R": "SetNode",
-        "aux_id": "kijai/ComfyUI-KJNodes",
-        "previousName": "GEN2_K_POS"
-      },
-      "widgets_values": [
-        "GEN2_K_POS"
-      ],
-      "color": "#233",
-      "bgcolor": "#355"
-    },
-    {
-      "id": 100,
-      "type": "ConditioningZeroOut",
-      "pos": [
-        4352,
-        128
-      ],
-      "size": [
-        217.593359375,
-        40
-      ],
-      "flags": {
-        "collapsed": true,
-        "pinned": true
-      },
-      "order": 159,
-      "mode": 0,
-      "inputs": [
-        {
-          "localized_name": "conditioning",
-          "name": "conditioning",
-          "type": "CONDITIONING",
-          "link": 75
-        }
-      ],
-      "outputs": [
-        {
-          "localized_name": "CONDITIONING",
-          "name": "CONDITIONING",
-          "type": "CONDITIONING",
-          "links": [
-            76
-          ]
-        }
-      ],
-      "title": "Техническое нулевое условие",
-      "properties": {
-        "cnr_id": "comfy-core",
-        "ver": "0.30.2",
-        "Node name for S&R": "ConditioningZeroOut"
-      },
-      "widgets_values": [],
-      "color": "#233",
-      "bgcolor": "#355"
-    },
-    {
-      "id": 101,
-      "type": "SetNode",
-      "pos": [
-        4364,
-        176
-      ],
-      "size": [
-        210,
-        40
-      ],
-      "flags": {
-        "collapsed": true,
-        "pinned": true
-      },
-      "order": 167,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "CONDITIONING",
-          "type": "CONDITIONING",
-          "link": 76
-        }
-      ],
-      "outputs": [
-        {
-          "name": "*",
-          "type": "CONDITIONING",
-          "links": []
-        }
-      ],
-      "title": "Set_GEN2_K_NEG",
-      "properties": {
-        "Node name for S&R": "SetNode",
-        "aux_id": "kijai/ComfyUI-KJNodes",
-        "previousName": "GEN2_K_NEG"
-      },
-      "widgets_values": [
-        "GEN2_K_NEG"
-      ],
-      "color": "#233",
-      "bgcolor": "#355"
-    },
-    {
-      "id": 102,
-      "type": "VAEEncode",
-      "pos": [
-        4352,
-        162
-      ],
-      "size": [
-        207.6470703125,
-        46
-      ],
-      "flags": {
-        "collapsed": true,
-        "pinned": true
-      },
-      "order": 120,
-      "mode": 0,
-      "inputs": [
-        {
-          "localized_name": "pixels",
-          "name": "pixels",
-          "type": "IMAGE",
-          "link": 77
-        },
-        {
-          "localized_name": "vae",
-          "name": "vae",
-          "type": "VAE",
-          "link": 78
-        }
-      ],
-      "outputs": [
-        {
-          "localized_name": "LATENT",
-          "name": "LATENT",
-          "type": "LATENT",
-          "links": [
-            79
-          ]
-        }
-      ],
-      "title": "Техническое кодирование K",
-      "properties": {
-        "cnr_id": "comfy-core",
-        "ver": "0.30.2",
-        "Node name for S&R": "VAEEncode"
-      },
-      "widgets_values": [],
-      "color": "#233",
-      "bgcolor": "#355"
-    },
-    {
-      "id": 103,
-      "type": "GetNode",
-      "pos": [
-        4364,
-        210
-      ],
-      "size": [
-        213.819921875,
-        40
-      ],
-      "flags": {
-        "collapsed": true,
-        "pinned": true
-      },
-      "order": 52,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            77
-          ]
-        }
-      ],
-      "title": "Get_GEN1_RESULT_IMAGE",
-      "properties": {
-        "Node name for S&R": "GetNode",
-        "aux_id": "kijai/ComfyUI-KJNodes"
-      },
-      "widgets_values": [
-        "GEN1_RESULT_IMAGE"
-      ],
-      "color": "#233",
-      "bgcolor": "#355"
-    },
-    {
-      "id": 104,
-      "type": "GetNode",
-      "pos": [
-        4364,
-        210
-      ],
-      "size": [
-        210,
-        40
-      ],
-      "flags": {
-        "collapsed": true,
-        "pinned": true
-      },
-      "order": 53,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "VAE",
-          "type": "VAE",
-          "links": [
-            78
-          ]
-        }
-      ],
-      "title": "Get_GEN1_VAE",
-      "properties": {
-        "Node name for S&R": "GetNode",
-        "aux_id": "kijai/ComfyUI-KJNodes"
-      },
-      "widgets_values": [
-        "GEN1_VAE"
-      ],
-      "color": "#233",
-      "bgcolor": "#355"
-    },
-    {
-      "id": 105,
-      "type": "SetNode",
-      "pos": [
-        4364,
-        210
-      ],
-      "size": [
-        210,
-        40
-      ],
-      "flags": {
-        "collapsed": true,
-        "pinned": true
-      },
-      "order": 149,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "LATENT",
-          "type": "LATENT",
-          "link": 79
-        }
-      ],
-      "outputs": [
-        {
-          "name": "*",
-          "type": "LATENT",
-          "links": []
-        }
-      ],
-      "title": "Set_GEN2_K_LATENT",
-      "properties": {
-        "Node name for S&R": "SetNode",
-        "aux_id": "kijai/ComfyUI-KJNodes",
-        "previousName": "GEN2_K_LATENT"
-      },
-      "widgets_values": [
-        "GEN2_K_LATENT"
-      ],
-      "color": "#233",
-      "bgcolor": "#355"
-    },
-    {
       "id": 106,
       "type": "CLIPTextEncode",
       "pos": [
@@ -5552,345 +7716,6 @@
       ],
       "color": "#507548",
       "bgcolor": "#709762"
-    },
-    {
-      "id": 107,
-      "type": "GetNode",
-      "pos": [
-        4352,
-        1078
-      ],
-      "size": [
-        210,
-        40
-      ],
-      "flags": {
-        "collapsed": true,
-        "pinned": true
-      },
-      "order": 54,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "STRING",
-          "type": "STRING",
-          "links": [
-            81
-          ]
-        }
-      ],
-      "title": "Get_GEN2_PROMPT",
-      "properties": {
-        "Node name for S&R": "GetNode",
-        "aux_id": "kijai/ComfyUI-KJNodes"
-      },
-      "widgets_values": [
-        "GEN2_PROMPT"
-      ],
-      "color": "#233",
-      "bgcolor": "#355"
-    },
-    {
-      "id": 108,
-      "type": "SetNode",
-      "pos": [
-        4352,
-        1078
-      ],
-      "size": [
-        210,
-        40
-      ],
-      "flags": {
-        "collapsed": true,
-        "pinned": true
-      },
-      "order": 160,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "CONDITIONING",
-          "type": "CONDITIONING",
-          "link": 82
-        }
-      ],
-      "outputs": [
-        {
-          "name": "*",
-          "type": "CONDITIONING",
-          "links": []
-        }
-      ],
-      "title": "Set_GEN2_Z_POS",
-      "properties": {
-        "Node name for S&R": "SetNode",
-        "aux_id": "kijai/ComfyUI-KJNodes",
-        "previousName": "GEN2_Z_POS"
-      },
-      "widgets_values": [
-        "GEN2_Z_POS"
-      ],
-      "color": "#233",
-      "bgcolor": "#355"
-    },
-    {
-      "id": 109,
-      "type": "ConditioningZeroOut",
-      "pos": [
-        4352,
-        1078
-      ],
-      "size": [
-        217.593359375,
-        40
-      ],
-      "flags": {
-        "collapsed": true,
-        "pinned": true
-      },
-      "order": 161,
-      "mode": 0,
-      "inputs": [
-        {
-          "localized_name": "conditioning",
-          "name": "conditioning",
-          "type": "CONDITIONING",
-          "link": 83
-        }
-      ],
-      "outputs": [
-        {
-          "localized_name": "CONDITIONING",
-          "name": "CONDITIONING",
-          "type": "CONDITIONING",
-          "links": [
-            84
-          ]
-        }
-      ],
-      "title": "Техническое нулевое условие",
-      "properties": {
-        "cnr_id": "comfy-core",
-        "ver": "0.30.2",
-        "Node name for S&R": "ConditioningZeroOut"
-      },
-      "widgets_values": [],
-      "color": "#233",
-      "bgcolor": "#355"
-    },
-    {
-      "id": 110,
-      "type": "SetNode",
-      "pos": [
-        4364,
-        1126
-      ],
-      "size": [
-        210,
-        40
-      ],
-      "flags": {
-        "collapsed": true,
-        "pinned": true
-      },
-      "order": 168,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "CONDITIONING",
-          "type": "CONDITIONING",
-          "link": 84
-        }
-      ],
-      "outputs": [
-        {
-          "name": "*",
-          "type": "CONDITIONING",
-          "links": []
-        }
-      ],
-      "title": "Set_GEN2_Z_NEG",
-      "properties": {
-        "Node name for S&R": "SetNode",
-        "aux_id": "kijai/ComfyUI-KJNodes",
-        "previousName": "GEN2_Z_NEG"
-      },
-      "widgets_values": [
-        "GEN2_Z_NEG"
-      ],
-      "color": "#233",
-      "bgcolor": "#355"
-    },
-    {
-      "id": 111,
-      "type": "VAEEncode",
-      "pos": [
-        4352,
-        1112
-      ],
-      "size": [
-        207.0455078125,
-        46
-      ],
-      "flags": {
-        "collapsed": true,
-        "pinned": true
-      },
-      "order": 121,
-      "mode": 0,
-      "inputs": [
-        {
-          "localized_name": "pixels",
-          "name": "pixels",
-          "type": "IMAGE",
-          "link": 85
-        },
-        {
-          "localized_name": "vae",
-          "name": "vae",
-          "type": "VAE",
-          "link": 86
-        }
-      ],
-      "outputs": [
-        {
-          "localized_name": "LATENT",
-          "name": "LATENT",
-          "type": "LATENT",
-          "links": [
-            87
-          ]
-        }
-      ],
-      "title": "Техническое кодирование Z",
-      "properties": {
-        "cnr_id": "comfy-core",
-        "ver": "0.30.2",
-        "Node name for S&R": "VAEEncode"
-      },
-      "widgets_values": [],
-      "color": "#233",
-      "bgcolor": "#355"
-    },
-    {
-      "id": 112,
-      "type": "GetNode",
-      "pos": [
-        4364,
-        1160
-      ],
-      "size": [
-        213.819921875,
-        40
-      ],
-      "flags": {
-        "collapsed": true,
-        "pinned": true
-      },
-      "order": 55,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            85
-          ]
-        }
-      ],
-      "title": "Get_GEN1_RESULT_IMAGE",
-      "properties": {
-        "Node name for S&R": "GetNode",
-        "aux_id": "kijai/ComfyUI-KJNodes"
-      },
-      "widgets_values": [
-        "GEN1_RESULT_IMAGE"
-      ],
-      "color": "#233",
-      "bgcolor": "#355"
-    },
-    {
-      "id": 113,
-      "type": "GetNode",
-      "pos": [
-        4364,
-        1160
-      ],
-      "size": [
-        210,
-        40
-      ],
-      "flags": {
-        "collapsed": true,
-        "pinned": true
-      },
-      "order": 56,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "VAE",
-          "type": "VAE",
-          "links": [
-            86
-          ]
-        }
-      ],
-      "title": "Get_GEN2_Z_VAE",
-      "properties": {
-        "Node name for S&R": "GetNode",
-        "aux_id": "kijai/ComfyUI-KJNodes"
-      },
-      "widgets_values": [
-        "GEN2_Z_VAE"
-      ],
-      "color": "#233",
-      "bgcolor": "#355"
-    },
-    {
-      "id": 114,
-      "type": "SetNode",
-      "pos": [
-        4364,
-        1160
-      ],
-      "size": [
-        210,
-        40
-      ],
-      "flags": {
-        "collapsed": true,
-        "pinned": true
-      },
-      "order": 150,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "LATENT",
-          "type": "LATENT",
-          "link": 87
-        }
-      ],
-      "outputs": [
-        {
-          "name": "*",
-          "type": "LATENT",
-          "links": []
-        }
-      ],
-      "title": "Set_GEN2_Z_LATENT",
-      "properties": {
-        "Node name for S&R": "SetNode",
-        "aux_id": "kijai/ComfyUI-KJNodes",
-        "previousName": "GEN2_Z_LATENT"
-      },
-      "widgets_values": [
-        "GEN2_Z_LATENT"
-      ],
-      "color": "#233",
-      "bgcolor": "#355"
     },
     {
       "id": 115,
@@ -6019,366 +7844,6 @@
       ],
       "color": "#322",
       "bgcolor": "#533"
-    },
-    {
-      "id": 116,
-      "type": "GetNode",
-      "pos": [
-        4852,
-        128
-      ],
-      "size": [
-        210,
-        40
-      ],
-      "flags": {
-        "collapsed": true,
-        "pinned": true
-      },
-      "order": 57,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "MODEL",
-          "type": "MODEL",
-          "links": [
-            88
-          ]
-        }
-      ],
-      "title": "Get_GEN2_K_MODEL",
-      "properties": {
-        "Node name for S&R": "GetNode",
-        "aux_id": "kijai/ComfyUI-KJNodes"
-      },
-      "widgets_values": [
-        "GEN2_K_MODEL"
-      ],
-      "color": "#233",
-      "bgcolor": "#355"
-    },
-    {
-      "id": 117,
-      "type": "GetNode",
-      "pos": [
-        4852,
-        128
-      ],
-      "size": [
-        210,
-        40
-      ],
-      "flags": {
-        "collapsed": true,
-        "pinned": true
-      },
-      "order": 58,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "CONDITIONING",
-          "type": "CONDITIONING",
-          "links": [
-            89
-          ]
-        }
-      ],
-      "title": "Get_GEN2_K_POS",
-      "properties": {
-        "Node name for S&R": "GetNode",
-        "aux_id": "kijai/ComfyUI-KJNodes"
-      },
-      "widgets_values": [
-        "GEN2_K_POS"
-      ],
-      "color": "#233",
-      "bgcolor": "#355"
-    },
-    {
-      "id": 118,
-      "type": "GetNode",
-      "pos": [
-        4852,
-        128
-      ],
-      "size": [
-        210,
-        40
-      ],
-      "flags": {
-        "collapsed": true,
-        "pinned": true
-      },
-      "order": 59,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "CONDITIONING",
-          "type": "CONDITIONING",
-          "links": [
-            90
-          ]
-        }
-      ],
-      "title": "Get_GEN2_K_NEG",
-      "properties": {
-        "Node name for S&R": "GetNode",
-        "aux_id": "kijai/ComfyUI-KJNodes"
-      },
-      "widgets_values": [
-        "GEN2_K_NEG"
-      ],
-      "color": "#233",
-      "bgcolor": "#355"
-    },
-    {
-      "id": 119,
-      "type": "GetNode",
-      "pos": [
-        4852,
-        128
-      ],
-      "size": [
-        210,
-        40
-      ],
-      "flags": {
-        "collapsed": true,
-        "pinned": true
-      },
-      "order": 60,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "LATENT",
-          "type": "LATENT",
-          "links": [
-            91
-          ]
-        }
-      ],
-      "title": "Get_GEN2_K_LATENT",
-      "properties": {
-        "Node name for S&R": "GetNode",
-        "aux_id": "kijai/ComfyUI-KJNodes"
-      },
-      "widgets_values": [
-        "GEN2_K_LATENT"
-      ],
-      "color": "#233",
-      "bgcolor": "#355"
-    },
-    {
-      "id": 120,
-      "type": "GetNode",
-      "pos": [
-        4852,
-        128
-      ],
-      "size": [
-        210,
-        40
-      ],
-      "flags": {
-        "collapsed": true,
-        "pinned": true
-      },
-      "order": 61,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "INT",
-          "type": "INT",
-          "links": [
-            92
-          ]
-        }
-      ],
-      "title": "Get_GEN2_SEED",
-      "properties": {
-        "Node name for S&R": "GetNode",
-        "aux_id": "kijai/ComfyUI-KJNodes"
-      },
-      "widgets_values": [
-        "GEN2_SEED"
-      ],
-      "color": "#233",
-      "bgcolor": "#355"
-    },
-    {
-      "id": 121,
-      "type": "GetNode",
-      "pos": [
-        4852,
-        128
-      ],
-      "size": [
-        210,
-        40
-      ],
-      "flags": {
-        "collapsed": true,
-        "pinned": true
-      },
-      "order": 62,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "FLOAT",
-          "type": "FLOAT",
-          "links": [
-            93
-          ]
-        }
-      ],
-      "title": "Get_GEN2_DENOISE",
-      "properties": {
-        "Node name for S&R": "GetNode",
-        "aux_id": "kijai/ComfyUI-KJNodes"
-      },
-      "widgets_values": [
-        "GEN2_DENOISE"
-      ],
-      "color": "#233",
-      "bgcolor": "#355"
-    },
-    {
-      "id": 122,
-      "type": "VAEDecode",
-      "pos": [
-        4852,
-        128
-      ],
-      "size": [
-        220.983984375,
-        46
-      ],
-      "flags": {
-        "collapsed": true,
-        "pinned": true
-      },
-      "order": 151,
-      "mode": 0,
-      "inputs": [
-        {
-          "localized_name": "samples",
-          "name": "samples",
-          "type": "LATENT",
-          "link": 94
-        },
-        {
-          "localized_name": "vae",
-          "name": "vae",
-          "type": "VAE",
-          "link": 95
-        }
-      ],
-      "outputs": [
-        {
-          "localized_name": "IMAGE",
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            96
-          ]
-        }
-      ],
-      "title": "Техническое декодирование K",
-      "properties": {
-        "cnr_id": "comfy-core",
-        "ver": "0.30.2",
-        "Node name for S&R": "VAEDecode"
-      },
-      "widgets_values": [],
-      "color": "#233",
-      "bgcolor": "#355"
-    },
-    {
-      "id": 123,
-      "type": "GetNode",
-      "pos": [
-        4864,
-        176
-      ],
-      "size": [
-        210,
-        40
-      ],
-      "flags": {
-        "collapsed": true,
-        "pinned": true
-      },
-      "order": 63,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "VAE",
-          "type": "VAE",
-          "links": [
-            95
-          ]
-        }
-      ],
-      "title": "Get_GEN1_VAE",
-      "properties": {
-        "Node name for S&R": "GetNode",
-        "aux_id": "kijai/ComfyUI-KJNodes"
-      },
-      "widgets_values": [
-        "GEN1_VAE"
-      ],
-      "color": "#233",
-      "bgcolor": "#355"
-    },
-    {
-      "id": 124,
-      "type": "SetNode",
-      "pos": [
-        4864,
-        176
-      ],
-      "size": [
-        210,
-        40
-      ],
-      "flags": {
-        "collapsed": true,
-        "pinned": true
-      },
-      "order": 162,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "link": 96
-        }
-      ],
-      "outputs": [
-        {
-          "name": "*",
-          "type": "IMAGE",
-          "links": []
-        }
-      ],
-      "title": "Set_GEN2_ROUTE_1",
-      "properties": {
-        "Node name for S&R": "SetNode",
-        "aux_id": "kijai/ComfyUI-KJNodes",
-        "previousName": "GEN2_ROUTE_1"
-      },
-      "widgets_values": [
-        "GEN2_ROUTE_1"
-      ],
-      "color": "#233",
-      "bgcolor": "#355"
     },
     {
       "id": 125,
@@ -6587,366 +8052,6 @@
       "bgcolor": "#533"
     },
     {
-      "id": 126,
-      "type": "GetNode",
-      "pos": [
-        5352,
-        128
-      ],
-      "size": [
-        210,
-        40
-      ],
-      "flags": {
-        "collapsed": true,
-        "pinned": true
-      },
-      "order": 64,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "MODEL",
-          "type": "MODEL",
-          "links": [
-            97
-          ]
-        }
-      ],
-      "title": "Get_GEN2_K_MODEL",
-      "properties": {
-        "Node name for S&R": "GetNode",
-        "aux_id": "kijai/ComfyUI-KJNodes"
-      },
-      "widgets_values": [
-        "GEN2_K_MODEL"
-      ],
-      "color": "#233",
-      "bgcolor": "#355"
-    },
-    {
-      "id": 127,
-      "type": "GetNode",
-      "pos": [
-        5352,
-        128
-      ],
-      "size": [
-        210,
-        40
-      ],
-      "flags": {
-        "collapsed": true,
-        "pinned": true
-      },
-      "order": 65,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "CONDITIONING",
-          "type": "CONDITIONING",
-          "links": [
-            98
-          ]
-        }
-      ],
-      "title": "Get_GEN2_K_POS",
-      "properties": {
-        "Node name for S&R": "GetNode",
-        "aux_id": "kijai/ComfyUI-KJNodes"
-      },
-      "widgets_values": [
-        "GEN2_K_POS"
-      ],
-      "color": "#233",
-      "bgcolor": "#355"
-    },
-    {
-      "id": 128,
-      "type": "GetNode",
-      "pos": [
-        5352,
-        128
-      ],
-      "size": [
-        210,
-        40
-      ],
-      "flags": {
-        "collapsed": true,
-        "pinned": true
-      },
-      "order": 66,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "CONDITIONING",
-          "type": "CONDITIONING",
-          "links": [
-            99
-          ]
-        }
-      ],
-      "title": "Get_GEN2_K_NEG",
-      "properties": {
-        "Node name for S&R": "GetNode",
-        "aux_id": "kijai/ComfyUI-KJNodes"
-      },
-      "widgets_values": [
-        "GEN2_K_NEG"
-      ],
-      "color": "#233",
-      "bgcolor": "#355"
-    },
-    {
-      "id": 129,
-      "type": "GetNode",
-      "pos": [
-        5352,
-        128
-      ],
-      "size": [
-        210,
-        40
-      ],
-      "flags": {
-        "collapsed": true,
-        "pinned": true
-      },
-      "order": 67,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "LATENT",
-          "type": "LATENT",
-          "links": [
-            100
-          ]
-        }
-      ],
-      "title": "Get_GEN2_K_LATENT",
-      "properties": {
-        "Node name for S&R": "GetNode",
-        "aux_id": "kijai/ComfyUI-KJNodes"
-      },
-      "widgets_values": [
-        "GEN2_K_LATENT"
-      ],
-      "color": "#233",
-      "bgcolor": "#355"
-    },
-    {
-      "id": 130,
-      "type": "GetNode",
-      "pos": [
-        5352,
-        128
-      ],
-      "size": [
-        210,
-        40
-      ],
-      "flags": {
-        "collapsed": true,
-        "pinned": true
-      },
-      "order": 68,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "INT",
-          "type": "INT",
-          "links": [
-            101
-          ]
-        }
-      ],
-      "title": "Get_GEN2_SEED",
-      "properties": {
-        "Node name for S&R": "GetNode",
-        "aux_id": "kijai/ComfyUI-KJNodes"
-      },
-      "widgets_values": [
-        "GEN2_SEED"
-      ],
-      "color": "#233",
-      "bgcolor": "#355"
-    },
-    {
-      "id": 131,
-      "type": "GetNode",
-      "pos": [
-        5352,
-        128
-      ],
-      "size": [
-        210,
-        40
-      ],
-      "flags": {
-        "collapsed": true,
-        "pinned": true
-      },
-      "order": 69,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "FLOAT",
-          "type": "FLOAT",
-          "links": [
-            102
-          ]
-        }
-      ],
-      "title": "Get_GEN2_DENOISE",
-      "properties": {
-        "Node name for S&R": "GetNode",
-        "aux_id": "kijai/ComfyUI-KJNodes"
-      },
-      "widgets_values": [
-        "GEN2_DENOISE"
-      ],
-      "color": "#233",
-      "bgcolor": "#355"
-    },
-    {
-      "id": 132,
-      "type": "VAEDecode",
-      "pos": [
-        5352,
-        128
-      ],
-      "size": [
-        220.983984375,
-        46
-      ],
-      "flags": {
-        "collapsed": true,
-        "pinned": true
-      },
-      "order": 152,
-      "mode": 0,
-      "inputs": [
-        {
-          "localized_name": "samples",
-          "name": "samples",
-          "type": "LATENT",
-          "link": 103
-        },
-        {
-          "localized_name": "vae",
-          "name": "vae",
-          "type": "VAE",
-          "link": 104
-        }
-      ],
-      "outputs": [
-        {
-          "localized_name": "IMAGE",
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            105
-          ]
-        }
-      ],
-      "title": "Техническое декодирование K",
-      "properties": {
-        "cnr_id": "comfy-core",
-        "ver": "0.30.2",
-        "Node name for S&R": "VAEDecode"
-      },
-      "widgets_values": [],
-      "color": "#233",
-      "bgcolor": "#355"
-    },
-    {
-      "id": 133,
-      "type": "GetNode",
-      "pos": [
-        5364,
-        176
-      ],
-      "size": [
-        210,
-        40
-      ],
-      "flags": {
-        "collapsed": true,
-        "pinned": true
-      },
-      "order": 70,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "VAE",
-          "type": "VAE",
-          "links": [
-            104
-          ]
-        }
-      ],
-      "title": "Get_GEN1_VAE",
-      "properties": {
-        "Node name for S&R": "GetNode",
-        "aux_id": "kijai/ComfyUI-KJNodes"
-      },
-      "widgets_values": [
-        "GEN1_VAE"
-      ],
-      "color": "#233",
-      "bgcolor": "#355"
-    },
-    {
-      "id": 134,
-      "type": "SetNode",
-      "pos": [
-        5364,
-        176
-      ],
-      "size": [
-        210,
-        40
-      ],
-      "flags": {
-        "collapsed": true,
-        "pinned": true
-      },
-      "order": 163,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "link": 105
-        }
-      ],
-      "outputs": [
-        {
-          "name": "*",
-          "type": "IMAGE",
-          "links": []
-        }
-      ],
-      "title": "Set_GEN2_ROUTE_2",
-      "properties": {
-        "Node name for S&R": "SetNode",
-        "aux_id": "kijai/ComfyUI-KJNodes",
-        "previousName": "GEN2_ROUTE_2"
-      },
-      "widgets_values": [
-        "GEN2_ROUTE_2"
-      ],
-      "color": "#233",
-      "bgcolor": "#355"
-    },
-    {
       "id": 135,
       "type": "KSampler",
       "pos": [
@@ -7073,366 +8178,6 @@
       ],
       "color": "#322",
       "bgcolor": "#533"
-    },
-    {
-      "id": 136,
-      "type": "GetNode",
-      "pos": [
-        4852,
-        1078
-      ],
-      "size": [
-        210,
-        40
-      ],
-      "flags": {
-        "collapsed": true,
-        "pinned": true
-      },
-      "order": 71,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "MODEL",
-          "type": "MODEL",
-          "links": [
-            106
-          ]
-        }
-      ],
-      "title": "Get_GEN2_Z_MODEL",
-      "properties": {
-        "Node name for S&R": "GetNode",
-        "aux_id": "kijai/ComfyUI-KJNodes"
-      },
-      "widgets_values": [
-        "GEN2_Z_MODEL"
-      ],
-      "color": "#233",
-      "bgcolor": "#355"
-    },
-    {
-      "id": 137,
-      "type": "GetNode",
-      "pos": [
-        4852,
-        1078
-      ],
-      "size": [
-        210,
-        40
-      ],
-      "flags": {
-        "collapsed": true,
-        "pinned": true
-      },
-      "order": 72,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "CONDITIONING",
-          "type": "CONDITIONING",
-          "links": [
-            107
-          ]
-        }
-      ],
-      "title": "Get_GEN2_Z_POS",
-      "properties": {
-        "Node name for S&R": "GetNode",
-        "aux_id": "kijai/ComfyUI-KJNodes"
-      },
-      "widgets_values": [
-        "GEN2_Z_POS"
-      ],
-      "color": "#233",
-      "bgcolor": "#355"
-    },
-    {
-      "id": 138,
-      "type": "GetNode",
-      "pos": [
-        4852,
-        1078
-      ],
-      "size": [
-        210,
-        40
-      ],
-      "flags": {
-        "collapsed": true,
-        "pinned": true
-      },
-      "order": 73,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "CONDITIONING",
-          "type": "CONDITIONING",
-          "links": [
-            108
-          ]
-        }
-      ],
-      "title": "Get_GEN2_Z_NEG",
-      "properties": {
-        "Node name for S&R": "GetNode",
-        "aux_id": "kijai/ComfyUI-KJNodes"
-      },
-      "widgets_values": [
-        "GEN2_Z_NEG"
-      ],
-      "color": "#233",
-      "bgcolor": "#355"
-    },
-    {
-      "id": 139,
-      "type": "GetNode",
-      "pos": [
-        4852,
-        1078
-      ],
-      "size": [
-        210,
-        40
-      ],
-      "flags": {
-        "collapsed": true,
-        "pinned": true
-      },
-      "order": 74,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "LATENT",
-          "type": "LATENT",
-          "links": [
-            109
-          ]
-        }
-      ],
-      "title": "Get_GEN2_Z_LATENT",
-      "properties": {
-        "Node name for S&R": "GetNode",
-        "aux_id": "kijai/ComfyUI-KJNodes"
-      },
-      "widgets_values": [
-        "GEN2_Z_LATENT"
-      ],
-      "color": "#233",
-      "bgcolor": "#355"
-    },
-    {
-      "id": 140,
-      "type": "GetNode",
-      "pos": [
-        4852,
-        1078
-      ],
-      "size": [
-        210,
-        40
-      ],
-      "flags": {
-        "collapsed": true,
-        "pinned": true
-      },
-      "order": 75,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "INT",
-          "type": "INT",
-          "links": [
-            110
-          ]
-        }
-      ],
-      "title": "Get_GEN2_SEED",
-      "properties": {
-        "Node name for S&R": "GetNode",
-        "aux_id": "kijai/ComfyUI-KJNodes"
-      },
-      "widgets_values": [
-        "GEN2_SEED"
-      ],
-      "color": "#233",
-      "bgcolor": "#355"
-    },
-    {
-      "id": 141,
-      "type": "GetNode",
-      "pos": [
-        4852,
-        1078
-      ],
-      "size": [
-        210,
-        40
-      ],
-      "flags": {
-        "collapsed": true,
-        "pinned": true
-      },
-      "order": 76,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "FLOAT",
-          "type": "FLOAT",
-          "links": [
-            111
-          ]
-        }
-      ],
-      "title": "Get_GEN2_DENOISE",
-      "properties": {
-        "Node name for S&R": "GetNode",
-        "aux_id": "kijai/ComfyUI-KJNodes"
-      },
-      "widgets_values": [
-        "GEN2_DENOISE"
-      ],
-      "color": "#233",
-      "bgcolor": "#355"
-    },
-    {
-      "id": 142,
-      "type": "VAEDecode",
-      "pos": [
-        4852,
-        1078
-      ],
-      "size": [
-        220.382421875,
-        46
-      ],
-      "flags": {
-        "collapsed": true,
-        "pinned": true
-      },
-      "order": 153,
-      "mode": 0,
-      "inputs": [
-        {
-          "localized_name": "samples",
-          "name": "samples",
-          "type": "LATENT",
-          "link": 112
-        },
-        {
-          "localized_name": "vae",
-          "name": "vae",
-          "type": "VAE",
-          "link": 113
-        }
-      ],
-      "outputs": [
-        {
-          "localized_name": "IMAGE",
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            114
-          ]
-        }
-      ],
-      "title": "Техническое декодирование Z",
-      "properties": {
-        "cnr_id": "comfy-core",
-        "ver": "0.30.2",
-        "Node name for S&R": "VAEDecode"
-      },
-      "widgets_values": [],
-      "color": "#233",
-      "bgcolor": "#355"
-    },
-    {
-      "id": 143,
-      "type": "GetNode",
-      "pos": [
-        4864,
-        1126
-      ],
-      "size": [
-        210,
-        40
-      ],
-      "flags": {
-        "collapsed": true,
-        "pinned": true
-      },
-      "order": 77,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "VAE",
-          "type": "VAE",
-          "links": [
-            113
-          ]
-        }
-      ],
-      "title": "Get_GEN2_Z_VAE",
-      "properties": {
-        "Node name for S&R": "GetNode",
-        "aux_id": "kijai/ComfyUI-KJNodes"
-      },
-      "widgets_values": [
-        "GEN2_Z_VAE"
-      ],
-      "color": "#233",
-      "bgcolor": "#355"
-    },
-    {
-      "id": 144,
-      "type": "SetNode",
-      "pos": [
-        4864,
-        1126
-      ],
-      "size": [
-        210,
-        40
-      ],
-      "flags": {
-        "collapsed": true,
-        "pinned": true
-      },
-      "order": 164,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "link": 114
-        }
-      ],
-      "outputs": [
-        {
-          "name": "*",
-          "type": "IMAGE",
-          "links": []
-        }
-      ],
-      "title": "Set_GEN2_ROUTE_3",
-      "properties": {
-        "Node name for S&R": "SetNode",
-        "aux_id": "kijai/ComfyUI-KJNodes",
-        "previousName": "GEN2_ROUTE_3"
-      },
-      "widgets_values": [
-        "GEN2_ROUTE_3"
-      ],
-      "color": "#233",
-      "bgcolor": "#355"
     },
     {
       "id": 145,
@@ -7641,366 +8386,6 @@
       "bgcolor": "#533"
     },
     {
-      "id": 146,
-      "type": "GetNode",
-      "pos": [
-        5352,
-        1078
-      ],
-      "size": [
-        210,
-        40
-      ],
-      "flags": {
-        "collapsed": true,
-        "pinned": true
-      },
-      "order": 78,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "MODEL",
-          "type": "MODEL",
-          "links": [
-            115
-          ]
-        }
-      ],
-      "title": "Get_GEN2_Z_MODEL",
-      "properties": {
-        "Node name for S&R": "GetNode",
-        "aux_id": "kijai/ComfyUI-KJNodes"
-      },
-      "widgets_values": [
-        "GEN2_Z_MODEL"
-      ],
-      "color": "#233",
-      "bgcolor": "#355"
-    },
-    {
-      "id": 147,
-      "type": "GetNode",
-      "pos": [
-        5352,
-        1078
-      ],
-      "size": [
-        210,
-        40
-      ],
-      "flags": {
-        "collapsed": true,
-        "pinned": true
-      },
-      "order": 79,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "CONDITIONING",
-          "type": "CONDITIONING",
-          "links": [
-            116
-          ]
-        }
-      ],
-      "title": "Get_GEN2_Z_POS",
-      "properties": {
-        "Node name for S&R": "GetNode",
-        "aux_id": "kijai/ComfyUI-KJNodes"
-      },
-      "widgets_values": [
-        "GEN2_Z_POS"
-      ],
-      "color": "#233",
-      "bgcolor": "#355"
-    },
-    {
-      "id": 148,
-      "type": "GetNode",
-      "pos": [
-        5352,
-        1078
-      ],
-      "size": [
-        210,
-        40
-      ],
-      "flags": {
-        "collapsed": true,
-        "pinned": true
-      },
-      "order": 80,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "CONDITIONING",
-          "type": "CONDITIONING",
-          "links": [
-            117
-          ]
-        }
-      ],
-      "title": "Get_GEN2_Z_NEG",
-      "properties": {
-        "Node name for S&R": "GetNode",
-        "aux_id": "kijai/ComfyUI-KJNodes"
-      },
-      "widgets_values": [
-        "GEN2_Z_NEG"
-      ],
-      "color": "#233",
-      "bgcolor": "#355"
-    },
-    {
-      "id": 149,
-      "type": "GetNode",
-      "pos": [
-        5352,
-        1078
-      ],
-      "size": [
-        210,
-        40
-      ],
-      "flags": {
-        "collapsed": true,
-        "pinned": true
-      },
-      "order": 81,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "LATENT",
-          "type": "LATENT",
-          "links": [
-            118
-          ]
-        }
-      ],
-      "title": "Get_GEN2_Z_LATENT",
-      "properties": {
-        "Node name for S&R": "GetNode",
-        "aux_id": "kijai/ComfyUI-KJNodes"
-      },
-      "widgets_values": [
-        "GEN2_Z_LATENT"
-      ],
-      "color": "#233",
-      "bgcolor": "#355"
-    },
-    {
-      "id": 150,
-      "type": "GetNode",
-      "pos": [
-        5352,
-        1078
-      ],
-      "size": [
-        210,
-        40
-      ],
-      "flags": {
-        "collapsed": true,
-        "pinned": true
-      },
-      "order": 82,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "INT",
-          "type": "INT",
-          "links": [
-            119
-          ]
-        }
-      ],
-      "title": "Get_GEN2_SEED",
-      "properties": {
-        "Node name for S&R": "GetNode",
-        "aux_id": "kijai/ComfyUI-KJNodes"
-      },
-      "widgets_values": [
-        "GEN2_SEED"
-      ],
-      "color": "#233",
-      "bgcolor": "#355"
-    },
-    {
-      "id": 151,
-      "type": "GetNode",
-      "pos": [
-        5352,
-        1078
-      ],
-      "size": [
-        210,
-        40
-      ],
-      "flags": {
-        "collapsed": true,
-        "pinned": true
-      },
-      "order": 83,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "FLOAT",
-          "type": "FLOAT",
-          "links": [
-            120
-          ]
-        }
-      ],
-      "title": "Get_GEN2_DENOISE",
-      "properties": {
-        "Node name for S&R": "GetNode",
-        "aux_id": "kijai/ComfyUI-KJNodes"
-      },
-      "widgets_values": [
-        "GEN2_DENOISE"
-      ],
-      "color": "#233",
-      "bgcolor": "#355"
-    },
-    {
-      "id": 152,
-      "type": "VAEDecode",
-      "pos": [
-        5352,
-        1078
-      ],
-      "size": [
-        220.382421875,
-        46
-      ],
-      "flags": {
-        "collapsed": true,
-        "pinned": true
-      },
-      "order": 154,
-      "mode": 0,
-      "inputs": [
-        {
-          "localized_name": "samples",
-          "name": "samples",
-          "type": "LATENT",
-          "link": 121
-        },
-        {
-          "localized_name": "vae",
-          "name": "vae",
-          "type": "VAE",
-          "link": 122
-        }
-      ],
-      "outputs": [
-        {
-          "localized_name": "IMAGE",
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            123
-          ]
-        }
-      ],
-      "title": "Техническое декодирование Z",
-      "properties": {
-        "cnr_id": "comfy-core",
-        "ver": "0.30.2",
-        "Node name for S&R": "VAEDecode"
-      },
-      "widgets_values": [],
-      "color": "#233",
-      "bgcolor": "#355"
-    },
-    {
-      "id": 153,
-      "type": "GetNode",
-      "pos": [
-        5364,
-        1126
-      ],
-      "size": [
-        210,
-        40
-      ],
-      "flags": {
-        "collapsed": true,
-        "pinned": true
-      },
-      "order": 84,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "VAE",
-          "type": "VAE",
-          "links": [
-            122
-          ]
-        }
-      ],
-      "title": "Get_GEN2_Z_VAE",
-      "properties": {
-        "Node name for S&R": "GetNode",
-        "aux_id": "kijai/ComfyUI-KJNodes"
-      },
-      "widgets_values": [
-        "GEN2_Z_VAE"
-      ],
-      "color": "#233",
-      "bgcolor": "#355"
-    },
-    {
-      "id": 154,
-      "type": "SetNode",
-      "pos": [
-        5364,
-        1126
-      ],
-      "size": [
-        210,
-        40
-      ],
-      "flags": {
-        "collapsed": true,
-        "pinned": true
-      },
-      "order": 165,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "link": 123
-        }
-      ],
-      "outputs": [
-        {
-          "name": "*",
-          "type": "IMAGE",
-          "links": []
-        }
-      ],
-      "title": "Set_GEN2_ROUTE_4",
-      "properties": {
-        "Node name for S&R": "SetNode",
-        "aux_id": "kijai/ComfyUI-KJNodes",
-        "previousName": "GEN2_ROUTE_4"
-      },
-      "widgets_values": [
-        "GEN2_ROUTE_4"
-      ],
-      "color": "#233",
-      "bgcolor": "#355"
-    },
-    {
       "id": 155,
       "type": "easy anythingIndexSwitch",
       "pos": [
@@ -8088,239 +8473,6 @@
       "bgcolor": "#353"
     },
     {
-      "id": 156,
-      "type": "GetNode",
-      "pos": [
-        3852,
-        1078
-      ],
-      "size": [
-        213.819921875,
-        40
-      ],
-      "flags": {
-        "collapsed": true,
-        "pinned": true
-      },
-      "order": 85,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            124
-          ]
-        }
-      ],
-      "title": "Get_GEN1_RESULT_IMAGE",
-      "properties": {
-        "Node name for S&R": "GetNode",
-        "aux_id": "kijai/ComfyUI-KJNodes"
-      },
-      "widgets_values": [
-        "GEN1_RESULT_IMAGE"
-      ],
-      "color": "#233",
-      "bgcolor": "#355"
-    },
-    {
-      "id": 157,
-      "type": "GetNode",
-      "pos": [
-        3852,
-        1078
-      ],
-      "size": [
-        210,
-        40
-      ],
-      "flags": {
-        "collapsed": true,
-        "pinned": true
-      },
-      "order": 86,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            125
-          ]
-        }
-      ],
-      "title": "Get_GEN2_ROUTE_1",
-      "properties": {
-        "Node name for S&R": "GetNode",
-        "aux_id": "kijai/ComfyUI-KJNodes"
-      },
-      "widgets_values": [
-        "GEN2_ROUTE_1"
-      ],
-      "color": "#233",
-      "bgcolor": "#355"
-    },
-    {
-      "id": 158,
-      "type": "GetNode",
-      "pos": [
-        3852,
-        1078
-      ],
-      "size": [
-        210,
-        40
-      ],
-      "flags": {
-        "collapsed": true,
-        "pinned": true
-      },
-      "order": 87,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            126
-          ]
-        }
-      ],
-      "title": "Get_GEN2_ROUTE_2",
-      "properties": {
-        "Node name for S&R": "GetNode",
-        "aux_id": "kijai/ComfyUI-KJNodes"
-      },
-      "widgets_values": [
-        "GEN2_ROUTE_2"
-      ],
-      "color": "#233",
-      "bgcolor": "#355"
-    },
-    {
-      "id": 159,
-      "type": "GetNode",
-      "pos": [
-        3852,
-        1078
-      ],
-      "size": [
-        210,
-        40
-      ],
-      "flags": {
-        "collapsed": true,
-        "pinned": true
-      },
-      "order": 88,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            127
-          ]
-        }
-      ],
-      "title": "Get_GEN2_ROUTE_3",
-      "properties": {
-        "Node name for S&R": "GetNode",
-        "aux_id": "kijai/ComfyUI-KJNodes"
-      },
-      "widgets_values": [
-        "GEN2_ROUTE_3"
-      ],
-      "color": "#233",
-      "bgcolor": "#355"
-    },
-    {
-      "id": 160,
-      "type": "GetNode",
-      "pos": [
-        3852,
-        1078
-      ],
-      "size": [
-        210,
-        40
-      ],
-      "flags": {
-        "collapsed": true,
-        "pinned": true
-      },
-      "order": 89,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            128
-          ]
-        }
-      ],
-      "title": "Get_GEN2_ROUTE_4",
-      "properties": {
-        "Node name for S&R": "GetNode",
-        "aux_id": "kijai/ComfyUI-KJNodes"
-      },
-      "widgets_values": [
-        "GEN2_ROUTE_4"
-      ],
-      "color": "#233",
-      "bgcolor": "#355"
-    },
-    {
-      "id": 161,
-      "type": "SetNode",
-      "pos": [
-        3852,
-        1078
-      ],
-      "size": [
-        215.20078125,
-        40
-      ],
-      "flags": {
-        "collapsed": true,
-        "pinned": true
-      },
-      "order": 155,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "link": 129
-        }
-      ],
-      "outputs": [
-        {
-          "name": "*",
-          "type": "IMAGE",
-          "links": []
-        }
-      ],
-      "title": "Set_GEN2_RESULT_IMAGE",
-      "properties": {
-        "Node name for S&R": "SetNode",
-        "aux_id": "kijai/ComfyUI-KJNodes",
-        "previousName": "GEN2_RESULT_IMAGE"
-      },
-      "widgets_values": [
-        "GEN2_RESULT_IMAGE"
-      ],
-      "color": "#233",
-      "bgcolor": "#355"
-    },
-    {
       "id": 162,
       "type": "PreviewImage",
       "pos": [
@@ -8365,44 +8517,6 @@
       "widgets_values": [],
       "color": "#223",
       "bgcolor": "#335"
-    },
-    {
-      "id": 163,
-      "type": "GetNode",
-      "pos": [
-        5852,
-        128
-      ],
-      "size": [
-        216.663671875,
-        40
-      ],
-      "flags": {
-        "collapsed": true,
-        "pinned": true
-      },
-      "order": 90,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            130
-          ]
-        }
-      ],
-      "title": "Get_GEN2_RESULT_IMAGE",
-      "properties": {
-        "Node name for S&R": "GetNode",
-        "aux_id": "kijai/ComfyUI-KJNodes"
-      },
-      "widgets_values": [
-        "GEN2_RESULT_IMAGE"
-      ],
-      "color": "#233",
-      "bgcolor": "#355"
     },
     {
       "id": 164,
@@ -8458,82 +8572,6 @@
       ],
       "color": "#223",
       "bgcolor": "#335"
-    },
-    {
-      "id": 165,
-      "type": "GetNode",
-      "pos": [
-        6552,
-        128
-      ],
-      "size": [
-        213.819921875,
-        40
-      ],
-      "flags": {
-        "collapsed": true,
-        "pinned": true
-      },
-      "order": 91,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            131
-          ]
-        }
-      ],
-      "title": "Get_GEN1_RESULT_IMAGE",
-      "properties": {
-        "Node name for S&R": "GetNode",
-        "aux_id": "kijai/ComfyUI-KJNodes"
-      },
-      "widgets_values": [
-        "GEN1_RESULT_IMAGE"
-      ],
-      "color": "#233",
-      "bgcolor": "#355"
-    },
-    {
-      "id": 166,
-      "type": "GetNode",
-      "pos": [
-        6552,
-        128
-      ],
-      "size": [
-        216.663671875,
-        40
-      ],
-      "flags": {
-        "collapsed": true,
-        "pinned": true
-      },
-      "order": 92,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            132
-          ]
-        }
-      ],
-      "title": "Get_GEN2_RESULT_IMAGE",
-      "properties": {
-        "Node name for S&R": "GetNode",
-        "aux_id": "kijai/ComfyUI-KJNodes"
-      },
-      "widgets_values": [
-        "GEN2_RESULT_IMAGE"
-      ],
-      "color": "#233",
-      "bgcolor": "#355"
     },
     {
       "id": 167,
@@ -8707,44 +8745,6 @@
       ],
       "color": "#223",
       "bgcolor": "#335"
-    },
-    {
-      "id": 168,
-      "type": "GetNode",
-      "pos": [
-        5852,
-        1078
-      ],
-      "size": [
-        216.663671875,
-        40
-      ],
-      "flags": {
-        "collapsed": true,
-        "pinned": true
-      },
-      "order": 93,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            133
-          ]
-        }
-      ],
-      "title": "Get_GEN2_RESULT_IMAGE",
-      "properties": {
-        "Node name for S&R": "GetNode",
-        "aux_id": "kijai/ComfyUI-KJNodes"
-      },
-      "widgets_values": [
-        "GEN2_RESULT_IMAGE"
-      ],
-      "color": "#233",
-      "bgcolor": "#355"
     },
     {
       "id": 169,
@@ -10298,7 +10298,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v0.2.3",
+            "text": "🧩 Универсальный воркфлоу · v0.2.4",
             "size": "M",
             "align": "left"
           },
