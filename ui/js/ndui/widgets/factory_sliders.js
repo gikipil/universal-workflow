@@ -63,7 +63,7 @@ export const factorysliders_v0216={type:'factorysliders_v0216',label:'Слайд
             form.append(fileLabel,clear,hintLabel,el('span','','Рекомендуемый диапазон'),bounds,el('div','acf-slider-caption','Границы ограничивают бегунок. Длина линии остаётся одинаковой. Текущее значение не меняется при настройке диапазона; вручную можно указать значение вне него.'));
             mini.body.append(form);validation.hidden=true;save.type='button';clear.type='button';mini.footer.append(validation,save);
             const pickerContext={...ctx,body:fileBody,w:{...ctx.w,slots:{value:ctx.w.slots.bank}},popupHost:()=>mini.root,
-                get:key=>key==='value'?draft.lora:ctx.get(key),set(key,value){if(key==='value')draft.lora=value;},info:()=>ctx.info('bank'),prop:key=>key==='folder'?'loras':ctx.prop(key)};
+                get:key=>key==='value'?draft.lora:ctx.get(key),set(key,value){if(key==='value')draft.lora=value;},info:()=>ctx.info('bank'),prop:key=>key==='folder'?'loras':key==='pickerStyle'?'slider':ctx.prop(key)};
             picker=modelpicker.mount(pickerContext);
             clear.addEventListener('click',()=>{draft.lora='None';picker.update?.();});
             save.addEventListener('click',()=>{
