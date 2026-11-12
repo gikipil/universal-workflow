@@ -5449,7 +5449,49 @@
           "uid": "src_k2module_lora",
           "tag": "k2module-lora"
         },
-        "nd_ui_constant_loras": 3
+        "nd_ui_constant_loras": 3,
+        "nd_ui_slider_offset": 8,
+        "nd_ui_slider_bank": {
+          "version": 1,
+          "items": [
+            {
+              "id": "slider_1",
+              "hint": "",
+              "min": -1,
+              "max": 1
+            },
+            {
+              "id": "slider_2",
+              "hint": "",
+              "min": -1,
+              "max": 1
+            },
+            {
+              "id": "slider_3",
+              "hint": "",
+              "min": -1,
+              "max": 1
+            },
+            {
+              "id": "slider_4",
+              "hint": "",
+              "min": -1,
+              "max": 1
+            },
+            {
+              "id": "slider_5",
+              "hint": "",
+              "min": -1,
+              "max": 1
+            },
+            {
+              "id": "slider_6",
+              "hint": "",
+              "min": -1,
+              "max": 1
+            }
+          ]
+        }
       },
       "widgets_values": [
         {},
@@ -5502,6 +5544,42 @@
           "on": false,
           "lora": "None",
           "strength": 1,
+          "strengthTwo": null
+        },
+        {
+          "on": false,
+          "lora": "None",
+          "strength": 0,
+          "strengthTwo": null
+        },
+        {
+          "on": false,
+          "lora": "None",
+          "strength": 0,
+          "strengthTwo": null
+        },
+        {
+          "on": false,
+          "lora": "None",
+          "strength": 0,
+          "strengthTwo": null
+        },
+        {
+          "on": false,
+          "lora": "None",
+          "strength": 0,
+          "strengthTwo": null
+        },
+        {
+          "on": false,
+          "lora": "None",
+          "strength": 0,
+          "strengthTwo": null
+        },
+        {
+          "on": false,
+          "lora": "None",
+          "strength": 0,
           "strengthTwo": null
         },
         {},
@@ -7147,7 +7225,49 @@
           "uid": "src_k2pass_krea_lora",
           "tag": "k2pass-krea_lora"
         },
-        "nd_ui_constant_loras": 3
+        "nd_ui_constant_loras": 3,
+        "nd_ui_slider_offset": 8,
+        "nd_ui_slider_bank": {
+          "version": 1,
+          "items": [
+            {
+              "id": "slider_1",
+              "hint": "",
+              "min": -1,
+              "max": 1
+            },
+            {
+              "id": "slider_2",
+              "hint": "",
+              "min": -1,
+              "max": 1
+            },
+            {
+              "id": "slider_3",
+              "hint": "",
+              "min": -1,
+              "max": 1
+            },
+            {
+              "id": "slider_4",
+              "hint": "",
+              "min": -1,
+              "max": 1
+            },
+            {
+              "id": "slider_5",
+              "hint": "",
+              "min": -1,
+              "max": 1
+            },
+            {
+              "id": "slider_6",
+              "hint": "",
+              "min": -1,
+              "max": 1
+            }
+          ]
+        }
       },
       "widgets_values": [
         {},
@@ -7200,6 +7320,42 @@
           "on": false,
           "lora": "None",
           "strength": 1,
+          "strengthTwo": null
+        },
+        {
+          "on": false,
+          "lora": "None",
+          "strength": 0,
+          "strengthTwo": null
+        },
+        {
+          "on": false,
+          "lora": "None",
+          "strength": 0,
+          "strengthTwo": null
+        },
+        {
+          "on": false,
+          "lora": "None",
+          "strength": 0,
+          "strengthTwo": null
+        },
+        {
+          "on": false,
+          "lora": "None",
+          "strength": 0,
+          "strengthTwo": null
+        },
+        {
+          "on": false,
+          "lora": "None",
+          "strength": 0,
+          "strengthTwo": null
+        },
+        {
+          "on": false,
+          "lora": "None",
+          "strength": 0,
           "strengthTwo": null
         },
         {},
@@ -7617,7 +7773,49 @@
           "uid": "src_k2pass_z_lora",
           "tag": "k2pass-z_lora"
         },
-        "nd_ui_constant_loras": 3
+        "nd_ui_constant_loras": 3,
+        "nd_ui_slider_offset": 8,
+        "nd_ui_slider_bank": {
+          "version": 1,
+          "items": [
+            {
+              "id": "slider_1",
+              "hint": "",
+              "min": -1,
+              "max": 1
+            },
+            {
+              "id": "slider_2",
+              "hint": "",
+              "min": -1,
+              "max": 1
+            },
+            {
+              "id": "slider_3",
+              "hint": "",
+              "min": -1,
+              "max": 1
+            },
+            {
+              "id": "slider_4",
+              "hint": "",
+              "min": -1,
+              "max": 1
+            },
+            {
+              "id": "slider_5",
+              "hint": "",
+              "min": -1,
+              "max": 1
+            },
+            {
+              "id": "slider_6",
+              "hint": "",
+              "min": -1,
+              "max": 1
+            }
+          ]
+        }
       },
       "widgets_values": [
         {},
@@ -7670,6 +7868,42 @@
           "on": false,
           "lora": "None",
           "strength": 1,
+          "strengthTwo": null
+        },
+        {
+          "on": false,
+          "lora": "None",
+          "strength": 0,
+          "strengthTwo": null
+        },
+        {
+          "on": false,
+          "lora": "None",
+          "strength": 0,
+          "strengthTwo": null
+        },
+        {
+          "on": false,
+          "lora": "None",
+          "strength": 0,
+          "strengthTwo": null
+        },
+        {
+          "on": false,
+          "lora": "None",
+          "strength": 0,
+          "strengthTwo": null
+        },
+        {
+          "on": false,
+          "lora": "None",
+          "strength": 0,
+          "strengthTwo": null
+        },
+        {
+          "on": false,
+          "lora": "None",
+          "strength": 0,
           "strengthTwo": null
         },
         {},
@@ -10074,7 +10308,7 @@
       "id": "krea_two_pass_ui",
       "page": {
         "w": 1200,
-        "h": 1200,
+        "h": 1320,
         "bg": {
           "type": "gradient",
           "color": "#111318",
@@ -10395,7 +10629,7 @@
           "id": "p1",
           "name": "Первая генерация",
           "kind": "page",
-          "len": 1200,
+          "len": 1320,
           "control": {
             "nodes": [],
             "groups": [],
@@ -10419,7 +10653,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v0.2.15",
+            "text": "🧩 Универсальный воркфлоу · v0.2.16",
             "size": "M",
             "align": "left"
           },
@@ -10728,7 +10962,7 @@
           "type": "image",
           "page": "p1",
           "x": 24,
-          "y": 512,
+          "y": 572,
           "w": 336,
           "h": 48,
           "z": 1,
@@ -10761,7 +10995,7 @@
           "type": "spoiler",
           "page": "p1",
           "x": 24,
-          "y": 512,
+          "y": 572,
           "w": 336,
           "h": 48,
           "z": 2,
@@ -11429,7 +11663,7 @@
           "x": 384,
           "y": 152,
           "w": 792,
-          "h": 720,
+          "h": 840,
           "z": 0,
           "parent": null,
           "hidden": false,
@@ -11478,7 +11712,7 @@
           "x": 396,
           "y": 208,
           "w": 768,
-          "h": 652,
+          "h": 772,
           "z": 2,
           "parent": null,
           "tab": "result",
@@ -11524,7 +11758,7 @@
           "type": "progress",
           "page": "p1",
           "x": 384,
-          "y": 888,
+          "y": 1008,
           "w": 344,
           "h": 56,
           "z": 2,
@@ -11565,7 +11799,7 @@
           "type": "factorysavetoggle_v023",
           "page": "p1",
           "x": 936,
-          "y": 888,
+          "y": 1008,
           "w": 240,
           "h": 56,
           "z": 2,
@@ -11612,7 +11846,7 @@
           "type": "prompt",
           "page": "p1",
           "x": 24,
-          "y": 960,
+          "y": 1080,
           "w": 1152,
           "h": 144,
           "z": 2,
@@ -11657,7 +11891,7 @@
           "type": "generate",
           "page": "p1",
           "x": 24,
-          "y": 1120,
+          "y": 1240,
           "w": 1152,
           "h": 56,
           "z": 2,
@@ -11700,7 +11934,7 @@
           "type": "heading",
           "page": "p1",
           "x": 36,
-          "y": 588,
+          "y": 648,
           "w": 312,
           "h": 28,
           "z": 2,
@@ -11734,7 +11968,7 @@
           "type": "factoryrefmode_v0214",
           "page": "p1",
           "x": 36,
-          "y": 632,
+          "y": 692,
           "w": 312,
           "h": 48,
           "z": 2,
@@ -11853,7 +12087,7 @@
           "type": "seed",
           "page": "p1",
           "x": 36,
-          "y": 692,
+          "y": 752,
           "w": 312,
           "h": 88,
           "z": 2,
@@ -11902,7 +12136,7 @@
           "type": "number",
           "page": "p1",
           "x": 36,
-          "y": 796,
+          "y": 856,
           "w": 312,
           "h": 72,
           "z": 2,
@@ -11951,7 +12185,7 @@
           "type": "image",
           "page": "p1",
           "x": 24,
-          "y": 896,
+          "y": 1016,
           "w": 336,
           "h": 48,
           "z": 1,
@@ -11984,7 +12218,7 @@
           "type": "spoiler",
           "page": "p1",
           "x": 24,
-          "y": 896,
+          "y": 1016,
           "w": 336,
           "h": 48,
           "z": 2,
@@ -12652,7 +12886,7 @@
           "x": 396,
           "y": 208,
           "w": 768,
-          "h": 652,
+          "h": 772,
           "z": 2,
           "parent": null,
           "tab": "first",
@@ -12700,7 +12934,7 @@
           "x": 396,
           "y": 208,
           "w": 768,
-          "h": 652,
+          "h": 772,
           "z": 2,
           "parent": null,
           "tab": "compare",
@@ -12970,7 +13204,7 @@
           "type": "factoryqueuestatus_v023",
           "page": "p1",
           "x": 740,
-          "y": 888,
+          "y": 1008,
           "w": 184,
           "h": 56,
           "z": 2,
@@ -13043,7 +13277,7 @@
           "type": "panel",
           "page": "p1",
           "x": 24,
-          "y": 576,
+          "y": 636,
           "w": 336,
           "h": 304,
           "z": 0,
@@ -13068,6 +13302,74 @@
             "blur": null,
             "label": null,
             "scale": 100
+          }
+        },
+        {
+          "id": "generation_sliders",
+          "type": "factorysliders_v0216",
+          "page": "p1",
+          "x": 24,
+          "y": 512,
+          "w": 336,
+          "h": 44,
+          "z": 2,
+          "parent": null,
+          "hidden": false,
+          "locked": true,
+          "slots": {
+            "bank": {
+              "src": "src_k2module_lora",
+              "kind": "widget",
+              "name": "factory_slider_bank"
+            }
+          },
+          "props": {},
+          "look": {
+            "bg": "transparent",
+            "border": "transparent",
+            "label": "hidden",
+            "scale": 100,
+            "radius": 0
+          },
+          "adapt": {
+            "mode": "stretch",
+            "max": 10000,
+            "unit": "%",
+            "align": "center"
+          }
+        },
+        {
+          "id": "refine_sliders",
+          "type": "factorysliders_v0216",
+          "page": "p1",
+          "x": 24,
+          "y": 956,
+          "w": 336,
+          "h": 44,
+          "z": 2,
+          "parent": null,
+          "hidden": false,
+          "locked": true,
+          "slots": {
+            "bank": {
+              "src": "src_k2pass_switch",
+              "kind": "widget",
+              "name": "factory_slider_bank"
+            }
+          },
+          "props": {},
+          "look": {
+            "bg": "transparent",
+            "border": "transparent",
+            "label": "hidden",
+            "scale": 100,
+            "radius": 0
+          },
+          "adapt": {
+            "mode": "stretch",
+            "max": 10000,
+            "unit": "%",
+            "align": "center"
           }
         }
       ],

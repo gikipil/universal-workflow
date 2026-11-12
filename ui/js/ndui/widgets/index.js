@@ -1,3 +1,4 @@
+import {factorysliders_v0216} from "./factory_sliders.js";
 // SPDX-License-Identifier: AGPL-3.0-only
 // Universal Workflow additions/modifications by gikipil, 2026-11-12.
 // Based on ND UI Builder by Ivan Ovchinnikov (Neural Dreamer).
@@ -35,7 +36,7 @@ import { tabbox } from "./tabbox.js";
 import { showany } from "./showany.js";
 import { variantsel } from "./variantsel.js";
 
-export const WIDGET_LIST = [factoryrefmode_v0214, factorysize_v0213, factorygenmode_v029, factorysavetoggle_v023, factoryqueuestatus_v023, factorytaskbar_v0215, factoryrefinementmode, factorygenerationmode, factoryresolution, number, slider, knob, seed, text, prompt, dropdown, segmented, toggle, generate, runto, progress, queue, resolution, modelpicker, lora, lorapicker, viewer, audioplayer, videoplayer, simpleimage, imageinput, videoinput, audioinput, textout, uiscale, activity, nodeembed, showany, variantsel, panel, tabbox, spoiler, heading, textblock, divider, image, tabs];
+export const WIDGET_LIST = [factorysliders_v0216, factoryrefmode_v0214, factorysize_v0213, factorygenmode_v029, factorysavetoggle_v023, factoryqueuestatus_v023, factorytaskbar_v0215, factoryrefinementmode, factorygenerationmode, factoryresolution, number, slider, knob, seed, text, prompt, dropdown, segmented, toggle, generate, runto, progress, queue, resolution, modelpicker, lora, lorapicker, viewer, audioplayer, videoplayer, simpleimage, imageinput, videoinput, audioinput, textout, uiscale, activity, nodeembed, showany, variantsel, panel, tabbox, spoiler, heading, textblock, divider, image, tabs];
 export const WIDGETS = new Map(WIDGET_LIST.map((d) => [d.type, d]));
 export const GROUPS = ["Inputs", "Run", "Results", "Layout"];
 export const defOf = (type) => WIDGETS.get(type) || null;
