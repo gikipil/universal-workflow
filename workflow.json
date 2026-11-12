@@ -10001,7 +10001,7 @@
       "id": "krea_two_pass_ui",
       "page": {
         "w": 1200,
-        "h": 1776,
+        "h": 1732,
         "bg": {
           "type": "gradient",
           "color": "#111318",
@@ -10274,7 +10274,7 @@
           "id": "p1",
           "name": "Первая генерация",
           "kind": "page",
-          "len": 1776,
+          "len": 1732,
           "control": {
             "nodes": [],
             "groups": [],
@@ -10298,7 +10298,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v0.2.5",
+            "text": "🧩 Универсальный воркфлоу · v0.2.6",
             "size": "M",
             "align": "left"
           },
@@ -10325,7 +10325,7 @@
           "x": 24,
           "y": 152,
           "w": 336,
-          "h": 580,
+          "h": 536,
           "z": 0,
           "parent": null,
           "hidden": false,
@@ -10355,7 +10355,7 @@
           "type": "seed",
           "page": "p1",
           "x": 36,
-          "y": 164,
+          "y": 272,
           "w": 312,
           "h": 88,
           "z": 2,
@@ -10401,12 +10401,12 @@
         },
         {
           "id": "generation_mode",
-          "type": "factorygenerationmode",
+          "type": "factorygenerationmode_v026",
           "page": "p1",
           "x": 36,
-          "y": 268,
+          "y": 208,
           "w": 312,
-          "h": 76,
+          "h": 48,
           "z": 2,
           "parent": null,
           "hidden": false,
@@ -10493,23 +10493,27 @@
               "name": "stage2_scheduler"
             }
           },
-          "props": {
-            "part": "header"
-          },
+          "props": {},
           "look": {
             "style": null,
             "shape": null,
             "accent": "#59e68d",
-            "bg": null,
+            "bg": "transparent",
             "field": "#20252d",
             "text": null,
             "labelColor": "#8eefb4",
-            "border": "#365a45",
+            "border": "transparent",
             "radius": 12,
             "shadow": null,
             "blur": null,
-            "label": null,
+            "label": "hidden",
             "scale": 100
+          },
+          "adapt": {
+            "mode": "stretch",
+            "max": 10000,
+            "unit": "%",
+            "align": "center"
           }
         },
         {
@@ -10517,7 +10521,7 @@
           "type": "heading",
           "page": "p1",
           "x": 36,
-          "y": 420,
+          "y": 376,
           "w": 312,
           "h": 28,
           "z": 2,
@@ -10551,7 +10555,7 @@
           "type": "factoryresolution",
           "page": "p1",
           "x": 36,
-          "y": 456,
+          "y": 412,
           "w": 312,
           "h": 264,
           "z": 2,
@@ -10592,7 +10596,7 @@
           "type": "image",
           "page": "p1",
           "x": 24,
-          "y": 748,
+          "y": 704,
           "w": 336,
           "h": 48,
           "z": 1,
@@ -10625,7 +10629,7 @@
           "type": "spoiler",
           "page": "p1",
           "x": 24,
-          "y": 748,
+          "y": 704,
           "w": 336,
           "h": 48,
           "z": 2,
@@ -11293,7 +11297,7 @@
           "x": 384,
           "y": 152,
           "w": 792,
-          "h": 1024,
+          "h": 980,
           "z": 0,
           "parent": null,
           "hidden": false,
@@ -11342,7 +11346,7 @@
           "x": 396,
           "y": 208,
           "w": 768,
-          "h": 956,
+          "h": 912,
           "z": 2,
           "parent": null,
           "tab": "result",
@@ -11388,7 +11392,7 @@
           "type": "progress",
           "page": "p1",
           "x": 384,
-          "y": 1192,
+          "y": 1148,
           "w": 344,
           "h": 56,
           "z": 2,
@@ -11429,7 +11433,7 @@
           "type": "factorysavetoggle_v023",
           "page": "p1",
           "x": 936,
-          "y": 1192,
+          "y": 1148,
           "w": 240,
           "h": 56,
           "z": 2,
@@ -11476,7 +11480,7 @@
           "type": "prompt",
           "page": "p1",
           "x": 24,
-          "y": 1264,
+          "y": 1220,
           "w": 1152,
           "h": 144,
           "z": 2,
@@ -11521,7 +11525,7 @@
           "type": "prompt",
           "page": "p1",
           "x": 24,
-          "y": 1424,
+          "y": 1380,
           "w": 1152,
           "h": 96,
           "z": 2,
@@ -11573,7 +11577,7 @@
           "type": "generate",
           "page": "p1",
           "x": 24,
-          "y": 1696,
+          "y": 1652,
           "w": 1152,
           "h": 56,
           "z": 2,
@@ -11612,163 +11616,11 @@
           }
         },
         {
-          "id": "generation_settings",
-          "type": "spoiler",
-          "page": "p1",
-          "x": 36,
-          "y": 356,
-          "w": 312,
-          "h": 48,
-          "z": 2,
-          "parent": null,
-          "hidden": false,
-          "locked": true,
-          "slots": {},
-          "props": {
-            "title": "⚙️ Настройки режима",
-            "icon": "settings",
-            "open": false,
-            "remember": false,
-            "head_h": 48,
-            "pad": 0,
-            "max_h": 0,
-            "shadow": false
-          },
-          "look": {
-            "style": null,
-            "shape": null,
-            "accent": "#59e68d",
-            "bg": "#181c23",
-            "field": "#20252d",
-            "text": "#8eefb4",
-            "labelColor": "#8eefb4",
-            "border": "#365a45",
-            "radius": 12,
-            "shadow": null,
-            "blur": null,
-            "label": null,
-            "scale": 100
-          }
-        },
-        {
-          "id": "generation_settings_body",
-          "type": "factorygenerationmode",
-          "page": "p1",
-          "x": 0,
-          "y": 0,
-          "w": 312,
-          "h": 360,
-          "z": 2,
-          "parent": "generation_settings",
-          "hidden": false,
-          "locked": true,
-          "slots": {
-            "mode": {
-              "src": "src_k2module_mode",
-              "kind": "widget",
-              "name": "index"
-            },
-            "steps": {
-              "src": "src_k2module_ordinary",
-              "kind": "widget",
-              "name": "steps"
-            },
-            "sampler": {
-              "src": "src_k2module_ordinary",
-              "kind": "widget",
-              "name": "sampler_name"
-            },
-            "scheduler": {
-              "src": "src_k2module_ordinary",
-              "kind": "widget",
-              "name": "scheduler"
-            },
-            "res_steps": {
-              "src": "src_k2module_res",
-              "kind": "widget",
-              "name": "steps"
-            },
-            "res_sampler": {
-              "src": "src_k2module_res",
-              "kind": "widget",
-              "name": "sampler_name"
-            },
-            "res_scheduler": {
-              "src": "src_k2module_res",
-              "kind": "widget",
-              "name": "scheduler"
-            },
-            "eta": {
-              "src": "src_k2module_res",
-              "kind": "widget",
-              "name": "eta"
-            },
-            "handoff": {
-              "src": "src_k2module_two",
-              "kind": "widget",
-              "name": "handoff_percent"
-            },
-            "raw_steps": {
-              "src": "src_k2module_two",
-              "kind": "widget",
-              "name": "stage1_steps"
-            },
-            "raw_cfg": {
-              "src": "src_k2module_two",
-              "kind": "widget",
-              "name": "stage1_cfg"
-            },
-            "raw_sampler": {
-              "src": "src_k2module_two",
-              "kind": "widget",
-              "name": "stage1_sampler_name"
-            },
-            "raw_scheduler": {
-              "src": "src_k2module_two",
-              "kind": "widget",
-              "name": "stage1_scheduler"
-            },
-            "turbo_steps": {
-              "src": "src_k2module_two",
-              "kind": "widget",
-              "name": "stage2_steps"
-            },
-            "turbo_sampler": {
-              "src": "src_k2module_two",
-              "kind": "widget",
-              "name": "stage2_sampler_name"
-            },
-            "turbo_scheduler": {
-              "src": "src_k2module_two",
-              "kind": "widget",
-              "name": "stage2_scheduler"
-            }
-          },
-          "props": {
-            "part": "settings"
-          },
-          "look": {
-            "style": null,
-            "shape": null,
-            "accent": "#59e68d",
-            "bg": null,
-            "field": "#20252d",
-            "text": null,
-            "labelColor": "#8eefb4",
-            "border": "#365a45",
-            "radius": 12,
-            "shadow": null,
-            "blur": null,
-            "label": null,
-            "scale": 100
-          }
-        },
-        {
           "id": "refine_label",
           "type": "heading",
           "page": "p1",
           "x": 36,
-          "y": 812,
+          "y": 768,
           "w": 312,
           "h": 28,
           "z": 2,
@@ -11802,7 +11654,7 @@
           "type": "factoryrefinementmode",
           "page": "p1",
           "x": 36,
-          "y": 856,
+          "y": 812,
           "w": 312,
           "h": 76,
           "z": 2,
@@ -11910,7 +11762,7 @@
           "type": "seed",
           "page": "p1",
           "x": 36,
-          "y": 944,
+          "y": 900,
           "w": 312,
           "h": 88,
           "z": 2,
@@ -11959,7 +11811,7 @@
           "type": "number",
           "page": "p1",
           "x": 36,
-          "y": 1048,
+          "y": 1004,
           "w": 312,
           "h": 72,
           "z": 2,
@@ -12002,7 +11854,7 @@
           "type": "spoiler",
           "page": "p1",
           "x": 36,
-          "y": 1136,
+          "y": 1092,
           "w": 312,
           "h": 48,
           "z": 2,
@@ -12149,7 +12001,7 @@
           "type": "image",
           "page": "p1",
           "x": 24,
-          "y": 1200,
+          "y": 1156,
           "w": 336,
           "h": 48,
           "z": 1,
@@ -12182,7 +12034,7 @@
           "type": "spoiler",
           "page": "p1",
           "x": 24,
-          "y": 1200,
+          "y": 1156,
           "w": 336,
           "h": 48,
           "z": 2,
@@ -12850,7 +12702,7 @@
           "x": 396,
           "y": 208,
           "w": 768,
-          "h": 956,
+          "h": 912,
           "z": 2,
           "parent": null,
           "tab": "first",
@@ -12898,7 +12750,7 @@
           "x": 396,
           "y": 208,
           "w": 768,
-          "h": 956,
+          "h": 912,
           "z": 2,
           "parent": null,
           "tab": "compare",
@@ -12959,7 +12811,7 @@
           "type": "prompt",
           "page": "p1",
           "x": 24,
-          "y": 1536,
+          "y": 1492,
           "w": 1152,
           "h": 144,
           "z": 2,
@@ -13041,7 +12893,7 @@
           "type": "factoryqueuestatus_v023",
           "page": "p1",
           "x": 740,
-          "y": 1192,
+          "y": 1148,
           "w": 184,
           "h": 56,
           "z": 2,
@@ -13073,6 +12925,40 @@
             "max": 10000,
             "unit": "%",
             "align": "left"
+          }
+        },
+        {
+          "id": "generation_label",
+          "type": "heading",
+          "page": "p1",
+          "x": 36,
+          "y": 164,
+          "w": 312,
+          "h": 28,
+          "z": 2,
+          "parent": null,
+          "hidden": false,
+          "locked": true,
+          "slots": {},
+          "props": {
+            "text": "🖼️ 1 · Генерация",
+            "size": "S",
+            "align": "left"
+          },
+          "look": {
+            "style": null,
+            "shape": null,
+            "accent": null,
+            "bg": null,
+            "field": null,
+            "text": "#8eefb4",
+            "labelColor": null,
+            "border": null,
+            "radius": null,
+            "shadow": null,
+            "blur": null,
+            "label": null,
+            "scale": 115
           }
         }
       ],
