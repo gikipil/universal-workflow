@@ -1,0 +1,5388 @@
+{
+  "id": "f406dd55-8e35-48ec-849e-e2099afa6c1d",
+  "revision": 0,
+  "last_node_id": 74,
+  "last_link_id": 55,
+  "nodes": [
+    {
+      "id": 4,
+      "type": "SetNode",
+      "title": "Set_GEN1_VAE",
+      "pos": [
+        52,
+        448
+      ],
+      "size": [
+        180,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 0,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "link": 1
+        }
+      ],
+      "outputs": [
+        {
+          "name": "*",
+          "type": "VAE",
+          "links": []
+        }
+      ],
+      "properties": {
+        "previousName": "GEN1_VAE"
+      },
+      "widgets_values": [
+        "GEN1_VAE"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 6,
+      "type": "SetNode",
+      "title": "Set_GEN1_USER_MODEL",
+      "pos": [
+        52,
+        608
+      ],
+      "size": [
+        180,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 1,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "link": 4
+        }
+      ],
+      "outputs": [
+        {
+          "name": "*",
+          "type": "MODEL",
+          "links": []
+        }
+      ],
+      "properties": {
+        "previousName": "GEN1_USER_MODEL"
+      },
+      "widgets_values": [
+        "GEN1_USER_MODEL"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 7,
+      "type": "SetNode",
+      "title": "Set_GEN1_USER_CLIP",
+      "pos": [
+        52,
+        608
+      ],
+      "size": [
+        180,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "link": 5
+        }
+      ],
+      "outputs": [
+        {
+          "name": "*",
+          "type": "CLIP",
+          "links": []
+        }
+      ],
+      "properties": {
+        "previousName": "GEN1_USER_CLIP"
+      },
+      "widgets_values": [
+        "GEN1_USER_CLIP"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 9,
+      "type": "GetNode",
+      "title": "Get_GEN1_USER_CLIP",
+      "pos": [
+        522,
+        128
+      ],
+      "size": [
+        180,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            6
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetNode"
+      },
+      "widgets_values": [
+        "GEN1_USER_CLIP"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 10,
+      "type": "SetNode",
+      "title": "Set_GEN1_POS",
+      "pos": [
+        522,
+        128
+      ],
+      "size": [
+        180,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "link": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "*",
+          "type": "CONDITIONING",
+          "links": []
+        }
+      ],
+      "properties": {
+        "previousName": "GEN1_POS"
+      },
+      "widgets_values": [
+        "GEN1_POS"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 12,
+      "type": "GetNode",
+      "title": "Get_GEN1_USER_CLIP",
+      "pos": [
+        522,
+        498
+      ],
+      "size": [
+        180,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 5,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            8
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetNode"
+      },
+      "widgets_values": [
+        "GEN1_USER_CLIP"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 13,
+      "type": "SetNode",
+      "title": "Set_GEN1_NEG_RAW",
+      "pos": [
+        522,
+        498
+      ],
+      "size": [
+        180,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "link": 9
+        }
+      ],
+      "outputs": [
+        {
+          "name": "*",
+          "type": "CONDITIONING",
+          "links": []
+        }
+      ],
+      "properties": {
+        "previousName": "GEN1_NEG_RAW"
+      },
+      "widgets_values": [
+        "GEN1_NEG_RAW"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 14,
+      "type": "ConditioningZeroOut",
+      "title": "➖ Turbo · нулевое негативное условие",
+      "pos": [
+        522,
+        130
+      ],
+      "size": [
+        180,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "conditioning",
+          "type": "CONDITIONING",
+          "link": 10
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            11
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ConditioningZeroOut"
+      },
+      "widgets_values": [],
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 15,
+      "type": "SetNode",
+      "title": "Set_GEN1_NEG_TURBO",
+      "pos": [
+        534,
+        178
+      ],
+      "size": [
+        180,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "link": 11
+        }
+      ],
+      "outputs": [
+        {
+          "name": "*",
+          "type": "CONDITIONING",
+          "links": []
+        }
+      ],
+      "properties": {
+        "previousName": "GEN1_NEG_TURBO"
+      },
+      "widgets_values": [
+        "GEN1_NEG_TURBO"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 17,
+      "type": "SetNode",
+      "title": "Set_GEN1_SEED",
+      "pos": [
+        522,
+        718
+      ],
+      "size": [
+        180,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "link": 12
+        }
+      ],
+      "outputs": [
+        {
+          "name": "*",
+          "type": "INT",
+          "links": []
+        }
+      ],
+      "properties": {
+        "previousName": "GEN1_SEED"
+      },
+      "widgets_values": [
+        "GEN1_SEED"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 19,
+      "type": "SetNode",
+      "title": "Set_GEN1_WIDTH",
+      "pos": [
+        522,
+        890
+      ],
+      "size": [
+        180,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "link": 13
+        }
+      ],
+      "outputs": [
+        {
+          "name": "*",
+          "type": "INT",
+          "links": []
+        }
+      ],
+      "properties": {
+        "previousName": "GEN1_WIDTH"
+      },
+      "widgets_values": [
+        "GEN1_WIDTH"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 21,
+      "type": "SetNode",
+      "title": "Set_GEN1_HEIGHT",
+      "pos": [
+        522,
+        890
+      ],
+      "size": [
+        180,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "link": 14
+        }
+      ],
+      "outputs": [
+        {
+          "name": "*",
+          "type": "INT",
+          "links": []
+        }
+      ],
+      "properties": {
+        "previousName": "GEN1_HEIGHT"
+      },
+      "widgets_values": [
+        "GEN1_HEIGHT"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 22,
+      "type": "EmptySD3LatentImage",
+      "title": "Технический латент · общий размер",
+      "pos": [
+        522,
+        890
+      ],
+      "size": [
+        200,
+        80
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "width",
+          "type": "INT",
+          "link": 15,
+          "widget": {
+            "name": "width"
+          }
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "link": 16,
+          "widget": {
+            "name": "height"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            17
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "EmptySD3LatentImage"
+      },
+      "widgets_values": [
+        1024,
+        1536,
+        1
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 23,
+      "type": "GetNode",
+      "title": "Get_GEN1_WIDTH",
+      "pos": [
+        522,
+        890
+      ],
+      "size": [
+        180,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 13,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            15
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetNode"
+      },
+      "widgets_values": [
+        "GEN1_WIDTH"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 24,
+      "type": "GetNode",
+      "title": "Get_GEN1_HEIGHT",
+      "pos": [
+        522,
+        890
+      ],
+      "size": [
+        180,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 14,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            16
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetNode"
+      },
+      "widgets_values": [
+        "GEN1_HEIGHT"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 25,
+      "type": "SetNode",
+      "title": "Set_GEN1_LATENT",
+      "pos": [
+        522,
+        890
+      ],
+      "size": [
+        180,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 15,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "link": 17
+        }
+      ],
+      "outputs": [
+        {
+          "name": "*",
+          "type": "LATENT",
+          "links": []
+        }
+      ],
+      "properties": {
+        "previousName": "GEN1_LATENT"
+      },
+      "widgets_values": [
+        "GEN1_LATENT"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 27,
+      "type": "GetNode",
+      "title": "Get_GEN1_USER_MODEL",
+      "pos": [
+        1062,
+        128
+      ],
+      "size": [
+        180,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 16,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            18
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetNode"
+      },
+      "widgets_values": [
+        "GEN1_USER_MODEL"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 28,
+      "type": "SetNode",
+      "title": "Set_GEN1_TURBO_UNPATCHED",
+      "pos": [
+        1062,
+        128
+      ],
+      "size": [
+        180,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 17,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "link": 19
+        }
+      ],
+      "outputs": [
+        {
+          "name": "*",
+          "type": "MODEL",
+          "links": []
+        }
+      ],
+      "properties": {
+        "previousName": "GEN1_TURBO_UNPATCHED"
+      },
+      "widgets_values": [
+        "GEN1_TURBO_UNPATCHED"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 31,
+      "type": "GetNode",
+      "title": "Get_GEN1_USER_MODEL",
+      "pos": [
+        1062,
+        388
+      ],
+      "size": [
+        180,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 18,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            20
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetNode"
+      },
+      "widgets_values": [
+        "GEN1_USER_MODEL"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 32,
+      "type": "GetNode",
+      "title": "Get_GEN1_WIDTH",
+      "pos": [
+        1062,
+        410
+      ],
+      "size": [
+        180,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 19,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            21
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetNode"
+      },
+      "widgets_values": [
+        "GEN1_WIDTH"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 33,
+      "type": "GetNode",
+      "title": "Get_GEN1_HEIGHT",
+      "pos": [
+        1062,
+        432
+      ],
+      "size": [
+        180,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 20,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            22
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetNode"
+      },
+      "widgets_values": [
+        "GEN1_HEIGHT"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 34,
+      "type": "SetNode",
+      "title": "Set_GEN1_RAW_MODEL",
+      "pos": [
+        1062,
+        388
+      ],
+      "size": [
+        180,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 21,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "link": 23
+        }
+      ],
+      "outputs": [
+        {
+          "name": "*",
+          "type": "MODEL",
+          "links": []
+        }
+      ],
+      "properties": {
+        "previousName": "GEN1_RAW_MODEL"
+      },
+      "widgets_values": [
+        "GEN1_RAW_MODEL"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 35,
+      "type": "GetNode",
+      "title": "Get_GEN1_TURBO_UNPATCHED",
+      "pos": [
+        1062,
+        678
+      ],
+      "size": [
+        180,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 22,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            24
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetNode"
+      },
+      "widgets_values": [
+        "GEN1_TURBO_UNPATCHED"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 36,
+      "type": "GetNode",
+      "title": "Get_GEN1_WIDTH",
+      "pos": [
+        1062,
+        700
+      ],
+      "size": [
+        180,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 23,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            25
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetNode"
+      },
+      "widgets_values": [
+        "GEN1_WIDTH"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 37,
+      "type": "GetNode",
+      "title": "Get_GEN1_HEIGHT",
+      "pos": [
+        1062,
+        722
+      ],
+      "size": [
+        180,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 24,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            26
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetNode"
+      },
+      "widgets_values": [
+        "GEN1_HEIGHT"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 38,
+      "type": "SetNode",
+      "title": "Set_GEN1_TURBO_MODEL",
+      "pos": [
+        1062,
+        678
+      ],
+      "size": [
+        180,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 25,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "link": 27
+        }
+      ],
+      "outputs": [
+        {
+          "name": "*",
+          "type": "MODEL",
+          "links": []
+        }
+      ],
+      "properties": {
+        "previousName": "GEN1_TURBO_MODEL"
+      },
+      "widgets_values": [
+        "GEN1_TURBO_MODEL"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 41,
+      "type": "GetNode",
+      "title": "Get_GEN1_TURBO_MODEL",
+      "pos": [
+        1562,
+        128
+      ],
+      "size": [
+        180,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 26,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            28
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetNode"
+      },
+      "widgets_values": [
+        "GEN1_TURBO_MODEL"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 42,
+      "type": "GetNode",
+      "title": "Get_GEN1_POS",
+      "pos": [
+        1562,
+        150
+      ],
+      "size": [
+        180,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 27,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            29
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetNode"
+      },
+      "widgets_values": [
+        "GEN1_POS"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 43,
+      "type": "GetNode",
+      "title": "Get_GEN1_NEG_TURBO",
+      "pos": [
+        1562,
+        172
+      ],
+      "size": [
+        180,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 28,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            30
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetNode"
+      },
+      "widgets_values": [
+        "GEN1_NEG_TURBO"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 44,
+      "type": "GetNode",
+      "title": "Get_GEN1_LATENT",
+      "pos": [
+        1562,
+        194
+      ],
+      "size": [
+        180,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 29,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            31
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetNode"
+      },
+      "widgets_values": [
+        "GEN1_LATENT"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 45,
+      "type": "GetNode",
+      "title": "Get_GEN1_SEED",
+      "pos": [
+        1562,
+        216
+      ],
+      "size": [
+        180,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 30,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            32
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetNode"
+      },
+      "widgets_values": [
+        "GEN1_SEED"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 46,
+      "type": "GetNode",
+      "title": "Get_GEN1_TURBO_MODEL",
+      "pos": [
+        1562,
+        538
+      ],
+      "size": [
+        180,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 31,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            33
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetNode"
+      },
+      "widgets_values": [
+        "GEN1_TURBO_MODEL"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 47,
+      "type": "GetNode",
+      "title": "Get_GEN1_POS",
+      "pos": [
+        1562,
+        560
+      ],
+      "size": [
+        180,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 32,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            34
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetNode"
+      },
+      "widgets_values": [
+        "GEN1_POS"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 48,
+      "type": "GetNode",
+      "title": "Get_GEN1_NEG_TURBO",
+      "pos": [
+        1562,
+        582
+      ],
+      "size": [
+        180,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 33,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            35
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetNode"
+      },
+      "widgets_values": [
+        "GEN1_NEG_TURBO"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 49,
+      "type": "GetNode",
+      "title": "Get_GEN1_LATENT",
+      "pos": [
+        1562,
+        604
+      ],
+      "size": [
+        180,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 34,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            36
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetNode"
+      },
+      "widgets_values": [
+        "GEN1_LATENT"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 50,
+      "type": "GetNode",
+      "title": "Get_GEN1_SEED",
+      "pos": [
+        1562,
+        626
+      ],
+      "size": [
+        180,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 35,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            37
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetNode"
+      },
+      "widgets_values": [
+        "GEN1_SEED"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 52,
+      "type": "GetNode",
+      "title": "Get_GEN1_RAW_MODEL",
+      "pos": [
+        2062,
+        128
+      ],
+      "size": [
+        180,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 36,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            38
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetNode"
+      },
+      "widgets_values": [
+        "GEN1_RAW_MODEL"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 53,
+      "type": "GetNode",
+      "title": "Get_GEN1_TURBO_MODEL",
+      "pos": [
+        2062,
+        150
+      ],
+      "size": [
+        180,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 37,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            39
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetNode"
+      },
+      "widgets_values": [
+        "GEN1_TURBO_MODEL"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 54,
+      "type": "GetNode",
+      "title": "Get_GEN1_POS",
+      "pos": [
+        2062,
+        172
+      ],
+      "size": [
+        180,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 38,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            40
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetNode"
+      },
+      "widgets_values": [
+        "GEN1_POS"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 55,
+      "type": "GetNode",
+      "title": "Get_GEN1_NEG_RAW",
+      "pos": [
+        2062,
+        194
+      ],
+      "size": [
+        180,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 39,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            41
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetNode"
+      },
+      "widgets_values": [
+        "GEN1_NEG_RAW"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 56,
+      "type": "GetNode",
+      "title": "Get_GEN1_LATENT",
+      "pos": [
+        2062,
+        216
+      ],
+      "size": [
+        180,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 40,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            42
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetNode"
+      },
+      "widgets_values": [
+        "GEN1_LATENT"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 57,
+      "type": "GetNode",
+      "title": "Get_GEN1_SEED",
+      "pos": [
+        2062,
+        238
+      ],
+      "size": [
+        180,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 41,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            43
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetNode"
+      },
+      "widgets_values": [
+        "GEN1_SEED"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 58,
+      "type": "SetNode",
+      "title": "Set_GEN1_ROUTE_0",
+      "pos": [
+        1562,
+        128
+      ],
+      "size": [
+        180,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 42,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "link": 44
+        }
+      ],
+      "outputs": [
+        {
+          "name": "*",
+          "type": "LATENT",
+          "links": []
+        }
+      ],
+      "properties": {
+        "previousName": "GEN1_ROUTE_0"
+      },
+      "widgets_values": [
+        "GEN1_ROUTE_0"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 59,
+      "type": "SetNode",
+      "title": "Set_GEN1_ROUTE_1",
+      "pos": [
+        1562,
+        538
+      ],
+      "size": [
+        180,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 43,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "link": 45
+        }
+      ],
+      "outputs": [
+        {
+          "name": "*",
+          "type": "LATENT",
+          "links": []
+        }
+      ],
+      "properties": {
+        "previousName": "GEN1_ROUTE_1"
+      },
+      "widgets_values": [
+        "GEN1_ROUTE_1"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 60,
+      "type": "SetNode",
+      "title": "Set_GEN1_ROUTE_2",
+      "pos": [
+        2062,
+        128
+      ],
+      "size": [
+        180,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 44,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "link": 46
+        }
+      ],
+      "outputs": [
+        {
+          "name": "*",
+          "type": "LATENT",
+          "links": []
+        }
+      ],
+      "properties": {
+        "previousName": "GEN1_ROUTE_2"
+      },
+      "widgets_values": [
+        "GEN1_ROUTE_2"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 62,
+      "type": "GetNode",
+      "title": "Get_GEN1_ROUTE_0",
+      "pos": [
+        522,
+        1078
+      ],
+      "size": [
+        180,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 45,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            47
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetNode"
+      },
+      "widgets_values": [
+        "GEN1_ROUTE_0"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 63,
+      "type": "GetNode",
+      "title": "Get_GEN1_ROUTE_1",
+      "pos": [
+        522,
+        1100
+      ],
+      "size": [
+        180,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 46,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            48
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetNode"
+      },
+      "widgets_values": [
+        "GEN1_ROUTE_1"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 64,
+      "type": "GetNode",
+      "title": "Get_GEN1_ROUTE_2",
+      "pos": [
+        522,
+        1122
+      ],
+      "size": [
+        180,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 47,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            49
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetNode"
+      },
+      "widgets_values": [
+        "GEN1_ROUTE_2"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 65,
+      "type": "SetNode",
+      "title": "Set_GEN1_SELECTED",
+      "pos": [
+        522,
+        1078
+      ],
+      "size": [
+        180,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 48,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "link": 50
+        }
+      ],
+      "outputs": [
+        {
+          "name": "*",
+          "type": "LATENT",
+          "links": []
+        }
+      ],
+      "properties": {
+        "previousName": "GEN1_SELECTED"
+      },
+      "widgets_values": [
+        "GEN1_SELECTED"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 66,
+      "type": "VAEDecode",
+      "title": "Техническое декодирование",
+      "pos": [
+        2592,
+        130
+      ],
+      "size": [
+        180,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 49,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 51
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 52
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            53,
+            54
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEDecode"
+      },
+      "widgets_values": [],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 67,
+      "type": "GetNode",
+      "title": "Get_GEN1_SELECTED",
+      "pos": [
+        2604,
+        178
+      ],
+      "size": [
+        180,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 50,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            51
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetNode"
+      },
+      "widgets_values": [
+        "GEN1_SELECTED"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 68,
+      "type": "GetNode",
+      "title": "Get_GEN1_VAE",
+      "pos": [
+        2604,
+        200
+      ],
+      "size": [
+        180,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 51,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            52
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetNode"
+      },
+      "widgets_values": [
+        "GEN1_VAE"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 70,
+      "type": "SetNode",
+      "title": "Set_GEN1_RESULT_IMAGE",
+      "pos": [
+        2604,
+        178
+      ],
+      "size": [
+        180,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 52,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "link": 54
+        }
+      ],
+      "outputs": [
+        {
+          "name": "*",
+          "type": "IMAGE",
+          "links": []
+        }
+      ],
+      "properties": {
+        "previousName": "GEN1_RESULT_IMAGE"
+      },
+      "widgets_values": [
+        "GEN1_RESULT_IMAGE"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 72,
+      "type": "GetNode",
+      "title": "Get_GEN1_RESULT_IMAGE",
+      "pos": [
+        2592,
+        1048
+      ],
+      "size": [
+        180,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 53,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            55
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetNode"
+      },
+      "widgets_values": [
+        "GEN1_RESULT_IMAGE"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 1,
+      "type": "UNETLoader",
+      "title": "🟢 Krea 2 Raw · общая база",
+      "pos": [
+        40,
+        80
+      ],
+      "size": [
+        410,
+        90
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 54,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            2
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "UNETLoader",
+        "nd_ui_src": {
+          "uid": "src_k2module_model",
+          "tag": "k2module-model"
+        }
+      },
+      "widgets_values": [
+        "Krea2\\krea2_raw_fp8_scaled.safetensors",
+        "default"
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 2,
+      "type": "CLIPLoader",
+      "title": "🟢 Энкодер Krea 2",
+      "pos": [
+        40,
+        230
+      ],
+      "size": [
+        410,
+        110
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 55,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            3
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPLoader"
+      },
+      "widgets_values": [
+        "Krea2\\qwen3vl_4b_fp8_scaled.safetensors",
+        "krea2",
+        "default"
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 3,
+      "type": "VAELoader",
+      "title": "🟢 VAE Krea 2",
+      "pos": [
+        40,
+        400
+      ],
+      "size": [
+        410,
+        80
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 56,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            1
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAELoader"
+      },
+      "widgets_values": [
+        "Krea2\\qwen_image_vae.safetensors"
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 5,
+      "type": "Power Lora Loader (rgthree)",
+      "title": "🧩 Ваши LoRA · общие для всех режимов",
+      "pos": [
+        40,
+        560
+      ],
+      "size": [
+        410,
+        420
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 57,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 2
+        },
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 3
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            4
+          ]
+        },
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            5
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Power Lora Loader (rgthree)",
+        "Show Strengths": "Single Strength",
+        "nd_ui_src": {
+          "uid": "src_k2module_lora",
+          "tag": "k2module-lora"
+        }
+      },
+      "widgets_values": [
+        {},
+        {
+          "type": "PowerLoraLoaderHeaderWidget"
+        },
+        {
+          "on": true,
+          "lora": "Krea2\\snofs_krea_v1_6.safetensors",
+          "strength": 1
+        },
+        {
+          "on": false,
+          "lora": "None",
+          "strength": 1
+        },
+        {
+          "on": false,
+          "lora": "None",
+          "strength": 1
+        },
+        {
+          "on": false,
+          "lora": "None",
+          "strength": 1
+        },
+        {
+          "on": false,
+          "lora": "None",
+          "strength": 1
+        },
+        {
+          "on": false,
+          "lora": "None",
+          "strength": 1
+        },
+        {},
+        ""
+      ],
+      "color": "#323",
+      "bgcolor": "#535"
+    },
+    {
+      "id": 8,
+      "type": "CLIPTextEncode",
+      "title": "✍️ Описание изображения · общее",
+      "pos": [
+        510,
+        80
+      ],
+      "size": [
+        480,
+        300
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 58,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 6
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            7,
+            10
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode",
+        "nd_ui_src": {
+          "uid": "src_k2module_prompt",
+          "tag": "k2module-prompt"
+        }
+      },
+      "widgets_values": [
+        "A candid photograph of an adult woman sitting at a cafe table by a window, wearing a cotton shirt and jeans. Soft natural daylight, relaxed expression, natural skin texture and individual hair strands, visible fabric weave, everyday photography."
+      ],
+      "color": "#507548",
+      "bgcolor": "#709762"
+    },
+    {
+      "id": 11,
+      "type": "CLIPTextEncode",
+      "title": "🚫 Негативный промт · для Raw стадии",
+      "pos": [
+        510,
+        450
+      ],
+      "size": [
+        480,
+        150
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 59,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 8
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            9
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode",
+        "nd_ui_src": {
+          "uid": "src_k2module_negative",
+          "tag": "k2module-negative"
+        }
+      },
+      "widgets_values": [
+        ""
+      ],
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 16,
+      "type": "Seed (rgthree)",
+      "title": "🎲 Общий Seed · все режимы",
+      "pos": [
+        510,
+        670
+      ],
+      "size": [
+        480,
+        130
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 60,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "SEED",
+          "type": "SEED",
+          "links": [
+            12
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Seed (rgthree)",
+        "nd_ui_src": {
+          "uid": "src_k2module_seed",
+          "tag": "k2module-seed"
+        }
+      },
+      "widgets_values": [
+        42,
+        "",
+        "",
+        ""
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 18,
+      "type": "PrimitiveInt",
+      "title": "📐 Ширина",
+      "pos": [
+        510,
+        860
+      ],
+      "size": [
+        232,
+        80
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 61,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            13
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PrimitiveInt",
+        "nd_ui_src": {
+          "uid": "src_k2module_width",
+          "tag": "k2module-width"
+        }
+      },
+      "widgets_values": [
+        1024,
+        "fixed"
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 20,
+      "type": "PrimitiveInt",
+      "title": "📐 Высота",
+      "pos": [
+        758,
+        860
+      ],
+      "size": [
+        232,
+        80
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 62,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            14
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PrimitiveInt",
+        "nd_ui_src": {
+          "uid": "src_k2module_height",
+          "tag": "k2module-height"
+        }
+      },
+      "widgets_values": [
+        1536,
+        "fixed"
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 26,
+      "type": "Power Lora Loader (rgthree)",
+      "title": "🧩 Служебный Turbo · отдельно от ваших LoRA",
+      "pos": [
+        1050,
+        80
+      ],
+      "size": [
+        430,
+        180
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 63,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 18
+        },
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            19
+          ]
+        },
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Power Lora Loader (rgthree)",
+        "Show Strengths": "Single Strength"
+      },
+      "widgets_values": [
+        {},
+        {
+          "type": "PowerLoraLoaderHeaderWidget"
+        },
+        {
+          "on": true,
+          "lora": "Krea2\\krea2_turbo_lora_rank_64_bf16.safetensors",
+          "strength": 1
+        },
+        {},
+        ""
+      ],
+      "color": "#323",
+      "bgcolor": "#535"
+    },
+    {
+      "id": 29,
+      "type": "Krea2ModelSampling",
+      "title": "⚙️ Raw · расписание по размеру",
+      "pos": [
+        1050,
+        340
+      ],
+      "size": [
+        430,
+        210
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 64,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 20
+        },
+        {
+          "name": "width",
+          "type": "INT",
+          "link": 21,
+          "widget": {
+            "name": "width"
+          }
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "link": 22,
+          "widget": {
+            "name": "height"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            23
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Krea2ModelSampling"
+      },
+      "widgets_values": [
+        "raw_dynamic",
+        1024,
+        1536,
+        1.15
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 30,
+      "type": "Krea2ModelSampling",
+      "title": "⚙️ Turbo · фиксированное расписание",
+      "pos": [
+        1050,
+        630
+      ],
+      "size": [
+        430,
+        210
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 65,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 24
+        },
+        {
+          "name": "width",
+          "type": "INT",
+          "link": 25,
+          "widget": {
+            "name": "width"
+          }
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "link": 26,
+          "widget": {
+            "name": "height"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            27
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Krea2ModelSampling"
+      },
+      "widgets_values": [
+        "turbo_fixed",
+        1024,
+        1536,
+        1.15
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 39,
+      "type": "KSampler",
+      "title": "🔴 0 · Обычный Turbo · Euler",
+      "pos": [
+        1550,
+        80
+      ],
+      "size": [
+        450,
+        330
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 66,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 28
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 29
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 30
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 31
+        },
+        {
+          "name": "seed",
+          "type": "INT",
+          "link": 32,
+          "widget": {
+            "name": "seed"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            44
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "KSampler",
+        "nd_ui_src": {
+          "uid": "src_k2module_ordinary",
+          "tag": "k2module-ordinary"
+        }
+      },
+      "widgets_values": [
+        42,
+        "fixed",
+        8,
+        1,
+        "euler",
+        "simple",
+        1
+      ],
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 40,
+      "type": "ClownsharKSampler_Beta",
+      "title": "🔴 1 · RES4LYF · RES 2S",
+      "pos": [
+        1550,
+        490
+      ],
+      "size": [
+        450,
+        430
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 67,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 33
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 34
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 35
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 36
+        },
+        {
+          "name": "sigmas",
+          "type": "SIGMAS",
+          "link": null
+        },
+        {
+          "name": "guides",
+          "type": "GUIDES",
+          "link": null
+        },
+        {
+          "name": "seed",
+          "type": "INT",
+          "link": 37,
+          "widget": {
+            "name": "seed"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output",
+          "type": "LATENT",
+          "links": [
+            45
+          ]
+        },
+        {
+          "name": "denoised",
+          "type": "LATENT",
+          "links": []
+        },
+        {
+          "name": "options",
+          "type": "OPTIONS",
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ClownsharKSampler_Beta",
+        "nd_ui_src": {
+          "uid": "src_k2module_res",
+          "tag": "k2module-res"
+        }
+      },
+      "widgets_values": [
+        0,
+        "exponential/res_2s",
+        "simple",
+        8,
+        -1,
+        1,
+        1,
+        42,
+        "fixed",
+        "standard",
+        false
+      ],
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 51,
+      "type": "KreaTwoStageSampler",
+      "title": "🔴 2 · Raw → Turbo · без RES4LYF",
+      "pos": [
+        2050,
+        80
+      ],
+      "size": [
+        470,
+        650
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 68,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "stage1_model",
+          "type": "MODEL",
+          "link": 38
+        },
+        {
+          "name": "stage2_model",
+          "type": "MODEL",
+          "link": 39
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 40
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 41
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 42
+        },
+        {
+          "name": "seed",
+          "type": "INT",
+          "link": 43,
+          "widget": {
+            "name": "seed"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "latent",
+          "type": "LATENT",
+          "links": [
+            46
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "KreaTwoStageSampler",
+        "nd_ui_src": {
+          "uid": "src_k2module_two",
+          "tag": "k2module-two"
+        }
+      },
+      "widgets_values": [
+        42,
+        "fixed",
+        12,
+        52,
+        4,
+        "euler",
+        "simple",
+        12,
+        1,
+        "euler",
+        "simple",
+        0,
+        0,
+        "bislerp"
+      ],
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 61,
+      "type": "easy anythingIndexSwitch",
+      "title": "🎛️ РЕЖИМ: 0 обычный · 1 RES4LYF · 2 Raw→Turbo",
+      "pos": [
+        510,
+        1030
+      ],
+      "size": [
+        480,
+        160
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 69,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "value0",
+          "type": "*",
+          "link": 47
+        },
+        {
+          "name": "value1",
+          "type": "*",
+          "link": 48
+        },
+        {
+          "name": "value2",
+          "type": "*",
+          "link": 49
+        }
+      ],
+      "outputs": [
+        {
+          "name": "value",
+          "type": "LATENT",
+          "links": [
+            50
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "easy anythingIndexSwitch",
+        "nd_ui_src": {
+          "uid": "src_k2module_mode",
+          "tag": "k2module-mode"
+        }
+      },
+      "widgets_values": [
+        0
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 69,
+      "type": "PreviewImage",
+      "title": "🖼️ Результат первой генерации",
+      "pos": [
+        2580,
+        80
+      ],
+      "size": [
+        640,
+        850
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 70,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 53
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "PreviewImage",
+        "nd_ui_src": {
+          "uid": "src_k2module_result",
+          "tag": "k2module-result"
+        }
+      },
+      "widgets_values": [],
+      "color": "#223",
+      "bgcolor": "#335"
+    },
+    {
+      "id": 71,
+      "type": "Image Saver Simple",
+      "title": "💾 Сохранение · выключено",
+      "pos": [
+        2580,
+        1000
+      ],
+      "size": [
+        640,
+        330
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 71,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 55
+        },
+        {
+          "name": "metadata",
+          "type": "METADATA",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hashes",
+          "type": "STRING",
+          "links": []
+        },
+        {
+          "name": "a1111_params",
+          "type": "STRING",
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Image Saver Simple",
+        "nd_ui_src": {
+          "uid": "src_k2module_save",
+          "tag": "k2module-save"
+        }
+      },
+      "widgets_values": [
+        "%time_%counter",
+        "Krea2/GenerationModule",
+        "png",
+        true,
+        100,
+        false,
+        true,
+        false,
+        0,
+        "%Y-%m-%d-%H%M%S",
+        true
+      ],
+      "color": "#223",
+      "bgcolor": "#335"
+    },
+    {
+      "id": 73,
+      "type": "Note",
+      "title": "📝 Управление первым модулем",
+      "pos": [
+        40,
+        1080
+      ],
+      "size": [
+        410,
+        330
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 72,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "Note"
+      },
+      "widgets_values": [
+        "Режим задаётся в зелёной ноде РЕЖИМ:\n0 — обычная Turbo-генерация.\n1 — RES4LYF на Turbo.\n2 — Raw → Turbo через Two-Stage Sampler.\n\nВаши LoRA: отдельный левый Power Loader. Пять пустых выключенных слотов; выбирайте совместимые с Krea2. Они действуют во всех режимах и на ОБЕ стадии Raw → Turbo.\n\nTurbo LoRA — служебный отдельный загрузчик. Обычный и RES4LYF здесь используют Raw+Turbo LoRA, а не отдельный Turbo checkpoint.\n\nЭто тест без UI. Только первая генерация, без детализации и апскейла."
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 74,
+      "type": "Note",
+      "title": "📝 Проверка и сохранение",
+      "pos": [
+        1050,
+        990
+      ],
+      "size": [
+        430,
+        330
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 73,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "Note"
+      },
+      "widgets_values": [
+        "Один Seed и один размер на все режимы. Количество шагов, CFG и расписания настраиваются в соответствующей ветке. При CFG1 негативное условие обнуляется.\n\nНеактивные ветки исключаются ленивым переключателем. Отдельных preview у веток нет, чтобы не запускать их все.\n\nРезультат доступен через GEN1_RESULT_IMAGE для будущей доработки. Сохранение выключено: Image Saver Simple Mode Never; для сохранения включить Always.\n\nПри смене режима одинаковый Seed не гарантирует одинаковую композицию: движки обрабатывают шум по-разному."
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    }
+  ],
+  "links": [
+    [
+      1,
+      3,
+      0,
+      4,
+      0,
+      "VAE"
+    ],
+    [
+      2,
+      1,
+      0,
+      5,
+      0,
+      "MODEL"
+    ],
+    [
+      3,
+      2,
+      0,
+      5,
+      1,
+      "CLIP"
+    ],
+    [
+      4,
+      5,
+      0,
+      6,
+      0,
+      "MODEL"
+    ],
+    [
+      5,
+      5,
+      1,
+      7,
+      0,
+      "CLIP"
+    ],
+    [
+      6,
+      9,
+      0,
+      8,
+      0,
+      "CLIP"
+    ],
+    [
+      7,
+      8,
+      0,
+      10,
+      0,
+      "CONDITIONING"
+    ],
+    [
+      8,
+      12,
+      0,
+      11,
+      0,
+      "CLIP"
+    ],
+    [
+      9,
+      11,
+      0,
+      13,
+      0,
+      "CONDITIONING"
+    ],
+    [
+      10,
+      8,
+      0,
+      14,
+      0,
+      "CONDITIONING"
+    ],
+    [
+      11,
+      14,
+      0,
+      15,
+      0,
+      "CONDITIONING"
+    ],
+    [
+      12,
+      16,
+      0,
+      17,
+      0,
+      "INT"
+    ],
+    [
+      13,
+      18,
+      0,
+      19,
+      0,
+      "INT"
+    ],
+    [
+      14,
+      20,
+      0,
+      21,
+      0,
+      "INT"
+    ],
+    [
+      15,
+      23,
+      0,
+      22,
+      0,
+      "INT"
+    ],
+    [
+      16,
+      24,
+      0,
+      22,
+      1,
+      "INT"
+    ],
+    [
+      17,
+      22,
+      0,
+      25,
+      0,
+      "LATENT"
+    ],
+    [
+      18,
+      27,
+      0,
+      26,
+      0,
+      "MODEL"
+    ],
+    [
+      19,
+      26,
+      0,
+      28,
+      0,
+      "MODEL"
+    ],
+    [
+      20,
+      31,
+      0,
+      29,
+      0,
+      "MODEL"
+    ],
+    [
+      21,
+      32,
+      0,
+      29,
+      1,
+      "INT"
+    ],
+    [
+      22,
+      33,
+      0,
+      29,
+      2,
+      "INT"
+    ],
+    [
+      23,
+      29,
+      0,
+      34,
+      0,
+      "MODEL"
+    ],
+    [
+      24,
+      35,
+      0,
+      30,
+      0,
+      "MODEL"
+    ],
+    [
+      25,
+      36,
+      0,
+      30,
+      1,
+      "INT"
+    ],
+    [
+      26,
+      37,
+      0,
+      30,
+      2,
+      "INT"
+    ],
+    [
+      27,
+      30,
+      0,
+      38,
+      0,
+      "MODEL"
+    ],
+    [
+      28,
+      41,
+      0,
+      39,
+      0,
+      "MODEL"
+    ],
+    [
+      29,
+      42,
+      0,
+      39,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      30,
+      43,
+      0,
+      39,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      31,
+      44,
+      0,
+      39,
+      3,
+      "LATENT"
+    ],
+    [
+      32,
+      45,
+      0,
+      39,
+      4,
+      "INT"
+    ],
+    [
+      33,
+      46,
+      0,
+      40,
+      0,
+      "MODEL"
+    ],
+    [
+      34,
+      47,
+      0,
+      40,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      35,
+      48,
+      0,
+      40,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      36,
+      49,
+      0,
+      40,
+      3,
+      "LATENT"
+    ],
+    [
+      37,
+      50,
+      0,
+      40,
+      6,
+      "INT"
+    ],
+    [
+      38,
+      52,
+      0,
+      51,
+      0,
+      "MODEL"
+    ],
+    [
+      39,
+      53,
+      0,
+      51,
+      1,
+      "MODEL"
+    ],
+    [
+      40,
+      54,
+      0,
+      51,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      41,
+      55,
+      0,
+      51,
+      3,
+      "CONDITIONING"
+    ],
+    [
+      42,
+      56,
+      0,
+      51,
+      4,
+      "LATENT"
+    ],
+    [
+      43,
+      57,
+      0,
+      51,
+      5,
+      "INT"
+    ],
+    [
+      44,
+      39,
+      0,
+      58,
+      0,
+      "LATENT"
+    ],
+    [
+      45,
+      40,
+      0,
+      59,
+      0,
+      "LATENT"
+    ],
+    [
+      46,
+      51,
+      0,
+      60,
+      0,
+      "LATENT"
+    ],
+    [
+      47,
+      62,
+      0,
+      61,
+      0,
+      "*"
+    ],
+    [
+      48,
+      63,
+      0,
+      61,
+      1,
+      "*"
+    ],
+    [
+      49,
+      64,
+      0,
+      61,
+      2,
+      "*"
+    ],
+    [
+      50,
+      61,
+      0,
+      65,
+      0,
+      "LATENT"
+    ],
+    [
+      51,
+      67,
+      0,
+      66,
+      0,
+      "LATENT"
+    ],
+    [
+      52,
+      68,
+      0,
+      66,
+      1,
+      "VAE"
+    ],
+    [
+      53,
+      66,
+      0,
+      69,
+      0,
+      "IMAGE"
+    ],
+    [
+      54,
+      66,
+      0,
+      70,
+      0,
+      "IMAGE"
+    ],
+    [
+      55,
+      72,
+      0,
+      71,
+      0,
+      "IMAGE"
+    ]
+  ],
+  "groups": [
+    {
+      "id": 1,
+      "title": "🟢 Модели и независимые LoRA",
+      "bounding": [
+        20,
+        20,
+        450,
+        1430
+      ],
+      "color": "#3f7050",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "id": 2,
+      "title": "✍️ Промты, Seed, размер и режим",
+      "bounding": [
+        490,
+        20,
+        520,
+        1220
+      ],
+      "color": "#3f7050",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "id": 3,
+      "title": "🧩 Raw и Turbo",
+      "bounding": [
+        1030,
+        20,
+        470,
+        1340
+      ],
+      "color": "#75508c",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "id": 4,
+      "title": "🔴 Обычный / RES4LYF",
+      "bounding": [
+        1530,
+        20,
+        490,
+        950
+      ],
+      "color": "#994444",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "id": 5,
+      "title": "🔀 Raw → Turbo",
+      "bounding": [
+        2030,
+        20,
+        510,
+        750
+      ],
+      "color": "#994444",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "id": 6,
+      "title": "🖼️ Выход модуля",
+      "bounding": [
+        2560,
+        20,
+        680,
+        1350
+      ],
+      "color": "#4c7599",
+      "font_size": 24,
+      "flags": {}
+    }
+  ],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.4,
+      "offset": [
+        40,
+        70
+      ]
+    },
+    "nd_ui": {
+      "v": 1,
+      "id": "krea_generation_module_u",
+      "page": {
+        "w": 1200,
+        "h": 1084,
+        "bg": {
+          "type": "gradient",
+          "color": "#111318",
+          "a": "#111318",
+          "b": "#1b2429",
+          "angle": 150,
+          "src": "",
+          "mode": "cover",
+          "dim": 0
+        },
+        "radius": 14
+      },
+      "theme": {
+        "borders": true,
+        "shadow": {
+          "blur": 30,
+          "strength": 90,
+          "color": "#000000"
+        },
+        "id": "neon",
+        "overrides": {
+          "bg": "#111318",
+          "s1": "#181c23",
+          "s2": "#20252d",
+          "s3": "#2c333e",
+          "text": "#e8eaf0",
+          "muted": "#a4adbf",
+          "faint": "#69738a",
+          "accent": "#e7ff35",
+          "accent2": "#ff941f",
+          "border": "#303742"
+        },
+        "custom": {
+          "accent": "#7757fa",
+          "bg": "#0e1014"
+        },
+        "frost": {
+          "tint": "#ffffff",
+          "accent": "#8ee3cf",
+          "g1": "#12363a",
+          "g2": "#080c10",
+          "g3": "#171a33",
+          "angle": 140,
+          "blur": 18,
+          "opacity": 0.07
+        }
+      },
+      "kit": {
+        "style": "soft",
+        "shape": "rounded",
+        "font": "inter",
+        "scale": 100,
+        "density": "spacious"
+      },
+      "view": {
+        "fullscreen": "window",
+        "fit": "adaptive",
+        "maxW": 0,
+        "tabs": {
+          "show": false,
+          "pos": "top",
+          "align": "left"
+        },
+        "esc": "exit",
+        "startInUi": true,
+        "reserve": false,
+        "strip": "off",
+        "bgFill": true,
+        "logo": {
+          "corner": "tl",
+          "dim": false
+        },
+        "save": {
+          "show": true,
+          "corner": "tr",
+          "ext": "ndui"
+        },
+        "progressBar": {
+          "show": false,
+          "pos": "top",
+          "height": 6,
+          "mode": "split",
+          "fill": "accent",
+          "c1": "",
+          "c2": "",
+          "angle": 90,
+          "bg": "",
+          "glow": false,
+          "text": "none",
+          "idleHide": true
+        },
+        "bar": {
+          "shape": "",
+          "bg": "",
+          "fg": "",
+          "border": "",
+          "strip": "",
+          "opacity": 78,
+          "blur": 10
+        },
+        "toolbar": {
+          "corner": "tr",
+          "scale": 100,
+          "bg": "none",
+          "dim": false,
+          "items": []
+        },
+        "gap": 18,
+        "grid": 8,
+        "snap": true,
+        "nodeBg": null,
+        "page": "p1",
+        "lang": "ru",
+        "modePage": ""
+      },
+      "sources": [
+        {
+          "uid": "src_k2module_lora",
+          "tag": "k2module-lora",
+          "class": "Power Lora Loader (rgthree)",
+          "title": "🧩 Ваши LoRA · общие для всех режимов"
+        },
+        {
+          "uid": "src_k2module_prompt",
+          "tag": "k2module-prompt",
+          "class": "CLIPTextEncode",
+          "title": "✍️ Описание изображения · общее"
+        },
+        {
+          "uid": "src_k2module_negative",
+          "tag": "k2module-negative",
+          "class": "CLIPTextEncode",
+          "title": "🚫 Негативный промт · для Raw стадии"
+        },
+        {
+          "uid": "src_k2module_seed",
+          "tag": "k2module-seed",
+          "class": "Seed (rgthree)",
+          "title": "🎲 Общий Seed · все режимы"
+        },
+        {
+          "uid": "src_k2module_width",
+          "tag": "k2module-width",
+          "class": "PrimitiveInt",
+          "title": "📐 Ширина"
+        },
+        {
+          "uid": "src_k2module_height",
+          "tag": "k2module-height",
+          "class": "PrimitiveInt",
+          "title": "📐 Высота"
+        },
+        {
+          "uid": "src_k2module_ordinary",
+          "tag": "k2module-ordinary",
+          "class": "KSampler",
+          "title": "🔴 0 · Обычный Turbo · Euler"
+        },
+        {
+          "uid": "src_k2module_res",
+          "tag": "k2module-res",
+          "class": "ClownsharKSampler_Beta",
+          "title": "🔴 1 · RES4LYF · RES 2S"
+        },
+        {
+          "uid": "src_k2module_two",
+          "tag": "k2module-two",
+          "class": "KreaTwoStageSampler",
+          "title": "🔴 2 · Raw → Turbo · без RES4LYF"
+        },
+        {
+          "uid": "src_k2module_mode",
+          "tag": "k2module-mode",
+          "class": "easy anythingIndexSwitch",
+          "title": "🎛️ РЕЖИМ: 0 обычный · 1 RES4LYF · 2 Raw→Turbo"
+        },
+        {
+          "uid": "src_k2module_result",
+          "tag": "k2module-result",
+          "class": "PreviewImage",
+          "title": "🖼️ Результат первой генерации"
+        },
+        {
+          "uid": "src_k2module_save",
+          "tag": "k2module-save",
+          "class": "Image Saver Simple",
+          "title": "💾 Сохранение · выключено"
+        }
+      ],
+      "pages": [
+        {
+          "id": "p1",
+          "name": "Первая генерация",
+          "kind": "page",
+          "len": 1084,
+          "control": {
+            "nodes": [],
+            "groups": [],
+            "how": "mute",
+            "bindIndex": null
+          }
+        }
+      ],
+      "widgets": [
+        {
+          "id": "header",
+          "type": "heading",
+          "page": "p1",
+          "x": 24,
+          "y": 16,
+          "w": 1152,
+          "h": 40,
+          "z": 2,
+          "parent": null,
+          "hidden": false,
+          "locked": true,
+          "slots": {},
+          "props": {
+            "text": "🧩 Универсальный воркфлоу · v0.1.0",
+            "size": "M",
+            "align": "left"
+          },
+          "look": {
+            "style": null,
+            "shape": null,
+            "accent": null,
+            "bg": null,
+            "field": null,
+            "text": "#e8eaf0",
+            "labelColor": null,
+            "border": null,
+            "radius": null,
+            "shadow": null,
+            "blur": null,
+            "label": null,
+            "scale": 115
+          }
+        },
+        {
+          "id": "left_bg",
+          "type": "panel",
+          "page": "p1",
+          "x": 24,
+          "y": 72,
+          "w": 336,
+          "h": 580,
+          "z": 0,
+          "parent": null,
+          "hidden": false,
+          "locked": true,
+          "slots": {},
+          "props": {
+            "shadow": false
+          },
+          "look": {
+            "style": null,
+            "shape": null,
+            "accent": null,
+            "bg": "#181c23",
+            "field": "#20252d",
+            "text": null,
+            "labelColor": null,
+            "border": "#303742",
+            "radius": 12,
+            "shadow": null,
+            "blur": null,
+            "label": null,
+            "scale": 100
+          }
+        },
+        {
+          "id": "seed",
+          "type": "seed",
+          "page": "p1",
+          "x": 36,
+          "y": 84,
+          "w": 312,
+          "h": 88,
+          "z": 2,
+          "parent": null,
+          "hidden": false,
+          "locked": true,
+          "slots": {
+            "value": {
+              "src": "src_k2module_seed",
+              "kind": "widget",
+              "name": "seed"
+            },
+            "control": {
+              "src": "src_k2module_seed",
+              "kind": "widget",
+              "name": "ndui_seed_control"
+            }
+          },
+          "props": {
+            "label": "🎲 Seed"
+          },
+          "look": {
+            "style": null,
+            "shape": null,
+            "accent": "#59e68d",
+            "bg": "#181c23",
+            "field": "#20252d",
+            "text": null,
+            "labelColor": "#8eefb4",
+            "border": "#365a45",
+            "radius": 12,
+            "shadow": null,
+            "blur": null,
+            "label": null,
+            "scale": 100
+          }
+        },
+        {
+          "id": "generation_mode",
+          "type": "factorygenerationmode",
+          "page": "p1",
+          "x": 36,
+          "y": 188,
+          "w": 312,
+          "h": 76,
+          "z": 2,
+          "parent": null,
+          "hidden": false,
+          "locked": true,
+          "slots": {
+            "mode": {
+              "src": "src_k2module_mode",
+              "kind": "widget",
+              "name": "index"
+            },
+            "steps": {
+              "src": "src_k2module_ordinary",
+              "kind": "widget",
+              "name": "steps"
+            },
+            "sampler": {
+              "src": "src_k2module_ordinary",
+              "kind": "widget",
+              "name": "sampler_name"
+            },
+            "scheduler": {
+              "src": "src_k2module_ordinary",
+              "kind": "widget",
+              "name": "scheduler"
+            },
+            "res_steps": {
+              "src": "src_k2module_res",
+              "kind": "widget",
+              "name": "steps"
+            },
+            "res_sampler": {
+              "src": "src_k2module_res",
+              "kind": "widget",
+              "name": "sampler_name"
+            },
+            "res_scheduler": {
+              "src": "src_k2module_res",
+              "kind": "widget",
+              "name": "scheduler"
+            },
+            "eta": {
+              "src": "src_k2module_res",
+              "kind": "widget",
+              "name": "eta"
+            },
+            "handoff": {
+              "src": "src_k2module_two",
+              "kind": "widget",
+              "name": "handoff_percent"
+            },
+            "raw_steps": {
+              "src": "src_k2module_two",
+              "kind": "widget",
+              "name": "stage1_steps"
+            },
+            "raw_cfg": {
+              "src": "src_k2module_two",
+              "kind": "widget",
+              "name": "stage1_cfg"
+            },
+            "raw_sampler": {
+              "src": "src_k2module_two",
+              "kind": "widget",
+              "name": "stage1_sampler_name"
+            },
+            "raw_scheduler": {
+              "src": "src_k2module_two",
+              "kind": "widget",
+              "name": "stage1_scheduler"
+            },
+            "turbo_steps": {
+              "src": "src_k2module_two",
+              "kind": "widget",
+              "name": "stage2_steps"
+            },
+            "turbo_sampler": {
+              "src": "src_k2module_two",
+              "kind": "widget",
+              "name": "stage2_sampler_name"
+            },
+            "turbo_scheduler": {
+              "src": "src_k2module_two",
+              "kind": "widget",
+              "name": "stage2_scheduler"
+            }
+          },
+          "props": {
+            "part": "header"
+          },
+          "look": {
+            "style": null,
+            "shape": null,
+            "accent": "#59e68d",
+            "bg": null,
+            "field": "#20252d",
+            "text": null,
+            "labelColor": "#8eefb4",
+            "border": "#365a45",
+            "radius": 12,
+            "shadow": null,
+            "blur": null,
+            "label": null,
+            "scale": 100
+          }
+        },
+        {
+          "id": "size_label",
+          "type": "heading",
+          "page": "p1",
+          "x": 36,
+          "y": 340,
+          "w": 312,
+          "h": 28,
+          "z": 2,
+          "parent": null,
+          "hidden": false,
+          "locked": true,
+          "slots": {},
+          "props": {
+            "text": "📐 Размер изображения",
+            "size": "S",
+            "align": "left"
+          },
+          "look": {
+            "style": null,
+            "shape": null,
+            "accent": null,
+            "bg": null,
+            "field": null,
+            "text": "#8eefb4",
+            "labelColor": null,
+            "border": null,
+            "radius": null,
+            "shadow": null,
+            "blur": null,
+            "label": null,
+            "scale": 115
+          }
+        },
+        {
+          "id": "resolution",
+          "type": "factoryresolution",
+          "page": "p1",
+          "x": 36,
+          "y": 376,
+          "w": 312,
+          "h": 264,
+          "z": 2,
+          "parent": null,
+          "hidden": false,
+          "locked": true,
+          "slots": {
+            "width": {
+              "src": "src_k2module_width",
+              "kind": "widget",
+              "name": "value"
+            },
+            "height": {
+              "src": "src_k2module_height",
+              "kind": "widget",
+              "name": "value"
+            }
+          },
+          "props": {},
+          "look": {
+            "style": null,
+            "shape": null,
+            "accent": "#59e68d",
+            "bg": null,
+            "field": "#20252d",
+            "text": null,
+            "labelColor": "#8eefb4",
+            "border": "#365a45",
+            "radius": 12,
+            "shadow": null,
+            "blur": null,
+            "label": null,
+            "scale": 100
+          }
+        },
+        {
+          "id": "lora_gradient",
+          "type": "image",
+          "page": "p1",
+          "x": 24,
+          "y": 668,
+          "w": 336,
+          "h": 48,
+          "z": 1,
+          "parent": null,
+          "hidden": false,
+          "locked": true,
+          "slots": {},
+          "props": {
+            "src": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMzYiIGhlaWdodD0iNDgiIHZpZXdCb3g9IjAgMCAzMzYgNDgiPjxkZWZzPjxsaW5lYXJHcmFkaWVudCBpZD0iZyIgeDE9IjAiIHkxPSIwIiB4Mj0iMSIgeTI9IjAiPjxzdG9wIHN0b3AtY29sb3I9IiNmZjZiODYiLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiNiODRkZmYiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB3aWR0aD0iMzM2IiBoZWlnaHQ9IjQ4IiByeD0iMTIiIGZpbGw9InVybCgjZykiLz48L3N2Zz4=",
+            "fit": "cover"
+          },
+          "look": {
+            "style": null,
+            "shape": null,
+            "accent": null,
+            "bg": "transparent",
+            "field": null,
+            "text": null,
+            "labelColor": null,
+            "border": "transparent",
+            "radius": 12,
+            "shadow": null,
+            "blur": null,
+            "label": null,
+            "scale": 100
+          }
+        },
+        {
+          "id": "lora_section",
+          "type": "spoiler",
+          "page": "p1",
+          "x": 24,
+          "y": 668,
+          "w": 336,
+          "h": 48,
+          "z": 2,
+          "parent": null,
+          "hidden": false,
+          "locked": true,
+          "slots": {},
+          "props": {
+            "title": "🧩 LoRA · для всех режимов",
+            "icon": "layers",
+            "open": false,
+            "remember": false,
+            "head_h": 48,
+            "pad": 0,
+            "max_h": 0,
+            "shadow": false
+          },
+          "look": {
+            "style": "soft",
+            "shape": null,
+            "accent": "#10131c",
+            "bg": "transparent",
+            "field": "#2e1d28",
+            "text": "#10131c",
+            "labelColor": "#10131c",
+            "border": "transparent",
+            "radius": 12,
+            "shadow": null,
+            "blur": null,
+            "label": null,
+            "scale": 115
+          }
+        },
+        {
+          "id": "lora_body",
+          "type": "panel",
+          "page": "p1",
+          "x": 0,
+          "y": 0,
+          "w": 336,
+          "h": 448,
+          "z": 0,
+          "parent": "lora_section",
+          "hidden": false,
+          "locked": true,
+          "slots": {},
+          "props": {
+            "shadow": false
+          },
+          "look": {
+            "style": null,
+            "shape": null,
+            "accent": "#ff6b86",
+            "bg": "#181c23",
+            "field": "#20252d",
+            "text": null,
+            "labelColor": null,
+            "border": "transparent",
+            "radius": 0,
+            "shadow": null,
+            "blur": null,
+            "label": null,
+            "scale": 100
+          }
+        },
+        {
+          "id": "lora_on_1",
+          "type": "toggle",
+          "page": "p1",
+          "x": 12,
+          "y": 12,
+          "w": 56,
+          "h": 72,
+          "z": 2,
+          "parent": "lora_section",
+          "hidden": false,
+          "locked": true,
+          "slots": {
+            "value": {
+              "src": "src_k2module_lora",
+              "kind": "widget",
+              "name": "power_lora_2.on"
+            }
+          },
+          "props": {
+            "text": "",
+            "label": ""
+          },
+          "look": {
+            "style": null,
+            "shape": null,
+            "accent": "#ff6b86",
+            "bg": "#241a23",
+            "field": "#2e1d28",
+            "text": null,
+            "labelColor": "#ff94c0",
+            "border": "#b84765",
+            "radius": 12,
+            "shadow": null,
+            "blur": null,
+            "label": null,
+            "scale": 100
+          }
+        },
+        {
+          "id": "lora_model_1",
+          "type": "modelpicker",
+          "page": "p1",
+          "x": 76,
+          "y": 12,
+          "w": 164,
+          "h": 72,
+          "z": 2,
+          "parent": "lora_section",
+          "hidden": false,
+          "locked": true,
+          "slots": {
+            "value": {
+              "src": "src_k2module_lora",
+              "kind": "widget",
+              "name": "power_lora_2.lora"
+            }
+          },
+          "props": {
+            "folder": "loras",
+            "label": "1 · LoRA"
+          },
+          "look": {
+            "style": null,
+            "shape": null,
+            "accent": "#ff6b86",
+            "bg": "#241a23",
+            "field": "#2e1d28",
+            "text": null,
+            "labelColor": "#ff94c0",
+            "border": "#b84765",
+            "radius": 12,
+            "shadow": null,
+            "blur": null,
+            "label": null,
+            "scale": 100
+          }
+        },
+        {
+          "id": "lora_strength_1",
+          "type": "number",
+          "page": "p1",
+          "x": 248,
+          "y": 12,
+          "w": 76,
+          "h": 72,
+          "z": 2,
+          "parent": "lora_section",
+          "hidden": false,
+          "locked": true,
+          "slots": {
+            "value": {
+              "src": "src_k2module_lora",
+              "kind": "widget",
+              "name": "power_lora_2.strength"
+            }
+          },
+          "props": {
+            "label": "Сила",
+            "buttons": false,
+            "step": 0.05,
+            "decimals": 2
+          },
+          "look": {
+            "style": null,
+            "shape": null,
+            "accent": "#ff6b86",
+            "bg": "#241a23",
+            "field": "#2e1d28",
+            "text": null,
+            "labelColor": "#ff94c0",
+            "border": "#b84765",
+            "radius": 12,
+            "shadow": null,
+            "blur": null,
+            "label": null,
+            "scale": 100
+          }
+        },
+        {
+          "id": "lora_on_2",
+          "type": "toggle",
+          "page": "p1",
+          "x": 12,
+          "y": 100,
+          "w": 56,
+          "h": 72,
+          "z": 2,
+          "parent": "lora_section",
+          "hidden": false,
+          "locked": true,
+          "slots": {
+            "value": {
+              "src": "src_k2module_lora",
+              "kind": "widget",
+              "name": "power_lora_3.on"
+            }
+          },
+          "props": {
+            "text": "",
+            "label": ""
+          },
+          "look": {
+            "style": null,
+            "shape": null,
+            "accent": "#ff6b86",
+            "bg": "#241a23",
+            "field": "#2e1d28",
+            "text": null,
+            "labelColor": "#ff94c0",
+            "border": "#b84765",
+            "radius": 12,
+            "shadow": null,
+            "blur": null,
+            "label": null,
+            "scale": 100
+          }
+        },
+        {
+          "id": "lora_model_2",
+          "type": "modelpicker",
+          "page": "p1",
+          "x": 76,
+          "y": 100,
+          "w": 164,
+          "h": 72,
+          "z": 2,
+          "parent": "lora_section",
+          "hidden": false,
+          "locked": true,
+          "slots": {
+            "value": {
+              "src": "src_k2module_lora",
+              "kind": "widget",
+              "name": "power_lora_3.lora"
+            }
+          },
+          "props": {
+            "folder": "loras",
+            "label": "2 · LoRA"
+          },
+          "look": {
+            "style": null,
+            "shape": null,
+            "accent": "#ff6b86",
+            "bg": "#241a23",
+            "field": "#2e1d28",
+            "text": null,
+            "labelColor": "#ff94c0",
+            "border": "#b84765",
+            "radius": 12,
+            "shadow": null,
+            "blur": null,
+            "label": null,
+            "scale": 100
+          }
+        },
+        {
+          "id": "lora_strength_2",
+          "type": "number",
+          "page": "p1",
+          "x": 248,
+          "y": 100,
+          "w": 76,
+          "h": 72,
+          "z": 2,
+          "parent": "lora_section",
+          "hidden": false,
+          "locked": true,
+          "slots": {
+            "value": {
+              "src": "src_k2module_lora",
+              "kind": "widget",
+              "name": "power_lora_3.strength"
+            }
+          },
+          "props": {
+            "label": "Сила",
+            "buttons": false,
+            "step": 0.05,
+            "decimals": 2
+          },
+          "look": {
+            "style": null,
+            "shape": null,
+            "accent": "#ff6b86",
+            "bg": "#241a23",
+            "field": "#2e1d28",
+            "text": null,
+            "labelColor": "#ff94c0",
+            "border": "#b84765",
+            "radius": 12,
+            "shadow": null,
+            "blur": null,
+            "label": null,
+            "scale": 100
+          }
+        },
+        {
+          "id": "lora_on_3",
+          "type": "toggle",
+          "page": "p1",
+          "x": 12,
+          "y": 188,
+          "w": 56,
+          "h": 72,
+          "z": 2,
+          "parent": "lora_section",
+          "hidden": false,
+          "locked": true,
+          "slots": {
+            "value": {
+              "src": "src_k2module_lora",
+              "kind": "widget",
+              "name": "power_lora_4.on"
+            }
+          },
+          "props": {
+            "text": "",
+            "label": ""
+          },
+          "look": {
+            "style": null,
+            "shape": null,
+            "accent": "#ff6b86",
+            "bg": "#241a23",
+            "field": "#2e1d28",
+            "text": null,
+            "labelColor": "#ff94c0",
+            "border": "#b84765",
+            "radius": 12,
+            "shadow": null,
+            "blur": null,
+            "label": null,
+            "scale": 100
+          }
+        },
+        {
+          "id": "lora_model_3",
+          "type": "modelpicker",
+          "page": "p1",
+          "x": 76,
+          "y": 188,
+          "w": 164,
+          "h": 72,
+          "z": 2,
+          "parent": "lora_section",
+          "hidden": false,
+          "locked": true,
+          "slots": {
+            "value": {
+              "src": "src_k2module_lora",
+              "kind": "widget",
+              "name": "power_lora_4.lora"
+            }
+          },
+          "props": {
+            "folder": "loras",
+            "label": "3 · LoRA"
+          },
+          "look": {
+            "style": null,
+            "shape": null,
+            "accent": "#ff6b86",
+            "bg": "#241a23",
+            "field": "#2e1d28",
+            "text": null,
+            "labelColor": "#ff94c0",
+            "border": "#b84765",
+            "radius": 12,
+            "shadow": null,
+            "blur": null,
+            "label": null,
+            "scale": 100
+          }
+        },
+        {
+          "id": "lora_strength_3",
+          "type": "number",
+          "page": "p1",
+          "x": 248,
+          "y": 188,
+          "w": 76,
+          "h": 72,
+          "z": 2,
+          "parent": "lora_section",
+          "hidden": false,
+          "locked": true,
+          "slots": {
+            "value": {
+              "src": "src_k2module_lora",
+              "kind": "widget",
+              "name": "power_lora_4.strength"
+            }
+          },
+          "props": {
+            "label": "Сила",
+            "buttons": false,
+            "step": 0.05,
+            "decimals": 2
+          },
+          "look": {
+            "style": null,
+            "shape": null,
+            "accent": "#ff6b86",
+            "bg": "#241a23",
+            "field": "#2e1d28",
+            "text": null,
+            "labelColor": "#ff94c0",
+            "border": "#b84765",
+            "radius": 12,
+            "shadow": null,
+            "blur": null,
+            "label": null,
+            "scale": 100
+          }
+        },
+        {
+          "id": "lora_on_4",
+          "type": "toggle",
+          "page": "p1",
+          "x": 12,
+          "y": 276,
+          "w": 56,
+          "h": 72,
+          "z": 2,
+          "parent": "lora_section",
+          "hidden": false,
+          "locked": true,
+          "slots": {
+            "value": {
+              "src": "src_k2module_lora",
+              "kind": "widget",
+              "name": "power_lora_5.on"
+            }
+          },
+          "props": {
+            "text": "",
+            "label": ""
+          },
+          "look": {
+            "style": null,
+            "shape": null,
+            "accent": "#ff6b86",
+            "bg": "#241a23",
+            "field": "#2e1d28",
+            "text": null,
+            "labelColor": "#ff94c0",
+            "border": "#b84765",
+            "radius": 12,
+            "shadow": null,
+            "blur": null,
+            "label": null,
+            "scale": 100
+          }
+        },
+        {
+          "id": "lora_model_4",
+          "type": "modelpicker",
+          "page": "p1",
+          "x": 76,
+          "y": 276,
+          "w": 164,
+          "h": 72,
+          "z": 2,
+          "parent": "lora_section",
+          "hidden": false,
+          "locked": true,
+          "slots": {
+            "value": {
+              "src": "src_k2module_lora",
+              "kind": "widget",
+              "name": "power_lora_5.lora"
+            }
+          },
+          "props": {
+            "folder": "loras",
+            "label": "4 · LoRA"
+          },
+          "look": {
+            "style": null,
+            "shape": null,
+            "accent": "#ff6b86",
+            "bg": "#241a23",
+            "field": "#2e1d28",
+            "text": null,
+            "labelColor": "#ff94c0",
+            "border": "#b84765",
+            "radius": 12,
+            "shadow": null,
+            "blur": null,
+            "label": null,
+            "scale": 100
+          }
+        },
+        {
+          "id": "lora_strength_4",
+          "type": "number",
+          "page": "p1",
+          "x": 248,
+          "y": 276,
+          "w": 76,
+          "h": 72,
+          "z": 2,
+          "parent": "lora_section",
+          "hidden": false,
+          "locked": true,
+          "slots": {
+            "value": {
+              "src": "src_k2module_lora",
+              "kind": "widget",
+              "name": "power_lora_5.strength"
+            }
+          },
+          "props": {
+            "label": "Сила",
+            "buttons": false,
+            "step": 0.05,
+            "decimals": 2
+          },
+          "look": {
+            "style": null,
+            "shape": null,
+            "accent": "#ff6b86",
+            "bg": "#241a23",
+            "field": "#2e1d28",
+            "text": null,
+            "labelColor": "#ff94c0",
+            "border": "#b84765",
+            "radius": 12,
+            "shadow": null,
+            "blur": null,
+            "label": null,
+            "scale": 100
+          }
+        },
+        {
+          "id": "lora_on_5",
+          "type": "toggle",
+          "page": "p1",
+          "x": 12,
+          "y": 364,
+          "w": 56,
+          "h": 72,
+          "z": 2,
+          "parent": "lora_section",
+          "hidden": false,
+          "locked": true,
+          "slots": {
+            "value": {
+              "src": "src_k2module_lora",
+              "kind": "widget",
+              "name": "power_lora_6.on"
+            }
+          },
+          "props": {
+            "text": "",
+            "label": ""
+          },
+          "look": {
+            "style": null,
+            "shape": null,
+            "accent": "#ff6b86",
+            "bg": "#241a23",
+            "field": "#2e1d28",
+            "text": null,
+            "labelColor": "#ff94c0",
+            "border": "#b84765",
+            "radius": 12,
+            "shadow": null,
+            "blur": null,
+            "label": null,
+            "scale": 100
+          }
+        },
+        {
+          "id": "lora_model_5",
+          "type": "modelpicker",
+          "page": "p1",
+          "x": 76,
+          "y": 364,
+          "w": 164,
+          "h": 72,
+          "z": 2,
+          "parent": "lora_section",
+          "hidden": false,
+          "locked": true,
+          "slots": {
+            "value": {
+              "src": "src_k2module_lora",
+              "kind": "widget",
+              "name": "power_lora_6.lora"
+            }
+          },
+          "props": {
+            "folder": "loras",
+            "label": "5 · LoRA"
+          },
+          "look": {
+            "style": null,
+            "shape": null,
+            "accent": "#ff6b86",
+            "bg": "#241a23",
+            "field": "#2e1d28",
+            "text": null,
+            "labelColor": "#ff94c0",
+            "border": "#b84765",
+            "radius": 12,
+            "shadow": null,
+            "blur": null,
+            "label": null,
+            "scale": 100
+          }
+        },
+        {
+          "id": "lora_strength_5",
+          "type": "number",
+          "page": "p1",
+          "x": 248,
+          "y": 364,
+          "w": 76,
+          "h": 72,
+          "z": 2,
+          "parent": "lora_section",
+          "hidden": false,
+          "locked": true,
+          "slots": {
+            "value": {
+              "src": "src_k2module_lora",
+              "kind": "widget",
+              "name": "power_lora_6.strength"
+            }
+          },
+          "props": {
+            "label": "Сила",
+            "buttons": false,
+            "step": 0.05,
+            "decimals": 2
+          },
+          "look": {
+            "style": null,
+            "shape": null,
+            "accent": "#ff6b86",
+            "bg": "#241a23",
+            "field": "#2e1d28",
+            "text": null,
+            "labelColor": "#ff94c0",
+            "border": "#b84765",
+            "radius": 12,
+            "shadow": null,
+            "blur": null,
+            "label": null,
+            "scale": 100
+          }
+        },
+        {
+          "id": "right_tabs",
+          "type": "tabbox",
+          "page": "p1",
+          "x": 384,
+          "y": 72,
+          "w": 792,
+          "h": 572,
+          "z": 0,
+          "parent": null,
+          "hidden": false,
+          "locked": true,
+          "slots": {},
+          "props": {
+            "tabs": [
+              {
+                "id": "result",
+                "name": "🖼️ Результат"
+              }
+            ],
+            "active": "result",
+            "shadow": false,
+            "bottomWith": "lora_section",
+            "bottomInset": 72
+          },
+          "look": {
+            "style": null,
+            "shape": null,
+            "accent": "#36cfea",
+            "bg": "#151e27",
+            "field": "#20252d",
+            "text": null,
+            "labelColor": "#65e3f4",
+            "border": "#286f80",
+            "radius": 12,
+            "shadow": null,
+            "blur": null,
+            "label": null,
+            "scale": 100
+          }
+        },
+        {
+          "id": "result",
+          "type": "viewer",
+          "page": "p1",
+          "x": 396,
+          "y": 128,
+          "w": 768,
+          "h": 504,
+          "z": 2,
+          "parent": null,
+          "tab": "result",
+          "hidden": false,
+          "locked": true,
+          "slots": {
+            "images": {
+              "src": "src_k2module_result",
+              "kind": "images",
+              "name": ""
+            }
+          },
+          "props": {
+            "label": "Результат",
+            "live": false,
+            "results": true,
+            "compare": false,
+            "progress": "off",
+            "thumbs": "bottom",
+            "save": true,
+            "tools": true,
+            "bottomWith": "right_tabs",
+            "bottomInset": 12
+          },
+          "look": {
+            "style": null,
+            "shape": null,
+            "accent": "#36cfea",
+            "bg": "#181c23",
+            "field": "#20252d",
+            "text": null,
+            "labelColor": "#65e3f4",
+            "border": "#286f80",
+            "radius": 12,
+            "shadow": null,
+            "blur": null,
+            "label": "hidden",
+            "scale": 100
+          }
+        },
+        {
+          "id": "progress",
+          "type": "progress",
+          "page": "p1",
+          "x": 384,
+          "y": 660,
+          "w": 400,
+          "h": 56,
+          "z": 2,
+          "parent": null,
+          "hidden": false,
+          "locked": true,
+          "slots": {},
+          "props": {
+            "name": false,
+            "steps": true,
+            "afterWith": "right_tabs",
+            "afterGap": 16
+          },
+          "look": {
+            "style": null,
+            "shape": null,
+            "accent": "#36cfea",
+            "bg": "#181c23",
+            "field": "#20252d",
+            "text": null,
+            "labelColor": "#65e3f4",
+            "border": "#286f80",
+            "radius": 12,
+            "shadow": null,
+            "blur": null,
+            "label": "hidden",
+            "scale": 100
+          }
+        },
+        {
+          "id": "save_toggle",
+          "type": "toggle",
+          "page": "p1",
+          "x": 800,
+          "y": 660,
+          "w": 376,
+          "h": 56,
+          "z": 2,
+          "parent": null,
+          "hidden": false,
+          "locked": true,
+          "slots": {
+            "value": {
+              "src": "src_k2module_save",
+              "kind": "widget",
+              "name": "ndui_save_enabled"
+            }
+          },
+          "props": {
+            "text": "💾 Сохранять результат",
+            "description": "Выключено по умолчанию",
+            "afterWith": "right_tabs",
+            "afterGap": 16
+          },
+          "look": {
+            "style": null,
+            "shape": null,
+            "accent": "#36cfea",
+            "bg": "#181c23",
+            "field": "#20252d",
+            "text": null,
+            "labelColor": "#65e3f4",
+            "border": "#286f80",
+            "radius": 12,
+            "shadow": null,
+            "blur": null,
+            "label": null,
+            "scale": 100
+          }
+        },
+        {
+          "id": "prompt",
+          "type": "prompt",
+          "page": "p1",
+          "x": 24,
+          "y": 732,
+          "w": 1152,
+          "h": 144,
+          "z": 2,
+          "parent": null,
+          "hidden": false,
+          "locked": true,
+          "slots": {
+            "value": {
+              "src": "src_k2module_prompt",
+              "kind": "widget",
+              "name": "text"
+            }
+          },
+          "props": {
+            "label": "🟢 Описание изображения",
+            "placeholder": "Персонаж, одежда, место, свет и характер фотографии…",
+            "counter": false,
+            "spell": false,
+            "weights": true,
+            "mono": false,
+            "afterWith": "progress",
+            "afterGap": 16
+          },
+          "look": {
+            "style": null,
+            "shape": null,
+            "accent": "#59e68d",
+            "bg": "#17241c",
+            "field": "#192b22",
+            "text": "#e8eaf0",
+            "labelColor": "#80f2a9",
+            "border": "#3b9e66",
+            "radius": 12,
+            "shadow": null,
+            "blur": null,
+            "label": null,
+            "scale": 100
+          }
+        },
+        {
+          "id": "negative",
+          "type": "prompt",
+          "page": "p1",
+          "x": 24,
+          "y": 892,
+          "w": 1152,
+          "h": 96,
+          "z": 2,
+          "parent": null,
+          "hidden": false,
+          "locked": true,
+          "slots": {
+            "value": {
+              "src": "src_k2module_negative",
+              "kind": "widget",
+              "name": "text"
+            }
+          },
+          "props": {
+            "label": "🔴 Негативный промт · только Raw в режиме Raw → Turbo",
+            "placeholder": "Что исключить из результата…",
+            "counter": false,
+            "spell": false,
+            "weights": true,
+            "mono": false,
+            "afterWith": "prompt",
+            "afterGap": 16
+          },
+          "look": {
+            "style": null,
+            "shape": null,
+            "accent": "#ef717d",
+            "bg": "#281b20",
+            "field": "#2e2026",
+            "text": "#e8eaf0",
+            "labelColor": "#ffa0a8",
+            "border": "#8e4655",
+            "radius": 12,
+            "shadow": null,
+            "blur": null,
+            "label": null,
+            "scale": 100
+          }
+        },
+        {
+          "id": "generate",
+          "type": "generate",
+          "page": "p1",
+          "x": 24,
+          "y": 1004,
+          "w": 1152,
+          "h": 56,
+          "z": 2,
+          "parent": null,
+          "hidden": false,
+          "locked": true,
+          "slots": {},
+          "props": {
+            "text": "Сгенерировать",
+            "batch": false,
+            "stop": true,
+            "stopIdle": false,
+            "afterWith": "negative",
+            "afterGap": 16
+          },
+          "look": {
+            "style": null,
+            "shape": null,
+            "accent": null,
+            "bg": null,
+            "field": null,
+            "text": null,
+            "labelColor": null,
+            "border": null,
+            "radius": 12,
+            "shadow": null,
+            "blur": null,
+            "label": null,
+            "scale": 100
+          },
+          "adapt": {
+            "mode": "scale",
+            "max": 50,
+            "unit": "%",
+            "align": "left"
+          }
+        },
+        {
+          "id": "generation_settings",
+          "type": "spoiler",
+          "page": "p1",
+          "x": 36,
+          "y": 276,
+          "w": 312,
+          "h": 48,
+          "z": 2,
+          "parent": null,
+          "hidden": false,
+          "locked": true,
+          "slots": {},
+          "props": {
+            "title": "⚙️ Настройки режима",
+            "icon": "settings",
+            "open": false,
+            "remember": false,
+            "head_h": 48,
+            "pad": 0,
+            "max_h": 0,
+            "shadow": false
+          },
+          "look": {
+            "style": null,
+            "shape": null,
+            "accent": "#59e68d",
+            "bg": "#181c23",
+            "field": "#20252d",
+            "text": "#8eefb4",
+            "labelColor": "#8eefb4",
+            "border": "#365a45",
+            "radius": 12,
+            "shadow": null,
+            "blur": null,
+            "label": null,
+            "scale": 100
+          }
+        },
+        {
+          "id": "generation_settings_body",
+          "type": "factorygenerationmode",
+          "page": "p1",
+          "x": 0,
+          "y": 0,
+          "w": 312,
+          "h": 360,
+          "z": 2,
+          "parent": "generation_settings",
+          "hidden": false,
+          "locked": true,
+          "slots": {
+            "mode": {
+              "src": "src_k2module_mode",
+              "kind": "widget",
+              "name": "index"
+            },
+            "steps": {
+              "src": "src_k2module_ordinary",
+              "kind": "widget",
+              "name": "steps"
+            },
+            "sampler": {
+              "src": "src_k2module_ordinary",
+              "kind": "widget",
+              "name": "sampler_name"
+            },
+            "scheduler": {
+              "src": "src_k2module_ordinary",
+              "kind": "widget",
+              "name": "scheduler"
+            },
+            "res_steps": {
+              "src": "src_k2module_res",
+              "kind": "widget",
+              "name": "steps"
+            },
+            "res_sampler": {
+              "src": "src_k2module_res",
+              "kind": "widget",
+              "name": "sampler_name"
+            },
+            "res_scheduler": {
+              "src": "src_k2module_res",
+              "kind": "widget",
+              "name": "scheduler"
+            },
+            "eta": {
+              "src": "src_k2module_res",
+              "kind": "widget",
+              "name": "eta"
+            },
+            "handoff": {
+              "src": "src_k2module_two",
+              "kind": "widget",
+              "name": "handoff_percent"
+            },
+            "raw_steps": {
+              "src": "src_k2module_two",
+              "kind": "widget",
+              "name": "stage1_steps"
+            },
+            "raw_cfg": {
+              "src": "src_k2module_two",
+              "kind": "widget",
+              "name": "stage1_cfg"
+            },
+            "raw_sampler": {
+              "src": "src_k2module_two",
+              "kind": "widget",
+              "name": "stage1_sampler_name"
+            },
+            "raw_scheduler": {
+              "src": "src_k2module_two",
+              "kind": "widget",
+              "name": "stage1_scheduler"
+            },
+            "turbo_steps": {
+              "src": "src_k2module_two",
+              "kind": "widget",
+              "name": "stage2_steps"
+            },
+            "turbo_sampler": {
+              "src": "src_k2module_two",
+              "kind": "widget",
+              "name": "stage2_sampler_name"
+            },
+            "turbo_scheduler": {
+              "src": "src_k2module_two",
+              "kind": "widget",
+              "name": "stage2_scheduler"
+            }
+          },
+          "props": {
+            "part": "settings"
+          },
+          "look": {
+            "style": null,
+            "shape": null,
+            "accent": "#59e68d",
+            "bg": null,
+            "field": "#20252d",
+            "text": null,
+            "labelColor": "#8eefb4",
+            "border": "#365a45",
+            "radius": 12,
+            "shadow": null,
+            "blur": null,
+            "label": null,
+            "scale": 100
+          }
+        }
+      ],
+      "groups": []
+    }
+  },
+  "version": 0.4
+}
