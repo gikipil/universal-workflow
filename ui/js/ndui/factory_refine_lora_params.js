@@ -13,7 +13,7 @@ export function factoryRefineLoraParams(router,touch=()=>{}){
   return{node,offset:Number.isInteger(node?.properties?.nd_ui_constant_loras)?node.properties.nd_ui_constant_loras:(z?0:1)};
  };
  const parameter=(i,field)=>{const{node,offset}=target();return powerLoraParams(node,touch).find(p=>p.name===`power_lora_${i+offset}.${field}`);};
- return Array.from({length:5},(_,j)=>['lora','on','strength'].map(field=>{
+ return Array.from({length:Math.max(5,Number(target().node?.properties?.nd_ui_user_lora_count)||5)},(_,j)=>['lora','on','strength'].map(field=>{
   const i=j+1,name=`refine_lora_${i}.${field}`,ptype=field==='lora'?'COMBO':field==='on'?'BOOLEAN':'FLOAT',options={};
   if(field==='lora')Object.defineProperty(options,'values',{enumerable:true,get:()=>parameter(i,field)?.widget?.options?.values||['None']});
   const proxy={name,node:router,type:field==='lora'?'combo':field==='on'?'toggle':'number',options,

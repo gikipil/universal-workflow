@@ -7,6 +7,8 @@ import {factoryDialog,gearIcon} from './factory_dialog.js';
 
 const CSS=`
 .acf-sliders-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.acf-slider-row-head{grid-column:1/-1;display:flex;align-items:center;justify-content:space-between;gap:12px;padding-top:8px;color:#b7a1c8;font-size:12px}
+.acf-slider-remove{padding:6px 10px;border:1px solid #92566f;border-radius:8px;background:#392332;color:#ffb8ce;font:inherit;font-size:12px;cursor:pointer}
 .acf-slider-card{min-width:0;padding:16px;border:1px solid #65517e;border-radius:14px;background:linear-gradient(145deg,#292235,#201f2d)}
 .acf-slider-controls{display:grid;grid-template-columns:76px minmax(0,1fr) 40px;gap:12px;align-items:center;min-width:0}
 .acf-slider-number{width:100%;height:42px;min-width:0;border:1px solid #7a5f91;border-radius:9px;background:#1d1a27;color:#f8d8ff;text-align:center;font-size:15px;font-variant-numeric:tabular-nums;padding:0 4px;box-sizing:border-box;appearance:textfield}
@@ -44,6 +46,15 @@ export const factorysliders_v0216={type:'factorysliders_v0216',label:'Слайд
         function showError(err){if(error){error.textContent=err?.message||String(err);error.hidden=false;}}
         function clearError(){if(error){error.textContent='';error.hidden=true;}}
         function editValue(id,value){const bank=read(),item=bank?.items.find(i=>i.id===id);if(!item)return;if(!Number.isFinite(value)||Math.abs(value)>100)throw Error('Укажи значение от −100 до 100.');const on=item.lora!=='None';if(item.value===value&&item.on===on)return;item.value=value;item.on=on;write(bank);}
+        function removeRow(ids,owner){
+            const remove=()=>{const bank=read();if(bank?.owner!==owner)throw Error('Набор изменился. Открой слайдеры заново.');bank.items=bank.items.filter(item=>!ids.includes(item.id));write(bank);clearError();update();};
+            const bank=read(),items=bank?.items.filter(item=>ids.includes(item.id))||[];
+            if(items.some(item=>item.lora!=='None'||item.value!==0||item.hint||item.min!==-1||item.max!==1)){
+                const confirmation=factoryDialog(ctx,{title:'Удалить ряд?',width:440});confirmation.body.append(el('div','','Настройки двух слайдеров этого ряда будут удалены.'));
+                const cancel=el('button','acf-slider-secondary','Отмена'),removeButton=el('button','acf-slider-remove','Удалить ряд'),message=el('div','acf-slider-error');cancel.type='button';removeButton.type='button';
+                Object.assign(confirmation.footer.style,{display:'flex',gap:'10px',justifyContent:'flex-end',flexWrap:'wrap'});confirmation.footer.append(message,cancel,removeButton);cancel.addEventListener('click',confirmation.close);removeButton.addEventListener('click',()=>{try{remove();confirmation.close();}catch(err){message.textContent=err.message;}});
+            }else try{remove();}catch(err){showError(err);}
+        }
         function configure(id){
             const pack=read(),item=pack?.items.find(i=>i.id===id);if(!item)return;let picker=null;const draft=clone(item),mini=factoryDialog(ctx,{title:'Настройки слайдера',width:560,onClose(){picker?.destroy?.();}});
             const form=el('div','acf-slider-form'),fileLabel=el('label','','LoRA слайдера'),fileBody=el('div'),hintLabel=el('label','','Подсказка под линией'),hint=el('textarea'),bounds=el('div','acf-slider-bounds'),minLabel=el('label','','От'),maxLabel=el('label','','До'),min=el('input'),max=el('input'),validation=el('div','acf-slider-error'),save=el('button','acf-slider-action','Сохранить'),clear=el('button','acf-slider-secondary','Убрать LoRA');
@@ -81,7 +92,10 @@ export const factorysliders_v0216={type:'factorysliders_v0216',label:'Слайд
         function update(){
             const bank=read();button.disabled=!bank;badge.textContent=bank?String(bank.items.length):'—';button.title=bank?`Слайдеры · ${bank.label}`:'Слайдеры недоступны';
             if(!dialog||!bank)return;dialog.heading.textContent=`Слайдеры · ${bank.label}`;const next=JSON.stringify([bank.owner,bank.items.map(i=>i.id)]);
-            if(stamp!==next){stamp=next;grid.replaceChildren();cards=bank.items.map(makeCard);}
+            if(stamp!==next){stamp=next;grid.replaceChildren();cards=[];bank.items.forEach((item,i)=>{
+                if(i>=6&&i%2===0){const row=el('div','acf-slider-row-head'),remove=el('button','acf-slider-remove','Удалить ряд');remove.type='button';remove.setAttribute('aria-label',`Удалить ряд ${i/2+1}`);const ids=bank.items.slice(i,i+2).map(x=>x.id);remove.addEventListener('click',()=>removeRow(ids,bank.owner));row.append(el('span','',`Ряд ${i/2+1}`),remove);grid.append(row);}
+                cards.push(makeCard(item));
+            });}
             bank.items.forEach((item,i)=>cards[i](item));add.disabled=bank.items.length>=128;
         }
         button.addEventListener('click',()=>{

@@ -196,7 +196,7 @@ export const modelpicker = {
                     head.append(search, refresh);
                     const grid = el("div", "ndk-mp-grid");
                     box.append(head, grid);
-                    let directory = "", limit = 400;
+                    let directory = "", limit = 400, loading = true;
                     const nav = el("div");
                     nav.style.cssText = "display:flex;flex-wrap:wrap;gap:6px;padding:8px 0;align-items:center";
                     head.after(nav);
@@ -209,7 +209,11 @@ export const modelpicker = {
                     const draw = () => {
                         const cur = ctx.get("value");
                         const q = input.value.trim();
-                        const listing = modelFolderEntries(ctx.info("value").options || [], directory, q);
+                        // A draft/virtual STRING field has no COMBO options. Its folder
+                        // catalog is still a valid source of model names.
+                        const boundOptions = ctx.info("value").options;
+                        const options = Array.isArray(boundOptions) && boundOptions.length ? boundOptions : [...info.keys()];
+                        const listing = modelFolderEntries(options, directory, q);
                         nav.textContent = "";
                         nav.append(button("📁 Все папки", () => go("")));
                         let path = "";
@@ -231,7 +235,7 @@ export const modelpicker = {
                             c.addEventListener("click", () => go(folder.path)); grid.append(c);
                         }
                         if (!listing.folders.length && !listing.files.length) {
-                            grid.append(el("div", "ndk-pop-empty", ctx.tr("Nothing found"))); return;
+                            grid.append(el("div", "ndk-pop-empty", loading ? "Загрузка…" : ctx.tr("Nothing found"))); return;
                         }
                         for (const o of listing.files.slice(0, limit)) {
                             const c = el("button", `ndk-mp-card${o === cur ? " on" : ""}`); c.type = "button"; c.title = String(o);
@@ -246,8 +250,10 @@ export const modelpicker = {
                     };
                     input.addEventListener("input", draw);
                     input.addEventListener("keydown", (e) => { e.stopPropagation(); if (e.key === "Enter") { const first = grid.querySelector(".ndk-mp-card"); first?.click(); } });
-                    refresh.addEventListener("click", () => load(true).then(draw));
+                    const finish = () => { loading = false; if (box.isConnected) draw(); };
+                    refresh.addEventListener("click", () => { loading = true; draw(); load(true).then(finish); });
                     draw();
+                    load().then(finish);
                     setTimeout(() => input.focus(), 0);
                 },
             });

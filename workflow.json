@@ -5491,7 +5491,15 @@
               "max": 1
             }
           ]
-        }
+        },
+        "nd_ui_user_lora_count": 5,
+        "nd_ui_user_lora_ids": [
+          "user_1",
+          "user_2",
+          "user_3",
+          "user_4",
+          "user_5"
+        ]
       },
       "widgets_values": [
         {},
@@ -7267,7 +7275,15 @@
               "max": 1
             }
           ]
-        }
+        },
+        "nd_ui_user_lora_count": 5,
+        "nd_ui_user_lora_ids": [
+          "user_1",
+          "user_2",
+          "user_3",
+          "user_4",
+          "user_5"
+        ]
       },
       "widgets_values": [
         {},
@@ -7815,7 +7831,15 @@
               "max": 1
             }
           ]
-        }
+        },
+        "nd_ui_user_lora_count": 5,
+        "nd_ui_user_lora_ids": [
+          "user_1",
+          "user_2",
+          "user_3",
+          "user_4",
+          "user_5"
+        ]
       },
       "widgets_values": [
         {},
@@ -10653,7 +10677,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v0.2.16",
+            "text": "🧩 Универсальный воркфлоу · v0.2.17",
             "size": "M",
             "align": "left"
           },
@@ -11011,7 +11035,8 @@
             "head_h": 48,
             "pad": 0,
             "max_h": 0,
-            "shadow": false
+            "shadow": false,
+            "itemCount": 5
           },
           "look": {
             "style": "soft",
@@ -11027,633 +11052,6 @@
             "blur": null,
             "label": null,
             "scale": 115
-          }
-        },
-        {
-          "id": "lora_body",
-          "type": "panel",
-          "page": "p1",
-          "x": 0,
-          "y": 0,
-          "w": 336,
-          "h": 448,
-          "z": 0,
-          "parent": "lora_section",
-          "hidden": false,
-          "locked": true,
-          "slots": {},
-          "props": {
-            "shadow": false
-          },
-          "look": {
-            "style": null,
-            "shape": null,
-            "accent": "#ff6b86",
-            "bg": "#181c23",
-            "field": "#20252d",
-            "text": null,
-            "labelColor": null,
-            "border": "transparent",
-            "radius": 0,
-            "shadow": null,
-            "blur": null,
-            "label": null,
-            "scale": 100
-          }
-        },
-        {
-          "id": "lora_on_1",
-          "type": "toggle",
-          "page": "p1",
-          "x": 12,
-          "y": 12,
-          "w": 56,
-          "h": 72,
-          "z": 2,
-          "parent": "lora_section",
-          "hidden": false,
-          "locked": true,
-          "slots": {
-            "value": {
-              "src": "src_k2module_lora",
-              "kind": "widget",
-              "name": "power_lora_4.on"
-            }
-          },
-          "props": {
-            "text": "",
-            "label": ""
-          },
-          "look": {
-            "style": null,
-            "shape": null,
-            "accent": "#ff6b86",
-            "bg": "#241a23",
-            "field": "#2e1d28",
-            "text": null,
-            "labelColor": "#ff94c0",
-            "border": "#b84765",
-            "radius": 12,
-            "shadow": null,
-            "blur": null,
-            "label": null,
-            "scale": 100
-          }
-        },
-        {
-          "id": "lora_model_1",
-          "type": "modelpicker",
-          "page": "p1",
-          "x": 76,
-          "y": 12,
-          "w": 164,
-          "h": 72,
-          "z": 2,
-          "parent": "lora_section",
-          "hidden": false,
-          "locked": true,
-          "slots": {
-            "value": {
-              "src": "src_k2module_lora",
-              "kind": "widget",
-              "name": "power_lora_4.lora"
-            }
-          },
-          "props": {
-            "folder": "loras",
-            "label": "1 · LoRA"
-          },
-          "look": {
-            "style": null,
-            "shape": null,
-            "accent": "#ff6b86",
-            "bg": "#241a23",
-            "field": "#2e1d28",
-            "text": null,
-            "labelColor": "#ff94c0",
-            "border": "#b84765",
-            "radius": 12,
-            "shadow": null,
-            "blur": null,
-            "label": null,
-            "scale": 100
-          }
-        },
-        {
-          "id": "lora_strength_1",
-          "type": "number",
-          "page": "p1",
-          "x": 248,
-          "y": 12,
-          "w": 76,
-          "h": 72,
-          "z": 2,
-          "parent": "lora_section",
-          "hidden": false,
-          "locked": true,
-          "slots": {
-            "value": {
-              "src": "src_k2module_lora",
-              "kind": "widget",
-              "name": "power_lora_4.strength"
-            }
-          },
-          "props": {
-            "label": "Сила",
-            "buttons": false,
-            "step": 0.05,
-            "decimals": 2
-          },
-          "look": {
-            "style": null,
-            "shape": null,
-            "accent": "#ff6b86",
-            "bg": "#241a23",
-            "field": "#2e1d28",
-            "text": null,
-            "labelColor": "#ff94c0",
-            "border": "#b84765",
-            "radius": 12,
-            "shadow": null,
-            "blur": null,
-            "label": null,
-            "scale": 100
-          }
-        },
-        {
-          "id": "lora_on_2",
-          "type": "toggle",
-          "page": "p1",
-          "x": 12,
-          "y": 100,
-          "w": 56,
-          "h": 72,
-          "z": 2,
-          "parent": "lora_section",
-          "hidden": false,
-          "locked": true,
-          "slots": {
-            "value": {
-              "src": "src_k2module_lora",
-              "kind": "widget",
-              "name": "power_lora_5.on"
-            }
-          },
-          "props": {
-            "text": "",
-            "label": ""
-          },
-          "look": {
-            "style": null,
-            "shape": null,
-            "accent": "#ff6b86",
-            "bg": "#241a23",
-            "field": "#2e1d28",
-            "text": null,
-            "labelColor": "#ff94c0",
-            "border": "#b84765",
-            "radius": 12,
-            "shadow": null,
-            "blur": null,
-            "label": null,
-            "scale": 100
-          }
-        },
-        {
-          "id": "lora_model_2",
-          "type": "modelpicker",
-          "page": "p1",
-          "x": 76,
-          "y": 100,
-          "w": 164,
-          "h": 72,
-          "z": 2,
-          "parent": "lora_section",
-          "hidden": false,
-          "locked": true,
-          "slots": {
-            "value": {
-              "src": "src_k2module_lora",
-              "kind": "widget",
-              "name": "power_lora_5.lora"
-            }
-          },
-          "props": {
-            "folder": "loras",
-            "label": "2 · LoRA"
-          },
-          "look": {
-            "style": null,
-            "shape": null,
-            "accent": "#ff6b86",
-            "bg": "#241a23",
-            "field": "#2e1d28",
-            "text": null,
-            "labelColor": "#ff94c0",
-            "border": "#b84765",
-            "radius": 12,
-            "shadow": null,
-            "blur": null,
-            "label": null,
-            "scale": 100
-          }
-        },
-        {
-          "id": "lora_strength_2",
-          "type": "number",
-          "page": "p1",
-          "x": 248,
-          "y": 100,
-          "w": 76,
-          "h": 72,
-          "z": 2,
-          "parent": "lora_section",
-          "hidden": false,
-          "locked": true,
-          "slots": {
-            "value": {
-              "src": "src_k2module_lora",
-              "kind": "widget",
-              "name": "power_lora_5.strength"
-            }
-          },
-          "props": {
-            "label": "Сила",
-            "buttons": false,
-            "step": 0.05,
-            "decimals": 2
-          },
-          "look": {
-            "style": null,
-            "shape": null,
-            "accent": "#ff6b86",
-            "bg": "#241a23",
-            "field": "#2e1d28",
-            "text": null,
-            "labelColor": "#ff94c0",
-            "border": "#b84765",
-            "radius": 12,
-            "shadow": null,
-            "blur": null,
-            "label": null,
-            "scale": 100
-          }
-        },
-        {
-          "id": "lora_on_3",
-          "type": "toggle",
-          "page": "p1",
-          "x": 12,
-          "y": 188,
-          "w": 56,
-          "h": 72,
-          "z": 2,
-          "parent": "lora_section",
-          "hidden": false,
-          "locked": true,
-          "slots": {
-            "value": {
-              "src": "src_k2module_lora",
-              "kind": "widget",
-              "name": "power_lora_6.on"
-            }
-          },
-          "props": {
-            "text": "",
-            "label": ""
-          },
-          "look": {
-            "style": null,
-            "shape": null,
-            "accent": "#ff6b86",
-            "bg": "#241a23",
-            "field": "#2e1d28",
-            "text": null,
-            "labelColor": "#ff94c0",
-            "border": "#b84765",
-            "radius": 12,
-            "shadow": null,
-            "blur": null,
-            "label": null,
-            "scale": 100
-          }
-        },
-        {
-          "id": "lora_model_3",
-          "type": "modelpicker",
-          "page": "p1",
-          "x": 76,
-          "y": 188,
-          "w": 164,
-          "h": 72,
-          "z": 2,
-          "parent": "lora_section",
-          "hidden": false,
-          "locked": true,
-          "slots": {
-            "value": {
-              "src": "src_k2module_lora",
-              "kind": "widget",
-              "name": "power_lora_6.lora"
-            }
-          },
-          "props": {
-            "folder": "loras",
-            "label": "3 · LoRA"
-          },
-          "look": {
-            "style": null,
-            "shape": null,
-            "accent": "#ff6b86",
-            "bg": "#241a23",
-            "field": "#2e1d28",
-            "text": null,
-            "labelColor": "#ff94c0",
-            "border": "#b84765",
-            "radius": 12,
-            "shadow": null,
-            "blur": null,
-            "label": null,
-            "scale": 100
-          }
-        },
-        {
-          "id": "lora_strength_3",
-          "type": "number",
-          "page": "p1",
-          "x": 248,
-          "y": 188,
-          "w": 76,
-          "h": 72,
-          "z": 2,
-          "parent": "lora_section",
-          "hidden": false,
-          "locked": true,
-          "slots": {
-            "value": {
-              "src": "src_k2module_lora",
-              "kind": "widget",
-              "name": "power_lora_6.strength"
-            }
-          },
-          "props": {
-            "label": "Сила",
-            "buttons": false,
-            "step": 0.05,
-            "decimals": 2
-          },
-          "look": {
-            "style": null,
-            "shape": null,
-            "accent": "#ff6b86",
-            "bg": "#241a23",
-            "field": "#2e1d28",
-            "text": null,
-            "labelColor": "#ff94c0",
-            "border": "#b84765",
-            "radius": 12,
-            "shadow": null,
-            "blur": null,
-            "label": null,
-            "scale": 100
-          }
-        },
-        {
-          "id": "lora_on_4",
-          "type": "toggle",
-          "page": "p1",
-          "x": 12,
-          "y": 276,
-          "w": 56,
-          "h": 72,
-          "z": 2,
-          "parent": "lora_section",
-          "hidden": false,
-          "locked": true,
-          "slots": {
-            "value": {
-              "src": "src_k2module_lora",
-              "kind": "widget",
-              "name": "power_lora_7.on"
-            }
-          },
-          "props": {
-            "text": "",
-            "label": ""
-          },
-          "look": {
-            "style": null,
-            "shape": null,
-            "accent": "#ff6b86",
-            "bg": "#241a23",
-            "field": "#2e1d28",
-            "text": null,
-            "labelColor": "#ff94c0",
-            "border": "#b84765",
-            "radius": 12,
-            "shadow": null,
-            "blur": null,
-            "label": null,
-            "scale": 100
-          }
-        },
-        {
-          "id": "lora_model_4",
-          "type": "modelpicker",
-          "page": "p1",
-          "x": 76,
-          "y": 276,
-          "w": 164,
-          "h": 72,
-          "z": 2,
-          "parent": "lora_section",
-          "hidden": false,
-          "locked": true,
-          "slots": {
-            "value": {
-              "src": "src_k2module_lora",
-              "kind": "widget",
-              "name": "power_lora_7.lora"
-            }
-          },
-          "props": {
-            "folder": "loras",
-            "label": "4 · LoRA"
-          },
-          "look": {
-            "style": null,
-            "shape": null,
-            "accent": "#ff6b86",
-            "bg": "#241a23",
-            "field": "#2e1d28",
-            "text": null,
-            "labelColor": "#ff94c0",
-            "border": "#b84765",
-            "radius": 12,
-            "shadow": null,
-            "blur": null,
-            "label": null,
-            "scale": 100
-          }
-        },
-        {
-          "id": "lora_strength_4",
-          "type": "number",
-          "page": "p1",
-          "x": 248,
-          "y": 276,
-          "w": 76,
-          "h": 72,
-          "z": 2,
-          "parent": "lora_section",
-          "hidden": false,
-          "locked": true,
-          "slots": {
-            "value": {
-              "src": "src_k2module_lora",
-              "kind": "widget",
-              "name": "power_lora_7.strength"
-            }
-          },
-          "props": {
-            "label": "Сила",
-            "buttons": false,
-            "step": 0.05,
-            "decimals": 2
-          },
-          "look": {
-            "style": null,
-            "shape": null,
-            "accent": "#ff6b86",
-            "bg": "#241a23",
-            "field": "#2e1d28",
-            "text": null,
-            "labelColor": "#ff94c0",
-            "border": "#b84765",
-            "radius": 12,
-            "shadow": null,
-            "blur": null,
-            "label": null,
-            "scale": 100
-          }
-        },
-        {
-          "id": "lora_on_5",
-          "type": "toggle",
-          "page": "p1",
-          "x": 12,
-          "y": 364,
-          "w": 56,
-          "h": 72,
-          "z": 2,
-          "parent": "lora_section",
-          "hidden": false,
-          "locked": true,
-          "slots": {
-            "value": {
-              "src": "src_k2module_lora",
-              "kind": "widget",
-              "name": "power_lora_8.on"
-            }
-          },
-          "props": {
-            "text": "",
-            "label": ""
-          },
-          "look": {
-            "style": null,
-            "shape": null,
-            "accent": "#ff6b86",
-            "bg": "#241a23",
-            "field": "#2e1d28",
-            "text": null,
-            "labelColor": "#ff94c0",
-            "border": "#b84765",
-            "radius": 12,
-            "shadow": null,
-            "blur": null,
-            "label": null,
-            "scale": 100
-          }
-        },
-        {
-          "id": "lora_model_5",
-          "type": "modelpicker",
-          "page": "p1",
-          "x": 76,
-          "y": 364,
-          "w": 164,
-          "h": 72,
-          "z": 2,
-          "parent": "lora_section",
-          "hidden": false,
-          "locked": true,
-          "slots": {
-            "value": {
-              "src": "src_k2module_lora",
-              "kind": "widget",
-              "name": "power_lora_8.lora"
-            }
-          },
-          "props": {
-            "folder": "loras",
-            "label": "5 · LoRA"
-          },
-          "look": {
-            "style": null,
-            "shape": null,
-            "accent": "#ff6b86",
-            "bg": "#241a23",
-            "field": "#2e1d28",
-            "text": null,
-            "labelColor": "#ff94c0",
-            "border": "#b84765",
-            "radius": 12,
-            "shadow": null,
-            "blur": null,
-            "label": null,
-            "scale": 100
-          }
-        },
-        {
-          "id": "lora_strength_5",
-          "type": "number",
-          "page": "p1",
-          "x": 248,
-          "y": 364,
-          "w": 76,
-          "h": 72,
-          "z": 2,
-          "parent": "lora_section",
-          "hidden": false,
-          "locked": true,
-          "slots": {
-            "value": {
-              "src": "src_k2module_lora",
-              "kind": "widget",
-              "name": "power_lora_8.strength"
-            }
-          },
-          "props": {
-            "label": "Сила",
-            "buttons": false,
-            "step": 0.05,
-            "decimals": 2
-          },
-          "look": {
-            "style": null,
-            "shape": null,
-            "accent": "#ff6b86",
-            "bg": "#241a23",
-            "field": "#2e1d28",
-            "text": null,
-            "labelColor": "#ff94c0",
-            "border": "#b84765",
-            "radius": 12,
-            "shadow": null,
-            "blur": null,
-            "label": null,
-            "scale": 100
           }
         },
         {
@@ -12234,7 +11632,8 @@
             "head_h": 48,
             "pad": 0,
             "max_h": 0,
-            "shadow": false
+            "shadow": false,
+            "itemCount": 5
           },
           "look": {
             "style": "soft",
@@ -12250,633 +11649,6 @@
             "blur": null,
             "label": null,
             "scale": 115
-          }
-        },
-        {
-          "id": "refine_k_lora_body",
-          "type": "panel",
-          "page": "p1",
-          "x": 0,
-          "y": 0,
-          "w": 336,
-          "h": 448,
-          "z": 0,
-          "parent": "refine_k_lora_section",
-          "hidden": false,
-          "locked": true,
-          "slots": {},
-          "props": {
-            "shadow": false
-          },
-          "look": {
-            "style": null,
-            "shape": null,
-            "accent": "#ff6b86",
-            "bg": "#181c23",
-            "field": "#20252d",
-            "text": null,
-            "labelColor": null,
-            "border": "transparent",
-            "radius": 0,
-            "shadow": null,
-            "blur": null,
-            "label": null,
-            "scale": 100
-          }
-        },
-        {
-          "id": "refine_k_lora_on_1",
-          "type": "toggle",
-          "page": "p1",
-          "x": 12,
-          "y": 12,
-          "w": 56,
-          "h": 72,
-          "z": 2,
-          "parent": "refine_k_lora_section",
-          "hidden": false,
-          "locked": true,
-          "slots": {
-            "value": {
-              "src": "src_k2pass_switch",
-              "kind": "widget",
-              "name": "refine_lora_1.on"
-            }
-          },
-          "props": {
-            "text": "",
-            "label": ""
-          },
-          "look": {
-            "style": null,
-            "shape": null,
-            "accent": "#ff6b86",
-            "bg": "#241a23",
-            "field": "#2e1d28",
-            "text": null,
-            "labelColor": "#ff94c0",
-            "border": "#b84765",
-            "radius": 12,
-            "shadow": null,
-            "blur": null,
-            "label": null,
-            "scale": 100
-          }
-        },
-        {
-          "id": "refine_k_lora_model_1",
-          "type": "modelpicker",
-          "page": "p1",
-          "x": 76,
-          "y": 12,
-          "w": 164,
-          "h": 72,
-          "z": 2,
-          "parent": "refine_k_lora_section",
-          "hidden": false,
-          "locked": true,
-          "slots": {
-            "value": {
-              "src": "src_k2pass_switch",
-              "kind": "widget",
-              "name": "refine_lora_1.lora"
-            }
-          },
-          "props": {
-            "folder": "loras",
-            "label": "1 · LoRA"
-          },
-          "look": {
-            "style": null,
-            "shape": null,
-            "accent": "#ff6b86",
-            "bg": "#241a23",
-            "field": "#2e1d28",
-            "text": null,
-            "labelColor": "#ff94c0",
-            "border": "#b84765",
-            "radius": 12,
-            "shadow": null,
-            "blur": null,
-            "label": null,
-            "scale": 100
-          }
-        },
-        {
-          "id": "refine_k_lora_strength_1",
-          "type": "number",
-          "page": "p1",
-          "x": 248,
-          "y": 12,
-          "w": 76,
-          "h": 72,
-          "z": 2,
-          "parent": "refine_k_lora_section",
-          "hidden": false,
-          "locked": true,
-          "slots": {
-            "value": {
-              "src": "src_k2pass_switch",
-              "kind": "widget",
-              "name": "refine_lora_1.strength"
-            }
-          },
-          "props": {
-            "label": "Сила",
-            "buttons": false,
-            "step": 0.05,
-            "decimals": 2
-          },
-          "look": {
-            "style": null,
-            "shape": null,
-            "accent": "#ff6b86",
-            "bg": "#241a23",
-            "field": "#2e1d28",
-            "text": null,
-            "labelColor": "#ff94c0",
-            "border": "#b84765",
-            "radius": 12,
-            "shadow": null,
-            "blur": null,
-            "label": null,
-            "scale": 100
-          }
-        },
-        {
-          "id": "refine_k_lora_on_2",
-          "type": "toggle",
-          "page": "p1",
-          "x": 12,
-          "y": 100,
-          "w": 56,
-          "h": 72,
-          "z": 2,
-          "parent": "refine_k_lora_section",
-          "hidden": false,
-          "locked": true,
-          "slots": {
-            "value": {
-              "src": "src_k2pass_switch",
-              "kind": "widget",
-              "name": "refine_lora_2.on"
-            }
-          },
-          "props": {
-            "text": "",
-            "label": ""
-          },
-          "look": {
-            "style": null,
-            "shape": null,
-            "accent": "#ff6b86",
-            "bg": "#241a23",
-            "field": "#2e1d28",
-            "text": null,
-            "labelColor": "#ff94c0",
-            "border": "#b84765",
-            "radius": 12,
-            "shadow": null,
-            "blur": null,
-            "label": null,
-            "scale": 100
-          }
-        },
-        {
-          "id": "refine_k_lora_model_2",
-          "type": "modelpicker",
-          "page": "p1",
-          "x": 76,
-          "y": 100,
-          "w": 164,
-          "h": 72,
-          "z": 2,
-          "parent": "refine_k_lora_section",
-          "hidden": false,
-          "locked": true,
-          "slots": {
-            "value": {
-              "src": "src_k2pass_switch",
-              "kind": "widget",
-              "name": "refine_lora_2.lora"
-            }
-          },
-          "props": {
-            "folder": "loras",
-            "label": "2 · LoRA"
-          },
-          "look": {
-            "style": null,
-            "shape": null,
-            "accent": "#ff6b86",
-            "bg": "#241a23",
-            "field": "#2e1d28",
-            "text": null,
-            "labelColor": "#ff94c0",
-            "border": "#b84765",
-            "radius": 12,
-            "shadow": null,
-            "blur": null,
-            "label": null,
-            "scale": 100
-          }
-        },
-        {
-          "id": "refine_k_lora_strength_2",
-          "type": "number",
-          "page": "p1",
-          "x": 248,
-          "y": 100,
-          "w": 76,
-          "h": 72,
-          "z": 2,
-          "parent": "refine_k_lora_section",
-          "hidden": false,
-          "locked": true,
-          "slots": {
-            "value": {
-              "src": "src_k2pass_switch",
-              "kind": "widget",
-              "name": "refine_lora_2.strength"
-            }
-          },
-          "props": {
-            "label": "Сила",
-            "buttons": false,
-            "step": 0.05,
-            "decimals": 2
-          },
-          "look": {
-            "style": null,
-            "shape": null,
-            "accent": "#ff6b86",
-            "bg": "#241a23",
-            "field": "#2e1d28",
-            "text": null,
-            "labelColor": "#ff94c0",
-            "border": "#b84765",
-            "radius": 12,
-            "shadow": null,
-            "blur": null,
-            "label": null,
-            "scale": 100
-          }
-        },
-        {
-          "id": "refine_k_lora_on_3",
-          "type": "toggle",
-          "page": "p1",
-          "x": 12,
-          "y": 188,
-          "w": 56,
-          "h": 72,
-          "z": 2,
-          "parent": "refine_k_lora_section",
-          "hidden": false,
-          "locked": true,
-          "slots": {
-            "value": {
-              "src": "src_k2pass_switch",
-              "kind": "widget",
-              "name": "refine_lora_3.on"
-            }
-          },
-          "props": {
-            "text": "",
-            "label": ""
-          },
-          "look": {
-            "style": null,
-            "shape": null,
-            "accent": "#ff6b86",
-            "bg": "#241a23",
-            "field": "#2e1d28",
-            "text": null,
-            "labelColor": "#ff94c0",
-            "border": "#b84765",
-            "radius": 12,
-            "shadow": null,
-            "blur": null,
-            "label": null,
-            "scale": 100
-          }
-        },
-        {
-          "id": "refine_k_lora_model_3",
-          "type": "modelpicker",
-          "page": "p1",
-          "x": 76,
-          "y": 188,
-          "w": 164,
-          "h": 72,
-          "z": 2,
-          "parent": "refine_k_lora_section",
-          "hidden": false,
-          "locked": true,
-          "slots": {
-            "value": {
-              "src": "src_k2pass_switch",
-              "kind": "widget",
-              "name": "refine_lora_3.lora"
-            }
-          },
-          "props": {
-            "folder": "loras",
-            "label": "3 · LoRA"
-          },
-          "look": {
-            "style": null,
-            "shape": null,
-            "accent": "#ff6b86",
-            "bg": "#241a23",
-            "field": "#2e1d28",
-            "text": null,
-            "labelColor": "#ff94c0",
-            "border": "#b84765",
-            "radius": 12,
-            "shadow": null,
-            "blur": null,
-            "label": null,
-            "scale": 100
-          }
-        },
-        {
-          "id": "refine_k_lora_strength_3",
-          "type": "number",
-          "page": "p1",
-          "x": 248,
-          "y": 188,
-          "w": 76,
-          "h": 72,
-          "z": 2,
-          "parent": "refine_k_lora_section",
-          "hidden": false,
-          "locked": true,
-          "slots": {
-            "value": {
-              "src": "src_k2pass_switch",
-              "kind": "widget",
-              "name": "refine_lora_3.strength"
-            }
-          },
-          "props": {
-            "label": "Сила",
-            "buttons": false,
-            "step": 0.05,
-            "decimals": 2
-          },
-          "look": {
-            "style": null,
-            "shape": null,
-            "accent": "#ff6b86",
-            "bg": "#241a23",
-            "field": "#2e1d28",
-            "text": null,
-            "labelColor": "#ff94c0",
-            "border": "#b84765",
-            "radius": 12,
-            "shadow": null,
-            "blur": null,
-            "label": null,
-            "scale": 100
-          }
-        },
-        {
-          "id": "refine_k_lora_on_4",
-          "type": "toggle",
-          "page": "p1",
-          "x": 12,
-          "y": 276,
-          "w": 56,
-          "h": 72,
-          "z": 2,
-          "parent": "refine_k_lora_section",
-          "hidden": false,
-          "locked": true,
-          "slots": {
-            "value": {
-              "src": "src_k2pass_switch",
-              "kind": "widget",
-              "name": "refine_lora_4.on"
-            }
-          },
-          "props": {
-            "text": "",
-            "label": ""
-          },
-          "look": {
-            "style": null,
-            "shape": null,
-            "accent": "#ff6b86",
-            "bg": "#241a23",
-            "field": "#2e1d28",
-            "text": null,
-            "labelColor": "#ff94c0",
-            "border": "#b84765",
-            "radius": 12,
-            "shadow": null,
-            "blur": null,
-            "label": null,
-            "scale": 100
-          }
-        },
-        {
-          "id": "refine_k_lora_model_4",
-          "type": "modelpicker",
-          "page": "p1",
-          "x": 76,
-          "y": 276,
-          "w": 164,
-          "h": 72,
-          "z": 2,
-          "parent": "refine_k_lora_section",
-          "hidden": false,
-          "locked": true,
-          "slots": {
-            "value": {
-              "src": "src_k2pass_switch",
-              "kind": "widget",
-              "name": "refine_lora_4.lora"
-            }
-          },
-          "props": {
-            "folder": "loras",
-            "label": "4 · LoRA"
-          },
-          "look": {
-            "style": null,
-            "shape": null,
-            "accent": "#ff6b86",
-            "bg": "#241a23",
-            "field": "#2e1d28",
-            "text": null,
-            "labelColor": "#ff94c0",
-            "border": "#b84765",
-            "radius": 12,
-            "shadow": null,
-            "blur": null,
-            "label": null,
-            "scale": 100
-          }
-        },
-        {
-          "id": "refine_k_lora_strength_4",
-          "type": "number",
-          "page": "p1",
-          "x": 248,
-          "y": 276,
-          "w": 76,
-          "h": 72,
-          "z": 2,
-          "parent": "refine_k_lora_section",
-          "hidden": false,
-          "locked": true,
-          "slots": {
-            "value": {
-              "src": "src_k2pass_switch",
-              "kind": "widget",
-              "name": "refine_lora_4.strength"
-            }
-          },
-          "props": {
-            "label": "Сила",
-            "buttons": false,
-            "step": 0.05,
-            "decimals": 2
-          },
-          "look": {
-            "style": null,
-            "shape": null,
-            "accent": "#ff6b86",
-            "bg": "#241a23",
-            "field": "#2e1d28",
-            "text": null,
-            "labelColor": "#ff94c0",
-            "border": "#b84765",
-            "radius": 12,
-            "shadow": null,
-            "blur": null,
-            "label": null,
-            "scale": 100
-          }
-        },
-        {
-          "id": "refine_k_lora_on_5",
-          "type": "toggle",
-          "page": "p1",
-          "x": 12,
-          "y": 364,
-          "w": 56,
-          "h": 72,
-          "z": 2,
-          "parent": "refine_k_lora_section",
-          "hidden": false,
-          "locked": true,
-          "slots": {
-            "value": {
-              "src": "src_k2pass_switch",
-              "kind": "widget",
-              "name": "refine_lora_5.on"
-            }
-          },
-          "props": {
-            "text": "",
-            "label": ""
-          },
-          "look": {
-            "style": null,
-            "shape": null,
-            "accent": "#ff6b86",
-            "bg": "#241a23",
-            "field": "#2e1d28",
-            "text": null,
-            "labelColor": "#ff94c0",
-            "border": "#b84765",
-            "radius": 12,
-            "shadow": null,
-            "blur": null,
-            "label": null,
-            "scale": 100
-          }
-        },
-        {
-          "id": "refine_k_lora_model_5",
-          "type": "modelpicker",
-          "page": "p1",
-          "x": 76,
-          "y": 364,
-          "w": 164,
-          "h": 72,
-          "z": 2,
-          "parent": "refine_k_lora_section",
-          "hidden": false,
-          "locked": true,
-          "slots": {
-            "value": {
-              "src": "src_k2pass_switch",
-              "kind": "widget",
-              "name": "refine_lora_5.lora"
-            }
-          },
-          "props": {
-            "folder": "loras",
-            "label": "5 · LoRA"
-          },
-          "look": {
-            "style": null,
-            "shape": null,
-            "accent": "#ff6b86",
-            "bg": "#241a23",
-            "field": "#2e1d28",
-            "text": null,
-            "labelColor": "#ff94c0",
-            "border": "#b84765",
-            "radius": 12,
-            "shadow": null,
-            "blur": null,
-            "label": null,
-            "scale": 100
-          }
-        },
-        {
-          "id": "refine_k_lora_strength_5",
-          "type": "number",
-          "page": "p1",
-          "x": 248,
-          "y": 364,
-          "w": 76,
-          "h": 72,
-          "z": 2,
-          "parent": "refine_k_lora_section",
-          "hidden": false,
-          "locked": true,
-          "slots": {
-            "value": {
-              "src": "src_k2pass_switch",
-              "kind": "widget",
-              "name": "refine_lora_5.strength"
-            }
-          },
-          "props": {
-            "label": "Сила",
-            "buttons": false,
-            "step": 0.05,
-            "decimals": 2
-          },
-          "look": {
-            "style": null,
-            "shape": null,
-            "accent": "#ff6b86",
-            "bg": "#241a23",
-            "field": "#2e1d28",
-            "text": null,
-            "labelColor": "#ff94c0",
-            "border": "#b84765",
-            "radius": 12,
-            "shadow": null,
-            "blur": null,
-            "label": null,
-            "scale": 100
           }
         },
         {
@@ -13364,6 +12136,84 @@
             "label": "hidden",
             "scale": 100,
             "radius": 0
+          },
+          "adapt": {
+            "mode": "stretch",
+            "max": 10000,
+            "unit": "%",
+            "align": "center"
+          }
+        },
+        {
+          "id": "generation_lora_list",
+          "type": "factoryloralist_v0217",
+          "page": "p1",
+          "x": 0,
+          "y": 0,
+          "w": 336,
+          "h": 504,
+          "z": 2,
+          "parent": "lora_section",
+          "hidden": false,
+          "locked": true,
+          "slots": {
+            "bank": {
+              "src": "src_k2module_lora",
+              "kind": "widget",
+              "name": "factory_user_lora_bank"
+            }
+          },
+          "props": {},
+          "look": {
+            "style": "soft",
+            "bg": "#181c23",
+            "field": "#2e1d28",
+            "accent": "#ff5f94",
+            "text": "#e8eaf0",
+            "border": "#60415f",
+            "labelColor": "#ff8cbb",
+            "radius": 12,
+            "scale": 100,
+            "label": "hidden"
+          },
+          "adapt": {
+            "mode": "stretch",
+            "max": 10000,
+            "unit": "%",
+            "align": "center"
+          }
+        },
+        {
+          "id": "refine_lora_list",
+          "type": "factoryloralist_v0217",
+          "page": "p1",
+          "x": 0,
+          "y": 0,
+          "w": 336,
+          "h": 504,
+          "z": 2,
+          "parent": "refine_k_lora_section",
+          "hidden": false,
+          "locked": true,
+          "slots": {
+            "bank": {
+              "src": "src_k2pass_switch",
+              "kind": "widget",
+              "name": "factory_user_lora_bank"
+            }
+          },
+          "props": {},
+          "look": {
+            "style": "soft",
+            "bg": "#181c23",
+            "field": "#2e1d28",
+            "accent": "#ff5f94",
+            "text": "#e8eaf0",
+            "border": "#60415f",
+            "labelColor": "#ff8cbb",
+            "radius": 12,
+            "scale": 100,
+            "label": "hidden"
           },
           "adapt": {
             "mode": "stretch",

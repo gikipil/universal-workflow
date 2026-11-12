@@ -38,10 +38,19 @@ export function normalizeSliderBank(value) {
 export function writeSliderBank(node,value,touch=()=>{}) {
     const target=sliderTarget(node),before=readSliderBank(node),next=normalizeSliderBank(value);
     if(!target||!before||next.owner!==before.owner)throw Error('Набор изменился. Открой слайдеры выбранного режима заново.');
-    if(next.items.length<before.items.length||before.items.some((item,i)=>next.items[i]?.id!==item.id))throw Error('Порядок существующих слайдеров менять нельзя.');
+    const shrinking=next.items.length<before.items.length;
+    let removed=[];
+    if(shrinking) {
+        const keep=new Set(next.items.map(item=>item.id));
+        removed=before.items.map((item,i)=>keep.has(item.id)?-1:i).filter(i=>i>=0);
+        const survivors=before.items.filter(item=>keep.has(item.id));
+        if(before.items.length-next.items.length!==2||removed.length!==2||removed[0]<6||removed[0]%2||removed[1]!==removed[0]+1||survivors.some((item,i)=>next.items[i]?.id!==item.id))throw Error('Можно удалить только добавленный ряд из двух слайдеров.');
+    } else if(before.items.some((item,i)=>next.items[i]?.id!==item.id))throw Error('Порядок существующих слайдеров менять нельзя.');
     const current=rows(target),start=offset(target),needed=start+next.items.length;
     if(needed>current.length&&typeof target.addNewLoraWidget!=='function')throw Error('Загрузчик rgthree не поддерживает добавление слотов.');
-    if(next.items.length>before.items.length&&current.length!==start+before.items.length)throw Error('Строки загрузчика изменены вручную. Проверь их перед добавлением ряда.');
+    if(next.items.length!==before.items.length&&current.length!==start+before.items.length)throw Error('Строки загрузчика изменены вручную. Проверь их перед изменением числа рядов.');
+    if(shrinking&&typeof target.removeWidget!=='function')throw Error('Загрузчик rgthree не поддерживает удаление слотов.');
+    for(const i of [...removed].reverse())target.removeWidget(current[start+i]);
     while(rows(target).length<needed) {
         const widget=target.addNewLoraWidget();
         widget.value={on:false,lora:'None',strength:0,strengthTwo:null};

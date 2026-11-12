@@ -363,6 +363,15 @@ export class PageView {
             vars: () => f.vars,
             popupHost: () => view.popupHost(),
             setProp(id, v) { f.w.props = f.w.props || {}; f.w.props[id] = v; clearTimeout(writeTimer); writeTimer = setTimeout(touchWorkflow, 300); view.onChange(); },
+            setContentHeight(height, count) {
+                const h=Math.max(44,Math.min(16000,Number(height)||44));
+                const parent=byId(view.ui,f.w.parent),changed=Math.abs(f.w.h-h)>.01;
+                const countChanged=Number.isInteger(count)&&parent&&parent.props?.itemCount!==count;
+                if (!changed&&!countChanged) return;
+                f.w.h=h;if(countChanged){parent.props ||= {};parent.props.itemCount=count;}
+                clearTimeout(writeTimer);writeTimer=setTimeout(touchWorkflow,300);
+                if(!view.contentRelayoutPending){view.contentRelayoutPending=true;queueMicrotask(()=>{view.contentRelayoutPending=false;if(view.alive){view.refresh();view.resize();view.onChange();}});}
+            },
             size: () => { const r = view.rectOf(f.w); return { w: r.w, h: r.h }; },
             isOpen: () => view.isOpen(f.w.id),
             toggle: () => { if (view.mode !== "edit") view.toggleOpen(f.w.id); },
