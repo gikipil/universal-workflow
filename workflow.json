@@ -10298,7 +10298,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v0.2.1",
+            "text": "🧩 Универсальный воркфлоу · v0.2.2",
             "size": "M",
             "align": "left"
           },
@@ -12982,7 +12982,7 @@
         },
         {
           "id": "taskbar",
-          "type": "factorytaskbar",
+          "type": "factorytaskbar_v022",
           "page": "p1",
           "x": 24,
           "y": 72,
@@ -13004,6 +13004,12 @@
             "label": "hidden",
             "radius": 0,
             "scale": 100
+          },
+          "adapt": {
+            "mode": "stretch",
+            "max": 10000,
+            "unit": "%",
+            "align": "left"
           }
         }
       ],
