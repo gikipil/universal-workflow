@@ -10298,7 +10298,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v0.2.6",
+            "text": "🧩 Универсальный воркфлоу · v0.2.7",
             "size": "M",
             "align": "left"
           },
@@ -10401,7 +10401,7 @@
         },
         {
           "id": "generation_mode",
-          "type": "factorygenerationmode_v026",
+          "type": "factorygenmode_v027",
           "page": "p1",
           "x": 36,
           "y": 208,
