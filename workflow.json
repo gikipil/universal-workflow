@@ -5651,7 +5651,7 @@
         }
       },
       "widgets_values": [
-        "A candid photograph of an adult woman sitting at a cafe table by a window, wearing a cotton shirt and jeans. Soft natural daylight, relaxed expression, natural skin texture and individual hair strands, visible fabric weave, everyday photography."
+        "Keep the same person, pose, clothing and scene. Refine natural skin texture, individual hair strands, fabric weave and material detail. Use natural-looking lighting with balanced exposure, believable shadows and skin tones. Maintain a candid photographic appearance, without beauty retouching, waxy skin or excessive sharpening."
       ],
       "color": "#507548",
       "bgcolor": "#709762"
@@ -7169,7 +7169,7 @@
         }
       },
       "widgets_values": [
-        "A candid photograph of an adult woman sitting at a cafe table by a window, wearing a cotton shirt and jeans. Soft natural daylight, relaxed expression, natural skin texture and individual hair strands, visible fabric weave, everyday photography."
+        "Keep the same person, pose, clothing and scene. Refine natural skin texture, individual hair strands, fabric weave and material detail. Use natural-looking lighting with balanced exposure, believable shadows and skin tones. Maintain a candid photographic appearance, without beauty retouching, waxy skin or excessive sharpening."
       ],
       "color": "#507548",
       "bgcolor": "#709762"
@@ -7987,7 +7987,7 @@
         "Node name for S&R": "CLIPTextEncode"
       },
       "widgets_values": [
-        "A candid photograph of an adult woman sitting at a cafe table by a window, wearing a cotton shirt and jeans. Soft natural daylight, relaxed expression, natural skin texture and individual hair strands, visible fabric weave, everyday photography."
+        "Keep the same person, pose, clothing and scene. Refine natural skin texture, individual hair strands, fabric weave and material detail. Use natural-looking lighting with balanced exposure, believable shadows and skin tones. Maintain a candid photographic appearance, without beauty retouching, waxy skin or excessive sharpening."
       ],
       "color": "#507548",
       "bgcolor": "#709762"
@@ -8043,7 +8043,7 @@
         "Node name for S&R": "CLIPTextEncode"
       },
       "widgets_values": [
-        "A candid photograph of an adult woman sitting at a cafe table by a window, wearing a cotton shirt and jeans. Soft natural daylight, relaxed expression, natural skin texture and individual hair strands, visible fabric weave, everyday photography."
+        "Keep the same person, pose, clothing and scene. Refine natural skin texture, individual hair strands, fabric weave and material detail. Use natural-looking lighting with balanced exposure, believable shadows and skin tones. Maintain a candid photographic appearance, without beauty retouching, waxy skin or excessive sharpening."
       ],
       "color": "#507548",
       "bgcolor": "#709762"
@@ -10677,7 +10677,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v0.2.21",
+            "text": "🧩 Универсальный воркфлоу · v0.2.22",
             "size": "M",
             "align": "left"
           },
