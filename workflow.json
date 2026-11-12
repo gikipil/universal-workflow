@@ -10001,7 +10001,7 @@
       "id": "krea_two_pass_ui",
       "page": {
         "w": 1200,
-        "h": 1452,
+        "h": 1200,
         "bg": {
           "type": "gradient",
           "color": "#111318",
@@ -10274,7 +10274,7 @@
           "id": "p1",
           "name": "Первая генерация",
           "kind": "page",
-          "len": 1452,
+          "len": 1200,
           "control": {
             "nodes": [],
             "groups": [],
@@ -10298,7 +10298,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v0.2.13",
+            "text": "🧩 Универсальный воркфлоу · v0.2.14",
             "size": "M",
             "align": "left"
           },
@@ -11308,7 +11308,7 @@
           "x": 384,
           "y": 152,
           "w": 792,
-          "h": 812,
+          "h": 720,
           "z": 0,
           "parent": null,
           "hidden": false,
@@ -11357,7 +11357,7 @@
           "x": 396,
           "y": 208,
           "w": 768,
-          "h": 744,
+          "h": 652,
           "z": 2,
           "parent": null,
           "tab": "result",
@@ -11403,7 +11403,7 @@
           "type": "progress",
           "page": "p1",
           "x": 384,
-          "y": 980,
+          "y": 888,
           "w": 344,
           "h": 56,
           "z": 2,
@@ -11444,7 +11444,7 @@
           "type": "factorysavetoggle_v023",
           "page": "p1",
           "x": 936,
-          "y": 980,
+          "y": 888,
           "w": 240,
           "h": 56,
           "z": 2,
@@ -11491,7 +11491,7 @@
           "type": "prompt",
           "page": "p1",
           "x": 24,
-          "y": 1052,
+          "y": 960,
           "w": 1152,
           "h": 144,
           "z": 2,
@@ -11536,7 +11536,7 @@
           "type": "generate",
           "page": "p1",
           "x": 24,
-          "y": 1372,
+          "y": 1120,
           "w": 1152,
           "h": 56,
           "z": 2,
@@ -11549,7 +11549,7 @@
             "batch": false,
             "stop": true,
             "stopIdle": false,
-            "afterWith": "refine_prompt",
+            "afterWith": "prompt",
             "afterGap": 16
           },
           "look": {
@@ -11610,12 +11610,12 @@
         },
         {
           "id": "refine_mode",
-          "type": "factoryrefinementmode",
+          "type": "factoryrefmode_v0214",
           "page": "p1",
           "x": 36,
           "y": 632,
           "w": 312,
-          "h": 76,
+          "h": 48,
           "z": 2,
           "parent": null,
           "hidden": false,
@@ -11695,6 +11695,11 @@
               "src": "src_k2pass_res_z",
               "kind": "widget",
               "name": "eta"
+            },
+            "detail_prompt": {
+              "src": "src_k2pass_prompt",
+              "kind": "widget",
+              "name": "value"
             }
           },
           "props": {
@@ -11714,6 +11719,12 @@
             "blur": null,
             "label": null,
             "scale": 100
+          },
+          "adapt": {
+            "mode": "stretch",
+            "max": 10000,
+            "unit": "%",
+            "align": "center"
           }
         },
         {
@@ -11721,7 +11732,7 @@
           "type": "seed",
           "page": "p1",
           "x": 36,
-          "y": 720,
+          "y": 692,
           "w": 312,
           "h": 88,
           "z": 2,
@@ -11770,7 +11781,7 @@
           "type": "number",
           "page": "p1",
           "x": 36,
-          "y": 824,
+          "y": 796,
           "w": 312,
           "h": 72,
           "z": 2,
@@ -11806,153 +11817,12 @@
             "blur": null,
             "label": null,
             "scale": 100
-          }
-        },
-        {
-          "id": "refine_settings",
-          "type": "spoiler",
-          "page": "p1",
-          "x": 36,
-          "y": 912,
-          "w": 312,
-          "h": 48,
-          "z": 2,
-          "parent": null,
-          "hidden": false,
-          "locked": true,
-          "slots": {},
-          "props": {
-            "title": "⚙️ Настройки второго прохода",
-            "icon": "settings",
-            "open": false,
-            "remember": false,
-            "head_h": 48,
-            "pad": 0,
-            "max_h": 0,
-            "shadow": false
           },
-          "look": {
-            "style": null,
-            "shape": null,
-            "accent": "#59e68d",
-            "bg": "#181c23",
-            "field": "#20252d",
-            "text": "#8eefb4",
-            "labelColor": "#8eefb4",
-            "border": "#365a45",
-            "radius": 12,
-            "shadow": null,
-            "blur": null,
-            "label": null,
-            "scale": 100
-          }
-        },
-        {
-          "id": "refine_settings_body",
-          "type": "factoryrefinementmode",
-          "page": "p1",
-          "x": 0,
-          "y": 0,
-          "w": 312,
-          "h": 360,
-          "z": 2,
-          "parent": "refine_settings",
-          "hidden": false,
-          "locked": true,
-          "slots": {
-            "mode": {
-              "src": "src_k2pass_switch",
-              "kind": "widget",
-              "name": "index"
-            },
-            "steps": {
-              "src": "src_k2pass_ordinary_k",
-              "kind": "widget",
-              "name": "steps"
-            },
-            "sampler": {
-              "src": "src_k2pass_ordinary_k",
-              "kind": "widget",
-              "name": "sampler_name"
-            },
-            "scheduler": {
-              "src": "src_k2pass_ordinary_k",
-              "kind": "widget",
-              "name": "scheduler"
-            },
-            "res_steps": {
-              "src": "src_k2pass_res_k",
-              "kind": "widget",
-              "name": "steps"
-            },
-            "res_sampler": {
-              "src": "src_k2pass_res_k",
-              "kind": "widget",
-              "name": "sampler_name"
-            },
-            "res_scheduler": {
-              "src": "src_k2pass_res_k",
-              "kind": "widget",
-              "name": "scheduler"
-            },
-            "eta": {
-              "src": "src_k2pass_res_k",
-              "kind": "widget",
-              "name": "eta"
-            },
-            "raw_steps": {
-              "src": "src_k2pass_ordinary_z",
-              "kind": "widget",
-              "name": "steps"
-            },
-            "raw_sampler": {
-              "src": "src_k2pass_ordinary_z",
-              "kind": "widget",
-              "name": "sampler_name"
-            },
-            "raw_scheduler": {
-              "src": "src_k2pass_ordinary_z",
-              "kind": "widget",
-              "name": "scheduler"
-            },
-            "turbo_steps": {
-              "src": "src_k2pass_res_z",
-              "kind": "widget",
-              "name": "steps"
-            },
-            "turbo_sampler": {
-              "src": "src_k2pass_res_z",
-              "kind": "widget",
-              "name": "sampler_name"
-            },
-            "turbo_scheduler": {
-              "src": "src_k2pass_res_z",
-              "kind": "widget",
-              "name": "scheduler"
-            },
-            "raw_cfg": {
-              "src": "src_k2pass_res_z",
-              "kind": "widget",
-              "name": "eta"
-            }
-          },
-          "props": {
-            "part": "settings"
-          },
-          "look": {
-            "style": null,
-            "shape": null,
-            "accent": "#59e68d",
-            "bg": null,
-            "field": "#20252d",
-            "text": null,
-            "labelColor": "#8eefb4",
-            "border": "#365a45",
-            "radius": 12,
-            "shadow": null,
-            "blur": null,
-            "label": null,
-            "scale": 100
+          "adapt": {
+            "mode": "stretch",
+            "max": 10000,
+            "unit": "%",
+            "align": "center"
           }
         },
         {
@@ -11960,7 +11830,7 @@
           "type": "image",
           "page": "p1",
           "x": 24,
-          "y": 988,
+          "y": 896,
           "w": 336,
           "h": 48,
           "z": 1,
@@ -11993,7 +11863,7 @@
           "type": "spoiler",
           "page": "p1",
           "x": 24,
-          "y": 988,
+          "y": 896,
           "w": 336,
           "h": 48,
           "z": 2,
@@ -12661,7 +12531,7 @@
           "x": 396,
           "y": 208,
           "w": 768,
-          "h": 744,
+          "h": 652,
           "z": 2,
           "parent": null,
           "tab": "first",
@@ -12709,7 +12579,7 @@
           "x": 396,
           "y": 208,
           "w": 768,
-          "h": 744,
+          "h": 652,
           "z": 2,
           "parent": null,
           "tab": "compare",
@@ -12766,56 +12636,6 @@
           }
         },
         {
-          "id": "refine_prompt",
-          "type": "prompt",
-          "page": "p1",
-          "x": 24,
-          "y": 1212,
-          "w": 1152,
-          "h": 144,
-          "z": 2,
-          "parent": null,
-          "hidden": false,
-          "locked": true,
-          "slots": {
-            "value": {
-              "src": "src_k2pass_prompt",
-              "kind": "widget",
-              "name": "value"
-            },
-            "enabled": {
-              "src": "src_k2pass_switch",
-              "kind": "widget",
-              "name": "index"
-            }
-          },
-          "props": {
-            "label": "🟢 2 · Описание детализации",
-            "placeholder": "Персонаж, одежда, место, свет и характер фотографии…",
-            "counter": false,
-            "spell": false,
-            "weights": true,
-            "mono": false,
-            "afterWith": "prompt",
-            "afterGap": 16
-          },
-          "look": {
-            "style": null,
-            "shape": null,
-            "accent": "#59e68d",
-            "bg": "#17241c",
-            "field": "#192b22",
-            "text": "#e8eaf0",
-            "labelColor": "#80f2a9",
-            "border": "#3b9e66",
-            "radius": 12,
-            "shadow": null,
-            "blur": null,
-            "label": null,
-            "scale": 100
-          }
-        },
-        {
           "id": "taskbar",
           "type": "factorytaskbar_v022",
           "page": "p1",
@@ -12852,7 +12672,7 @@
           "type": "factoryqueuestatus_v023",
           "page": "p1",
           "x": 740,
-          "y": 980,
+          "y": 888,
           "w": 184,
           "h": 56,
           "z": 2,
@@ -12927,7 +12747,7 @@
           "x": 24,
           "y": 576,
           "w": 336,
-          "h": 396,
+          "h": 304,
           "z": 0,
           "parent": null,
           "hidden": false,
