@@ -10,7 +10,7 @@ export function factoryRefineLoraParams(router,touch=()=>{}){
   const z=mode===3||mode===4;
   const nodes=router.graph?._nodes||router.graph?.nodes||[];
   const node=nodes.find(n=>n.properties?.nd_ui_src?.tag===(z?'k2pass-z_lora':'k2pass-krea_lora'));
-  return{node,offset:z?0:1};
+  return{node,offset:Number.isInteger(node?.properties?.nd_ui_constant_loras)?node.properties.nd_ui_constant_loras:(z?0:1)};
  };
  const parameter=(i,field)=>{const{node,offset}=target();return powerLoraParams(node,touch).find(p=>p.name===`power_lora_${i+offset}.${field}`);};
  return Array.from({length:5},(_,j)=>['lora','on','strength'].map(field=>{

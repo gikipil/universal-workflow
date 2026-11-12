@@ -5323,7 +5323,11 @@
       "properties": {
         "cnr_id": "comfy-core",
         "ver": "0.30.2",
-        "Node name for S&R": "CLIPLoader"
+        "Node name for S&R": "CLIPLoader",
+        "nd_ui_src": {
+          "uid": "src_settings_k_clip",
+          "tag": "settings-k-clip"
+        }
       },
       "widgets_values": [
         "Krea2\\qwen3vl_4b_fp8_scaled.safetensors",
@@ -5374,7 +5378,11 @@
       "properties": {
         "cnr_id": "comfy-core",
         "ver": "0.30.2",
-        "Node name for S&R": "VAELoader"
+        "Node name for S&R": "VAELoader",
+        "nd_ui_src": {
+          "uid": "src_settings_k_vae",
+          "tag": "settings-k-vae"
+        }
       },
       "widgets_values": [
         "Krea2\\qwen_image_vae.safetensors"
@@ -5440,7 +5448,8 @@
         "nd_ui_src": {
           "uid": "src_k2module_lora",
           "tag": "k2module-lora"
-        }
+        },
+        "nd_ui_constant_loras": 3
       },
       "widgets_values": [
         {},
@@ -5450,6 +5459,18 @@
         {
           "on": true,
           "lora": "Krea2\\snofs_krea_v1_6.safetensors",
+          "strength": 1,
+          "strengthTwo": null
+        },
+        {
+          "on": false,
+          "lora": "None",
+          "strength": 1,
+          "strengthTwo": null
+        },
+        {
+          "on": false,
+          "lora": "None",
           "strength": 1,
           "strengthTwo": null
         },
@@ -5816,7 +5837,11 @@
         "ver": "1.0.2610300006",
         "Show Strengths": "Single Strength",
         "Match": "",
-        "Node name for S&R": "Power Lora Loader (rgthree)"
+        "Node name for S&R": "Power Lora Loader (rgthree)",
+        "nd_ui_src": {
+          "uid": "src_settings_k_turbo",
+          "tag": "settings-k-turbo"
+        }
       },
       "widgets_values": [
         {},
@@ -7121,7 +7146,8 @@
         "nd_ui_src": {
           "uid": "src_k2pass_krea_lora",
           "tag": "k2pass-krea_lora"
-        }
+        },
+        "nd_ui_constant_loras": 3
       },
       "widgets_values": [
         {},
@@ -7131,6 +7157,18 @@
         {
           "on": true,
           "lora": "Krea2\\snofs_krea_v1_6.safetensors",
+          "strength": 1,
+          "strengthTwo": null
+        },
+        {
+          "on": false,
+          "lora": "None",
+          "strength": 1,
+          "strengthTwo": null
+        },
+        {
+          "on": false,
+          "lora": "None",
           "strength": 1,
           "strengthTwo": null
         },
@@ -7222,7 +7260,11 @@
         "ver": "1.0.2610300006",
         "Show Strengths": "Single Strength",
         "Match": "",
-        "Node name for S&R": "Power Lora Loader (rgthree)"
+        "Node name for S&R": "Power Lora Loader (rgthree)",
+        "nd_ui_src": {
+          "uid": "src_settings_k_refine_turbo",
+          "tag": "settings-k-refine-turbo"
+        }
       },
       "widgets_values": [
         {},
@@ -7376,7 +7418,11 @@
       "properties": {
         "cnr_id": "comfy-core",
         "ver": "0.30.2",
-        "Node name for S&R": "UNETLoader"
+        "Node name for S&R": "UNETLoader",
+        "nd_ui_src": {
+          "uid": "src_settings_z_model",
+          "tag": "settings-z-model"
+        }
       },
       "widgets_values": [
         "Zimage\\cyberrealisticZImage_v50.safetensors",
@@ -7445,7 +7491,11 @@
       "properties": {
         "cnr_id": "comfy-core",
         "ver": "0.30.2",
-        "Node name for S&R": "CLIPLoader"
+        "Node name for S&R": "CLIPLoader",
+        "nd_ui_src": {
+          "uid": "src_settings_z_clip",
+          "tag": "settings-z-clip"
+        }
       },
       "widgets_values": [
         "ZImage\\zImageTurbo_turbo_txt.safetensors",
@@ -7496,7 +7546,11 @@
       "properties": {
         "cnr_id": "comfy-core",
         "ver": "0.30.2",
-        "Node name for S&R": "VAELoader"
+        "Node name for S&R": "VAELoader",
+        "nd_ui_src": {
+          "uid": "src_settings_z_vae",
+          "tag": "settings-z-vae"
+        }
       },
       "widgets_values": [
         "ZImage\\ae_zimgturbo.safetensors"
@@ -7562,12 +7616,31 @@
         "nd_ui_src": {
           "uid": "src_k2pass_z_lora",
           "tag": "k2pass-z_lora"
-        }
+        },
+        "nd_ui_constant_loras": 3
       },
       "widgets_values": [
         {},
         {
           "type": "PowerLoraLoaderHeaderWidget"
+        },
+        {
+          "on": false,
+          "lora": "None",
+          "strength": 1,
+          "strengthTwo": null
+        },
+        {
+          "on": false,
+          "lora": "None",
+          "strength": 1,
+          "strengthTwo": null
+        },
+        {
+          "on": false,
+          "lora": "None",
+          "strength": 1,
+          "strengthTwo": null
         },
         {
           "on": false,
@@ -10267,6 +10340,54 @@
           "tag": "k2module-save",
           "class": "Image Saver Simple",
           "title": "💾 Итог · сохранение выключено"
+        },
+        {
+          "uid": "src_k2module_model",
+          "tag": "k2module-model",
+          "class": "UNETLoader",
+          "title": "🟢 Krea 2 Raw · общая база"
+        },
+        {
+          "uid": "src_settings_k_clip",
+          "tag": "settings-k-clip",
+          "class": "CLIPLoader",
+          "title": "🟢 Энкодер Krea 2"
+        },
+        {
+          "uid": "src_settings_k_vae",
+          "tag": "settings-k-vae",
+          "class": "VAELoader",
+          "title": "🟢 VAE Krea 2"
+        },
+        {
+          "uid": "src_settings_z_model",
+          "tag": "settings-z-model",
+          "class": "UNETLoader",
+          "title": "🟢 Второй проход · Z-Image Turbo"
+        },
+        {
+          "uid": "src_settings_z_clip",
+          "tag": "settings-z-clip",
+          "class": "CLIPLoader",
+          "title": "🟢 Энкодер Z-Image"
+        },
+        {
+          "uid": "src_settings_z_vae",
+          "tag": "settings-z-vae",
+          "class": "VAELoader",
+          "title": "🟢 VAE Z-Image"
+        },
+        {
+          "uid": "src_settings_k_turbo",
+          "tag": "settings-k-turbo",
+          "class": "Power Lora Loader (rgthree)",
+          "title": "🧩 Служебный Turbo · отдельно от ваших LoRA"
+        },
+        {
+          "uid": "src_settings_k_refine_turbo",
+          "tag": "settings-k-refine-turbo",
+          "class": "Power Lora Loader (rgthree)",
+          "title": "🧩 Второй проход · служебный Turbo"
         }
       ],
       "pages": [
@@ -10298,7 +10419,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v0.2.14",
+            "text": "🧩 Универсальный воркфлоу · v0.2.15",
             "size": "M",
             "align": "left"
           },
@@ -10722,7 +10843,7 @@
             "value": {
               "src": "src_k2module_lora",
               "kind": "widget",
-              "name": "power_lora_2.on"
+              "name": "power_lora_4.on"
             }
           },
           "props": {
@@ -10761,7 +10882,7 @@
             "value": {
               "src": "src_k2module_lora",
               "kind": "widget",
-              "name": "power_lora_2.lora"
+              "name": "power_lora_4.lora"
             }
           },
           "props": {
@@ -10800,7 +10921,7 @@
             "value": {
               "src": "src_k2module_lora",
               "kind": "widget",
-              "name": "power_lora_2.strength"
+              "name": "power_lora_4.strength"
             }
           },
           "props": {
@@ -10841,7 +10962,7 @@
             "value": {
               "src": "src_k2module_lora",
               "kind": "widget",
-              "name": "power_lora_3.on"
+              "name": "power_lora_5.on"
             }
           },
           "props": {
@@ -10880,7 +11001,7 @@
             "value": {
               "src": "src_k2module_lora",
               "kind": "widget",
-              "name": "power_lora_3.lora"
+              "name": "power_lora_5.lora"
             }
           },
           "props": {
@@ -10919,7 +11040,7 @@
             "value": {
               "src": "src_k2module_lora",
               "kind": "widget",
-              "name": "power_lora_3.strength"
+              "name": "power_lora_5.strength"
             }
           },
           "props": {
@@ -10960,7 +11081,7 @@
             "value": {
               "src": "src_k2module_lora",
               "kind": "widget",
-              "name": "power_lora_4.on"
+              "name": "power_lora_6.on"
             }
           },
           "props": {
@@ -10999,7 +11120,7 @@
             "value": {
               "src": "src_k2module_lora",
               "kind": "widget",
-              "name": "power_lora_4.lora"
+              "name": "power_lora_6.lora"
             }
           },
           "props": {
@@ -11038,7 +11159,7 @@
             "value": {
               "src": "src_k2module_lora",
               "kind": "widget",
-              "name": "power_lora_4.strength"
+              "name": "power_lora_6.strength"
             }
           },
           "props": {
@@ -11079,7 +11200,7 @@
             "value": {
               "src": "src_k2module_lora",
               "kind": "widget",
-              "name": "power_lora_5.on"
+              "name": "power_lora_7.on"
             }
           },
           "props": {
@@ -11118,7 +11239,7 @@
             "value": {
               "src": "src_k2module_lora",
               "kind": "widget",
-              "name": "power_lora_5.lora"
+              "name": "power_lora_7.lora"
             }
           },
           "props": {
@@ -11157,7 +11278,7 @@
             "value": {
               "src": "src_k2module_lora",
               "kind": "widget",
-              "name": "power_lora_5.strength"
+              "name": "power_lora_7.strength"
             }
           },
           "props": {
@@ -11198,7 +11319,7 @@
             "value": {
               "src": "src_k2module_lora",
               "kind": "widget",
-              "name": "power_lora_6.on"
+              "name": "power_lora_8.on"
             }
           },
           "props": {
@@ -11237,7 +11358,7 @@
             "value": {
               "src": "src_k2module_lora",
               "kind": "widget",
-              "name": "power_lora_6.lora"
+              "name": "power_lora_8.lora"
             }
           },
           "props": {
@@ -11276,7 +11397,7 @@
             "value": {
               "src": "src_k2module_lora",
               "kind": "widget",
-              "name": "power_lora_6.strength"
+              "name": "power_lora_8.strength"
             }
           },
           "props": {
@@ -12637,7 +12758,7 @@
         },
         {
           "id": "taskbar",
-          "type": "factorytaskbar_v022",
+          "type": "factorytaskbar_v0215",
           "page": "p1",
           "x": 24,
           "y": 72,
@@ -12647,11 +12768,188 @@
           "parent": null,
           "hidden": false,
           "locked": true,
-          "slots": {},
+          "slots": {
+            "k_model": {
+              "src": "src_k2module_model",
+              "kind": "widget",
+              "name": "unet_name"
+            },
+            "k_clip": {
+              "src": "src_settings_k_clip",
+              "kind": "widget",
+              "name": "clip_name"
+            },
+            "k_vae": {
+              "src": "src_settings_k_vae",
+              "kind": "widget",
+              "name": "vae_name"
+            },
+            "z_model": {
+              "src": "src_settings_z_model",
+              "kind": "widget",
+              "name": "unet_name"
+            },
+            "z_clip": {
+              "src": "src_settings_z_clip",
+              "kind": "widget",
+              "name": "clip_name"
+            },
+            "z_vae": {
+              "src": "src_settings_z_vae",
+              "kind": "widget",
+              "name": "vae_name"
+            },
+            "k_turbo": {
+              "src": "src_settings_k_turbo",
+              "kind": "widget",
+              "name": "power_lora_1.lora"
+            },
+            "k_refine_turbo": {
+              "src": "src_settings_k_refine_turbo",
+              "kind": "widget",
+              "name": "power_lora_1.lora"
+            },
+            "kg_1_lora": {
+              "src": "src_k2module_lora",
+              "kind": "widget",
+              "name": "power_lora_1.lora"
+            },
+            "kg_1_on": {
+              "src": "src_k2module_lora",
+              "kind": "widget",
+              "name": "power_lora_1.on"
+            },
+            "kg_1_strength": {
+              "src": "src_k2module_lora",
+              "kind": "widget",
+              "name": "power_lora_1.strength"
+            },
+            "kg_2_lora": {
+              "src": "src_k2module_lora",
+              "kind": "widget",
+              "name": "power_lora_2.lora"
+            },
+            "kg_2_on": {
+              "src": "src_k2module_lora",
+              "kind": "widget",
+              "name": "power_lora_2.on"
+            },
+            "kg_2_strength": {
+              "src": "src_k2module_lora",
+              "kind": "widget",
+              "name": "power_lora_2.strength"
+            },
+            "kg_3_lora": {
+              "src": "src_k2module_lora",
+              "kind": "widget",
+              "name": "power_lora_3.lora"
+            },
+            "kg_3_on": {
+              "src": "src_k2module_lora",
+              "kind": "widget",
+              "name": "power_lora_3.on"
+            },
+            "kg_3_strength": {
+              "src": "src_k2module_lora",
+              "kind": "widget",
+              "name": "power_lora_3.strength"
+            },
+            "kr_1_lora": {
+              "src": "src_k2pass_krea_lora",
+              "kind": "widget",
+              "name": "power_lora_1.lora"
+            },
+            "kr_1_on": {
+              "src": "src_k2pass_krea_lora",
+              "kind": "widget",
+              "name": "power_lora_1.on"
+            },
+            "kr_1_strength": {
+              "src": "src_k2pass_krea_lora",
+              "kind": "widget",
+              "name": "power_lora_1.strength"
+            },
+            "kr_2_lora": {
+              "src": "src_k2pass_krea_lora",
+              "kind": "widget",
+              "name": "power_lora_2.lora"
+            },
+            "kr_2_on": {
+              "src": "src_k2pass_krea_lora",
+              "kind": "widget",
+              "name": "power_lora_2.on"
+            },
+            "kr_2_strength": {
+              "src": "src_k2pass_krea_lora",
+              "kind": "widget",
+              "name": "power_lora_2.strength"
+            },
+            "kr_3_lora": {
+              "src": "src_k2pass_krea_lora",
+              "kind": "widget",
+              "name": "power_lora_3.lora"
+            },
+            "kr_3_on": {
+              "src": "src_k2pass_krea_lora",
+              "kind": "widget",
+              "name": "power_lora_3.on"
+            },
+            "kr_3_strength": {
+              "src": "src_k2pass_krea_lora",
+              "kind": "widget",
+              "name": "power_lora_3.strength"
+            },
+            "zr_1_lora": {
+              "src": "src_k2pass_z_lora",
+              "kind": "widget",
+              "name": "power_lora_1.lora"
+            },
+            "zr_1_on": {
+              "src": "src_k2pass_z_lora",
+              "kind": "widget",
+              "name": "power_lora_1.on"
+            },
+            "zr_1_strength": {
+              "src": "src_k2pass_z_lora",
+              "kind": "widget",
+              "name": "power_lora_1.strength"
+            },
+            "zr_2_lora": {
+              "src": "src_k2pass_z_lora",
+              "kind": "widget",
+              "name": "power_lora_2.lora"
+            },
+            "zr_2_on": {
+              "src": "src_k2pass_z_lora",
+              "kind": "widget",
+              "name": "power_lora_2.on"
+            },
+            "zr_2_strength": {
+              "src": "src_k2pass_z_lora",
+              "kind": "widget",
+              "name": "power_lora_2.strength"
+            },
+            "zr_3_lora": {
+              "src": "src_k2pass_z_lora",
+              "kind": "widget",
+              "name": "power_lora_3.lora"
+            },
+            "zr_3_on": {
+              "src": "src_k2pass_z_lora",
+              "kind": "widget",
+              "name": "power_lora_3.on"
+            },
+            "zr_3_strength": {
+              "src": "src_k2pass_z_lora",
+              "kind": "widget",
+              "name": "power_lora_3.strength"
+            }
+          },
           "props": {
             "glow": "soft",
             "accentA": "#36cfea",
-            "accentB": "#59e68d"
+            "accentB": "#59e68d",
+            "visualProfile": "standard"
           },
           "look": {
             "bg": "transparent",

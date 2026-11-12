@@ -2,10 +2,11 @@
 // Universal Workflow additions/modifications by gikipil, 2026-11-12.
 // Based on ND UI Builder by Ivan Ovchinnikov (Neural Dreamer).
 // User-facing task navigation. Only implemented tasks are shown.
-import {el,icon,popup} from './util.js';
-export const factorytaskbar_v022={
- type:'factorytaskbar_v022',label:'Вкладки задач',icon:'layers',group:'Layout',live:true,
- slots:[],size:{w:1152,h:64,minW:400,minH:64},props:[],fill:true,
+import {el,icon} from './util.js';
+import {openFactorySettings,SETTINGS_SLOTS} from './factory_settings.js';
+export const factorytaskbar_v0215={
+ type:'factorytaskbar_v0215',label:'Вкладки задач',icon:'layers',group:'Layout',live:true,
+ slots:SETTINGS_SLOTS,size:{w:1152,h:64,minW:400,minH:64},props:[],fill:true,
  mount(ctx){
   const row=el('div'),line=el('div'),tab=el('button'),settings=el('button');
   Object.assign(row.style,{position:'relative',display:'flex',alignItems:'flex-end',justifyContent:'space-between',gap:'16px',width:'100%',height:'100%',padding:'6px 0 0 6px',boxSizing:'border-box',isolation:'isolate'});
@@ -32,18 +33,12 @@ export const factorytaskbar_v022={
   }
   settings.addEventListener('pointerenter',()=>{settings.style.borderColor=color().a;settings.style.background='linear-gradient(180deg,#293841,#1a252d)';});
   settings.addEventListener('pointerleave',()=>{settings.style.borderColor='#3f505a';settings.style.background='linear-gradient(180deg,#222b33,#171d24)';});
+  let settingsWindow=null;
   settings.addEventListener('click',()=>{
-   settings.setAttribute('aria-expanded','true');ctx.onPopupClose=()=>settings.setAttribute('aria-expanded','false');
-   popup(ctx,settings,{width:320,maxH:320,build(box,close){
-    box.setAttribute('role','dialog');box.setAttribute('aria-label','Настройки интерфейса');Object.assign(box.style,{padding:'16px',boxSizing:'border-box',border:'1px solid #3b5960',borderRadius:'14px',background:'#181f27',color:'#e8eaf0',boxShadow:'0 12px 36px #0008'});
-    const head=el('div'),title=el('strong','','Настройки интерфейса'),x=el('button','ndk-chip','×');x.type='button';x.setAttribute('aria-label','Закрыть настройки');x.addEventListener('click',close);Object.assign(head.style,{display:'flex',justifyContent:'space-between',alignItems:'center',marginBottom:'18px'});head.append(title,x);
-    const label=el('div','','Свечение активной вкладки');label.style.marginBottom='10px';label.style.fontSize='13px';
-    const choices=el('div');Object.assign(choices.style,{display:'flex',gap:'6px'});
-    const buttons=[];
-    for(const[value,text]of[['off','Выкл.'],['soft','Мягкое'],['bright','Яркое']]){const button=el('button','ndk-chip',text);button.type='button';button.style.flex='1';button.setAttribute('aria-pressed',String(strength()===value));button.classList.toggle('on',strength()===value);button.addEventListener('click',()=>{ctx.setProp('glow',value);show();for(const[b,v]of buttons){b.classList.toggle('on',v===value);b.setAttribute('aria-pressed',String(v===value));}});buttons.push([button,value]);choices.append(button);}
-    box.append(head,label,choices);
-   }});
+   if(settingsWindow){settingsWindow.close();return;}
+   settings.setAttribute('aria-expanded','true');
+   settingsWindow=openFactorySettings(ctx,()=>{settingsWindow=null;settings.setAttribute('aria-expanded','false');show();});
   });
-  show();return{update:show};
+  show();return{update(){show();settingsWindow?.update?.();},destroy(){settingsWindow?.close?.();}};
  }
 };

@@ -6,6 +6,7 @@
 // ND UI — PageView: draws a page of the panel (in the node, in the editor, on the full screen).
 // It keeps one frame per widget, gives each widget its context (ctx), and every frame looks at the bound parameters to keep the widgets in step with the graph.
 
+import {applyAppearanceProfile,appearanceProfile} from "./factory_appearance.js";
 import { applyVars, varsFor, tokensOf, pageBackground, injectKit } from "./kit.js";
 import { defOf, defaultProps } from "./widgets/index.js";
 import { resolveSlot, writeSlot, effectiveLimits, stateLabel } from "./bind.js";
@@ -353,6 +354,12 @@ export class PageView {
                 }
             },
             limits(id) { return effectiveLimits(state(id), f.w.props || {}); },
+            appearance: () => appearanceProfile(view.ui),
+            setAppearance(id) {
+                if (!applyAppearanceProfile(view.ui,id)) return;
+                clearTimeout(writeTimer);writeTimer=setTimeout(touchWorkflow,300);
+                view.refresh();view.resize();view.onChange();
+            },
             vars: () => f.vars,
             popupHost: () => view.popupHost(),
             setProp(id, v) { f.w.props = f.w.props || {}; f.w.props[id] = v; clearTimeout(writeTimer); writeTimer = setTimeout(touchWorkflow, 300); view.onChange(); },
