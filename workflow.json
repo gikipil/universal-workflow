@@ -10298,7 +10298,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v0.2.2",
+            "text": "🧩 Универсальный воркфлоу · v0.2.3",
             "size": "M",
             "align": "left"
           },
@@ -11383,7 +11383,7 @@
           "page": "p1",
           "x": 384,
           "y": 1192,
-          "w": 400,
+          "w": 344,
           "h": 56,
           "z": 2,
           "parent": null,
@@ -11410,15 +11410,21 @@
             "blur": null,
             "label": "hidden",
             "scale": 100
+          },
+          "adapt": {
+            "mode": "stretch",
+            "max": 10000,
+            "unit": "%",
+            "align": "left"
           }
         },
         {
           "id": "save_toggle",
-          "type": "toggle",
+          "type": "factorysavetoggle_v023",
           "page": "p1",
-          "x": 800,
+          "x": 936,
           "y": 1192,
-          "w": 376,
+          "w": 240,
           "h": 56,
           "z": 2,
           "parent": null,
@@ -11451,6 +11457,12 @@
             "blur": null,
             "label": null,
             "scale": 100
+          },
+          "adapt": {
+            "mode": "stretch",
+            "max": 10000,
+            "unit": "%",
+            "align": "left"
           }
         },
         {
@@ -13003,6 +13015,45 @@
             "border": "transparent",
             "label": "hidden",
             "radius": 0,
+            "scale": 100
+          },
+          "adapt": {
+            "mode": "stretch",
+            "max": 10000,
+            "unit": "%",
+            "align": "left"
+          }
+        },
+        {
+          "id": "queue_status",
+          "type": "factoryqueuestatus_v023",
+          "page": "p1",
+          "x": 740,
+          "y": 1192,
+          "w": 184,
+          "h": 56,
+          "z": 2,
+          "parent": null,
+          "hidden": false,
+          "locked": true,
+          "slots": {},
+          "props": {
+            "afterWith": "right_tabs",
+            "afterGap": 16
+          },
+          "look": {
+            "style": null,
+            "shape": null,
+            "accent": "#36cfea",
+            "bg": "#181c23",
+            "field": "#20252d",
+            "text": null,
+            "labelColor": "#65e3f4",
+            "border": "#286f80",
+            "radius": 12,
+            "shadow": null,
+            "blur": null,
+            "label": "hidden",
             "scale": 100
           },
           "adapt": {
