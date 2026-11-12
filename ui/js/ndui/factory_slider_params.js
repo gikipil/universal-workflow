@@ -5,6 +5,7 @@ import {powerLoraParams} from './rgthree_power_params.js';
 
 export const MAX_SLIDERS=128;
 export function sliderTarget(node) {
+    if(node?.properties?.acf_lora_targets){const id=node.properties.acf_lora_targets[Number(node.widgets?.find(w=>w.name==='index')?.value)||0];return node.graph?.getNodeById(id);}
     if(node?.properties?.nd_ui_src?.tag==='k2pass-switch') {
         const mode=Number(node.widgets?.find(w=>w.name==='index')?.value)||0;
         const tag=mode===3||mode===4?'k2pass-z_lora':'k2pass-krea_lora';

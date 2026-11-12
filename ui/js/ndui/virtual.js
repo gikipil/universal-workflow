@@ -1,3 +1,4 @@
+import {localParams} from "./factory_local_params.js";
 import {userLoraBankParams} from "./factory_lora_bank_params.js";
 import {sliderBankParams} from "./factory_slider_params.js";
 // SPDX-License-Identifier: AGPL-3.0-only
@@ -106,7 +107,7 @@ export function modeParams(node, notify = touch) {
 
 export function virtualParams(node) {
     switch (classOf(node)) {
-        case "easy anythingIndexSwitch": return [...factoryRefineLoraParams(node, touch),...sliderBankParams(node,touch),...userLoraBankParams(node,touch)];
+        case "easy anythingIndexSwitch": return [...localParams(node,touch),...factoryRefineLoraParams(node, touch),...sliderBankParams(node,touch),...userLoraBankParams(node,touch)];
         case "Image Saver Simple": return factorySaveParams(node, touch);
         case "NDValueSlider": { const p = sliderParam(node); return p ? [p] : []; }
         case "NDResolution": return ["width", "height"].map((n) => resolutionParam(node, n)).filter(Boolean);

@@ -7,6 +7,8 @@ import {applyVars} from '../kit.js';
 import {APPEARANCE_PROFILES} from '../factory_appearance.js';
 
 const MODEL_FIELDS = [
+    ['local_k_model','Модель Krea Raw · локально','diffusion_models'],['local_k_clip','Энкодер Krea · локально','text_encoders'],['local_k_vae','VAE Krea · локально','vae'],
+    ['local_z_model','Модель Z-Image · локально','diffusion_models'],['local_z_clip','Энкодер Z-Image · локально','text_encoders'],['local_z_vae','VAE Z-Image · локально','vae'],['local_turbo','Turbo-адаптер · локально','loras'],
     ['k_model','Модель Krea Raw','diffusion_models'], ['k_clip','Текстовый энкодер Krea','text_encoders'], ['k_vae','VAE Krea','vae'],
     ['k_turbo','Turbo-адаптер генерации','loras'], ['k_refine_turbo','Turbo-адаптер детализации','loras'],
     ['z_model','Модель Z-Image','diffusion_models'], ['z_clip','Текстовый энкодер Z-Image','text_encoders'], ['z_vae','VAE Z-Image','vae'],
@@ -75,7 +77,8 @@ export function openFactorySettings(ctx, onClose=()=>{}) {
     const krea=card(modelsGrid,'Krea','Общий комплект для генерации и Krea-детализации. Выбирай Raw-модель: Turbo-адаптер подключается в нужных режимах автоматически.');
     const zimage=card(modelsGrid,'Z-Image','Комплект второго прохода. Его модели и LoRA независимы от Krea.');
     const turbo=card(modelsGrid,'Krea · Turbo-адаптеры','Подключаются автоматически в Turbo-режимах. Для каждого этапа можно выбрать свой адаптер.');
-    for (const [key,caption,folder] of MODEL_FIELDS) picker(key.includes('turbo')?turbo:key.startsWith('z_')?zimage:krea,key,caption,folder);
+    const local=card(modelsGrid,'3 · Локальная детализация','Отдельные модели Krea и Z-Image для лица, рук и выбранных областей. Настройки первых двух этапов не меняются.');
+    for (const [key,caption,folder] of MODEL_FIELDS) picker(key.startsWith('local_')?local:key.includes('turbo')?turbo:key.startsWith('z_')?zimage:krea,key,caption,folder);
     models.append(el('h3','acf-settings-subtitle','Постоянные LoRA'));
     models.append(el('p','acf-settings-caption','По три слота на каждый набор. Включённые LoRA действуют во всех режимах своего этапа и не занимают пользовательские слоты на главной странице.'));
     const loraGrid=el('div','acf-settings-grid');loraGrid.style.marginTop='16px';models.append(loraGrid);

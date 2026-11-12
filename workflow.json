@@ -1,9 +1,2317 @@
 {
   "id": "6156223e-7f85-4578-923d-9d05cf820581",
   "revision": 0,
-  "last_node_id": 169,
-  "last_link_id": 133,
+  "last_node_id": 258,
+  "last_link_id": 255,
   "nodes": [
+    {
+      "id": 179,
+      "type": "easy anythingIndexSwitch",
+      "pos": [
+        52,
+        2490
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "collapsed": true,
+        "pinned": true
+      },
+      "order": 179,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "index",
+          "type": "INT",
+          "link": null,
+          "widget": {
+            "name": "index"
+          }
+        },
+        {
+          "name": "value0",
+          "type": "*",
+          "link": 138,
+          "shape": 7
+        },
+        {
+          "name": "value1",
+          "type": "*",
+          "link": 139,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "value",
+          "type": "*",
+          "links": [
+            152,
+            178,
+            204,
+            232
+          ]
+        }
+      ],
+      "title": "Технический выбор энкодера",
+      "properties": {
+        "Node name for S&R": "easy anythingIndexSwitch"
+      },
+      "widgets_values": [
+        0
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 180,
+      "type": "easy anythingIndexSwitch",
+      "pos": [
+        52,
+        2490
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "collapsed": true,
+        "pinned": true
+      },
+      "order": 180,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "index",
+          "type": "INT",
+          "link": null,
+          "widget": {
+            "name": "index"
+          }
+        },
+        {
+          "name": "value0",
+          "type": "*",
+          "link": 140,
+          "shape": 7
+        },
+        {
+          "name": "value1",
+          "type": "*",
+          "link": 141,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "value",
+          "type": "*",
+          "links": [
+            163,
+            189,
+            217,
+            241
+          ]
+        }
+      ],
+      "title": "Технический выбор VAE",
+      "properties": {
+        "Node name for S&R": "easy anythingIndexSwitch"
+      },
+      "widgets_values": [
+        0
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 183,
+      "type": "easy anythingIndexSwitch",
+      "pos": [
+        52,
+        2490
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "collapsed": true,
+        "pinned": true
+      },
+      "order": 183,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "index",
+          "type": "INT",
+          "link": null,
+          "widget": {
+            "name": "index"
+          }
+        },
+        {
+          "name": "value0",
+          "type": "*",
+          "link": 146,
+          "shape": 7
+        },
+        {
+          "name": "value1",
+          "type": "*",
+          "link": 147,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "value",
+          "type": "*",
+          "links": [
+            151,
+            177,
+            203,
+            231
+          ]
+        }
+      ],
+      "title": "Технический набор LoRA · MODEL",
+      "properties": {
+        "Node name for S&R": "easy anythingIndexSwitch",
+        "acf_local_model_source": 178
+      },
+      "widgets_values": [
+        0
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 184,
+      "type": "easy anythingIndexSwitch",
+      "pos": [
+        52,
+        2490
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "collapsed": true,
+        "pinned": true
+      },
+      "order": 184,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "index",
+          "type": "INT",
+          "link": null,
+          "widget": {
+            "name": "index"
+          }
+        },
+        {
+          "name": "value0",
+          "type": "*",
+          "link": 148,
+          "shape": 7
+        },
+        {
+          "name": "value1",
+          "type": "*",
+          "link": 149,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "value",
+          "type": "*",
+          "links": [
+            153,
+            179,
+            205,
+            233
+          ]
+        }
+      ],
+      "title": "Технический набор LoRA · CLIP",
+      "properties": {
+        "Node name for S&R": "easy anythingIndexSwitch",
+        "acf_local_model_source": 178
+      },
+      "widgets_values": [
+        0
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 186,
+      "type": "GetNode",
+      "pos": [
+        1032,
+        2108
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "collapsed": true,
+        "pinned": true
+      },
+      "order": 186,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            157,
+            159,
+            167,
+            170
+          ]
+        }
+      ],
+      "title": "Get_GEN2_RESULT_IMAGE",
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "aux_id": "kijai/ComfyUI-KJNodes",
+        "previousName": "GEN2_RESULT_IMAGE"
+      },
+      "widgets_values": [
+        "LOCAL_MANUAL"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 187,
+      "type": "easy anythingIndexSwitch",
+      "pos": [
+        1032,
+        2108
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "collapsed": true,
+        "pinned": true
+      },
+      "order": 187,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "index",
+          "type": "INT",
+          "link": null,
+          "widget": {
+            "name": "index"
+          }
+        },
+        {
+          "name": "value0",
+          "type": "*",
+          "link": 167,
+          "shape": 7
+        },
+        {
+          "name": "value1",
+          "type": "*",
+          "link": 168,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "value",
+          "type": "IMAGE",
+          "links": [
+            169,
+            171
+          ]
+        }
+      ],
+      "title": "Технический пропуск · face",
+      "properties": {
+        "Node name for S&R": "easy anythingIndexSwitch"
+      },
+      "widgets_values": [
+        0
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 188,
+      "type": "easy anythingIndexSwitch",
+      "pos": [
+        1032,
+        2108
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "collapsed": true,
+        "pinned": true
+      },
+      "order": 188,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "index",
+          "type": "INT",
+          "link": null,
+          "widget": {
+            "name": "index"
+          }
+        },
+        {
+          "name": "value0",
+          "type": "*",
+          "link": 150,
+          "shape": 7
+        },
+        {
+          "name": "value1",
+          "type": "*",
+          "link": 151,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "value",
+          "type": "*",
+          "links": [
+            161
+          ]
+        }
+      ],
+      "title": "Технический выбор LoRA · MODEL",
+      "properties": {
+        "Node name for S&R": "easy anythingIndexSwitch"
+      },
+      "widgets_values": [
+        0
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 189,
+      "type": "easy anythingIndexSwitch",
+      "pos": [
+        1032,
+        2108
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "collapsed": true,
+        "pinned": true
+      },
+      "order": 189,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "index",
+          "type": "INT",
+          "link": null,
+          "widget": {
+            "name": "index"
+          }
+        },
+        {
+          "name": "value0",
+          "type": "*",
+          "link": 152,
+          "shape": 7
+        },
+        {
+          "name": "value1",
+          "type": "*",
+          "link": 153,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "value",
+          "type": "*",
+          "links": [
+            154,
+            162
+          ]
+        }
+      ],
+      "title": "Технический выбор LoRA · CLIP",
+      "properties": {
+        "Node name for S&R": "easy anythingIndexSwitch"
+      },
+      "widgets_values": [
+        0
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 191,
+      "type": "ConditioningZeroOut",
+      "pos": [
+        1032,
+        2108
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "collapsed": true,
+        "pinned": true
+      },
+      "order": 191,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "conditioning",
+          "type": "CONDITIONING",
+          "link": 155
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            165
+          ]
+        }
+      ],
+      "title": "Техническое нулевое условие",
+      "properties": {
+        "Node name for S&R": "ConditioningZeroOut"
+      },
+      "widgets_values": [],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 194,
+      "type": "SegsToCombinedMask",
+      "pos": [
+        1032,
+        2108
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "collapsed": true,
+        "pinned": true
+      },
+      "order": 194,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "segs",
+          "type": "SEGS",
+          "link": 158
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": [
+            173
+          ]
+        }
+      ],
+      "title": "Техническая маска",
+      "properties": {
+        "Node name for S&R": "SegsToCombinedMask"
+      },
+      "widgets_values": [],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 196,
+      "type": "SetNode",
+      "pos": [
+        1032,
+        2108
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "collapsed": true,
+        "pinned": true
+      },
+      "order": 196,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "link": 169
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": []
+        }
+      ],
+      "title": "Set_LOCAL_FACE",
+      "properties": {
+        "Node name for S&R": "SetNode",
+        "aux_id": "kijai/ComfyUI-KJNodes",
+        "previousName": "LOCAL_FACE"
+      },
+      "widgets_values": [
+        "LOCAL_FACE"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 199,
+      "type": "SolidMask",
+      "pos": [
+        1032,
+        2108
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "collapsed": true,
+        "pinned": true
+      },
+      "order": 199,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "value",
+          "type": "FLOAT",
+          "link": null,
+          "widget": {
+            "name": "value"
+          }
+        },
+        {
+          "name": "width",
+          "type": "INT",
+          "link": null,
+          "widget": {
+            "name": "width"
+          }
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "link": null,
+          "widget": {
+            "name": "height"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": [
+            172
+          ]
+        }
+      ],
+      "title": "Техническая пустая маска",
+      "properties": {
+        "Node name for S&R": "SolidMask"
+      },
+      "widgets_values": [
+        0,
+        64,
+        64
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 200,
+      "type": "easy anythingIndexSwitch",
+      "pos": [
+        1032,
+        2108
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "collapsed": true,
+        "pinned": true
+      },
+      "order": 200,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "index",
+          "type": "INT",
+          "link": null,
+          "widget": {
+            "name": "index"
+          }
+        },
+        {
+          "name": "value0",
+          "type": "*",
+          "link": 172,
+          "shape": 7
+        },
+        {
+          "name": "value1",
+          "type": "*",
+          "link": 173,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "value",
+          "type": "*",
+          "links": [
+            174
+          ]
+        }
+      ],
+      "title": "Технический пропуск маски",
+      "properties": {
+        "Node name for S&R": "easy anythingIndexSwitch"
+      },
+      "widgets_values": [
+        0
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 201,
+      "type": "MaskToImage",
+      "pos": [
+        1032,
+        2108
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "collapsed": true,
+        "pinned": true
+      },
+      "order": 201,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "mask",
+          "type": "MASK",
+          "link": 174
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            175
+          ]
+        }
+      ],
+      "title": "Технический просмотр маски",
+      "properties": {
+        "Node name for S&R": "MaskToImage"
+      },
+      "widgets_values": [],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 203,
+      "type": "GetNode",
+      "pos": [
+        2372,
+        2108
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "collapsed": true,
+        "pinned": true
+      },
+      "order": 203,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            183,
+            185,
+            193,
+            196
+          ]
+        }
+      ],
+      "title": "Get_GEN2_RESULT_IMAGE",
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "aux_id": "kijai/ComfyUI-KJNodes",
+        "previousName": "GEN2_RESULT_IMAGE"
+      },
+      "widgets_values": [
+        "LOCAL_FACE"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 204,
+      "type": "easy anythingIndexSwitch",
+      "pos": [
+        2372,
+        2108
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "collapsed": true,
+        "pinned": true
+      },
+      "order": 204,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "index",
+          "type": "INT",
+          "link": null,
+          "widget": {
+            "name": "index"
+          }
+        },
+        {
+          "name": "value0",
+          "type": "*",
+          "link": 193,
+          "shape": 7
+        },
+        {
+          "name": "value1",
+          "type": "*",
+          "link": 194,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "value",
+          "type": "IMAGE",
+          "links": [
+            195,
+            197
+          ]
+        }
+      ],
+      "title": "Технический пропуск · hands",
+      "properties": {
+        "Node name for S&R": "easy anythingIndexSwitch"
+      },
+      "widgets_values": [
+        0
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 205,
+      "type": "easy anythingIndexSwitch",
+      "pos": [
+        2372,
+        2108
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "collapsed": true,
+        "pinned": true
+      },
+      "order": 205,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "index",
+          "type": "INT",
+          "link": null,
+          "widget": {
+            "name": "index"
+          }
+        },
+        {
+          "name": "value0",
+          "type": "*",
+          "link": 176,
+          "shape": 7
+        },
+        {
+          "name": "value1",
+          "type": "*",
+          "link": 177,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "value",
+          "type": "*",
+          "links": [
+            187
+          ]
+        }
+      ],
+      "title": "Технический выбор LoRA · MODEL",
+      "properties": {
+        "Node name for S&R": "easy anythingIndexSwitch"
+      },
+      "widgets_values": [
+        0
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 206,
+      "type": "easy anythingIndexSwitch",
+      "pos": [
+        2372,
+        2108
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "collapsed": true,
+        "pinned": true
+      },
+      "order": 206,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "index",
+          "type": "INT",
+          "link": null,
+          "widget": {
+            "name": "index"
+          }
+        },
+        {
+          "name": "value0",
+          "type": "*",
+          "link": 178,
+          "shape": 7
+        },
+        {
+          "name": "value1",
+          "type": "*",
+          "link": 179,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "value",
+          "type": "*",
+          "links": [
+            180,
+            188
+          ]
+        }
+      ],
+      "title": "Технический выбор LoRA · CLIP",
+      "properties": {
+        "Node name for S&R": "easy anythingIndexSwitch"
+      },
+      "widgets_values": [
+        0
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 208,
+      "type": "ConditioningZeroOut",
+      "pos": [
+        2372,
+        2108
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "collapsed": true,
+        "pinned": true
+      },
+      "order": 208,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "conditioning",
+          "type": "CONDITIONING",
+          "link": 181
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            191
+          ]
+        }
+      ],
+      "title": "Техническое нулевое условие",
+      "properties": {
+        "Node name for S&R": "ConditioningZeroOut"
+      },
+      "widgets_values": [],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 211,
+      "type": "SegsToCombinedMask",
+      "pos": [
+        2372,
+        2108
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "collapsed": true,
+        "pinned": true
+      },
+      "order": 211,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "segs",
+          "type": "SEGS",
+          "link": 184
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": [
+            199
+          ]
+        }
+      ],
+      "title": "Техническая маска",
+      "properties": {
+        "Node name for S&R": "SegsToCombinedMask"
+      },
+      "widgets_values": [],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 213,
+      "type": "SetNode",
+      "pos": [
+        2372,
+        2108
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "collapsed": true,
+        "pinned": true
+      },
+      "order": 213,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "link": 195
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": []
+        }
+      ],
+      "title": "Set_LOCAL_HANDS",
+      "properties": {
+        "Node name for S&R": "SetNode",
+        "aux_id": "kijai/ComfyUI-KJNodes",
+        "previousName": "LOCAL_HANDS"
+      },
+      "widgets_values": [
+        "LOCAL_HANDS"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 216,
+      "type": "SolidMask",
+      "pos": [
+        2372,
+        2108
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "collapsed": true,
+        "pinned": true
+      },
+      "order": 216,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "value",
+          "type": "FLOAT",
+          "link": null,
+          "widget": {
+            "name": "value"
+          }
+        },
+        {
+          "name": "width",
+          "type": "INT",
+          "link": null,
+          "widget": {
+            "name": "width"
+          }
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "link": null,
+          "widget": {
+            "name": "height"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": [
+            198
+          ]
+        }
+      ],
+      "title": "Техническая пустая маска",
+      "properties": {
+        "Node name for S&R": "SolidMask"
+      },
+      "widgets_values": [
+        0,
+        64,
+        64
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 217,
+      "type": "easy anythingIndexSwitch",
+      "pos": [
+        2372,
+        2108
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "collapsed": true,
+        "pinned": true
+      },
+      "order": 217,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "index",
+          "type": "INT",
+          "link": null,
+          "widget": {
+            "name": "index"
+          }
+        },
+        {
+          "name": "value0",
+          "type": "*",
+          "link": 198,
+          "shape": 7
+        },
+        {
+          "name": "value1",
+          "type": "*",
+          "link": 199,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "value",
+          "type": "*",
+          "links": [
+            200
+          ]
+        }
+      ],
+      "title": "Технический пропуск маски",
+      "properties": {
+        "Node name for S&R": "easy anythingIndexSwitch"
+      },
+      "widgets_values": [
+        0
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 218,
+      "type": "MaskToImage",
+      "pos": [
+        2372,
+        2108
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "collapsed": true,
+        "pinned": true
+      },
+      "order": 218,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "mask",
+          "type": "MASK",
+          "link": 200
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            201
+          ]
+        }
+      ],
+      "title": "Технический просмотр маски",
+      "properties": {
+        "Node name for S&R": "MaskToImage"
+      },
+      "widgets_values": [],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 220,
+      "type": "GetNode",
+      "pos": [
+        1032,
+        3308
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "collapsed": true,
+        "pinned": true
+      },
+      "order": 220,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            211,
+            213,
+            221,
+            224
+          ]
+        }
+      ],
+      "title": "Get_GEN2_RESULT_IMAGE",
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "aux_id": "kijai/ComfyUI-KJNodes",
+        "previousName": "GEN2_RESULT_IMAGE"
+      },
+      "widgets_values": [
+        "GEN2_RESULT_IMAGE"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 221,
+      "type": "easy anythingIndexSwitch",
+      "pos": [
+        1032,
+        3308
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "collapsed": true,
+        "pinned": true
+      },
+      "order": 221,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "index",
+          "type": "INT",
+          "link": null,
+          "widget": {
+            "name": "index"
+          }
+        },
+        {
+          "name": "value0",
+          "type": "*",
+          "link": 221,
+          "shape": 7
+        },
+        {
+          "name": "value1",
+          "type": "*",
+          "link": 222,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "value",
+          "type": "IMAGE",
+          "links": [
+            223,
+            225
+          ]
+        }
+      ],
+      "title": "Технический пропуск · sam",
+      "properties": {
+        "Node name for S&R": "easy anythingIndexSwitch"
+      },
+      "widgets_values": [
+        0
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 222,
+      "type": "easy anythingIndexSwitch",
+      "pos": [
+        1032,
+        3308
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "collapsed": true,
+        "pinned": true
+      },
+      "order": 222,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "index",
+          "type": "INT",
+          "link": null,
+          "widget": {
+            "name": "index"
+          }
+        },
+        {
+          "name": "value0",
+          "type": "*",
+          "link": 202,
+          "shape": 7
+        },
+        {
+          "name": "value1",
+          "type": "*",
+          "link": 203,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "value",
+          "type": "*",
+          "links": [
+            215
+          ]
+        }
+      ],
+      "title": "Технический выбор LoRA · MODEL",
+      "properties": {
+        "Node name for S&R": "easy anythingIndexSwitch"
+      },
+      "widgets_values": [
+        0
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 223,
+      "type": "easy anythingIndexSwitch",
+      "pos": [
+        1032,
+        3308
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "collapsed": true,
+        "pinned": true
+      },
+      "order": 223,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "index",
+          "type": "INT",
+          "link": null,
+          "widget": {
+            "name": "index"
+          }
+        },
+        {
+          "name": "value0",
+          "type": "*",
+          "link": 204,
+          "shape": 7
+        },
+        {
+          "name": "value1",
+          "type": "*",
+          "link": 205,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "value",
+          "type": "*",
+          "links": [
+            206,
+            216
+          ]
+        }
+      ],
+      "title": "Технический выбор LoRA · CLIP",
+      "properties": {
+        "Node name for S&R": "easy anythingIndexSwitch"
+      },
+      "widgets_values": [
+        0
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 225,
+      "type": "ConditioningZeroOut",
+      "pos": [
+        1032,
+        3308
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "collapsed": true,
+        "pinned": true
+      },
+      "order": 225,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "conditioning",
+          "type": "CONDITIONING",
+          "link": 207
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            219
+          ]
+        }
+      ],
+      "title": "Техническое нулевое условие",
+      "properties": {
+        "Node name for S&R": "ConditioningZeroOut"
+      },
+      "widgets_values": [],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 231,
+      "type": "SetNode",
+      "pos": [
+        1032,
+        3308
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "collapsed": true,
+        "pinned": true
+      },
+      "order": 231,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "link": 223
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": []
+        }
+      ],
+      "title": "Set_LOCAL_SAM",
+      "properties": {
+        "Node name for S&R": "SetNode",
+        "aux_id": "kijai/ComfyUI-KJNodes",
+        "previousName": "LOCAL_SAM"
+      },
+      "widgets_values": [
+        "LOCAL_SAM"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 234,
+      "type": "SolidMask",
+      "pos": [
+        1032,
+        3308
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "collapsed": true,
+        "pinned": true
+      },
+      "order": 234,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "value",
+          "type": "FLOAT",
+          "link": null,
+          "widget": {
+            "name": "value"
+          }
+        },
+        {
+          "name": "width",
+          "type": "INT",
+          "link": null,
+          "widget": {
+            "name": "width"
+          }
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "link": null,
+          "widget": {
+            "name": "height"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": [
+            226
+          ]
+        }
+      ],
+      "title": "Техническая пустая маска",
+      "properties": {
+        "Node name for S&R": "SolidMask"
+      },
+      "widgets_values": [
+        0,
+        64,
+        64
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 235,
+      "type": "easy anythingIndexSwitch",
+      "pos": [
+        1032,
+        3308
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "collapsed": true,
+        "pinned": true
+      },
+      "order": 235,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "index",
+          "type": "INT",
+          "link": null,
+          "widget": {
+            "name": "index"
+          }
+        },
+        {
+          "name": "value0",
+          "type": "*",
+          "link": 226,
+          "shape": 7
+        },
+        {
+          "name": "value1",
+          "type": "*",
+          "link": 227,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "value",
+          "type": "*",
+          "links": [
+            228
+          ]
+        }
+      ],
+      "title": "Технический пропуск маски",
+      "properties": {
+        "Node name for S&R": "easy anythingIndexSwitch"
+      },
+      "widgets_values": [
+        0
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 236,
+      "type": "MaskToImage",
+      "pos": [
+        1032,
+        3308
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "collapsed": true,
+        "pinned": true
+      },
+      "order": 236,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "mask",
+          "type": "MASK",
+          "link": 228
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            229
+          ]
+        }
+      ],
+      "title": "Технический просмотр маски",
+      "properties": {
+        "Node name for S&R": "MaskToImage"
+      },
+      "widgets_values": [],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 238,
+      "type": "GetNode",
+      "pos": [
+        2372,
+        3308
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "collapsed": true,
+        "pinned": true
+      },
+      "order": 238,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            237,
+            245,
+            248
+          ]
+        }
+      ],
+      "title": "Get_GEN2_RESULT_IMAGE",
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "aux_id": "kijai/ComfyUI-KJNodes",
+        "previousName": "GEN2_RESULT_IMAGE"
+      },
+      "widgets_values": [
+        "LOCAL_SAM"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 239,
+      "type": "easy anythingIndexSwitch",
+      "pos": [
+        2372,
+        3308
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "collapsed": true,
+        "pinned": true
+      },
+      "order": 239,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "index",
+          "type": "INT",
+          "link": null,
+          "widget": {
+            "name": "index"
+          }
+        },
+        {
+          "name": "value0",
+          "type": "*",
+          "link": 245,
+          "shape": 7
+        },
+        {
+          "name": "value1",
+          "type": "*",
+          "link": 246,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "value",
+          "type": "IMAGE",
+          "links": [
+            247,
+            249
+          ]
+        }
+      ],
+      "title": "Технический пропуск · manual",
+      "properties": {
+        "Node name for S&R": "easy anythingIndexSwitch"
+      },
+      "widgets_values": [
+        0
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 240,
+      "type": "easy anythingIndexSwitch",
+      "pos": [
+        2372,
+        3308
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "collapsed": true,
+        "pinned": true
+      },
+      "order": 240,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "index",
+          "type": "INT",
+          "link": null,
+          "widget": {
+            "name": "index"
+          }
+        },
+        {
+          "name": "value0",
+          "type": "*",
+          "link": 230,
+          "shape": 7
+        },
+        {
+          "name": "value1",
+          "type": "*",
+          "link": 231,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "value",
+          "type": "*",
+          "links": [
+            239
+          ]
+        }
+      ],
+      "title": "Технический выбор LoRA · MODEL",
+      "properties": {
+        "Node name for S&R": "easy anythingIndexSwitch"
+      },
+      "widgets_values": [
+        0
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 241,
+      "type": "easy anythingIndexSwitch",
+      "pos": [
+        2372,
+        3308
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "collapsed": true,
+        "pinned": true
+      },
+      "order": 241,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "index",
+          "type": "INT",
+          "link": null,
+          "widget": {
+            "name": "index"
+          }
+        },
+        {
+          "name": "value0",
+          "type": "*",
+          "link": 232,
+          "shape": 7
+        },
+        {
+          "name": "value1",
+          "type": "*",
+          "link": 233,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "value",
+          "type": "*",
+          "links": [
+            234,
+            240
+          ]
+        }
+      ],
+      "title": "Технический выбор LoRA · CLIP",
+      "properties": {
+        "Node name for S&R": "easy anythingIndexSwitch"
+      },
+      "widgets_values": [
+        0
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 243,
+      "type": "ConditioningZeroOut",
+      "pos": [
+        2372,
+        3308
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "collapsed": true,
+        "pinned": true
+      },
+      "order": 243,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "conditioning",
+          "type": "CONDITIONING",
+          "link": 235
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            243
+          ]
+        }
+      ],
+      "title": "Техническое нулевое условие",
+      "properties": {
+        "Node name for S&R": "ConditioningZeroOut"
+      },
+      "widgets_values": [],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 247,
+      "type": "SetNode",
+      "pos": [
+        2372,
+        3308
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "collapsed": true,
+        "pinned": true
+      },
+      "order": 247,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "link": 247
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": []
+        }
+      ],
+      "title": "Set_LOCAL_MANUAL",
+      "properties": {
+        "Node name for S&R": "SetNode",
+        "aux_id": "kijai/ComfyUI-KJNodes",
+        "previousName": "LOCAL_MANUAL"
+      },
+      "widgets_values": [
+        "LOCAL_MANUAL"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 250,
+      "type": "SolidMask",
+      "pos": [
+        2372,
+        3308
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "collapsed": true,
+        "pinned": true
+      },
+      "order": 250,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "value",
+          "type": "FLOAT",
+          "link": null,
+          "widget": {
+            "name": "value"
+          }
+        },
+        {
+          "name": "width",
+          "type": "INT",
+          "link": null,
+          "widget": {
+            "name": "width"
+          }
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "link": null,
+          "widget": {
+            "name": "height"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": [
+            250
+          ]
+        }
+      ],
+      "title": "Техническая пустая маска",
+      "properties": {
+        "Node name for S&R": "SolidMask"
+      },
+      "widgets_values": [
+        0,
+        64,
+        64
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 251,
+      "type": "easy anythingIndexSwitch",
+      "pos": [
+        2372,
+        3308
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "collapsed": true,
+        "pinned": true
+      },
+      "order": 251,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "index",
+          "type": "INT",
+          "link": null,
+          "widget": {
+            "name": "index"
+          }
+        },
+        {
+          "name": "value0",
+          "type": "*",
+          "link": 250,
+          "shape": 7
+        },
+        {
+          "name": "value1",
+          "type": "*",
+          "link": 251,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "value",
+          "type": "*",
+          "links": [
+            252
+          ]
+        }
+      ],
+      "title": "Технический пропуск маски",
+      "properties": {
+        "Node name for S&R": "easy anythingIndexSwitch"
+      },
+      "widgets_values": [
+        0
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 252,
+      "type": "MaskToImage",
+      "pos": [
+        2372,
+        3308
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "collapsed": true,
+        "pinned": true
+      },
+      "order": 252,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "mask",
+          "type": "MASK",
+          "link": 252
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            253
+          ]
+        }
+      ],
+      "title": "Технический просмотр маски",
+      "properties": {
+        "Node name for S&R": "MaskToImage"
+      },
+      "widgets_values": [],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 254,
+      "type": "GetNode",
+      "pos": [
+        52,
+        2490
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "collapsed": true,
+        "pinned": true
+      },
+      "order": 254,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            254
+          ]
+        }
+      ],
+      "title": "Get_LOCAL_HANDS",
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "aux_id": "kijai/ComfyUI-KJNodes",
+        "previousName": "LOCAL_HANDS"
+      },
+      "widgets_values": [
+        "LOCAL_HANDS"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 255,
+      "type": "SetNode",
+      "pos": [
+        52,
+        2490
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "collapsed": true,
+        "pinned": true
+      },
+      "order": 255,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "link": 254
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": []
+        }
+      ],
+      "title": "Set_GEN3_RESULT_IMAGE",
+      "properties": {
+        "Node name for S&R": "SetNode",
+        "aux_id": "kijai/ComfyUI-KJNodes",
+        "previousName": "GEN3_RESULT_IMAGE"
+      },
+      "widgets_values": [
+        "GEN3_RESULT_IMAGE"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 258,
+      "type": "GetNode",
+      "pos": [
+        3752,
+        1940
+      ],
+      "size": [
+        216.663671875,
+        40
+      ],
+      "flags": {
+        "collapsed": true,
+        "pinned": true
+      },
+      "order": 258,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            255
+          ]
+        }
+      ],
+      "title": "Get_GEN2_RESULT_IMAGE",
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "aux_id": "kijai/ComfyUI-KJNodes",
+        "previousName": "GEN2_RESULT_IMAGE"
+      },
+      "widgets_values": [
+        "GEN2_RESULT_IMAGE"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
     {
       "id": 4,
       "type": "SetNode",
@@ -5073,13 +7381,13 @@
           ]
         }
       ],
-      "title": "Get_GEN2_RESULT_IMAGE",
+      "title": "Get_GEN3_RESULT_IMAGE",
       "properties": {
         "Node name for S&R": "GetNode",
         "aux_id": "kijai/ComfyUI-KJNodes"
       },
       "widgets_values": [
-        "GEN2_RESULT_IMAGE"
+        "GEN3_RESULT_IMAGE"
       ],
       "color": "#233",
       "bgcolor": "#355"
@@ -5149,13 +7457,13 @@
           ]
         }
       ],
-      "title": "Get_GEN2_RESULT_IMAGE",
+      "title": "Get_GEN3_RESULT_IMAGE",
       "properties": {
         "Node name for S&R": "GetNode",
         "aux_id": "kijai/ComfyUI-KJNodes"
       },
       "widgets_values": [
-        "GEN2_RESULT_IMAGE"
+        "GEN3_RESULT_IMAGE"
       ],
       "color": "#233",
       "bgcolor": "#355"
@@ -5187,13 +7495,13 @@
           ]
         }
       ],
-      "title": "Get_GEN2_RESULT_IMAGE",
+      "title": "Get_GEN3_RESULT_IMAGE",
       "properties": {
         "Node name for S&R": "GetNode",
         "aux_id": "kijai/ComfyUI-KJNodes"
       },
       "widgets_values": [
-        "GEN2_RESULT_IMAGE"
+        "GEN3_RESULT_IMAGE"
       ],
       "color": "#233",
       "bgcolor": "#355"
@@ -8835,7 +11143,7 @@
           "links": null
         }
       ],
-      "title": "🖼️ Итог двух проходов",
+      "title": "🖼️ Итог всех этапов",
       "properties": {
         "cnr_id": "comfy-core",
         "ver": "0.30.2",
@@ -8887,7 +11195,7 @@
           "links": []
         }
       ],
-      "title": "🔎 Первый проход / итог",
+      "title": "🔎 Первый проход / итог всех этапов",
       "properties": {
         "cnr_id": "rgthree-comfy",
         "ver": "1.0.2610300006",
@@ -9104,6 +11412,3438 @@
       ],
       "color": "#432",
       "bgcolor": "#653"
+    },
+    {
+      "id": 170,
+      "type": "UNETLoader",
+      "pos": [
+        40,
+        1900
+      ],
+      "size": [
+        430,
+        100
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 170,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "unet_name",
+          "type": "COMBO",
+          "link": null,
+          "widget": {
+            "name": "unet_name"
+          }
+        },
+        {
+          "name": "weight_dtype",
+          "type": "COMBO",
+          "link": null,
+          "widget": {
+            "name": "weight_dtype"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            136,
+            142
+          ]
+        }
+      ],
+      "title": "🟢 3 · Z-Image · модель",
+      "properties": {
+        "Node name for S&R": "UNETLoader",
+        "nd_ui_src": {
+          "uid": "src_settings_local_z_model",
+          "tag": "settings-local_z_model"
+        }
+      },
+      "widgets_values": [
+        "Zimage\\cyberrealisticZImage_v50.safetensors",
+        "default"
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 171,
+      "type": "CLIPLoader",
+      "pos": [
+        40,
+        2070
+      ],
+      "size": [
+        430,
+        110
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 171,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip_name",
+          "type": "COMBO",
+          "link": null,
+          "widget": {
+            "name": "clip_name"
+          }
+        },
+        {
+          "name": "type",
+          "type": "COMBO",
+          "link": null,
+          "widget": {
+            "name": "type"
+          }
+        },
+        {
+          "name": "device",
+          "type": "COMBO",
+          "link": null,
+          "widget": {
+            "name": "device"
+          },
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            138,
+            143
+          ]
+        }
+      ],
+      "title": "🟢 3 · Z-Image · энкодер",
+      "properties": {
+        "Node name for S&R": "CLIPLoader",
+        "nd_ui_src": {
+          "uid": "src_settings_local_z_clip",
+          "tag": "settings-local_z_clip"
+        }
+      },
+      "widgets_values": [
+        "ZImage\\zImageTurbo_turbo_txt.safetensors",
+        "lumina2",
+        "default"
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 172,
+      "type": "VAELoader",
+      "pos": [
+        40,
+        2250
+      ],
+      "size": [
+        430,
+        100
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 172,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "vae_name",
+          "type": "COMBO",
+          "link": null,
+          "widget": {
+            "name": "vae_name"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            140
+          ]
+        }
+      ],
+      "title": "🟢 3 · Z-Image · VAE",
+      "properties": {
+        "Node name for S&R": "VAELoader",
+        "nd_ui_src": {
+          "uid": "src_settings_local_z_vae",
+          "tag": "settings-local_z_vae"
+        }
+      },
+      "widgets_values": [
+        "ZImage\\ae_zimgturbo.safetensors"
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 173,
+      "type": "UNETLoader",
+      "pos": [
+        470,
+        1900
+      ],
+      "size": [
+        410,
+        90
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 173,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "unet_name",
+          "type": "COMBO",
+          "link": null,
+          "widget": {
+            "name": "unet_name"
+          }
+        },
+        {
+          "name": "weight_dtype",
+          "type": "COMBO",
+          "link": null,
+          "widget": {
+            "name": "weight_dtype"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            134
+          ]
+        }
+      ],
+      "title": "🟢 3 · Krea Raw · модель",
+      "properties": {
+        "Node name for S&R": "UNETLoader",
+        "nd_ui_src": {
+          "uid": "src_settings_local_k_model",
+          "tag": "settings-local_k_model"
+        }
+      },
+      "widgets_values": [
+        "Krea2\\krea2_raw_fp8_scaled.safetensors",
+        "default"
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 174,
+      "type": "CLIPLoader",
+      "pos": [
+        470,
+        2070
+      ],
+      "size": [
+        410,
+        110
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 174,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip_name",
+          "type": "COMBO",
+          "link": null,
+          "widget": {
+            "name": "clip_name"
+          }
+        },
+        {
+          "name": "type",
+          "type": "COMBO",
+          "link": null,
+          "widget": {
+            "name": "type"
+          }
+        },
+        {
+          "name": "device",
+          "type": "COMBO",
+          "link": null,
+          "widget": {
+            "name": "device"
+          },
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            139,
+            145
+          ]
+        }
+      ],
+      "title": "🟢 3 · Krea · энкодер",
+      "properties": {
+        "Node name for S&R": "CLIPLoader",
+        "nd_ui_src": {
+          "uid": "src_settings_local_k_clip",
+          "tag": "settings-local_k_clip"
+        }
+      },
+      "widgets_values": [
+        "Krea2\\qwen3vl_4b_fp8_scaled.safetensors",
+        "krea2",
+        "default"
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 175,
+      "type": "VAELoader",
+      "pos": [
+        470,
+        2250
+      ],
+      "size": [
+        410,
+        80
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 175,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "vae_name",
+          "type": "COMBO",
+          "link": null,
+          "widget": {
+            "name": "vae_name"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            141
+          ]
+        }
+      ],
+      "title": "🟢 3 · Krea · VAE",
+      "properties": {
+        "Node name for S&R": "VAELoader",
+        "nd_ui_src": {
+          "uid": "src_settings_local_k_vae",
+          "tag": "settings-local_k_vae"
+        }
+      },
+      "widgets_values": [
+        "Krea2\\qwen_image_vae.safetensors"
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 176,
+      "type": "Power Lora Loader (rgthree)",
+      "pos": [
+        470,
+        2420
+      ],
+      "size": [
+        430,
+        180
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 176,
+      "mode": 0,
+      "inputs": [
+        {
+          "dir": 3,
+          "name": "model",
+          "type": "MODEL",
+          "link": 134
+        },
+        {
+          "dir": 3,
+          "name": "clip",
+          "type": "CLIP",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "dir": 4,
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            135
+          ]
+        },
+        {
+          "dir": 4,
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": []
+        }
+      ],
+      "title": "🧩 3 · Krea · служебный Turbo",
+      "properties": {
+        "cnr_id": "rgthree-comfy",
+        "ver": "1.0.2610300006",
+        "Show Strengths": "Single Strength",
+        "Match": "",
+        "Node name for S&R": "Power Lora Loader (rgthree)",
+        "nd_ui_src": {
+          "uid": "src_settings_local_turbo",
+          "tag": "settings-local_turbo"
+        }
+      },
+      "widgets_values": [
+        {},
+        {
+          "type": "PowerLoraLoaderHeaderWidget"
+        },
+        {
+          "on": true,
+          "lora": "Krea2\\krea2_turbo_lora_rank_64_bf16.safetensors",
+          "strength": 1,
+          "strengthTwo": null
+        },
+        {},
+        ""
+      ],
+      "color": "#323",
+      "bgcolor": "#535"
+    },
+    {
+      "id": 177,
+      "type": "Krea2ModelSampling",
+      "pos": [
+        470,
+        2640
+      ],
+      "size": [
+        330,
+        240
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 177,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 135
+        },
+        {
+          "name": "sampling_mode",
+          "type": "COMBO",
+          "link": null,
+          "widget": {
+            "name": "sampling_mode"
+          }
+        },
+        {
+          "name": "width",
+          "type": "INT",
+          "link": null,
+          "widget": {
+            "name": "width"
+          }
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "link": null,
+          "widget": {
+            "name": "height"
+          }
+        },
+        {
+          "name": "manual_shift",
+          "type": "FLOAT",
+          "link": null,
+          "widget": {
+            "name": "manual_shift"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            137,
+            144
+          ]
+        }
+      ],
+      "title": "🟢 3 · Krea Turbo · расписание",
+      "properties": {
+        "Node name for S&R": "Krea2ModelSampling"
+      },
+      "widgets_values": [
+        "turbo_fixed",
+        1024,
+        1536,
+        1.15
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 178,
+      "type": "easy anythingIndexSwitch",
+      "pos": [
+        40,
+        2450
+      ],
+      "size": [
+        330,
+        240
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 178,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "index",
+          "type": "INT",
+          "link": null,
+          "widget": {
+            "name": "index"
+          }
+        },
+        {
+          "name": "value0",
+          "type": "*",
+          "link": 136,
+          "shape": 7
+        },
+        {
+          "name": "value1",
+          "type": "*",
+          "link": 137,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "value",
+          "type": "*",
+          "links": [
+            150,
+            176,
+            202,
+            230
+          ]
+        }
+      ],
+      "title": "🟢 3 · Модель: 0 Z-Image / 1 Krea",
+      "properties": {
+        "Node name for S&R": "easy anythingIndexSwitch",
+        "nd_ui_src": {
+          "uid": "src_local_controller",
+          "tag": "local-controller"
+        },
+        "acf_lora_targets": [
+          181,
+          182
+        ],
+        "acf_local": {
+          "order": [
+            "sam",
+            "manual",
+            "face",
+            "hands"
+          ],
+          "clip": 179,
+          "vae": 180,
+          "loraModel": 183,
+          "loraClip": 184,
+          "seed": 185,
+          "face": {
+            "input": 186,
+            "gate": 187,
+            "model": 188,
+            "clip": 189,
+            "text": 190,
+            "detail": 195,
+            "segs": 193,
+            "detect": 193,
+            "maskGate": 200,
+            "maskPreview": 202,
+            "before": 197,
+            "after": 198
+          },
+          "hands": {
+            "input": 203,
+            "gate": 204,
+            "model": 205,
+            "clip": 206,
+            "text": 207,
+            "detail": 212,
+            "segs": 210,
+            "detect": 210,
+            "maskGate": 217,
+            "maskPreview": 219,
+            "before": 214,
+            "after": 215
+          },
+          "sam": {
+            "input": 220,
+            "gate": 221,
+            "model": 222,
+            "clip": 223,
+            "text": 224,
+            "detail": 230,
+            "segs": 229,
+            "detect": 228,
+            "maskGate": 235,
+            "maskPreview": 237,
+            "before": 232,
+            "after": 233,
+            "target": 227
+          },
+          "manual": {
+            "input": 238,
+            "gate": 239,
+            "model": 240,
+            "clip": 241,
+            "text": 242,
+            "detail": 246,
+            "segs": 245,
+            "detect": 244,
+            "maskGate": 251,
+            "maskPreview": 253,
+            "before": 248,
+            "after": 249,
+            "file": 244
+          },
+          "final": 254
+        }
+      },
+      "widgets_values": [
+        0
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 181,
+      "type": "Power Lora Loader (rgthree)",
+      "pos": [
+        40,
+        2800
+      ],
+      "size": [
+        410,
+        420
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 181,
+      "mode": 0,
+      "inputs": [
+        {
+          "dir": 3,
+          "name": "model",
+          "type": "MODEL",
+          "link": 142
+        },
+        {
+          "dir": 3,
+          "name": "clip",
+          "type": "CLIP",
+          "link": 143
+        }
+      ],
+      "outputs": [
+        {
+          "dir": 4,
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            146
+          ]
+        },
+        {
+          "dir": 4,
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            148
+          ]
+        }
+      ],
+      "title": "🧩 3 · Пользовательские LoRA Z-Image",
+      "properties": {
+        "cnr_id": "rgthree-comfy",
+        "ver": "1.0.2610300006",
+        "Show Strengths": "Single Strength",
+        "Match": "",
+        "Node name for S&R": "Power Lora Loader (rgthree)",
+        "nd_ui_constant_loras": 0,
+        "nd_ui_user_lora_count": 5,
+        "nd_ui_user_lora_ids": [
+          "user_1",
+          "user_2",
+          "user_3",
+          "user_4",
+          "user_5"
+        ],
+        "nd_ui_slider_offset": 5,
+        "nd_ui_src": {
+          "uid": "src_local_z-lora",
+          "tag": "local-z-lora"
+        }
+      },
+      "widgets_values": [
+        {},
+        {
+          "type": "PowerLoraLoaderHeaderWidget"
+        },
+        {
+          "on": false,
+          "lora": "None",
+          "strength": 1,
+          "strengthTwo": null
+        },
+        {
+          "on": false,
+          "lora": "None",
+          "strength": 1,
+          "strengthTwo": null
+        },
+        {
+          "on": false,
+          "lora": "None",
+          "strength": 1,
+          "strengthTwo": null
+        },
+        {
+          "on": false,
+          "lora": "None",
+          "strength": 1,
+          "strengthTwo": null
+        },
+        {
+          "on": false,
+          "lora": "None",
+          "strength": 1,
+          "strengthTwo": null
+        },
+        {},
+        ""
+      ],
+      "color": "#323",
+      "bgcolor": "#535"
+    },
+    {
+      "id": 182,
+      "type": "Power Lora Loader (rgthree)",
+      "pos": [
+        470,
+        2900
+      ],
+      "size": [
+        410,
+        420
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 182,
+      "mode": 0,
+      "inputs": [
+        {
+          "dir": 3,
+          "name": "model",
+          "type": "MODEL",
+          "link": 144
+        },
+        {
+          "dir": 3,
+          "name": "clip",
+          "type": "CLIP",
+          "link": 145
+        }
+      ],
+      "outputs": [
+        {
+          "dir": 4,
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            147
+          ]
+        },
+        {
+          "dir": 4,
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            149
+          ]
+        }
+      ],
+      "title": "🧩 3 · Пользовательские LoRA Krea",
+      "properties": {
+        "cnr_id": "rgthree-comfy",
+        "ver": "1.0.2610300006",
+        "Show Strengths": "Single Strength",
+        "Match": "",
+        "Node name for S&R": "Power Lora Loader (rgthree)",
+        "nd_ui_constant_loras": 0,
+        "nd_ui_user_lora_count": 5,
+        "nd_ui_user_lora_ids": [
+          "user_1",
+          "user_2",
+          "user_3",
+          "user_4",
+          "user_5"
+        ],
+        "nd_ui_slider_offset": 5,
+        "nd_ui_src": {
+          "uid": "src_local_k-lora",
+          "tag": "local-k-lora"
+        }
+      },
+      "widgets_values": [
+        {},
+        {
+          "type": "PowerLoraLoaderHeaderWidget"
+        },
+        {
+          "on": false,
+          "lora": "None",
+          "strength": 1,
+          "strengthTwo": null
+        },
+        {
+          "on": false,
+          "lora": "None",
+          "strength": 1,
+          "strengthTwo": null
+        },
+        {
+          "on": false,
+          "lora": "None",
+          "strength": 1,
+          "strengthTwo": null
+        },
+        {
+          "on": false,
+          "lora": "None",
+          "strength": 1,
+          "strengthTwo": null
+        },
+        {
+          "on": false,
+          "lora": "None",
+          "strength": 1,
+          "strengthTwo": null
+        },
+        {},
+        ""
+      ],
+      "color": "#323",
+      "bgcolor": "#535"
+    },
+    {
+      "id": 185,
+      "type": "Seed (rgthree)",
+      "pos": [
+        40,
+        3300
+      ],
+      "size": [
+        330,
+        130
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 185,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "seed",
+          "type": "INT",
+          "link": null,
+          "widget": {
+            "name": "seed"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "SEED",
+          "type": "INT",
+          "links": [
+            166,
+            192,
+            220,
+            244
+          ]
+        }
+      ],
+      "title": "🎲 3 · Независимый Seed",
+      "properties": {
+        "Node name for S&R": "Seed (rgthree)"
+      },
+      "widgets_values": [
+        42
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 190,
+      "type": "CLIPTextEncode",
+      "pos": [
+        1020,
+        2060
+      ],
+      "size": [
+        350,
+        230
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 190,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": null,
+          "widget": {
+            "name": "text"
+          }
+        },
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 154
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            155,
+            164
+          ]
+        }
+      ],
+      "title": "✍️ face · промт",
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "Natural photographic detail, realistic texture and material, consistent identity and proportions, no beauty retouching or excessive sharpening. Match the surrounding lighting and color."
+      ],
+      "color": "#507548",
+      "bgcolor": "#709762"
+    },
+    {
+      "id": 192,
+      "type": "UltralyticsDetectorProvider",
+      "pos": [
+        1020,
+        2330
+      ],
+      "size": [
+        330,
+        240
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 192,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model_name",
+          "type": "COMBO",
+          "link": null,
+          "widget": {
+            "name": "model_name"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "BBOX_DETECTOR",
+          "type": "BBOX_DETECTOR",
+          "links": [
+            156
+          ]
+        },
+        {
+          "name": "SEGM_DETECTOR",
+          "type": "SEGM_DETECTOR",
+          "links": []
+        }
+      ],
+      "title": "🟢 Детектор face",
+      "properties": {
+        "Node name for S&R": "UltralyticsDetectorProvider"
+      },
+      "widgets_values": [
+        "bbox/face_yolov8m.pt"
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 193,
+      "type": "BboxDetectorSEGS",
+      "pos": [
+        1020,
+        2520
+      ],
+      "size": [
+        330,
+        240
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 193,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "bbox_detector",
+          "type": "BBOX_DETECTOR",
+          "link": 156
+        },
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 157
+        },
+        {
+          "name": "threshold",
+          "type": "FLOAT",
+          "link": null,
+          "widget": {
+            "name": "threshold"
+          }
+        },
+        {
+          "name": "dilation",
+          "type": "INT",
+          "link": null,
+          "widget": {
+            "name": "dilation"
+          }
+        },
+        {
+          "name": "crop_factor",
+          "type": "FLOAT",
+          "link": null,
+          "widget": {
+            "name": "crop_factor"
+          }
+        },
+        {
+          "name": "drop_size",
+          "type": "INT",
+          "link": null,
+          "widget": {
+            "name": "drop_size"
+          }
+        },
+        {
+          "name": "labels",
+          "type": "STRING",
+          "link": null,
+          "widget": {
+            "name": "labels"
+          }
+        },
+        {
+          "name": "detailer_hook",
+          "type": "DETAILER_HOOK",
+          "link": null,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "SEGS",
+          "type": "SEGS",
+          "links": [
+            158,
+            160
+          ]
+        }
+      ],
+      "title": "🟢 Области face",
+      "properties": {
+        "Node name for S&R": "BboxDetectorSEGS"
+      },
+      "widgets_values": [
+        0.5,
+        8,
+        2.5,
+        10,
+        "all"
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 195,
+      "type": "DetailerForEach",
+      "pos": [
+        1450,
+        2060
+      ],
+      "size": [
+        360,
+        520
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 195,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 159
+        },
+        {
+          "name": "segs",
+          "type": "SEGS",
+          "link": 160
+        },
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 161
+        },
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 162
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 163
+        },
+        {
+          "name": "guide_size",
+          "type": "FLOAT",
+          "link": null,
+          "widget": {
+            "name": "guide_size"
+          }
+        },
+        {
+          "name": "guide_size_for",
+          "type": "BOOLEAN",
+          "link": null,
+          "widget": {
+            "name": "guide_size_for"
+          }
+        },
+        {
+          "name": "max_size",
+          "type": "FLOAT",
+          "link": null,
+          "widget": {
+            "name": "max_size"
+          }
+        },
+        {
+          "name": "seed",
+          "type": "INT",
+          "link": 166,
+          "widget": {
+            "name": "seed"
+          }
+        },
+        {
+          "name": "steps",
+          "type": "INT",
+          "link": null,
+          "widget": {
+            "name": "steps"
+          }
+        },
+        {
+          "name": "cfg",
+          "type": "FLOAT",
+          "link": null,
+          "widget": {
+            "name": "cfg"
+          }
+        },
+        {
+          "name": "sampler_name",
+          "type": "COMBO",
+          "link": null,
+          "widget": {
+            "name": "sampler_name"
+          }
+        },
+        {
+          "name": "scheduler",
+          "type": "COMBO",
+          "link": null,
+          "widget": {
+            "name": "scheduler"
+          }
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 164
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 165
+        },
+        {
+          "name": "denoise",
+          "type": "FLOAT",
+          "link": null,
+          "widget": {
+            "name": "denoise"
+          }
+        },
+        {
+          "name": "feather",
+          "type": "INT",
+          "link": null,
+          "widget": {
+            "name": "feather"
+          }
+        },
+        {
+          "name": "noise_mask",
+          "type": "BOOLEAN",
+          "link": null,
+          "widget": {
+            "name": "noise_mask"
+          }
+        },
+        {
+          "name": "force_inpaint",
+          "type": "BOOLEAN",
+          "link": null,
+          "widget": {
+            "name": "force_inpaint"
+          }
+        },
+        {
+          "name": "wildcard",
+          "type": "STRING",
+          "link": null,
+          "widget": {
+            "name": "wildcard"
+          }
+        },
+        {
+          "name": "cycle",
+          "type": "INT",
+          "link": null,
+          "widget": {
+            "name": "cycle"
+          }
+        },
+        {
+          "name": "detailer_hook",
+          "type": "DETAILER_HOOK",
+          "link": null,
+          "shape": 7
+        },
+        {
+          "name": "inpaint_model",
+          "type": "BOOLEAN",
+          "link": null,
+          "widget": {
+            "name": "inpaint_model"
+          },
+          "shape": 7
+        },
+        {
+          "name": "noise_mask_feather",
+          "type": "INT",
+          "link": null,
+          "widget": {
+            "name": "noise_mask_feather"
+          },
+          "shape": 7
+        },
+        {
+          "name": "scheduler_func_opt",
+          "type": "SCHEDULER_FUNC",
+          "link": null,
+          "shape": 7
+        },
+        {
+          "name": "tiled_encode",
+          "type": "BOOLEAN",
+          "link": null,
+          "widget": {
+            "name": "tiled_encode"
+          },
+          "shape": 7
+        },
+        {
+          "name": "tiled_decode",
+          "type": "BOOLEAN",
+          "link": null,
+          "widget": {
+            "name": "tiled_decode"
+          },
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            168
+          ]
+        }
+      ],
+      "title": "🔴 Локальная детализация · face",
+      "properties": {
+        "Node name for S&R": "DetailerForEach"
+      },
+      "widgets_values": [
+        512,
+        true,
+        1024,
+        42,
+        12,
+        1.0,
+        "euler",
+        "simple",
+        0.22,
+        12,
+        true,
+        true,
+        "",
+        1,
+        false,
+        12,
+        false,
+        false
+      ],
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 197,
+      "type": "PreviewImage",
+      "pos": [
+        1870,
+        2060
+      ],
+      "size": [
+        330,
+        270
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 197,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 170
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": []
+        }
+      ],
+      "title": "🖼️ Вход · face",
+      "properties": {
+        "Node name for S&R": "PreviewImage",
+        "nd_ui_src": {
+          "uid": "src_local_face-before",
+          "tag": "local-face-before"
+        }
+      },
+      "widgets_values": [],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 198,
+      "type": "PreviewImage",
+      "pos": [
+        1870,
+        2370
+      ],
+      "size": [
+        330,
+        270
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 198,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 171
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": []
+        }
+      ],
+      "title": "🖼️ Результат · face",
+      "properties": {
+        "Node name for S&R": "PreviewImage",
+        "nd_ui_src": {
+          "uid": "src_local_face-after",
+          "tag": "local-face-after"
+        }
+      },
+      "widgets_values": [],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 202,
+      "type": "PreviewImage",
+      "pos": [
+        1870,
+        2680
+      ],
+      "size": [
+        330,
+        270
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 202,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 175
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": []
+        }
+      ],
+      "title": "🖼️ Маска · face",
+      "properties": {
+        "Node name for S&R": "PreviewImage",
+        "nd_ui_src": {
+          "uid": "src_local_face-mask",
+          "tag": "local-face-mask"
+        }
+      },
+      "widgets_values": [],
+      "color": "#323",
+      "bgcolor": "#545"
+    },
+    {
+      "id": 207,
+      "type": "CLIPTextEncode",
+      "pos": [
+        2360,
+        2060
+      ],
+      "size": [
+        350,
+        230
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 207,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": null,
+          "widget": {
+            "name": "text"
+          }
+        },
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 180
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            181,
+            190
+          ]
+        }
+      ],
+      "title": "✍️ hands · промт",
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "Natural photographic detail, realistic texture and material, consistent identity and proportions, no beauty retouching or excessive sharpening. Match the surrounding lighting and color."
+      ],
+      "color": "#507548",
+      "bgcolor": "#709762"
+    },
+    {
+      "id": 209,
+      "type": "UltralyticsDetectorProvider",
+      "pos": [
+        2360,
+        2330
+      ],
+      "size": [
+        330,
+        240
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 209,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model_name",
+          "type": "COMBO",
+          "link": null,
+          "widget": {
+            "name": "model_name"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "BBOX_DETECTOR",
+          "type": "BBOX_DETECTOR",
+          "links": [
+            182
+          ]
+        },
+        {
+          "name": "SEGM_DETECTOR",
+          "type": "SEGM_DETECTOR",
+          "links": []
+        }
+      ],
+      "title": "🟢 Детектор hands",
+      "properties": {
+        "Node name for S&R": "UltralyticsDetectorProvider"
+      },
+      "widgets_values": [
+        "bbox/hand_yolov8s.pt"
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 210,
+      "type": "BboxDetectorSEGS",
+      "pos": [
+        2360,
+        2520
+      ],
+      "size": [
+        330,
+        240
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 210,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "bbox_detector",
+          "type": "BBOX_DETECTOR",
+          "link": 182
+        },
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 183
+        },
+        {
+          "name": "threshold",
+          "type": "FLOAT",
+          "link": null,
+          "widget": {
+            "name": "threshold"
+          }
+        },
+        {
+          "name": "dilation",
+          "type": "INT",
+          "link": null,
+          "widget": {
+            "name": "dilation"
+          }
+        },
+        {
+          "name": "crop_factor",
+          "type": "FLOAT",
+          "link": null,
+          "widget": {
+            "name": "crop_factor"
+          }
+        },
+        {
+          "name": "drop_size",
+          "type": "INT",
+          "link": null,
+          "widget": {
+            "name": "drop_size"
+          }
+        },
+        {
+          "name": "labels",
+          "type": "STRING",
+          "link": null,
+          "widget": {
+            "name": "labels"
+          }
+        },
+        {
+          "name": "detailer_hook",
+          "type": "DETAILER_HOOK",
+          "link": null,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "SEGS",
+          "type": "SEGS",
+          "links": [
+            184,
+            186
+          ]
+        }
+      ],
+      "title": "🟢 Области hands",
+      "properties": {
+        "Node name for S&R": "BboxDetectorSEGS"
+      },
+      "widgets_values": [
+        0.5,
+        8,
+        2.5,
+        10,
+        "all"
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 212,
+      "type": "DetailerForEach",
+      "pos": [
+        2790,
+        2060
+      ],
+      "size": [
+        360,
+        520
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 212,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 185
+        },
+        {
+          "name": "segs",
+          "type": "SEGS",
+          "link": 186
+        },
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 187
+        },
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 188
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 189
+        },
+        {
+          "name": "guide_size",
+          "type": "FLOAT",
+          "link": null,
+          "widget": {
+            "name": "guide_size"
+          }
+        },
+        {
+          "name": "guide_size_for",
+          "type": "BOOLEAN",
+          "link": null,
+          "widget": {
+            "name": "guide_size_for"
+          }
+        },
+        {
+          "name": "max_size",
+          "type": "FLOAT",
+          "link": null,
+          "widget": {
+            "name": "max_size"
+          }
+        },
+        {
+          "name": "seed",
+          "type": "INT",
+          "link": 192,
+          "widget": {
+            "name": "seed"
+          }
+        },
+        {
+          "name": "steps",
+          "type": "INT",
+          "link": null,
+          "widget": {
+            "name": "steps"
+          }
+        },
+        {
+          "name": "cfg",
+          "type": "FLOAT",
+          "link": null,
+          "widget": {
+            "name": "cfg"
+          }
+        },
+        {
+          "name": "sampler_name",
+          "type": "COMBO",
+          "link": null,
+          "widget": {
+            "name": "sampler_name"
+          }
+        },
+        {
+          "name": "scheduler",
+          "type": "COMBO",
+          "link": null,
+          "widget": {
+            "name": "scheduler"
+          }
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 190
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 191
+        },
+        {
+          "name": "denoise",
+          "type": "FLOAT",
+          "link": null,
+          "widget": {
+            "name": "denoise"
+          }
+        },
+        {
+          "name": "feather",
+          "type": "INT",
+          "link": null,
+          "widget": {
+            "name": "feather"
+          }
+        },
+        {
+          "name": "noise_mask",
+          "type": "BOOLEAN",
+          "link": null,
+          "widget": {
+            "name": "noise_mask"
+          }
+        },
+        {
+          "name": "force_inpaint",
+          "type": "BOOLEAN",
+          "link": null,
+          "widget": {
+            "name": "force_inpaint"
+          }
+        },
+        {
+          "name": "wildcard",
+          "type": "STRING",
+          "link": null,
+          "widget": {
+            "name": "wildcard"
+          }
+        },
+        {
+          "name": "cycle",
+          "type": "INT",
+          "link": null,
+          "widget": {
+            "name": "cycle"
+          }
+        },
+        {
+          "name": "detailer_hook",
+          "type": "DETAILER_HOOK",
+          "link": null,
+          "shape": 7
+        },
+        {
+          "name": "inpaint_model",
+          "type": "BOOLEAN",
+          "link": null,
+          "widget": {
+            "name": "inpaint_model"
+          },
+          "shape": 7
+        },
+        {
+          "name": "noise_mask_feather",
+          "type": "INT",
+          "link": null,
+          "widget": {
+            "name": "noise_mask_feather"
+          },
+          "shape": 7
+        },
+        {
+          "name": "scheduler_func_opt",
+          "type": "SCHEDULER_FUNC",
+          "link": null,
+          "shape": 7
+        },
+        {
+          "name": "tiled_encode",
+          "type": "BOOLEAN",
+          "link": null,
+          "widget": {
+            "name": "tiled_encode"
+          },
+          "shape": 7
+        },
+        {
+          "name": "tiled_decode",
+          "type": "BOOLEAN",
+          "link": null,
+          "widget": {
+            "name": "tiled_decode"
+          },
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            194
+          ]
+        }
+      ],
+      "title": "🔴 Локальная детализация · hands",
+      "properties": {
+        "Node name for S&R": "DetailerForEach"
+      },
+      "widgets_values": [
+        512,
+        true,
+        1024,
+        42,
+        12,
+        1.0,
+        "euler",
+        "simple",
+        0.25,
+        12,
+        true,
+        true,
+        "",
+        1,
+        false,
+        12,
+        false,
+        false
+      ],
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 214,
+      "type": "PreviewImage",
+      "pos": [
+        3210,
+        2060
+      ],
+      "size": [
+        330,
+        270
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 214,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 196
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": []
+        }
+      ],
+      "title": "🖼️ Вход · hands",
+      "properties": {
+        "Node name for S&R": "PreviewImage",
+        "nd_ui_src": {
+          "uid": "src_local_hands-before",
+          "tag": "local-hands-before"
+        }
+      },
+      "widgets_values": [],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 215,
+      "type": "PreviewImage",
+      "pos": [
+        3210,
+        2370
+      ],
+      "size": [
+        330,
+        270
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 215,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 197
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": []
+        }
+      ],
+      "title": "🖼️ Результат · hands",
+      "properties": {
+        "Node name for S&R": "PreviewImage",
+        "nd_ui_src": {
+          "uid": "src_local_hands-after",
+          "tag": "local-hands-after"
+        }
+      },
+      "widgets_values": [],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 219,
+      "type": "PreviewImage",
+      "pos": [
+        3210,
+        2680
+      ],
+      "size": [
+        330,
+        270
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 219,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 201
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": []
+        }
+      ],
+      "title": "🖼️ Маска · hands",
+      "properties": {
+        "Node name for S&R": "PreviewImage",
+        "nd_ui_src": {
+          "uid": "src_local_hands-mask",
+          "tag": "local-hands-mask"
+        }
+      },
+      "widgets_values": [],
+      "color": "#323",
+      "bgcolor": "#545"
+    },
+    {
+      "id": 224,
+      "type": "CLIPTextEncode",
+      "pos": [
+        1020,
+        3260
+      ],
+      "size": [
+        350,
+        230
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 224,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": null,
+          "widget": {
+            "name": "text"
+          }
+        },
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 206
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            207,
+            218
+          ]
+        }
+      ],
+      "title": "✍️ sam · промт",
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "Natural photographic detail, realistic texture and material, consistent identity and proportions, no beauty retouching or excessive sharpening. Match the surrounding lighting and color."
+      ],
+      "color": "#507548",
+      "bgcolor": "#709762"
+    },
+    {
+      "id": 226,
+      "type": "CheckpointLoaderSimple",
+      "pos": [
+        1020,
+        3530
+      ],
+      "size": [
+        330,
+        240
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 226,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "ckpt_name",
+          "type": "COMBO",
+          "link": null,
+          "widget": {
+            "name": "ckpt_name"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            209
+          ]
+        },
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            208
+          ]
+        },
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": []
+        }
+      ],
+      "title": "🟢 SAM 3.1 · модель",
+      "properties": {
+        "Node name for S&R": "CheckpointLoaderSimple"
+      },
+      "widgets_values": [
+        "sam3.1_multiplex_fp16.safetensors"
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 227,
+      "type": "CLIPTextEncode",
+      "pos": [
+        1020,
+        3720
+      ],
+      "size": [
+        330,
+        240
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 227,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": null,
+          "widget": {
+            "name": "text"
+          }
+        },
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 208
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            210
+          ]
+        }
+      ],
+      "title": "🔎 Что выделить · SAM 3.1",
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "hair"
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 228,
+      "type": "SAM3_Detect",
+      "pos": [
+        1450,
+        3570
+      ],
+      "size": [
+        330,
+        240
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 228,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 209
+        },
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 211
+        },
+        {
+          "name": "threshold",
+          "type": "FLOAT",
+          "link": null,
+          "widget": {
+            "name": "threshold"
+          }
+        },
+        {
+          "name": "refine_iterations",
+          "type": "INT",
+          "link": null,
+          "widget": {
+            "name": "refine_iterations"
+          }
+        },
+        {
+          "name": "individual_masks",
+          "type": "BOOLEAN",
+          "link": null,
+          "widget": {
+            "name": "individual_masks"
+          }
+        },
+        {
+          "name": "conditioning",
+          "type": "CONDITIONING",
+          "link": 210,
+          "shape": 7
+        },
+        {
+          "name": "bboxes",
+          "type": "BOUNDING_BOX",
+          "link": null,
+          "shape": 7
+        },
+        {
+          "name": "positive_coords",
+          "type": "STRING",
+          "link": null,
+          "shape": 7
+        },
+        {
+          "name": "negative_coords",
+          "type": "STRING",
+          "link": null,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "masks",
+          "type": "MASK",
+          "links": [
+            212,
+            227
+          ]
+        },
+        {
+          "name": "bboxes",
+          "type": "BOUNDING_BOX",
+          "links": []
+        }
+      ],
+      "title": "🔎 SAM 3.1 · выделение",
+      "properties": {
+        "Node name for S&R": "SAM3_Detect"
+      },
+      "widgets_values": [
+        0.5,
+        2,
+        false
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 229,
+      "type": "MaskToSEGS",
+      "pos": [
+        1450,
+        3860
+      ],
+      "size": [
+        330,
+        240
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 229,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "mask",
+          "type": "MASK",
+          "link": 212
+        },
+        {
+          "name": "combined",
+          "type": "BOOLEAN",
+          "link": null,
+          "widget": {
+            "name": "combined"
+          }
+        },
+        {
+          "name": "crop_factor",
+          "type": "FLOAT",
+          "link": null,
+          "widget": {
+            "name": "crop_factor"
+          }
+        },
+        {
+          "name": "bbox_fill",
+          "type": "BOOLEAN",
+          "link": null,
+          "widget": {
+            "name": "bbox_fill"
+          }
+        },
+        {
+          "name": "drop_size",
+          "type": "INT",
+          "link": null,
+          "widget": {
+            "name": "drop_size"
+          }
+        },
+        {
+          "name": "contour_fill",
+          "type": "BOOLEAN",
+          "link": null,
+          "widget": {
+            "name": "contour_fill"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "SEGS",
+          "type": "SEGS",
+          "links": [
+            214
+          ]
+        }
+      ],
+      "title": "🟢 SAM · области детализации",
+      "properties": {
+        "Node name for S&R": "MaskToSEGS"
+      },
+      "widgets_values": [
+        false,
+        2.5,
+        false,
+        10,
+        false
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 230,
+      "type": "DetailerForEach",
+      "pos": [
+        1450,
+        3260
+      ],
+      "size": [
+        360,
+        520
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 230,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 213
+        },
+        {
+          "name": "segs",
+          "type": "SEGS",
+          "link": 214
+        },
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 215
+        },
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 216
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 217
+        },
+        {
+          "name": "guide_size",
+          "type": "FLOAT",
+          "link": null,
+          "widget": {
+            "name": "guide_size"
+          }
+        },
+        {
+          "name": "guide_size_for",
+          "type": "BOOLEAN",
+          "link": null,
+          "widget": {
+            "name": "guide_size_for"
+          }
+        },
+        {
+          "name": "max_size",
+          "type": "FLOAT",
+          "link": null,
+          "widget": {
+            "name": "max_size"
+          }
+        },
+        {
+          "name": "seed",
+          "type": "INT",
+          "link": 220,
+          "widget": {
+            "name": "seed"
+          }
+        },
+        {
+          "name": "steps",
+          "type": "INT",
+          "link": null,
+          "widget": {
+            "name": "steps"
+          }
+        },
+        {
+          "name": "cfg",
+          "type": "FLOAT",
+          "link": null,
+          "widget": {
+            "name": "cfg"
+          }
+        },
+        {
+          "name": "sampler_name",
+          "type": "COMBO",
+          "link": null,
+          "widget": {
+            "name": "sampler_name"
+          }
+        },
+        {
+          "name": "scheduler",
+          "type": "COMBO",
+          "link": null,
+          "widget": {
+            "name": "scheduler"
+          }
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 218
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 219
+        },
+        {
+          "name": "denoise",
+          "type": "FLOAT",
+          "link": null,
+          "widget": {
+            "name": "denoise"
+          }
+        },
+        {
+          "name": "feather",
+          "type": "INT",
+          "link": null,
+          "widget": {
+            "name": "feather"
+          }
+        },
+        {
+          "name": "noise_mask",
+          "type": "BOOLEAN",
+          "link": null,
+          "widget": {
+            "name": "noise_mask"
+          }
+        },
+        {
+          "name": "force_inpaint",
+          "type": "BOOLEAN",
+          "link": null,
+          "widget": {
+            "name": "force_inpaint"
+          }
+        },
+        {
+          "name": "wildcard",
+          "type": "STRING",
+          "link": null,
+          "widget": {
+            "name": "wildcard"
+          }
+        },
+        {
+          "name": "cycle",
+          "type": "INT",
+          "link": null,
+          "widget": {
+            "name": "cycle"
+          }
+        },
+        {
+          "name": "detailer_hook",
+          "type": "DETAILER_HOOK",
+          "link": null,
+          "shape": 7
+        },
+        {
+          "name": "inpaint_model",
+          "type": "BOOLEAN",
+          "link": null,
+          "widget": {
+            "name": "inpaint_model"
+          },
+          "shape": 7
+        },
+        {
+          "name": "noise_mask_feather",
+          "type": "INT",
+          "link": null,
+          "widget": {
+            "name": "noise_mask_feather"
+          },
+          "shape": 7
+        },
+        {
+          "name": "scheduler_func_opt",
+          "type": "SCHEDULER_FUNC",
+          "link": null,
+          "shape": 7
+        },
+        {
+          "name": "tiled_encode",
+          "type": "BOOLEAN",
+          "link": null,
+          "widget": {
+            "name": "tiled_encode"
+          },
+          "shape": 7
+        },
+        {
+          "name": "tiled_decode",
+          "type": "BOOLEAN",
+          "link": null,
+          "widget": {
+            "name": "tiled_decode"
+          },
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            222
+          ]
+        }
+      ],
+      "title": "🔴 Локальная детализация · sam",
+      "properties": {
+        "Node name for S&R": "DetailerForEach"
+      },
+      "widgets_values": [
+        512,
+        true,
+        1024,
+        42,
+        12,
+        1.0,
+        "euler",
+        "simple",
+        0.25,
+        12,
+        true,
+        true,
+        "",
+        1,
+        false,
+        12,
+        false,
+        false
+      ],
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 232,
+      "type": "PreviewImage",
+      "pos": [
+        1870,
+        3260
+      ],
+      "size": [
+        330,
+        270
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 232,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 224
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": []
+        }
+      ],
+      "title": "🖼️ Вход · sam",
+      "properties": {
+        "Node name for S&R": "PreviewImage",
+        "nd_ui_src": {
+          "uid": "src_local_sam-before",
+          "tag": "local-sam-before"
+        }
+      },
+      "widgets_values": [],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 233,
+      "type": "PreviewImage",
+      "pos": [
+        1870,
+        3570
+      ],
+      "size": [
+        330,
+        270
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 233,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 225
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": []
+        }
+      ],
+      "title": "🖼️ Результат · sam",
+      "properties": {
+        "Node name for S&R": "PreviewImage",
+        "nd_ui_src": {
+          "uid": "src_local_sam-after",
+          "tag": "local-sam-after"
+        }
+      },
+      "widgets_values": [],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 237,
+      "type": "PreviewImage",
+      "pos": [
+        1870,
+        3880
+      ],
+      "size": [
+        330,
+        270
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 237,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 229
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": []
+        }
+      ],
+      "title": "🖼️ Маска · sam",
+      "properties": {
+        "Node name for S&R": "PreviewImage",
+        "nd_ui_src": {
+          "uid": "src_local_sam-mask",
+          "tag": "local-sam-mask"
+        }
+      },
+      "widgets_values": [],
+      "color": "#323",
+      "bgcolor": "#545"
+    },
+    {
+      "id": 242,
+      "type": "CLIPTextEncode",
+      "pos": [
+        2360,
+        3260
+      ],
+      "size": [
+        350,
+        230
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 242,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": null,
+          "widget": {
+            "name": "text"
+          }
+        },
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 234
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            235,
+            242
+          ]
+        }
+      ],
+      "title": "✍️ manual · промт",
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "Natural photographic detail, realistic texture and material, consistent identity and proportions, no beauty retouching or excessive sharpening. Match the surrounding lighting and color."
+      ],
+      "color": "#507548",
+      "bgcolor": "#709762"
+    },
+    {
+      "id": 244,
+      "type": "LoadImageMask",
+      "pos": [
+        2360,
+        3530
+      ],
+      "size": [
+        330,
+        240
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 244,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "COMBO",
+          "link": null,
+          "widget": {
+            "name": "image"
+          }
+        },
+        {
+          "name": "channel",
+          "type": "COMBO",
+          "link": null,
+          "widget": {
+            "name": "channel"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": [
+            236,
+            251
+          ]
+        }
+      ],
+      "title": "🖌️ Ручная маска · можно оставить пустой",
+      "properties": {
+        "Node name for S&R": "LoadImageMask"
+      },
+      "widgets_values": [
+        "universal-local-empty-mask.png",
+        "red"
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 245,
+      "type": "MaskToSEGS",
+      "pos": [
+        2360,
+        3720
+      ],
+      "size": [
+        330,
+        240
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 245,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "mask",
+          "type": "MASK",
+          "link": 236
+        },
+        {
+          "name": "combined",
+          "type": "BOOLEAN",
+          "link": null,
+          "widget": {
+            "name": "combined"
+          }
+        },
+        {
+          "name": "crop_factor",
+          "type": "FLOAT",
+          "link": null,
+          "widget": {
+            "name": "crop_factor"
+          }
+        },
+        {
+          "name": "bbox_fill",
+          "type": "BOOLEAN",
+          "link": null,
+          "widget": {
+            "name": "bbox_fill"
+          }
+        },
+        {
+          "name": "drop_size",
+          "type": "INT",
+          "link": null,
+          "widget": {
+            "name": "drop_size"
+          }
+        },
+        {
+          "name": "contour_fill",
+          "type": "BOOLEAN",
+          "link": null,
+          "widget": {
+            "name": "contour_fill"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "SEGS",
+          "type": "SEGS",
+          "links": [
+            238
+          ]
+        }
+      ],
+      "title": "🟢 Ручная маска · области",
+      "properties": {
+        "Node name for S&R": "MaskToSEGS"
+      },
+      "widgets_values": [
+        false,
+        2.5,
+        false,
+        10,
+        false
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 246,
+      "type": "DetailerForEach",
+      "pos": [
+        2790,
+        3260
+      ],
+      "size": [
+        360,
+        520
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 246,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 237
+        },
+        {
+          "name": "segs",
+          "type": "SEGS",
+          "link": 238
+        },
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 239
+        },
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 240
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 241
+        },
+        {
+          "name": "guide_size",
+          "type": "FLOAT",
+          "link": null,
+          "widget": {
+            "name": "guide_size"
+          }
+        },
+        {
+          "name": "guide_size_for",
+          "type": "BOOLEAN",
+          "link": null,
+          "widget": {
+            "name": "guide_size_for"
+          }
+        },
+        {
+          "name": "max_size",
+          "type": "FLOAT",
+          "link": null,
+          "widget": {
+            "name": "max_size"
+          }
+        },
+        {
+          "name": "seed",
+          "type": "INT",
+          "link": 244,
+          "widget": {
+            "name": "seed"
+          }
+        },
+        {
+          "name": "steps",
+          "type": "INT",
+          "link": null,
+          "widget": {
+            "name": "steps"
+          }
+        },
+        {
+          "name": "cfg",
+          "type": "FLOAT",
+          "link": null,
+          "widget": {
+            "name": "cfg"
+          }
+        },
+        {
+          "name": "sampler_name",
+          "type": "COMBO",
+          "link": null,
+          "widget": {
+            "name": "sampler_name"
+          }
+        },
+        {
+          "name": "scheduler",
+          "type": "COMBO",
+          "link": null,
+          "widget": {
+            "name": "scheduler"
+          }
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 242
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 243
+        },
+        {
+          "name": "denoise",
+          "type": "FLOAT",
+          "link": null,
+          "widget": {
+            "name": "denoise"
+          }
+        },
+        {
+          "name": "feather",
+          "type": "INT",
+          "link": null,
+          "widget": {
+            "name": "feather"
+          }
+        },
+        {
+          "name": "noise_mask",
+          "type": "BOOLEAN",
+          "link": null,
+          "widget": {
+            "name": "noise_mask"
+          }
+        },
+        {
+          "name": "force_inpaint",
+          "type": "BOOLEAN",
+          "link": null,
+          "widget": {
+            "name": "force_inpaint"
+          }
+        },
+        {
+          "name": "wildcard",
+          "type": "STRING",
+          "link": null,
+          "widget": {
+            "name": "wildcard"
+          }
+        },
+        {
+          "name": "cycle",
+          "type": "INT",
+          "link": null,
+          "widget": {
+            "name": "cycle"
+          }
+        },
+        {
+          "name": "detailer_hook",
+          "type": "DETAILER_HOOK",
+          "link": null,
+          "shape": 7
+        },
+        {
+          "name": "inpaint_model",
+          "type": "BOOLEAN",
+          "link": null,
+          "widget": {
+            "name": "inpaint_model"
+          },
+          "shape": 7
+        },
+        {
+          "name": "noise_mask_feather",
+          "type": "INT",
+          "link": null,
+          "widget": {
+            "name": "noise_mask_feather"
+          },
+          "shape": 7
+        },
+        {
+          "name": "scheduler_func_opt",
+          "type": "SCHEDULER_FUNC",
+          "link": null,
+          "shape": 7
+        },
+        {
+          "name": "tiled_encode",
+          "type": "BOOLEAN",
+          "link": null,
+          "widget": {
+            "name": "tiled_encode"
+          },
+          "shape": 7
+        },
+        {
+          "name": "tiled_decode",
+          "type": "BOOLEAN",
+          "link": null,
+          "widget": {
+            "name": "tiled_decode"
+          },
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            246
+          ]
+        }
+      ],
+      "title": "🔴 Локальная детализация · manual",
+      "properties": {
+        "Node name for S&R": "DetailerForEach"
+      },
+      "widgets_values": [
+        512,
+        true,
+        1024,
+        42,
+        12,
+        1.0,
+        "euler",
+        "simple",
+        0.25,
+        12,
+        true,
+        true,
+        "",
+        1,
+        false,
+        12,
+        false,
+        false
+      ],
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 248,
+      "type": "PreviewImage",
+      "pos": [
+        3210,
+        3260
+      ],
+      "size": [
+        330,
+        270
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 248,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 248
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": []
+        }
+      ],
+      "title": "🖼️ Вход · manual",
+      "properties": {
+        "Node name for S&R": "PreviewImage",
+        "nd_ui_src": {
+          "uid": "src_local_manual-before",
+          "tag": "local-manual-before"
+        }
+      },
+      "widgets_values": [],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 249,
+      "type": "PreviewImage",
+      "pos": [
+        3210,
+        3570
+      ],
+      "size": [
+        330,
+        270
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 249,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 249
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": []
+        }
+      ],
+      "title": "🖼️ Результат · manual",
+      "properties": {
+        "Node name for S&R": "PreviewImage",
+        "nd_ui_src": {
+          "uid": "src_local_manual-after",
+          "tag": "local-manual-after"
+        }
+      },
+      "widgets_values": [],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 253,
+      "type": "PreviewImage",
+      "pos": [
+        3210,
+        3880
+      ],
+      "size": [
+        330,
+        270
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 253,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 253
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": []
+        }
+      ],
+      "title": "🖼️ Маска · manual",
+      "properties": {
+        "Node name for S&R": "PreviewImage",
+        "nd_ui_src": {
+          "uid": "src_local_manual-mask",
+          "tag": "local-manual-mask"
+        }
+      },
+      "widgets_values": [],
+      "color": "#323",
+      "bgcolor": "#545"
+    },
+    {
+      "id": 256,
+      "type": "Note",
+      "pos": [
+        40,
+        3500
+      ],
+      "size": [
+        820,
+        160
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 256,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": null,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [],
+      "title": "💡 Локальная детализация",
+      "properties": {
+        "Node name for S&R": "Note"
+      },
+      "widgets_values": [
+        "Четыре независимых режима. Выключенный режим пропускает вход без перерисовки.\nПорядок меняется в UI стрелками. LoRA применяются только при включении переключателя данного режима.\nРучную маску рисуйте на текущем кадре; при изменении композиции обновите её.\nПустая маска или отсутствие обнаруженных областей не требуют перерисовки."
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 257,
+      "type": "PreviewImage",
+      "pos": [
+        3740,
+        1900
+      ],
+      "size": [
+        380,
+        420
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 257,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 255
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": []
+        }
+      ],
+      "title": "🖼️ После второго прохода",
+      "properties": {
+        "Node name for S&R": "PreviewImage",
+        "nd_ui_src": {
+          "uid": "src_local_second",
+          "tag": "local-second"
+        }
+      },
+      "widgets_values": [],
+      "color": "#232",
+      "bgcolor": "#353"
     }
   ],
   "links": [
@@ -10170,6 +15910,982 @@
       167,
       0,
       "IMAGE"
+    ],
+    [
+      134,
+      173,
+      0,
+      176,
+      0,
+      "MODEL"
+    ],
+    [
+      135,
+      176,
+      0,
+      177,
+      0,
+      "MODEL"
+    ],
+    [
+      136,
+      170,
+      0,
+      178,
+      1,
+      "MODEL"
+    ],
+    [
+      137,
+      177,
+      0,
+      178,
+      2,
+      "MODEL"
+    ],
+    [
+      138,
+      171,
+      0,
+      179,
+      1,
+      "CLIP"
+    ],
+    [
+      139,
+      174,
+      0,
+      179,
+      2,
+      "CLIP"
+    ],
+    [
+      140,
+      172,
+      0,
+      180,
+      1,
+      "VAE"
+    ],
+    [
+      141,
+      175,
+      0,
+      180,
+      2,
+      "VAE"
+    ],
+    [
+      142,
+      170,
+      0,
+      181,
+      0,
+      "MODEL"
+    ],
+    [
+      143,
+      171,
+      0,
+      181,
+      1,
+      "CLIP"
+    ],
+    [
+      144,
+      177,
+      0,
+      182,
+      0,
+      "MODEL"
+    ],
+    [
+      145,
+      174,
+      0,
+      182,
+      1,
+      "CLIP"
+    ],
+    [
+      146,
+      181,
+      0,
+      183,
+      1,
+      "MODEL"
+    ],
+    [
+      147,
+      182,
+      0,
+      183,
+      2,
+      "MODEL"
+    ],
+    [
+      148,
+      181,
+      1,
+      184,
+      1,
+      "CLIP"
+    ],
+    [
+      149,
+      182,
+      1,
+      184,
+      2,
+      "CLIP"
+    ],
+    [
+      150,
+      178,
+      0,
+      188,
+      1,
+      "MODEL"
+    ],
+    [
+      151,
+      183,
+      0,
+      188,
+      2,
+      "MODEL"
+    ],
+    [
+      152,
+      179,
+      0,
+      189,
+      1,
+      "CLIP"
+    ],
+    [
+      153,
+      184,
+      0,
+      189,
+      2,
+      "CLIP"
+    ],
+    [
+      154,
+      189,
+      0,
+      190,
+      1,
+      "*"
+    ],
+    [
+      155,
+      190,
+      0,
+      191,
+      0,
+      "CONDITIONING"
+    ],
+    [
+      156,
+      192,
+      0,
+      193,
+      0,
+      "BBOX_DETECTOR"
+    ],
+    [
+      157,
+      186,
+      0,
+      193,
+      1,
+      "IMAGE"
+    ],
+    [
+      158,
+      193,
+      0,
+      194,
+      0,
+      "SEGS"
+    ],
+    [
+      159,
+      186,
+      0,
+      195,
+      0,
+      "IMAGE"
+    ],
+    [
+      160,
+      193,
+      0,
+      195,
+      1,
+      "SEGS"
+    ],
+    [
+      161,
+      188,
+      0,
+      195,
+      2,
+      "MODEL"
+    ],
+    [
+      162,
+      189,
+      0,
+      195,
+      3,
+      "CLIP"
+    ],
+    [
+      163,
+      180,
+      0,
+      195,
+      4,
+      "VAE"
+    ],
+    [
+      164,
+      190,
+      0,
+      195,
+      13,
+      "CONDITIONING"
+    ],
+    [
+      165,
+      191,
+      0,
+      195,
+      14,
+      "CONDITIONING"
+    ],
+    [
+      166,
+      185,
+      0,
+      195,
+      8,
+      "INT"
+    ],
+    [
+      167,
+      186,
+      0,
+      187,
+      1,
+      "IMAGE"
+    ],
+    [
+      168,
+      195,
+      0,
+      187,
+      2,
+      "IMAGE"
+    ],
+    [
+      169,
+      187,
+      0,
+      196,
+      0,
+      "IMAGE"
+    ],
+    [
+      170,
+      186,
+      0,
+      197,
+      0,
+      "IMAGE"
+    ],
+    [
+      171,
+      187,
+      0,
+      198,
+      0,
+      "IMAGE"
+    ],
+    [
+      172,
+      199,
+      0,
+      200,
+      1,
+      "MASK"
+    ],
+    [
+      173,
+      194,
+      0,
+      200,
+      2,
+      "MASK"
+    ],
+    [
+      174,
+      200,
+      0,
+      201,
+      0,
+      "MASK"
+    ],
+    [
+      175,
+      201,
+      0,
+      202,
+      0,
+      "IMAGE"
+    ],
+    [
+      176,
+      178,
+      0,
+      205,
+      1,
+      "MODEL"
+    ],
+    [
+      177,
+      183,
+      0,
+      205,
+      2,
+      "MODEL"
+    ],
+    [
+      178,
+      179,
+      0,
+      206,
+      1,
+      "CLIP"
+    ],
+    [
+      179,
+      184,
+      0,
+      206,
+      2,
+      "CLIP"
+    ],
+    [
+      180,
+      206,
+      0,
+      207,
+      1,
+      "*"
+    ],
+    [
+      181,
+      207,
+      0,
+      208,
+      0,
+      "CONDITIONING"
+    ],
+    [
+      182,
+      209,
+      0,
+      210,
+      0,
+      "BBOX_DETECTOR"
+    ],
+    [
+      183,
+      203,
+      0,
+      210,
+      1,
+      "IMAGE"
+    ],
+    [
+      184,
+      210,
+      0,
+      211,
+      0,
+      "SEGS"
+    ],
+    [
+      185,
+      203,
+      0,
+      212,
+      0,
+      "IMAGE"
+    ],
+    [
+      186,
+      210,
+      0,
+      212,
+      1,
+      "SEGS"
+    ],
+    [
+      187,
+      205,
+      0,
+      212,
+      2,
+      "MODEL"
+    ],
+    [
+      188,
+      206,
+      0,
+      212,
+      3,
+      "CLIP"
+    ],
+    [
+      189,
+      180,
+      0,
+      212,
+      4,
+      "VAE"
+    ],
+    [
+      190,
+      207,
+      0,
+      212,
+      13,
+      "CONDITIONING"
+    ],
+    [
+      191,
+      208,
+      0,
+      212,
+      14,
+      "CONDITIONING"
+    ],
+    [
+      192,
+      185,
+      0,
+      212,
+      8,
+      "INT"
+    ],
+    [
+      193,
+      203,
+      0,
+      204,
+      1,
+      "IMAGE"
+    ],
+    [
+      194,
+      212,
+      0,
+      204,
+      2,
+      "IMAGE"
+    ],
+    [
+      195,
+      204,
+      0,
+      213,
+      0,
+      "IMAGE"
+    ],
+    [
+      196,
+      203,
+      0,
+      214,
+      0,
+      "IMAGE"
+    ],
+    [
+      197,
+      204,
+      0,
+      215,
+      0,
+      "IMAGE"
+    ],
+    [
+      198,
+      216,
+      0,
+      217,
+      1,
+      "MASK"
+    ],
+    [
+      199,
+      211,
+      0,
+      217,
+      2,
+      "MASK"
+    ],
+    [
+      200,
+      217,
+      0,
+      218,
+      0,
+      "MASK"
+    ],
+    [
+      201,
+      218,
+      0,
+      219,
+      0,
+      "IMAGE"
+    ],
+    [
+      202,
+      178,
+      0,
+      222,
+      1,
+      "MODEL"
+    ],
+    [
+      203,
+      183,
+      0,
+      222,
+      2,
+      "MODEL"
+    ],
+    [
+      204,
+      179,
+      0,
+      223,
+      1,
+      "CLIP"
+    ],
+    [
+      205,
+      184,
+      0,
+      223,
+      2,
+      "CLIP"
+    ],
+    [
+      206,
+      223,
+      0,
+      224,
+      1,
+      "*"
+    ],
+    [
+      207,
+      224,
+      0,
+      225,
+      0,
+      "CONDITIONING"
+    ],
+    [
+      208,
+      226,
+      1,
+      227,
+      1,
+      "CLIP"
+    ],
+    [
+      209,
+      226,
+      0,
+      228,
+      0,
+      "MODEL"
+    ],
+    [
+      210,
+      227,
+      0,
+      228,
+      5,
+      "CONDITIONING"
+    ],
+    [
+      211,
+      220,
+      0,
+      228,
+      1,
+      "IMAGE"
+    ],
+    [
+      212,
+      228,
+      0,
+      229,
+      0,
+      "MASK"
+    ],
+    [
+      213,
+      220,
+      0,
+      230,
+      0,
+      "IMAGE"
+    ],
+    [
+      214,
+      229,
+      0,
+      230,
+      1,
+      "SEGS"
+    ],
+    [
+      215,
+      222,
+      0,
+      230,
+      2,
+      "MODEL"
+    ],
+    [
+      216,
+      223,
+      0,
+      230,
+      3,
+      "CLIP"
+    ],
+    [
+      217,
+      180,
+      0,
+      230,
+      4,
+      "VAE"
+    ],
+    [
+      218,
+      224,
+      0,
+      230,
+      13,
+      "CONDITIONING"
+    ],
+    [
+      219,
+      225,
+      0,
+      230,
+      14,
+      "CONDITIONING"
+    ],
+    [
+      220,
+      185,
+      0,
+      230,
+      8,
+      "INT"
+    ],
+    [
+      221,
+      220,
+      0,
+      221,
+      1,
+      "IMAGE"
+    ],
+    [
+      222,
+      230,
+      0,
+      221,
+      2,
+      "IMAGE"
+    ],
+    [
+      223,
+      221,
+      0,
+      231,
+      0,
+      "IMAGE"
+    ],
+    [
+      224,
+      220,
+      0,
+      232,
+      0,
+      "IMAGE"
+    ],
+    [
+      225,
+      221,
+      0,
+      233,
+      0,
+      "IMAGE"
+    ],
+    [
+      226,
+      234,
+      0,
+      235,
+      1,
+      "MASK"
+    ],
+    [
+      227,
+      228,
+      0,
+      235,
+      2,
+      "MASK"
+    ],
+    [
+      228,
+      235,
+      0,
+      236,
+      0,
+      "MASK"
+    ],
+    [
+      229,
+      236,
+      0,
+      237,
+      0,
+      "IMAGE"
+    ],
+    [
+      230,
+      178,
+      0,
+      240,
+      1,
+      "MODEL"
+    ],
+    [
+      231,
+      183,
+      0,
+      240,
+      2,
+      "MODEL"
+    ],
+    [
+      232,
+      179,
+      0,
+      241,
+      1,
+      "CLIP"
+    ],
+    [
+      233,
+      184,
+      0,
+      241,
+      2,
+      "CLIP"
+    ],
+    [
+      234,
+      241,
+      0,
+      242,
+      1,
+      "*"
+    ],
+    [
+      235,
+      242,
+      0,
+      243,
+      0,
+      "CONDITIONING"
+    ],
+    [
+      236,
+      244,
+      0,
+      245,
+      0,
+      "MASK"
+    ],
+    [
+      237,
+      238,
+      0,
+      246,
+      0,
+      "IMAGE"
+    ],
+    [
+      238,
+      245,
+      0,
+      246,
+      1,
+      "SEGS"
+    ],
+    [
+      239,
+      240,
+      0,
+      246,
+      2,
+      "MODEL"
+    ],
+    [
+      240,
+      241,
+      0,
+      246,
+      3,
+      "CLIP"
+    ],
+    [
+      241,
+      180,
+      0,
+      246,
+      4,
+      "VAE"
+    ],
+    [
+      242,
+      242,
+      0,
+      246,
+      13,
+      "CONDITIONING"
+    ],
+    [
+      243,
+      243,
+      0,
+      246,
+      14,
+      "CONDITIONING"
+    ],
+    [
+      244,
+      185,
+      0,
+      246,
+      8,
+      "INT"
+    ],
+    [
+      245,
+      238,
+      0,
+      239,
+      1,
+      "IMAGE"
+    ],
+    [
+      246,
+      246,
+      0,
+      239,
+      2,
+      "IMAGE"
+    ],
+    [
+      247,
+      239,
+      0,
+      247,
+      0,
+      "IMAGE"
+    ],
+    [
+      248,
+      238,
+      0,
+      248,
+      0,
+      "IMAGE"
+    ],
+    [
+      249,
+      239,
+      0,
+      249,
+      0,
+      "IMAGE"
+    ],
+    [
+      250,
+      250,
+      0,
+      251,
+      1,
+      "MASK"
+    ],
+    [
+      251,
+      244,
+      0,
+      251,
+      2,
+      "MASK"
+    ],
+    [
+      252,
+      251,
+      0,
+      252,
+      0,
+      "MASK"
+    ],
+    [
+      253,
+      252,
+      0,
+      253,
+      0,
+      "IMAGE"
+    ],
+    [
+      254,
+      254,
+      0,
+      255,
+      0,
+      "IMAGE"
+    ],
+    [
+      255,
+      258,
+      0,
+      257,
+      0,
+      "IMAGE"
     ]
   ],
   "groups": [
@@ -10316,6 +17032,71 @@
       ],
       "color": "#4c7599",
       "flags": {}
+    },
+    {
+      "id": 13,
+      "title": "🙂 Лицо",
+      "bounding": [
+        1000,
+        1840,
+        1240,
+        1160
+      ],
+      "color": "#46776f",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "id": 14,
+      "title": "✋ Руки",
+      "bounding": [
+        2340,
+        1840,
+        1240,
+        1160
+      ],
+      "color": "#46776f",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "id": 15,
+      "title": "🔎 SAM 3.1",
+      "bounding": [
+        1000,
+        3040,
+        1240,
+        1160
+      ],
+      "color": "#46776f",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "id": 16,
+      "title": "🖌️ Ручная маска",
+      "bounding": [
+        2340,
+        3040,
+        1240,
+        1160
+      ],
+      "color": "#46776f",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "id": 17,
+      "title": "🟢 3 · Модели и LoRA",
+      "bounding": [
+        20,
+        1820,
+        930,
+        1680
+      ],
+      "color": "#46776f",
+      "font_size": 24,
+      "flags": {}
     }
   ],
   "config": {},
@@ -10332,7 +17113,7 @@
       "id": "krea_two_pass_ui",
       "page": {
         "w": 1200,
-        "h": 1320,
+        "h": 1816,
         "bg": {
           "type": "gradient",
           "color": "#111318",
@@ -10646,6 +17427,144 @@
           "tag": "settings-k-refine-turbo",
           "class": "Power Lora Loader (rgthree)",
           "title": "🧩 Второй проход · служебный Turbo"
+        },
+        {
+          "uid": "src_local_controller",
+          "tag": "local-controller",
+          "class": "easy anythingIndexSwitch",
+          "title": "🟢 3 · Модель: 0 Z-Image / 1 Krea"
+        },
+        {
+          "uid": "src_local_z-lora",
+          "tag": "local-z-lora",
+          "class": "Power Lora Loader (rgthree)",
+          "title": "🧩 3 · Пользовательские LoRA Z-Image"
+        },
+        {
+          "uid": "src_local_k-lora",
+          "tag": "local-k-lora",
+          "class": "Power Lora Loader (rgthree)",
+          "title": "🧩 3 · Пользовательские LoRA Krea"
+        },
+        {
+          "uid": "src_local_face-before",
+          "tag": "local-face-before",
+          "class": "PreviewImage",
+          "title": "🖼️ Вход · face"
+        },
+        {
+          "uid": "src_local_face-after",
+          "tag": "local-face-after",
+          "class": "PreviewImage",
+          "title": "🖼️ Результат · face"
+        },
+        {
+          "uid": "src_local_face-mask",
+          "tag": "local-face-mask",
+          "class": "PreviewImage",
+          "title": "🖼️ Маска · face"
+        },
+        {
+          "uid": "src_local_hands-before",
+          "tag": "local-hands-before",
+          "class": "PreviewImage",
+          "title": "🖼️ Вход · hands"
+        },
+        {
+          "uid": "src_local_hands-after",
+          "tag": "local-hands-after",
+          "class": "PreviewImage",
+          "title": "🖼️ Результат · hands"
+        },
+        {
+          "uid": "src_local_hands-mask",
+          "tag": "local-hands-mask",
+          "class": "PreviewImage",
+          "title": "🖼️ Маска · hands"
+        },
+        {
+          "uid": "src_local_sam-before",
+          "tag": "local-sam-before",
+          "class": "PreviewImage",
+          "title": "🖼️ Вход · sam"
+        },
+        {
+          "uid": "src_local_sam-after",
+          "tag": "local-sam-after",
+          "class": "PreviewImage",
+          "title": "🖼️ Результат · sam"
+        },
+        {
+          "uid": "src_local_sam-mask",
+          "tag": "local-sam-mask",
+          "class": "PreviewImage",
+          "title": "🖼️ Маска · sam"
+        },
+        {
+          "uid": "src_local_manual-before",
+          "tag": "local-manual-before",
+          "class": "PreviewImage",
+          "title": "🖼️ Вход · manual"
+        },
+        {
+          "uid": "src_local_manual-after",
+          "tag": "local-manual-after",
+          "class": "PreviewImage",
+          "title": "🖼️ Результат · manual"
+        },
+        {
+          "uid": "src_local_manual-mask",
+          "tag": "local-manual-mask",
+          "class": "PreviewImage",
+          "title": "🖼️ Маска · manual"
+        },
+        {
+          "uid": "src_local_second",
+          "tag": "local-second",
+          "class": "PreviewImage",
+          "title": "🖼️ После второго прохода"
+        },
+        {
+          "uid": "src_settings_local_k_model",
+          "tag": "settings-local_k_model",
+          "class": "UNETLoader",
+          "title": "🟢 3 · Krea Raw · модель"
+        },
+        {
+          "uid": "src_settings_local_k_clip",
+          "tag": "settings-local_k_clip",
+          "class": "CLIPLoader",
+          "title": "🟢 3 · Krea · энкодер"
+        },
+        {
+          "uid": "src_settings_local_k_vae",
+          "tag": "settings-local_k_vae",
+          "class": "VAELoader",
+          "title": "🟢 3 · Krea · VAE"
+        },
+        {
+          "uid": "src_settings_local_z_model",
+          "tag": "settings-local_z_model",
+          "class": "UNETLoader",
+          "title": "🟢 3 · Z-Image · модель"
+        },
+        {
+          "uid": "src_settings_local_z_clip",
+          "tag": "settings-local_z_clip",
+          "class": "CLIPLoader",
+          "title": "🟢 3 · Z-Image · энкодер"
+        },
+        {
+          "uid": "src_settings_local_z_vae",
+          "tag": "settings-local_z_vae",
+          "class": "VAELoader",
+          "title": "🟢 3 · Z-Image · VAE"
+        },
+        {
+          "uid": "src_settings_local_turbo",
+          "tag": "settings-local_turbo",
+          "class": "Power Lora Loader (rgthree)",
+          "title": "🧩 3 · Krea · служебный Turbo"
         }
       ],
       "pages": [
@@ -10653,7 +17572,7 @@
           "id": "p1",
           "name": "Первая генерация",
           "kind": "page",
-          "len": 1320,
+          "len": 1816,
           "control": {
             "nodes": [],
             "groups": [],
@@ -10677,7 +17596,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v0.2.22",
+            "text": "🧩 Универсальный воркфлоу · v0.3.0",
             "size": "M",
             "align": "left"
           },
@@ -11061,7 +17980,7 @@
           "x": 384,
           "y": 152,
           "w": 792,
-          "h": 840,
+          "h": 1336,
           "z": 0,
           "parent": null,
           "hidden": false,
@@ -11080,11 +17999,19 @@
               {
                 "id": "first",
                 "name": "🖼️ Первый проход"
+              },
+              {
+                "id": "second",
+                "name": "✨ Второй проход"
+              },
+              {
+                "id": "local",
+                "name": "🎯 Локальные правки"
               }
             ],
             "active": "result",
             "shadow": false,
-            "bottomWith": "refine_k_lora_section",
+            "bottomWith": "local_lora_section",
             "bottomInset": 72
           },
           "look": {
@@ -11110,7 +18037,7 @@
           "x": 396,
           "y": 208,
           "w": 768,
-          "h": 772,
+          "h": 1268,
           "z": 2,
           "parent": null,
           "tab": "result",
@@ -11156,7 +18083,7 @@
           "type": "progress",
           "page": "p1",
           "x": 384,
-          "y": 1008,
+          "y": 1504,
           "w": 344,
           "h": 56,
           "z": 2,
@@ -11197,7 +18124,7 @@
           "type": "factorysavetoggle_v023",
           "page": "p1",
           "x": 936,
-          "y": 1008,
+          "y": 1504,
           "w": 240,
           "h": 56,
           "z": 2,
@@ -11244,7 +18171,7 @@
           "type": "prompt",
           "page": "p1",
           "x": 24,
-          "y": 1080,
+          "y": 1576,
           "w": 1152,
           "h": 144,
           "z": 2,
@@ -11289,7 +18216,7 @@
           "type": "generate",
           "page": "p1",
           "x": 24,
-          "y": 1240,
+          "y": 1736,
           "w": 1152,
           "h": 56,
           "z": 2,
@@ -11658,7 +18585,7 @@
           "x": 396,
           "y": 208,
           "w": 768,
-          "h": 772,
+          "h": 1268,
           "z": 2,
           "parent": null,
           "tab": "first",
@@ -11706,7 +18633,7 @@
           "x": 396,
           "y": 208,
           "w": 768,
-          "h": 772,
+          "h": 1268,
           "z": 2,
           "parent": null,
           "tab": "compare",
@@ -11949,6 +18876,41 @@
               "src": "src_k2pass_z_lora",
               "kind": "widget",
               "name": "power_lora_3.strength"
+            },
+            "local_k_model": {
+              "src": "src_settings_local_k_model",
+              "kind": "widget",
+              "name": "unet_name"
+            },
+            "local_k_clip": {
+              "src": "src_settings_local_k_clip",
+              "kind": "widget",
+              "name": "clip_name"
+            },
+            "local_k_vae": {
+              "src": "src_settings_local_k_vae",
+              "kind": "widget",
+              "name": "vae_name"
+            },
+            "local_z_model": {
+              "src": "src_settings_local_z_model",
+              "kind": "widget",
+              "name": "unet_name"
+            },
+            "local_z_clip": {
+              "src": "src_settings_local_z_clip",
+              "kind": "widget",
+              "name": "clip_name"
+            },
+            "local_z_vae": {
+              "src": "src_settings_local_z_vae",
+              "kind": "widget",
+              "name": "vae_name"
+            },
+            "local_turbo": {
+              "src": "src_settings_local_turbo",
+              "kind": "widget",
+              "name": "power_lora_1.lora"
             }
           },
           "props": {
@@ -11976,7 +18938,7 @@
           "type": "factoryqueuestatus_v023",
           "page": "p1",
           "x": 740,
-          "y": 1008,
+          "y": 1504,
           "w": 184,
           "h": 56,
           "z": 2,
@@ -12220,6 +19182,297 @@
             "max": 10000,
             "unit": "%",
             "align": "center"
+          }
+        },
+        {
+          "id": "local_detail",
+          "type": "factorylocal_v030",
+          "page": "p1",
+          "x": 24,
+          "y": 1080,
+          "w": 336,
+          "h": 416,
+          "z": 2,
+          "parent": null,
+          "hidden": false,
+          "locked": true,
+          "slots": {
+            "config": {
+              "src": "src_local_controller",
+              "kind": "widget",
+              "name": "factory_local_config"
+            }
+          },
+          "props": {},
+          "look": {
+            "style": null,
+            "shape": null,
+            "accent": "#59e68d",
+            "bg": null,
+            "field": "#20252d",
+            "text": null,
+            "labelColor": "#8eefb4",
+            "border": "#365a45",
+            "radius": 12,
+            "shadow": null,
+            "blur": null,
+            "label": null,
+            "scale": 100
+          },
+          "adapt": {
+            "mode": "stretch",
+            "max": 10000,
+            "unit": "%",
+            "align": "center"
+          }
+        },
+        {
+          "id": "local_lora_gradient",
+          "type": "image",
+          "page": "p1",
+          "x": 24,
+          "y": 1512,
+          "w": 336,
+          "h": 48,
+          "z": 1,
+          "parent": null,
+          "hidden": false,
+          "locked": true,
+          "slots": {},
+          "props": {
+            "src": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMzYiIGhlaWdodD0iNDgiIHZpZXdCb3g9IjAgMCAzMzYgNDgiPjxkZWZzPjxsaW5lYXJHcmFkaWVudCBpZD0iZyIgeDE9IjAiIHkxPSIwIiB4Mj0iMSIgeTI9IjAiPjxzdG9wIHN0b3AtY29sb3I9IiNmZjZiODYiLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiNiODRkZmYiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB3aWR0aD0iMzM2IiBoZWlnaHQ9IjQ4IiByeD0iMTIiIGZpbGw9InVybCgjZykiLz48L3N2Zz4=",
+            "fit": "cover"
+          },
+          "look": {
+            "style": null,
+            "shape": null,
+            "accent": null,
+            "bg": "transparent",
+            "field": null,
+            "text": null,
+            "labelColor": null,
+            "border": "transparent",
+            "radius": 12,
+            "shadow": null,
+            "blur": null,
+            "label": null,
+            "scale": 100
+          }
+        },
+        {
+          "id": "local_lora_section",
+          "type": "spoiler",
+          "page": "p1",
+          "x": 24,
+          "y": 1512,
+          "w": 336,
+          "h": 48,
+          "z": 2,
+          "parent": null,
+          "hidden": false,
+          "locked": true,
+          "slots": {},
+          "props": {
+            "title": "🧩 3 · LoRA локальных правок",
+            "icon": "layers",
+            "open": false,
+            "remember": false,
+            "head_h": 48,
+            "pad": 0,
+            "max_h": 0,
+            "shadow": false,
+            "itemCount": 5
+          },
+          "look": {
+            "style": "soft",
+            "shape": null,
+            "accent": "#10131c",
+            "bg": "transparent",
+            "field": "#2e1d28",
+            "text": "#10131c",
+            "labelColor": "#10131c",
+            "border": "transparent",
+            "radius": 12,
+            "shadow": null,
+            "blur": null,
+            "label": null,
+            "scale": 115
+          }
+        },
+        {
+          "id": "local_lora_list",
+          "type": "factoryloralist_v0217",
+          "page": "p1",
+          "x": 0,
+          "y": 8,
+          "w": 336,
+          "h": 504,
+          "z": 2,
+          "parent": "local_lora_section",
+          "hidden": false,
+          "locked": true,
+          "slots": {
+            "bank": {
+              "src": "src_local_controller",
+              "kind": "widget",
+              "name": "factory_user_lora_bank"
+            }
+          },
+          "props": {},
+          "look": {
+            "style": "soft",
+            "bg": "#181c23",
+            "field": "#2e1d28",
+            "accent": "#ff5f94",
+            "text": "#e8eaf0",
+            "border": "#9a638980",
+            "labelColor": "#ff8cbb",
+            "radius": 12,
+            "scale": 100,
+            "label": "hidden"
+          },
+          "adapt": {
+            "mode": "stretch",
+            "max": 10000,
+            "unit": "%",
+            "align": "center"
+          }
+        },
+        {
+          "id": "second_result",
+          "type": "viewer",
+          "page": "p1",
+          "x": 396,
+          "y": 208,
+          "w": 768,
+          "h": 1268,
+          "z": 2,
+          "parent": null,
+          "tab": "second",
+          "hidden": false,
+          "locked": true,
+          "slots": {
+            "images": {
+              "src": "src_local_second",
+              "kind": "images",
+              "name": ""
+            }
+          },
+          "props": {
+            "label": "Первый проход",
+            "live": false,
+            "results": true,
+            "compare": false,
+            "progress": "off",
+            "thumbs": "bottom",
+            "save": true,
+            "tools": true,
+            "bottomWith": "right_tabs",
+            "bottomInset": 12
+          },
+          "look": {
+            "style": null,
+            "shape": null,
+            "accent": "#36cfea",
+            "bg": "#181c23",
+            "field": "#20252d",
+            "text": null,
+            "labelColor": "#65e3f4",
+            "border": "#286f80",
+            "radius": 12,
+            "shadow": null,
+            "blur": null,
+            "label": "hidden",
+            "scale": 100
+          }
+        },
+        {
+          "id": "local_comparison",
+          "type": "factorylocalcompare_v030",
+          "page": "p1",
+          "x": 396,
+          "y": 208,
+          "w": 768,
+          "h": 1268,
+          "z": 2,
+          "parent": null,
+          "tab": "local",
+          "hidden": false,
+          "locked": true,
+          "slots": {
+            "face_a": {
+              "src": "src_local_face-before",
+              "kind": "images",
+              "name": ""
+            },
+            "face_b": {
+              "src": "src_local_face-after",
+              "kind": "images",
+              "name": ""
+            },
+            "hands_a": {
+              "src": "src_local_hands-before",
+              "kind": "images",
+              "name": ""
+            },
+            "hands_b": {
+              "src": "src_local_hands-after",
+              "kind": "images",
+              "name": ""
+            },
+            "sam_a": {
+              "src": "src_local_sam-before",
+              "kind": "images",
+              "name": ""
+            },
+            "sam_b": {
+              "src": "src_local_sam-after",
+              "kind": "images",
+              "name": ""
+            },
+            "manual_a": {
+              "src": "src_local_manual-before",
+              "kind": "images",
+              "name": ""
+            },
+            "manual_b": {
+              "src": "src_local_manual-after",
+              "kind": "images",
+              "name": ""
+            }
+          },
+          "props": {
+            "label": "Результат",
+            "live": false,
+            "results": false,
+            "compare": true,
+            "progress": "off",
+            "thumbs": "off",
+            "save": true,
+            "tools": true,
+            "bottomWith": "right_tabs",
+            "bottomInset": 12,
+            "srcA": "node",
+            "srcB": "node",
+            "cmpMode": "wipe",
+            "labelA": "Первый проход",
+            "labelB": "После доработки",
+            "selected": "face"
+          },
+          "look": {
+            "style": null,
+            "shape": null,
+            "accent": "#36cfea",
+            "bg": "#181c23",
+            "field": "#20252d",
+            "text": null,
+            "labelColor": "#65e3f4",
+            "border": "#286f80",
+            "radius": 12,
+            "shadow": null,
+            "blur": null,
+            "label": "hidden",
+            "scale": 100
           }
         }
       ],
