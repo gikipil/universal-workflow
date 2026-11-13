@@ -17129,7 +17129,7 @@
       "id": "krea_two_pass_ui",
       "page": {
         "w": 1200,
-        "h": 1816,
+        "h": 1738,
         "bg": {
           "type": "gradient",
           "color": "#111318",
@@ -17606,7 +17606,7 @@
           "id": "p1",
           "name": "Первая генерация",
           "kind": "page",
-          "len": 1816,
+          "len": 1738,
           "control": {
             "nodes": [],
             "groups": [],
@@ -17630,7 +17630,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v0.3.5",
+            "text": "🧩 Универсальный воркфлоу · v0.3.6",
             "size": "M",
             "align": "left"
           },
@@ -17664,17 +17664,18 @@
           "locked": true,
           "slots": {},
           "props": {
-            "shadow": false
+            "shadow": false,
+            "factorySection": true
           },
           "look": {
             "style": null,
             "shape": null,
             "accent": null,
-            "bg": "#181c23",
+            "bg": "#192b2a",
             "field": "#20252d",
             "text": null,
             "labelColor": null,
-            "border": "#303742",
+            "border": "#3d726c",
             "radius": 12,
             "shadow": null,
             "blur": null,
@@ -18014,7 +18015,7 @@
           "x": 384,
           "y": 152,
           "w": 792,
-          "h": 1336,
+          "h": 1258,
           "z": 0,
           "parent": null,
           "hidden": false,
@@ -18071,7 +18072,7 @@
           "x": 396,
           "y": 208,
           "w": 768,
-          "h": 1268,
+          "h": 1190,
           "z": 2,
           "parent": null,
           "tab": "result",
@@ -18117,7 +18118,7 @@
           "type": "progress",
           "page": "p1",
           "x": 384,
-          "y": 1504,
+          "y": 1426,
           "w": 344,
           "h": 56,
           "z": 2,
@@ -18158,7 +18159,7 @@
           "type": "factorysavetoggle_v023",
           "page": "p1",
           "x": 936,
-          "y": 1504,
+          "y": 1426,
           "w": 240,
           "h": 56,
           "z": 2,
@@ -18205,7 +18206,7 @@
           "type": "prompt",
           "page": "p1",
           "x": 24,
-          "y": 1576,
+          "y": 1498,
           "w": 1152,
           "h": 144,
           "z": 2,
@@ -18250,7 +18251,7 @@
           "type": "generate",
           "page": "p1",
           "x": 24,
-          "y": 1736,
+          "y": 1658,
           "w": 1152,
           "h": 56,
           "z": 2,
@@ -18304,7 +18305,8 @@
           "props": {
             "text": "✨ 2 · Детализация",
             "size": "S",
-            "align": "left"
+            "align": "left",
+            "factorySection": true
           },
           "look": {
             "style": null,
@@ -18312,14 +18314,14 @@
             "accent": null,
             "bg": null,
             "field": null,
-            "text": "#8eefb4",
+            "text": "#78e4cd",
             "labelColor": null,
             "border": null,
             "radius": null,
             "shadow": null,
             "blur": null,
             "label": null,
-            "scale": 115
+            "scale": 100
           }
         },
         {
@@ -18619,7 +18621,7 @@
           "x": 396,
           "y": 208,
           "w": 768,
-          "h": 1268,
+          "h": 1190,
           "z": 2,
           "parent": null,
           "tab": "first",
@@ -18667,7 +18669,7 @@
           "x": 396,
           "y": 208,
           "w": 768,
-          "h": 1268,
+          "h": 1190,
           "z": 2,
           "parent": null,
           "tab": "compare",
@@ -18987,7 +18989,7 @@
           "type": "factoryqueuestatus_v023",
           "page": "p1",
           "x": 740,
-          "y": 1504,
+          "y": 1426,
           "w": 184,
           "h": 56,
           "z": 2,
@@ -19037,7 +19039,8 @@
           "props": {
             "text": "🖼️ 1 · Генерация",
             "size": "S",
-            "align": "left"
+            "align": "left",
+            "factorySection": true
           },
           "look": {
             "style": null,
@@ -19045,14 +19048,14 @@
             "accent": null,
             "bg": null,
             "field": null,
-            "text": "#8eefb4",
+            "text": "#78e4cd",
             "labelColor": null,
             "border": null,
             "radius": null,
             "shadow": null,
             "blur": null,
             "label": null,
-            "scale": 115
+            "scale": 100
           }
         },
         {
@@ -19069,17 +19072,18 @@
           "locked": true,
           "slots": {},
           "props": {
-            "shadow": false
+            "shadow": false,
+            "factorySection": true
           },
           "look": {
             "style": null,
             "shape": null,
             "accent": null,
-            "bg": "#181c23",
+            "bg": "#192b2a",
             "field": "#20252d",
             "text": null,
             "labelColor": null,
-            "border": "#303742",
+            "border": "#3d726c",
             "radius": 12,
             "shadow": null,
             "blur": null,
@@ -19238,9 +19242,9 @@
           "type": "factorylocal_v030",
           "page": "p1",
           "x": 24,
-          "y": 1080,
+          "y": 1072,
           "w": 336,
-          "h": 416,
+          "h": 354,
           "z": 2,
           "parent": null,
           "hidden": false,
@@ -19280,7 +19284,7 @@
           "type": "image",
           "page": "p1",
           "x": 24,
-          "y": 1512,
+          "y": 1434,
           "w": 336,
           "h": 48,
           "z": 1,
@@ -19313,7 +19317,7 @@
           "type": "spoiler",
           "page": "p1",
           "x": 24,
-          "y": 1512,
+          "y": 1434,
           "w": 336,
           "h": 48,
           "z": 2,
@@ -19394,7 +19398,7 @@
           "x": 396,
           "y": 208,
           "w": 768,
-          "h": 1268,
+          "h": 1190,
           "z": 2,
           "parent": null,
           "tab": "second",
@@ -19442,7 +19446,7 @@
           "x": 396,
           "y": 208,
           "w": 768,
-          "h": 1268,
+          "h": 1190,
           "z": 2,
           "parent": null,
           "tab": "local",

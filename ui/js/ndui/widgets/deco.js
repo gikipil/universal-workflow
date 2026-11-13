@@ -28,6 +28,7 @@ export const panel = {
             title.textContent = t || "";
             title.style.display = t ? "" : "none";
             box.classList.toggle("noshadow", ctx.prop("shadow") === false);
+            if(ctx.prop('factorySection'))Object.assign(box.style,{background:'linear-gradient(150deg,#192b2a,#191e28)',borderColor:'#3d726c',borderRadius:'12px'});
         };
         show();
         return { update: show };
@@ -117,6 +118,7 @@ export const heading = {
         const show = () => {
             h.textContent = ctx.prop("text") ?? "";
             h.style.fontSize = `${HEAD_PX[ctx.prop("size")] || 22}px`;
+            if(ctx.prop('factorySection'))Object.assign(h.style,{fontSize:'17px',lineHeight:'24px',fontWeight:'700'});
             h.style.textAlign = ctx.prop("align") || "left";
         };
         show();
