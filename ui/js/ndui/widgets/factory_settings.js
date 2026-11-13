@@ -1,3 +1,4 @@
+// Universal Workflow update by gikipil, 2026-11-14: standalone and post-edit upscale.
 // SPDX-License-Identifier: AGPL-3.0-only
 // Universal Workflow additions by gikipil, 2026-11-12.
 // Based on ND UI Builder by Ivan Ovchinnikov (Neural Dreamer).
@@ -6,7 +7,9 @@ import {modelpicker} from './special.js';
 import {applyVars} from '../kit.js';
 import {APPEARANCE_PROFILES} from '../factory_appearance.js';
 
+const EXTRA_UPSCALE_FIELDS=[['simple_model','Simple · upscale-модель','upscale_models'],['ultimate_model','Ultimate · upscale-модель','upscale_models'],['z_model','Ultimate · Z-Image Turbo','diffusion_models'],['z_clip','Ultimate · энкодер','text_encoders'],['z_vae','Ultimate · VAE','vae'],['seed_dit','SeedVR · DiT','auto'],['seed_vae','SeedVR · VAE','auto']];
 const MODEL_FIELDS = [
+    ...['editor_up','solo_up'].flatMap(scope=>EXTRA_UPSCALE_FIELDS.map(([key,label,folder])=>[scope+'_'+key,label,folder])),
     ['edit_model','Модель Qwen Edit 2511','diffusion_models'],['edit_clip','Энкодер Qwen Edit','text_encoders'],['edit_vae','VAE Qwen Edit','vae'],
     ['bg_model','Удаление фона · модель','auto'],
     ['pose_lora','OpenPose · служебная LoRA','loras'],['pose_bbox','Поза · детектор человека','auto'],['pose_estimator','Поза · детектор суставов','auto'],
@@ -96,9 +99,10 @@ export function openFactorySettings(ctx, onClose=()=>{}) {
     const editor=card(modelsGrid,'✏️ Редактирование · Qwen 2511','Независимый комплект редактора. Обычные LoRA выбираются на вкладке редактирования.');
     const background=card(modelsGrid,'🧽 Удаление фона','Отдельная функция. Выбор модели не меняет генерацию.');
     const upSeed=card(modelsGrid,'4 · SeedVR','Модели восстановления и VAE. Стартовый профиль взят из рабочего апскейлера.');
+    const extraUpscale={};for(const[scope,label]of[['editor_up','Редактор · апскейл'],['solo_up','Вкладка «Апскейл»']])extraUpscale[scope]={models:card(modelsGrid,label+' · Simple / Ultimate','У каждого режима свой файл upscale-модели. Выбор не меняет генерацию.'),ultimate:card(modelsGrid,label+' · Ultimate','Собственный комплект для перерисовки тайлов.'),seed:card(modelsGrid,label+' · SeedVR','Собственные DiT и VAE для этой задачи.')};
     for (const [key,caption,folder] of MODEL_FIELDS) {
-        const container=key.startsWith('edit_')?editor:key==='bg_model'?background:key.startsWith('pose_')?pose:key==='up_simple_model'||key==='up_ultimate_model'?upModels:key.startsWith('up_z_')?upUltimate:key.startsWith('up_seed_')?upSeed:['sam_model','face_detector','hand_detector'].includes(key)?detection:key.startsWith('local_k_')?localKrea:key.startsWith('local_z_')?localZ:key.includes('turbo')?turbo:key.startsWith('z_')?zimage:krea;
-        picker(container,key,caption,folder,key==='up_seed_dit'?value=>{if(/3b/i.test(String(value))){const state=ctx.info(key),node=state.p?.node||state.node,w=node?.widgets?.find(w=>w.name==='blocks_to_swap');if(w&&w.value>32){w.value=32;w.callback?.(32);node.graph?.change?.();}}}:undefined);
+        const scope=key.startsWith('editor_up_')?'editor_up':key.startsWith('solo_up_')?'solo_up':null;const container=scope?extraUpscale[scope][key.includes('_seed_')?'seed':key.includes('_z_')?'ultimate':'models']:key.startsWith('edit_')?editor:key==='bg_model'?background:key.startsWith('pose_')?pose:key==='up_simple_model'||key==='up_ultimate_model'?upModels:key.startsWith('up_z_')?upUltimate:key.startsWith('up_seed_')?upSeed:['sam_model','face_detector','hand_detector'].includes(key)?detection:key.startsWith('local_k_')?localKrea:key.startsWith('local_z_')?localZ:key.includes('turbo')?turbo:key.startsWith('z_')?zimage:krea;
+        picker(container,key,caption,folder,key.endsWith('_seed_dit')?value=>{if(/3b/i.test(String(value))){const state=ctx.info(key),node=state.p?.node||state.node,w=node?.widgets?.find(w=>w.name==='blocks_to_swap');if(w&&w.value>32){w.value=32;w.callback?.(32);node.graph?.change?.();}}}:undefined);
     }
     models.append(el('h3','acf-settings-subtitle','Постоянные LoRA'));
     models.append(el('p','acf-settings-caption','По три слота на каждый набор. Включённые LoRA действуют во всех режимах своего этапа и не занимают пользовательские слоты на главной странице.'));

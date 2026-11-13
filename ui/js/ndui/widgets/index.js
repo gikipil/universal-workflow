@@ -1,3 +1,5 @@
+// Universal Workflow update by gikipil, 2026-11-14: standalone and post-edit upscale.
+import {factoryupprogress_v080,factoryuprun_v080} from './factory_upscale_task.js';
 import {factoryeditmain_v071,factoryeditphoto_v070,factoryeditprog_v070,factoryeditrun_v070,factoryeditpreset_v070,factoryedit_v070} from './factory_edit.js';
 import {factoryphoto_v060,factoryalphaviewer_v060,factorybackgroundprogress_v060,factorybackgroundrun_v060,factorybackground_v060} from './factory_background.js';
 import {factorypose_v050} from './factory_pose.js';
@@ -43,7 +45,7 @@ import { tabbox } from "./tabbox.js";
 import { showany } from "./showany.js";
 import { variantsel } from "./variantsel.js";
 
-export const WIDGET_LIST = [factoryeditmain_v071,factoryeditphoto_v070,factoryeditprog_v070,factoryeditrun_v070,factoryeditpreset_v070,factoryedit_v070,factoryphoto_v060,factoryalphaviewer_v060,factorybackgroundprogress_v060,factorybackgroundrun_v060,factorybackground_v060,factorypose_v050, factoryupscale_v040, factoryprogress_v037, factorylocal_v030, factorylocalcompare_v030, factoryloralist_v0217, factorysliders_v0216, factoryrefmode_v0214, factorysize_v0213, factorygenmode_v029, factorysavetoggle_v023, factoryqueuestatus_v023, factorytaskbar_v0215, factoryrefinementmode, factorygenerationmode, factoryresolution, number, slider, knob, seed, text, prompt, dropdown, segmented, toggle, generate, runto, progress, queue, resolution, modelpicker, lora, lorapicker, viewer, audioplayer, videoplayer, simpleimage, imageinput, videoinput, audioinput, textout, uiscale, activity, nodeembed, showany, variantsel, panel, tabbox, spoiler, heading, textblock, divider, image, tabs];
+export const WIDGET_LIST = [factoryupprogress_v080,factoryuprun_v080,factoryeditmain_v071,factoryeditphoto_v070,factoryeditprog_v070,factoryeditrun_v070,factoryeditpreset_v070,factoryedit_v070,factoryphoto_v060,factoryalphaviewer_v060,factorybackgroundprogress_v060,factorybackgroundrun_v060,factorybackground_v060,factorypose_v050, factoryupscale_v040, factoryprogress_v037, factorylocal_v030, factorylocalcompare_v030, factoryloralist_v0217, factorysliders_v0216, factoryrefmode_v0214, factorysize_v0213, factorygenmode_v029, factorysavetoggle_v023, factoryqueuestatus_v023, factorytaskbar_v0215, factoryrefinementmode, factorygenerationmode, factoryresolution, number, slider, knob, seed, text, prompt, dropdown, segmented, toggle, generate, runto, progress, queue, resolution, modelpicker, lora, lorapicker, viewer, audioplayer, videoplayer, simpleimage, imageinput, videoinput, audioinput, textout, uiscale, activity, nodeembed, showany, variantsel, panel, tabbox, spoiler, heading, textblock, divider, image, tabs];
 export const WIDGETS = new Map(WIDGET_LIST.map((d) => [d.type, d]));
 export const GROUPS = ["Inputs", "Run", "Results", "Layout"];
 export const defOf = (type) => WIDGETS.get(type) || null;

@@ -1,3 +1,5 @@
+// Universal Workflow update by gikipil, 2026-11-14: standalone and post-edit upscale.
+import {upscaleTaskParams} from './factory_upscale_tasks.js';
 import {editParams} from './factory_edit_params.js';
 import {backgroundParams} from './factory_background_params.js';
 import {poseParams} from './factory_pose_params.js';
@@ -114,7 +116,7 @@ export function virtualParams(node) {
         case "KSampler": return editParams(node,touch);
         case "RMBG": return backgroundParams(node,touch);
         case "PrimitiveInt": return poseParams(node,touch);
-        case "easy anythingIndexSwitch": return [...upscaleParams(node,touch),...localParams(node,touch),...factoryRefineLoraParams(node, touch),...sliderBankParams(node,touch),...userLoraBankParams(node,touch)];
+        case "easy anythingIndexSwitch": return [...upscaleTaskParams(node,touch),...upscaleParams(node,touch),...localParams(node,touch),...factoryRefineLoraParams(node, touch),...sliderBankParams(node,touch),...userLoraBankParams(node,touch)];
         case "Image Saver Simple": return factorySaveParams(node, touch);
         case "NDValueSlider": { const p = sliderParam(node); return p ? [p] : []; }
         case "NDResolution": return ["width", "height"].map((n) => resolutionParam(node, n)).filter(Boolean);

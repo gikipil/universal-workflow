@@ -1,0 +1,22 @@
+// SPDX-License-Identifier: AGPL-3.0-only
+// Universal Workflow additions by gikipil, 2026-11-14.
+import {api} from '../../../scripts/api.js';
+import {app} from '../../../scripts/app.js';
+import {FactoryProgress} from './factory_progress.js';
+import {rewriteUpscale,upscaleStage} from './factory_upscale_tasks.js';
+export const upscaleProgress=new FactoryProgress();
+export function upscalePrompt(data,targets,modes,spec){const output=rewriteUpscale(structuredClone(data.output||{}),spec),keep=new Set();function visit(id){id=String(id);if(keep.has(id))return;const n=output[id];if(!n)throw Error('Не найден узел апскейла '+id);keep.add(id);for(const v of Object.values(n.inputs||{}))if(Array.isArray(v)&&v.length===2&&typeof v[1]==='number'&&Object.hasOwn(output,String(v[0])))visit(v[0]);}for(const id of targets)visit(id);const workflow=structuredClone(data.workflow);for(const n of workflow?.nodes||[])if(modes.has(n.id))n.mode=modes.get(n.id);return{...data,workflow,output:Object.fromEntries([...keep].map(id=>[id,output[id]]))};}
+let building=false,runningPid='',upPid='';const queued=new Set(),owner=()=> (app.graph?._nodes||app.graph?.nodes||[]).find(n=>n.properties?.acf_upscale_task);
+export function upscalePlan(node){const s=node.properties.acf_upscale_task,plan=[upscaleStage(node.graph,node)];plan[0].ids.add(String(s.photo));plan[0].ids.add(String(s.saver));plan.operations=new Map([[String(s.photo),'загрузка фото'],[String(node.properties.acf_upscale.dit),'загрузка SeedVR · DiT'],[String(node.properties.acf_upscale.vae),'загрузка SeedVR · VAE'],[String(s.saver),'сохранение']]);return plan;}
+export async function queueUpscale(node,batch=1){
+ if(building)throw Error('Подожди завершения отправки предыдущего задания.');const s=node.properties.acf_upscale_task,u=node.properties.acf_upscale,g=node.graph,file=g.getNodeById(s.photo)?.widgets?.find(w=>w.name==='image')?.value;if(!file||file==='universal-local-empty-mask.png')throw Error('Сначала загрузи фото для увеличения.');
+ const targets=[u.before,u.after,...(s.save?[s.saver]:[])],modes=new Map(targets.map(id=>[id,g.getNodeById(id)?.mode]));if([...modes.values()].some(v=>v==null))throw Error('Не найдены выходы апскейла.');
+ building=true;try{let data;for(const id of targets)g.getNodeById(id).mode=0;try{data=await app.graphToPrompt();}finally{for(const[id,mode]of modes)g.getNodeById(id).mode=mode;}data=upscalePrompt(data,targets,modes,u);for(let i=0;i<Math.max(1,Math.min(64,Math.round(batch)));i++){const r=await api.queuePrompt(0,data,{partialExecutionTargets:targets.map(String)});if(r?.prompt_id)queued.add(r.prompt_id);if(r?.node_errors&&Object.keys(r.node_errors).length)throw Error('Ошибка апскейла: '+JSON.stringify(r.node_errors));}return true;}finally{building=false;}
+}
+const idOf=d=>String(d?.display_node_id??d?.display_node??d?.real_node_id??d?.node_id??d?.node??d??'');const start=()=>{const n=owner();if(!n)return;upscaleProgress.start(upscalePlan(n));upPid=runningPid;};
+api.addEventListener('execution_start',e=>{runningPid=e.detail?.prompt_id||'';if(queued.has(runningPid)){queued.delete(runningPid);start();}});
+api.addEventListener('executing',e=>{const id=idOf(e.detail),n=owner();if(!n?.properties.acf_upscale_task.nodes.map(String).includes(id))return;if(!upscaleProgress.active||upPid!==runningPid)start();const previous=upscaleProgress.current;if(previous&&previous!==id)upscaleProgress.finish(previous);upscaleProgress.enter(id);});
+api.addEventListener('executed',e=>{if(upscaleProgress.active)upscaleProgress.finish(idOf(e.detail));});
+api.addEventListener('progress',e=>{if(upscaleProgress.active){const d=e.detail||{};upscaleProgress.progress(idOf(d),d.value,d.max);}});
+api.addEventListener('execution_cached',e=>{const n=owner();if(!n)return;const ids=e.detail?.nodes||[];if(ids.some(id=>n.properties.acf_upscale_task.nodes.includes(Number(id)))){if(!upscaleProgress.active)start();for(const id of ids)upscaleProgress.finish(id);}});
+for(const event of['execution_success','execution_interrupted','execution_error'])api.addEventListener(event,e=>{if(!upscaleProgress.active)return;if(e.detail?.prompt_id&&upPid&&e.detail.prompt_id!==upPid)return;upscaleProgress.active=false;upscaleProgress.stopped=Date.now();if(event==='execution_success')upscaleProgress.complete=true;else if(event==='execution_interrupted')upscaleProgress.interrupted=true;else upscaleProgress.error=e.detail?.exception_message||'Не удалось увеличить фото';});

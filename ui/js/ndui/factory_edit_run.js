@@ -1,3 +1,4 @@
+import {rewriteUpscale,upscaleStage} from './factory_upscale_tasks.js';
 // SPDX-License-Identifier: AGPL-3.0-only
 // Universal Workflow additions by gikipil, 2026-11-14.
 import {api} from '../../../scripts/api.js';
@@ -8,12 +9,13 @@ export const EMPTY_EDIT_IMAGE='universal-local-empty-mask.png';
 export const hasEditImage=file=>typeof file==='string'&&file.trim()!==''&&file!==EMPTY_EDIT_IMAGE;
 // This compiler removes absent references before collecting dependencies. No empty LoadImage
 // and no duplicate of Picture 1 is substituted as Picture 2.
-export function editPrompt(data,targets,originalModes,s,withReference,withMask=false){
+export function editPrompt(data,targets,originalModes,s,withReference,withMask=false,upscaleSpec=null){
  const output=structuredClone(data.output||{}),bypass=new Map();
  if(s.maskNoise&&!withMask){bypass.set(String(s.maskNoise),output[s.maskNoise]?.inputs?.samples);bypass.set(String(s.maskComposite),output[s.maskComposite]?.inputs?.source);delete output[s.scale]?.inputs?.mask;}
  if(!withReference)for(const id of s.optionalRefs){const input=output[id]?.inputs?.conditioning;if(!input)throw Error('Не найдена цепочка референсов Qwen.');bypass.set(String(id),input);}
  function redirect(v){const seen=new Set();while(Array.isArray(v)&&v.length===2&&bypass.has(String(v[0]))){if(seen.has(String(v[0])))throw Error('Зацикленная цепочка референсов.');seen.add(String(v[0]));v=bypass.get(String(v[0]));}return v;}
  for(const n of Object.values(output))for(const[k,v]of Object.entries(n.inputs||{}))n.inputs[k]=redirect(v);
+ rewriteUpscale(output,upscaleSpec);
  const keep=new Set();function visit(id){id=String(id);if(keep.has(id))return;const n=output[id];if(!n)throw Error('Не найден узел редактора '+id);keep.add(id);for(const v of Object.values(n.inputs||{}))if(Array.isArray(v)&&v.length===2&&typeof v[1]==='number'&&Object.hasOwn(output,String(v[0])))visit(v[0]);}for(const id of targets)visit(id);
  if(!withMask&&s.maskFile&&keep.has(String(s.maskFile)))throw Error('Выключенная маска осталась подключена.');
  if(!withReference&&keep.has(String(s.reference)))throw Error('Пустой референс остался подключён.');
@@ -22,14 +24,15 @@ export function editPrompt(data,targets,originalModes,s,withReference,withMask=f
 }
 const activeIds=new Set();let building=false,runningPid='',editPid='';
 const owner=()=> (app.graph?._nodes||app.graph?.nodes||[]).find(n=>n.properties?.acf_edit);
-export function editPlan(n){const s=n.properties.acf_edit,plan=[{name:'Редактирование · Qwen 2511',sample:String(n.id),ids:new Set(s.nodes.map(String)),finish:[String(s.result)],runningLabel:'изменение кадра'}];plan.operations=new Map([[String(s.photo),'загрузка исходника'],[String(s.reference),'загрузка референса'],[String(s.scale),'подготовка размера'],[String(n.id),'изменение кадра'],[String(s.result),'подготовка результата'],[String(s.saver),'сохранение']]);return plan;}
+export function editPlan(n){const s=n.properties.acf_edit,g=n.graph,up=g.getNodeById(s.upscale),u=up?.properties.acf_upscale,enabled=!!g.getNodeById(u?.enabled)?.widgets?.find(w=>w.name==='index')?.value,upIds=new Set(u?.nodes||[]),plan=[{name:'Редактирование · Qwen 2511',sample:String(n.id),ids:new Set(s.nodes.filter(id=>!upIds.has(id)).map(String)),finish:[String(enabled?u.before:s.result)],runningLabel:'изменение кадра'}];if(enabled)plan.push(upscaleStage(g,up,'Апскейл результата'));plan.operations=new Map([[String(s.photo),'загрузка исходника'],[String(s.reference),'загрузка референса'],[String(s.scale),'подготовка размера'],[String(n.id),'изменение кадра'],[String(s.result),'подготовка результата'],[String(s.saver),'сохранение']]);return plan;}
 export async function queueEdit(node,batch=1){
  if(building)throw Error('Подожди завершения отправки предыдущего задания.');const s=node.properties.acf_edit,g=node.graph,file=id=>g.getNodeById(id)?.widgets?.find(w=>w.name==='image')?.value;
  if(!hasEditImage(file(s.photo)))throw Error('Сначала загрузи основной кадр.');
  if(s.maskEnabled&&(!hasEditImage(file(s.maskFile))||s.maskFor!==file(s.photo)))throw Error('Нарисуй и сохрани маску для текущего основного кадра или выключи режим «По маске».');
- const targets=[s.before,s.result,...(s.save?[s.saver]:[])],modes=new Map(targets.map(id=>[id,g.getNodeById(id)?.mode]));if([...modes.values()].some(v=>v==null))throw Error('Не найдены выходы редактора.');
+ const up=g.getNodeById(s.upscale),u=up?.properties.acf_upscale,upEnabled=!!g.getNodeById(u?.enabled)?.widgets?.find(w=>w.name==='index')?.value;
+ const targets=[s.before,s.result,...(upEnabled?[u.before,u.after]:[]),...(s.save?[s.saver]:[])],modes=new Map(targets.map(id=>[id,g.getNodeById(id)?.mode]));if([...modes.values()].some(v=>v==null))throw Error('Не найдены выходы редактора.');
  building=true;try{let data;for(const id of targets)g.getNodeById(id).mode=0;try{data=await app.graphToPrompt();}finally{for(const[id,mode]of modes)g.getNodeById(id).mode=mode;}
-  data=editPrompt(data,targets,modes,s,hasEditImage(file(s.reference)),s.maskEnabled===true);
+  data=editPrompt(data,targets,modes,s,hasEditImage(file(s.reference)),s.maskEnabled===true,u);
   for(let i=0;i<Math.max(1,Math.min(64,Math.round(batch)));i++){const result=await api.queuePrompt(0,data,{partialExecutionTargets:targets.map(String)});if(result?.prompt_id)activeIds.add(result.prompt_id);if(result?.node_errors&&Object.keys(result.node_errors).length)throw Error('Ошибка редактора: '+JSON.stringify(result.node_errors));}return true;
  }finally{building=false;}
 }
