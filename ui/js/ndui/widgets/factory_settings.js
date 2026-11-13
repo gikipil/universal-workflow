@@ -7,6 +7,7 @@ import {applyVars} from '../kit.js';
 import {APPEARANCE_PROFILES} from '../factory_appearance.js';
 
 const MODEL_FIELDS = [
+    ['sam_model','Модель SAM 3.1','checkpoints'],['face_detector','YOLO · лица','auto'],['hand_detector','YOLO · руки','auto'],
     ['local_k_model','Модель Krea Raw · локально','diffusion_models'],['local_k_clip','Энкодер Krea · локально','text_encoders'],['local_k_vae','VAE Krea · локально','vae'],
     ['local_z_model','Модель Z-Image · локально','diffusion_models'],['local_z_clip','Энкодер Z-Image · локально','text_encoders'],['local_z_vae','VAE Z-Image · локально','vae'],['local_turbo','Turbo-адаптер · локально','loras'],
     ['k_model','Модель Krea Raw','diffusion_models'], ['k_clip','Текстовый энкодер Krea','text_encoders'], ['k_vae','VAE Krea','vae'],
@@ -34,6 +35,9 @@ const css = `
 .acf-settings-tab{padding:12px 22px;border:1px solid #3b4955;border-radius:12px 12px 0 0;background:#1c2530;color:#b5c3d1;cursor:pointer;font-weight:650}.acf-settings-tab[aria-selected=true]{background:linear-gradient(145deg,#1c3c3d,#192d31);border-color:#5bdcb3;color:#b8ffe0;box-shadow:0 -2px 15px #39ddc51a}
 .acf-settings-pane{min-height:0;overflow:auto;padding:24px 28px 32px}.acf-settings-pane[hidden]{display:none!important}
 .acf-settings-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,360px),1fr));gap:20px;align-items:start}
+.acf-settings-models{grid-template-columns:repeat(3,minmax(0,1fr))}
+@media(max-width:1100px){.acf-settings-models{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:620px){.acf-settings-models{grid-template-columns:minmax(0,1fr)}}
 .acf-settings-card{padding:20px;border:1px solid #35554b;border-radius:16px;background:#18232a;min-width:0}
 .acf-settings-card h3{margin:0 0 6px;font-size:18px;color:#8eefb4}.acf-settings-card p{margin:0 0 18px;font-size:13px;color:#a4adbf}
 .acf-settings-field{display:flex;flex-direction:column;gap:6px;margin-top:16px;min-width:0}.acf-settings-field>span{font-size:13px;color:#a9d9bc}.acf-settings-picker{min-width:0;display:flex;flex-direction:column;min-height:44px}.acf-settings-picker .ndk-field{min-height:44px;width:100%}
@@ -73,12 +77,17 @@ export function openFactorySettings(ctx, onClose=()=>{}) {
         const instance=modelpicker.mount(subContext(body,key,folder,afterSet));instances.push(instance);return field;
     }
     function card(container,title,hint) {const box=el('div','acf-settings-card');box.append(el('h3','',title));if(hint)box.append(el('p','',hint));container.append(box);return box;}
-    const modelsGrid=el('div','acf-settings-grid');models.append(modelsGrid);
+    const modelsGrid=el('div','acf-settings-grid acf-settings-models');models.append(modelsGrid);
     const krea=card(modelsGrid,'Krea','Общий комплект для генерации и Krea-детализации. Выбирай Raw-модель: Turbo-адаптер подключается в нужных режимах автоматически.');
     const zimage=card(modelsGrid,'Z-Image','Комплект второго прохода. Его модели и LoRA независимы от Krea.');
     const turbo=card(modelsGrid,'Krea · Turbo-адаптеры','Подключаются автоматически в Turbo-режимах. Для каждого этапа можно выбрать свой адаптер.');
-    const local=card(modelsGrid,'3 · Локальная детализация','Отдельные модели Krea и Z-Image для лица, рук и выбранных областей. Настройки первых двух этапов не меняются.');
-    for (const [key,caption,folder] of MODEL_FIELDS) picker(key.startsWith('local_')?local:key.includes('turbo')?turbo:key.startsWith('z_')?zimage:krea,key,caption,folder);
+    const localKrea=card(modelsGrid,'3 · Krea · локальная детализация','Отдельный комплект для лица, рук и выбранных областей.');
+    const localZ=card(modelsGrid,'3 · Z-Image · локальная детализация','Отдельный комплект Z-Image для третьего этапа.');
+    const detection=card(modelsGrid,'🔎 SAM и YOLO','SAM выделяет область по описанию, YOLO находит лица и руки. Здесь выбираются установленные файлы детекторов.');
+    for (const [key,caption,folder] of MODEL_FIELDS) {
+        const container=['sam_model','face_detector','hand_detector'].includes(key)?detection:key.startsWith('local_k_')?localKrea:key.startsWith('local_z_')?localZ:key.includes('turbo')?turbo:key.startsWith('z_')?zimage:krea;
+        picker(container,key,caption,folder);
+    }
     models.append(el('h3','acf-settings-subtitle','Постоянные LoRA'));
     models.append(el('p','acf-settings-caption','По три слота на каждый набор. Включённые LoRA действуют во всех режимах своего этапа и не занимают пользовательские слоты на главной странице.'));
     const loraGrid=el('div','acf-settings-grid');loraGrid.style.marginTop='16px';models.append(loraGrid);

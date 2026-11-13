@@ -12422,7 +12422,11 @@
       ],
       "title": "🟢 Детектор face",
       "properties": {
-        "Node name for S&R": "UltralyticsDetectorProvider"
+        "Node name for S&R": "UltralyticsDetectorProvider",
+        "nd_ui_src": {
+          "uid": "src_settings_face_detector",
+          "tag": "settings-face_detector"
+        }
       },
       "widgets_values": [
         "bbox/face_yolov8m.pt"
@@ -12997,7 +13001,11 @@
       ],
       "title": "🟢 Детектор hands",
       "properties": {
-        "Node name for S&R": "UltralyticsDetectorProvider"
+        "Node name for S&R": "UltralyticsDetectorProvider",
+        "nd_ui_src": {
+          "uid": "src_settings_hand_detector",
+          "tag": "settings-hand_detector"
+        }
       },
       "widgets_values": [
         "bbox/hand_yolov8s.pt"
@@ -13579,7 +13587,11 @@
       ],
       "title": "🟢 SAM 3.1 · модель",
       "properties": {
-        "Node name for S&R": "CheckpointLoaderSimple"
+        "Node name for S&R": "CheckpointLoaderSimple",
+        "nd_ui_src": {
+          "uid": "src_settings_sam_model",
+          "tag": "settings-sam_model"
+        }
       },
       "widgets_values": [
         "sam3.1_multiplex_fp16.safetensors"
@@ -17569,6 +17581,24 @@
           "tag": "settings-local_turbo",
           "class": "Power Lora Loader (rgthree)",
           "title": "🧩 3 · Krea · служебный Turbo"
+        },
+        {
+          "uid": "src_settings_sam_model",
+          "tag": "settings-sam_model",
+          "class": "CheckpointLoaderSimple",
+          "title": "🟢 SAM 3.1 · модель"
+        },
+        {
+          "uid": "src_settings_face_detector",
+          "tag": "settings-face_detector",
+          "class": "UltralyticsDetectorProvider",
+          "title": "🟢 Детектор face"
+        },
+        {
+          "uid": "src_settings_hand_detector",
+          "tag": "settings-hand_detector",
+          "class": "UltralyticsDetectorProvider",
+          "title": "🟢 Детектор hands"
         }
       ],
       "pages": [
@@ -17600,7 +17630,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v0.3.3",
+            "text": "🧩 Универсальный воркфлоу · v0.3.4",
             "size": "M",
             "align": "left"
           },
@@ -18915,6 +18945,21 @@
               "src": "src_settings_local_turbo",
               "kind": "widget",
               "name": "power_lora_1.lora"
+            },
+            "sam_model": {
+              "src": "src_settings_sam_model",
+              "kind": "widget",
+              "name": "ckpt_name"
+            },
+            "face_detector": {
+              "src": "src_settings_face_detector",
+              "kind": "widget",
+              "name": "model_name"
+            },
+            "hand_detector": {
+              "src": "src_settings_hand_detector",
+              "kind": "widget",
+              "name": "model_name"
             }
           },
           "props": {
