@@ -28368,7 +28368,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v0.6.0",
+            "text": "🧩 Универсальный воркфлоу · v0.6.1",
             "size": "M",
             "align": "left"
           },
@@ -30499,7 +30499,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v0.6.0",
+            "text": "🧩 Универсальный воркфлоу · v0.6.1",
             "size": "M",
             "align": "left"
           },
@@ -31140,7 +31140,7 @@
         },
         {
           "id": "bg_progress",
-          "type": "factorybackgroundprogress_v060",
+          "type": "factorybgprogress_v060",
           "page": "p_bg",
           "x": 384,
           "y": 776,
@@ -31267,7 +31267,7 @@
         },
         {
           "id": "bg_run",
-          "type": "factorybackgroundrun_v060",
+          "type": "factorybgrun_v060",
           "page": "p_bg",
           "x": 24,
           "y": 848,
