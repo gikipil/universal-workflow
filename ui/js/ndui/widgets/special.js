@@ -1,3 +1,4 @@
+import {checkModelPresence,lostModelBadge,paintModelBadge,clearModelPresence} from '../model_presence.js';
 // SPDX-License-Identifier: AGPL-3.0-only
 // Universal Workflow additions/modifications by gikipil, 2026-11-12.
 // Based on ND UI Builder by Ivan Ovchinnikov (Neural Dreamer).
@@ -154,7 +155,8 @@ export const modelpicker = {
     mount(ctx) {
         const f = el("div", "ndk-field ndk-mp"); f.tabIndex = 0; f.setAttribute("role", "button");
         const thumb = el("div", "ndk-mp-thumb"), name = el("div", "ndk-mp-name");
-        f.append(thumb, name, icon("chevD", 16));
+        const missingBadge=lostModelBadge(el);
+        f.append(thumb, name, missingBadge, icon("chevD", 16));
         ctx.body.append(f);
         const folderOf = () => {
             const p = ctx.prop("folder");
@@ -163,7 +165,7 @@ export const modelpicker = {
             const hit = FOLDER_BY_NAME.find(([re]) => re.test(n));
             return hit ? hit[1] : "";
         };
-        let info = new Map(), loadedFor = "", seen = "";
+        let info = new Map(), loadedFor = "", seen = "", alive=true, presenceTicket=0;
         const load = (fresh) => { const fo = folderOf(); loadedFor = fo; if (!fo) { info = new Map(); show(); return Promise.resolve(); } return catalog(fo, fresh).then((m) => { if (loadedFor === fo) { info = m; seen = ""; show(); } }); };
         const show = () => {
             const v = ctx.get("value");
@@ -171,6 +173,8 @@ export const modelpicker = {
             if (fo !== loadedFor) load();
             const text = v == null ? "" : String(v);
             const d = dirName(text);
+            const ticket=++presenceTicket;
+            checkModelPresence(fo,text,ctx.info('value')).then(status=>{if(alive&&ticket===presenceTicket)paintModelBadge(missingBadge,status);});
             const k = `${text}|${info.size}|${fo}`;
             if (k === seen) return;
             seen = k;
@@ -257,7 +261,7 @@ export const modelpicker = {
                     input.addEventListener("input", draw);
                     input.addEventListener("keydown", (e) => { e.stopPropagation(); if (e.key === "Enter") { const first = grid.querySelector(".ndk-mp-card"); first?.click(); } });
                     const finish = () => { loading = false; if (box.isConnected) draw(); };
-                    refresh.addEventListener("click", () => { loading = true; draw(); load(true).then(finish); });
+                    refresh.addEventListener("click", () => { loading = true; clearModelPresence(); seen=""; show(); draw(); load(true).then(finish); });
                     draw();
                     load().then(finish);
                     setTimeout(() => input.focus(), 0);
@@ -267,7 +271,7 @@ export const modelpicker = {
         f.addEventListener("click", open);
         f.addEventListener("keydown", (e) => { if (e.key === "Enter" || e.key === " " || e.key === "ArrowDown") { e.preventDefault(); open(); } e.stopPropagation(); });
         load();
-        return { update: show };
+        return { update: show, destroy(){alive=false;presenceTicket++;} };
     },
 };
 

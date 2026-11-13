@@ -27701,6 +27701,42 @@
           "tag": "upscale-controller",
           "class": "easy anythingIndexSwitch",
           "title": "🟢 4 · Simple / Ultimate / SeedVR"
+        },
+        {
+          "uid": "src_pose_controller",
+          "tag": "pose-controller",
+          "class": "PrimitiveInt",
+          "title": "🦴 Поза по референсу · включение"
+        },
+        {
+          "uid": "src_pose_photo",
+          "tag": "pose-photo",
+          "class": "LoadImage",
+          "title": "📷 Фото с позой"
+        },
+        {
+          "uid": "src_pose_detector",
+          "tag": "pose-detector",
+          "class": "DWPreprocessor",
+          "title": "🦴 Извлечение скелета"
+        },
+        {
+          "uid": "src_pose_skeleton",
+          "tag": "pose-skeleton",
+          "class": "PreviewImage",
+          "title": "🦴 Последний скелет"
+        },
+        {
+          "uid": "src_pose_prompt",
+          "tag": "pose-prompt",
+          "class": "PrimitiveStringMultiline",
+          "title": "✍️ Общий позитивный промт"
+        },
+        {
+          "uid": "src_pose_negative",
+          "tag": "pose-negative",
+          "class": "PrimitiveStringMultiline",
+          "title": "➖ Общий негативный промт Raw"
         }
       ],
       "pages": [
@@ -27732,7 +27768,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v0.5.0",
+            "text": "🧩 Универсальный воркфлоу · v0.5.1",
             "size": "M",
             "align": "left"
           },
