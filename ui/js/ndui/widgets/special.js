@@ -1,4 +1,4 @@
-import {checkModelPresence,lostModelBadge,paintModelBadge,clearModelPresence} from '../model_presence.js';
+import {checkModelPresence,shouldCheckModelPresence,lostModelBadge,paintModelBadge,clearModelPresence} from '../model_presence.js';
 // SPDX-License-Identifier: AGPL-3.0-only
 // Universal Workflow additions/modifications by gikipil, 2026-11-12.
 // Based on ND UI Builder by Ivan Ovchinnikov (Neural Dreamer).
@@ -174,7 +174,8 @@ export const modelpicker = {
             const text = v == null ? "" : String(v);
             const d = dirName(text);
             const ticket=++presenceTicket;
-            checkModelPresence(fo,text,ctx.info('value')).then(status=>{if(alive&&ticket===presenceTicket)paintModelBadge(missingBadge,status);});
+            if(shouldCheckModelPresence(fo,ctx.prop('requiredModel')))checkModelPresence(fo,text,ctx.info('value')).then(status=>{if(alive&&ticket===presenceTicket)paintModelBadge(missingBadge,status);});
+            else paintModelBadge(missingBadge,{missing:false});
             const k = `${text}|${info.size}|${fo}`;
             if (k === seen) return;
             seen = k;

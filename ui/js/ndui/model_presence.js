@@ -4,6 +4,7 @@ import {api} from '../../../scripts/api.js';
 const TTL=30000,cache=new Map();
 const normalize=v=>String(v??'').replace(/\\/g,'/').replace(/^\.\//,'').toLowerCase();
 const empty=v=>v==null||['','none','null'].includes(String(v).trim().toLowerCase());
+export const shouldCheckModelPresence=(folder,required=false)=>folder!=='loras'||required===true;
 export function clearModelPresence(){cache.clear();}
 function list(folder,fresh=false){const now=Date.now(),old=cache.get(folder);if(!fresh&&old&&now-old.at<TTL)return old.promise;
  const promise=(async()=>{try{const response=await api.fetchApi('/models/'+encodeURIComponent(folder));if(!response.ok)return null;const data=await response.json();return Array.isArray(data)&&data.every(x=>typeof x==='string')?new Set(data.map(normalize)):null;}catch{return null;}})();cache.set(folder,{at:now,promise});return promise;
