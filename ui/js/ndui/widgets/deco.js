@@ -71,6 +71,8 @@ export const spoiler = {
             box.classList.toggle("noshadow", ctx.prop("shadow") !== true);
             head.setAttribute("aria-expanded", open ? "true" : "false");
             title.textContent = ctx.prop("title") || "";
+            if(ctx.prop('factoryLora')){Object.assign(head.style,{background:'linear-gradient(110deg,#ff6b86,#b84dff)',color:'#10131c',borderRadius:'12px',fontWeight:'700',border:'0'});for(const item of[chev,ic,title,count])item.style.color='#10131c';Object.assign(count.style,{background:'#56205e33',borderRadius:'999px',padding:'3px 8px'});Object.assign(box.style,{borderRadius:'12px',border:open?'1px solid #9a638980':'0',background:open?'linear-gradient(180deg,#40263f,#181c23 90px)':'transparent'});}
+
             ic.textContent = "";
             const name = ctx.prop("icon");
             if (name) ic.append(icon(name, 16));

@@ -1,9 +1,663 @@
 {
   "id": "6156223e-7f85-4578-923d-9d05cf820581",
   "revision": 0,
-  "last_node_id": 508,
-  "last_link_id": 551,
+  "last_node_id": 525,
+  "last_link_id": 574,
   "nodes": [
+    {
+      "id": 510,
+      "type": "ImageToMask",
+      "title": "Техническая маска · красный канал",
+      "pos": [
+        56,
+        6930
+      ],
+      "size": [
+        340,
+        220
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 510,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 552
+        },
+        {
+          "name": "channel",
+          "type": "COMBO",
+          "link": null,
+          "widget": {
+            "name": "channel"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": [
+            563
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImageToMask"
+      },
+      "widgets_values": [
+        "red"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 512,
+      "type": "SetLatentNoiseMask",
+      "title": "Техническая перерисовка по маске",
+      "pos": [
+        1616,
+        6090
+      ],
+      "size": [
+        340,
+        220
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 512,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 567
+        },
+        {
+          "name": "mask",
+          "type": "MASK",
+          "link": 569
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            557
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SetLatentNoiseMask"
+      },
+      "widgets_values": [],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 513,
+      "type": "ImageCompositeMasked",
+      "title": "Техническое сохранение области вне маски",
+      "pos": [
+        2006,
+        6090
+      ],
+      "size": [
+        340,
+        220
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 513,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "destination",
+          "type": "IMAGE",
+          "link": 571
+        },
+        {
+          "name": "source",
+          "type": "IMAGE",
+          "link": 573
+        },
+        {
+          "name": "x",
+          "type": "INT",
+          "link": null,
+          "widget": {
+            "name": "x"
+          }
+        },
+        {
+          "name": "y",
+          "type": "INT",
+          "link": null,
+          "widget": {
+            "name": "y"
+          }
+        },
+        {
+          "name": "resize_source",
+          "type": "BOOLEAN",
+          "link": null,
+          "widget": {
+            "name": "resize_source"
+          }
+        },
+        {
+          "name": "mask",
+          "type": "MASK",
+          "link": 574,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            561,
+            562
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImageCompositeMasked"
+      },
+      "widgets_values": [
+        0,
+        0,
+        false
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 514,
+      "type": "SetNode",
+      "title": "SetNode_EDITMASK_510_0",
+      "pos": [
+        56,
+        6930
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 514,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "link": 563
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SetNode",
+        "previousName": "EDITMASK_510_0"
+      },
+      "widgets_values": [
+        "EDITMASK_510_0"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 515,
+      "type": "GetNode",
+      "title": "GetNode_EDITMASK_510_0",
+      "pos": [
+        1226,
+        6090
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 515,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": [
+            564
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "previousName": "EDITMASK_510_0"
+      },
+      "widgets_values": [
+        "EDITMASK_510_0"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 516,
+      "type": "SetNode",
+      "title": "SetNode_EDITMASK_465_1",
+      "pos": [
+        1226,
+        6090
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 516,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "link": 565
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SetNode",
+        "previousName": "EDITMASK_465_1"
+      },
+      "widgets_values": [
+        "EDITMASK_465_1"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 517,
+      "type": "GetNode",
+      "title": "GetNode_EDITMASK_465_1",
+      "pos": [
+        446,
+        6930
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 517,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": [
+            566
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "previousName": "EDITMASK_465_1"
+      },
+      "widgets_values": [
+        "EDITMASK_465_1"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 518,
+      "type": "GetNode",
+      "title": "GetNode_EDIT_466_0",
+      "pos": [
+        1616,
+        6090
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 518,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            567
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "previousName": "EDIT_466_0"
+      },
+      "widgets_values": [
+        "EDIT_466_0"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 519,
+      "type": "SetNode",
+      "title": "SetNode_EDITMASK_511_0",
+      "pos": [
+        446,
+        6930
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 519,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "link": 568
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SetNode",
+        "previousName": "EDITMASK_511_0"
+      },
+      "widgets_values": [
+        "EDITMASK_511_0"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 520,
+      "type": "GetNode",
+      "title": "GetNode_EDITMASK_511_0",
+      "pos": [
+        1616,
+        6090
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 520,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": [
+            569
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "previousName": "EDITMASK_511_0"
+      },
+      "widgets_values": [
+        "EDITMASK_511_0"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 521,
+      "type": "SetNode",
+      "title": "SetNode_EDITMASK_465_0",
+      "pos": [
+        1226,
+        6090
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 521,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "link": 570
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SetNode",
+        "previousName": "EDITMASK_465_0"
+      },
+      "widgets_values": [
+        "EDITMASK_465_0"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 522,
+      "type": "GetNode",
+      "title": "GetNode_EDITMASK_465_0",
+      "pos": [
+        2006,
+        6090
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 522,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            571
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "previousName": "EDITMASK_465_0"
+      },
+      "widgets_values": [
+        "EDITMASK_465_0"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 523,
+      "type": "SetNode",
+      "title": "SetNode_EDITMASK_478_0",
+      "pos": [
+        1616,
+        6090
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 523,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "link": 572
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SetNode",
+        "previousName": "EDITMASK_478_0"
+      },
+      "widgets_values": [
+        "EDITMASK_478_0"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 524,
+      "type": "GetNode",
+      "title": "GetNode_EDITMASK_478_0",
+      "pos": [
+        2006,
+        6090
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 524,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            573
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "previousName": "EDITMASK_478_0"
+      },
+      "widgets_values": [
+        "EDITMASK_478_0"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 525,
+      "type": "GetNode",
+      "title": "GetNode_EDITMASK_511_0",
+      "pos": [
+        2006,
+        6090
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 525,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": [
+            574
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "previousName": "EDITMASK_511_0"
+      },
+      "widgets_values": [
+        "EDITMASK_511_0"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
     {
       "id": 288,
       "type": "ImageScale",
@@ -24406,7 +25060,6 @@
           "name": "LATENT",
           "type": "LATENT",
           "links": [
-            519,
             536
           ]
         }
@@ -24837,8 +25490,7 @@
           "name": "IMAGE",
           "type": "IMAGE",
           "links": [
-            523,
-            524
+            572
           ]
         }
       ],
@@ -26553,7 +27205,7 @@
         {
           "name": "mask",
           "type": "MASK",
-          "link": null,
+          "link": 564,
           "shape": 7
         }
       ],
@@ -26562,13 +27214,16 @@
           "name": "image",
           "type": "IMAGE",
           "links": [
-            497
+            497,
+            570
           ]
         },
         {
           "name": "mask",
           "type": "MASK",
-          "links": []
+          "links": [
+            565
+          ]
         },
         {
           "name": "original_size",
@@ -26875,7 +27530,7 @@
         {
           "name": "latent_image",
           "type": "LATENT",
-          "link": 519
+          "link": 557
         },
         {
           "name": "denoise",
@@ -26942,9 +27597,20 @@
             478,
             479,
             480,
-            481
+            481,
+            509,
+            510,
+            511,
+            512,
+            513
           ],
-          "save": false
+          "save": false,
+          "maskFile": 509,
+          "maskBlur": 511,
+          "maskNoise": 512,
+          "maskComposite": 513,
+          "maskEnabled": false,
+          "maskFor": ""
         }
       },
       "widgets_values": [
@@ -27022,7 +27688,7 @@
         {
           "name": "images",
           "type": "IMAGE",
-          "link": 523
+          "link": 561
         }
       ],
       "outputs": [
@@ -27064,7 +27730,7 @@
         {
           "name": "images",
           "type": "IMAGE",
-          "link": 524
+          "link": 562
         },
         {
           "name": "filename",
@@ -27198,6 +27864,183 @@
       ],
       "color": "#223",
       "bgcolor": "#335"
+    },
+    {
+      "id": 509,
+      "type": "LoadImage",
+      "title": "🟣 Маска первого изображения",
+      "pos": [
+        40,
+        6880
+      ],
+      "size": [
+        340,
+        240
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 509,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "COMBO",
+          "link": null,
+          "widget": {
+            "name": "image"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            552
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage",
+        "nd_ui_src": {
+          "uid": "src_edit_mask",
+          "tag": "edit-mask"
+        }
+      },
+      "widgets_values": [
+        "universal-local-empty-mask.png"
+      ],
+      "color": "#434",
+      "bgcolor": "#656"
+    },
+    {
+      "id": 511,
+      "type": "GrowMaskWithBlur",
+      "title": "🟣 Мягкость края маски",
+      "pos": [
+        430,
+        6880
+      ],
+      "size": [
+        340,
+        280
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 511,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "mask",
+          "type": "MASK",
+          "link": 566
+        },
+        {
+          "name": "expand",
+          "type": "INT",
+          "link": null,
+          "widget": {
+            "name": "expand"
+          }
+        },
+        {
+          "name": "incremental_expandrate",
+          "type": "FLOAT",
+          "link": null,
+          "widget": {
+            "name": "incremental_expandrate"
+          }
+        },
+        {
+          "name": "tapered_corners",
+          "type": "BOOLEAN",
+          "link": null,
+          "widget": {
+            "name": "tapered_corners"
+          }
+        },
+        {
+          "name": "flip_input",
+          "type": "BOOLEAN",
+          "link": null,
+          "widget": {
+            "name": "flip_input"
+          }
+        },
+        {
+          "name": "blur_radius",
+          "type": "FLOAT",
+          "link": null,
+          "widget": {
+            "name": "blur_radius"
+          }
+        },
+        {
+          "name": "lerp_alpha",
+          "type": "FLOAT",
+          "link": null,
+          "widget": {
+            "name": "lerp_alpha"
+          }
+        },
+        {
+          "name": "decay_factor",
+          "type": "FLOAT",
+          "link": null,
+          "widget": {
+            "name": "decay_factor"
+          }
+        },
+        {
+          "name": "fill_holes",
+          "type": "BOOLEAN",
+          "link": null,
+          "widget": {
+            "name": "fill_holes"
+          },
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "mask",
+          "type": "MASK",
+          "links": [
+            568
+          ]
+        },
+        {
+          "name": "mask_inverted",
+          "type": "MASK",
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GrowMaskWithBlur",
+        "nd_ui_src": {
+          "uid": "src_edit_mask_blur",
+          "tag": "edit-mask-blur"
+        }
+      },
+      "widgets_values": [
+        0,
+        0.0,
+        true,
+        false,
+        8,
+        1.0,
+        1.0,
+        false
+      ],
+      "color": "#434",
+      "bgcolor": "#656"
     }
   ],
   "links": [
@@ -30354,36 +31197,12 @@
       "CONDITIONING"
     ],
     [
-      519,
-      466,
-      0,
-      477,
-      8,
-      "LATENT"
-    ],
-    [
       520,
       477,
       0,
       478,
       0,
       "LATENT"
-    ],
-    [
-      523,
-      478,
-      0,
-      480,
-      0,
-      "IMAGE"
-    ],
-    [
-      524,
-      478,
-      0,
-      481,
-      0,
-      "IMAGE"
     ],
     [
       525,
@@ -30600,6 +31419,134 @@
       479,
       0,
       "IMAGE"
+    ],
+    [
+      552,
+      509,
+      0,
+      510,
+      0,
+      "IMAGE"
+    ],
+    [
+      557,
+      512,
+      0,
+      477,
+      8,
+      "LATENT"
+    ],
+    [
+      561,
+      513,
+      0,
+      480,
+      0,
+      "IMAGE"
+    ],
+    [
+      562,
+      513,
+      0,
+      481,
+      0,
+      "IMAGE"
+    ],
+    [
+      563,
+      510,
+      0,
+      514,
+      0,
+      "MASK"
+    ],
+    [
+      564,
+      515,
+      0,
+      465,
+      9,
+      "MASK"
+    ],
+    [
+      565,
+      465,
+      1,
+      516,
+      0,
+      "MASK"
+    ],
+    [
+      566,
+      517,
+      0,
+      511,
+      0,
+      "MASK"
+    ],
+    [
+      567,
+      518,
+      0,
+      512,
+      0,
+      "LATENT"
+    ],
+    [
+      568,
+      511,
+      0,
+      519,
+      0,
+      "MASK"
+    ],
+    [
+      569,
+      520,
+      0,
+      512,
+      1,
+      "MASK"
+    ],
+    [
+      570,
+      465,
+      0,
+      521,
+      0,
+      "IMAGE"
+    ],
+    [
+      571,
+      522,
+      0,
+      513,
+      0,
+      "IMAGE"
+    ],
+    [
+      572,
+      478,
+      0,
+      523,
+      0,
+      "IMAGE"
+    ],
+    [
+      573,
+      524,
+      0,
+      513,
+      1,
+      "IMAGE"
+    ],
+    [
+      574,
+      525,
+      0,
+      513,
+      5,
+      "MASK"
     ]
   ],
   "groups": [
@@ -30894,7 +31841,7 @@
         20,
         5980,
         2390,
-        930
+        1220
       ],
       "color": "#3d726c",
       "font_size": 24,
@@ -31613,6 +32560,18 @@
           "tag": "edit-save",
           "class": "Image Saver Simple",
           "title": "💾 Редактирование · сохранение выключено"
+        },
+        {
+          "uid": "src_edit_mask",
+          "tag": "edit-mask",
+          "class": "LoadImage",
+          "title": "🟣 Маска первого изображения"
+        },
+        {
+          "uid": "src_edit_mask_blur",
+          "tag": "edit-mask-blur",
+          "class": "GrowMaskWithBlur",
+          "title": "🟣 Мягкость края маски"
         }
       ],
       "pages": [
@@ -31668,7 +32627,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v0.7.0",
+            "text": "🧩 Универсальный воркфлоу · v0.7.1",
             "size": "M",
             "align": "left"
           },
@@ -33814,7 +34773,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v0.7.0",
+            "text": "🧩 Универсальный воркфлоу · v0.7.1",
             "size": "M",
             "align": "left"
           },
@@ -34658,7 +35617,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v0.7.0",
+            "text": "🧩 Универсальный воркфлоу · v0.7.1",
             "size": "M",
             "align": "left"
           },
@@ -34992,7 +35951,7 @@
             "accentA": "#36cfea",
             "accentB": "#59e68d",
             "visualProfile": "standard",
-            "canvasHeight": 1320
+            "canvasHeight": 1376
           },
           "look": {
             "bg": "transparent",
@@ -35010,12 +35969,12 @@
         },
         {
           "id": "edit_photo",
-          "type": "factoryphoto_v060",
+          "type": "factoryeditmain_v071",
           "page": "p_edit",
           "x": 24,
           "y": 152,
           "w": 336,
-          "h": 248,
+          "h": 304,
           "z": 2,
           "parent": null,
           "hidden": false,
@@ -35025,6 +35984,11 @@
               "src": "src_edit_photo",
               "kind": "widget",
               "name": "image"
+            },
+            "config": {
+              "src": "src_edit_controller",
+              "kind": "widget",
+              "name": "factory_edit_config"
             }
           },
           "props": {
@@ -35057,7 +36021,7 @@
           "type": "factoryeditphoto_v070",
           "page": "p_edit",
           "x": 24,
-          "y": 416,
+          "y": 472,
           "w": 336,
           "h": 248,
           "z": 2,
@@ -35101,7 +36065,7 @@
           "type": "seed",
           "page": "p_edit",
           "x": 24,
-          "y": 680,
+          "y": 736,
           "w": 336,
           "h": 88,
           "z": 2,
@@ -35150,7 +36114,7 @@
           "type": "factoryedit_v070",
           "page": "p_edit",
           "x": 24,
-          "y": 784,
+          "y": 840,
           "w": 336,
           "h": 144,
           "z": 2,
@@ -35202,7 +36166,7 @@
           "type": "spoiler",
           "page": "p_edit",
           "x": 24,
-          "y": 944,
+          "y": 1000,
           "w": 336,
           "h": 48,
           "z": 2,
@@ -35219,7 +36183,8 @@
             "pad": 0,
             "max_h": 0,
             "shadow": false,
-            "itemCount": 5
+            "itemCount": 5,
+            "factoryLora": true
           },
           "look": {
             "style": "soft",
@@ -35283,7 +36248,7 @@
           "x": 384,
           "y": 152,
           "w": 792,
-          "h": 768,
+          "h": 824,
           "z": 0,
           "parent": null,
           "hidden": false,
@@ -35328,7 +36293,7 @@
           "x": 396,
           "y": 208,
           "w": 768,
-          "h": 700,
+          "h": 756,
           "z": 2,
           "parent": null,
           "hidden": false,
@@ -35376,7 +36341,7 @@
           "x": 396,
           "y": 208,
           "w": 768,
-          "h": 700,
+          "h": 756,
           "z": 2,
           "parent": null,
           "hidden": false,
@@ -35437,7 +36402,7 @@
           "type": "factoryeditprog_v070",
           "page": "p_edit",
           "x": 384,
-          "y": 936,
+          "y": 992,
           "w": 344,
           "h": 56,
           "z": 2,
@@ -35478,7 +36443,7 @@
           "type": "factoryqueuestatus_v023",
           "page": "p_edit",
           "x": 740,
-          "y": 936,
+          "y": 992,
           "w": 184,
           "h": 56,
           "z": 2,
@@ -35517,7 +36482,7 @@
           "type": "factorysavetoggle_v023",
           "page": "p_edit",
           "x": 936,
-          "y": 936,
+          "y": 992,
           "w": 240,
           "h": 56,
           "z": 2,
@@ -35564,7 +36529,7 @@
           "type": "factoryeditpreset_v070",
           "page": "p_edit",
           "x": 24,
-          "y": 1008,
+          "y": 1064,
           "w": 1152,
           "h": 52,
           "z": 2,
@@ -35614,7 +36579,7 @@
           "type": "prompt",
           "page": "p_edit",
           "x": 24,
-          "y": 1076,
+          "y": 1132,
           "w": 1152,
           "h": 144,
           "z": 2,
@@ -35659,7 +36624,7 @@
           "type": "factoryeditrun_v070",
           "page": "p_edit",
           "x": 24,
-          "y": 1236,
+          "y": 1292,
           "w": 1152,
           "h": 56,
           "z": 2,
