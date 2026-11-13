@@ -11,7 +11,8 @@ export function factoryPlan(graph){
  const result=[{name:'1 · Генерация',sample:String(first.id),ids:new Set(nodes.filter(n=>n.id<75).map(n=>String(n.id))),finish:['69'],twoStage:generation===2&&Number(value(first,'handoff_percent'))>0&&Number(value(first,'handoff_percent'))<100}];
  if(refine){const n=tag(['','k2pass-ordinary_k','k2pass-res_k','k2pass-ordinary_z','k2pass-res_z'][refine]);result.push({name:'2 · Детализация',sample:String(n.id),ids:new Set(nodes.filter(n=>n.id>=75&&n.id<170).map(n=>String(n.id))),finish:[String([0,122,132,142,152][refine])]});}
  if(spec)for(const key of spec.order){const s=spec[key];if(!Number(value(get(s.gate),'index')))continue;result.push({name:'3 · '+({face:'Лицо',hands:'Руки',sam:'SAM · область',manual:'Ручная маска'}[key]),sample:String(s.detail),ids:new Set(Object.values(s).filter(Number.isInteger).map(String)),finish:[String(s.after)],local:true,detect:String(s.detect),sam:key==='sam'});}
- result.operations=new Map(nodes.map(n=>[String(n.id),({UNETLoader:'загрузка модели',CLIPLoader:'загрузка энкодера',VAELoader:'загрузка VAE',CheckpointLoaderSimple:'загрузка SAM',CLIPTextEncode:'обработка промта',VAEEncode:'кодирование изображения',VAEDecode:'сборка изображения','Power Lora Loader (rgthree)':'подключение LoRA',UltralyticsDetectorProvider:'загрузка YOLO',BboxDetectorSEGS:'поиск области',SAM3_Detect:'выделение SAM',MaskToSEGS:'подготовка маски',PreviewImage:'подготовка просмотра','Image Saver Simple':'сохранение'})[n.comfyClass||n.type]||'подготовка']));
+ const upscale=tag('upscale-controller'),up=upscale?.properties?.acf_upscale;if(up&&Number(value(get(up.enabled),'index'))){const mode=Number(value(upscale,'index')),simpleMethod=Number(value(get(up.simple),'index'));const sampler=mode===0?(simpleMethod?(Number(value(get(up.size),'index'))?up.targetLong:up.targetFactor):up.simpleSample):mode===1?up.ultimate:up.seedvr;result.push({name:'4 · '+['Simple Upscale','Ultimate Upscale','SeedVR'][mode],sample:String(sampler),ids:new Set(up.nodes.map(String)),finish:[String(up.after)],local:mode===1,multiProgress:mode===2,unit:mode===1?'тайл':undefined,runningLabel:['увеличение','перерисовка тайлов','восстановление и увеличение'][mode]});}
+ result.operations=new Map(nodes.map(n=>[String(n.id),({UpscaleModelLoader:'загрузка upscale-модели',SeedVR2LoadDiTModel:'загрузка SeedVR · DiT',SeedVR2LoadVAEModel:'загрузка SeedVR · VAE',UNETLoader:'загрузка модели',CLIPLoader:'загрузка энкодера',VAELoader:'загрузка VAE',CheckpointLoaderSimple:'загрузка SAM',CLIPTextEncode:'обработка промта',VAEEncode:'кодирование изображения',VAEDecode:'сборка изображения','Power Lora Loader (rgthree)':'подключение LoRA',UltralyticsDetectorProvider:'загрузка YOLO',BboxDetectorSEGS:'поиск области',SAM3_Detect:'выделение SAM',MaskToSEGS:'подготовка маски',PreviewImage:'подготовка просмотра','Image Saver Simple':'сохранение'})[n.comfyClass||n.type]||'подготовка']));
  return result;
 }
 export class FactoryProgress {
@@ -30,7 +31,7 @@ export class FactoryProgress {
   if(r.max>max&&e.local)return;
   if(value<r.value&&r.value>=r.max&&r.max>1){if(e.twoStage)r.phase=Math.min(1,r.phase+1);else if(e.local)r.area++;}
   r.value=value;r.max=max;const part=clamp(value/max);
-  r.fraction=Math.max(r.fraction,e.twoStage?(r.phase+part)/2:e.local?part*.9:part);this.current=id;
+  r.fraction=Math.max(r.fraction,e.twoStage?(r.phase+part)/2:e.local||e.multiProgress?part*.9:part);this.current=id;
  }
  snapshot(now=Date.now()){
   const fractions=this.plan.map(e=>{const r=this.rows.get(e.sample);return r.done?1:r.fraction;});
@@ -38,12 +39,12 @@ export class FactoryProgress {
   const pct=this.complete?1:Math.min(.99,this.high);let i=this.index(this.current);
   if(i<0)i=this.plan.findIndex(e=>!this.rows.get(e.sample).done);if(i<0||fractions.every(v=>v===1))i=this.plan.length-1;
   const e=this.plan[i],r=e&&this.rows.get(e.sample);let operation=this.plan.operations?.get(this.current)||'подготовка';
-  if(e&&this.current===e.sample)operation=e.twoStage?(r.phase?'Turbo':'Raw'):r.max>1?'обработка':'подготовка';
+  if(e&&this.current===e.sample)operation=e.runningLabel||(e.twoStage?(r.phase?'Turbo':'Raw'):r.max>1?'обработка':'подготовка');
   else if(e&&this.current===e.detect)operation=e.sam?'выделение маски':'поиск области';
   else if(e&&e.finish.includes(this.current))operation='сборка результата';
   let label=this.error?'Ошибка: '+this.error:this.active?'Выполняется · '+(e?.name||'Подготовка')+' · '+operation:this.complete?'Готово':this.interrupted?'Остановлено':'Простой';
   if(this.active&&this.plan.length&&fractions.every(v=>v===1))label='Выполняется · Завершение · '+operation;
-  if(e?.local&&r.area>1&&this.current===e.sample)label+=' · участок '+r.area;
+  if(e?.local&&r.area>1&&this.current===e.sample)label+=' · '+(e.unit||'участок')+' '+r.area;
   const steps=this.active&&e&&this.current===e.sample&&r.max>1?`${r.value}/${r.max}`:'—';
   return{active:this.active,complete:this.complete,pct,label,steps,elapsed:this.started?Math.max(0,((this.stopped||now)-this.started)/1000):0,stage:i+1,total:this.plan.length};
  }

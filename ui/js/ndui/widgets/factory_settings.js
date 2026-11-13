@@ -7,6 +7,9 @@ import {applyVars} from '../kit.js';
 import {APPEARANCE_PROFILES} from '../factory_appearance.js';
 
 const MODEL_FIELDS = [
+    ['up_simple_model','Simple · upscale-модель','upscale_models'],['up_ultimate_model','Ultimate · upscale-модель','upscale_models'],
+    ['up_z_model','Ultimate · модель Z-Image Turbo','diffusion_models'],['up_z_clip','Ultimate · энкодер Z-Image','text_encoders'],['up_z_vae','Ultimate · VAE Z-Image','vae'],
+    ['up_seed_dit','SeedVR · DiT','auto'],['up_seed_vae','SeedVR · VAE','auto'],
     ['sam_model','Модель SAM 3.1','checkpoints'],['face_detector','YOLO · лица','auto'],['hand_detector','YOLO · руки','auto'],
     ['local_k_model','Модель Krea Raw · локально','diffusion_models'],['local_k_clip','Энкодер Krea · локально','text_encoders'],['local_k_vae','VAE Krea · локально','vae'],
     ['local_z_model','Модель Z-Image · локально','diffusion_models'],['local_z_clip','Энкодер Z-Image · локально','text_encoders'],['local_z_vae','VAE Z-Image · локально','vae'],['local_turbo','Turbo-адаптер · локально','loras'],
@@ -84,9 +87,12 @@ export function openFactorySettings(ctx, onClose=()=>{}) {
     const localKrea=card(modelsGrid,'3 · Krea · лицо, руки и маски','Отдельный комплект для лица, рук и выбранных областей.');
     const localZ=card(modelsGrid,'3 · Z-Image · лицо, руки и маски','Отдельный комплект Z-Image для третьего этапа.');
     const detection=card(modelsGrid,'🔎 SAM и YOLO','SAM выделяет область по описанию, YOLO находит лица и руки. Здесь выбираются установленные файлы детекторов.');
+    const upModels=card(modelsGrid,'4 · Upscale-модели','Simple и Ultimate используют отдельные файлы и сохраняют свой выбор независимо.');
+    const upUltimate=card(modelsGrid,'4 · Ultimate · перерисовка','Совместимый комплект Z-Image Turbo для обработки тайлов.');
+    const upSeed=card(modelsGrid,'4 · SeedVR','Модели восстановления и VAE. Стартовый профиль взят из рабочего апскейлера.');
     for (const [key,caption,folder] of MODEL_FIELDS) {
-        const container=['sam_model','face_detector','hand_detector'].includes(key)?detection:key.startsWith('local_k_')?localKrea:key.startsWith('local_z_')?localZ:key.includes('turbo')?turbo:key.startsWith('z_')?zimage:krea;
-        picker(container,key,caption,folder);
+        const container=key==='up_simple_model'||key==='up_ultimate_model'?upModels:key.startsWith('up_z_')?upUltimate:key.startsWith('up_seed_')?upSeed:['sam_model','face_detector','hand_detector'].includes(key)?detection:key.startsWith('local_k_')?localKrea:key.startsWith('local_z_')?localZ:key.includes('turbo')?turbo:key.startsWith('z_')?zimage:krea;
+        picker(container,key,caption,folder,key==='up_seed_dit'?value=>{if(/3b/i.test(String(value))){const state=ctx.info(key),node=state.p?.node||state.node,w=node?.widgets?.find(w=>w.name==='blocks_to_swap');if(w&&w.value>32){w.value=32;w.callback?.(32);node.graph?.change?.();}}}:undefined);
     }
     models.append(el('h3','acf-settings-subtitle','Постоянные LoRA'));
     models.append(el('p','acf-settings-caption','По три слота на каждый набор. Включённые LoRA действуют во всех режимах своего этапа и не занимают пользовательские слоты на главной странице.'));
