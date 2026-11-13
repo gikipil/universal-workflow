@@ -18,6 +18,10 @@ export async function checkModelPresence(folder,value,state={},fresh=false){
   const repo=key==='bbox_detector'?(name==='yolox_l.onnx'?'yzd-v/dwpose':name.includes('yolox')?'hr16/yolox-onnx':'hr16/yolo-nas-fp16'):(name==='dw-ll_ucoco_384.onnx'?'yzd-v/dwpose':name.endsWith('.onnx')?'hr16/unjit-dwpose':'hr16/dwpose-torchscript-batchsize5');
   const suffix='/ckpts/'+repo+'/'+name,found=[...files].some(p=>p.endsWith(suffix));return{missing:!found,reason:'Файл детектора не установлен: '+value+'. DWPose может скачать его при запуске.'};
  }
+ if(kind==='RMBG'){
+  const requirements={'RMBG-2.0':['RMBG-2.0/config.json','RMBG-2.0/model.safetensors','RMBG-2.0/birefnet.py','RMBG-2.0/BiRefNet_config.py'],INSPYRENET:['INSPYRENET/inspyrenet.safetensors'],BEN:['BEN/model.py','BEN/BEN_Base.pth'],BEN2:['BEN2/BEN2.py','BEN2/BEN2_Base.pth']}[value];
+  const files=await list('rmbg',fresh);return{missing:!requirements?true:files?!requirements.every(f=>files.has(normalize(f))):null,reason:'Не найдены файлы модели удаления фона: '+value+'. Нода может скачать их при запуске.'};
+ }
  if(/^SeedVR2Load/.test(kind))target='seedvr2';
  if(kind==='UltralyticsDetectorProvider')target='ultralytics';
  if(target&&target!=='auto'){const files=await list(target,fresh);return{missing:files? !files.has(name):null,reason:'Файл модели не найден: '+value};}

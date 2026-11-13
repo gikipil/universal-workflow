@@ -1,3 +1,4 @@
+import {backgroundParams} from './factory_background_params.js';
 import {poseParams} from './factory_pose_params.js';
 import {upscaleParams} from './factory_upscale_params.js';
 import {localParams} from "./factory_local_params.js";
@@ -109,6 +110,7 @@ export function modeParams(node, notify = touch) {
 
 export function virtualParams(node) {
     switch (classOf(node)) {
+        case "RMBG": return backgroundParams(node,touch);
         case "PrimitiveInt": return poseParams(node,touch);
         case "easy anythingIndexSwitch": return [...upscaleParams(node,touch),...localParams(node,touch),...factoryRefineLoraParams(node, touch),...sliderBankParams(node,touch),...userLoraBankParams(node,touch)];
         case "Image Saver Simple": return factorySaveParams(node, touch);

@@ -7,6 +7,7 @@ import {applyVars} from '../kit.js';
 import {APPEARANCE_PROFILES} from '../factory_appearance.js';
 
 const MODEL_FIELDS = [
+    ['bg_model','Удаление фона · модель','auto'],
     ['pose_lora','OpenPose · служебная LoRA','loras'],['pose_bbox','Поза · детектор человека','auto'],['pose_estimator','Поза · детектор суставов','auto'],
     ['up_simple_model','Simple · upscale-модель','upscale_models'],['up_ultimate_model','Ultimate · upscale-модель','upscale_models'],
     ['up_z_model','Ultimate · модель Z-Image Turbo','diffusion_models'],['up_z_clip','Ultimate · энкодер Z-Image','text_encoders'],['up_z_vae','Ultimate · VAE Z-Image','vae'],
@@ -91,9 +92,10 @@ export function openFactorySettings(ctx, onClose=()=>{}) {
     const upModels=card(modelsGrid,'4 · Upscale-модели','Simple и Ultimate используют отдельные файлы и сохраняют свой выбор независимо.');
     const upUltimate=card(modelsGrid,'4 · Ultimate · перерисовка','Совместимый комплект Z-Image Turbo для обработки тайлов.');
     const pose=card(modelsGrid,'🦴 Поза по референсу','OpenPose LoRA подключается автоматически при включении позы. Детекторы извлекают скелет из фото.');
+    const background=card(modelsGrid,'🧽 Удаление фона','Отдельная функция. Выбор модели не меняет генерацию.');
     const upSeed=card(modelsGrid,'4 · SeedVR','Модели восстановления и VAE. Стартовый профиль взят из рабочего апскейлера.');
     for (const [key,caption,folder] of MODEL_FIELDS) {
-        const container=key.startsWith('pose_')?pose:key==='up_simple_model'||key==='up_ultimate_model'?upModels:key.startsWith('up_z_')?upUltimate:key.startsWith('up_seed_')?upSeed:['sam_model','face_detector','hand_detector'].includes(key)?detection:key.startsWith('local_k_')?localKrea:key.startsWith('local_z_')?localZ:key.includes('turbo')?turbo:key.startsWith('z_')?zimage:krea;
+        const container=key==='bg_model'?background:key.startsWith('pose_')?pose:key==='up_simple_model'||key==='up_ultimate_model'?upModels:key.startsWith('up_z_')?upUltimate:key.startsWith('up_seed_')?upSeed:['sam_model','face_detector','hand_detector'].includes(key)?detection:key.startsWith('local_k_')?localKrea:key.startsWith('local_z_')?localZ:key.includes('turbo')?turbo:key.startsWith('z_')?zimage:krea;
         picker(container,key,caption,folder,key==='up_seed_dit'?value=>{if(/3b/i.test(String(value))){const state=ctx.info(key),node=state.p?.node||state.node,w=node?.widgets?.find(w=>w.name==='blocks_to_swap');if(w&&w.value>32){w.value=32;w.callback?.(32);node.graph?.change?.();}}}:undefined);
     }
     models.append(el('h3','acf-settings-subtitle','Постоянные LoRA'));

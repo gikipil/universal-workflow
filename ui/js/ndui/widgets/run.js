@@ -29,7 +29,7 @@ export const generate = {
         row.append(run, batch, stop);
         ctx.body.append(row);
         const n = () => Math.max(1, Math.min(64, parseInt(bi.value, 10) || 1));
-        const go = () => { if (ctx.editing) return; bi.value = String(n()); runQueue(n()); };
+        const go = () => { if (ctx.editing) return; bi.value = String(n()); if(typeof ctx.queue==='function')ctx.queue(n());else runQueue(n()); };
         run.addEventListener("click", go);
         stop.addEventListener("click", () => { if (!ctx.editing) stopRun(); });
         bi.addEventListener("keydown", (e) => { e.stopPropagation(); if (e.key === "Enter") { bi.blur(); go(); } });

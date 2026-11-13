@@ -1,3 +1,4 @@
+import {taskPageUi} from './task_page.js';
 // SPDX-License-Identifier: AGPL-3.0-only
 // Universal Workflow additions/modifications by gikipil, 2026-11-12.
 // Based on ND UI Builder by Ivan Ovchinnikov (Neural Dreamer).
@@ -153,16 +154,17 @@ export class PageView {
     adaptive() { return this.fit === "adaptive" && !this.scope && this.mode !== "edit"; }
     // the width of the scrollbar of the stage (0 when it has none or draws it over the page)
     sbw() { return Math.max(0, this.root.offsetWidth - this.root.clientWidth); }
+    layoutUi() { return taskPageUi(this.ui,this.page,this.scope); }
     adaptDims() {
         const cw = this.host.clientWidth - this.sbw(), ch = this.host.clientHeight;
-        return cw > 0 && ch ? adaptGeo(this.ui, cw, ch, { len: this.pageModel()?.len || 0 }) : { W: this.ui.page.w, H: this.ui.page.h };
+        return cw > 0 && ch ? adaptGeo(this.layoutUi(), cw, ch, { len: this.pageModel()?.len || 0 }) : { W: this.ui.page.w, H: this.layoutUi().page.h };
     }
     computeLayout() {
         syncSpoilerHeights(this.ui);
         const ad = this.adaptive() ? this.adaptDims() : null;
         this.laidW = ad ? ad.W : 0; this.laidH = ad ? ad.H : 0;
-        const grow = this.laidW > this.ui.page.w + 0.01 || this.laidH > this.ui.page.h + 0.01;
-        const ui = grow ? adaptedUi(this.ui, this.page, this.laidW, this.laidH) : this.ui;
+        const base=this.layoutUi(),grow = this.laidW > base.page.w + 0.01 || this.laidH > base.page.h + 0.01;
+        const ui = grow ? adaptedUi(base, this.page, this.laidW, this.laidH) : base;
         const L = layoutFlow(ui, this.page, (id) => this.isOpen(id), this.scope, (id) => this.scrollTops.get(id) || 0);
         this.rects = L.rects; this.bottom = L.bottom; this.scrollInfo = L.info;
         // Optional bottom alignment to a sibling, including expanded spoilers.
@@ -182,10 +184,10 @@ export class PageView {
     }
     // the size of the page that is shown: the page, or the inside of the spoiler
     // (the editor shows the whole length of the page; the modes show the window and scroll the rest)
-    dims() { return this.scope && this.scopeDims ? this.scopeDims : { w: this.ui.page.w, h: this.mode === "edit" ? pageLength(this.ui, this.page) : this.ui.page.h }; }
+    dims() { return this.scope && this.scopeDims ? this.scopeDims : { w: this.ui.page.w, h: this.mode === "edit" ? pageLength(this.layoutUi(), this.page) : this.layoutUi().page.h }; }
     // the length of the page in the modes: the window, or more when the page is set longer, or open spoilers / a low widget need it
     runLength() {
-        const h = Math.max(this.ui.page.h, this.laidH || 0), own = this.pageModel()?.len || 0;
+        const h = Math.max(this.layoutUi().page.h, this.laidH || 0), own = this.pageModel()?.len || 0;
         return Math.max(h, own, this.bottom > h ? Math.ceil(this.bottom + TAIL) : 0);
     }
     rectOf(w) { return this.rects.get(w.id) || { x: w.x, y: w.y, w: w.w, h: w.h, vis: true }; }
@@ -270,7 +272,7 @@ export class PageView {
         if (this.adaptive()) {
             // like a web page: 1:1 (or smaller when the window is narrower than the page), the width left over goes to the layout
             this.usedSb = this.sbw();
-            const a = adaptGeo(this.ui, cw - this.usedSb, ch, { len: this.pageModel()?.len || 0 });
+            const a = adaptGeo(this.layoutUi(), cw - this.usedSb, ch, { len: this.pageModel()?.len || 0 });
             if (Math.abs(a.W - this.laidW) > 0.5 || Math.abs(a.H - this.laidH) > 0.5) this.computeLayout();
             const effA = Math.max(ph, a.H, this.runLength());
             g.px = g.py = 1; g.su = 1; g.s = a.s; g.ox = Math.max(0, (cw - this.usedSb - a.W * a.s) / 2); g.oy = 0;
@@ -363,6 +365,7 @@ export class PageView {
             vars: () => f.vars,
             popupHost: () => view.popupHost(),
             setProp(id, v) { f.w.props = f.w.props || {}; f.w.props[id] = v; clearTimeout(writeTimer); writeTimer = setTimeout(touchWorkflow, 300); view.onChange(); },
+            setTaskProp(id,v) { for(const w of view.ui.widgets.filter(w=>w.type==='factorytaskbar_v0215')){w.props ||= {};w.props[id]=v;}clearTimeout(writeTimer);writeTimer=setTimeout(touchWorkflow,300);view.onChange(); },
             setContentHeight(height, count) {
                 const h=Math.max(44,Math.min(16000,Number(height)||44));
                 const parent=byId(view.ui,f.w.parent),changed=Math.abs(f.w.h-h)>.01;

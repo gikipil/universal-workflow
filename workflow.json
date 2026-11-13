@@ -1,8 +1,8 @@
 {
   "id": "6156223e-7f85-4578-923d-9d05cf820581",
   "revision": 0,
-  "last_node_id": 449,
-  "last_link_id": 486,
+  "last_node_id": 455,
+  "last_link_id": 491,
   "nodes": [
     {
       "id": 288,
@@ -23870,6 +23870,506 @@
       ],
       "color": "#323",
       "bgcolor": "#535"
+    },
+    {
+      "id": 450,
+      "type": "LoadImage",
+      "title": "📷 Удаление фона · исходник",
+      "pos": [
+        40,
+        5060
+      ],
+      "size": [
+        340,
+        350
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 450,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "COMBO",
+          "link": null,
+          "widget": {
+            "name": "image"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            487,
+            488
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage",
+        "nd_ui_src": {
+          "uid": "src_background_photo",
+          "tag": "background-photo"
+        }
+      },
+      "widgets_values": [
+        "universal-local-empty-mask.png"
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 451,
+      "type": "RMBG",
+      "title": "🧽 Удалить фон",
+      "pos": [
+        430,
+        5060
+      ],
+      "size": [
+        340,
+        450
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 451,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 487
+        },
+        {
+          "name": "model",
+          "type": "COMBO",
+          "link": null,
+          "widget": {
+            "name": "model"
+          }
+        },
+        {
+          "name": "sensitivity",
+          "type": "FLOAT",
+          "link": null,
+          "widget": {
+            "name": "sensitivity"
+          },
+          "shape": 7
+        },
+        {
+          "name": "process_res",
+          "type": "INT",
+          "link": null,
+          "widget": {
+            "name": "process_res"
+          },
+          "shape": 7
+        },
+        {
+          "name": "mask_blur",
+          "type": "INT",
+          "link": null,
+          "widget": {
+            "name": "mask_blur"
+          },
+          "shape": 7
+        },
+        {
+          "name": "mask_offset",
+          "type": "INT",
+          "link": null,
+          "widget": {
+            "name": "mask_offset"
+          },
+          "shape": 7
+        },
+        {
+          "name": "invert_output",
+          "type": "BOOLEAN",
+          "link": null,
+          "widget": {
+            "name": "invert_output"
+          },
+          "shape": 7
+        },
+        {
+          "name": "refine_foreground",
+          "type": "BOOLEAN",
+          "link": null,
+          "widget": {
+            "name": "refine_foreground"
+          },
+          "shape": 7
+        },
+        {
+          "name": "background",
+          "type": "COMBO",
+          "link": null,
+          "widget": {
+            "name": "background"
+          },
+          "shape": 7
+        },
+        {
+          "name": "background_color",
+          "type": "COLOR",
+          "link": null,
+          "shape": 7,
+          "widget": {
+            "name": "background_color"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            489,
+            491
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": []
+        },
+        {
+          "name": "MASK_IMAGE",
+          "type": "IMAGE",
+          "links": [
+            490
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "RMBG",
+        "nd_ui_src": {
+          "uid": "src_background_controller",
+          "tag": "background-controller"
+        },
+        "acf_background": {
+          "photo": 450,
+          "before": 452,
+          "result": 453,
+          "mask": 454,
+          "saver": 455,
+          "nodes": [
+            450,
+            451,
+            452,
+            453,
+            454,
+            455
+          ],
+          "save": false
+        }
+      },
+      "widgets_values": [
+        "RMBG-2.0",
+        1.0,
+        1024,
+        0,
+        0,
+        false,
+        false,
+        "Alpha",
+        "#222222"
+      ],
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 452,
+      "type": "PreviewImage",
+      "title": "🖼️ Исходник · фон",
+      "pos": [
+        40,
+        5460
+      ],
+      "size": [
+        340,
+        320
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 452,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 488
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PreviewImage",
+        "nd_ui_src": {
+          "uid": "src_background_before",
+          "tag": "background-before"
+        }
+      },
+      "widgets_values": [],
+      "color": "#223",
+      "bgcolor": "#335"
+    },
+    {
+      "id": 453,
+      "type": "PreviewImage",
+      "title": "🖼️ PNG с прозрачностью",
+      "pos": [
+        840,
+        5060
+      ],
+      "size": [
+        380,
+        360
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 453,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 489
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PreviewImage",
+        "nd_ui_src": {
+          "uid": "src_background_result",
+          "tag": "background-result"
+        }
+      },
+      "widgets_values": [],
+      "color": "#223",
+      "bgcolor": "#335"
+    },
+    {
+      "id": 454,
+      "type": "PreviewImage",
+      "title": "🟣 Маска объекта",
+      "pos": [
+        840,
+        5460
+      ],
+      "size": [
+        380,
+        320
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 454,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 490
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PreviewImage",
+        "nd_ui_src": {
+          "uid": "src_background_mask",
+          "tag": "background-mask"
+        }
+      },
+      "widgets_values": [],
+      "color": "#223",
+      "bgcolor": "#335"
+    },
+    {
+      "id": 455,
+      "type": "Image Saver Simple",
+      "title": "💾 PNG без фона",
+      "pos": [
+        430,
+        5560
+      ],
+      "size": [
+        340,
+        320
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 455,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 491
+        },
+        {
+          "name": "filename",
+          "type": "STRING",
+          "link": null,
+          "widget": {
+            "name": "filename"
+          }
+        },
+        {
+          "name": "path",
+          "type": "STRING",
+          "link": null,
+          "widget": {
+            "name": "path"
+          }
+        },
+        {
+          "name": "extension",
+          "type": "COMBO",
+          "link": null,
+          "widget": {
+            "name": "extension"
+          }
+        },
+        {
+          "name": "lossless_webp",
+          "type": "BOOLEAN",
+          "link": null,
+          "widget": {
+            "name": "lossless_webp"
+          }
+        },
+        {
+          "name": "quality_jpeg_or_webp",
+          "type": "INT",
+          "link": null,
+          "widget": {
+            "name": "quality_jpeg_or_webp"
+          }
+        },
+        {
+          "name": "optimize_png",
+          "type": "BOOLEAN",
+          "link": null,
+          "widget": {
+            "name": "optimize_png"
+          }
+        },
+        {
+          "name": "embed_workflow",
+          "type": "BOOLEAN",
+          "link": null,
+          "widget": {
+            "name": "embed_workflow"
+          }
+        },
+        {
+          "name": "save_workflow_as_json",
+          "type": "BOOLEAN",
+          "link": null,
+          "widget": {
+            "name": "save_workflow_as_json"
+          }
+        },
+        {
+          "name": "metadata",
+          "type": "METADATA",
+          "link": null,
+          "shape": 7
+        },
+        {
+          "name": "counter",
+          "type": "INT",
+          "link": null,
+          "widget": {
+            "name": "counter"
+          },
+          "shape": 7
+        },
+        {
+          "name": "time_format",
+          "type": "STRING",
+          "link": null,
+          "widget": {
+            "name": "time_format"
+          },
+          "shape": 7
+        },
+        {
+          "name": "show_preview",
+          "type": "BOOLEAN",
+          "link": null,
+          "widget": {
+            "name": "show_preview"
+          },
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "hashes",
+          "type": "STRING",
+          "links": []
+        },
+        {
+          "name": "a1111_params",
+          "type": "STRING",
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Image Saver Simple",
+        "nd_ui_src": {
+          "uid": "src_background_save",
+          "tag": "background-save"
+        }
+      },
+      "widgets_values": [
+        "Background_Removed_%time_%counter",
+        "Background_Removed",
+        "png",
+        true,
+        100,
+        false,
+        true,
+        false,
+        0,
+        "%Y-%m-%d-%H%M%S",
+        true
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
     }
   ],
   "links": [
@@ -26880,6 +27380,46 @@
       51,
       3,
       "CONDITIONING"
+    ],
+    [
+      487,
+      450,
+      0,
+      451,
+      0,
+      "IMAGE"
+    ],
+    [
+      488,
+      450,
+      0,
+      452,
+      0,
+      "IMAGE"
+    ],
+    [
+      489,
+      451,
+      0,
+      453,
+      0,
+      "IMAGE"
+    ],
+    [
+      490,
+      451,
+      2,
+      454,
+      0,
+      "IMAGE"
+    ],
+    [
+      491,
+      451,
+      0,
+      455,
+      0,
+      "IMAGE"
     ]
   ],
   "groups": [
@@ -27151,6 +27691,18 @@
         4200,
         1550,
         780
+      ],
+      "color": "#3d726c",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "title": "🧽 Удаление фона · отдельная функция",
+      "bounding": [
+        20,
+        5000,
+        1230,
+        940
       ],
       "color": "#3d726c",
       "font_size": 24,
@@ -27737,14 +28289,62 @@
           "tag": "pose-negative",
           "class": "PrimitiveStringMultiline",
           "title": "➖ Общий негативный промт Raw"
+        },
+        {
+          "uid": "src_background_photo",
+          "tag": "background-photo",
+          "class": "LoadImage",
+          "title": "📷 Удаление фона · исходник"
+        },
+        {
+          "uid": "src_background_controller",
+          "tag": "background-controller",
+          "class": "RMBG",
+          "title": "🧽 Удалить фон"
+        },
+        {
+          "uid": "src_background_before",
+          "tag": "background-before",
+          "class": "PreviewImage",
+          "title": "🖼️ Исходник · фон"
+        },
+        {
+          "uid": "src_background_result",
+          "tag": "background-result",
+          "class": "PreviewImage",
+          "title": "🖼️ PNG с прозрачностью"
+        },
+        {
+          "uid": "src_background_mask",
+          "tag": "background-mask",
+          "class": "PreviewImage",
+          "title": "🟣 Маска объекта"
+        },
+        {
+          "uid": "src_background_save",
+          "tag": "background-save",
+          "class": "Image Saver Simple",
+          "title": "💾 PNG без фона"
         }
       ],
       "pages": [
         {
           "id": "p1",
-          "name": "Первая генерация",
+          "name": "Генерация",
           "kind": "page",
           "len": 2060,
+          "control": {
+            "nodes": [],
+            "groups": [],
+            "how": "mute",
+            "bindIndex": null
+          }
+        },
+        {
+          "id": "p_bg",
+          "name": "Удаление фона",
+          "kind": "page",
+          "len": 940,
           "control": {
             "nodes": [],
             "groups": [],
@@ -27768,7 +28368,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v0.5.4",
+            "text": "🧩 Универсальный воркфлоу · v0.6.0",
             "size": "M",
             "align": "left"
           },
@@ -29154,6 +29754,11 @@
               "src": "src_pose_detector",
               "kind": "widget",
               "name": "pose_estimator"
+            },
+            "bg_model": {
+              "src": "src_background_controller",
+              "kind": "widget",
+              "name": "model"
             }
           },
           "props": {
@@ -29878,6 +30483,835 @@
             "max": 10000,
             "unit": "%",
             "align": "center"
+          }
+        },
+        {
+          "id": "bg_header",
+          "type": "heading",
+          "page": "p_bg",
+          "x": 24,
+          "y": 16,
+          "w": 1152,
+          "h": 40,
+          "z": 2,
+          "parent": null,
+          "hidden": false,
+          "locked": true,
+          "slots": {},
+          "props": {
+            "text": "🧩 Универсальный воркфлоу · v0.6.0",
+            "size": "M",
+            "align": "left"
+          },
+          "look": {
+            "style": null,
+            "shape": null,
+            "accent": null,
+            "bg": null,
+            "field": null,
+            "text": "#e8eaf0",
+            "labelColor": null,
+            "border": null,
+            "radius": null,
+            "shadow": null,
+            "blur": null,
+            "label": null,
+            "scale": 115
+          }
+        },
+        {
+          "id": "bg_taskbar",
+          "type": "factorytaskbar_v0215",
+          "page": "p_bg",
+          "x": 24,
+          "y": 72,
+          "w": 1152,
+          "h": 64,
+          "z": 10,
+          "parent": null,
+          "hidden": false,
+          "locked": true,
+          "slots": {
+            "k_model": {
+              "src": "src_k2module_model",
+              "kind": "widget",
+              "name": "unet_name"
+            },
+            "k_clip": {
+              "src": "src_settings_k_clip",
+              "kind": "widget",
+              "name": "clip_name"
+            },
+            "k_vae": {
+              "src": "src_settings_k_vae",
+              "kind": "widget",
+              "name": "vae_name"
+            },
+            "z_model": {
+              "src": "src_settings_z_model",
+              "kind": "widget",
+              "name": "unet_name"
+            },
+            "z_clip": {
+              "src": "src_settings_z_clip",
+              "kind": "widget",
+              "name": "clip_name"
+            },
+            "z_vae": {
+              "src": "src_settings_z_vae",
+              "kind": "widget",
+              "name": "vae_name"
+            },
+            "k_turbo": {
+              "src": "src_settings_k_turbo",
+              "kind": "widget",
+              "name": "power_lora_1.lora"
+            },
+            "k_refine_turbo": {
+              "src": "src_settings_k_refine_turbo",
+              "kind": "widget",
+              "name": "power_lora_1.lora"
+            },
+            "kg_1_lora": {
+              "src": "src_k2module_lora",
+              "kind": "widget",
+              "name": "power_lora_1.lora"
+            },
+            "kg_1_on": {
+              "src": "src_k2module_lora",
+              "kind": "widget",
+              "name": "power_lora_1.on"
+            },
+            "kg_1_strength": {
+              "src": "src_k2module_lora",
+              "kind": "widget",
+              "name": "power_lora_1.strength"
+            },
+            "kg_2_lora": {
+              "src": "src_k2module_lora",
+              "kind": "widget",
+              "name": "power_lora_2.lora"
+            },
+            "kg_2_on": {
+              "src": "src_k2module_lora",
+              "kind": "widget",
+              "name": "power_lora_2.on"
+            },
+            "kg_2_strength": {
+              "src": "src_k2module_lora",
+              "kind": "widget",
+              "name": "power_lora_2.strength"
+            },
+            "kg_3_lora": {
+              "src": "src_k2module_lora",
+              "kind": "widget",
+              "name": "power_lora_3.lora"
+            },
+            "kg_3_on": {
+              "src": "src_k2module_lora",
+              "kind": "widget",
+              "name": "power_lora_3.on"
+            },
+            "kg_3_strength": {
+              "src": "src_k2module_lora",
+              "kind": "widget",
+              "name": "power_lora_3.strength"
+            },
+            "kr_1_lora": {
+              "src": "src_k2pass_krea_lora",
+              "kind": "widget",
+              "name": "power_lora_1.lora"
+            },
+            "kr_1_on": {
+              "src": "src_k2pass_krea_lora",
+              "kind": "widget",
+              "name": "power_lora_1.on"
+            },
+            "kr_1_strength": {
+              "src": "src_k2pass_krea_lora",
+              "kind": "widget",
+              "name": "power_lora_1.strength"
+            },
+            "kr_2_lora": {
+              "src": "src_k2pass_krea_lora",
+              "kind": "widget",
+              "name": "power_lora_2.lora"
+            },
+            "kr_2_on": {
+              "src": "src_k2pass_krea_lora",
+              "kind": "widget",
+              "name": "power_lora_2.on"
+            },
+            "kr_2_strength": {
+              "src": "src_k2pass_krea_lora",
+              "kind": "widget",
+              "name": "power_lora_2.strength"
+            },
+            "kr_3_lora": {
+              "src": "src_k2pass_krea_lora",
+              "kind": "widget",
+              "name": "power_lora_3.lora"
+            },
+            "kr_3_on": {
+              "src": "src_k2pass_krea_lora",
+              "kind": "widget",
+              "name": "power_lora_3.on"
+            },
+            "kr_3_strength": {
+              "src": "src_k2pass_krea_lora",
+              "kind": "widget",
+              "name": "power_lora_3.strength"
+            },
+            "zr_1_lora": {
+              "src": "src_k2pass_z_lora",
+              "kind": "widget",
+              "name": "power_lora_1.lora"
+            },
+            "zr_1_on": {
+              "src": "src_k2pass_z_lora",
+              "kind": "widget",
+              "name": "power_lora_1.on"
+            },
+            "zr_1_strength": {
+              "src": "src_k2pass_z_lora",
+              "kind": "widget",
+              "name": "power_lora_1.strength"
+            },
+            "zr_2_lora": {
+              "src": "src_k2pass_z_lora",
+              "kind": "widget",
+              "name": "power_lora_2.lora"
+            },
+            "zr_2_on": {
+              "src": "src_k2pass_z_lora",
+              "kind": "widget",
+              "name": "power_lora_2.on"
+            },
+            "zr_2_strength": {
+              "src": "src_k2pass_z_lora",
+              "kind": "widget",
+              "name": "power_lora_2.strength"
+            },
+            "zr_3_lora": {
+              "src": "src_k2pass_z_lora",
+              "kind": "widget",
+              "name": "power_lora_3.lora"
+            },
+            "zr_3_on": {
+              "src": "src_k2pass_z_lora",
+              "kind": "widget",
+              "name": "power_lora_3.on"
+            },
+            "zr_3_strength": {
+              "src": "src_k2pass_z_lora",
+              "kind": "widget",
+              "name": "power_lora_3.strength"
+            },
+            "local_k_model": {
+              "src": "src_settings_local_k_model",
+              "kind": "widget",
+              "name": "unet_name"
+            },
+            "local_k_clip": {
+              "src": "src_settings_local_k_clip",
+              "kind": "widget",
+              "name": "clip_name"
+            },
+            "local_k_vae": {
+              "src": "src_settings_local_k_vae",
+              "kind": "widget",
+              "name": "vae_name"
+            },
+            "local_z_model": {
+              "src": "src_settings_local_z_model",
+              "kind": "widget",
+              "name": "unet_name"
+            },
+            "local_z_clip": {
+              "src": "src_settings_local_z_clip",
+              "kind": "widget",
+              "name": "clip_name"
+            },
+            "local_z_vae": {
+              "src": "src_settings_local_z_vae",
+              "kind": "widget",
+              "name": "vae_name"
+            },
+            "local_turbo": {
+              "src": "src_settings_local_turbo",
+              "kind": "widget",
+              "name": "power_lora_1.lora"
+            },
+            "sam_model": {
+              "src": "src_settings_sam_model",
+              "kind": "widget",
+              "name": "ckpt_name"
+            },
+            "face_detector": {
+              "src": "src_settings_face_detector",
+              "kind": "widget",
+              "name": "model_name"
+            },
+            "hand_detector": {
+              "src": "src_settings_hand_detector",
+              "kind": "widget",
+              "name": "model_name"
+            },
+            "up_simple_model": {
+              "src": "src_upscale_simple-model",
+              "kind": "widget",
+              "name": "model_name"
+            },
+            "up_ultimate_model": {
+              "src": "src_upscale_ultimate-model",
+              "kind": "widget",
+              "name": "model_name"
+            },
+            "up_z_model": {
+              "src": "src_upscale_z-model",
+              "kind": "widget",
+              "name": "unet_name"
+            },
+            "up_z_clip": {
+              "src": "src_upscale_z-clip",
+              "kind": "widget",
+              "name": "clip_name"
+            },
+            "up_z_vae": {
+              "src": "src_upscale_z-vae",
+              "kind": "widget",
+              "name": "vae_name"
+            },
+            "up_seed_dit": {
+              "src": "src_upscale_seed-dit",
+              "kind": "widget",
+              "name": "model"
+            },
+            "up_seed_vae": {
+              "src": "src_upscale_seed-vae",
+              "kind": "widget",
+              "name": "model"
+            },
+            "pose_lora": {
+              "src": "src_pose_controller",
+              "kind": "widget",
+              "name": "factory_pose_lora"
+            },
+            "pose_bbox": {
+              "src": "src_pose_detector",
+              "kind": "widget",
+              "name": "bbox_detector"
+            },
+            "pose_estimator": {
+              "src": "src_pose_detector",
+              "kind": "widget",
+              "name": "pose_estimator"
+            },
+            "bg_model": {
+              "src": "src_background_controller",
+              "kind": "widget",
+              "name": "model"
+            }
+          },
+          "props": {
+            "glow": "soft",
+            "accentA": "#36cfea",
+            "accentB": "#59e68d",
+            "visualProfile": "standard",
+            "canvasHeight": 940
+          },
+          "look": {
+            "bg": "transparent",
+            "border": "transparent",
+            "label": "hidden",
+            "radius": 0,
+            "scale": 100
+          },
+          "adapt": {
+            "mode": "stretch",
+            "max": 10000,
+            "unit": "%",
+            "align": "left"
+          }
+        },
+        {
+          "id": "bg_photo",
+          "type": "factoryphoto_v060",
+          "page": "p_bg",
+          "x": 24,
+          "y": 152,
+          "w": 336,
+          "h": 420,
+          "z": 2,
+          "parent": null,
+          "hidden": false,
+          "locked": true,
+          "slots": {
+            "image": {
+              "src": "src_background_photo",
+              "kind": "widget",
+              "name": "image"
+            }
+          },
+          "props": {
+            "label": "📷 Исходное фото"
+          },
+          "look": {
+            "style": null,
+            "shape": null,
+            "accent": "#59e68d",
+            "bg": "#192b2a",
+            "field": "#20252d",
+            "text": null,
+            "labelColor": "#78e4cd",
+            "border": "#3d726c",
+            "radius": 12,
+            "shadow": null,
+            "blur": null,
+            "label": null,
+            "scale": 100
+          },
+          "adapt": {
+            "mode": "stretch",
+            "max": 10000,
+            "unit": "%",
+            "align": "center"
+          }
+        },
+        {
+          "id": "bg_settings",
+          "type": "factorybackground_v060",
+          "page": "p_bg",
+          "x": 24,
+          "y": 588,
+          "w": 336,
+          "h": 172,
+          "z": 2,
+          "parent": null,
+          "hidden": false,
+          "locked": true,
+          "slots": {
+            "config": {
+              "src": "src_background_controller",
+              "kind": "widget",
+              "name": "factory_background_config"
+            }
+          },
+          "props": {},
+          "look": {
+            "style": null,
+            "shape": null,
+            "accent": "#59e68d",
+            "bg": null,
+            "field": "#20252d",
+            "text": null,
+            "labelColor": "#8eefb4",
+            "border": "#365a45",
+            "radius": 12,
+            "shadow": null,
+            "blur": null,
+            "label": null,
+            "scale": 100
+          },
+          "adapt": {
+            "mode": "stretch",
+            "max": 10000,
+            "unit": "%",
+            "align": "center"
+          }
+        },
+        {
+          "id": "bg_results",
+          "type": "tabbox",
+          "page": "p_bg",
+          "x": 384,
+          "y": 152,
+          "w": 792,
+          "h": 608,
+          "z": 0,
+          "parent": null,
+          "hidden": false,
+          "locked": true,
+          "slots": {},
+          "props": {
+            "tabs": [
+              {
+                "id": "result",
+                "name": "🖼️ Итог"
+              },
+              {
+                "id": "compare",
+                "name": "🔎 До / после"
+              },
+              {
+                "id": "mask",
+                "name": "🟣 Маска"
+              }
+            ],
+            "active": "result",
+            "shadow": false,
+            "bottomWith": "bg_settings",
+            "bottomInset": 0
+          },
+          "look": {
+            "style": null,
+            "shape": null,
+            "accent": "#36cfea",
+            "bg": "#151e27",
+            "field": "#20252d",
+            "text": null,
+            "labelColor": "#65e3f4",
+            "border": "#286f80",
+            "radius": 12,
+            "shadow": null,
+            "blur": null,
+            "label": null,
+            "scale": 100
+          }
+        },
+        {
+          "id": "bg_result",
+          "type": "factoryalphaviewer_v060",
+          "page": "p_bg",
+          "x": 396,
+          "y": 208,
+          "w": 768,
+          "h": 540,
+          "z": 2,
+          "parent": null,
+          "hidden": false,
+          "locked": true,
+          "slots": {
+            "images": {
+              "src": "src_background_result",
+              "kind": "images",
+              "name": ""
+            }
+          },
+          "props": {
+            "label": "Результат",
+            "live": false,
+            "results": true,
+            "compare": false,
+            "progress": "off",
+            "thumbs": "bottom",
+            "save": true,
+            "tools": true,
+            "bottomInset": 12
+          },
+          "look": {
+            "style": null,
+            "shape": null,
+            "accent": "#36cfea",
+            "bg": "#181c23",
+            "field": "#20252d",
+            "text": null,
+            "labelColor": "#65e3f4",
+            "border": "#286f80",
+            "radius": 12,
+            "shadow": null,
+            "blur": null,
+            "label": "hidden",
+            "scale": 100
+          },
+          "tab": "result",
+          "adapt": {
+            "mode": "scale",
+            "max": 10000,
+            "unit": "%",
+            "align": "left"
+          }
+        },
+        {
+          "id": "bg_mask",
+          "type": "factoryalphaviewer_v060",
+          "page": "p_bg",
+          "x": 396,
+          "y": 208,
+          "w": 768,
+          "h": 540,
+          "z": 2,
+          "parent": null,
+          "hidden": false,
+          "locked": true,
+          "slots": {
+            "images": {
+              "src": "src_background_mask",
+              "kind": "images",
+              "name": ""
+            }
+          },
+          "props": {
+            "label": "Результат",
+            "live": false,
+            "results": true,
+            "compare": false,
+            "progress": "off",
+            "thumbs": "bottom",
+            "save": true,
+            "tools": true,
+            "bottomInset": 12
+          },
+          "look": {
+            "style": null,
+            "shape": null,
+            "accent": "#36cfea",
+            "bg": "#181c23",
+            "field": "#20252d",
+            "text": null,
+            "labelColor": "#65e3f4",
+            "border": "#286f80",
+            "radius": 12,
+            "shadow": null,
+            "blur": null,
+            "label": "hidden",
+            "scale": 100
+          },
+          "tab": "mask",
+          "adapt": {
+            "mode": "scale",
+            "max": 10000,
+            "unit": "%",
+            "align": "left"
+          }
+        },
+        {
+          "id": "bg_compare",
+          "type": "viewer",
+          "page": "p_bg",
+          "x": 396,
+          "y": 208,
+          "w": 768,
+          "h": 540,
+          "z": 2,
+          "parent": null,
+          "hidden": false,
+          "locked": true,
+          "slots": {
+            "images": {
+              "src": "src_background_result",
+              "kind": "images",
+              "name": ""
+            },
+            "a": {
+              "src": "src_background_before",
+              "kind": "images",
+              "name": ""
+            },
+            "b": {
+              "src": "src_background_result",
+              "kind": "images",
+              "name": ""
+            }
+          },
+          "props": {
+            "label": "Результат",
+            "live": false,
+            "results": false,
+            "compare": true,
+            "progress": "off",
+            "thumbs": "off",
+            "save": true,
+            "tools": true,
+            "bottomWith": "right_tabs",
+            "bottomInset": 12,
+            "srcA": "node",
+            "srcB": "node",
+            "cmpMode": "wipe",
+            "labelA": "Исходник",
+            "labelB": "Без фона"
+          },
+          "look": {
+            "style": null,
+            "shape": null,
+            "accent": "#36cfea",
+            "bg": "#181c23",
+            "field": "#20252d",
+            "text": null,
+            "labelColor": "#65e3f4",
+            "border": "#286f80",
+            "radius": 12,
+            "shadow": null,
+            "blur": null,
+            "label": "hidden",
+            "scale": 100
+          },
+          "tab": "compare"
+        },
+        {
+          "id": "bg_progress",
+          "type": "factorybackgroundprogress_v060",
+          "page": "p_bg",
+          "x": 384,
+          "y": 776,
+          "w": 344,
+          "h": 56,
+          "z": 2,
+          "parent": null,
+          "hidden": false,
+          "locked": true,
+          "slots": {},
+          "props": {
+            "name": false,
+            "steps": true,
+            "afterWith": "bg_results",
+            "afterGap": 16
+          },
+          "look": {
+            "style": null,
+            "shape": null,
+            "accent": "#36cfea",
+            "bg": "#181c23",
+            "field": "#20252d",
+            "text": null,
+            "labelColor": "#65e3f4",
+            "border": "#286f80",
+            "radius": 12,
+            "shadow": null,
+            "blur": null,
+            "label": "hidden",
+            "scale": 100
+          },
+          "adapt": {
+            "mode": "stretch",
+            "max": 10000,
+            "unit": "%",
+            "align": "left"
+          }
+        },
+        {
+          "id": "bg_queue",
+          "type": "factoryqueuestatus_v023",
+          "page": "p_bg",
+          "x": 740,
+          "y": 776,
+          "w": 184,
+          "h": 56,
+          "z": 2,
+          "parent": null,
+          "hidden": false,
+          "locked": true,
+          "slots": {},
+          "props": {
+            "afterWith": "bg_results",
+            "afterGap": 16
+          },
+          "look": {
+            "style": null,
+            "shape": null,
+            "accent": "#36cfea",
+            "bg": "#181c23",
+            "field": "#20252d",
+            "text": null,
+            "labelColor": "#65e3f4",
+            "border": "#286f80",
+            "radius": 12,
+            "shadow": null,
+            "blur": null,
+            "label": "hidden",
+            "scale": 100
+          },
+          "adapt": {
+            "mode": "stretch",
+            "max": 10000,
+            "unit": "%",
+            "align": "left"
+          }
+        },
+        {
+          "id": "bg_save",
+          "type": "factorysavetoggle_v023",
+          "page": "p_bg",
+          "x": 936,
+          "y": 776,
+          "w": 240,
+          "h": 56,
+          "z": 2,
+          "parent": null,
+          "hidden": false,
+          "locked": true,
+          "slots": {
+            "value": {
+              "src": "src_background_controller",
+              "kind": "widget",
+              "name": "factory_background_save"
+            }
+          },
+          "props": {
+            "text": "💾 Сохранять результат",
+            "description": "Выключено по умолчанию",
+            "afterWith": "bg_results",
+            "afterGap": 16
+          },
+          "look": {
+            "style": null,
+            "shape": null,
+            "accent": "#36cfea",
+            "bg": "#181c23",
+            "field": "#20252d",
+            "text": null,
+            "labelColor": "#65e3f4",
+            "border": "#286f80",
+            "radius": 12,
+            "shadow": null,
+            "blur": null,
+            "label": null,
+            "scale": 100
+          },
+          "adapt": {
+            "mode": "stretch",
+            "max": 10000,
+            "unit": "%",
+            "align": "left"
+          }
+        },
+        {
+          "id": "bg_run",
+          "type": "factorybackgroundrun_v060",
+          "page": "p_bg",
+          "x": 24,
+          "y": 848,
+          "w": 1152,
+          "h": 56,
+          "z": 2,
+          "parent": null,
+          "hidden": false,
+          "locked": true,
+          "slots": {
+            "config": {
+              "src": "src_background_controller",
+              "kind": "widget",
+              "name": "factory_background_config"
+            }
+          },
+          "props": {
+            "text": "Удалить фон",
+            "batch": false,
+            "stop": true,
+            "stopIdle": false,
+            "afterWith": "bg_progress",
+            "afterGap": 16
+          },
+          "look": {
+            "style": null,
+            "shape": null,
+            "accent": null,
+            "bg": null,
+            "field": null,
+            "text": null,
+            "labelColor": null,
+            "border": null,
+            "radius": 12,
+            "shadow": null,
+            "blur": null,
+            "label": null,
+            "scale": 100
+          },
+          "adapt": {
+            "mode": "scale",
+            "max": 50,
+            "unit": "%",
+            "align": "left"
           }
         }
       ],

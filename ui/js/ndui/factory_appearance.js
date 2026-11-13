@@ -41,5 +41,6 @@ export function applyAppearanceProfile(ui, id) {
         bar.props.accentB = selected.b;
     }
     bar.props.visualProfile = id;
+    for(const other of ui.widgets.filter(w=>w.type==='factorytaskbar_v0215'&&w.id!==bar.id)){other.props ||= {};for(const key of ['accentA','accentB','visualProfile'])other.props[key]=bar.props[key];}
     return true;
 }
