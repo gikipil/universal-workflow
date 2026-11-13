@@ -1,0 +1,13 @@
+// SPDX-License-Identifier: AGPL-3.0-only
+// Universal Workflow additions by gikipil, 2026-11-13.
+const widget=(node,key)=>node?.widgets?.find(w=>w.name===key);
+export function readEdit(node){const s=node.properties.acf_edit,g=node.graph;return{steps:widget(node,'steps')?.value,cfg:widget(node,'cfg')?.value,denoise:widget(node,'denoise')?.value,longest:widget(g.getNodeById(s.scale),'longest_side')?.value,refLongest:widget(g.getNodeById(s.refScale),'longest_side')?.value,double:widget(g.getNodeById(s.double),'value')?.value,shift:widget(g.getNodeById(s.shift),'shift')?.value,save:s.save===true};}
+export function writeEdit(node,value,touch=()=>{}){
+ const v=typeof value==='string'?JSON.parse(value):value,s=node.properties.acf_edit,g=node.graph;
+ for(const[k,min,max,integer]of[['steps',1,1000,true],['cfg',0,30,false],['denoise',0,1,false],['longest',256,4096,true],['refLongest',256,4096,true],['shift',0,100,false]])if(!Number.isFinite(v[k])||v[k]<min||v[k]>max||(integer&&!Number.isInteger(v[k])))throw Error('Проверь настройки редактирования.');
+ if(typeof v.double!=='boolean'||typeof v.save!=='boolean')throw Error('Проверь переключатели редактирования.');
+ const changes=[[node,'steps',v.steps],[node,'cfg',v.cfg],[node,'denoise',v.denoise],[g.getNodeById(s.scale),'longest_side',v.longest],[g.getNodeById(s.refScale),'longest_side',v.refLongest],[g.getNodeById(s.double),'value',v.double],[g.getNodeById(s.shift),'shift',v.shift]];
+ if(changes.some(([n,k])=>!widget(n,k)))throw Error('Не найдены настройки редактора.');
+ for(const[n,k,x]of changes){const w=widget(n,k);if(w.value!==x){w.value=x;w.callback?.(x);}}s.save=v.save;touch(node);return true;
+}
+export function editParams(node,touch){if(!node?.properties?.acf_edit)return[];const cfg={name:'factory_edit_config',node,type:'text',options:{},get value(){return JSON.stringify(readEdit(node));},setValue(v){return writeEdit(node,v,touch);}},save={name:'factory_edit_save',node,type:'toggle',options:{},get value(){return node.properties.acf_edit.save===true;},setValue(v){if(typeof v!=='boolean')return false;node.properties.acf_edit.save=v;touch(node);return true;}};return[{name:cfg.name,label:'Edit settings',ptype:'STRING',widget:cfg,node,virtual:true},{name:save.name,label:'Save edit result',ptype:'BOOLEAN',widget:save,node,virtual:true,modeControl:true}];}

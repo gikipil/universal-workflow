@@ -1,3 +1,4 @@
+import {editParams} from './factory_edit_params.js';
 import {backgroundParams} from './factory_background_params.js';
 import {poseParams} from './factory_pose_params.js';
 import {upscaleParams} from './factory_upscale_params.js';
@@ -110,6 +111,7 @@ export function modeParams(node, notify = touch) {
 
 export function virtualParams(node) {
     switch (classOf(node)) {
+        case "KSampler": return editParams(node,touch);
         case "RMBG": return backgroundParams(node,touch);
         case "PrimitiveInt": return poseParams(node,touch);
         case "easy anythingIndexSwitch": return [...upscaleParams(node,touch),...localParams(node,touch),...factoryRefineLoraParams(node, touch),...sliderBankParams(node,touch),...userLoraBankParams(node,touch)];
