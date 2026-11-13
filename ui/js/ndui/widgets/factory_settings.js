@@ -81,8 +81,8 @@ export function openFactorySettings(ctx, onClose=()=>{}) {
     const krea=card(modelsGrid,'Krea','Общий комплект для генерации и Krea-детализации. Выбирай Raw-модель: Turbo-адаптер подключается в нужных режимах автоматически.');
     const zimage=card(modelsGrid,'Z-Image','Комплект второго прохода. Его модели и LoRA независимы от Krea.');
     const turbo=card(modelsGrid,'Krea · Turbo-адаптеры','Подключаются автоматически в Turbo-режимах. Для каждого этапа можно выбрать свой адаптер.');
-    const localKrea=card(modelsGrid,'3 · Krea · локальная детализация','Отдельный комплект для лица, рук и выбранных областей.');
-    const localZ=card(modelsGrid,'3 · Z-Image · локальная детализация','Отдельный комплект Z-Image для третьего этапа.');
+    const localKrea=card(modelsGrid,'3 · Krea · лицо, руки и маски','Отдельный комплект для лица, рук и выбранных областей.');
+    const localZ=card(modelsGrid,'3 · Z-Image · лицо, руки и маски','Отдельный комплект Z-Image для третьего этапа.');
     const detection=card(modelsGrid,'🔎 SAM и YOLO','SAM выделяет область по описанию, YOLO находит лица и руки. Здесь выбираются установленные файлы детекторов.');
     for (const [key,caption,folder] of MODEL_FIELDS) {
         const container=['sam_model','face_detector','hand_detector'].includes(key)?detection:key.startsWith('local_k_')?localKrea:key.startsWith('local_z_')?localZ:key.includes('turbo')?turbo:key.startsWith('z_')?zimage:krea;

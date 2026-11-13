@@ -17630,7 +17630,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v0.3.4",
+            "text": "🧩 Универсальный воркфлоу · v0.3.5",
             "size": "M",
             "align": "left"
           },
@@ -18040,7 +18040,7 @@
               },
               {
                 "id": "local",
-                "name": "🎯 Локальные правки"
+                "name": "🎯 Лицо, руки и маски"
               }
             ],
             "active": "result",
@@ -19322,7 +19322,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "title": "🧩 3 · LoRA локальных правок",
+            "title": "🧩 3 · LoRA областей",
             "icon": "layers",
             "open": false,
             "remember": false,
