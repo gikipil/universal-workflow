@@ -17630,7 +17630,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v0.3.6",
+            "text": "🧩 Универсальный воркфлоу · v0.3.7",
             "size": "M",
             "align": "left"
           },
@@ -18115,7 +18115,7 @@
         },
         {
           "id": "progress",
-          "type": "progress",
+          "type": "factoryprogress_v037",
           "page": "p1",
           "x": 384,
           "y": 1426,
