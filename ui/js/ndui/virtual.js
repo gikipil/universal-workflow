@@ -1,3 +1,4 @@
+import {outpaintParams} from './factory_outpaint_params.js';
 // Universal Workflow update by gikipil, 2026-11-14: standalone and post-edit upscale.
 import {upscaleTaskParams} from './factory_upscale_tasks.js';
 import {editParams} from './factory_edit_params.js';
@@ -113,7 +114,7 @@ export function modeParams(node, notify = touch) {
 
 export function virtualParams(node) {
     switch (classOf(node)) {
-        case "KSampler": return editParams(node,touch);
+        case "KSampler": return [...outpaintParams(node,touch),...editParams(node,touch)];
         case "RMBG": return backgroundParams(node,touch);
         case "PrimitiveInt": return poseParams(node,touch);
         case "easy anythingIndexSwitch": return [...upscaleTaskParams(node,touch),...upscaleParams(node,touch),...localParams(node,touch),...factoryRefineLoraParams(node, touch),...sliderBankParams(node,touch),...userLoraBankParams(node,touch)];

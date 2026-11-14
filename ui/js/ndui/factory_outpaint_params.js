@@ -1,0 +1,9 @@
+// SPDX-License-Identifier: AGPL-3.0-only
+// Universal Workflow additions by gikipil, 2026-11-14.
+import {editParams,readEdit,writeEdit} from './factory_edit_params.js';
+const widget=(node,key)=>node?.widgets?.find(w=>w.name===key);
+export function outpaintEditor(node){const s=node.properties.acf_outpaint;return{...node,properties:{...node.properties,acf_edit:s.edit}};}
+export function readOutpaint(node){const s=node.properties.acf_outpaint,p=node.graph.getNodeById(s.pad);return Object.fromEntries(['left','right','top','bottom','feathering'].map(k=>[k,Number(widget(p,k)?.value)||0]));}
+export function writeOutpaint(node,value,touch=()=>{}){const v=typeof value==='string'?JSON.parse(value):value;for(const k of['left','right','top','bottom','feathering'])if(!Number.isInteger(v[k])||v[k]<0||v[k]>(k==='feathering'?256:4096))throw Error('Границы: 0–4096 px; мягкий переход: 0–256 px.');const p=node.graph.getNodeById(node.properties.acf_outpaint.pad);for(const k of['left','right','top','bottom','feathering']){const w=widget(p,k);if(!w)throw Error('Не найдена настройка расширения.');w.value=v[k];w.callback?.(v[k]);}touch(node);return true;}
+export function syncOutpaintAdapters(node){const s=node.properties.acf_outpaint,source=node.graph.getNodeById(s.sourceEditor)?.properties?.acf_edit;if(source?.adapterFiles)s.edit.adapterFiles={...source.adapterFiles};const proxy=outpaintEditor(node);writeEdit(proxy,readEdit(proxy));}
+export function outpaintParams(node,touch=()=>{}){if(!node?.properties?.acf_outpaint)return[];const proxy=outpaintEditor(node),control={name:'factory_outpaint_config',node,type:'text',options:{},get value(){return JSON.stringify(readOutpaint(node));},setValue(v){return writeOutpaint(node,v,touch);}};return[...editParams(proxy,touch),{name:control.name,label:'Outpaint borders',ptype:'STRING',widget:control,node,virtual:true}];}
