@@ -1,9 +1,93 @@
 {
   "id": "6156223e-7f85-4578-923d-9d05cf820581",
   "revision": 0,
-  "last_node_id": 876,
-  "last_link_id": 1008,
+  "last_node_id": 885,
+  "last_link_id": 1019,
   "nodes": [
+    {
+      "id": 881,
+      "type": "SetNode",
+      "title": "SetNode_EDIT_SAM_226_1",
+      "pos": [
+        1036,
+        3580
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 881,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "link": 1015
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SetNode",
+        "previousName": "EDIT_SAM_226_1"
+      },
+      "widgets_values": [
+        "EDIT_SAM_226_1"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 883,
+      "type": "SetNode",
+      "title": "SetNode_EDIT_SAM_226_0",
+      "pos": [
+        1036,
+        3580
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 883,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "link": 1017
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SetNode",
+        "previousName": "EDIT_SAM_226_0"
+      },
+      "widgets_values": [
+        "EDIT_SAM_226_0"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
     {
       "id": 871,
       "type": "SetNode",
@@ -28923,14 +29007,16 @@
           "name": "MODEL",
           "type": "MODEL",
           "links": [
-            209
+            209,
+            1017
           ]
         },
         {
           "name": "CLIP",
           "type": "CLIP",
           "links": [
-            208
+            208,
+            1015
           ]
         },
         {
@@ -35666,6 +35752,24 @@
               874,
               875,
               876
+            ]
+          },
+          "autoMask": {
+            "text": 877,
+            "detect": 878,
+            "preview": 880,
+            "maskImage": 879,
+            "model": 226,
+            "nodes": [
+              877,
+              878,
+              879,
+              880,
+              881,
+              882,
+              883,
+              884,
+              885
             ]
           }
         }
@@ -45196,6 +45300,355 @@
       "widgets_values": [],
       "color": "#232",
       "bgcolor": "#353"
+    },
+    {
+      "id": 879,
+      "type": "MaskToImage",
+      "title": "Технический просмотр автомаски",
+      "pos": [
+        836,
+        13140
+      ],
+      "size": [
+        340,
+        220
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 879,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "mask",
+          "type": "MASK",
+          "link": 1013
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            1014
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MaskToImage"
+      },
+      "widgets_values": [],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 882,
+      "type": "GetNode",
+      "title": "GetNode_EDIT_SAM_226_1",
+      "pos": [
+        56,
+        13140
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 882,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            1016
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "previousName": "EDIT_SAM_226_1"
+      },
+      "widgets_values": [
+        "EDIT_SAM_226_1"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 884,
+      "type": "GetNode",
+      "title": "GetNode_EDIT_SAM_226_0",
+      "pos": [
+        446,
+        13140
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 884,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            1018
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "previousName": "EDIT_SAM_226_0"
+      },
+      "widgets_values": [
+        "EDIT_SAM_226_0"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 885,
+      "type": "GetNode",
+      "title": "GetNode_EDIT_456_0",
+      "pos": [
+        446,
+        13140
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 885,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            1019
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "previousName": "EDIT_456_0"
+      },
+      "widgets_values": [
+        "EDIT_456_0"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 877,
+      "type": "CLIPTextEncode",
+      "title": "🎯 SAM · что выделить в основном кадре",
+      "pos": [
+        40,
+        13090
+      ],
+      "size": [
+        340,
+        220
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 877,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": null,
+          "widget": {
+            "name": "text"
+          }
+        },
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 1016
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            1012
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "clothing"
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 878,
+      "type": "SAM3_Detect",
+      "title": "🔎 SAM 3.1 · автомаска редактора",
+      "pos": [
+        430,
+        13090
+      ],
+      "size": [
+        340,
+        240
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 878,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 1018
+        },
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 1019
+        },
+        {
+          "name": "threshold",
+          "type": "FLOAT",
+          "link": null,
+          "widget": {
+            "name": "threshold"
+          }
+        },
+        {
+          "name": "refine_iterations",
+          "type": "INT",
+          "link": null,
+          "widget": {
+            "name": "refine_iterations"
+          }
+        },
+        {
+          "name": "individual_masks",
+          "type": "BOOLEAN",
+          "link": null,
+          "widget": {
+            "name": "individual_masks"
+          }
+        },
+        {
+          "name": "conditioning",
+          "type": "CONDITIONING",
+          "link": 1012,
+          "shape": 7
+        },
+        {
+          "name": "bboxes",
+          "type": "BOUNDING_BOX",
+          "link": null,
+          "shape": 7
+        },
+        {
+          "name": "positive_coords",
+          "type": "STRING",
+          "link": null,
+          "shape": 7
+        },
+        {
+          "name": "negative_coords",
+          "type": "STRING",
+          "link": null,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "masks",
+          "type": "MASK",
+          "links": [
+            1013
+          ]
+        },
+        {
+          "name": "bboxes",
+          "type": "BOUNDING_BOX",
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SAM3_Detect"
+      },
+      "widgets_values": [
+        0.5,
+        2,
+        false
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 880,
+      "type": "PreviewImage",
+      "title": "🖼️ Автомаска · редактор",
+      "pos": [
+        820,
+        13090
+      ],
+      "size": [
+        380,
+        360
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 880,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 1014
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PreviewImage",
+        "nd_ui_src": {
+          "uid": "src_edit_sam_preview",
+          "tag": "edit-sam-preview"
+        }
+      },
+      "widgets_values": [],
+      "color": "#232",
+      "bgcolor": "#353"
     }
   ],
   "links": [
@@ -51030,6 +51483,70 @@
       862,
       0,
       "IMAGE"
+    ],
+    [
+      1012,
+      877,
+      0,
+      878,
+      5,
+      "CONDITIONING"
+    ],
+    [
+      1013,
+      878,
+      0,
+      879,
+      0,
+      "MASK"
+    ],
+    [
+      1014,
+      879,
+      0,
+      880,
+      0,
+      "IMAGE"
+    ],
+    [
+      1015,
+      226,
+      1,
+      881,
+      0,
+      "CLIP"
+    ],
+    [
+      1016,
+      882,
+      0,
+      877,
+      1,
+      "CLIP"
+    ],
+    [
+      1017,
+      226,
+      0,
+      883,
+      0,
+      "MODEL"
+    ],
+    [
+      1018,
+      884,
+      0,
+      878,
+      0,
+      "MODEL"
+    ],
+    [
+      1019,
+      885,
+      0,
+      878,
+      1,
+      "IMAGE"
     ]
   ],
   "groups": [
@@ -51471,6 +51988,18 @@
         1170
       ],
       "color": "#3d726c",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "title": "🔎 Редактор · автомаска SAM 3.1",
+      "bounding": [
+        20,
+        13030,
+        1220,
+        470
+      ],
+      "color": "#7c628e",
       "font_size": 24,
       "flags": {}
     }
@@ -52307,6 +52836,12 @@
           "tag": "editref-after",
           "class": "PreviewImage",
           "title": "✨ После рефайнера · редактор"
+        },
+        {
+          "uid": "src_edit_sam_preview",
+          "tag": "edit-sam-preview",
+          "class": "PreviewImage",
+          "title": "🖼️ Автомаска · редактор"
         }
       ],
       "pages": [
@@ -52374,7 +52909,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v0.11.0",
+            "text": "🧩 Универсальный воркфлоу · v0.12.0",
             "size": "M",
             "align": "left"
           },
@@ -54670,7 +55205,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v0.11.0",
+            "text": "🧩 Универсальный воркфлоу · v0.12.0",
             "size": "M",
             "align": "left"
           },
@@ -55484,7 +56019,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v0.11.0",
+            "text": "🧩 Универсальный воркфлоу · v0.12.0",
             "size": "M",
             "align": "left"
           },
@@ -55826,6 +56361,11 @@
               "src": "src_edit_controller",
               "kind": "widget",
               "name": "factory_edit_config"
+            },
+            "status_sam_model": {
+              "src": "src_settings_sam_model",
+              "kind": "widget",
+              "name": "ckpt_name"
             }
           },
           "props": {
@@ -56724,7 +57264,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v0.11.0",
+            "text": "🧩 Универсальный воркфлоу · v0.12.0",
             "size": "M",
             "align": "left"
           },
