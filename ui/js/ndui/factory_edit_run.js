@@ -11,6 +11,7 @@ export const hasEditImage=file=>typeof file==='string'&&file.trim()!==''&&file!=
 // and no duplicate of Picture 1 is substituted as Picture 2.
 export function editPrompt(data,targets,originalModes,s,withReference,withMask=false,upscaleSpec=null){
  const output=structuredClone(data.output||{}),bypass=new Map();
+ const ref=s.refiner;if(ref){const gate=output[ref.controller],mode=Number(gate?.inputs?.index),value=gate?.inputs?.['value'+mode];if(!Number.isInteger(mode)||mode<0||mode>4||!Array.isArray(value))throw Error('Не найден режим рефайнера редактора.');bypass.set(String(ref.controller),value);}
  const krea=s.backend==='krea',q21=s.backend==='qwen21'?s.qwen21:null;
  if(s.gate){const gate=output[s.gate];if(!gate)throw Error('Не найден переключатель редактора.');bypass.set(String(s.gate),gate.inputs[q21?'value2':krea?'value1':'value0']);}
  if(q21){
@@ -41,7 +42,13 @@ export function editPrompt(data,targets,originalModes,s,withReference,withMask=f
 }
 const activeIds=new Set();let building=false;
 const owner=()=> (app.graph?._nodes||app.graph?.nodes||[]).find(n=>n.properties?.acf_edit);
-export function editPlan(n){const s=n.properties.acf_edit,g=n.graph,up=g.getNodeById(s.upscale),u=up?.properties.acf_upscale,enabled=!!g.getNodeById(u?.enabled)?.widgets?.find(w=>w.name==='index')?.value,upIds=new Set(u?.nodes||[]),plan=[{name:s.backend==='qwen21'?'Редактирование · Qwen 2.1':s.backend==='krea'?'Редактирование · Krea Edit V2':'Редактирование · Qwen 2511',sample:String(s.backend==='qwen21'?s.qwen21.sampler:s.backend==='krea'?s.kreaSampler:n.id),ids:new Set(s.nodes.filter(id=>!upIds.has(id)).map(String)),finish:[String(enabled?u.before:s.result)],runningLabel:'изменение кадра'}];if(enabled)plan.push(upscaleStage(g,up,'Апскейл результата'));plan.operations=new Map([[String(s.photo),'загрузка исходника'],[String(s.reference),'загрузка референса'],[String(s.scale),'подготовка размера'],[String(n.id),'изменение кадра'],[String(s.result),'подготовка результата'],[String(s.saver),'сохранение']]);return plan;}
+export function editPlan(n){
+ const s=n.properties.acf_edit,g=n.graph,up=g.getNodeById(s.upscale),u=up?.properties.acf_upscale,enabled=!!g.getNodeById(u?.enabled)?.widgets?.find(w=>w.name==='index')?.value,r=s.refiner,mode=Number(g.getNodeById(r?.controller)?.widgets?.find(w=>w.name==='index')?.value)||0,upIds=new Set(u?.nodes||[]),refIds=new Set(r?.nodes||[]);
+ const plan=[{name:s.backend==='qwen21'?'Редактирование · Qwen 2.1':s.backend==='krea'?'Редактирование · Krea Edit V2':'Редактирование · Qwen 2511',sample:String(s.backend==='qwen21'?s.qwen21.sampler:s.backend==='krea'?s.kreaSampler:n.id),ids:new Set(s.nodes.filter(id=>!upIds.has(id)&&!refIds.has(id)).map(String)),finish:[String(mode?r.before:enabled?u.before:s.result)],runningLabel:'изменение кадра'}];
+ if(mode)plan.push({name:'Рефайнер · '+['','Krea','Krea RES4LYF','Z-Image','Z-Image RES4LYF'][mode],sample:String(r.samplers[mode-1]),ids:new Set(r.nodes.map(String)),finish:[String(r.after),String(r.decodes[mode-1])],runningLabel:'доработка изображения'});
+ if(enabled)plan.push(upscaleStage(g,up,'Апскейл результата'));
+ plan.operations=new Map([[String(s.photo),'загрузка исходника'],[String(s.reference),'загрузка референса'],[String(s.scale),'подготовка размера'],[String(n.id),'изменение кадра'],[String(s.result),'подготовка результата'],[String(s.saver),'сохранение']]);return plan;
+}
 export async function queueEdit(node,batch=1){
  if(building)throw Error('Подожди завершения отправки предыдущего задания.');const s=node.properties.acf_edit,g=node.graph,file=id=>g.getNodeById(id)?.widgets?.find(w=>w.name==='image')?.value;
  if(!hasEditImage(file(s.photo)))throw Error('Сначала загрузи основной кадр.');
@@ -53,7 +60,8 @@ export async function queueEdit(node,batch=1){
 
  if(s.maskEnabled&&(!hasEditImage(file(s.maskFile))||s.maskFor!==file(s.photo)))throw Error('Нарисуй и сохрани маску для текущего основного кадра или выключи режим «По маске».');
  const up=g.getNodeById(s.upscale),u=up?.properties.acf_upscale,upEnabled=!!g.getNodeById(u?.enabled)?.widgets?.find(w=>w.name==='index')?.value;
- const targets=[s.before,s.result,...(upEnabled?[u.before,u.after]:[]),...(s.save?[s.saver]:[])],modes=new Map(targets.map(id=>[id,g.getNodeById(id)?.mode]));if([...modes.values()].some(v=>v==null))throw Error('Не найдены выходы редактора.');
+ const ref=s.refiner,refEnabled=!!g.getNodeById(ref?.controller)?.widgets?.find(w=>w.name==='index')?.value;
+ const targets=[s.before,s.result,...(refEnabled?[ref.before,ref.after]:[]),...(upEnabled?[u.before,u.after]:[]),...(s.save?[s.saver]:[])],modes=new Map(targets.map(id=>[id,g.getNodeById(id)?.mode]));if([...modes.values()].some(v=>v==null))throw Error('Не найдены выходы редактора.');
  building=true;try{let data;for(const id of targets)g.getNodeById(id).mode=0;try{data=await app.graphToPrompt();}finally{for(const[id,mode]of modes)g.getNodeById(id).mode=mode;}
   data=editPrompt(data,targets,modes,s,hasEditImage(file(s.reference)),s.maskEnabled===true,u);
   for(let i=0;i<Math.max(1,Math.min(64,Math.round(batch)));i++){const result=await api.queuePrompt(0,data,{partialExecutionTargets:targets.map(String)});if(result?.prompt_id)activeIds.add(result.prompt_id);if(result?.node_errors&&Object.keys(result.node_errors).length)throw Error('Ошибка редактора: '+JSON.stringify(result.node_errors));}return true;

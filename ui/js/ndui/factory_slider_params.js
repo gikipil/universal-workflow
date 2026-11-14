@@ -19,7 +19,7 @@ export function readSliderBank(node) {
     const target=sliderTarget(node),config=target?.properties?.nd_ui_slider_bank;
     if(!Array.isArray(config?.items))return null;
     const current=rows(target),start=offset(target),tag=target.properties?.nd_ui_src?.tag;
-    const label=tag==='k2module-lora'?'Krea · генерация':tag==='k2pass-z_lora'?'Z-Image · детализация':'Krea · детализация';
+    const label=target.properties.nd_ui_bank_label||(tag==='k2module-lora'?'Krea · генерация':tag==='k2pass-z_lora'?'Z-Image · детализация':'Krea · детализация');
     return {owner:String(target.id),label,items:config.items.map((item,i)=>({id:item.id,hint:item.hint||'',min:item.min,max:item.max,
         lora:current[start+i]?.value?.lora||'None',value:Number(current[start+i]?.value?.strength)||0,on:!!current[start+i]?.value?.on}))};
 }
