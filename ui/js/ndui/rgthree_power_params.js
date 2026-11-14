@@ -1,3 +1,4 @@
+// Universal Workflow update by gikipil, 2026-11-14: shared Turbo adapter selection.
 // SPDX-License-Identifier: AGPL-3.0-only
 // Universal Workflow additions/modifications by gikipil, 2026-11-12.
 // Based on ND UI Builder by Ivan Ovchinnikov (Neural Dreamer).
@@ -69,7 +70,14 @@ export function powerLoraParams(node, touch) {
                 if (field === "lora" && !validName(value)) return false;
                 if (field === "on" && typeof value !== "boolean") return false;
                 if (field === "strength" && (typeof value !== "number" || !Number.isFinite(value))) return false;
-                if (row.value[field] === value) return false;
+                // One file selection, applied to each independent stage's model bundle.
+                let sharedChanged = false;
+                if (field === "lora" && index === 0 && Array.isArray(node.properties?.acf_shared_turbo_targets)) {
+                    const targets = node.properties.acf_shared_turbo_targets.map(id => node.graph?.getNodeById(id));
+                    if (targets.some(n => !n || n === node || !powerLoraParams(n, touch).some(p => p.name === "power_lora_1.lora"))) return false;
+                    for (const target of targets) sharedChanged = powerLoraParams(target, touch).find(p => p.name === "power_lora_1.lora").widget.setValue(value) || sharedChanged;
+                }
+                if (row.value[field] === value) return sharedChanged;
 
                 if (field === "lora") {
                     // rgthree's setLora calls getLoraInfo, whose cached promise

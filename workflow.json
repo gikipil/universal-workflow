@@ -20262,7 +20262,11 @@
         "nd_ui_src": {
           "uid": "src_settings_k_turbo",
           "tag": "settings-k-turbo"
-        }
+        },
+        "acf_shared_turbo_targets": [
+          86,
+          176
+        ]
       },
       "widgets_values": [
         {},
@@ -40539,7 +40543,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v0.8.1",
+            "text": "🧩 Универсальный воркфлоу · v0.8.2",
             "size": "M",
             "align": "left"
           },
@@ -41686,11 +41690,6 @@
               "kind": "widget",
               "name": "power_lora_1.lora"
             },
-            "k_refine_turbo": {
-              "src": "src_settings_k_refine_turbo",
-              "kind": "widget",
-              "name": "power_lora_1.lora"
-            },
             "kg_1_lora": {
               "src": "src_k2module_lora",
               "kind": "widget",
@@ -41855,11 +41854,6 @@
               "src": "src_settings_local_z_vae",
               "kind": "widget",
               "name": "vae_name"
-            },
-            "local_turbo": {
-              "src": "src_settings_local_turbo",
-              "kind": "widget",
-              "name": "power_lora_1.lora"
             },
             "sam_model": {
               "src": "src_settings_sam_model",
@@ -42670,7 +42664,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v0.8.1",
+            "text": "🧩 Универсальный воркфлоу · v0.8.2",
             "size": "M",
             "align": "left"
           },
@@ -42735,11 +42729,6 @@
             },
             "k_turbo": {
               "src": "src_settings_k_turbo",
-              "kind": "widget",
-              "name": "power_lora_1.lora"
-            },
-            "k_refine_turbo": {
-              "src": "src_settings_k_refine_turbo",
               "kind": "widget",
               "name": "power_lora_1.lora"
             },
@@ -42907,11 +42896,6 @@
               "src": "src_settings_local_z_vae",
               "kind": "widget",
               "name": "vae_name"
-            },
-            "local_turbo": {
-              "src": "src_settings_local_turbo",
-              "kind": "widget",
-              "name": "power_lora_1.lora"
             },
             "sam_model": {
               "src": "src_settings_sam_model",
@@ -43499,7 +43483,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v0.8.1",
+            "text": "🧩 Универсальный воркфлоу · v0.8.2",
             "size": "M",
             "align": "left"
           },
@@ -43564,11 +43548,6 @@
             },
             "k_turbo": {
               "src": "src_settings_k_turbo",
-              "kind": "widget",
-              "name": "power_lora_1.lora"
-            },
-            "k_refine_turbo": {
-              "src": "src_settings_k_refine_turbo",
               "kind": "widget",
               "name": "power_lora_1.lora"
             },
@@ -43736,11 +43715,6 @@
               "src": "src_settings_local_z_vae",
               "kind": "widget",
               "name": "vae_name"
-            },
-            "local_turbo": {
-              "src": "src_settings_local_turbo",
-              "kind": "widget",
-              "name": "power_lora_1.lora"
             },
             "sam_model": {
               "src": "src_settings_sam_model",
@@ -44660,7 +44634,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v0.8.1",
+            "text": "🧩 Универсальный воркфлоу · v0.8.2",
             "size": "M",
             "align": "left"
           },
@@ -44725,11 +44699,6 @@
             },
             "k_turbo": {
               "src": "src_settings_k_turbo",
-              "kind": "widget",
-              "name": "power_lora_1.lora"
-            },
-            "k_refine_turbo": {
-              "src": "src_settings_k_refine_turbo",
               "kind": "widget",
               "name": "power_lora_1.lora"
             },
@@ -44897,11 +44866,6 @@
               "src": "src_settings_local_z_vae",
               "kind": "widget",
               "name": "vae_name"
-            },
-            "local_turbo": {
-              "src": "src_settings_local_turbo",
-              "kind": "widget",
-              "name": "power_lora_1.lora"
             },
             "sam_model": {
               "src": "src_settings_sam_model",
