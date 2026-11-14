@@ -1,8 +1,8 @@
 {
   "id": "6156223e-7f85-4578-923d-9d05cf820581",
   "revision": 0,
-  "last_node_id": 672,
-  "last_link_id": 773,
+  "last_node_id": 725,
+  "last_link_id": 848,
   "nodes": [
     {
       "id": 528,
@@ -4616,7 +4616,7 @@
         {
           "name": "source",
           "type": "IMAGE",
-          "link": 573
+          "link": 848
         },
         {
           "name": "x",
@@ -5092,9 +5092,7 @@
         {
           "name": "IMAGE",
           "type": "IMAGE",
-          "links": [
-            573
-          ]
+          "links": []
         }
       ],
       "properties": {
@@ -19528,6 +19526,1840 @@
       "bgcolor": "#355"
     },
     {
+      "id": 677,
+      "type": "VAEEncode",
+      "title": "Техническое кодирование основного кадра Krea",
+      "pos": [
+        3316,
+        6090
+      ],
+      "size": [
+        340,
+        220
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 677,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "pixels",
+          "type": "IMAGE",
+          "link": 819
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 820
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            787,
+            837
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEEncode"
+      },
+      "widgets_values": [],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 678,
+      "type": "VAEEncode",
+      "title": "Техническое кодирование второго референса Krea",
+      "pos": [
+        3316,
+        6090
+      ],
+      "size": [
+        340,
+        220
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 678,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "pixels",
+          "type": "IMAGE",
+          "link": 822
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 823
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            788
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEEncode"
+      },
+      "widgets_values": [],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 682,
+      "type": "ConditioningZeroOut",
+      "title": "Технический ноль Krea Edit",
+      "pos": [
+        3706,
+        6090
+      ],
+      "size": [
+        340,
+        220
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 682,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "conditioning",
+          "type": "CONDITIONING",
+          "link": 796
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            803
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ConditioningZeroOut"
+      },
+      "widgets_values": [],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 683,
+      "type": "EmptySD3LatentImage",
+      "title": "Технический размер кадра Krea Edit",
+      "pos": [
+        4096,
+        6090
+      ],
+      "size": [
+        340,
+        220
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 683,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "width",
+          "type": "INT",
+          "link": 834,
+          "widget": {
+            "name": "width"
+          }
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "link": 836,
+          "widget": {
+            "name": "height"
+          }
+        },
+        {
+          "name": "batch_size",
+          "type": "INT",
+          "link": null,
+          "widget": {
+            "name": "batch_size"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            804
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "EmptySD3LatentImage"
+      },
+      "widgets_values": [
+        1024,
+        1024,
+        1
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 684,
+      "type": "SetLatentNoiseMask",
+      "title": "Техническая маска Krea Edit",
+      "pos": [
+        4096,
+        6090
+      ],
+      "size": [
+        340,
+        220
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 684,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 838
+        },
+        {
+          "name": "mask",
+          "type": "MASK",
+          "link": 839
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SetLatentNoiseMask"
+      },
+      "widgets_values": [],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 686,
+      "type": "VAEDecode",
+      "title": "Технический результат Krea Edit",
+      "pos": [
+        4096,
+        6090
+      ],
+      "size": [
+        340,
+        220
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 686,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 806
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 845
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            809
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEDecode"
+      },
+      "widgets_values": [],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 687,
+      "type": "easy anythingIndexSwitch",
+      "title": "Технический выбор редактора · Qwen / Krea",
+      "pos": [
+        4096,
+        6090
+      ],
+      "size": [
+        340,
+        220
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 687,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "index",
+          "type": "INT",
+          "link": null,
+          "widget": {
+            "name": "index"
+          }
+        },
+        {
+          "name": "value0",
+          "type": "IMAGE",
+          "link": 846,
+          "shape": 7
+        },
+        {
+          "name": "value1",
+          "type": "IMAGE",
+          "link": 809,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "value",
+          "type": "IMAGE",
+          "links": [
+            847
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "easy anythingIndexSwitch"
+      },
+      "widgets_values": [
+        0
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 688,
+      "type": "SetNode",
+      "title": "SetNode_EDITK_673_0",
+      "pos": [
+        2536,
+        6090
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 688,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "link": 811
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SetNode",
+        "previousName": "EDITK_673_0"
+      },
+      "widgets_values": [
+        "EDITK_673_0"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 689,
+      "type": "GetNode",
+      "title": "GetNode_EDITK_673_0",
+      "pos": [
+        836,
+        6210
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 689,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            812
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "previousName": "EDITK_673_0"
+      },
+      "widgets_values": [
+        "EDITK_673_0"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 690,
+      "type": "GetNode",
+      "title": "GetNode_GEN2_KREA_BASE",
+      "pos": [
+        2536,
+        6370
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 690,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            813
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "previousName": "GEN2_KREA_BASE"
+      },
+      "widgets_values": [
+        "GEN2_KREA_BASE"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 691,
+      "type": "GetNode",
+      "title": "GetNode_GEN2_KREA_CLIP_BASE",
+      "pos": [
+        2536,
+        6370
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 691,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            814
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "previousName": "GEN2_KREA_CLIP_BASE"
+      },
+      "widgets_values": [
+        "GEN2_KREA_CLIP_BASE"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 692,
+      "type": "SetNode",
+      "title": "SetNode_EDITK_674_0",
+      "pos": [
+        2536,
+        6370
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 692,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "link": 815
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SetNode",
+        "previousName": "EDITK_674_0"
+      },
+      "widgets_values": [
+        "EDITK_674_0"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 693,
+      "type": "GetNode",
+      "title": "GetNode_EDITK_674_0",
+      "pos": [
+        2926,
+        6090
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 693,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            816
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "previousName": "EDITK_674_0"
+      },
+      "widgets_values": [
+        "EDITK_674_0"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 694,
+      "type": "SetNode",
+      "title": "SetNode_EDITK_674_1",
+      "pos": [
+        2536,
+        6370
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 694,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "link": 817
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SetNode",
+        "previousName": "EDITK_674_1"
+      },
+      "widgets_values": [
+        "EDITK_674_1"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 695,
+      "type": "GetNode",
+      "title": "GetNode_EDITK_674_1",
+      "pos": [
+        2926,
+        6090
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 695,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            818
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "previousName": "EDITK_674_1"
+      },
+      "widgets_values": [
+        "EDITK_674_1"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 696,
+      "type": "GetNode",
+      "title": "GetNode_EDITMASK_465_0",
+      "pos": [
+        3316,
+        6090
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 696,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            819
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "previousName": "EDITMASK_465_0"
+      },
+      "widgets_values": [
+        "EDITMASK_465_0"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 697,
+      "type": "GetNode",
+      "title": "GetNode_GEN1_VAE",
+      "pos": [
+        3316,
+        6090
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 697,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            820
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "previousName": "GEN1_VAE"
+      },
+      "widgets_values": [
+        "GEN1_VAE"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 698,
+      "type": "SetNode",
+      "title": "SetNode_EDITK_467_0",
+      "pos": [
+        1226,
+        6420
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 698,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "link": 821
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SetNode",
+        "previousName": "EDITK_467_0"
+      },
+      "widgets_values": [
+        "EDITK_467_0"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 699,
+      "type": "GetNode",
+      "title": "GetNode_EDITK_467_0",
+      "pos": [
+        3316,
+        6090
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 699,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            822
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "previousName": "EDITK_467_0"
+      },
+      "widgets_values": [
+        "EDITK_467_0"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 700,
+      "type": "GetNode",
+      "title": "GetNode_GEN1_VAE",
+      "pos": [
+        3316,
+        6090
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 700,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            823
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "previousName": "GEN1_VAE"
+      },
+      "widgets_values": [
+        "GEN1_VAE"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 701,
+      "type": "SetNode",
+      "title": "SetNode_EDITK_676_0",
+      "pos": [
+        2926,
+        6320
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 701,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "link": 824
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SetNode",
+        "previousName": "EDITK_676_0"
+      },
+      "widgets_values": [
+        "EDITK_676_0"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 702,
+      "type": "GetNode",
+      "title": "GetNode_EDITK_676_0",
+      "pos": [
+        3316,
+        6090
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 702,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            825
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "previousName": "EDITK_676_0"
+      },
+      "widgets_values": [
+        "EDITK_676_0"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 703,
+      "type": "GetNode",
+      "title": "GetNode_EDITMASK_465_0",
+      "pos": [
+        3316,
+        6220
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 703,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            826
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "previousName": "EDITMASK_465_0"
+      },
+      "widgets_values": [
+        "EDITMASK_465_0"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 704,
+      "type": "GetNode",
+      "title": "GetNode_EDITK_467_0",
+      "pos": [
+        3316,
+        6220
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 704,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            827
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "previousName": "EDITK_467_0"
+      },
+      "widgets_values": [
+        "EDITK_467_0"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 705,
+      "type": "GetNode",
+      "title": "GetNode_GEN1_VAE",
+      "pos": [
+        3316,
+        6220
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 705,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            828
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "previousName": "GEN1_VAE"
+      },
+      "widgets_values": [
+        "GEN1_VAE"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 706,
+      "type": "GetNode",
+      "title": "GetNode_EDITK_674_1",
+      "pos": [
+        3706,
+        6090
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 706,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            829
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "previousName": "EDITK_674_1"
+      },
+      "widgets_values": [
+        "EDITK_674_1"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 707,
+      "type": "GetNode",
+      "title": "GetNode_EDITK_673_0",
+      "pos": [
+        3706,
+        6090
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 707,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            830
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "previousName": "EDITK_673_0"
+      },
+      "widgets_values": [
+        "EDITK_673_0"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 708,
+      "type": "GetNode",
+      "title": "GetNode_EDITMASK_465_0",
+      "pos": [
+        3706,
+        6090
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 708,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            831
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "previousName": "EDITMASK_465_0"
+      },
+      "widgets_values": [
+        "EDITMASK_465_0"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 709,
+      "type": "GetNode",
+      "title": "GetNode_EDITK_467_0",
+      "pos": [
+        3706,
+        6090
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 709,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            832
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "previousName": "EDITK_467_0"
+      },
+      "widgets_values": [
+        "EDITK_467_0"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 710,
+      "type": "SetNode",
+      "title": "SetNode_EDITK_465_3",
+      "pos": [
+        1226,
+        6090
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 710,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "link": 833
+        }
+      ],
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SetNode",
+        "previousName": "EDITK_465_3"
+      },
+      "widgets_values": [
+        "EDITK_465_3"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 711,
+      "type": "GetNode",
+      "title": "GetNode_EDITK_465_3",
+      "pos": [
+        4096,
+        6090
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 711,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            834
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "previousName": "EDITK_465_3"
+      },
+      "widgets_values": [
+        "EDITK_465_3"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 712,
+      "type": "SetNode",
+      "title": "SetNode_EDITK_465_4",
+      "pos": [
+        1226,
+        6090
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 712,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "link": 835
+        }
+      ],
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SetNode",
+        "previousName": "EDITK_465_4"
+      },
+      "widgets_values": [
+        "EDITK_465_4"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 713,
+      "type": "GetNode",
+      "title": "GetNode_EDITK_465_4",
+      "pos": [
+        4096,
+        6090
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 713,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            836
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "previousName": "EDITK_465_4"
+      },
+      "widgets_values": [
+        "EDITK_465_4"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 714,
+      "type": "SetNode",
+      "title": "SetNode_EDITK_677_0",
+      "pos": [
+        3316,
+        6090
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 714,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "link": 837
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SetNode",
+        "previousName": "EDITK_677_0"
+      },
+      "widgets_values": [
+        "EDITK_677_0"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 715,
+      "type": "GetNode",
+      "title": "GetNode_EDITK_677_0",
+      "pos": [
+        4096,
+        6090
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 715,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            838
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "previousName": "EDITK_677_0"
+      },
+      "widgets_values": [
+        "EDITK_677_0"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 716,
+      "type": "GetNode",
+      "title": "GetNode_EDITMASK_465_1",
+      "pos": [
+        4096,
+        6090
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 716,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": [
+            839
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "previousName": "EDITMASK_465_1"
+      },
+      "widgets_values": [
+        "EDITMASK_465_1"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 717,
+      "type": "SetNode",
+      "title": "SetNode_EDITK_680_0",
+      "pos": [
+        3316,
+        6220
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 717,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "link": 840
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SetNode",
+        "previousName": "EDITK_680_0"
+      },
+      "widgets_values": [
+        "EDITK_680_0"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 718,
+      "type": "GetNode",
+      "title": "GetNode_EDITK_680_0",
+      "pos": [
+        4096,
+        6090
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 718,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            841
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "previousName": "EDITK_680_0"
+      },
+      "widgets_values": [
+        "EDITK_680_0"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 719,
+      "type": "SetNode",
+      "title": "SetNode_EDITK_681_0",
+      "pos": [
+        3706,
+        6090
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 719,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "link": 842
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SetNode",
+        "previousName": "EDITK_681_0"
+      },
+      "widgets_values": [
+        "EDITK_681_0"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 720,
+      "type": "GetNode",
+      "title": "GetNode_EDITK_681_0",
+      "pos": [
+        4096,
+        6090
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 720,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            843
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "previousName": "EDITK_681_0"
+      },
+      "widgets_values": [
+        "EDITK_681_0"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 721,
+      "type": "GetNode",
+      "title": "GetNode_EDIT_464_0",
+      "pos": [
+        4096,
+        6090
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 721,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            844
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "previousName": "EDIT_464_0"
+      },
+      "widgets_values": [
+        "EDIT_464_0"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 722,
+      "type": "GetNode",
+      "title": "GetNode_GEN1_VAE",
+      "pos": [
+        4096,
+        6090
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 722,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            845
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "previousName": "GEN1_VAE"
+      },
+      "widgets_values": [
+        "GEN1_VAE"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 723,
+      "type": "GetNode",
+      "title": "GetNode_EDITMASK_478_0",
+      "pos": [
+        4096,
+        6090
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 723,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            846
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "previousName": "EDITMASK_478_0"
+      },
+      "widgets_values": [
+        "EDITMASK_478_0"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 724,
+      "type": "SetNode",
+      "title": "SetNode_EDITK_687_0",
+      "pos": [
+        4096,
+        6090
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 724,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "link": 847
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SetNode",
+        "previousName": "EDITK_687_0"
+      },
+      "widgets_values": [
+        "EDITK_687_0"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 725,
+      "type": "GetNode",
+      "title": "GetNode_EDITK_687_0",
+      "pos": [
+        4096,
+        6090
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 725,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            848
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "previousName": "EDITK_687_0"
+      },
+      "widgets_values": [
+        "EDITK_687_0"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
       "id": 1,
       "type": "UNETLoader",
       "pos": [
@@ -20265,7 +22097,8 @@
         },
         "acf_shared_turbo_targets": [
           86,
-          176
+          176,
+          675
         ]
       },
       "widgets_values": [
@@ -31363,7 +33196,7 @@
         {
           "name": "text",
           "type": "STRING",
-          "link": null,
+          "link": 812,
           "widget": {
             "name": "text"
           }
@@ -31563,12 +33396,16 @@
         {
           "name": "width",
           "type": "INT",
-          "links": []
+          "links": [
+            833
+          ]
         },
         {
           "name": "height",
           "type": "INT",
-          "links": []
+          "links": [
+            835
+          ]
         }
       ],
       "properties": {
@@ -31691,7 +33528,8 @@
           "name": "image",
           "type": "IMAGE",
           "links": [
-            500
+            500,
+            821
           ]
         },
         {
@@ -31973,7 +33811,60 @@
             550,
             551,
             552,
-            553
+            553,
+            673,
+            674,
+            675,
+            676,
+            677,
+            678,
+            679,
+            680,
+            681,
+            682,
+            683,
+            684,
+            685,
+            686,
+            687,
+            688,
+            689,
+            690,
+            691,
+            692,
+            693,
+            694,
+            695,
+            696,
+            697,
+            698,
+            699,
+            700,
+            701,
+            702,
+            703,
+            704,
+            705,
+            706,
+            707,
+            708,
+            709,
+            710,
+            711,
+            712,
+            713,
+            714,
+            715,
+            716,
+            717,
+            718,
+            719,
+            720,
+            721,
+            722,
+            723,
+            724,
+            725
           ],
           "save": false,
           "maskFile": 509,
@@ -31982,7 +33873,18 @@
           "maskComposite": 513,
           "maskEnabled": false,
           "maskFor": "",
-          "upscale": 549
+          "upscale": 549,
+          "backend": "qwen",
+          "adapter": "general",
+          "qwenLora": 461,
+          "kreaLora": 674,
+          "kreaSampler": 685,
+          "kreaShift": 679,
+          "kreaAdapter": 676,
+          "kreaPatch": 680,
+          "kreaPositive": 681,
+          "kreaMaskNoise": 684,
+          "gate": 687
         }
       },
       "widgets_values": [
@@ -34823,6 +36725,641 @@
       ],
       "color": "#223",
       "bgcolor": "#335"
+    },
+    {
+      "id": 673,
+      "type": "PrimitiveStringMultiline",
+      "title": "✍️ Общая инструкция редактирования",
+      "pos": [
+        2520,
+        6040
+      ],
+      "size": [
+        340,
+        220
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 673,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "value",
+          "type": "STRING",
+          "link": null,
+          "widget": {
+            "name": "value"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            811
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PrimitiveStringMultiline",
+        "nd_ui_src": {
+          "uid": "src_edit_shared_prompt",
+          "tag": "edit-shared_prompt"
+        }
+      },
+      "widgets_values": [
+        "Change the clothing in picture 1 to a simple blue cotton shirt. Keep the person, pose, camera and room unchanged. Return one photograph."
+      ],
+      "color": "#507548",
+      "bgcolor": "#709762"
+    },
+    {
+      "id": 674,
+      "type": "Power Lora Loader (rgthree)",
+      "title": "🧩 LoRA редактора Krea · необязательно",
+      "pos": [
+        2520,
+        6320
+      ],
+      "size": [
+        340,
+        350
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 674,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 813,
+          "shape": 7
+        },
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 814,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            815
+          ]
+        },
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            817
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Power Lora Loader (rgthree)",
+        "nd_ui_constant_loras": 0,
+        "nd_ui_user_lora_count": 5,
+        "nd_ui_user_lora_ids": [
+          "user_1",
+          "user_2",
+          "user_3",
+          "user_4",
+          "user_5"
+        ],
+        "nd_ui_src": {
+          "uid": "src_edit_krea_user_lora",
+          "tag": "edit-krea_user_lora"
+        }
+      },
+      "widgets_values": [
+        {},
+        {
+          "type": "PowerLoraLoaderHeaderWidget"
+        },
+        {
+          "on": false,
+          "lora": "None",
+          "strength": 1,
+          "strengthTwo": null
+        },
+        {
+          "on": false,
+          "lora": "None",
+          "strength": 1,
+          "strengthTwo": null
+        },
+        {
+          "on": false,
+          "lora": "None",
+          "strength": 1,
+          "strengthTwo": null
+        },
+        {
+          "on": false,
+          "lora": "None",
+          "strength": 1,
+          "strengthTwo": null
+        },
+        {
+          "on": false,
+          "lora": "None",
+          "strength": 1,
+          "strengthTwo": null
+        },
+        {},
+        ""
+      ],
+      "color": "#323",
+      "bgcolor": "#535"
+    },
+    {
+      "id": 675,
+      "type": "Power Lora Loader (rgthree)",
+      "title": "🧩 Общий Turbo-адаптер · редактор Krea",
+      "pos": [
+        2910,
+        6040
+      ],
+      "size": [
+        340,
+        180
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 675,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 816,
+          "shape": 7
+        },
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 818,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            779
+          ]
+        },
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            780
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Power Lora Loader (rgthree)"
+      },
+      "widgets_values": [
+        {},
+        {
+          "type": "PowerLoraLoaderHeaderWidget"
+        },
+        {
+          "on": true,
+          "lora": "Krea2\\krea2_turbo_lora_rank_64_bf16.safetensors",
+          "strength": 1,
+          "strengthTwo": null
+        },
+        {},
+        ""
+      ],
+      "color": "#323",
+      "bgcolor": "#535"
+    },
+    {
+      "id": 676,
+      "type": "Power Lora Loader (rgthree)",
+      "title": "🧩 Krea · General / Identity Edit V2",
+      "pos": [
+        2910,
+        6270
+      ],
+      "size": [
+        340,
+        180
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 676,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 779,
+          "shape": 7
+        },
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 780,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            824
+          ]
+        },
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Power Lora Loader (rgthree)"
+      },
+      "widgets_values": [
+        {},
+        {
+          "type": "PowerLoraLoaderHeaderWidget"
+        },
+        {
+          "on": true,
+          "lora": "Krea2\\krea2_general_edit_v2.safetensors",
+          "strength": 1,
+          "strengthTwo": null
+        },
+        {},
+        ""
+      ],
+      "color": "#323",
+      "bgcolor": "#535"
+    },
+    {
+      "id": 679,
+      "type": "ModelSamplingAuraFlow",
+      "title": "⚙️ Krea Edit · Shift",
+      "pos": [
+        3300,
+        6040
+      ],
+      "size": [
+        340,
+        100
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 679,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 825
+        },
+        {
+          "name": "shift",
+          "type": "FLOAT",
+          "link": null,
+          "widget": {
+            "name": "shift"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            786
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ModelSamplingAuraFlow"
+      },
+      "widgets_values": [
+        4
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 680,
+      "type": "Krea2EditModelPatch",
+      "title": "⚙️ Изображения как контекст Krea",
+      "pos": [
+        3300,
+        6170
+      ],
+      "size": [
+        340,
+        240
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 680,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 786
+        },
+        {
+          "name": "source_latent",
+          "type": "LATENT",
+          "link": 787
+        },
+        {
+          "name": "source_latent_b",
+          "type": "LATENT",
+          "link": 788,
+          "shape": 7
+        },
+        {
+          "name": "ref_boost",
+          "type": "FLOAT",
+          "link": null,
+          "widget": {
+            "name": "ref_boost"
+          },
+          "shape": 7
+        },
+        {
+          "name": "ref_boost_a",
+          "type": "FLOAT",
+          "link": null,
+          "widget": {
+            "name": "ref_boost_a"
+          },
+          "shape": 7
+        },
+        {
+          "name": "fit_mode",
+          "type": "COMBO",
+          "link": null,
+          "widget": {
+            "name": "fit_mode"
+          },
+          "shape": 7
+        },
+        {
+          "name": "ref_boost_mask",
+          "type": "MASK",
+          "link": null,
+          "shape": 7
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 828,
+          "shape": 7
+        },
+        {
+          "name": "source_image",
+          "type": "IMAGE",
+          "link": 826,
+          "shape": 7
+        },
+        {
+          "name": "source_image_b",
+          "type": "IMAGE",
+          "link": 827,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            840
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Krea2EditModelPatch"
+      },
+      "widgets_values": [
+        1,
+        1,
+        "fit"
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 681,
+      "type": "Krea2EditGroundedEncode",
+      "title": "✍️ Krea · инструкция и референсы",
+      "pos": [
+        3690,
+        6040
+      ],
+      "size": [
+        340,
+        250
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 681,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 829
+        },
+        {
+          "name": "prompt",
+          "type": "STRING",
+          "link": 830,
+          "widget": {
+            "name": "prompt"
+          }
+        },
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 831,
+          "shape": 7
+        },
+        {
+          "name": "image_b",
+          "type": "IMAGE",
+          "link": 832,
+          "shape": 7
+        },
+        {
+          "name": "grounding_px",
+          "type": "INT",
+          "link": null,
+          "widget": {
+            "name": "grounding_px"
+          },
+          "shape": 7
+        },
+        {
+          "name": "system_prompt",
+          "type": "STRING",
+          "link": null,
+          "widget": {
+            "name": "system_prompt"
+          },
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            796,
+            842
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Krea2EditGroundedEncode"
+      },
+      "widgets_values": [
+        "",
+        512,
+        ""
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 685,
+      "type": "KSampler",
+      "title": "🎨 Krea Edit V2 · редактирование",
+      "pos": [
+        4080,
+        6040
+      ],
+      "size": [
+        340,
+        340
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 685,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 841
+        },
+        {
+          "name": "seed",
+          "type": "INT",
+          "link": 844,
+          "widget": {
+            "name": "seed"
+          }
+        },
+        {
+          "name": "steps",
+          "type": "INT",
+          "link": null,
+          "widget": {
+            "name": "steps"
+          }
+        },
+        {
+          "name": "cfg",
+          "type": "FLOAT",
+          "link": null,
+          "widget": {
+            "name": "cfg"
+          }
+        },
+        {
+          "name": "sampler_name",
+          "type": "COMBO",
+          "link": null,
+          "widget": {
+            "name": "sampler_name"
+          }
+        },
+        {
+          "name": "scheduler",
+          "type": "COMBO",
+          "link": null,
+          "widget": {
+            "name": "scheduler"
+          }
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 843
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 803
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 804
+        },
+        {
+          "name": "denoise",
+          "type": "FLOAT",
+          "link": null,
+          "widget": {
+            "name": "denoise"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            806
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "KSampler"
+      },
+      "widgets_values": [
+        0,
+        "fixed",
+        8,
+        1,
+        "er_sde",
+        "simple",
+        1
+      ],
+      "color": "#322",
+      "bgcolor": "#533"
     }
   ],
   "links": [
@@ -38275,14 +40812,6 @@
       "IMAGE"
     ],
     [
-      573,
-      524,
-      0,
-      513,
-      1,
-      "IMAGE"
-    ],
-    [
       574,
       525,
       0,
@@ -39313,6 +41842,390 @@
       574,
       4,
       "VAE"
+    ],
+    [
+      779,
+      675,
+      0,
+      676,
+      0,
+      "MODEL"
+    ],
+    [
+      780,
+      675,
+      1,
+      676,
+      1,
+      "CLIP"
+    ],
+    [
+      786,
+      679,
+      0,
+      680,
+      0,
+      "MODEL"
+    ],
+    [
+      787,
+      677,
+      0,
+      680,
+      1,
+      "LATENT"
+    ],
+    [
+      788,
+      678,
+      0,
+      680,
+      2,
+      "LATENT"
+    ],
+    [
+      796,
+      681,
+      0,
+      682,
+      0,
+      "CONDITIONING"
+    ],
+    [
+      803,
+      682,
+      0,
+      685,
+      7,
+      "CONDITIONING"
+    ],
+    [
+      804,
+      683,
+      0,
+      685,
+      8,
+      "LATENT"
+    ],
+    [
+      806,
+      685,
+      0,
+      686,
+      0,
+      "LATENT"
+    ],
+    [
+      809,
+      686,
+      0,
+      687,
+      2,
+      "IMAGE"
+    ],
+    [
+      811,
+      673,
+      0,
+      688,
+      0,
+      "STRING"
+    ],
+    [
+      812,
+      689,
+      0,
+      463,
+      0,
+      "STRING"
+    ],
+    [
+      813,
+      690,
+      0,
+      674,
+      0,
+      "MODEL"
+    ],
+    [
+      814,
+      691,
+      0,
+      674,
+      1,
+      "CLIP"
+    ],
+    [
+      815,
+      674,
+      0,
+      692,
+      0,
+      "MODEL"
+    ],
+    [
+      816,
+      693,
+      0,
+      675,
+      0,
+      "MODEL"
+    ],
+    [
+      817,
+      674,
+      1,
+      694,
+      0,
+      "CLIP"
+    ],
+    [
+      818,
+      695,
+      0,
+      675,
+      1,
+      "CLIP"
+    ],
+    [
+      819,
+      696,
+      0,
+      677,
+      0,
+      "IMAGE"
+    ],
+    [
+      820,
+      697,
+      0,
+      677,
+      1,
+      "VAE"
+    ],
+    [
+      821,
+      467,
+      0,
+      698,
+      0,
+      "IMAGE"
+    ],
+    [
+      822,
+      699,
+      0,
+      678,
+      0,
+      "IMAGE"
+    ],
+    [
+      823,
+      700,
+      0,
+      678,
+      1,
+      "VAE"
+    ],
+    [
+      824,
+      676,
+      0,
+      701,
+      0,
+      "MODEL"
+    ],
+    [
+      825,
+      702,
+      0,
+      679,
+      0,
+      "MODEL"
+    ],
+    [
+      826,
+      703,
+      0,
+      680,
+      8,
+      "IMAGE"
+    ],
+    [
+      827,
+      704,
+      0,
+      680,
+      9,
+      "IMAGE"
+    ],
+    [
+      828,
+      705,
+      0,
+      680,
+      7,
+      "VAE"
+    ],
+    [
+      829,
+      706,
+      0,
+      681,
+      0,
+      "CLIP"
+    ],
+    [
+      830,
+      707,
+      0,
+      681,
+      1,
+      "STRING"
+    ],
+    [
+      831,
+      708,
+      0,
+      681,
+      2,
+      "IMAGE"
+    ],
+    [
+      832,
+      709,
+      0,
+      681,
+      3,
+      "IMAGE"
+    ],
+    [
+      833,
+      465,
+      3,
+      710,
+      0,
+      "INT"
+    ],
+    [
+      834,
+      711,
+      0,
+      683,
+      0,
+      "INT"
+    ],
+    [
+      835,
+      465,
+      4,
+      712,
+      0,
+      "INT"
+    ],
+    [
+      836,
+      713,
+      0,
+      683,
+      1,
+      "INT"
+    ],
+    [
+      837,
+      677,
+      0,
+      714,
+      0,
+      "LATENT"
+    ],
+    [
+      838,
+      715,
+      0,
+      684,
+      0,
+      "LATENT"
+    ],
+    [
+      839,
+      716,
+      0,
+      684,
+      1,
+      "MASK"
+    ],
+    [
+      840,
+      680,
+      0,
+      717,
+      0,
+      "MODEL"
+    ],
+    [
+      841,
+      718,
+      0,
+      685,
+      0,
+      "MODEL"
+    ],
+    [
+      842,
+      681,
+      0,
+      719,
+      0,
+      "CONDITIONING"
+    ],
+    [
+      843,
+      720,
+      0,
+      685,
+      6,
+      "CONDITIONING"
+    ],
+    [
+      844,
+      721,
+      0,
+      685,
+      1,
+      "INT"
+    ],
+    [
+      845,
+      722,
+      0,
+      686,
+      1,
+      "VAE"
+    ],
+    [
+      846,
+      723,
+      0,
+      687,
+      1,
+      "IMAGE"
+    ],
+    [
+      847,
+      687,
+      0,
+      724,
+      0,
+      "IMAGE"
+    ],
+    [
+      848,
+      725,
+      0,
+      513,
+      1,
+      "IMAGE"
     ]
   ],
   "groups": [
@@ -39716,6 +42629,18 @@
         9700,
         400,
         870
+      ],
+      "color": "#3d726c",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "title": "✏️ Редактирование · Krea Edit V2",
+      "bounding": [
+        2500,
+        5980,
+        2340,
+        790
       ],
       "color": "#3d726c",
       "font_size": 24,
@@ -40476,6 +43401,18 @@
           "tag": "solo_up-save",
           "class": "Image Saver Simple",
           "title": "💾 Апскейл · сохранение выключено"
+        },
+        {
+          "uid": "src_edit_shared_prompt",
+          "tag": "edit-shared_prompt",
+          "class": "PrimitiveStringMultiline",
+          "title": "✍️ Общая инструкция редактирования"
+        },
+        {
+          "uid": "src_edit_krea_user_lora",
+          "tag": "edit-krea_user_lora",
+          "class": "Power Lora Loader (rgthree)",
+          "title": "🧩 LoRA редактора Krea · необязательно"
         }
       ],
       "pages": [
@@ -40507,7 +43444,7 @@
           "id": "p_edit",
           "name": "Редактирование",
           "kind": "page",
-          "len": 1232,
+          "len": 1506,
           "control": {
             "nodes": [],
             "groups": [],
@@ -40543,7 +43480,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v0.8.4",
+            "text": "🧩 Универсальный воркфлоу · v0.9.0",
             "size": "M",
             "align": "left"
           },
@@ -42664,7 +45601,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v0.8.4",
+            "text": "🧩 Универсальный воркфлоу · v0.9.0",
             "size": "M",
             "align": "left"
           },
@@ -43483,7 +46420,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v0.8.4",
+            "text": "🧩 Универсальный воркфлоу · v0.9.0",
             "size": "M",
             "align": "left"
           },
@@ -43792,7 +46729,7 @@
             "accentA": "#36cfea",
             "accentB": "#59e68d",
             "visualProfile": "standard",
-            "canvasHeight": 1626
+            "canvasHeight": 1506
           },
           "look": {
             "bg": "transparent",
@@ -43815,7 +46752,7 @@
           "x": 24,
           "y": 152,
           "w": 336,
-          "h": 304,
+          "h": 272,
           "z": 2,
           "parent": null,
           "hidden": false,
@@ -43862,9 +46799,9 @@
           "type": "factoryeditphoto_v070",
           "page": "p_edit",
           "x": 24,
-          "y": 472,
+          "y": 436,
           "w": 336,
-          "h": 248,
+          "h": 216,
           "z": 2,
           "parent": null,
           "hidden": false,
@@ -43906,7 +46843,7 @@
           "type": "seed",
           "page": "p_edit",
           "x": 24,
-          "y": 736,
+          "y": 664,
           "w": 336,
           "h": 88,
           "z": 2,
@@ -43955,9 +46892,9 @@
           "type": "factoryedit_v070",
           "page": "p_edit",
           "x": 24,
-          "y": 840,
+          "y": 764,
           "w": 336,
-          "h": 144,
+          "h": 120,
           "z": 2,
           "parent": null,
           "hidden": false,
@@ -44007,7 +46944,7 @@
           "type": "spoiler",
           "page": "p_edit",
           "x": 24,
-          "y": 1000,
+          "y": 896,
           "w": 336,
           "h": 48,
           "z": 2,
@@ -44057,9 +46994,9 @@
           "locked": true,
           "slots": {
             "bank": {
-              "src": "src_edit_lora",
+              "src": "src_edit_controller",
               "kind": "widget",
-              "name": "factory_user_lora_bank"
+              "name": "factory_edit_loras"
             }
           },
           "props": {},
@@ -44089,7 +47026,7 @@
           "x": 384,
           "y": 152,
           "w": 792,
-          "h": 1074,
+          "h": 970,
           "z": 0,
           "parent": null,
           "hidden": false,
@@ -44113,7 +47050,7 @@
             "active": "edit_result",
             "shadow": false,
             "bottomWith": "edit_upscale",
-            "bottomInset": 72
+            "bottomInset": 68
           },
           "look": {
             "style": null,
@@ -44138,7 +47075,7 @@
           "x": 396,
           "y": 208,
           "w": 768,
-          "h": 1006,
+          "h": 902,
           "z": 2,
           "parent": null,
           "hidden": false,
@@ -44186,7 +47123,7 @@
           "x": 396,
           "y": 208,
           "w": 768,
-          "h": 1006,
+          "h": 902,
           "z": 2,
           "parent": null,
           "hidden": false,
@@ -44247,7 +47184,7 @@
           "type": "factoryeditprog_v070",
           "page": "p_edit",
           "x": 384,
-          "y": 1242,
+          "y": 1134,
           "w": 344,
           "h": 56,
           "z": 2,
@@ -44259,7 +47196,7 @@
             "name": false,
             "steps": true,
             "afterWith": "edit_results",
-            "afterGap": 16
+            "afterGap": 12
           },
           "look": {
             "style": null,
@@ -44288,7 +47225,7 @@
           "type": "factoryqueuestatus_v023",
           "page": "p_edit",
           "x": 740,
-          "y": 1242,
+          "y": 1134,
           "w": 184,
           "h": 56,
           "z": 2,
@@ -44298,7 +47235,7 @@
           "slots": {},
           "props": {
             "afterWith": "edit_results",
-            "afterGap": 16
+            "afterGap": 12
           },
           "look": {
             "style": null,
@@ -44327,7 +47264,7 @@
           "type": "factorysavetoggle_v023",
           "page": "p_edit",
           "x": 936,
-          "y": 1242,
+          "y": 1134,
           "w": 240,
           "h": 56,
           "z": 2,
@@ -44345,7 +47282,7 @@
             "text": "💾 Сохранять результат",
             "description": "Выключено по умолчанию",
             "afterWith": "edit_results",
-            "afterGap": 16
+            "afterGap": 12
           },
           "look": {
             "style": null,
@@ -44374,7 +47311,7 @@
           "type": "factoryeditpreset_v070",
           "page": "p_edit",
           "x": 24,
-          "y": 1314,
+          "y": 1202,
           "w": 1152,
           "h": 52,
           "z": 2,
@@ -44383,9 +47320,9 @@
           "locked": true,
           "slots": {
             "value": {
-              "src": "src_edit_prompt",
+              "src": "src_edit_shared_prompt",
               "kind": "widget",
-              "name": "text"
+              "name": "value"
             },
             "reference": {
               "src": "src_edit_reference",
@@ -44395,7 +47332,7 @@
           },
           "props": {
             "afterWith": "edit_progress",
-            "afterGap": 16
+            "afterGap": 12
           },
           "look": {
             "style": null,
@@ -44424,7 +47361,7 @@
           "type": "prompt",
           "page": "p_edit",
           "x": 24,
-          "y": 1382,
+          "y": 1266,
           "w": 1152,
           "h": 144,
           "z": 2,
@@ -44433,9 +47370,9 @@
           "locked": true,
           "slots": {
             "value": {
-              "src": "src_edit_prompt",
+              "src": "src_edit_shared_prompt",
               "kind": "widget",
-              "name": "text"
+              "name": "value"
             }
           },
           "props": {
@@ -44446,7 +47383,7 @@
             "weights": true,
             "mono": false,
             "afterWith": "edit_presets",
-            "afterGap": 16
+            "afterGap": 12
           },
           "look": {
             "style": null,
@@ -44469,7 +47406,7 @@
           "type": "factoryeditrun_v070",
           "page": "p_edit",
           "x": 24,
-          "y": 1542,
+          "y": 1422,
           "w": 1152,
           "h": 56,
           "z": 2,
@@ -44489,7 +47426,7 @@
             "stop": true,
             "stopIdle": false,
             "afterWith": "edit_prompt",
-            "afterGap": 16
+            "afterGap": 12
           },
           "look": {
             "style": null,
@@ -44518,7 +47455,7 @@
           "type": "factoryupscale_v040",
           "page": "p_edit",
           "x": 24,
-          "y": 1064,
+          "y": 956,
           "w": 336,
           "h": 234,
           "z": 2,
@@ -44564,7 +47501,7 @@
           "x": 396,
           "y": 208,
           "w": 768,
-          "h": 1006,
+          "h": 902,
           "z": 2,
           "parent": null,
           "hidden": false,
@@ -44634,7 +47571,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v0.8.4",
+            "text": "🧩 Универсальный воркфлоу · v0.9.0",
             "size": "M",
             "align": "left"
           },

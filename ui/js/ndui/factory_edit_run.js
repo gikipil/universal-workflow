@@ -11,8 +11,15 @@ export const hasEditImage=file=>typeof file==='string'&&file.trim()!==''&&file!=
 // and no duplicate of Picture 1 is substituted as Picture 2.
 export function editPrompt(data,targets,originalModes,s,withReference,withMask=false,upscaleSpec=null){
  const output=structuredClone(data.output||{}),bypass=new Map();
+ const krea=s.backend==='krea';
+ if(s.gate){const gate=output[s.gate];if(!gate)throw Error('Не найден переключатель редактора.');bypass.set(String(s.gate),gate.inputs[krea?'value1':'value0']);}
+ if(krea){
+  if(!withReference){for(const key of ['source_latent_b','source_image_b'])delete output[s.kreaPatch]?.inputs?.[key];delete output[s.kreaPositive]?.inputs?.image_b;}
+  if(withMask){if(!output[s.kreaMaskNoise])throw Error('Не найдена маска Krea.');output[s.kreaSampler].inputs.latent_image=[String(s.kreaMaskNoise),0];}
+ }
+
  if(s.maskNoise&&!withMask){bypass.set(String(s.maskNoise),output[s.maskNoise]?.inputs?.samples);bypass.set(String(s.maskComposite),output[s.maskComposite]?.inputs?.source);delete output[s.scale]?.inputs?.mask;}
- if(!withReference)for(const id of s.optionalRefs){const input=output[id]?.inputs?.conditioning;if(!input)throw Error('Не найдена цепочка референсов Qwen.');bypass.set(String(id),input);}
+ if(!krea&&!withReference)for(const id of s.optionalRefs){const input=output[id]?.inputs?.conditioning;if(!input)throw Error('Не найдена цепочка референсов Qwen.');bypass.set(String(id),input);}
  function redirect(v){const seen=new Set();while(Array.isArray(v)&&v.length===2&&bypass.has(String(v[0]))){if(seen.has(String(v[0])))throw Error('Зацикленная цепочка референсов.');seen.add(String(v[0]));v=bypass.get(String(v[0]));}return v;}
  for(const n of Object.values(output))for(const[k,v]of Object.entries(n.inputs||{}))n.inputs[k]=redirect(v);
  rewriteUpscale(output,upscaleSpec);
@@ -24,7 +31,7 @@ export function editPrompt(data,targets,originalModes,s,withReference,withMask=f
 }
 const activeIds=new Set();let building=false,runningPid='',editPid='';
 const owner=()=> (app.graph?._nodes||app.graph?.nodes||[]).find(n=>n.properties?.acf_edit);
-export function editPlan(n){const s=n.properties.acf_edit,g=n.graph,up=g.getNodeById(s.upscale),u=up?.properties.acf_upscale,enabled=!!g.getNodeById(u?.enabled)?.widgets?.find(w=>w.name==='index')?.value,upIds=new Set(u?.nodes||[]),plan=[{name:'Редактирование · Qwen 2511',sample:String(n.id),ids:new Set(s.nodes.filter(id=>!upIds.has(id)).map(String)),finish:[String(enabled?u.before:s.result)],runningLabel:'изменение кадра'}];if(enabled)plan.push(upscaleStage(g,up,'Апскейл результата'));plan.operations=new Map([[String(s.photo),'загрузка исходника'],[String(s.reference),'загрузка референса'],[String(s.scale),'подготовка размера'],[String(n.id),'изменение кадра'],[String(s.result),'подготовка результата'],[String(s.saver),'сохранение']]);return plan;}
+export function editPlan(n){const s=n.properties.acf_edit,g=n.graph,up=g.getNodeById(s.upscale),u=up?.properties.acf_upscale,enabled=!!g.getNodeById(u?.enabled)?.widgets?.find(w=>w.name==='index')?.value,upIds=new Set(u?.nodes||[]),plan=[{name:s.backend==='krea'?'Редактирование · Krea Edit V2':'Редактирование · Qwen 2511',sample:String(s.backend==='krea'?s.kreaSampler:n.id),ids:new Set(s.nodes.filter(id=>!upIds.has(id)).map(String)),finish:[String(enabled?u.before:s.result)],runningLabel:'изменение кадра'}];if(enabled)plan.push(upscaleStage(g,up,'Апскейл результата'));plan.operations=new Map([[String(s.photo),'загрузка исходника'],[String(s.reference),'загрузка референса'],[String(s.scale),'подготовка размера'],[String(n.id),'изменение кадра'],[String(s.result),'подготовка результата'],[String(s.saver),'сохранение']]);return plan;}
 export async function queueEdit(node,batch=1){
  if(building)throw Error('Подожди завершения отправки предыдущего задания.');const s=node.properties.acf_edit,g=node.graph,file=id=>g.getNodeById(id)?.widgets?.find(w=>w.name==='image')?.value;
  if(!hasEditImage(file(s.photo)))throw Error('Сначала загрузи основной кадр.');
