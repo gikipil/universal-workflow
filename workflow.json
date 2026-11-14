@@ -1,8 +1,8 @@
 {
   "id": "6156223e-7f85-4578-923d-9d05cf820581",
   "revision": 0,
-  "last_node_id": 727,
-  "last_link_id": 850,
+  "last_node_id": 772,
+  "last_link_id": 911,
   "nodes": [
     {
       "id": 528,
@@ -19851,6 +19851,12 @@
           "type": "IMAGE",
           "link": 809,
           "shape": 7
+        },
+        {
+          "name": "value2",
+          "type": "IMAGE",
+          "link": 911,
+          "shape": 7
         }
       ],
       "outputs": [
@@ -21671,6 +21677,1486 @@
       "widgets_values": [
         "SHARED_BASE_92"
       ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 737,
+      "type": "VAEDecode",
+      "title": "Технический результат Qwen 2.1",
+      "pos": [
+        4406,
+        7390
+      ],
+      "size": [
+        340,
+        220
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 737,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 867
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 900
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            874
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEDecode"
+      },
+      "widgets_values": [],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 738,
+      "type": "VAEEncode",
+      "title": "Техническое кодирование масочного кадра Qwen 2.1",
+      "pos": [
+        4406,
+        7390
+      ],
+      "size": [
+        340,
+        220
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 738,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "pixels",
+          "type": "IMAGE",
+          "link": 901
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 902
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            871
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEEncode"
+      },
+      "widgets_values": [],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 739,
+      "type": "SetLatentNoiseMask",
+      "title": "Техническая noise mask Qwen 2.1",
+      "pos": [
+        4406,
+        7390
+      ],
+      "size": [
+        340,
+        220
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 739,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 871
+        },
+        {
+          "name": "mask",
+          "type": "MASK",
+          "link": 903
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SetLatentNoiseMask"
+      },
+      "widgets_values": [],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 740,
+      "type": "ImageCompositeMasked",
+      "title": "Техническое сохранение вне маски Qwen 2.1",
+      "pos": [
+        4406,
+        7390
+      ],
+      "size": [
+        340,
+        220
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 740,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "destination",
+          "type": "IMAGE",
+          "link": 904
+        },
+        {
+          "name": "source",
+          "type": "IMAGE",
+          "link": 874
+        },
+        {
+          "name": "x",
+          "type": "INT",
+          "link": null,
+          "widget": {
+            "name": "x"
+          }
+        },
+        {
+          "name": "y",
+          "type": "INT",
+          "link": null,
+          "widget": {
+            "name": "y"
+          }
+        },
+        {
+          "name": "resize_source",
+          "type": "BOOLEAN",
+          "link": null,
+          "widget": {
+            "name": "resize_source"
+          }
+        },
+        {
+          "name": "mask",
+          "type": "MASK",
+          "link": 905,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            908
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImageCompositeMasked"
+      },
+      "widgets_values": [
+        0,
+        0,
+        false
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 741,
+      "type": "SetNode",
+      "title": "SetNode_EDITQ21_731_0",
+      "pos": [
+        3236,
+        7750
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 741,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "link": 877
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SetNode",
+        "previousName": "EDITQ21_731_0"
+      },
+      "widgets_values": [
+        "EDITQ21_731_0"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 742,
+      "type": "GetNode",
+      "title": "GetNode_EDITQ21_731_0",
+      "pos": [
+        3626,
+        7390
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 742,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            878
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "previousName": "EDITQ21_731_0"
+      },
+      "widgets_values": [
+        "EDITQ21_731_0"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 743,
+      "type": "GetNode",
+      "title": "GetNode_EDIT_456_0",
+      "pos": [
+        3626,
+        7570
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 743,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            879
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "previousName": "EDIT_456_0"
+      },
+      "widgets_values": [
+        "EDIT_456_0"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 744,
+      "type": "GetNode",
+      "title": "GetNode_EDIT_457_0",
+      "pos": [
+        3626,
+        7900
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 744,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            880
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "previousName": "EDIT_457_0"
+      },
+      "widgets_values": [
+        "EDIT_457_0"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 745,
+      "type": "GetNode",
+      "title": "GetNode_EDITMASK_510_0",
+      "pos": [
+        3626,
+        7570
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 745,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": [
+            881
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "previousName": "EDITMASK_510_0"
+      },
+      "widgets_values": [
+        "EDITMASK_510_0"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 746,
+      "type": "SetNode",
+      "title": "SetNode_EDITQ21_731_1",
+      "pos": [
+        3236,
+        7750
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 746,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "link": 882
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SetNode",
+        "previousName": "EDITQ21_731_1"
+      },
+      "widgets_values": [
+        "EDITQ21_731_1"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 747,
+      "type": "GetNode",
+      "title": "GetNode_EDITQ21_731_1",
+      "pos": [
+        4016,
+        7390
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 747,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            883
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "previousName": "EDITQ21_731_1"
+      },
+      "widgets_values": [
+        "EDITQ21_731_1"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 748,
+      "type": "SetNode",
+      "title": "SetNode_EDITQ21_730_0",
+      "pos": [
+        3236,
+        7650
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 748,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "link": 884
+        }
+      ],
+      "outputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SetNode",
+        "previousName": "EDITQ21_730_0"
+      },
+      "widgets_values": [
+        "EDITQ21_730_0"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 749,
+      "type": "GetNode",
+      "title": "GetNode_EDITQ21_730_0",
+      "pos": [
+        4016,
+        7390
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 749,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            885
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "previousName": "EDITQ21_730_0"
+      },
+      "widgets_values": [
+        "EDITQ21_730_0"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 750,
+      "type": "GetNode",
+      "title": "GetNode_EDITK_673_0",
+      "pos": [
+        4016,
+        7390
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 750,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            886
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "previousName": "EDITK_673_0"
+      },
+      "widgets_values": [
+        "EDITK_673_0"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 751,
+      "type": "SetNode",
+      "title": "SetNode_EDITQ21_733_0",
+      "pos": [
+        3626,
+        7570
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 751,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "link": 887
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SetNode",
+        "previousName": "EDITQ21_733_0"
+      },
+      "widgets_values": [
+        "EDITQ21_733_0"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 752,
+      "type": "GetNode",
+      "title": "GetNode_EDITQ21_733_0",
+      "pos": [
+        4016,
+        7390
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 752,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            888
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "previousName": "EDITQ21_733_0"
+      },
+      "widgets_values": [
+        "EDITQ21_733_0"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 753,
+      "type": "SetNode",
+      "title": "SetNode_EDITQ21_734_0",
+      "pos": [
+        3626,
+        7900
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 753,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "link": 889
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SetNode",
+        "previousName": "EDITQ21_734_0"
+      },
+      "widgets_values": [
+        "EDITQ21_734_0"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 754,
+      "type": "GetNode",
+      "title": "GetNode_EDITQ21_734_0",
+      "pos": [
+        4016,
+        7390
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 754,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            890
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "previousName": "EDITQ21_734_0"
+      },
+      "widgets_values": [
+        "EDITQ21_734_0"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 755,
+      "type": "SetNode",
+      "title": "SetNode_EDITQ21_732_0",
+      "pos": [
+        3626,
+        7390
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 755,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "link": 891
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SetNode",
+        "previousName": "EDITQ21_732_0"
+      },
+      "widgets_values": [
+        "EDITQ21_732_0"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 756,
+      "type": "GetNode",
+      "title": "GetNode_EDITQ21_732_0",
+      "pos": [
+        4406,
+        7390
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 756,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            892
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "previousName": "EDITQ21_732_0"
+      },
+      "widgets_values": [
+        "EDITQ21_732_0"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 757,
+      "type": "SetNode",
+      "title": "SetNode_EDITQ21_735_0",
+      "pos": [
+        4016,
+        7390
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 757,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "link": 893
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SetNode",
+        "previousName": "EDITQ21_735_0"
+      },
+      "widgets_values": [
+        "EDITQ21_735_0"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 758,
+      "type": "GetNode",
+      "title": "GetNode_EDITQ21_735_0",
+      "pos": [
+        4406,
+        7390
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 758,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            894
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "previousName": "EDITQ21_735_0"
+      },
+      "widgets_values": [
+        "EDITQ21_735_0"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 759,
+      "type": "SetNode",
+      "title": "SetNode_EDITQ21_735_1",
+      "pos": [
+        4016,
+        7390
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 759,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "link": 895
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SetNode",
+        "previousName": "EDITQ21_735_1"
+      },
+      "widgets_values": [
+        "EDITQ21_735_1"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 760,
+      "type": "GetNode",
+      "title": "GetNode_EDITQ21_735_1",
+      "pos": [
+        4406,
+        7390
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 760,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            896
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "previousName": "EDITQ21_735_1"
+      },
+      "widgets_values": [
+        "EDITQ21_735_1"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 761,
+      "type": "SetNode",
+      "title": "SetNode_EDITQ21_735_2",
+      "pos": [
+        4016,
+        7390
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 761,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "link": 897
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SetNode",
+        "previousName": "EDITQ21_735_2"
+      },
+      "widgets_values": [
+        "EDITQ21_735_2"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 762,
+      "type": "GetNode",
+      "title": "GetNode_EDITQ21_735_2",
+      "pos": [
+        4406,
+        7390
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 762,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            898
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "previousName": "EDITQ21_735_2"
+      },
+      "widgets_values": [
+        "EDITQ21_735_2"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 763,
+      "type": "GetNode",
+      "title": "GetNode_EDIT_464_0",
+      "pos": [
+        4406,
+        7390
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 763,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            899
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "previousName": "EDIT_464_0"
+      },
+      "widgets_values": [
+        "EDIT_464_0"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 764,
+      "type": "GetNode",
+      "title": "GetNode_EDITQ21_730_0",
+      "pos": [
+        4406,
+        7390
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 764,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            900
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "previousName": "EDITQ21_730_0"
+      },
+      "widgets_values": [
+        "EDITQ21_730_0"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 765,
+      "type": "GetNode",
+      "title": "GetNode_EDITQ21_733_0",
+      "pos": [
+        4406,
+        7390
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 765,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            901
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "previousName": "EDITQ21_733_0"
+      },
+      "widgets_values": [
+        "EDITQ21_733_0"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 766,
+      "type": "GetNode",
+      "title": "GetNode_EDITQ21_730_0",
+      "pos": [
+        4406,
+        7390
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 766,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            902
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "previousName": "EDITQ21_730_0"
+      },
+      "widgets_values": [
+        "EDITQ21_730_0"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 767,
+      "type": "GetNode",
+      "title": "GetNode_EDITMASK_511_0",
+      "pos": [
+        4406,
+        7390
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 767,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": [
+            903
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "previousName": "EDITMASK_511_0"
+      },
+      "widgets_values": [
+        "EDITMASK_511_0"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 768,
+      "type": "GetNode",
+      "title": "GetNode_EDITQ21_733_0",
+      "pos": [
+        4406,
+        7390
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 768,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            904
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "previousName": "EDITQ21_733_0"
+      },
+      "widgets_values": [
+        "EDITQ21_733_0"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 769,
+      "type": "GetNode",
+      "title": "GetNode_EDITMASK_511_0",
+      "pos": [
+        4406,
+        7390
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 769,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": [
+            905
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "previousName": "EDITMASK_511_0"
+      },
+      "widgets_values": [
+        "EDITMASK_511_0"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 770,
+      "type": "SetNode",
+      "title": "SetNode_EDITQ21_FINAL",
+      "pos": [
+        4406,
+        7390
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 770,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "link": 910
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SetNode",
+        "previousName": "EDITQ21_FINAL"
+      },
+      "widgets_values": [
+        "EDITQ21_FINAL"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 771,
+      "type": "GetNode",
+      "title": "GetNode_EDITQ21_FINAL",
+      "pos": [
+        4016,
+        7390
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 771,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            911
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "previousName": "EDITQ21_FINAL"
+      },
+      "widgets_values": [
+        "EDITQ21_FINAL"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 772,
+      "type": "SplitImageWithAlpha",
+      "title": "Техническая совместимость RGB с апскейлом Qwen 2.1",
+      "pos": [
+        4406,
+        7390
+      ],
+      "size": [
+        340,
+        220
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 772,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 908
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            910
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SplitImageWithAlpha"
+      },
+      "widgets_values": [],
       "color": "#233",
       "bgcolor": "#355"
     },
@@ -33828,7 +35314,52 @@
             722,
             723,
             724,
-            725
+            725,
+            728,
+            729,
+            730,
+            731,
+            732,
+            733,
+            734,
+            735,
+            736,
+            737,
+            738,
+            739,
+            740,
+            741,
+            742,
+            743,
+            744,
+            745,
+            746,
+            747,
+            748,
+            749,
+            750,
+            751,
+            752,
+            753,
+            754,
+            755,
+            756,
+            757,
+            758,
+            759,
+            760,
+            761,
+            762,
+            763,
+            764,
+            765,
+            766,
+            767,
+            768,
+            769,
+            770,
+            771,
+            772
           ],
           "save": false,
           "maskFile": 509,
@@ -33852,6 +35383,20 @@
           "adapterFiles": {
             "general": "Krea2\\krea2_general_edit_v2.safetensors",
             "identity": "Krea2\\krea2_identity_edit_v2.safetensors"
+          },
+          "qwen21": {
+            "model": 728,
+            "clip": 729,
+            "vae": 730,
+            "lora": 731,
+            "cache": 732,
+            "scale": 733,
+            "refScale": 734,
+            "encode": 735,
+            "sampler": 736,
+            "maskNoise": 739,
+            "maskComposite": 740,
+            "rgb": 772
           }
         }
       },
@@ -37323,6 +38868,839 @@
         8,
         1,
         "er_sde",
+        "simple",
+        1
+      ],
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 728,
+      "type": "UNETLoader",
+      "title": "⚙️ Qwen 2.1 · модель",
+      "pos": [
+        3220,
+        7340
+      ],
+      "size": [
+        340,
+        100
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 728,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "unet_name",
+          "type": "COMBO",
+          "link": null,
+          "widget": {
+            "name": "unet_name"
+          }
+        },
+        {
+          "name": "weight_dtype",
+          "type": "COMBO",
+          "link": null,
+          "widget": {
+            "name": "weight_dtype"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            851
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "UNETLoader",
+        "nd_ui_src": {
+          "uid": "src_edit_q21_model",
+          "tag": "edit-q21-model"
+        }
+      },
+      "widgets_values": [
+        "Qwen2.1\\qwen_image_2.1_int8_convrot.safetensors",
+        "default"
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 729,
+      "type": "CLIPLoader",
+      "title": "⚙️ Qwen 2.1 · энкодер",
+      "pos": [
+        3220,
+        7460
+      ],
+      "size": [
+        340,
+        120
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 729,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip_name",
+          "type": "COMBO",
+          "link": null,
+          "widget": {
+            "name": "clip_name"
+          }
+        },
+        {
+          "name": "type",
+          "type": "COMBO",
+          "link": null,
+          "widget": {
+            "name": "type"
+          }
+        },
+        {
+          "name": "device",
+          "type": "COMBO",
+          "link": null,
+          "widget": {
+            "name": "device"
+          },
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            852
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPLoader",
+        "nd_ui_src": {
+          "uid": "src_edit_q21_clip",
+          "tag": "edit-q21-clip"
+        }
+      },
+      "widgets_values": [
+        "Qwen2.1\\qwen3vl_8b_int8_convrot.safetensors",
+        "qwen_image",
+        "default"
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 730,
+      "type": "VAELoader",
+      "title": "⚙️ Qwen 2.1 · VAE",
+      "pos": [
+        3220,
+        7600
+      ],
+      "size": [
+        340,
+        80
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 730,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "vae_name",
+          "type": "COMBO",
+          "link": null,
+          "widget": {
+            "name": "vae_name"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            884
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAELoader",
+        "nd_ui_src": {
+          "uid": "src_edit_q21_vae",
+          "tag": "edit-q21-vae"
+        }
+      },
+      "widgets_values": [
+        "Qwen2.1\\qwen_image_2.1_vae_bf16.safetensors"
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 731,
+      "type": "Power Lora Loader (rgthree)",
+      "title": "🧩 Пользовательские LoRA · Qwen 2.1",
+      "pos": [
+        3220,
+        7700
+      ],
+      "size": [
+        340,
+        350
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 731,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 851,
+          "shape": 7
+        },
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 852,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            877
+          ]
+        },
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            882
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Power Lora Loader (rgthree)",
+        "nd_ui_constant_loras": 0,
+        "nd_ui_user_lora_count": 5,
+        "nd_ui_user_lora_ids": [
+          "user_1",
+          "user_2",
+          "user_3",
+          "user_4",
+          "user_5"
+        ],
+        "nd_ui_src": {
+          "uid": "src_edit_q21_lora",
+          "tag": "edit-q21-lora"
+        }
+      },
+      "widgets_values": [
+        {},
+        {
+          "type": "PowerLoraLoaderHeaderWidget"
+        },
+        {
+          "on": false,
+          "lora": "None",
+          "strength": 1,
+          "strengthTwo": null
+        },
+        {
+          "on": false,
+          "lora": "None",
+          "strength": 1,
+          "strengthTwo": null
+        },
+        {
+          "on": false,
+          "lora": "None",
+          "strength": 1,
+          "strengthTwo": null
+        },
+        {
+          "on": false,
+          "lora": "None",
+          "strength": 1,
+          "strengthTwo": null
+        },
+        {
+          "on": false,
+          "lora": "None",
+          "strength": 1,
+          "strengthTwo": null
+        },
+        {},
+        ""
+      ],
+      "color": "#323",
+      "bgcolor": "#535"
+    },
+    {
+      "id": 732,
+      "type": "QwenImage21Cache",
+      "title": "⚙️ Qwen 2.1 · кэш референсов",
+      "pos": [
+        3610,
+        7340
+      ],
+      "size": [
+        340,
+        140
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 732,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 878
+        },
+        {
+          "name": "device",
+          "type": "COMBO",
+          "link": null,
+          "widget": {
+            "name": "device"
+          }
+        },
+        {
+          "name": "dtype",
+          "type": "COMBO",
+          "link": null,
+          "widget": {
+            "name": "dtype"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            891
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "QwenImage21Cache",
+        "cnr_id": "comfy-core",
+        "ver": "0.37.0"
+      },
+      "widgets_values": [
+        "auto",
+        "default"
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 733,
+      "type": "LayerUtility: ImageScaleByAspectRatio",
+      "title": "📐 Qwen 2.1 · основной кадр",
+      "pos": [
+        3610,
+        7520
+      ],
+      "size": [
+        340,
+        290
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 733,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "aspect_ratio",
+          "type": "COMBO",
+          "link": null,
+          "widget": {
+            "name": "aspect_ratio"
+          }
+        },
+        {
+          "name": "proportional_width",
+          "type": "INT",
+          "link": null,
+          "widget": {
+            "name": "proportional_width"
+          }
+        },
+        {
+          "name": "proportional_height",
+          "type": "INT",
+          "link": null,
+          "widget": {
+            "name": "proportional_height"
+          }
+        },
+        {
+          "name": "fit",
+          "type": "COMBO",
+          "link": null,
+          "widget": {
+            "name": "fit"
+          }
+        },
+        {
+          "name": "method",
+          "type": "COMBO",
+          "link": null,
+          "widget": {
+            "name": "method"
+          }
+        },
+        {
+          "name": "round_to_multiple",
+          "type": "COMBO",
+          "link": null,
+          "widget": {
+            "name": "round_to_multiple"
+          }
+        },
+        {
+          "name": "scale_to_longest_side",
+          "type": "BOOLEAN",
+          "link": null,
+          "widget": {
+            "name": "scale_to_longest_side"
+          }
+        },
+        {
+          "name": "longest_side",
+          "type": "INT",
+          "link": null,
+          "widget": {
+            "name": "longest_side"
+          }
+        },
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 879,
+          "shape": 7
+        },
+        {
+          "name": "mask",
+          "type": "MASK",
+          "link": 881,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            887
+          ]
+        },
+        {
+          "name": "mask",
+          "type": "MASK",
+          "links": []
+        },
+        {
+          "name": "original_size",
+          "type": "BOX",
+          "links": []
+        },
+        {
+          "name": "width",
+          "type": "INT",
+          "links": []
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LayerUtility: ImageScaleByAspectRatio"
+      },
+      "widgets_values": [
+        "original",
+        1,
+        1,
+        "crop",
+        "lanczos",
+        "32",
+        true,
+        1920
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 734,
+      "type": "LayerUtility: ImageScaleByAspectRatio",
+      "title": "📐 Qwen 2.1 · референс",
+      "pos": [
+        3610,
+        7850
+      ],
+      "size": [
+        340,
+        290
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 734,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "aspect_ratio",
+          "type": "COMBO",
+          "link": null,
+          "widget": {
+            "name": "aspect_ratio"
+          }
+        },
+        {
+          "name": "proportional_width",
+          "type": "INT",
+          "link": null,
+          "widget": {
+            "name": "proportional_width"
+          }
+        },
+        {
+          "name": "proportional_height",
+          "type": "INT",
+          "link": null,
+          "widget": {
+            "name": "proportional_height"
+          }
+        },
+        {
+          "name": "fit",
+          "type": "COMBO",
+          "link": null,
+          "widget": {
+            "name": "fit"
+          }
+        },
+        {
+          "name": "method",
+          "type": "COMBO",
+          "link": null,
+          "widget": {
+            "name": "method"
+          }
+        },
+        {
+          "name": "round_to_multiple",
+          "type": "COMBO",
+          "link": null,
+          "widget": {
+            "name": "round_to_multiple"
+          }
+        },
+        {
+          "name": "scale_to_longest_side",
+          "type": "BOOLEAN",
+          "link": null,
+          "widget": {
+            "name": "scale_to_longest_side"
+          }
+        },
+        {
+          "name": "longest_side",
+          "type": "INT",
+          "link": null,
+          "widget": {
+            "name": "longest_side"
+          }
+        },
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 880,
+          "shape": 7
+        },
+        {
+          "name": "mask",
+          "type": "MASK",
+          "link": null,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            889
+          ]
+        },
+        {
+          "name": "mask",
+          "type": "MASK",
+          "links": []
+        },
+        {
+          "name": "original_size",
+          "type": "BOX",
+          "links": []
+        },
+        {
+          "name": "width",
+          "type": "INT",
+          "links": []
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LayerUtility: ImageScaleByAspectRatio"
+      },
+      "widgets_values": [
+        "original",
+        1,
+        1,
+        "crop",
+        "lanczos",
+        "32",
+        true,
+        1280
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 735,
+      "type": "TextEncodeQwenImage21",
+      "title": "✍️ Qwen 2.1 · инструкция и референсы",
+      "pos": [
+        4000,
+        7340
+      ],
+      "size": [
+        340,
+        280
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 735,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 883
+        },
+        {
+          "name": "prompt",
+          "type": "STRING",
+          "link": 886,
+          "widget": {
+            "name": "prompt"
+          }
+        },
+        {
+          "name": "negative_prompt",
+          "type": "STRING",
+          "link": null,
+          "widget": {
+            "name": "negative_prompt"
+          }
+        },
+        {
+          "name": "resolution",
+          "type": "INT",
+          "link": null,
+          "widget": {
+            "name": "resolution"
+          }
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 885,
+          "shape": 7
+        },
+        {
+          "name": "images.image_1",
+          "type": "IMAGE",
+          "link": 888,
+          "shape": 7
+        },
+        {
+          "name": "images.image_2",
+          "type": "IMAGE",
+          "link": 890,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "links": [
+            893
+          ]
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "links": [
+            895
+          ]
+        },
+        {
+          "name": "latent",
+          "type": "LATENT",
+          "links": [
+            897
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "TextEncodeQwenImage21",
+        "cnr_id": "comfy-core",
+        "ver": "0.37.0"
+      },
+      "widgets_values": [
+        "",
+        "",
+        0
+      ],
+      "color": "#507548",
+      "bgcolor": "#709762"
+    },
+    {
+      "id": 736,
+      "type": "KSampler",
+      "title": "🎨 Qwen 2.1 · редактирование",
+      "pos": [
+        4390,
+        7340
+      ],
+      "size": [
+        340,
+        340
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 736,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 892
+        },
+        {
+          "name": "seed",
+          "type": "INT",
+          "link": 899,
+          "widget": {
+            "name": "seed"
+          }
+        },
+        {
+          "name": "steps",
+          "type": "INT",
+          "link": null,
+          "widget": {
+            "name": "steps"
+          }
+        },
+        {
+          "name": "cfg",
+          "type": "FLOAT",
+          "link": null,
+          "widget": {
+            "name": "cfg"
+          }
+        },
+        {
+          "name": "sampler_name",
+          "type": "COMBO",
+          "link": null,
+          "widget": {
+            "name": "sampler_name"
+          }
+        },
+        {
+          "name": "scheduler",
+          "type": "COMBO",
+          "link": null,
+          "widget": {
+            "name": "scheduler"
+          }
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 894
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 896
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 898
+        },
+        {
+          "name": "denoise",
+          "type": "FLOAT",
+          "link": null,
+          "widget": {
+            "name": "denoise"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            867
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "KSampler"
+      },
+      "widgets_values": [
+        0,
+        "fixed",
+        25,
+        1,
+        "euler",
         "simple",
         1
       ],
@@ -42210,6 +44588,302 @@
       727,
       0,
       "CLIP"
+    ],
+    [
+      851,
+      728,
+      0,
+      731,
+      0,
+      "MODEL"
+    ],
+    [
+      852,
+      729,
+      0,
+      731,
+      1,
+      "CLIP"
+    ],
+    [
+      867,
+      736,
+      0,
+      737,
+      0,
+      "LATENT"
+    ],
+    [
+      871,
+      738,
+      0,
+      739,
+      0,
+      "LATENT"
+    ],
+    [
+      874,
+      737,
+      0,
+      740,
+      1,
+      "IMAGE"
+    ],
+    [
+      877,
+      731,
+      0,
+      741,
+      0,
+      "MODEL"
+    ],
+    [
+      878,
+      742,
+      0,
+      732,
+      0,
+      "MODEL"
+    ],
+    [
+      879,
+      743,
+      0,
+      733,
+      8,
+      "IMAGE"
+    ],
+    [
+      880,
+      744,
+      0,
+      734,
+      8,
+      "IMAGE"
+    ],
+    [
+      881,
+      745,
+      0,
+      733,
+      9,
+      "MASK"
+    ],
+    [
+      882,
+      731,
+      1,
+      746,
+      0,
+      "CLIP"
+    ],
+    [
+      883,
+      747,
+      0,
+      735,
+      0,
+      "CLIP"
+    ],
+    [
+      884,
+      730,
+      0,
+      748,
+      0,
+      "VAE"
+    ],
+    [
+      885,
+      749,
+      0,
+      735,
+      4,
+      "VAE"
+    ],
+    [
+      886,
+      750,
+      0,
+      735,
+      1,
+      "STRING"
+    ],
+    [
+      887,
+      733,
+      0,
+      751,
+      0,
+      "IMAGE"
+    ],
+    [
+      888,
+      752,
+      0,
+      735,
+      5,
+      "IMAGE"
+    ],
+    [
+      889,
+      734,
+      0,
+      753,
+      0,
+      "IMAGE"
+    ],
+    [
+      890,
+      754,
+      0,
+      735,
+      6,
+      "IMAGE"
+    ],
+    [
+      891,
+      732,
+      0,
+      755,
+      0,
+      "MODEL"
+    ],
+    [
+      892,
+      756,
+      0,
+      736,
+      0,
+      "MODEL"
+    ],
+    [
+      893,
+      735,
+      0,
+      757,
+      0,
+      "CONDITIONING"
+    ],
+    [
+      894,
+      758,
+      0,
+      736,
+      6,
+      "CONDITIONING"
+    ],
+    [
+      895,
+      735,
+      1,
+      759,
+      0,
+      "CONDITIONING"
+    ],
+    [
+      896,
+      760,
+      0,
+      736,
+      7,
+      "CONDITIONING"
+    ],
+    [
+      897,
+      735,
+      2,
+      761,
+      0,
+      "LATENT"
+    ],
+    [
+      898,
+      762,
+      0,
+      736,
+      8,
+      "LATENT"
+    ],
+    [
+      899,
+      763,
+      0,
+      736,
+      1,
+      "INT"
+    ],
+    [
+      900,
+      764,
+      0,
+      737,
+      1,
+      "VAE"
+    ],
+    [
+      901,
+      765,
+      0,
+      738,
+      0,
+      "IMAGE"
+    ],
+    [
+      902,
+      766,
+      0,
+      738,
+      1,
+      "VAE"
+    ],
+    [
+      903,
+      767,
+      0,
+      739,
+      1,
+      "MASK"
+    ],
+    [
+      904,
+      768,
+      0,
+      740,
+      0,
+      "IMAGE"
+    ],
+    [
+      905,
+      769,
+      0,
+      740,
+      5,
+      "MASK"
+    ],
+    [
+      908,
+      740,
+      0,
+      772,
+      0,
+      "IMAGE"
+    ],
+    [
+      910,
+      772,
+      0,
+      770,
+      0,
+      "IMAGE"
+    ],
+    [
+      911,
+      771,
+      0,
+      687,
+      3,
+      "IMAGE"
     ]
   ],
   "groups": [
@@ -42625,6 +45299,18 @@
         5980,
         2340,
         790
+      ],
+      "color": "#3d726c",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "title": "✏️ Редактирование · Qwen 2.1",
+      "bounding": [
+        3200,
+        7280,
+        1540,
+        920
       ],
       "color": "#3d726c",
       "font_size": 24,
@@ -43361,6 +46047,30 @@
           "tag": "edit-krea_user_lora",
           "class": "Power Lora Loader (rgthree)",
           "title": "🧩 LoRA редактора Krea · необязательно"
+        },
+        {
+          "uid": "src_edit_q21_model",
+          "tag": "edit-q21-model",
+          "class": "UNETLoader",
+          "title": "⚙️ Qwen 2.1 · модель"
+        },
+        {
+          "uid": "src_edit_q21_clip",
+          "tag": "edit-q21-clip",
+          "class": "CLIPLoader",
+          "title": "⚙️ Qwen 2.1 · энкодер"
+        },
+        {
+          "uid": "src_edit_q21_vae",
+          "tag": "edit-q21-vae",
+          "class": "VAELoader",
+          "title": "⚙️ Qwen 2.1 · VAE"
+        },
+        {
+          "uid": "src_edit_q21_lora",
+          "tag": "edit-q21-lora",
+          "class": "Power Lora Loader (rgthree)",
+          "title": "🧩 Пользовательские LoRA · Qwen 2.1"
         }
       ],
       "pages": [
@@ -43428,7 +46138,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v0.9.2",
+            "text": "🧩 Универсальный воркфлоу · v0.10.0",
             "size": "M",
             "align": "left"
           },
@@ -44789,6 +47499,21 @@
               "src": "src_edit_controller",
               "kind": "widget",
               "name": "factory_edit_identity_file"
+            },
+            "edit_q21_model": {
+              "src": "src_edit_q21_model",
+              "kind": "widget",
+              "name": "unet_name"
+            },
+            "edit_q21_clip": {
+              "src": "src_edit_q21_clip",
+              "kind": "widget",
+              "name": "clip_name"
+            },
+            "edit_q21_vae": {
+              "src": "src_edit_q21_vae",
+              "kind": "widget",
+              "name": "vae_name"
             }
           },
           "props": {
@@ -45529,7 +48254,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v0.9.2",
+            "text": "🧩 Универсальный воркфлоу · v0.10.0",
             "size": "M",
             "align": "left"
           },
@@ -45811,6 +48536,21 @@
               "src": "src_edit_controller",
               "kind": "widget",
               "name": "factory_edit_identity_file"
+            },
+            "edit_q21_model": {
+              "src": "src_edit_q21_model",
+              "kind": "widget",
+              "name": "unet_name"
+            },
+            "edit_q21_clip": {
+              "src": "src_edit_q21_clip",
+              "kind": "widget",
+              "name": "clip_name"
+            },
+            "edit_q21_vae": {
+              "src": "src_edit_q21_vae",
+              "kind": "widget",
+              "name": "vae_name"
             }
           },
           "props": {
@@ -46328,7 +49068,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v0.9.2",
+            "text": "🧩 Универсальный воркфлоу · v0.10.0",
             "size": "M",
             "align": "left"
           },
@@ -46610,6 +49350,21 @@
               "src": "src_edit_controller",
               "kind": "widget",
               "name": "factory_edit_identity_file"
+            },
+            "edit_q21_model": {
+              "src": "src_edit_q21_model",
+              "kind": "widget",
+              "name": "unet_name"
+            },
+            "edit_q21_clip": {
+              "src": "src_edit_q21_clip",
+              "kind": "widget",
+              "name": "clip_name"
+            },
+            "edit_q21_vae": {
+              "src": "src_edit_q21_vae",
+              "kind": "widget",
+              "name": "vae_name"
             }
           },
           "props": {
@@ -47459,7 +50214,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v0.9.2",
+            "text": "🧩 Универсальный воркфлоу · v0.10.0",
             "size": "M",
             "align": "left"
           },
@@ -47741,6 +50496,21 @@
               "src": "src_edit_controller",
               "kind": "widget",
               "name": "factory_edit_identity_file"
+            },
+            "edit_q21_model": {
+              "src": "src_edit_q21_model",
+              "kind": "widget",
+              "name": "unet_name"
+            },
+            "edit_q21_clip": {
+              "src": "src_edit_q21_clip",
+              "kind": "widget",
+              "name": "clip_name"
+            },
+            "edit_q21_vae": {
+              "src": "src_edit_q21_vae",
+              "kind": "widget",
+              "name": "vae_name"
             }
           },
           "props": {
