@@ -7,14 +7,11 @@ import {modelpicker} from './special.js';
 import {applyVars} from '../kit.js';
 import {APPEARANCE_PROFILES} from '../factory_appearance.js';
 
-const EXTRA_UPSCALE_FIELDS=[['simple_model','Simple · upscale-модель','upscale_models'],['ultimate_model','Ultimate · upscale-модель','upscale_models'],['z_model','Ultimate · Z-Image Turbo','diffusion_models'],['z_clip','Ultimate · энкодер','text_encoders'],['z_vae','Ultimate · VAE','vae'],['seed_dit','SeedVR · DiT','auto'],['seed_vae','SeedVR · VAE','auto']];
 const MODEL_FIELDS = [
-    ...['editor_up','solo_up'].flatMap(scope=>EXTRA_UPSCALE_FIELDS.map(([key,label,folder])=>[scope+'_'+key,label,folder])),
     ['edit_model','Модель Qwen Edit 2511','diffusion_models'],['edit_clip','Энкодер Qwen Edit','text_encoders'],['edit_vae','VAE Qwen Edit','vae'],
     ['bg_model','Удаление фона · модель','auto'],
     ['pose_lora','OpenPose · служебная LoRA','loras'],['pose_bbox','Поза · детектор человека','auto'],['pose_estimator','Поза · детектор суставов','auto'],
     ['up_simple_model','Simple · upscale-модель','upscale_models'],['up_ultimate_model','Ultimate · upscale-модель','upscale_models'],
-    ['up_z_model','Ultimate · модель Z-Image Turbo','diffusion_models'],['up_z_clip','Ultimate · энкодер Z-Image','text_encoders'],['up_z_vae','Ultimate · VAE Z-Image','vae'],
     ['up_seed_dit','SeedVR · DiT','auto'],['up_seed_vae','SeedVR · VAE','auto'],
     ['sam_model','Модель SAM 3.1','checkpoints'],['face_detector','YOLO · лица','auto'],['hand_detector','YOLO · руки','auto'],
     ['local_k_model','Модель Krea Raw · локально','diffusion_models'],['local_k_clip','Энкодер Krea · локально','text_encoders'],['local_k_vae','VAE Krea · локально','vae'],
@@ -93,16 +90,14 @@ export function openFactorySettings(ctx, onClose=()=>{}) {
     const localKrea=card(modelsGrid,'3 · Krea · лицо, руки и маски','Отдельный комплект для лица, рук и выбранных областей.');
     const localZ=card(modelsGrid,'3 · Z-Image · лицо, руки и маски','Отдельный комплект Z-Image для третьего этапа.');
     const detection=card(modelsGrid,'🔎 SAM и YOLO','SAM выделяет область по описанию, YOLO находит лица и руки. Здесь выбираются установленные файлы детекторов.');
-    const upModels=card(modelsGrid,'4 · Upscale-модели','Simple и Ultimate используют отдельные файлы и сохраняют свой выбор независимо.');
-    const upUltimate=card(modelsGrid,'4 · Ultimate · перерисовка','Совместимый комплект Z-Image Turbo для обработки тайлов.');
+    const upModels=card(modelsGrid,'Апскейл · общие модели','Один выбор для генерации, редактирования и отдельной вкладки. У Simple и Ultimate свои файлы.');
     const pose=card(modelsGrid,'🦴 Поза по референсу','OpenPose LoRA подключается автоматически при включении позы. Детекторы извлекают скелет из фото.');
     const editor=card(modelsGrid,'✏️ Редактирование · Qwen 2511','Независимый комплект редактора. Обычные LoRA выбираются на вкладке редактирования.');
     const background=card(modelsGrid,'🧽 Удаление фона','Отдельная функция. Выбор модели не меняет генерацию.');
-    const upSeed=card(modelsGrid,'4 · SeedVR','Модели восстановления и VAE. Стартовый профиль взят из рабочего апскейлера.');
-    const extraUpscale={};for(const[scope,label]of[['editor_up','Редактор · апскейл'],['solo_up','Вкладка «Апскейл»']])extraUpscale[scope]={models:card(modelsGrid,label+' · Simple / Ultimate','У каждого режима свой файл upscale-модели. Выбор не меняет генерацию.'),ultimate:card(modelsGrid,label+' · Ultimate','Собственный комплект для перерисовки тайлов.'),seed:card(modelsGrid,label+' · SeedVR','Собственные DiT и VAE для этой задачи.')};
+    const upSeed=card(modelsGrid,'Апскейл · SeedVR','Общие DiT и VAE для генерации, редактирования и отдельного апскейла.');
     for (const [key,caption,folder] of MODEL_FIELDS) {
-        const scope=key.startsWith('editor_up_')?'editor_up':key.startsWith('solo_up_')?'solo_up':null;const container=scope?extraUpscale[scope][key.includes('_seed_')?'seed':key.includes('_z_')?'ultimate':'models']:key.startsWith('edit_')?editor:key==='bg_model'?background:key.startsWith('pose_')?pose:key==='up_simple_model'||key==='up_ultimate_model'?upModels:key.startsWith('up_z_')?upUltimate:key.startsWith('up_seed_')?upSeed:['sam_model','face_detector','hand_detector'].includes(key)?detection:key.startsWith('local_k_')?localKrea:key.startsWith('local_z_')?localZ:key.includes('turbo')?turbo:key.startsWith('z_')?zimage:krea;
-        picker(container,key,caption,folder,key.endsWith('_seed_dit')?value=>{if(/3b/i.test(String(value))){const state=ctx.info(key),node=state.p?.node||state.node,w=node?.widgets?.find(w=>w.name==='blocks_to_swap');if(w&&w.value>32){w.value=32;w.callback?.(32);node.graph?.change?.();}}}:undefined);
+        const container=key.startsWith('edit_')?editor:key==='bg_model'?background:key.startsWith('pose_')?pose:key==='up_simple_model'||key==='up_ultimate_model'?upModels:key.startsWith('up_seed_')?upSeed:['sam_model','face_detector','hand_detector'].includes(key)?detection:key.startsWith('local_k_')?localKrea:key.startsWith('local_z_')?localZ:key.includes('turbo')?turbo:key.startsWith('z_')?zimage:krea;
+        picker(container,key,caption,folder,key==='up_seed_dit'?value=>{if(/3b/i.test(String(value))){const state=ctx.info(key),node=state.p?.node||state.node,w=node?.widgets?.find(w=>w.name==='blocks_to_swap');if(w&&w.value>32){w.value=32;w.callback?.(32);node.graph?.change?.();}}}:undefined);
     }
     models.append(el('h3','acf-settings-subtitle','Постоянные LoRA'));
     models.append(el('p','acf-settings-caption','По три слота на каждый набор. Включённые LoRA действуют во всех режимах своего этапа и не занимают пользовательские слоты на главной странице.'));

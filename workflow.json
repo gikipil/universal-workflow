@@ -2,7 +2,7 @@
   "id": "6156223e-7f85-4578-923d-9d05cf820581",
   "revision": 0,
   "last_node_id": 672,
-  "last_link_id": 756,
+  "last_link_id": 773,
   "nodes": [
     {
       "id": 528,
@@ -1872,7 +1872,7 @@
         {
           "name": "SEEDVR2_DIT",
           "type": "SEEDVR2_DIT",
-          "link": 690
+          "link": 759
         }
       ],
       "outputs": [
@@ -1952,7 +1952,7 @@
         {
           "name": "SEEDVR2_VAE",
           "type": "SEEDVR2_VAE",
-          "link": 692
+          "link": 760
         }
       ],
       "outputs": [
@@ -3646,7 +3646,7 @@
         {
           "name": "SEEDVR2_DIT",
           "type": "SEEDVR2_DIT",
-          "link": 735
+          "link": 763
         }
       ],
       "outputs": [
@@ -3726,7 +3726,7 @@
         {
           "name": "SEEDVR2_VAE",
           "type": "SEEDVR2_VAE",
-          "link": 737
+          "link": 764
         }
       ],
       "outputs": [
@@ -19699,7 +19699,10 @@
           "name": "VAE",
           "type": "VAE",
           "links": [
-            1
+            1,
+            767,
+            770,
+            773
           ]
         }
       ],
@@ -19763,7 +19766,10 @@
           "name": "CLIP",
           "type": "CLIP",
           "links": [
-            5
+            5,
+            766,
+            769,
+            772
           ]
         }
       ],
@@ -20426,7 +20432,10 @@
           "name": "MODEL",
           "type": "MODEL",
           "links": [
-            27
+            27,
+            765,
+            768,
+            771
           ]
         }
       ],
@@ -27025,7 +27034,9 @@
           "name": "UPSCALE_MODEL",
           "type": "UPSCALE_MODEL",
           "links": [
-            265
+            265,
+            757,
+            761
           ]
         }
       ],
@@ -27074,7 +27085,9 @@
           "name": "UPSCALE_MODEL",
           "type": "UPSCALE_MODEL",
           "links": [
-            270
+            270,
+            758,
+            762
           ]
         }
       ],
@@ -27337,181 +27350,6 @@
       "bgcolor": "#353"
     },
     {
-      "id": 273,
-      "type": "UNETLoader",
-      "pos": [
-        5500,
-        2700
-      ],
-      "size": [
-        430,
-        100
-      ],
-      "flags": {
-        "pinned": true
-      },
-      "order": 273,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "unet_name",
-          "type": "COMBO",
-          "link": null,
-          "widget": {
-            "name": "unet_name"
-          }
-        },
-        {
-          "name": "weight_dtype",
-          "type": "COMBO",
-          "link": null,
-          "widget": {
-            "name": "weight_dtype"
-          }
-        }
-      ],
-      "outputs": [
-        {
-          "name": "MODEL",
-          "type": "MODEL",
-          "links": [
-            280
-          ]
-        }
-      ],
-      "title": "🟢 4 · Ultimate · Z-Image",
-      "properties": {
-        "Node name for S&R": "UNETLoader",
-        "nd_ui_src": {
-          "uid": "src_upscale_z-model",
-          "tag": "upscale-z-model"
-        }
-      },
-      "widgets_values": [
-        "Zimage\\cyberrealisticZImage_v50.safetensors",
-        "default"
-      ],
-      "color": "#232",
-      "bgcolor": "#353"
-    },
-    {
-      "id": 274,
-      "type": "CLIPLoader",
-      "pos": [
-        5500,
-        2870
-      ],
-      "size": [
-        430,
-        110
-      ],
-      "flags": {
-        "pinned": true
-      },
-      "order": 274,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "clip_name",
-          "type": "COMBO",
-          "link": null,
-          "widget": {
-            "name": "clip_name"
-          }
-        },
-        {
-          "name": "type",
-          "type": "COMBO",
-          "link": null,
-          "widget": {
-            "name": "type"
-          }
-        },
-        {
-          "name": "device",
-          "type": "COMBO",
-          "link": null,
-          "widget": {
-            "name": "device"
-          },
-          "shape": 7
-        }
-      ],
-      "outputs": [
-        {
-          "name": "CLIP",
-          "type": "CLIP",
-          "links": [
-            277
-          ]
-        }
-      ],
-      "title": "🟢 4 · Ultimate · энкодер",
-      "properties": {
-        "Node name for S&R": "CLIPLoader",
-        "nd_ui_src": {
-          "uid": "src_upscale_z-clip",
-          "tag": "upscale-z-clip"
-        }
-      },
-      "widgets_values": [
-        "ZImage\\zImageTurbo_turbo_txt.safetensors",
-        "lumina2",
-        "default"
-      ],
-      "color": "#232",
-      "bgcolor": "#353"
-    },
-    {
-      "id": 275,
-      "type": "VAELoader",
-      "pos": [
-        5500,
-        3050
-      ],
-      "size": [
-        430,
-        100
-      ],
-      "flags": {
-        "pinned": true
-      },
-      "order": 275,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "vae_name",
-          "type": "COMBO",
-          "link": null,
-          "widget": {
-            "name": "vae_name"
-          }
-        }
-      ],
-      "outputs": [
-        {
-          "name": "VAE",
-          "type": "VAE",
-          "links": [
-            283
-          ]
-        }
-      ],
-      "title": "🟢 4 · Ultimate · VAE",
-      "properties": {
-        "Node name for S&R": "VAELoader",
-        "nd_ui_src": {
-          "uid": "src_upscale_z-vae",
-          "tag": "upscale-z-vae"
-        }
-      },
-      "widgets_values": [
-        "ZImage\\ae_zimgturbo.safetensors"
-      ],
-      "color": "#232",
-      "bgcolor": "#353"
-    },
-    {
       "id": 276,
       "type": "CLIPTextEncode",
       "pos": [
@@ -27539,7 +27377,7 @@
         {
           "name": "clip",
           "type": "CLIP",
-          "link": 277
+          "link": 766
         }
       ],
       "outputs": [
@@ -27632,7 +27470,7 @@
         {
           "name": "model",
           "type": "MODEL",
-          "link": 280
+          "link": 765
         },
         {
           "name": "positive",
@@ -27647,7 +27485,7 @@
         {
           "name": "vae",
           "type": "VAE",
-          "link": 283
+          "link": 767
         },
         {
           "name": "seed",
@@ -27930,7 +27768,9 @@
           "name": "SEEDVR2_DIT",
           "type": "SEEDVR2_DIT",
           "links": [
-            379
+            379,
+            759,
+            763
           ]
         }
       ],
@@ -28080,7 +27920,9 @@
           "name": "SEEDVR2_VAE",
           "type": "SEEDVR2_VAE",
           "links": [
-            381
+            381,
+            760,
+            764
           ]
         }
       ],
@@ -28369,9 +28211,6 @@
             270,
             271,
             272,
-            273,
-            274,
-            275,
             276,
             277,
             278,
@@ -32059,6 +31898,26 @@
             473
           ],
           "nodes": [
+            1,
+            2,
+            3,
+            5,
+            6,
+            18,
+            19,
+            20,
+            21,
+            26,
+            27,
+            28,
+            30,
+            35,
+            36,
+            37,
+            266,
+            267,
+            280,
+            281,
             456,
             457,
             458,
@@ -32096,22 +31955,15 @@
             529,
             530,
             531,
-            532,
-            533,
             534,
             535,
             536,
             537,
             538,
-            539,
-            540,
-            541,
             542,
             543,
             544,
             545,
-            546,
-            547,
             548,
             549,
             550,
@@ -32677,104 +32529,6 @@
       "bgcolor": "#353"
     },
     {
-      "id": 532,
-      "type": "UpscaleModelLoader",
-      "pos": [
-        460,
-        7370
-      ],
-      "size": [
-        340,
-        240
-      ],
-      "flags": {
-        "pinned": true
-      },
-      "order": 532,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "model_name",
-          "type": "COMBO",
-          "link": null,
-          "widget": {
-            "name": "model_name"
-          }
-        }
-      ],
-      "outputs": [
-        {
-          "name": "UPSCALE_MODEL",
-          "type": "UPSCALE_MODEL",
-          "links": [
-            584
-          ]
-        }
-      ],
-      "title": "📈 Редактор · 🟢 Simple · upscale-модель",
-      "properties": {
-        "Node name for S&R": "UpscaleModelLoader",
-        "nd_ui_src": {
-          "uid": "src_editor_up_simple-model",
-          "tag": "editor_up-simple-model"
-        }
-      },
-      "widgets_values": [
-        "4x_NMKD-Siax_200k.pth"
-      ],
-      "color": "#232",
-      "bgcolor": "#353"
-    },
-    {
-      "id": 533,
-      "type": "UpscaleModelLoader",
-      "pos": [
-        460,
-        8170
-      ],
-      "size": [
-        340,
-        240
-      ],
-      "flags": {
-        "pinned": true
-      },
-      "order": 533,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "model_name",
-          "type": "COMBO",
-          "link": null,
-          "widget": {
-            "name": "model_name"
-          }
-        }
-      ],
-      "outputs": [
-        {
-          "name": "UPSCALE_MODEL",
-          "type": "UPSCALE_MODEL",
-          "links": [
-            589
-          ]
-        }
-      ],
-      "title": "📈 Редактор · 🟢 Ultimate · upscale-модель",
-      "properties": {
-        "Node name for S&R": "UpscaleModelLoader",
-        "nd_ui_src": {
-          "uid": "src_editor_up_ultimate-model",
-          "tag": "editor_up-ultimate-model"
-        }
-      },
-      "widgets_values": [
-        "4x_NMKD-Siax_200k.pth"
-      ],
-      "color": "#232",
-      "bgcolor": "#353"
-    },
-    {
       "id": 534,
       "type": "ImageUpscaleWithModel",
       "pos": [
@@ -32794,7 +32548,7 @@
         {
           "name": "upscale_model",
           "type": "UPSCALE_MODEL",
-          "link": 584
+          "link": 757
         },
         {
           "name": "image",
@@ -32916,7 +32670,7 @@
         {
           "name": "upscale_model",
           "type": "UPSCALE_MODEL",
-          "link": 589
+          "link": 758
         },
         {
           "name": "image",
@@ -33019,181 +32773,6 @@
       "bgcolor": "#353"
     },
     {
-      "id": 539,
-      "type": "UNETLoader",
-      "pos": [
-        1320,
-        8170
-      ],
-      "size": [
-        430,
-        100
-      ],
-      "flags": {
-        "pinned": true
-      },
-      "order": 539,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "unet_name",
-          "type": "COMBO",
-          "link": null,
-          "widget": {
-            "name": "unet_name"
-          }
-        },
-        {
-          "name": "weight_dtype",
-          "type": "COMBO",
-          "link": null,
-          "widget": {
-            "name": "weight_dtype"
-          }
-        }
-      ],
-      "outputs": [
-        {
-          "name": "MODEL",
-          "type": "MODEL",
-          "links": [
-            599
-          ]
-        }
-      ],
-      "title": "📈 Редактор · 🟢 Ultimate · Z-Image",
-      "properties": {
-        "Node name for S&R": "UNETLoader",
-        "nd_ui_src": {
-          "uid": "src_editor_up_z-model",
-          "tag": "editor_up-z-model"
-        }
-      },
-      "widgets_values": [
-        "Zimage\\cyberrealisticZImage_v50.safetensors",
-        "default"
-      ],
-      "color": "#232",
-      "bgcolor": "#353"
-    },
-    {
-      "id": 540,
-      "type": "CLIPLoader",
-      "pos": [
-        1320,
-        8340
-      ],
-      "size": [
-        430,
-        110
-      ],
-      "flags": {
-        "pinned": true
-      },
-      "order": 540,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "clip_name",
-          "type": "COMBO",
-          "link": null,
-          "widget": {
-            "name": "clip_name"
-          }
-        },
-        {
-          "name": "type",
-          "type": "COMBO",
-          "link": null,
-          "widget": {
-            "name": "type"
-          }
-        },
-        {
-          "name": "device",
-          "type": "COMBO",
-          "link": null,
-          "widget": {
-            "name": "device"
-          },
-          "shape": 7
-        }
-      ],
-      "outputs": [
-        {
-          "name": "CLIP",
-          "type": "CLIP",
-          "links": [
-            596
-          ]
-        }
-      ],
-      "title": "📈 Редактор · 🟢 Ultimate · энкодер",
-      "properties": {
-        "Node name for S&R": "CLIPLoader",
-        "nd_ui_src": {
-          "uid": "src_editor_up_z-clip",
-          "tag": "editor_up-z-clip"
-        }
-      },
-      "widgets_values": [
-        "ZImage\\zImageTurbo_turbo_txt.safetensors",
-        "lumina2",
-        "default"
-      ],
-      "color": "#232",
-      "bgcolor": "#353"
-    },
-    {
-      "id": 541,
-      "type": "VAELoader",
-      "pos": [
-        1320,
-        8520
-      ],
-      "size": [
-        430,
-        100
-      ],
-      "flags": {
-        "pinned": true
-      },
-      "order": 541,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "vae_name",
-          "type": "COMBO",
-          "link": null,
-          "widget": {
-            "name": "vae_name"
-          }
-        }
-      ],
-      "outputs": [
-        {
-          "name": "VAE",
-          "type": "VAE",
-          "links": [
-            602
-          ]
-        }
-      ],
-      "title": "📈 Редактор · 🟢 Ultimate · VAE",
-      "properties": {
-        "Node name for S&R": "VAELoader",
-        "nd_ui_src": {
-          "uid": "src_editor_up_z-vae",
-          "tag": "editor_up-z-vae"
-        }
-      },
-      "widgets_values": [
-        "ZImage\\ae_zimgturbo.safetensors"
-      ],
-      "color": "#232",
-      "bgcolor": "#353"
-    },
-    {
       "id": 542,
       "type": "CLIPTextEncode",
       "pos": [
@@ -33221,7 +32800,7 @@
         {
           "name": "clip",
           "type": "CLIP",
-          "link": 596
+          "link": 769
         }
       ],
       "outputs": [
@@ -33314,7 +32893,7 @@
         {
           "name": "model",
           "type": "MODEL",
-          "link": 599
+          "link": 768
         },
         {
           "name": "positive",
@@ -33329,7 +32908,7 @@
         {
           "name": "vae",
           "type": "VAE",
-          "link": 602
+          "link": 770
         },
         {
           "name": "seed",
@@ -33521,274 +33100,6 @@
       ],
       "color": "#322",
       "bgcolor": "#533"
-    },
-    {
-      "id": 546,
-      "type": "SeedVR2LoadDiTModel",
-      "pos": [
-        2200,
-        7370
-      ],
-      "size": [
-        360,
-        400
-      ],
-      "flags": {
-        "pinned": true
-      },
-      "order": 546,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "model",
-          "type": "COMBO",
-          "link": null,
-          "widget": {
-            "name": "model"
-          }
-        },
-        {
-          "name": "device",
-          "type": "COMBO",
-          "link": null,
-          "widget": {
-            "name": "device"
-          }
-        },
-        {
-          "name": "blocks_to_swap",
-          "type": "INT",
-          "link": null,
-          "widget": {
-            "name": "blocks_to_swap"
-          },
-          "shape": 7
-        },
-        {
-          "name": "swap_io_components",
-          "type": "BOOLEAN",
-          "link": null,
-          "widget": {
-            "name": "swap_io_components"
-          },
-          "shape": 7
-        },
-        {
-          "name": "offload_device",
-          "type": "COMBO",
-          "link": null,
-          "widget": {
-            "name": "offload_device"
-          },
-          "shape": 7
-        },
-        {
-          "name": "cache_model",
-          "type": "BOOLEAN",
-          "link": null,
-          "widget": {
-            "name": "cache_model"
-          },
-          "shape": 7
-        },
-        {
-          "name": "attention_mode",
-          "type": "COMBO",
-          "link": null,
-          "widget": {
-            "name": "attention_mode"
-          },
-          "shape": 7
-        },
-        {
-          "name": "torch_compile_args",
-          "type": "TORCH_COMPILE_ARGS",
-          "link": null,
-          "shape": 7
-        }
-      ],
-      "outputs": [
-        {
-          "name": "SEEDVR2_DIT",
-          "type": "SEEDVR2_DIT",
-          "links": [
-            690
-          ]
-        }
-      ],
-      "title": "📈 Редактор · 🟢 SeedVR · DiT",
-      "properties": {
-        "Node name for S&R": "SeedVR2LoadDiTModel",
-        "nd_ui_src": {
-          "uid": "src_editor_up_seed-dit",
-          "tag": "editor_up-seed-dit"
-        }
-      },
-      "widgets_values": [
-        "seedvr2_ema_7b-Q4_K_M.gguf",
-        "cuda:0",
-        36,
-        false,
-        "cpu",
-        false,
-        "sdpa"
-      ],
-      "color": "#232",
-      "bgcolor": "#353"
-    },
-    {
-      "id": 547,
-      "type": "SeedVR2LoadVAEModel",
-      "pos": [
-        2620,
-        7370
-      ],
-      "size": [
-        360,
-        500
-      ],
-      "flags": {
-        "pinned": true
-      },
-      "order": 547,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "model",
-          "type": "COMBO",
-          "link": null,
-          "widget": {
-            "name": "model"
-          }
-        },
-        {
-          "name": "device",
-          "type": "COMBO",
-          "link": null,
-          "widget": {
-            "name": "device"
-          }
-        },
-        {
-          "name": "encode_tiled",
-          "type": "BOOLEAN",
-          "link": null,
-          "widget": {
-            "name": "encode_tiled"
-          },
-          "shape": 7
-        },
-        {
-          "name": "encode_tile_size",
-          "type": "INT",
-          "link": null,
-          "widget": {
-            "name": "encode_tile_size"
-          },
-          "shape": 7
-        },
-        {
-          "name": "encode_tile_overlap",
-          "type": "INT",
-          "link": null,
-          "widget": {
-            "name": "encode_tile_overlap"
-          },
-          "shape": 7
-        },
-        {
-          "name": "decode_tiled",
-          "type": "BOOLEAN",
-          "link": null,
-          "widget": {
-            "name": "decode_tiled"
-          },
-          "shape": 7
-        },
-        {
-          "name": "decode_tile_size",
-          "type": "INT",
-          "link": null,
-          "widget": {
-            "name": "decode_tile_size"
-          },
-          "shape": 7
-        },
-        {
-          "name": "decode_tile_overlap",
-          "type": "INT",
-          "link": null,
-          "widget": {
-            "name": "decode_tile_overlap"
-          },
-          "shape": 7
-        },
-        {
-          "name": "tile_debug",
-          "type": "COMBO",
-          "link": null,
-          "widget": {
-            "name": "tile_debug"
-          },
-          "shape": 7
-        },
-        {
-          "name": "offload_device",
-          "type": "COMBO",
-          "link": null,
-          "widget": {
-            "name": "offload_device"
-          },
-          "shape": 7
-        },
-        {
-          "name": "cache_model",
-          "type": "BOOLEAN",
-          "link": null,
-          "widget": {
-            "name": "cache_model"
-          },
-          "shape": 7
-        },
-        {
-          "name": "torch_compile_args",
-          "type": "TORCH_COMPILE_ARGS",
-          "link": null,
-          "shape": 7
-        }
-      ],
-      "outputs": [
-        {
-          "name": "SEEDVR2_VAE",
-          "type": "SEEDVR2_VAE",
-          "links": [
-            692
-          ]
-        }
-      ],
-      "title": "📈 Редактор · 🟢 SeedVR · VAE",
-      "properties": {
-        "Node name for S&R": "SeedVR2LoadVAEModel",
-        "nd_ui_src": {
-          "uid": "src_editor_up_seed-vae",
-          "tag": "editor_up-seed-vae"
-        }
-      },
-      "widgets_values": [
-        "ema_vae_fp16.safetensors",
-        "cuda:0",
-        true,
-        1024,
-        128,
-        true,
-        1024,
-        128,
-        "false",
-        "cpu",
-        false
-      ],
-      "color": "#232",
-      "bgcolor": "#353"
     },
     {
       "id": 548,
@@ -34022,43 +33333,56 @@
           "factor": 526,
           "long": 527,
           "simple": 538,
-          "simpleModel": 532,
+          "simpleModel": 266,
           "simpleSample": 534,
           "simpleResize": 535,
-          "ultimateModel": 533,
+          "ultimateModel": 267,
           "ultimate": 545,
           "prompt": 542,
           "seed": 544,
-          "dit": 546,
-          "vae": 547,
+          "dit": 280,
+          "vae": 281,
           "seedvr": 548,
           "before": 551,
           "after": 552,
           "targetFactor": 526,
           "targetLong": 527,
           "nodes": [
+            1,
+            2,
+            3,
+            5,
+            6,
+            18,
+            19,
+            20,
+            21,
+            26,
+            27,
+            28,
+            30,
+            35,
+            36,
+            37,
+            266,
+            267,
+            280,
+            281,
             526,
             527,
             528,
             529,
             530,
             531,
-            532,
-            533,
             534,
             535,
             536,
             537,
             538,
-            539,
-            540,
-            541,
             542,
             543,
             544,
             545,
-            546,
-            547,
             548,
             549,
             550,
@@ -34334,104 +33658,6 @@
       "bgcolor": "#353"
     },
     {
-      "id": 561,
-      "type": "UpscaleModelLoader",
-      "pos": [
-        460,
-        9670
-      ],
-      "size": [
-        340,
-        240
-      ],
-      "flags": {
-        "pinned": true
-      },
-      "order": 561,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "model_name",
-          "type": "COMBO",
-          "link": null,
-          "widget": {
-            "name": "model_name"
-          }
-        }
-      ],
-      "outputs": [
-        {
-          "name": "UPSCALE_MODEL",
-          "type": "UPSCALE_MODEL",
-          "links": [
-            631
-          ]
-        }
-      ],
-      "title": "📈 Апскейл · 🟢 Simple · upscale-модель",
-      "properties": {
-        "Node name for S&R": "UpscaleModelLoader",
-        "nd_ui_src": {
-          "uid": "src_solo_up_simple-model",
-          "tag": "solo_up-simple-model"
-        }
-      },
-      "widgets_values": [
-        "4x_NMKD-Siax_200k.pth"
-      ],
-      "color": "#232",
-      "bgcolor": "#353"
-    },
-    {
-      "id": 562,
-      "type": "UpscaleModelLoader",
-      "pos": [
-        460,
-        10470
-      ],
-      "size": [
-        340,
-        240
-      ],
-      "flags": {
-        "pinned": true
-      },
-      "order": 562,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "model_name",
-          "type": "COMBO",
-          "link": null,
-          "widget": {
-            "name": "model_name"
-          }
-        }
-      ],
-      "outputs": [
-        {
-          "name": "UPSCALE_MODEL",
-          "type": "UPSCALE_MODEL",
-          "links": [
-            636
-          ]
-        }
-      ],
-      "title": "📈 Апскейл · 🟢 Ultimate · upscale-модель",
-      "properties": {
-        "Node name for S&R": "UpscaleModelLoader",
-        "nd_ui_src": {
-          "uid": "src_solo_up_ultimate-model",
-          "tag": "solo_up-ultimate-model"
-        }
-      },
-      "widgets_values": [
-        "4x_NMKD-Siax_200k.pth"
-      ],
-      "color": "#232",
-      "bgcolor": "#353"
-    },
-    {
       "id": 563,
       "type": "ImageUpscaleWithModel",
       "pos": [
@@ -34451,7 +33677,7 @@
         {
           "name": "upscale_model",
           "type": "UPSCALE_MODEL",
-          "link": 631
+          "link": 761
         },
         {
           "name": "image",
@@ -34573,7 +33799,7 @@
         {
           "name": "upscale_model",
           "type": "UPSCALE_MODEL",
-          "link": 636
+          "link": 762
         },
         {
           "name": "image",
@@ -34676,181 +33902,6 @@
       "bgcolor": "#353"
     },
     {
-      "id": 568,
-      "type": "UNETLoader",
-      "pos": [
-        1320,
-        10470
-      ],
-      "size": [
-        430,
-        100
-      ],
-      "flags": {
-        "pinned": true
-      },
-      "order": 568,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "unet_name",
-          "type": "COMBO",
-          "link": null,
-          "widget": {
-            "name": "unet_name"
-          }
-        },
-        {
-          "name": "weight_dtype",
-          "type": "COMBO",
-          "link": null,
-          "widget": {
-            "name": "weight_dtype"
-          }
-        }
-      ],
-      "outputs": [
-        {
-          "name": "MODEL",
-          "type": "MODEL",
-          "links": [
-            646
-          ]
-        }
-      ],
-      "title": "📈 Апскейл · 🟢 Ultimate · Z-Image",
-      "properties": {
-        "Node name for S&R": "UNETLoader",
-        "nd_ui_src": {
-          "uid": "src_solo_up_z-model",
-          "tag": "solo_up-z-model"
-        }
-      },
-      "widgets_values": [
-        "Zimage\\cyberrealisticZImage_v50.safetensors",
-        "default"
-      ],
-      "color": "#232",
-      "bgcolor": "#353"
-    },
-    {
-      "id": 569,
-      "type": "CLIPLoader",
-      "pos": [
-        1320,
-        10640
-      ],
-      "size": [
-        430,
-        110
-      ],
-      "flags": {
-        "pinned": true
-      },
-      "order": 569,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "clip_name",
-          "type": "COMBO",
-          "link": null,
-          "widget": {
-            "name": "clip_name"
-          }
-        },
-        {
-          "name": "type",
-          "type": "COMBO",
-          "link": null,
-          "widget": {
-            "name": "type"
-          }
-        },
-        {
-          "name": "device",
-          "type": "COMBO",
-          "link": null,
-          "widget": {
-            "name": "device"
-          },
-          "shape": 7
-        }
-      ],
-      "outputs": [
-        {
-          "name": "CLIP",
-          "type": "CLIP",
-          "links": [
-            643
-          ]
-        }
-      ],
-      "title": "📈 Апскейл · 🟢 Ultimate · энкодер",
-      "properties": {
-        "Node name for S&R": "CLIPLoader",
-        "nd_ui_src": {
-          "uid": "src_solo_up_z-clip",
-          "tag": "solo_up-z-clip"
-        }
-      },
-      "widgets_values": [
-        "ZImage\\zImageTurbo_turbo_txt.safetensors",
-        "lumina2",
-        "default"
-      ],
-      "color": "#232",
-      "bgcolor": "#353"
-    },
-    {
-      "id": 570,
-      "type": "VAELoader",
-      "pos": [
-        1320,
-        10820
-      ],
-      "size": [
-        430,
-        100
-      ],
-      "flags": {
-        "pinned": true
-      },
-      "order": 570,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "vae_name",
-          "type": "COMBO",
-          "link": null,
-          "widget": {
-            "name": "vae_name"
-          }
-        }
-      ],
-      "outputs": [
-        {
-          "name": "VAE",
-          "type": "VAE",
-          "links": [
-            649
-          ]
-        }
-      ],
-      "title": "📈 Апскейл · 🟢 Ultimate · VAE",
-      "properties": {
-        "Node name for S&R": "VAELoader",
-        "nd_ui_src": {
-          "uid": "src_solo_up_z-vae",
-          "tag": "solo_up-z-vae"
-        }
-      },
-      "widgets_values": [
-        "ZImage\\ae_zimgturbo.safetensors"
-      ],
-      "color": "#232",
-      "bgcolor": "#353"
-    },
-    {
       "id": 571,
       "type": "CLIPTextEncode",
       "pos": [
@@ -34878,7 +33929,7 @@
         {
           "name": "clip",
           "type": "CLIP",
-          "link": 643
+          "link": 772
         }
       ],
       "outputs": [
@@ -34971,7 +34022,7 @@
         {
           "name": "model",
           "type": "MODEL",
-          "link": 646
+          "link": 771
         },
         {
           "name": "positive",
@@ -34986,7 +34037,7 @@
         {
           "name": "vae",
           "type": "VAE",
-          "link": 649
+          "link": 773
         },
         {
           "name": "seed",
@@ -35178,274 +34229,6 @@
       ],
       "color": "#322",
       "bgcolor": "#533"
-    },
-    {
-      "id": 575,
-      "type": "SeedVR2LoadDiTModel",
-      "pos": [
-        2200,
-        9670
-      ],
-      "size": [
-        360,
-        400
-      ],
-      "flags": {
-        "pinned": true
-      },
-      "order": 575,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "model",
-          "type": "COMBO",
-          "link": null,
-          "widget": {
-            "name": "model"
-          }
-        },
-        {
-          "name": "device",
-          "type": "COMBO",
-          "link": null,
-          "widget": {
-            "name": "device"
-          }
-        },
-        {
-          "name": "blocks_to_swap",
-          "type": "INT",
-          "link": null,
-          "widget": {
-            "name": "blocks_to_swap"
-          },
-          "shape": 7
-        },
-        {
-          "name": "swap_io_components",
-          "type": "BOOLEAN",
-          "link": null,
-          "widget": {
-            "name": "swap_io_components"
-          },
-          "shape": 7
-        },
-        {
-          "name": "offload_device",
-          "type": "COMBO",
-          "link": null,
-          "widget": {
-            "name": "offload_device"
-          },
-          "shape": 7
-        },
-        {
-          "name": "cache_model",
-          "type": "BOOLEAN",
-          "link": null,
-          "widget": {
-            "name": "cache_model"
-          },
-          "shape": 7
-        },
-        {
-          "name": "attention_mode",
-          "type": "COMBO",
-          "link": null,
-          "widget": {
-            "name": "attention_mode"
-          },
-          "shape": 7
-        },
-        {
-          "name": "torch_compile_args",
-          "type": "TORCH_COMPILE_ARGS",
-          "link": null,
-          "shape": 7
-        }
-      ],
-      "outputs": [
-        {
-          "name": "SEEDVR2_DIT",
-          "type": "SEEDVR2_DIT",
-          "links": [
-            735
-          ]
-        }
-      ],
-      "title": "📈 Апскейл · 🟢 SeedVR · DiT",
-      "properties": {
-        "Node name for S&R": "SeedVR2LoadDiTModel",
-        "nd_ui_src": {
-          "uid": "src_solo_up_seed-dit",
-          "tag": "solo_up-seed-dit"
-        }
-      },
-      "widgets_values": [
-        "seedvr2_ema_7b-Q4_K_M.gguf",
-        "cuda:0",
-        36,
-        false,
-        "cpu",
-        false,
-        "sdpa"
-      ],
-      "color": "#232",
-      "bgcolor": "#353"
-    },
-    {
-      "id": 576,
-      "type": "SeedVR2LoadVAEModel",
-      "pos": [
-        2620,
-        9670
-      ],
-      "size": [
-        360,
-        500
-      ],
-      "flags": {
-        "pinned": true
-      },
-      "order": 576,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "model",
-          "type": "COMBO",
-          "link": null,
-          "widget": {
-            "name": "model"
-          }
-        },
-        {
-          "name": "device",
-          "type": "COMBO",
-          "link": null,
-          "widget": {
-            "name": "device"
-          }
-        },
-        {
-          "name": "encode_tiled",
-          "type": "BOOLEAN",
-          "link": null,
-          "widget": {
-            "name": "encode_tiled"
-          },
-          "shape": 7
-        },
-        {
-          "name": "encode_tile_size",
-          "type": "INT",
-          "link": null,
-          "widget": {
-            "name": "encode_tile_size"
-          },
-          "shape": 7
-        },
-        {
-          "name": "encode_tile_overlap",
-          "type": "INT",
-          "link": null,
-          "widget": {
-            "name": "encode_tile_overlap"
-          },
-          "shape": 7
-        },
-        {
-          "name": "decode_tiled",
-          "type": "BOOLEAN",
-          "link": null,
-          "widget": {
-            "name": "decode_tiled"
-          },
-          "shape": 7
-        },
-        {
-          "name": "decode_tile_size",
-          "type": "INT",
-          "link": null,
-          "widget": {
-            "name": "decode_tile_size"
-          },
-          "shape": 7
-        },
-        {
-          "name": "decode_tile_overlap",
-          "type": "INT",
-          "link": null,
-          "widget": {
-            "name": "decode_tile_overlap"
-          },
-          "shape": 7
-        },
-        {
-          "name": "tile_debug",
-          "type": "COMBO",
-          "link": null,
-          "widget": {
-            "name": "tile_debug"
-          },
-          "shape": 7
-        },
-        {
-          "name": "offload_device",
-          "type": "COMBO",
-          "link": null,
-          "widget": {
-            "name": "offload_device"
-          },
-          "shape": 7
-        },
-        {
-          "name": "cache_model",
-          "type": "BOOLEAN",
-          "link": null,
-          "widget": {
-            "name": "cache_model"
-          },
-          "shape": 7
-        },
-        {
-          "name": "torch_compile_args",
-          "type": "TORCH_COMPILE_ARGS",
-          "link": null,
-          "shape": 7
-        }
-      ],
-      "outputs": [
-        {
-          "name": "SEEDVR2_VAE",
-          "type": "SEEDVR2_VAE",
-          "links": [
-            737
-          ]
-        }
-      ],
-      "title": "📈 Апскейл · 🟢 SeedVR · VAE",
-      "properties": {
-        "Node name for S&R": "SeedVR2LoadVAEModel",
-        "nd_ui_src": {
-          "uid": "src_solo_up_seed-vae",
-          "tag": "solo_up-seed-vae"
-        }
-      },
-      "widgets_values": [
-        "ema_vae_fp16.safetensors",
-        "cuda:0",
-        true,
-        1024,
-        128,
-        true,
-        1024,
-        128,
-        "false",
-        "cpu",
-        false
-      ],
-      "color": "#232",
-      "bgcolor": "#353"
     },
     {
       "id": 577,
@@ -35679,43 +34462,56 @@
           "factor": 555,
           "long": 556,
           "simple": 567,
-          "simpleModel": 561,
+          "simpleModel": 266,
           "simpleSample": 563,
           "simpleResize": 564,
-          "ultimateModel": 562,
+          "ultimateModel": 267,
           "ultimate": 574,
           "prompt": 571,
           "seed": 573,
-          "dit": 575,
-          "vae": 576,
+          "dit": 280,
+          "vae": 281,
           "seedvr": 577,
           "before": 580,
           "after": 581,
           "targetFactor": 555,
           "targetLong": 556,
           "nodes": [
+            1,
+            2,
+            3,
+            5,
+            6,
+            18,
+            19,
+            20,
+            21,
+            26,
+            27,
+            28,
+            30,
+            35,
+            36,
+            37,
+            266,
+            267,
+            280,
+            281,
             555,
             556,
             557,
             558,
             559,
             560,
-            561,
-            562,
             563,
             564,
             565,
             566,
             567,
-            568,
-            569,
-            570,
             571,
             572,
             573,
             574,
-            575,
-            576,
             577,
             578,
             579,
@@ -35732,6 +34528,26 @@
           "saver": 583,
           "save": false,
           "nodes": [
+            1,
+            2,
+            3,
+            5,
+            6,
+            18,
+            19,
+            20,
+            21,
+            26,
+            27,
+            28,
+            30,
+            35,
+            36,
+            37,
+            266,
+            267,
+            280,
+            281,
             554,
             555,
             556,
@@ -35739,22 +34555,15 @@
             558,
             559,
             560,
-            561,
-            562,
             563,
             564,
             565,
             566,
             567,
-            568,
-            569,
-            570,
             571,
             572,
             573,
             574,
-            575,
-            576,
             577,
             578,
             579,
@@ -37750,36 +36559,12 @@
       "IMAGE"
     ],
     [
-      277,
-      274,
-      0,
-      276,
-      1,
-      "CLIP"
-    ],
-    [
       278,
       276,
       0,
       277,
       0,
       "CONDITIONING"
-    ],
-    [
-      280,
-      273,
-      0,
-      279,
-      1,
-      "MODEL"
-    ],
-    [
-      283,
-      275,
-      0,
-      279,
-      4,
-      "VAE"
     ],
     [
       295,
@@ -39558,28 +38343,12 @@
       "INT"
     ],
     [
-      584,
-      532,
-      0,
-      534,
-      0,
-      "UPSCALE_MODEL"
-    ],
-    [
       586,
       534,
       0,
       535,
       0,
       "IMAGE"
-    ],
-    [
-      589,
-      533,
-      0,
-      536,
-      0,
-      "UPSCALE_MODEL"
     ],
     [
       591,
@@ -39598,36 +38367,12 @@
       "IMAGE"
     ],
     [
-      596,
-      540,
-      0,
-      542,
-      1,
-      "CLIP"
-    ],
-    [
       597,
       542,
       0,
       543,
       0,
       "CONDITIONING"
-    ],
-    [
-      599,
-      539,
-      0,
-      545,
-      1,
-      "MODEL"
-    ],
-    [
-      602,
-      541,
-      0,
-      545,
-      4,
-      "VAE"
     ],
     [
       614,
@@ -39702,28 +38447,12 @@
       "INT"
     ],
     [
-      631,
-      561,
-      0,
-      563,
-      0,
-      "UPSCALE_MODEL"
-    ],
-    [
       633,
       563,
       0,
       564,
       0,
       "IMAGE"
-    ],
-    [
-      636,
-      562,
-      0,
-      565,
-      0,
-      "UPSCALE_MODEL"
     ],
     [
       638,
@@ -39742,36 +38471,12 @@
       "IMAGE"
     ],
     [
-      643,
-      569,
-      0,
-      571,
-      1,
-      "CLIP"
-    ],
-    [
       644,
       571,
       0,
       572,
       0,
       "CONDITIONING"
-    ],
-    [
-      646,
-      568,
-      0,
-      574,
-      1,
-      "MODEL"
-    ],
-    [
-      649,
-      570,
-      0,
-      574,
-      4,
-      "VAE"
     ],
     [
       661,
@@ -39966,28 +38671,12 @@
       "IMAGE"
     ],
     [
-      690,
-      546,
-      0,
-      606,
-      0,
-      "SEEDVR2_DIT"
-    ],
-    [
       691,
       607,
       0,
       548,
       1,
       "SEEDVR2_DIT"
-    ],
-    [
-      692,
-      547,
-      0,
-      608,
-      0,
-      "SEEDVR2_VAE"
     ],
     [
       693,
@@ -40326,28 +39015,12 @@
       "IMAGE"
     ],
     [
-      735,
-      575,
-      0,
-      651,
-      0,
-      "SEEDVR2_DIT"
-    ],
-    [
       736,
       652,
       0,
       577,
       1,
       "SEEDVR2_DIT"
-    ],
-    [
-      737,
-      576,
-      0,
-      653,
-      0,
-      "SEEDVR2_VAE"
     ],
     [
       738,
@@ -40500,6 +39173,142 @@
       583,
       0,
       "*"
+    ],
+    [
+      757,
+      266,
+      0,
+      534,
+      0,
+      "UPSCALE_MODEL"
+    ],
+    [
+      758,
+      267,
+      0,
+      536,
+      0,
+      "UPSCALE_MODEL"
+    ],
+    [
+      759,
+      280,
+      0,
+      606,
+      0,
+      "SEEDVR2_DIT"
+    ],
+    [
+      760,
+      281,
+      0,
+      608,
+      0,
+      "SEEDVR2_VAE"
+    ],
+    [
+      761,
+      266,
+      0,
+      563,
+      0,
+      "UPSCALE_MODEL"
+    ],
+    [
+      762,
+      267,
+      0,
+      565,
+      0,
+      "UPSCALE_MODEL"
+    ],
+    [
+      763,
+      280,
+      0,
+      651,
+      0,
+      "SEEDVR2_DIT"
+    ],
+    [
+      764,
+      281,
+      0,
+      653,
+      0,
+      "SEEDVR2_VAE"
+    ],
+    [
+      765,
+      30,
+      0,
+      279,
+      1,
+      "MODEL"
+    ],
+    [
+      766,
+      5,
+      1,
+      276,
+      1,
+      "CLIP"
+    ],
+    [
+      767,
+      3,
+      0,
+      279,
+      4,
+      "VAE"
+    ],
+    [
+      768,
+      30,
+      0,
+      545,
+      1,
+      "MODEL"
+    ],
+    [
+      769,
+      5,
+      1,
+      542,
+      1,
+      "CLIP"
+    ],
+    [
+      770,
+      3,
+      0,
+      545,
+      4,
+      "VAE"
+    ],
+    [
+      771,
+      30,
+      0,
+      574,
+      1,
+      "MODEL"
+    ],
+    [
+      772,
+      5,
+      1,
+      571,
+      1,
+      "CLIP"
+    ],
+    [
+      773,
+      3,
+      0,
+      574,
+      4,
+      "VAE"
     ]
   ],
   "groups": [
@@ -41407,24 +40216,6 @@
           "title": "🟢 4 · Ultimate · upscale-модель"
         },
         {
-          "uid": "src_upscale_z-model",
-          "tag": "upscale-z-model",
-          "class": "UNETLoader",
-          "title": "🟢 4 · Ultimate · Z-Image"
-        },
-        {
-          "uid": "src_upscale_z-clip",
-          "tag": "upscale-z-clip",
-          "class": "CLIPLoader",
-          "title": "🟢 4 · Ultimate · энкодер"
-        },
-        {
-          "uid": "src_upscale_z-vae",
-          "tag": "upscale-z-vae",
-          "class": "VAELoader",
-          "title": "🟢 4 · Ultimate · VAE"
-        },
-        {
           "uid": "src_upscale_seed-dit",
           "tag": "upscale-seed-dit",
           "class": "SeedVR2LoadDiTModel",
@@ -41635,48 +40426,6 @@
           "title": "🟣 Мягкость края маски"
         },
         {
-          "uid": "src_editor_up_simple-model",
-          "tag": "editor_up-simple-model",
-          "class": "UpscaleModelLoader",
-          "title": "📈 Редактор · 🟢 Simple · upscale-модель"
-        },
-        {
-          "uid": "src_editor_up_ultimate-model",
-          "tag": "editor_up-ultimate-model",
-          "class": "UpscaleModelLoader",
-          "title": "📈 Редактор · 🟢 Ultimate · upscale-модель"
-        },
-        {
-          "uid": "src_editor_up_z-model",
-          "tag": "editor_up-z-model",
-          "class": "UNETLoader",
-          "title": "📈 Редактор · 🟢 Ultimate · Z-Image"
-        },
-        {
-          "uid": "src_editor_up_z-clip",
-          "tag": "editor_up-z-clip",
-          "class": "CLIPLoader",
-          "title": "📈 Редактор · 🟢 Ultimate · энкодер"
-        },
-        {
-          "uid": "src_editor_up_z-vae",
-          "tag": "editor_up-z-vae",
-          "class": "VAELoader",
-          "title": "📈 Редактор · 🟢 Ultimate · VAE"
-        },
-        {
-          "uid": "src_editor_up_seed-dit",
-          "tag": "editor_up-seed-dit",
-          "class": "SeedVR2LoadDiTModel",
-          "title": "📈 Редактор · 🟢 SeedVR · DiT"
-        },
-        {
-          "uid": "src_editor_up_seed-vae",
-          "tag": "editor_up-seed-vae",
-          "class": "SeedVR2LoadVAEModel",
-          "title": "📈 Редактор · 🟢 SeedVR · VAE"
-        },
-        {
           "uid": "src_editor_up_controller",
           "tag": "editor_up-controller",
           "class": "easy anythingIndexSwitch",
@@ -41699,48 +40448,6 @@
           "tag": "solo_up-photo",
           "class": "LoadImage",
           "title": "📷 Апскейл · исходное фото"
-        },
-        {
-          "uid": "src_solo_up_simple-model",
-          "tag": "solo_up-simple-model",
-          "class": "UpscaleModelLoader",
-          "title": "📈 Апскейл · 🟢 Simple · upscale-модель"
-        },
-        {
-          "uid": "src_solo_up_ultimate-model",
-          "tag": "solo_up-ultimate-model",
-          "class": "UpscaleModelLoader",
-          "title": "📈 Апскейл · 🟢 Ultimate · upscale-модель"
-        },
-        {
-          "uid": "src_solo_up_z-model",
-          "tag": "solo_up-z-model",
-          "class": "UNETLoader",
-          "title": "📈 Апскейл · 🟢 Ultimate · Z-Image"
-        },
-        {
-          "uid": "src_solo_up_z-clip",
-          "tag": "solo_up-z-clip",
-          "class": "CLIPLoader",
-          "title": "📈 Апскейл · 🟢 Ultimate · энкодер"
-        },
-        {
-          "uid": "src_solo_up_z-vae",
-          "tag": "solo_up-z-vae",
-          "class": "VAELoader",
-          "title": "📈 Апскейл · 🟢 Ultimate · VAE"
-        },
-        {
-          "uid": "src_solo_up_seed-dit",
-          "tag": "solo_up-seed-dit",
-          "class": "SeedVR2LoadDiTModel",
-          "title": "📈 Апскейл · 🟢 SeedVR · DiT"
-        },
-        {
-          "uid": "src_solo_up_seed-vae",
-          "tag": "solo_up-seed-vae",
-          "class": "SeedVR2LoadVAEModel",
-          "title": "📈 Апскейл · 🟢 SeedVR · VAE"
         },
         {
           "uid": "src_solo_up_controller",
@@ -41832,7 +40539,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v0.8.0",
+            "text": "🧩 Универсальный воркфлоу · v0.8.1",
             "size": "M",
             "align": "left"
           },
@@ -43179,21 +41886,6 @@
               "kind": "widget",
               "name": "model_name"
             },
-            "up_z_model": {
-              "src": "src_upscale_z-model",
-              "kind": "widget",
-              "name": "unet_name"
-            },
-            "up_z_clip": {
-              "src": "src_upscale_z-clip",
-              "kind": "widget",
-              "name": "clip_name"
-            },
-            "up_z_vae": {
-              "src": "src_upscale_z-vae",
-              "kind": "widget",
-              "name": "vae_name"
-            },
             "up_seed_dit": {
               "src": "src_upscale_seed-dit",
               "kind": "widget",
@@ -43238,76 +41930,6 @@
               "src": "src_edit_vae",
               "kind": "widget",
               "name": "vae_name"
-            },
-            "editor_up_simple_model": {
-              "src": "src_editor_up_simple-model",
-              "kind": "widget",
-              "name": "model_name"
-            },
-            "editor_up_ultimate_model": {
-              "src": "src_editor_up_ultimate-model",
-              "kind": "widget",
-              "name": "model_name"
-            },
-            "editor_up_z_model": {
-              "src": "src_editor_up_z-model",
-              "kind": "widget",
-              "name": "unet_name"
-            },
-            "editor_up_z_clip": {
-              "src": "src_editor_up_z-clip",
-              "kind": "widget",
-              "name": "clip_name"
-            },
-            "editor_up_z_vae": {
-              "src": "src_editor_up_z-vae",
-              "kind": "widget",
-              "name": "vae_name"
-            },
-            "editor_up_seed_dit": {
-              "src": "src_editor_up_seed-dit",
-              "kind": "widget",
-              "name": "model"
-            },
-            "editor_up_seed_vae": {
-              "src": "src_editor_up_seed-vae",
-              "kind": "widget",
-              "name": "model"
-            },
-            "solo_up_simple_model": {
-              "src": "src_solo_up_simple-model",
-              "kind": "widget",
-              "name": "model_name"
-            },
-            "solo_up_ultimate_model": {
-              "src": "src_solo_up_ultimate-model",
-              "kind": "widget",
-              "name": "model_name"
-            },
-            "solo_up_z_model": {
-              "src": "src_solo_up_z-model",
-              "kind": "widget",
-              "name": "unet_name"
-            },
-            "solo_up_z_clip": {
-              "src": "src_solo_up_z-clip",
-              "kind": "widget",
-              "name": "clip_name"
-            },
-            "solo_up_z_vae": {
-              "src": "src_solo_up_z-vae",
-              "kind": "widget",
-              "name": "vae_name"
-            },
-            "solo_up_seed_dit": {
-              "src": "src_solo_up_seed-dit",
-              "kind": "widget",
-              "name": "model"
-            },
-            "solo_up_seed_vae": {
-              "src": "src_solo_up_seed-vae",
-              "kind": "widget",
-              "name": "model"
             }
           },
           "props": {
@@ -44048,7 +42670,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v0.8.0",
+            "text": "🧩 Универсальный воркфлоу · v0.8.1",
             "size": "M",
             "align": "left"
           },
@@ -44316,21 +42938,6 @@
               "kind": "widget",
               "name": "model_name"
             },
-            "up_z_model": {
-              "src": "src_upscale_z-model",
-              "kind": "widget",
-              "name": "unet_name"
-            },
-            "up_z_clip": {
-              "src": "src_upscale_z-clip",
-              "kind": "widget",
-              "name": "clip_name"
-            },
-            "up_z_vae": {
-              "src": "src_upscale_z-vae",
-              "kind": "widget",
-              "name": "vae_name"
-            },
             "up_seed_dit": {
               "src": "src_upscale_seed-dit",
               "kind": "widget",
@@ -44375,76 +42982,6 @@
               "src": "src_edit_vae",
               "kind": "widget",
               "name": "vae_name"
-            },
-            "editor_up_simple_model": {
-              "src": "src_editor_up_simple-model",
-              "kind": "widget",
-              "name": "model_name"
-            },
-            "editor_up_ultimate_model": {
-              "src": "src_editor_up_ultimate-model",
-              "kind": "widget",
-              "name": "model_name"
-            },
-            "editor_up_z_model": {
-              "src": "src_editor_up_z-model",
-              "kind": "widget",
-              "name": "unet_name"
-            },
-            "editor_up_z_clip": {
-              "src": "src_editor_up_z-clip",
-              "kind": "widget",
-              "name": "clip_name"
-            },
-            "editor_up_z_vae": {
-              "src": "src_editor_up_z-vae",
-              "kind": "widget",
-              "name": "vae_name"
-            },
-            "editor_up_seed_dit": {
-              "src": "src_editor_up_seed-dit",
-              "kind": "widget",
-              "name": "model"
-            },
-            "editor_up_seed_vae": {
-              "src": "src_editor_up_seed-vae",
-              "kind": "widget",
-              "name": "model"
-            },
-            "solo_up_simple_model": {
-              "src": "src_solo_up_simple-model",
-              "kind": "widget",
-              "name": "model_name"
-            },
-            "solo_up_ultimate_model": {
-              "src": "src_solo_up_ultimate-model",
-              "kind": "widget",
-              "name": "model_name"
-            },
-            "solo_up_z_model": {
-              "src": "src_solo_up_z-model",
-              "kind": "widget",
-              "name": "unet_name"
-            },
-            "solo_up_z_clip": {
-              "src": "src_solo_up_z-clip",
-              "kind": "widget",
-              "name": "clip_name"
-            },
-            "solo_up_z_vae": {
-              "src": "src_solo_up_z-vae",
-              "kind": "widget",
-              "name": "vae_name"
-            },
-            "solo_up_seed_dit": {
-              "src": "src_solo_up_seed-dit",
-              "kind": "widget",
-              "name": "model"
-            },
-            "solo_up_seed_vae": {
-              "src": "src_solo_up_seed-vae",
-              "kind": "widget",
-              "name": "model"
             }
           },
           "props": {
@@ -44962,7 +43499,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v0.8.0",
+            "text": "🧩 Универсальный воркфлоу · v0.8.1",
             "size": "M",
             "align": "left"
           },
@@ -45230,21 +43767,6 @@
               "kind": "widget",
               "name": "model_name"
             },
-            "up_z_model": {
-              "src": "src_upscale_z-model",
-              "kind": "widget",
-              "name": "unet_name"
-            },
-            "up_z_clip": {
-              "src": "src_upscale_z-clip",
-              "kind": "widget",
-              "name": "clip_name"
-            },
-            "up_z_vae": {
-              "src": "src_upscale_z-vae",
-              "kind": "widget",
-              "name": "vae_name"
-            },
             "up_seed_dit": {
               "src": "src_upscale_seed-dit",
               "kind": "widget",
@@ -45289,76 +43811,6 @@
               "src": "src_edit_vae",
               "kind": "widget",
               "name": "vae_name"
-            },
-            "editor_up_simple_model": {
-              "src": "src_editor_up_simple-model",
-              "kind": "widget",
-              "name": "model_name"
-            },
-            "editor_up_ultimate_model": {
-              "src": "src_editor_up_ultimate-model",
-              "kind": "widget",
-              "name": "model_name"
-            },
-            "editor_up_z_model": {
-              "src": "src_editor_up_z-model",
-              "kind": "widget",
-              "name": "unet_name"
-            },
-            "editor_up_z_clip": {
-              "src": "src_editor_up_z-clip",
-              "kind": "widget",
-              "name": "clip_name"
-            },
-            "editor_up_z_vae": {
-              "src": "src_editor_up_z-vae",
-              "kind": "widget",
-              "name": "vae_name"
-            },
-            "editor_up_seed_dit": {
-              "src": "src_editor_up_seed-dit",
-              "kind": "widget",
-              "name": "model"
-            },
-            "editor_up_seed_vae": {
-              "src": "src_editor_up_seed-vae",
-              "kind": "widget",
-              "name": "model"
-            },
-            "solo_up_simple_model": {
-              "src": "src_solo_up_simple-model",
-              "kind": "widget",
-              "name": "model_name"
-            },
-            "solo_up_ultimate_model": {
-              "src": "src_solo_up_ultimate-model",
-              "kind": "widget",
-              "name": "model_name"
-            },
-            "solo_up_z_model": {
-              "src": "src_solo_up_z-model",
-              "kind": "widget",
-              "name": "unet_name"
-            },
-            "solo_up_z_clip": {
-              "src": "src_solo_up_z-clip",
-              "kind": "widget",
-              "name": "clip_name"
-            },
-            "solo_up_z_vae": {
-              "src": "src_solo_up_z-vae",
-              "kind": "widget",
-              "name": "vae_name"
-            },
-            "solo_up_seed_dit": {
-              "src": "src_solo_up_seed-dit",
-              "kind": "widget",
-              "name": "model"
-            },
-            "solo_up_seed_vae": {
-              "src": "src_solo_up_seed-vae",
-              "kind": "widget",
-              "name": "model"
             }
           },
           "props": {
@@ -46208,7 +44660,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v0.8.0",
+            "text": "🧩 Универсальный воркфлоу · v0.8.1",
             "size": "M",
             "align": "left"
           },
@@ -46476,21 +44928,6 @@
               "kind": "widget",
               "name": "model_name"
             },
-            "up_z_model": {
-              "src": "src_upscale_z-model",
-              "kind": "widget",
-              "name": "unet_name"
-            },
-            "up_z_clip": {
-              "src": "src_upscale_z-clip",
-              "kind": "widget",
-              "name": "clip_name"
-            },
-            "up_z_vae": {
-              "src": "src_upscale_z-vae",
-              "kind": "widget",
-              "name": "vae_name"
-            },
             "up_seed_dit": {
               "src": "src_upscale_seed-dit",
               "kind": "widget",
@@ -46535,76 +44972,6 @@
               "src": "src_edit_vae",
               "kind": "widget",
               "name": "vae_name"
-            },
-            "editor_up_simple_model": {
-              "src": "src_editor_up_simple-model",
-              "kind": "widget",
-              "name": "model_name"
-            },
-            "editor_up_ultimate_model": {
-              "src": "src_editor_up_ultimate-model",
-              "kind": "widget",
-              "name": "model_name"
-            },
-            "editor_up_z_model": {
-              "src": "src_editor_up_z-model",
-              "kind": "widget",
-              "name": "unet_name"
-            },
-            "editor_up_z_clip": {
-              "src": "src_editor_up_z-clip",
-              "kind": "widget",
-              "name": "clip_name"
-            },
-            "editor_up_z_vae": {
-              "src": "src_editor_up_z-vae",
-              "kind": "widget",
-              "name": "vae_name"
-            },
-            "editor_up_seed_dit": {
-              "src": "src_editor_up_seed-dit",
-              "kind": "widget",
-              "name": "model"
-            },
-            "editor_up_seed_vae": {
-              "src": "src_editor_up_seed-vae",
-              "kind": "widget",
-              "name": "model"
-            },
-            "solo_up_simple_model": {
-              "src": "src_solo_up_simple-model",
-              "kind": "widget",
-              "name": "model_name"
-            },
-            "solo_up_ultimate_model": {
-              "src": "src_solo_up_ultimate-model",
-              "kind": "widget",
-              "name": "model_name"
-            },
-            "solo_up_z_model": {
-              "src": "src_solo_up_z-model",
-              "kind": "widget",
-              "name": "unet_name"
-            },
-            "solo_up_z_clip": {
-              "src": "src_solo_up_z-clip",
-              "kind": "widget",
-              "name": "clip_name"
-            },
-            "solo_up_z_vae": {
-              "src": "src_solo_up_z-vae",
-              "kind": "widget",
-              "name": "vae_name"
-            },
-            "solo_up_seed_dit": {
-              "src": "src_solo_up_seed-dit",
-              "kind": "widget",
-              "name": "model"
-            },
-            "solo_up_seed_vae": {
-              "src": "src_solo_up_seed-vae",
-              "kind": "widget",
-              "name": "model"
             }
           },
           "props": {
