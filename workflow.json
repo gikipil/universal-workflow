@@ -46138,7 +46138,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v0.10.0",
+            "text": "🧩 Универсальный воркфлоу · v0.10.1",
             "size": "M",
             "align": "left"
           },
@@ -46337,6 +46337,46 @@
               "src": "src_pose_negative",
               "kind": "widget",
               "name": "value"
+            },
+            "status_k_model": {
+              "src": "src_k2module_model",
+              "kind": "widget",
+              "name": "unet_name"
+            },
+            "status_k_clip": {
+              "src": "src_settings_k_clip",
+              "kind": "widget",
+              "name": "clip_name"
+            },
+            "status_k_vae": {
+              "src": "src_settings_k_vae",
+              "kind": "widget",
+              "name": "vae_name"
+            },
+            "status_k_turbo": {
+              "src": "src_settings_k_turbo",
+              "kind": "widget",
+              "name": "power_lora_1.lora"
+            },
+            "status_pose_lora": {
+              "src": "src_pose_controller",
+              "kind": "widget",
+              "name": "factory_pose_lora"
+            },
+            "status_pose_bbox": {
+              "src": "src_pose_detector",
+              "kind": "widget",
+              "name": "bbox_detector"
+            },
+            "status_pose_estimator": {
+              "src": "src_pose_detector",
+              "kind": "widget",
+              "name": "pose_estimator"
+            },
+            "status_pose": {
+              "src": "src_pose_controller",
+              "kind": "widget",
+              "name": "factory_pose_config"
             }
           },
           "props": {},
@@ -46928,6 +46968,41 @@
               "src": "src_k2pass_prompt",
               "kind": "widget",
               "name": "value"
+            },
+            "status_k_model": {
+              "src": "src_k2module_model",
+              "kind": "widget",
+              "name": "unet_name"
+            },
+            "status_k_clip": {
+              "src": "src_settings_k_clip",
+              "kind": "widget",
+              "name": "clip_name"
+            },
+            "status_k_vae": {
+              "src": "src_settings_k_vae",
+              "kind": "widget",
+              "name": "vae_name"
+            },
+            "status_k_turbo": {
+              "src": "src_settings_k_turbo",
+              "kind": "widget",
+              "name": "power_lora_1.lora"
+            },
+            "status_z_model": {
+              "src": "src_settings_z_model",
+              "kind": "widget",
+              "name": "unet_name"
+            },
+            "status_z_clip": {
+              "src": "src_settings_z_clip",
+              "kind": "widget",
+              "name": "clip_name"
+            },
+            "status_z_vae": {
+              "src": "src_settings_z_vae",
+              "kind": "widget",
+              "name": "vae_name"
             }
           },
           "props": {
@@ -47806,6 +47881,56 @@
               "src": "src_local_controller",
               "kind": "widget",
               "name": "factory_local_config"
+            },
+            "status_k_model": {
+              "src": "src_k2module_model",
+              "kind": "widget",
+              "name": "unet_name"
+            },
+            "status_k_clip": {
+              "src": "src_settings_k_clip",
+              "kind": "widget",
+              "name": "clip_name"
+            },
+            "status_k_vae": {
+              "src": "src_settings_k_vae",
+              "kind": "widget",
+              "name": "vae_name"
+            },
+            "status_k_turbo": {
+              "src": "src_settings_k_turbo",
+              "kind": "widget",
+              "name": "power_lora_1.lora"
+            },
+            "status_z_model": {
+              "src": "src_settings_z_model",
+              "kind": "widget",
+              "name": "unet_name"
+            },
+            "status_z_clip": {
+              "src": "src_settings_z_clip",
+              "kind": "widget",
+              "name": "clip_name"
+            },
+            "status_z_vae": {
+              "src": "src_settings_z_vae",
+              "kind": "widget",
+              "name": "vae_name"
+            },
+            "status_sam_model": {
+              "src": "src_settings_sam_model",
+              "kind": "widget",
+              "name": "ckpt_name"
+            },
+            "status_face_detector": {
+              "src": "src_settings_face_detector",
+              "kind": "widget",
+              "name": "model_name"
+            },
+            "status_hand_detector": {
+              "src": "src_settings_hand_detector",
+              "kind": "widget",
+              "name": "model_name"
             }
           },
           "props": {},
@@ -48103,6 +48228,46 @@
               "src": "src_upscale_controller",
               "kind": "widget",
               "name": "factory_upscale_config"
+            },
+            "status_k_model": {
+              "src": "src_k2module_model",
+              "kind": "widget",
+              "name": "unet_name"
+            },
+            "status_k_clip": {
+              "src": "src_settings_k_clip",
+              "kind": "widget",
+              "name": "clip_name"
+            },
+            "status_k_vae": {
+              "src": "src_settings_k_vae",
+              "kind": "widget",
+              "name": "vae_name"
+            },
+            "status_k_turbo": {
+              "src": "src_settings_k_turbo",
+              "kind": "widget",
+              "name": "power_lora_1.lora"
+            },
+            "status_up_simple_model": {
+              "src": "src_upscale_simple-model",
+              "kind": "widget",
+              "name": "model_name"
+            },
+            "status_up_ultimate_model": {
+              "src": "src_upscale_ultimate-model",
+              "kind": "widget",
+              "name": "model_name"
+            },
+            "status_up_seed_dit": {
+              "src": "src_upscale_seed-dit",
+              "kind": "widget",
+              "name": "model"
+            },
+            "status_up_seed_vae": {
+              "src": "src_upscale_seed-vae",
+              "kind": "widget",
+              "name": "model"
             }
           },
           "props": {},
@@ -48213,6 +48378,21 @@
               "src": "src_pose_photo",
               "kind": "widget",
               "name": "image"
+            },
+            "status_pose_lora": {
+              "src": "src_pose_controller",
+              "kind": "widget",
+              "name": "factory_pose_lora"
+            },
+            "status_pose_bbox": {
+              "src": "src_pose_detector",
+              "kind": "widget",
+              "name": "bbox_detector"
+            },
+            "status_pose_estimator": {
+              "src": "src_pose_detector",
+              "kind": "widget",
+              "name": "pose_estimator"
             }
           },
           "props": {
@@ -48254,7 +48434,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v0.10.0",
+            "text": "🧩 Универсальный воркфлоу · v0.10.1",
             "size": "M",
             "align": "left"
           },
@@ -49068,7 +49248,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v0.10.0",
+            "text": "🧩 Универсальный воркфлоу · v0.10.1",
             "size": "M",
             "align": "left"
           },
@@ -49557,6 +49737,56 @@
               "src": "src_edit_controller",
               "kind": "widget",
               "name": "scheduler"
+            },
+            "status_k_model": {
+              "src": "src_k2module_model",
+              "kind": "widget",
+              "name": "unet_name"
+            },
+            "status_k_clip": {
+              "src": "src_settings_k_clip",
+              "kind": "widget",
+              "name": "clip_name"
+            },
+            "status_k_vae": {
+              "src": "src_settings_k_vae",
+              "kind": "widget",
+              "name": "vae_name"
+            },
+            "status_k_turbo": {
+              "src": "src_settings_k_turbo",
+              "kind": "widget",
+              "name": "power_lora_1.lora"
+            },
+            "status_edit_model": {
+              "src": "src_edit_model",
+              "kind": "widget",
+              "name": "unet_name"
+            },
+            "status_edit_clip": {
+              "src": "src_edit_clip",
+              "kind": "widget",
+              "name": "clip_name"
+            },
+            "status_edit_vae": {
+              "src": "src_edit_vae",
+              "kind": "widget",
+              "name": "vae_name"
+            },
+            "status_edit_q21_model": {
+              "src": "src_edit_q21_model",
+              "kind": "widget",
+              "name": "unet_name"
+            },
+            "status_edit_q21_clip": {
+              "src": "src_edit_q21_clip",
+              "kind": "widget",
+              "name": "clip_name"
+            },
+            "status_edit_q21_vae": {
+              "src": "src_edit_q21_vae",
+              "kind": "widget",
+              "name": "vae_name"
             }
           },
           "props": {},
@@ -50110,6 +50340,46 @@
               "src": "src_editor_up_controller",
               "kind": "widget",
               "name": "factory_upscale_config"
+            },
+            "status_k_model": {
+              "src": "src_k2module_model",
+              "kind": "widget",
+              "name": "unet_name"
+            },
+            "status_k_clip": {
+              "src": "src_settings_k_clip",
+              "kind": "widget",
+              "name": "clip_name"
+            },
+            "status_k_vae": {
+              "src": "src_settings_k_vae",
+              "kind": "widget",
+              "name": "vae_name"
+            },
+            "status_k_turbo": {
+              "src": "src_settings_k_turbo",
+              "kind": "widget",
+              "name": "power_lora_1.lora"
+            },
+            "status_up_simple_model": {
+              "src": "src_upscale_simple-model",
+              "kind": "widget",
+              "name": "model_name"
+            },
+            "status_up_ultimate_model": {
+              "src": "src_upscale_ultimate-model",
+              "kind": "widget",
+              "name": "model_name"
+            },
+            "status_up_seed_dit": {
+              "src": "src_upscale_seed-dit",
+              "kind": "widget",
+              "name": "model"
+            },
+            "status_up_seed_vae": {
+              "src": "src_upscale_seed-vae",
+              "kind": "widget",
+              "name": "model"
             }
           },
           "props": {
@@ -50214,7 +50484,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v0.10.0",
+            "text": "🧩 Универсальный воркфлоу · v0.10.1",
             "size": "M",
             "align": "left"
           },
@@ -50595,6 +50865,46 @@
               "src": "src_solo_up_controller",
               "kind": "widget",
               "name": "factory_upscale_config"
+            },
+            "status_k_model": {
+              "src": "src_k2module_model",
+              "kind": "widget",
+              "name": "unet_name"
+            },
+            "status_k_clip": {
+              "src": "src_settings_k_clip",
+              "kind": "widget",
+              "name": "clip_name"
+            },
+            "status_k_vae": {
+              "src": "src_settings_k_vae",
+              "kind": "widget",
+              "name": "vae_name"
+            },
+            "status_k_turbo": {
+              "src": "src_settings_k_turbo",
+              "kind": "widget",
+              "name": "power_lora_1.lora"
+            },
+            "status_up_simple_model": {
+              "src": "src_upscale_simple-model",
+              "kind": "widget",
+              "name": "model_name"
+            },
+            "status_up_ultimate_model": {
+              "src": "src_upscale_ultimate-model",
+              "kind": "widget",
+              "name": "model_name"
+            },
+            "status_up_seed_dit": {
+              "src": "src_upscale_seed-dit",
+              "kind": "widget",
+              "name": "model"
+            },
+            "status_up_seed_vae": {
+              "src": "src_upscale_seed-vae",
+              "kind": "widget",
+              "name": "model"
             }
           },
           "props": {

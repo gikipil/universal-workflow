@@ -1,3 +1,4 @@
+import {modeFileSlots,mountModePresence,modeLabel} from './factory_mode_presence.js';
 // SPDX-License-Identifier: AGPL-3.0-only
 // Universal Workflow additions/modifications by gikipil, 2026-11-12.
 // Based on ND UI Builder by Ivan Ovchinnikov (Neural Dreamer).
@@ -7,7 +8,7 @@ export const MODES=['Второй проход выключен','Krea · обы
 const FIELDS=[[],[['steps','Шаги'],['sampler','Сэмплер','scheduler','Шедулер']],[['res_steps','Шаги'],['res_sampler','Сэмплер','res_scheduler','Шедулер'],['eta','Eta']],[['raw_steps','Шаги'],['raw_sampler','Сэмплер','raw_scheduler','Шедулер']],[['turbo_steps','Шаги'],['turbo_sampler','Сэмплер','turbo_scheduler','Шедулер'],['raw_cfg','Eta']]];
 const TYPES={mode:'INT',steps:'INT',sampler:'COMBO',scheduler:'COMBO',res_steps:'INT',res_sampler:'COMBO',res_scheduler:'COMBO',eta:'FLOAT',raw_steps:'INT',raw_cfg:'FLOAT',raw_sampler:'COMBO',raw_scheduler:'COMBO',turbo_steps:'INT',turbo_sampler:'COMBO',turbo_scheduler:'COMBO'};
 export const factoryrefinementmode={type:'factoryrefinementmode',label:'Второй проход',icon:'layers',group:'Run',live:true,
- slots:Object.entries(TYPES).map(([id,t])=>({id,label:id,accepts:[t],required:true})),
+ slots:[...Object.entries(TYPES).map(([id,t])=>({id,label:id,accepts:[t],required:true})),...modeFileSlots('refine')],
  size:{w:312,h:408,minW:280,minH:100},props:[],
  mount(ctx){
   const root=el('div'),header=el('div'),prev=el('button','ndk-chip','‹'),next=el('button','ndk-chip','›'),title=el('div'),body=el('div'),dots=el('div');
@@ -18,6 +19,7 @@ export const factoryrefinementmode={type:'factoryrefinementmode',label:'Втор
   prev.setAttribute('aria-label','Предыдущий режим');next.setAttribute('aria-label','Следующий режим');
   header.append(prev,title,next);Object.assign(body.style,{display:'grid',alignContent:'start',gap:'8px',flex:'1',minHeight:'0',overflowY:'auto'});
   Object.assign(dots.style,{display:'flex',justifyContent:'center',gap:'10px'});
+  const labelText=modeLabel(title),presence=ctx.prop?.('part')==='settings'?null:mountModePresence(ctx,title,'refine');
   const controls=new Map();let active=-1;
   const current=()=>Math.min(4,Math.max(0,Number(ctx.get('mode'))||0));
   function go(i){ctx.set('mode',(i+5)%5);show();}
@@ -35,7 +37,7 @@ export const factoryrefinementmode={type:'factoryrefinementmode',label:'Втор
    input.addEventListener('change',()=>{let v=combo?input.value:Number(input.value);if(!combo){if(input.value.trim()===''||!Number.isFinite(v))return;const lo=Number(input.min),hi=Number(input.max);if(input.min!=='')v=Math.max(lo,v);if(input.max!=='')v=Math.min(hi,v);if(TYPES[key]==='INT')v=Math.round(v);}ctx.set(key,v);show();});
    input.addEventListener('keydown',e=>e.stopPropagation());box.append(input);wrap.append(caption,box);controls.set(key,input);return wrap;
   }
-  function show(){const m=current();if(m!==active){active=m;controls.clear();body.replaceChildren();title.textContent=MODES[m];
+  function show(){presence?.update();const m=current();if(m!==active){active=m;controls.clear();body.replaceChildren();labelText.textContent=MODES[m];labelText.title=MODES[m];
    const hint=el('div','', ['Без доработки: выводится первый проход.','Доработка изображения на Krea Turbo.','Доработка Krea Turbo через RES4LYF.','Доработка на Z-Image Turbo.','Доработка Z-Image Turbo через RES4LYF.'][m]);hint.style.fontSize='12px';hint.style.color='#a4adbf';body.append(hint);
    for(const row of FIELDS[m]){const r=el('div');Object.assign(r.style,{display:'grid',gridTemplateColumns:row.length===4?'minmax(0,1fr) minmax(0,1fr)':'minmax(0,1fr)',gap:'8px'});for(let i=0;i<row.length;i+=2)r.append(field(row[i],row[i+1]));body.append(r);}
    const note=el('div','',m===0?'Второй сэмплер и модели доработки не вычисляются.':'CFG = 1, негативное условие нулевое. Seed и denoise общие для второго прохода. LoRA независимы от первого.');note.style.cssText='font-size:12px;color:#a4adbf;line-height:1.5';body.append(note);
@@ -47,6 +49,6 @@ export const factoryrefinementmode={type:'factoryrefinementmode',label:'Втор
   if(part==='header')root.append(header);
   else if(part==='settings')root.append(body);
   else root.append(header,body);
-  ctx.body.append(root);show();return{update:show};
+  ctx.body.append(root);show();return{update:show,destroy(){presence?.destroy();}};
  }
 };

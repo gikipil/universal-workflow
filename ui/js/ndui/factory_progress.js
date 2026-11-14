@@ -50,14 +50,22 @@ export class FactoryProgress {
   return{active:this.active,complete:this.complete,pct,label,steps,elapsed:this.started?Math.max(0,((this.stopped||now)-this.started)/1000):0,stage:i+1,total:this.plan.length};
  }
 }
+// Each task has its own prompt lifecycle; late frames from retired prompts are ignored.
+export function bindFactoryProgress(tracker,{plan,queued=null,contains=()=>true,recognize=contains}){
+ let activePid='',anonymous=false;const retired=new Set();
+ const pid=d=>String(d?.prompt_id??Object.values(d?.nodes||{}).find(n=>n?.prompt_id)?.prompt_id??'');
+ const id=d=>d&&typeof d==='object'?(d.display_node_id??d.display_node??d.real_node_id??d.node_id??d.node):d;
+ const retire=p=>{if(p){retired.add(p);if(retired.size>256)retired.delete(retired.values().next().value);}};
+ function begin(p){if(p&&retired.has(p))return false;if(tracker.active&&p&&p===activePid)return true;const next=plan();if(!next?.length)return false;if(activePid&&activePid!==p)retire(activePid);activePid=p;anonymous=false;queued?.delete(p);tracker.start(next);return true;}
+ function accept(d,ids=[]){const p=pid(d);if(p&&retired.has(p))return false;if(tracker.active&&(!p||p===activePid))return true;if(!p&&!anonymous)return false;if(queued&&!queued.has(p)&&!ids.some(n=>n!=null&&recognize(String(n))))return false;return begin(p);}
+ const on=(name,fn)=>api.addEventListener(name,e=>fn(e.detail));
+ on('execution_start',d=>{const p=pid(d);if(p&&retired.has(p))return;if(activePid&&p&&activePid!==p){retire(activePid);if(queued&&!queued.has(p)){tracker.active=false;tracker.stopped=Date.now();}}anonymous=!p;if(!queued||queued.has(p))begin(p);});
+ on('executing',d=>{const n=id(d);if(!accept(d,n==null?[]:[n])||n!=null&&!contains(String(n)))return;const previous=tracker.current;if(previous&&String(n)!==previous)tracker.finish(previous);if(n!=null)tracker.enter(n);});
+ on('execution_cached',d=>{const ids=d?.nodes||[];if(!accept(d,ids))return;for(const n of ids)tracker.finish(n);});
+ on('executed',d=>{const n=id(d);if(accept(d,n==null?[]:[n]))tracker.finish(n);});
+ on('progress',d=>{const n=id(d)??tracker.current;if(accept(d,n==null?[]:[n]))tracker.progress(n,d?.value,d?.max);});
+ on('progress_state',d=>{const entries=Object.entries(d?.nodes||{});if(!accept(d,entries.map(([key,n])=>id(n)??key)))return;for(const[key,n]of entries){if(n.prompt_id&&activePid&&String(n.prompt_id)!==activePid)continue;const node=id(n)??key;if(!contains(String(node)))continue;if(n.state==='finished')tracker.finish(node);else if(n.state==='running'){tracker.enter(node);tracker.progress(node,n.value,n.max);}}});
+ for(const event of ['execution_success','execution_interrupted','execution_error'])on(event,d=>{const p=pid(d);if(!tracker.active||p&&activePid&&p!==activePid)return;tracker.active=false;tracker.stopped=Date.now();tracker.complete=event==='execution_success';tracker.interrupted=event==='execution_interrupted';if(event==='execution_error')tracker.error=d?.exception_message||'Не удалось выполнить обработку';retire(activePid);queued?.delete(activePid);anonymous=false;});
+}
 export const factoryProgress=new FactoryProgress();
-const eventId=d=>d?.display_node_id??d?.display_node??d?.real_node_id??d?.node_id??d?.node;
-api.addEventListener('execution_start',()=>factoryProgress.start(factoryPlan(app.graph)));
-api.addEventListener('executing',e=>{const d=e.detail;const previous=factoryProgress.current;const id=d&&typeof d==='object'?eventId(d):d;if(previous&&String(id)!==previous)factoryProgress.finish(previous);factoryProgress.enter(id);});
-api.addEventListener('execution_cached',e=>{for(const id of e.detail?.nodes||[])factoryProgress.finish(id);});
-api.addEventListener('executed',e=>factoryProgress.finish(eventId(e.detail)));
-api.addEventListener('progress',e=>{const d=e.detail||{};factoryProgress.progress(eventId(d),d.value,d.max);});
-api.addEventListener('progress_state',e=>{for(const[k,n]of Object.entries(e.detail?.nodes||{})){const id=eventId(n)??k;if(n.state==='finished')factoryProgress.finish(id);else if(n.state==='running'){factoryProgress.enter(id);const row=factoryProgress.rows.get(String(id));if(!row?.max)factoryProgress.progress(id,n.value,n.max);}}});
-api.addEventListener('execution_success',()=>{factoryProgress.complete=true;factoryProgress.active=false;factoryProgress.stopped=Date.now();});
-api.addEventListener('execution_interrupted',()=>{factoryProgress.active=false;factoryProgress.complete=false;factoryProgress.interrupted=true;factoryProgress.stopped=Date.now();});
-api.addEventListener('execution_error',e=>{factoryProgress.active=false;factoryProgress.stopped=Date.now();factoryProgress.error=e.detail?.exception_message||'Не удалось выполнить обработку';});
+bindFactoryProgress(factoryProgress,{plan:()=>factoryPlan(app.graph)});

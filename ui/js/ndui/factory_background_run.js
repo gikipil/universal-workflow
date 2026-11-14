@@ -2,9 +2,9 @@
 // Universal Workflow additions by gikipil, 2026-11-13.
 import {api} from '../../../scripts/api.js';
 import {app} from '../../../scripts/app.js';
-import {FactoryProgress} from './factory_progress.js';
+import {FactoryProgress,bindFactoryProgress} from './factory_progress.js';
 export const backgroundProgress=new FactoryProgress();
-let building=false,runningPid='',backgroundPid='';const queued=new Set();
+let building=false;const queued=new Set();
 const nodes=()=>app.graph?._nodes||app.graph?.nodes||[];
 const owner=()=>nodes().find(n=>n.properties?.acf_background);
 export function backgroundPlan(n){const s=n.properties.acf_background,plan=[{name:'Удаление фона',sample:String(n.id),ids:new Set(s.nodes.map(String)),finish:[String(s.result),String(s.mask)],runningLabel:'отделение объекта'}];plan.operations=new Map([[String(s.photo),'загрузка фото'],[String(n.id),'отделение объекта'],[String(s.before),'подготовка исходника'],[String(s.result),'подготовка PNG'],[String(s.mask),'подготовка маски'],[String(s.saver),'сохранение PNG']]);return plan;}
@@ -20,11 +20,4 @@ export async function queueBackground(node,batch=1){
   data=backgroundPrompt(data,targets,originalModes);for(let i=0;i<Math.max(1,Math.min(64,Math.round(batch)));i++){const result=await api.queuePrompt(0,data,{partialExecutionTargets:targets.map(String)});if(result?.prompt_id)queued.add(result.prompt_id);if(result?.node_errors&&Object.keys(result.node_errors).length)throw Error('Ошибка удаления фона: '+JSON.stringify(result.node_errors));}return true;
  }finally{building=false;}
 }
-const idOf=d=>String(d?.display_node_id??d?.display_node??d?.real_node_id??d?.node_id??d?.node??d??'');
-const start=()=>{const n=owner();if(!n)return;backgroundProgress.start(backgroundPlan(n));backgroundPid=runningPid;};
-api.addEventListener('execution_start',e=>{runningPid=e.detail?.prompt_id||'';if(queued.has(runningPid)){queued.delete(runningPid);start();}});
-api.addEventListener('executing',e=>{const id=idOf(e.detail),n=owner();if(!n?.properties.acf_background.nodes.map(String).includes(id))return;if(!backgroundProgress.active||backgroundPid!==runningPid)start();const previous=backgroundProgress.current;if(previous&&previous!==id)backgroundProgress.finish(previous);backgroundProgress.enter(id);});
-api.addEventListener('executed',e=>{if(backgroundProgress.active)backgroundProgress.finish(idOf(e.detail));});
-api.addEventListener('progress',e=>{if(backgroundProgress.active){const d=e.detail||{};backgroundProgress.progress(idOf(d),d.value,d.max);}});
-api.addEventListener('execution_cached',e=>{const n=owner();if(!n)return;const ids=e.detail?.nodes||[];if(ids.some(id=>n.properties.acf_background.nodes.includes(Number(id)))){if(!backgroundProgress.active)start();for(const id of ids)backgroundProgress.finish(id);}});
-for(const event of['execution_success','execution_interrupted','execution_error'])api.addEventListener(event,e=>{if(!backgroundProgress.active)return;if(e.detail?.prompt_id&&backgroundPid&&e.detail.prompt_id!==backgroundPid)return;backgroundProgress.active=false;backgroundProgress.stopped=Date.now();if(event==='execution_success')backgroundProgress.complete=true;else if(event==='execution_interrupted')backgroundProgress.interrupted=true;else backgroundProgress.error=e.detail?.exception_message||'Не удалось удалить фон';});
+bindFactoryProgress(backgroundProgress,{plan:()=>{const n=owner();return n?backgroundPlan(n):null;},queued:queued,contains:id=>{const n=owner();return !!n?.properties?.acf_background?.nodes.map(String).includes(String(id));}});
