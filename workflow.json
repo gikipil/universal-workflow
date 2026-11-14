@@ -1,9 +1,203 @@
 {
   "id": "6156223e-7f85-4578-923d-9d05cf820581",
   "revision": 0,
-  "last_node_id": 885,
-  "last_link_id": 1019,
+  "last_node_id": 906,
+  "last_link_id": 1052,
   "nodes": [
+    {
+      "id": 894,
+      "type": "SetNode",
+      "title": "SetNode_EDIT_CROP_513_0",
+      "pos": [
+        2006,
+        6090
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 894,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "link": 1040
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SetNode",
+        "previousName": "EDIT_CROP_513_0"
+      },
+      "widgets_values": [
+        "EDIT_CROP_513_0"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 902,
+      "type": "GetNode",
+      "title": "GetNode_EDIT_CROP_889_0",
+      "pos": [
+        1226,
+        6090
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 902,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            1048
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "previousName": "EDIT_CROP_889_0"
+      },
+      "widgets_values": [
+        "EDIT_CROP_889_0"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 904,
+      "type": "GetNode",
+      "title": "GetNode_EDIT_CROP_890_0",
+      "pos": [
+        1226,
+        6090
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 904,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": [
+            1050
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "previousName": "EDIT_CROP_890_0"
+      },
+      "widgets_values": [
+        "EDIT_CROP_890_0"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 905,
+      "type": "GetNode",
+      "title": "GetNode_EDIT_CROP_889_0",
+      "pos": [
+        3626,
+        7570
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 905,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            1051
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "previousName": "EDIT_CROP_889_0"
+      },
+      "widgets_values": [
+        "EDIT_CROP_889_0"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 906,
+      "type": "GetNode",
+      "title": "GetNode_EDIT_CROP_890_0",
+      "pos": [
+        3626,
+        7570
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 906,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": [
+            1052
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "previousName": "EDIT_CROP_890_0"
+      },
+      "widgets_values": [
+        "EDIT_CROP_890_0"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
     {
       "id": 881,
       "type": "SetNode",
@@ -110,7 +304,7 @@
         {
           "name": "IMAGE",
           "type": "IMAGE",
-          "link": 1003
+          "link": 1033
         }
       ],
       "outputs": [
@@ -4780,7 +4974,7 @@
           "name": "IMAGE",
           "type": "IMAGE",
           "links": [
-            1003
+            1040
           ]
         }
       ],
@@ -4860,9 +5054,7 @@
         {
           "name": "MASK",
           "type": "MASK",
-          "links": [
-            564
-          ]
+          "links": []
         }
       ],
       "properties": {
@@ -22125,9 +22317,7 @@
         {
           "name": "IMAGE",
           "type": "IMAGE",
-          "links": [
-            879
-          ]
+          "links": []
         }
       ],
       "properties": {
@@ -22201,9 +22391,7 @@
         {
           "name": "MASK",
           "type": "MASK",
-          "links": [
-            881
-          ]
+          "links": []
         }
       ],
       "properties": {
@@ -33468,9 +33656,7 @@
         {
           "name": "IMAGE",
           "type": "IMAGE",
-          "links": [
-            530
-          ]
+          "links": []
         }
       ],
       "properties": {
@@ -34941,13 +35127,13 @@
         {
           "name": "image",
           "type": "IMAGE",
-          "link": 530,
+          "link": 1048,
           "shape": 7
         },
         {
           "name": "mask",
           "type": "MASK",
-          "link": 564,
+          "link": 1050,
           "shape": 7
         }
       ],
@@ -35592,7 +35778,28 @@
             873,
             874,
             875,
-            876
+            876,
+            886,
+            887,
+            888,
+            889,
+            890,
+            891,
+            892,
+            893,
+            894,
+            895,
+            896,
+            897,
+            898,
+            899,
+            900,
+            901,
+            902,
+            903,
+            904,
+            905,
+            906
           ],
           "save": false,
           "maskFile": 509,
@@ -35770,6 +35977,37 @@
               883,
               884,
               885
+            ]
+          },
+          "crop": {
+            "control": 886,
+            "crop": 887,
+            "stitch": 888,
+            "imageGate": 889,
+            "maskGate": 890,
+            "resultGate": 891,
+            "nodes": [
+              886,
+              887,
+              888,
+              889,
+              890,
+              891,
+              892,
+              893,
+              894,
+              895,
+              896,
+              897,
+              898,
+              899,
+              900,
+              901,
+              902,
+              903,
+              904,
+              905,
+              906
             ]
           }
         }
@@ -39673,13 +39911,13 @@
         {
           "name": "image",
           "type": "IMAGE",
-          "link": 879,
+          "link": 1051,
           "shape": 7
         },
         {
           "name": "mask",
           "type": "MASK",
-          "link": 881,
+          "link": 1052,
           "shape": 7
         }
       ],
@@ -45649,6 +45887,949 @@
       "widgets_values": [],
       "color": "#232",
       "bgcolor": "#353"
+    },
+    {
+      "id": 888,
+      "type": "InpaintStitchImproved",
+      "title": "Технический возврат области в исходный кадр",
+      "pos": [
+        446,
+        13680
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 888,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "stitcher",
+          "type": "STITCHER",
+          "link": 1022
+        },
+        {
+          "name": "inpainted_image",
+          "type": "IMAGE",
+          "link": 1041
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            1031
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "InpaintStitchImproved"
+      },
+      "widgets_values": [],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 889,
+      "type": "easy anythingIndexSwitch",
+      "title": "Технический основной кадр · весь / область",
+      "pos": [
+        446,
+        13680
+      ],
+      "size": [
+        340,
+        220
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 889,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "index",
+          "type": "INT",
+          "link": 1026,
+          "widget": {
+            "name": "index"
+          }
+        },
+        {
+          "name": "value0",
+          "type": "IMAGE",
+          "link": 1042,
+          "shape": 7
+        },
+        {
+          "name": "value1",
+          "type": "IMAGE",
+          "link": 1025,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "value",
+          "type": "IMAGE",
+          "links": [
+            1047
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "easy anythingIndexSwitch"
+      },
+      "widgets_values": [
+        0
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 890,
+      "type": "easy anythingIndexSwitch",
+      "title": "Техническая маска · вся / область",
+      "pos": [
+        446,
+        13680
+      ],
+      "size": [
+        340,
+        220
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 890,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "index",
+          "type": "INT",
+          "link": 1029,
+          "widget": {
+            "name": "index"
+          }
+        },
+        {
+          "name": "value0",
+          "type": "MASK",
+          "link": 1043,
+          "shape": 7
+        },
+        {
+          "name": "value1",
+          "type": "MASK",
+          "link": 1028,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "value",
+          "type": "MASK",
+          "links": [
+            1049
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "easy anythingIndexSwitch"
+      },
+      "widgets_values": [
+        0
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 891,
+      "type": "easy anythingIndexSwitch",
+      "title": "Технический итог · обычный / вставка области",
+      "pos": [
+        866,
+        13680
+      ],
+      "size": [
+        340,
+        220
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 891,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "index",
+          "type": "INT",
+          "link": 1046,
+          "widget": {
+            "name": "index"
+          }
+        },
+        {
+          "name": "value0",
+          "type": "IMAGE",
+          "link": 1044,
+          "shape": 7
+        },
+        {
+          "name": "value1",
+          "type": "IMAGE",
+          "link": 1031,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "value",
+          "type": "IMAGE",
+          "links": [
+            1033
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "easy anythingIndexSwitch"
+      },
+      "widgets_values": [
+        0
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 892,
+      "type": "GetNode",
+      "title": "GetNode_EDIT_456_0",
+      "pos": [
+        446,
+        13680
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 892,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            1038
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "previousName": "EDIT_456_0"
+      },
+      "widgets_values": [
+        "EDIT_456_0"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 893,
+      "type": "GetNode",
+      "title": "GetNode_EDITMASK_510_0",
+      "pos": [
+        446,
+        13680
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 893,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": [
+            1039
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "previousName": "EDITMASK_510_0"
+      },
+      "widgets_values": [
+        "EDITMASK_510_0"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 895,
+      "type": "GetNode",
+      "title": "GetNode_EDIT_CROP_513_0",
+      "pos": [
+        446,
+        13680
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 895,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            1041
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "previousName": "EDIT_CROP_513_0"
+      },
+      "widgets_values": [
+        "EDIT_CROP_513_0"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 896,
+      "type": "GetNode",
+      "title": "GetNode_EDIT_456_0",
+      "pos": [
+        446,
+        13680
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 896,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            1042
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "previousName": "EDIT_456_0"
+      },
+      "widgets_values": [
+        "EDIT_456_0"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 897,
+      "type": "GetNode",
+      "title": "GetNode_EDITMASK_510_0",
+      "pos": [
+        446,
+        13680
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 897,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": [
+            1043
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "previousName": "EDITMASK_510_0"
+      },
+      "widgets_values": [
+        "EDITMASK_510_0"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 898,
+      "type": "GetNode",
+      "title": "GetNode_EDIT_CROP_513_0",
+      "pos": [
+        446,
+        13680
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 898,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            1044
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "previousName": "EDIT_CROP_513_0"
+      },
+      "widgets_values": [
+        "EDIT_CROP_513_0"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 899,
+      "type": "SetNode",
+      "title": "SetNode_EDIT_CROP_886_0",
+      "pos": [
+        56,
+        13680
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 899,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "link": 1045
+        }
+      ],
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SetNode",
+        "previousName": "EDIT_CROP_886_0"
+      },
+      "widgets_values": [
+        "EDIT_CROP_886_0"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 900,
+      "type": "GetNode",
+      "title": "GetNode_EDIT_CROP_886_0",
+      "pos": [
+        446,
+        13680
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 900,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            1046
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "previousName": "EDIT_CROP_886_0"
+      },
+      "widgets_values": [
+        "EDIT_CROP_886_0"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 901,
+      "type": "SetNode",
+      "title": "SetNode_EDIT_CROP_889_0",
+      "pos": [
+        446,
+        13680
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 901,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "link": 1047
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SetNode",
+        "previousName": "EDIT_CROP_889_0"
+      },
+      "widgets_values": [
+        "EDIT_CROP_889_0"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 903,
+      "type": "SetNode",
+      "title": "SetNode_EDIT_CROP_890_0",
+      "pos": [
+        446,
+        13680
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 903,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "link": 1049
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SetNode",
+        "previousName": "EDIT_CROP_890_0"
+      },
+      "widgets_values": [
+        "EDIT_CROP_890_0"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 886,
+      "type": "PrimitiveInt",
+      "title": "✂️ Редактор · крупный план выкл/вкл",
+      "pos": [
+        40,
+        13630
+      ],
+      "size": [
+        340,
+        100
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 886,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "value",
+          "type": "INT",
+          "link": null,
+          "widget": {
+            "name": "value"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            1026,
+            1029,
+            1045
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PrimitiveInt"
+      },
+      "widgets_values": [
+        0,
+        "fixed"
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 887,
+      "type": "InpaintCropImproved",
+      "title": "✂️ Область с контекстом",
+      "pos": [
+        430,
+        13630
+      ],
+      "size": [
+        360,
+        700
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 887,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 1038
+        },
+        {
+          "name": "downscale_algorithm",
+          "type": "COMBO",
+          "link": null,
+          "widget": {
+            "name": "downscale_algorithm"
+          }
+        },
+        {
+          "name": "upscale_algorithm",
+          "type": "COMBO",
+          "link": null,
+          "widget": {
+            "name": "upscale_algorithm"
+          }
+        },
+        {
+          "name": "preresize",
+          "type": "BOOLEAN",
+          "link": null,
+          "widget": {
+            "name": "preresize"
+          }
+        },
+        {
+          "name": "preresize_mode",
+          "type": "COMBO",
+          "link": null,
+          "widget": {
+            "name": "preresize_mode"
+          }
+        },
+        {
+          "name": "preresize_min_width",
+          "type": "INT",
+          "link": null,
+          "widget": {
+            "name": "preresize_min_width"
+          }
+        },
+        {
+          "name": "preresize_min_height",
+          "type": "INT",
+          "link": null,
+          "widget": {
+            "name": "preresize_min_height"
+          }
+        },
+        {
+          "name": "preresize_max_width",
+          "type": "INT",
+          "link": null,
+          "widget": {
+            "name": "preresize_max_width"
+          }
+        },
+        {
+          "name": "preresize_max_height",
+          "type": "INT",
+          "link": null,
+          "widget": {
+            "name": "preresize_max_height"
+          }
+        },
+        {
+          "name": "mask_fill_holes",
+          "type": "BOOLEAN",
+          "link": null,
+          "widget": {
+            "name": "mask_fill_holes"
+          }
+        },
+        {
+          "name": "mask_expand_pixels",
+          "type": "INT",
+          "link": null,
+          "widget": {
+            "name": "mask_expand_pixels"
+          }
+        },
+        {
+          "name": "mask_invert",
+          "type": "BOOLEAN",
+          "link": null,
+          "widget": {
+            "name": "mask_invert"
+          }
+        },
+        {
+          "name": "mask_blend_pixels",
+          "type": "INT",
+          "link": null,
+          "widget": {
+            "name": "mask_blend_pixels"
+          }
+        },
+        {
+          "name": "mask_hipass_filter",
+          "type": "FLOAT",
+          "link": null,
+          "widget": {
+            "name": "mask_hipass_filter"
+          }
+        },
+        {
+          "name": "extend_for_outpainting",
+          "type": "BOOLEAN",
+          "link": null,
+          "widget": {
+            "name": "extend_for_outpainting"
+          }
+        },
+        {
+          "name": "extend_up_factor",
+          "type": "FLOAT",
+          "link": null,
+          "widget": {
+            "name": "extend_up_factor"
+          }
+        },
+        {
+          "name": "extend_down_factor",
+          "type": "FLOAT",
+          "link": null,
+          "widget": {
+            "name": "extend_down_factor"
+          }
+        },
+        {
+          "name": "extend_left_factor",
+          "type": "FLOAT",
+          "link": null,
+          "widget": {
+            "name": "extend_left_factor"
+          }
+        },
+        {
+          "name": "extend_right_factor",
+          "type": "FLOAT",
+          "link": null,
+          "widget": {
+            "name": "extend_right_factor"
+          }
+        },
+        {
+          "name": "context_from_mask_extend_factor",
+          "type": "FLOAT",
+          "link": null,
+          "widget": {
+            "name": "context_from_mask_extend_factor"
+          }
+        },
+        {
+          "name": "output_resize_to_target_size",
+          "type": "BOOLEAN",
+          "link": null,
+          "widget": {
+            "name": "output_resize_to_target_size"
+          }
+        },
+        {
+          "name": "output_target_width",
+          "type": "INT",
+          "link": null,
+          "widget": {
+            "name": "output_target_width"
+          }
+        },
+        {
+          "name": "output_target_height",
+          "type": "INT",
+          "link": null,
+          "widget": {
+            "name": "output_target_height"
+          }
+        },
+        {
+          "name": "output_padding",
+          "type": "COMBO",
+          "link": null,
+          "widget": {
+            "name": "output_padding"
+          }
+        },
+        {
+          "name": "device_mode",
+          "type": "COMBO",
+          "link": null,
+          "widget": {
+            "name": "device_mode"
+          }
+        },
+        {
+          "name": "mask",
+          "type": "MASK",
+          "link": 1039,
+          "shape": 7
+        },
+        {
+          "name": "optional_context_mask",
+          "type": "MASK",
+          "link": null,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "stitcher",
+          "type": "STITCHER",
+          "links": [
+            1022
+          ]
+        },
+        {
+          "name": "cropped_image",
+          "type": "IMAGE",
+          "links": [
+            1025
+          ]
+        },
+        {
+          "name": "cropped_mask",
+          "type": "MASK",
+          "links": [
+            1028
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "InpaintCropImproved"
+      },
+      "widgets_values": [
+        "lanczos",
+        "bicubic",
+        false,
+        "ensure minimum resolution",
+        1024,
+        1024,
+        16384,
+        16384,
+        false,
+        0,
+        false,
+        8,
+        0.0,
+        false,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.5,
+        true,
+        1024,
+        1024,
+        "32",
+        "cpu (compatible)"
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
     }
   ],
   "links": [
@@ -48829,14 +50010,6 @@
       "IMAGE"
     ],
     [
-      530,
-      487,
-      0,
-      465,
-      8,
-      "IMAGE"
-    ],
-    [
       531,
       460,
       0,
@@ -49026,14 +50199,6 @@
       0,
       514,
       0,
-      "MASK"
-    ],
-    [
-      564,
-      515,
-      0,
-      465,
-      9,
       "MASK"
     ],
     [
@@ -50581,28 +51746,12 @@
       "MODEL"
     ],
     [
-      879,
-      743,
-      0,
-      733,
-      8,
-      "IMAGE"
-    ],
-    [
       880,
       744,
       0,
       734,
       8,
       "IMAGE"
-    ],
-    [
-      881,
-      745,
-      0,
-      733,
-      9,
-      "MASK"
     ],
     [
       882,
@@ -51437,14 +52586,6 @@
       "LATENT"
     ],
     [
-      1003,
-      513,
-      0,
-      871,
-      0,
-      "IMAGE"
-    ],
-    [
       1004,
       872,
       0,
@@ -51547,6 +52688,182 @@
       878,
       1,
       "IMAGE"
+    ],
+    [
+      1022,
+      887,
+      0,
+      888,
+      0,
+      "STITCHER"
+    ],
+    [
+      1025,
+      887,
+      1,
+      889,
+      2,
+      "IMAGE"
+    ],
+    [
+      1026,
+      886,
+      0,
+      889,
+      0,
+      "INT"
+    ],
+    [
+      1028,
+      887,
+      2,
+      890,
+      2,
+      "MASK"
+    ],
+    [
+      1029,
+      886,
+      0,
+      890,
+      0,
+      "INT"
+    ],
+    [
+      1031,
+      888,
+      0,
+      891,
+      2,
+      "IMAGE"
+    ],
+    [
+      1033,
+      891,
+      0,
+      871,
+      0,
+      "IMAGE"
+    ],
+    [
+      1038,
+      892,
+      0,
+      887,
+      0,
+      "IMAGE"
+    ],
+    [
+      1039,
+      893,
+      0,
+      887,
+      25,
+      "MASK"
+    ],
+    [
+      1040,
+      513,
+      0,
+      894,
+      0,
+      "IMAGE"
+    ],
+    [
+      1041,
+      895,
+      0,
+      888,
+      1,
+      "IMAGE"
+    ],
+    [
+      1042,
+      896,
+      0,
+      889,
+      1,
+      "IMAGE"
+    ],
+    [
+      1043,
+      897,
+      0,
+      890,
+      1,
+      "MASK"
+    ],
+    [
+      1044,
+      898,
+      0,
+      891,
+      1,
+      "IMAGE"
+    ],
+    [
+      1045,
+      886,
+      0,
+      899,
+      0,
+      "INT"
+    ],
+    [
+      1046,
+      900,
+      0,
+      891,
+      0,
+      "INT"
+    ],
+    [
+      1047,
+      889,
+      0,
+      901,
+      0,
+      "IMAGE"
+    ],
+    [
+      1048,
+      902,
+      0,
+      465,
+      8,
+      "IMAGE"
+    ],
+    [
+      1049,
+      890,
+      0,
+      903,
+      0,
+      "MASK"
+    ],
+    [
+      1050,
+      904,
+      0,
+      465,
+      9,
+      "MASK"
+    ],
+    [
+      1051,
+      905,
+      0,
+      733,
+      8,
+      "IMAGE"
+    ],
+    [
+      1052,
+      906,
+      0,
+      733,
+      9,
+      "MASK"
     ]
   ],
   "groups": [
@@ -51998,6 +53315,18 @@
         13030,
         1220,
         470
+      ],
+      "color": "#7c628e",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "title": "✂️ Редактор · обработка области крупным планом",
+      "bounding": [
+        20,
+        13570,
+        820,
+        820
       ],
       "color": "#7c628e",
       "font_size": 24,
@@ -52873,7 +54202,7 @@
           "id": "p_edit",
           "name": "Редактирование",
           "kind": "page",
-          "len": 1946,
+          "len": 1994,
           "control": {
             "nodes": [],
             "groups": [],
@@ -52909,7 +54238,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v0.12.0",
+            "text": "🧩 Универсальный воркфлоу · v0.13.0",
             "size": "M",
             "align": "left"
           },
@@ -55205,7 +56534,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v0.12.0",
+            "text": "🧩 Универсальный воркфлоу · v0.13.0",
             "size": "M",
             "align": "left"
           },
@@ -56019,7 +57348,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v0.12.0",
+            "text": "🧩 Универсальный воркфлоу · v0.13.0",
             "size": "M",
             "align": "left"
           },
@@ -56323,7 +57652,7 @@
             "accentA": "#36cfea",
             "accentB": "#59e68d",
             "visualProfile": "standard",
-            "canvasHeight": 1946
+            "canvasHeight": 1994
           },
           "look": {
             "bg": "transparent",
@@ -56493,7 +57822,7 @@
           "x": 24,
           "y": 764,
           "w": 336,
-          "h": 120,
+          "h": 168,
           "z": 2,
           "parent": null,
           "hidden": false,
@@ -56593,7 +57922,7 @@
           "type": "spoiler",
           "page": "p_edit",
           "x": 24,
-          "y": 896,
+          "y": 944,
           "w": 336,
           "h": 48,
           "z": 2,
@@ -56675,7 +58004,7 @@
           "x": 384,
           "y": 152,
           "w": 792,
-          "h": 1410,
+          "h": 1458,
           "z": 0,
           "parent": null,
           "hidden": false,
@@ -56728,7 +58057,7 @@
           "x": 396,
           "y": 208,
           "w": 768,
-          "h": 1342,
+          "h": 1390,
           "z": 2,
           "parent": null,
           "hidden": false,
@@ -56776,7 +58105,7 @@
           "x": 396,
           "y": 208,
           "w": 768,
-          "h": 1342,
+          "h": 1390,
           "z": 2,
           "parent": null,
           "hidden": false,
@@ -56837,7 +58166,7 @@
           "type": "factoryeditprog_v070",
           "page": "p_edit",
           "x": 384,
-          "y": 1574,
+          "y": 1622,
           "w": 344,
           "h": 56,
           "z": 2,
@@ -56878,7 +58207,7 @@
           "type": "factoryqueuestatus_v023",
           "page": "p_edit",
           "x": 740,
-          "y": 1574,
+          "y": 1622,
           "w": 184,
           "h": 56,
           "z": 2,
@@ -56917,7 +58246,7 @@
           "type": "factorysavetoggle_v023",
           "page": "p_edit",
           "x": 936,
-          "y": 1574,
+          "y": 1622,
           "w": 240,
           "h": 56,
           "z": 2,
@@ -56964,7 +58293,7 @@
           "type": "factoryeditpreset_v070",
           "page": "p_edit",
           "x": 24,
-          "y": 1642,
+          "y": 1690,
           "w": 1152,
           "h": 52,
           "z": 2,
@@ -57014,7 +58343,7 @@
           "type": "prompt",
           "page": "p_edit",
           "x": 24,
-          "y": 1706,
+          "y": 1754,
           "w": 1152,
           "h": 144,
           "z": 2,
@@ -57059,7 +58388,7 @@
           "type": "factoryeditrun_v070",
           "page": "p_edit",
           "x": 24,
-          "y": 1862,
+          "y": 1910,
           "w": 1152,
           "h": 56,
           "z": 2,
@@ -57108,7 +58437,7 @@
           "type": "factoryupscale_v040",
           "page": "p_edit",
           "x": 24,
-          "y": 1396,
+          "y": 1444,
           "w": 336,
           "h": 234,
           "z": 2,
@@ -57194,7 +58523,7 @@
           "x": 396,
           "y": 208,
           "w": 768,
-          "h": 1342,
+          "h": 1390,
           "z": 2,
           "parent": null,
           "hidden": false,
@@ -57264,7 +58593,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v0.12.0",
+            "text": "🧩 Универсальный воркфлоу · v0.13.0",
             "size": "M",
             "align": "left"
           },
@@ -58050,7 +59379,7 @@
           "type": "panel",
           "page": "p_edit",
           "x": 24,
-          "y": 956,
+          "y": 1004,
           "w": 336,
           "h": 304,
           "z": 0,
@@ -58083,7 +59412,7 @@
           "type": "heading",
           "page": "p_edit",
           "x": 36,
-          "y": 968,
+          "y": 1016,
           "w": 312,
           "h": 28,
           "z": 2,
@@ -58118,7 +59447,7 @@
           "type": "factoryrefmode_v0214",
           "page": "p_edit",
           "x": 36,
-          "y": 1012,
+          "y": 1060,
           "w": 312,
           "h": 48,
           "z": 2,
@@ -58272,7 +59601,7 @@
           "type": "seed",
           "page": "p_edit",
           "x": 36,
-          "y": 1072,
+          "y": 1120,
           "w": 312,
           "h": 88,
           "z": 2,
@@ -58321,7 +59650,7 @@
           "type": "number",
           "page": "p_edit",
           "x": 36,
-          "y": 1176,
+          "y": 1224,
           "w": 312,
           "h": 72,
           "z": 2,
@@ -58370,7 +59699,7 @@
           "type": "factorysliders_v0216",
           "page": "p_edit",
           "x": 24,
-          "y": 1276,
+          "y": 1324,
           "w": 336,
           "h": 44,
           "z": 2,
@@ -58404,7 +59733,7 @@
           "type": "image",
           "page": "p_edit",
           "x": 24,
-          "y": 1336,
+          "y": 1384,
           "w": 336,
           "h": 48,
           "z": 1,
@@ -58437,7 +59766,7 @@
           "type": "spoiler",
           "page": "p_edit",
           "x": 24,
-          "y": 1336,
+          "y": 1384,
           "w": 336,
           "h": 48,
           "z": 2,
@@ -58518,7 +59847,7 @@
           "x": 396,
           "y": 208,
           "w": 768,
-          "h": 1342,
+          "h": 1390,
           "z": 2,
           "parent": null,
           "hidden": false,

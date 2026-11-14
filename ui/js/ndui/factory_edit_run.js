@@ -13,6 +13,10 @@ export function editPrompt(data,targets,originalModes,s,withReference,withMask=f
  const output=structuredClone(data.output||{}),bypass=new Map();
  const ref=s.refiner;if(ref){const gate=output[ref.controller],mode=Number(gate?.inputs?.index),value=gate?.inputs?.['value'+mode];if(!Number.isInteger(mode)||mode<0||mode>4||!Array.isArray(value))throw Error('Не найден режим рефайнера редактора.');bypass.set(String(ref.controller),value);}
  const krea=s.backend==='krea',q21=s.backend==='qwen21'?s.qwen21:null;
+ const c=s.crop,cropActive=!!c&&Number(output[c.control]?.inputs?.value)===1;
+ if(c){if(cropActive&&!withMask)throw Error('Для крупного плана включи «По маске» и сохрани маску основного кадра.');for(const id of[c.imageGate,c.maskGate,c.resultGate]){const n=output[id],value=n?.inputs?.['value'+(cropActive?1:0)];if(!Array.isArray(value))throw Error('Не найдена цепочка крупного плана.');bypass.set(String(id),value);}}
+ if(cropActive){for(const id of[s.scale,q21?.scale].filter(Boolean))output[id].inputs.scale_to_longest_side=false;output[c.crop].inputs.mask_blend_pixels=Number(output[s.maskBlur]?.inputs?.blur_radius)||0;bypass.set(String(s.maskComposite),output[s.maskComposite]?.inputs?.source);if(q21)bypass.set(String(q21.maskComposite),output[q21.maskComposite]?.inputs?.source);output[s.before].inputs.images=[String(s.photo),0];}
+
  if(s.gate){const gate=output[s.gate];if(!gate)throw Error('Не найден переключатель редактора.');bypass.set(String(s.gate),gate.inputs[q21?'value2':krea?'value1':'value0']);}
  if(q21){
   if(!output[q21.encode])throw Error('Qwen 2.1 недоступен. Перезапусти ComfyUI после обновления до версии 0.37.0 или новее.');
@@ -47,7 +51,7 @@ export function editPlan(n){
  const plan=[{name:s.backend==='qwen21'?'Редактирование · Qwen 2.1':s.backend==='krea'?'Редактирование · Krea Edit V2':'Редактирование · Qwen 2511',sample:String(s.backend==='qwen21'?s.qwen21.sampler:s.backend==='krea'?s.kreaSampler:n.id),ids:new Set(s.nodes.filter(id=>!upIds.has(id)&&!refIds.has(id)).map(String)),finish:[String(mode?r.before:enabled?u.before:s.result)],runningLabel:'изменение кадра'}];
  if(mode)plan.push({name:'Рефайнер · '+['','Krea','Krea RES4LYF','Z-Image','Z-Image RES4LYF'][mode],sample:String(r.samplers[mode-1]),ids:new Set(r.nodes.map(String)),finish:[String(r.after),String(r.decodes[mode-1])],runningLabel:'доработка изображения'});
  if(enabled)plan.push(upscaleStage(g,up,'Апскейл результата'));
- plan.operations=new Map([[String(s.photo),'загрузка исходника'],[String(s.reference),'загрузка референса'],[String(s.scale),'подготовка размера'],[String(n.id),'изменение кадра'],[String(s.result),'подготовка результата'],[String(s.saver),'сохранение']]);return plan;
+ plan.operations=new Map([[String(s.photo),'загрузка исходника'],[String(s.reference),'загрузка референса'],[String(s.scale),'подготовка размера'],...(s.crop?[[String(s.crop.crop),'крупный план · вырезка области'],[String(s.crop.stitch),'возврат области в исходный кадр']]:[]),[String(n.id),'изменение кадра'],[String(s.result),'подготовка результата'],[String(s.saver),'сохранение']]);return plan;
 }
 export async function queueEdit(node,batch=1){
  if(building)throw Error('Подожди завершения отправки предыдущего задания.');const s=node.properties.acf_edit,g=node.graph,file=id=>g.getNodeById(id)?.widgets?.find(w=>w.name==='image')?.value;
@@ -58,6 +62,7 @@ export async function queueEdit(node,batch=1){
   for(const[id,key,label]of [[q.model,'unet_name','модель'],[q.clip,'clip_name','энкодер'],[q.vae,'vae_name','VAE']]){const w=g.getNodeById(id)?.widgets?.find(w=>w.name===key),values=typeof w?.options?.values==='function'?w.options.values():w?.options?.values;if(!w?.value||Array.isArray(values)&&!values.includes(w.value))throw Error('Не найден файл Qwen 2.1: '+label+'. Выбери его в общих настройках → Редактирование · Qwen 2.1.');}
  }
 
+ if(s.crop&&Number(g.getNodeById(s.crop.control)?.widgets?.find(w=>w.name==='value')?.value)===1&&!s.maskEnabled)throw Error('Для крупного плана включи «По маске» и сохрани маску основного кадра.');
  if(s.maskEnabled&&(!hasEditImage(file(s.maskFile))||s.maskFor!==file(s.photo)))throw Error('Нарисуй и сохрани маску для текущего основного кадра или выключи режим «По маске».');
  const up=g.getNodeById(s.upscale),u=up?.properties.acf_upscale,upEnabled=!!g.getNodeById(u?.enabled)?.widgets?.find(w=>w.name==='index')?.value;
  const ref=s.refiner,refEnabled=!!g.getNodeById(ref?.controller)?.widgets?.find(w=>w.name==='index')?.value;
