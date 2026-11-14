@@ -15,8 +15,6 @@ const MODEL_FIELDS = [
     ['up_simple_model','Simple · upscale-модель','upscale_models'],['up_ultimate_model','Ultimate · upscale-модель','upscale_models'],
     ['up_seed_dit','SeedVR · DiT','auto'],['up_seed_vae','SeedVR · VAE','auto'],
     ['sam_model','Модель SAM 3.1','checkpoints'],['face_detector','YOLO · лица','auto'],['hand_detector','YOLO · руки','auto'],
-    ['local_k_model','Модель Krea Raw · локально','diffusion_models'],['local_k_clip','Энкодер Krea · локально','text_encoders'],['local_k_vae','VAE Krea · локально','vae'],
-    ['local_z_model','Модель Z-Image · локально','diffusion_models'],['local_z_clip','Энкодер Z-Image · локально','text_encoders'],['local_z_vae','VAE Z-Image · локально','vae'],
     ['k_model','Модель Krea Raw','diffusion_models'], ['k_clip','Текстовый энкодер Krea','text_encoders'], ['k_vae','VAE Krea','vae'],
     ['k_turbo','Общий Turbo-адаптер Krea','loras'],
     ['z_model','Модель Z-Image','diffusion_models'], ['z_clip','Текстовый энкодер Z-Image','text_encoders'], ['z_vae','VAE Z-Image','vae'],
@@ -85,11 +83,9 @@ export function openFactorySettings(ctx, onClose=()=>{}) {
     }
     function card(container,title,hint) {const box=el('div','acf-settings-card');box.append(el('h3','',title));if(hint)box.append(el('p','',hint));container.append(box);return box;}
     const modelsGrid=el('div','acf-settings-grid acf-settings-models');models.append(modelsGrid);
-    const krea=card(modelsGrid,'Krea','Общий комплект для генерации и Krea-детализации. Выбирай Raw-модель: Turbo-адаптер подключается в нужных режимах автоматически.');
-    const zimage=card(modelsGrid,'Z-Image','Комплект второго прохода. Его модели и LoRA независимы от Krea.');
+    const krea=card(modelsGrid,'Krea','Общий комплект для генерации, детализации, локальных областей и Krea Edit. Выбирай Raw-модель: Turbo-адаптер подключается в нужных режимах автоматически.');
+    const zimage=card(modelsGrid,'Z-Image','Общий комплект Z-Image для второго прохода и локальных областей. LoRA каждого этапа независимы.');
     const turbo=card(modelsGrid,'Krea · Turbo-адаптер','Один файл для всех Turbo-режимов Krea: генерации, детализации и локальных областей. Применяется автоматически.');
-    const localKrea=card(modelsGrid,'3 · Krea · лицо, руки и маски','Отдельный комплект для лица, рук и выбранных областей.');
-    const localZ=card(modelsGrid,'3 · Z-Image · лицо, руки и маски','Отдельный комплект Z-Image для третьего этапа.');
     const detection=card(modelsGrid,'🔎 SAM и YOLO','SAM выделяет область по описанию, YOLO находит лица и руки. Здесь выбираются установленные файлы детекторов.');
     const upModels=card(modelsGrid,'Апскейл · общие модели','Один выбор для генерации, редактирования и отдельной вкладки. У Simple и Ultimate свои файлы.');
     const pose=card(modelsGrid,'🦴 Поза по референсу','OpenPose LoRA подключается автоматически при включении позы. Детекторы извлекают скелет из фото.');
@@ -98,7 +94,7 @@ export function openFactorySettings(ctx, onClose=()=>{}) {
     const background=card(modelsGrid,'🧽 Удаление фона','Отдельная функция. Выбор модели не меняет генерацию.');
     const upSeed=card(modelsGrid,'Апскейл · SeedVR','Общие DiT и VAE для генерации, редактирования и отдельного апскейла.');
     for (const [key,caption,folder] of MODEL_FIELDS) {
-        const container=key.startsWith('edit_krea_')?kreaEditor:key.startsWith('edit_')?editor:key==='bg_model'?background:key.startsWith('pose_')?pose:key==='up_simple_model'||key==='up_ultimate_model'?upModels:key.startsWith('up_seed_')?upSeed:['sam_model','face_detector','hand_detector'].includes(key)?detection:key.startsWith('local_k_')?localKrea:key.startsWith('local_z_')?localZ:key.includes('turbo')?turbo:key.startsWith('z_')?zimage:krea;
+        const container=key.startsWith('edit_krea_')?kreaEditor:key.startsWith('edit_')?editor:key==='bg_model'?background:key.startsWith('pose_')?pose:key==='up_simple_model'||key==='up_ultimate_model'?upModels:key.startsWith('up_seed_')?upSeed:['sam_model','face_detector','hand_detector'].includes(key)?detection:key.includes('turbo')?turbo:key.startsWith('z_')?zimage:krea;
         picker(container,key,caption,folder,key==='up_seed_dit'?value=>{if(/3b/i.test(String(value))){const state=ctx.info(key),node=state.p?.node||state.node,w=node?.widgets?.find(w=>w.name==='blocks_to_swap');if(w&&w.value>32){w.value=32;w.callback?.(32);node.graph?.change?.();}}}:undefined);
     }
     models.append(el('h3','acf-settings-subtitle','Постоянные LoRA'));

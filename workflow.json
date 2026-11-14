@@ -1,8 +1,8 @@
 {
   "id": "6156223e-7f85-4578-923d-9d05cf820581",
   "revision": 0,
-  "last_node_id": 725,
-  "last_link_id": 848,
+  "last_node_id": 727,
+  "last_link_id": 850,
   "nodes": [
     {
       "id": 528,
@@ -5719,8 +5719,8 @@
       "id": 179,
       "type": "easy anythingIndexSwitch",
       "pos": [
-        52,
-        2490
+        56,
+        1950
       ],
       "size": [
         210,
@@ -5777,8 +5777,8 @@
       "id": 180,
       "type": "easy anythingIndexSwitch",
       "pos": [
-        52,
-        2490
+        56,
+        1950
       ],
       "size": [
         210,
@@ -5835,8 +5835,8 @@
       "id": 183,
       "type": "easy anythingIndexSwitch",
       "pos": [
-        52,
-        2490
+        56,
+        1950
       ],
       "size": [
         210,
@@ -5894,8 +5894,8 @@
       "id": 184,
       "type": "easy anythingIndexSwitch",
       "pos": [
-        52,
-        2490
+        56,
+        1950
       ],
       "size": [
         210,
@@ -7887,7 +7887,7 @@
       "type": "GetNode",
       "pos": [
         56,
-        2500
+        1950
       ],
       "size": [
         210,
@@ -7926,7 +7926,7 @@
       "type": "SetNode",
       "pos": [
         56,
-        2500
+        1950
       ],
       "size": [
         210,
@@ -13471,7 +13471,7 @@
       "type": "GetNode",
       "pos": [
         56,
-        2850
+        2230
       ],
       "size": [
         210,
@@ -13510,7 +13510,7 @@
       "type": "SetNode",
       "pos": [
         56,
-        2120
+        1950
       ],
       "size": [
         210,
@@ -13553,7 +13553,7 @@
       "type": "GetNode",
       "pos": [
         56,
-        2850
+        2230
       ],
       "size": [
         210,
@@ -13592,7 +13592,7 @@
       "type": "SetNode",
       "pos": [
         486,
-        2120
+        1950
       ],
       "size": [
         210,
@@ -13635,7 +13635,7 @@
       "type": "GetNode",
       "pos": [
         486,
-        2950
+        2450
       ],
       "size": [
         210,
@@ -13674,7 +13674,7 @@
       "type": "SetNode",
       "pos": [
         56,
-        2500
+        1950
       ],
       "size": [
         210,
@@ -13756,7 +13756,7 @@
       "type": "SetNode",
       "pos": [
         56,
-        2500
+        1950
       ],
       "size": [
         210,
@@ -13838,7 +13838,7 @@
       "type": "SetNode",
       "pos": [
         56,
-        2500
+        1950
       ],
       "size": [
         210,
@@ -13920,7 +13920,7 @@
       "type": "SetNode",
       "pos": [
         56,
-        2500
+        1950
       ],
       "size": [
         210,
@@ -14002,7 +14002,7 @@
       "type": "SetNode",
       "pos": [
         56,
-        2500
+        1950
       ],
       "size": [
         210,
@@ -14084,7 +14084,7 @@
       "type": "SetNode",
       "pos": [
         56,
-        3350
+        2690
       ],
       "size": [
         210,
@@ -21360,6 +21360,321 @@
       "bgcolor": "#355"
     },
     {
+      "id": 170,
+      "type": "GetNode",
+      "title": "Get_SHARED_BASE_91",
+      "pos": [
+        56,
+        1950
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 170,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            136,
+            308
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "previousName": "SHARED_BASE_91"
+      },
+      "widgets_values": [
+        "SHARED_BASE_91"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 171,
+      "type": "GetNode",
+      "title": "Get_SHARED_BASE_92",
+      "pos": [
+        56,
+        2230
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 171,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            138,
+            310
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "previousName": "SHARED_BASE_92"
+      },
+      "widgets_values": [
+        "SHARED_BASE_92"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 172,
+      "type": "GetNode",
+      "title": "Get_GEN2_Z_VAE",
+      "pos": [
+        56,
+        1950
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 172,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            140
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "previousName": "GEN2_Z_VAE"
+      },
+      "widgets_values": [
+        "GEN2_Z_VAE"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 173,
+      "type": "GetNode",
+      "title": "Get_GEN2_KREA_BASE",
+      "pos": [
+        486,
+        1950
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 173,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            134
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "previousName": "GEN2_KREA_BASE"
+      },
+      "widgets_values": [
+        "GEN2_KREA_BASE"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 174,
+      "type": "GetNode",
+      "title": "Get_GEN2_KREA_CLIP_BASE",
+      "pos": [
+        486,
+        2450
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 174,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            139,
+            312
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "previousName": "GEN2_KREA_CLIP_BASE"
+      },
+      "widgets_values": [
+        "GEN2_KREA_CLIP_BASE"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 175,
+      "type": "GetNode",
+      "title": "Get_GEN1_VAE",
+      "pos": [
+        486,
+        2170
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 175,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            141
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "previousName": "GEN1_VAE"
+      },
+      "widgets_values": [
+        "GEN1_VAE"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 726,
+      "type": "SetNode",
+      "title": "Set_SHARED_BASE_91",
+      "pos": [
+        3356,
+        1080
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 726,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "link": 849
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SetNode",
+        "previousName": "SHARED_BASE_91"
+      },
+      "widgets_values": [
+        "SHARED_BASE_91"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 727,
+      "type": "SetNode",
+      "title": "Set_SHARED_BASE_92",
+      "pos": [
+        3356,
+        1250
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 727,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "link": 850
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SetNode",
+        "previousName": "SHARED_BASE_92"
+      },
+      "widgets_values": [
+        "SHARED_BASE_92"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
       "id": 1,
       "type": "UNETLoader",
       "pos": [
@@ -23757,7 +24072,8 @@
           "name": "MODEL",
           "type": "MODEL",
           "links": [
-            69
+            69,
+            849
           ]
         }
       ],
@@ -23830,7 +24146,8 @@
           "name": "CLIP",
           "type": "CLIP",
           "links": [
-            70
+            70,
+            850
           ]
         }
       ],
@@ -25281,364 +25598,11 @@
       "bgcolor": "#653"
     },
     {
-      "id": 170,
-      "type": "UNETLoader",
-      "pos": [
-        40,
-        1900
-      ],
-      "size": [
-        430,
-        100
-      ],
-      "flags": {
-        "pinned": true
-      },
-      "order": 170,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "unet_name",
-          "type": "COMBO",
-          "link": null,
-          "widget": {
-            "name": "unet_name"
-          }
-        },
-        {
-          "name": "weight_dtype",
-          "type": "COMBO",
-          "link": null,
-          "widget": {
-            "name": "weight_dtype"
-          }
-        }
-      ],
-      "outputs": [
-        {
-          "name": "MODEL",
-          "type": "MODEL",
-          "links": [
-            136,
-            308
-          ]
-        }
-      ],
-      "title": "🟢 3 · Z-Image · модель",
-      "properties": {
-        "Node name for S&R": "UNETLoader",
-        "nd_ui_src": {
-          "uid": "src_settings_local_z_model",
-          "tag": "settings-local_z_model"
-        }
-      },
-      "widgets_values": [
-        "Zimage\\cyberrealisticZImage_v50.safetensors",
-        "default"
-      ],
-      "color": "#232",
-      "bgcolor": "#353"
-    },
-    {
-      "id": 171,
-      "type": "CLIPLoader",
-      "pos": [
-        40,
-        2070
-      ],
-      "size": [
-        430,
-        110
-      ],
-      "flags": {
-        "pinned": true
-      },
-      "order": 171,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "clip_name",
-          "type": "COMBO",
-          "link": null,
-          "widget": {
-            "name": "clip_name"
-          }
-        },
-        {
-          "name": "type",
-          "type": "COMBO",
-          "link": null,
-          "widget": {
-            "name": "type"
-          }
-        },
-        {
-          "name": "device",
-          "type": "COMBO",
-          "link": null,
-          "widget": {
-            "name": "device"
-          },
-          "shape": 7
-        }
-      ],
-      "outputs": [
-        {
-          "name": "CLIP",
-          "type": "CLIP",
-          "links": [
-            138,
-            310
-          ]
-        }
-      ],
-      "title": "🟢 3 · Z-Image · энкодер",
-      "properties": {
-        "Node name for S&R": "CLIPLoader",
-        "nd_ui_src": {
-          "uid": "src_settings_local_z_clip",
-          "tag": "settings-local_z_clip"
-        }
-      },
-      "widgets_values": [
-        "ZImage\\zImageTurbo_turbo_txt.safetensors",
-        "lumina2",
-        "default"
-      ],
-      "color": "#232",
-      "bgcolor": "#353"
-    },
-    {
-      "id": 172,
-      "type": "VAELoader",
-      "pos": [
-        40,
-        2250
-      ],
-      "size": [
-        430,
-        100
-      ],
-      "flags": {
-        "pinned": true
-      },
-      "order": 172,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "vae_name",
-          "type": "COMBO",
-          "link": null,
-          "widget": {
-            "name": "vae_name"
-          }
-        }
-      ],
-      "outputs": [
-        {
-          "name": "VAE",
-          "type": "VAE",
-          "links": [
-            140
-          ]
-        }
-      ],
-      "title": "🟢 3 · Z-Image · VAE",
-      "properties": {
-        "Node name for S&R": "VAELoader",
-        "nd_ui_src": {
-          "uid": "src_settings_local_z_vae",
-          "tag": "settings-local_z_vae"
-        }
-      },
-      "widgets_values": [
-        "ZImage\\ae_zimgturbo.safetensors"
-      ],
-      "color": "#232",
-      "bgcolor": "#353"
-    },
-    {
-      "id": 173,
-      "type": "UNETLoader",
-      "pos": [
-        470,
-        1900
-      ],
-      "size": [
-        410,
-        90
-      ],
-      "flags": {
-        "pinned": true
-      },
-      "order": 173,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "unet_name",
-          "type": "COMBO",
-          "link": null,
-          "widget": {
-            "name": "unet_name"
-          }
-        },
-        {
-          "name": "weight_dtype",
-          "type": "COMBO",
-          "link": null,
-          "widget": {
-            "name": "weight_dtype"
-          }
-        }
-      ],
-      "outputs": [
-        {
-          "name": "MODEL",
-          "type": "MODEL",
-          "links": [
-            134
-          ]
-        }
-      ],
-      "title": "🟢 3 · Krea Raw · модель",
-      "properties": {
-        "Node name for S&R": "UNETLoader",
-        "nd_ui_src": {
-          "uid": "src_settings_local_k_model",
-          "tag": "settings-local_k_model"
-        }
-      },
-      "widgets_values": [
-        "Krea2\\krea2_raw_fp8_scaled.safetensors",
-        "default"
-      ],
-      "color": "#232",
-      "bgcolor": "#353"
-    },
-    {
-      "id": 174,
-      "type": "CLIPLoader",
-      "pos": [
-        470,
-        2070
-      ],
-      "size": [
-        410,
-        110
-      ],
-      "flags": {
-        "pinned": true
-      },
-      "order": 174,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "clip_name",
-          "type": "COMBO",
-          "link": null,
-          "widget": {
-            "name": "clip_name"
-          }
-        },
-        {
-          "name": "type",
-          "type": "COMBO",
-          "link": null,
-          "widget": {
-            "name": "type"
-          }
-        },
-        {
-          "name": "device",
-          "type": "COMBO",
-          "link": null,
-          "widget": {
-            "name": "device"
-          },
-          "shape": 7
-        }
-      ],
-      "outputs": [
-        {
-          "name": "CLIP",
-          "type": "CLIP",
-          "links": [
-            139,
-            312
-          ]
-        }
-      ],
-      "title": "🟢 3 · Krea · энкодер",
-      "properties": {
-        "Node name for S&R": "CLIPLoader",
-        "nd_ui_src": {
-          "uid": "src_settings_local_k_clip",
-          "tag": "settings-local_k_clip"
-        }
-      },
-      "widgets_values": [
-        "Krea2\\qwen3vl_4b_fp8_scaled.safetensors",
-        "krea2",
-        "default"
-      ],
-      "color": "#232",
-      "bgcolor": "#353"
-    },
-    {
-      "id": 175,
-      "type": "VAELoader",
-      "pos": [
-        470,
-        2250
-      ],
-      "size": [
-        410,
-        80
-      ],
-      "flags": {
-        "pinned": true
-      },
-      "order": 175,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "vae_name",
-          "type": "COMBO",
-          "link": null,
-          "widget": {
-            "name": "vae_name"
-          }
-        }
-      ],
-      "outputs": [
-        {
-          "name": "VAE",
-          "type": "VAE",
-          "links": [
-            141
-          ]
-        }
-      ],
-      "title": "🟢 3 · Krea · VAE",
-      "properties": {
-        "Node name for S&R": "VAELoader",
-        "nd_ui_src": {
-          "uid": "src_settings_local_k_vae",
-          "tag": "settings-local_k_vae"
-        }
-      },
-      "widgets_values": [
-        "Krea2\\qwen_image_vae.safetensors"
-      ],
-      "color": "#232",
-      "bgcolor": "#353"
-    },
-    {
       "id": 176,
       "type": "Power Lora Loader (rgthree)",
       "pos": [
         470,
-        2420
+        1900
       ],
       "size": [
         430,
@@ -25713,7 +25677,7 @@
       "type": "Krea2ModelSampling",
       "pos": [
         470,
-        2640
+        2120
       ],
       "size": [
         330,
@@ -25791,7 +25755,7 @@
       "type": "easy anythingIndexSwitch",
       "pos": [
         40,
-        2450
+        1900
       ],
       "size": [
         330,
@@ -25928,7 +25892,7 @@
       "type": "Power Lora Loader (rgthree)",
       "pos": [
         40,
-        2800
+        2180
       ],
       "size": [
         410,
@@ -26039,7 +26003,7 @@
       "type": "Power Lora Loader (rgthree)",
       "pos": [
         470,
-        2900
+        2400
       ],
       "size": [
         410,
@@ -26150,7 +26114,7 @@
       "type": "Seed (rgthree)",
       "pos": [
         40,
-        3300
+        2640
       ],
       "size": [
         330,
@@ -42230,6 +42194,22 @@
       513,
       1,
       "IMAGE"
+    ],
+    [
+      849,
+      91,
+      0,
+      726,
+      0,
+      "MODEL"
+    ],
+    [
+      850,
+      92,
+      0,
+      727,
+      0,
+      "CLIP"
     ]
   ],
   "groups": [
@@ -42431,12 +42411,12 @@
     },
     {
       "id": 17,
-      "title": "🟢 3 · Модели и LoRA",
+      "title": "🟢 3 · Выбор модели и независимые LoRA",
       "bounding": [
         20,
         1820,
         930,
-        1680
+        1040
       ],
       "color": "#46776f",
       "font_size": 24,
@@ -43077,42 +43057,6 @@
           "title": "🖼️ После второго прохода"
         },
         {
-          "uid": "src_settings_local_k_model",
-          "tag": "settings-local_k_model",
-          "class": "UNETLoader",
-          "title": "🟢 3 · Krea Raw · модель"
-        },
-        {
-          "uid": "src_settings_local_k_clip",
-          "tag": "settings-local_k_clip",
-          "class": "CLIPLoader",
-          "title": "🟢 3 · Krea · энкодер"
-        },
-        {
-          "uid": "src_settings_local_k_vae",
-          "tag": "settings-local_k_vae",
-          "class": "VAELoader",
-          "title": "🟢 3 · Krea · VAE"
-        },
-        {
-          "uid": "src_settings_local_z_model",
-          "tag": "settings-local_z_model",
-          "class": "UNETLoader",
-          "title": "🟢 3 · Z-Image · модель"
-        },
-        {
-          "uid": "src_settings_local_z_clip",
-          "tag": "settings-local_z_clip",
-          "class": "CLIPLoader",
-          "title": "🟢 3 · Z-Image · энкодер"
-        },
-        {
-          "uid": "src_settings_local_z_vae",
-          "tag": "settings-local_z_vae",
-          "class": "VAELoader",
-          "title": "🟢 3 · Z-Image · VAE"
-        },
-        {
           "uid": "src_settings_local_turbo",
           "tag": "settings-local_turbo",
           "class": "Power Lora Loader (rgthree)",
@@ -43484,7 +43428,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v0.9.1",
+            "text": "🧩 Универсальный воркфлоу · v0.9.2",
             "size": "M",
             "align": "left"
           },
@@ -44766,36 +44710,6 @@
               "kind": "widget",
               "name": "power_lora_3.strength"
             },
-            "local_k_model": {
-              "src": "src_settings_local_k_model",
-              "kind": "widget",
-              "name": "unet_name"
-            },
-            "local_k_clip": {
-              "src": "src_settings_local_k_clip",
-              "kind": "widget",
-              "name": "clip_name"
-            },
-            "local_k_vae": {
-              "src": "src_settings_local_k_vae",
-              "kind": "widget",
-              "name": "vae_name"
-            },
-            "local_z_model": {
-              "src": "src_settings_local_z_model",
-              "kind": "widget",
-              "name": "unet_name"
-            },
-            "local_z_clip": {
-              "src": "src_settings_local_z_clip",
-              "kind": "widget",
-              "name": "clip_name"
-            },
-            "local_z_vae": {
-              "src": "src_settings_local_z_vae",
-              "kind": "widget",
-              "name": "vae_name"
-            },
             "sam_model": {
               "src": "src_settings_sam_model",
               "kind": "widget",
@@ -45615,7 +45529,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v0.9.1",
+            "text": "🧩 Универсальный воркфлоу · v0.9.2",
             "size": "M",
             "align": "left"
           },
@@ -45817,36 +45731,6 @@
               "src": "src_k2pass_z_lora",
               "kind": "widget",
               "name": "power_lora_3.strength"
-            },
-            "local_k_model": {
-              "src": "src_settings_local_k_model",
-              "kind": "widget",
-              "name": "unet_name"
-            },
-            "local_k_clip": {
-              "src": "src_settings_local_k_clip",
-              "kind": "widget",
-              "name": "clip_name"
-            },
-            "local_k_vae": {
-              "src": "src_settings_local_k_vae",
-              "kind": "widget",
-              "name": "vae_name"
-            },
-            "local_z_model": {
-              "src": "src_settings_local_z_model",
-              "kind": "widget",
-              "name": "unet_name"
-            },
-            "local_z_clip": {
-              "src": "src_settings_local_z_clip",
-              "kind": "widget",
-              "name": "clip_name"
-            },
-            "local_z_vae": {
-              "src": "src_settings_local_z_vae",
-              "kind": "widget",
-              "name": "vae_name"
             },
             "sam_model": {
               "src": "src_settings_sam_model",
@@ -46444,7 +46328,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v0.9.1",
+            "text": "🧩 Универсальный воркфлоу · v0.9.2",
             "size": "M",
             "align": "left"
           },
@@ -46646,36 +46530,6 @@
               "src": "src_k2pass_z_lora",
               "kind": "widget",
               "name": "power_lora_3.strength"
-            },
-            "local_k_model": {
-              "src": "src_settings_local_k_model",
-              "kind": "widget",
-              "name": "unet_name"
-            },
-            "local_k_clip": {
-              "src": "src_settings_local_k_clip",
-              "kind": "widget",
-              "name": "clip_name"
-            },
-            "local_k_vae": {
-              "src": "src_settings_local_k_vae",
-              "kind": "widget",
-              "name": "vae_name"
-            },
-            "local_z_model": {
-              "src": "src_settings_local_z_model",
-              "kind": "widget",
-              "name": "unet_name"
-            },
-            "local_z_clip": {
-              "src": "src_settings_local_z_clip",
-              "kind": "widget",
-              "name": "clip_name"
-            },
-            "local_z_vae": {
-              "src": "src_settings_local_z_vae",
-              "kind": "widget",
-              "name": "vae_name"
             },
             "sam_model": {
               "src": "src_settings_sam_model",
@@ -47605,7 +47459,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v0.9.1",
+            "text": "🧩 Универсальный воркфлоу · v0.9.2",
             "size": "M",
             "align": "left"
           },
@@ -47807,36 +47661,6 @@
               "src": "src_k2pass_z_lora",
               "kind": "widget",
               "name": "power_lora_3.strength"
-            },
-            "local_k_model": {
-              "src": "src_settings_local_k_model",
-              "kind": "widget",
-              "name": "unet_name"
-            },
-            "local_k_clip": {
-              "src": "src_settings_local_k_clip",
-              "kind": "widget",
-              "name": "clip_name"
-            },
-            "local_k_vae": {
-              "src": "src_settings_local_k_vae",
-              "kind": "widget",
-              "name": "vae_name"
-            },
-            "local_z_model": {
-              "src": "src_settings_local_z_model",
-              "kind": "widget",
-              "name": "unet_name"
-            },
-            "local_z_clip": {
-              "src": "src_settings_local_z_clip",
-              "kind": "widget",
-              "name": "clip_name"
-            },
-            "local_z_vae": {
-              "src": "src_settings_local_z_vae",
-              "kind": "widget",
-              "name": "vae_name"
             },
             "sam_model": {
               "src": "src_settings_sam_model",
