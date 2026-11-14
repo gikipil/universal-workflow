@@ -1,8 +1,8 @@
 {
   "id": "6156223e-7f85-4578-923d-9d05cf820581",
   "revision": 0,
-  "last_node_id": 1030,
-  "last_link_id": 1235,
+  "last_node_id": 1032,
+  "last_link_id": 1238,
   "nodes": [
     {
       "id": 965,
@@ -51673,7 +51673,7 @@
     {
       "id": 1018,
       "type": "GetNode",
-      "title": "GetNode_OUTPAINT_959_0",
+      "title": "Get_OUTPAINT_EDGE_IMAGE",
       "pos": [
         1266,
         15320
@@ -51700,10 +51700,10 @@
       ],
       "properties": {
         "Node name for S&R": "GetNode",
-        "previousName": "OUTPAINT_959_0"
+        "previousName": "OUTPAINT_EDGE_IMAGE"
       },
       "widgets_values": [
-        "OUTPAINT_959_0"
+        "OUTPAINT_EDGE_IMAGE"
       ],
       "color": "#233",
       "bgcolor": "#355"
@@ -52208,7 +52208,8 @@
           "name": "IMAGE",
           "type": "IMAGE",
           "links": [
-            1153
+            1153,
+            1236
           ]
         },
         {
@@ -52463,7 +52464,7 @@
         {
           "name": "image",
           "type": "IMAGE",
-          "link": 1154,
+          "link": 1237,
           "shape": 7
         },
         {
@@ -52914,7 +52915,9 @@
               1027,
               1028,
               1029,
-              1030
+              1030,
+              1031,
+              1032
             ],
             "save": false,
             "maskFile": null,
@@ -53084,13 +53087,16 @@
             1027,
             1028,
             1029,
-            1030
+            1030,
+            1031,
+            1032
           ],
           "targetSize": {
             "width": 0,
             "height": 0
           },
-          "prompt": 933
+          "prompt": 933,
+          "edgePad": 1031
         }
       },
       "widgets_values": [
@@ -53834,6 +53840,177 @@
       "bgcolor": "#533"
     },
     {
+      "id": 1031,
+      "type": "ImagePadKJ",
+      "title": "Техническое · продолжение краевых пикселей",
+      "pos": [
+        446,
+        14580
+      ],
+      "size": [
+        340,
+        220
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 1031,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 1236
+        },
+        {
+          "name": "left",
+          "type": "INT",
+          "link": null,
+          "widget": {
+            "name": "left"
+          }
+        },
+        {
+          "name": "right",
+          "type": "INT",
+          "link": null,
+          "widget": {
+            "name": "right"
+          }
+        },
+        {
+          "name": "top",
+          "type": "INT",
+          "link": null,
+          "widget": {
+            "name": "top"
+          }
+        },
+        {
+          "name": "bottom",
+          "type": "INT",
+          "link": null,
+          "widget": {
+            "name": "bottom"
+          }
+        },
+        {
+          "name": "extra_padding",
+          "type": "INT",
+          "link": null,
+          "widget": {
+            "name": "extra_padding"
+          }
+        },
+        {
+          "name": "pad_mode",
+          "type": "COMBO",
+          "link": null,
+          "widget": {
+            "name": "pad_mode"
+          }
+        },
+        {
+          "name": "color",
+          "type": "STRING",
+          "link": null,
+          "widget": {
+            "name": "color"
+          }
+        },
+        {
+          "name": "mask",
+          "type": "MASK",
+          "link": null,
+          "shape": 7
+        },
+        {
+          "name": "target_width",
+          "type": "INT",
+          "link": null,
+          "shape": 7
+        },
+        {
+          "name": "target_height",
+          "type": "INT",
+          "link": null,
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": [
+            1237,
+            1238
+          ]
+        },
+        {
+          "name": "masks",
+          "type": "MASK",
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImagePadKJ"
+      },
+      "widgets_values": [
+        0,
+        256,
+        0,
+        0,
+        0,
+        "edge_pixel",
+        "0, 0, 0"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 1032,
+      "type": "SetNode",
+      "title": "Set_OUTPAINT_EDGE_IMAGE",
+      "pos": [
+        446,
+        14580
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 1032,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "link": 1238
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SetNode",
+        "previousName": "OUTPAINT_EDGE_IMAGE"
+      },
+      "widgets_values": [
+        "OUTPAINT_EDGE_IMAGE"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
       "id": 959,
       "type": "ImagePadForOutpaint",
       "title": "↔️ Расширение холста",
@@ -53902,7 +54079,6 @@
           "name": "IMAGE",
           "type": "IMAGE",
           "links": [
-            1154,
             1222
           ]
         },
@@ -60469,14 +60645,6 @@
       "IMAGE"
     ],
     [
-      1154,
-      959,
-      0,
-      913,
-      8,
-      "IMAGE"
-    ],
-    [
       1155,
       959,
       1,
@@ -61041,6 +61209,30 @@
       1030,
       0,
       964,
+      0,
+      "IMAGE"
+    ],
+    [
+      1236,
+      907,
+      0,
+      1031,
+      0,
+      "IMAGE"
+    ],
+    [
+      1237,
+      1031,
+      0,
+      913,
+      8,
+      "IMAGE"
+    ],
+    [
+      1238,
+      1031,
+      0,
+      1032,
       0,
       "IMAGE"
     ]
