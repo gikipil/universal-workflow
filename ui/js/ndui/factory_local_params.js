@@ -13,7 +13,7 @@ export function applyLocalOrder(node,order){
  if(!Array.isArray(order)||order.length!==4||new Set(order).size!==4||order.some(k=>!keys.includes(k)))throw Error('Каждый режим должен встречаться в порядке ровно один раз.');
  // All input references are changed together. KJ virtual links resolve the saved
  // names at queue time; no physical links or diffusion settings are rewritten.
- const edits=order.map((k,i)=>[s[k].input,i?`LOCAL_${order[i-1].toUpperCase()}`:'GEN2_RESULT_IMAGE']);edits.push([s.final,`LOCAL_${order.at(-1).toUpperCase()}`]);
+ const prefix=s.routePrefix||'';const edits=order.map((k,i)=>[s[k].input,i?`${prefix}LOCAL_${order[i-1].toUpperCase()}`:(s.inputName||'GEN2_RESULT_IMAGE')]);edits.push([s.final,`${prefix}LOCAL_${order.at(-1).toUpperCase()}`]);
  for(const[id]of edits)if(!g.getNodeById(id)?.widgets?.[0])throw Error('Не найден вход локального режима.');
  for(const[id,name]of edits)g.getNodeById(id).widgets[0].value=name;
  for(const[id]of edits)g.getNodeById(id).onRename?.();
