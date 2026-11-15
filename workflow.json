@@ -1,8 +1,8 @@
 {
   "id": "6156223e-7f85-4578-923d-9d05cf820581",
   "revision": 0,
-  "last_node_id": 1032,
-  "last_link_id": 1238,
+  "last_node_id": 1035,
+  "last_link_id": 1247,
   "nodes": [
     {
       "id": 965,
@@ -47205,8 +47205,7 @@
           "type": "LATENT",
           "links": [
             1067,
-            1071,
-            1086
+            1071
           ]
         }
       ],
@@ -47835,7 +47834,8 @@
           "links": [
             1087,
             1090,
-            1219
+            1219,
+            1238
           ]
         },
         {
@@ -47886,7 +47886,7 @@
         {
           "name": "samples",
           "type": "LATENT",
-          "link": 1086
+          "link": 1239
         },
         {
           "name": "mask",
@@ -48173,8 +48173,7 @@
           "name": "LATENT",
           "type": "LATENT",
           "links": [
-            1103,
-            1115
+            1103
           ]
         }
       ],
@@ -48628,7 +48627,7 @@
         {
           "name": "samples",
           "type": "LATENT",
-          "link": 1115
+          "link": 1243
         },
         {
           "name": "mask",
@@ -48940,7 +48939,8 @@
           "links": [
             1136,
             1145,
-            1149
+            1149,
+            1244
           ]
         },
         {
@@ -49318,9 +49318,7 @@
         {
           "name": "LATENT",
           "type": "LATENT",
-          "links": [
-            1147
-          ]
+          "links": []
         }
       ],
       "properties": {
@@ -49356,7 +49354,7 @@
         {
           "name": "samples",
           "type": "LATENT",
-          "link": 1147
+          "link": 1247
         },
         {
           "name": "mask",
@@ -49990,7 +49988,8 @@
           "name": "IMAGE",
           "type": "IMAGE",
           "links": [
-            1177
+            1177,
+            1236
           ]
         }
       ],
@@ -50028,7 +50027,8 @@
           "name": "VAE",
           "type": "VAE",
           "links": [
-            1178
+            1178,
+            1237
           ]
         }
       ],
@@ -50576,7 +50576,8 @@
           "name": "IMAGE",
           "type": "IMAGE",
           "links": [
-            1192
+            1192,
+            1240
           ]
         }
       ],
@@ -50614,7 +50615,8 @@
           "name": "VAE",
           "type": "VAE",
           "links": [
-            1193
+            1193,
+            1241
           ]
         }
       ],
@@ -51116,7 +51118,8 @@
           "name": "MASK",
           "type": "MASK",
           "links": [
-            1206
+            1206,
+            1242
           ]
         }
       ],
@@ -51496,7 +51499,8 @@
           "name": "VAE",
           "type": "VAE",
           "links": [
-            1218
+            1218,
+            1245
           ]
         }
       ],
@@ -51576,7 +51580,8 @@
           "name": "MASK",
           "type": "MASK",
           "links": [
-            1220
+            1220,
+            1246
           ]
         }
       ],
@@ -51673,7 +51678,7 @@
     {
       "id": 1018,
       "type": "GetNode",
-      "title": "Get_OUTPAINT_EDGE_IMAGE",
+      "title": "GetNode_OUTPAINT_959_0",
       "pos": [
         1266,
         15320
@@ -51700,10 +51705,10 @@
       ],
       "properties": {
         "Node name for S&R": "GetNode",
-        "previousName": "OUTPAINT_EDGE_IMAGE"
+        "previousName": "OUTPAINT_959_0"
       },
       "widgets_values": [
-        "OUTPAINT_EDGE_IMAGE"
+        "OUTPAINT_959_0"
       ],
       "color": "#233",
       "bgcolor": "#355"
@@ -52208,8 +52213,7 @@
           "name": "IMAGE",
           "type": "IMAGE",
           "links": [
-            1153,
-            1236
+            1153
           ]
         },
         {
@@ -52464,7 +52468,7 @@
         {
           "name": "image",
           "type": "IMAGE",
-          "link": 1237,
+          "link": 1154,
           "shape": 7
         },
         {
@@ -52672,6 +52676,67 @@
       ],
       "color": "#232",
       "bgcolor": "#353"
+    },
+    {
+      "id": 1033,
+      "type": "VAEEncodeForInpaint",
+      "title": "Техническое · очистка новых областей перед дорисовкой",
+      "pos": [
+        1266,
+        14580
+      ],
+      "size": [
+        340,
+        220
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 1033,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "pixels",
+          "type": "IMAGE",
+          "link": 1236
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 1237
+        },
+        {
+          "name": "mask",
+          "type": "MASK",
+          "link": 1238
+        },
+        {
+          "name": "grow_mask_by",
+          "type": "INT",
+          "link": null,
+          "widget": {
+            "name": "grow_mask_by"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            1239
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEEncodeForInpaint"
+      },
+      "widgets_values": [
+        0
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
     },
     {
       "id": 925,
@@ -52916,8 +52981,9 @@
               1028,
               1029,
               1030,
-              1031,
-              1032
+              1033,
+              1034,
+              1035
             ],
             "save": false,
             "maskFile": null,
@@ -53088,15 +53154,20 @@
             1028,
             1029,
             1030,
-            1031,
-            1032
+            1033,
+            1034,
+            1035
           ],
           "targetSize": {
             "width": 0,
             "height": 0
           },
           "prompt": 933,
-          "edgePad": 1031
+          "inpaintLatents": [
+            1033,
+            1034,
+            1035
+          ]
         }
       },
       "widgets_values": [
@@ -53506,6 +53577,67 @@
       "bgcolor": "#535"
     },
     {
+      "id": 1034,
+      "type": "VAEEncodeForInpaint",
+      "title": "Техническое · очистка новых областей перед дорисовкой",
+      "pos": [
+        1266,
+        14950
+      ],
+      "size": [
+        340,
+        220
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 1034,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "pixels",
+          "type": "IMAGE",
+          "link": 1240
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 1241
+        },
+        {
+          "name": "mask",
+          "type": "MASK",
+          "link": 1242
+        },
+        {
+          "name": "grow_mask_by",
+          "type": "INT",
+          "link": null,
+          "widget": {
+            "name": "grow_mask_by"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            1243
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEEncodeForInpaint"
+      },
+      "widgets_values": [
+        0
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
       "id": 945,
       "type": "KSampler",
       "title": "🖼️ Дорисовка · 🎨 Krea Edit V2 · редактирование",
@@ -53725,6 +53857,67 @@
       "bgcolor": "#535"
     },
     {
+      "id": 1035,
+      "type": "VAEEncodeForInpaint",
+      "title": "Техническое · очистка новых областей перед дорисовкой",
+      "pos": [
+        1266,
+        15320
+      ],
+      "size": [
+        340,
+        220
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 1035,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "pixels",
+          "type": "IMAGE",
+          "link": 1244
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 1245
+        },
+        {
+          "name": "mask",
+          "type": "MASK",
+          "link": 1246
+        },
+        {
+          "name": "grow_mask_by",
+          "type": "INT",
+          "link": null,
+          "widget": {
+            "name": "grow_mask_by"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            1247
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEEncodeForInpaint"
+      },
+      "widgets_values": [
+        0
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
       "id": 953,
       "type": "KSampler",
       "title": "🖼️ Дорисовка · 🎨 Qwen 2.1 · редактирование",
@@ -53840,177 +54033,6 @@
       "bgcolor": "#533"
     },
     {
-      "id": 1031,
-      "type": "ImagePadKJ",
-      "title": "Техническое · продолжение краевых пикселей",
-      "pos": [
-        446,
-        14580
-      ],
-      "size": [
-        340,
-        220
-      ],
-      "flags": {
-        "pinned": true,
-        "collapsed": true
-      },
-      "order": 1031,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "image",
-          "type": "IMAGE",
-          "link": 1236
-        },
-        {
-          "name": "left",
-          "type": "INT",
-          "link": null,
-          "widget": {
-            "name": "left"
-          }
-        },
-        {
-          "name": "right",
-          "type": "INT",
-          "link": null,
-          "widget": {
-            "name": "right"
-          }
-        },
-        {
-          "name": "top",
-          "type": "INT",
-          "link": null,
-          "widget": {
-            "name": "top"
-          }
-        },
-        {
-          "name": "bottom",
-          "type": "INT",
-          "link": null,
-          "widget": {
-            "name": "bottom"
-          }
-        },
-        {
-          "name": "extra_padding",
-          "type": "INT",
-          "link": null,
-          "widget": {
-            "name": "extra_padding"
-          }
-        },
-        {
-          "name": "pad_mode",
-          "type": "COMBO",
-          "link": null,
-          "widget": {
-            "name": "pad_mode"
-          }
-        },
-        {
-          "name": "color",
-          "type": "STRING",
-          "link": null,
-          "widget": {
-            "name": "color"
-          }
-        },
-        {
-          "name": "mask",
-          "type": "MASK",
-          "link": null,
-          "shape": 7
-        },
-        {
-          "name": "target_width",
-          "type": "INT",
-          "link": null,
-          "shape": 7
-        },
-        {
-          "name": "target_height",
-          "type": "INT",
-          "link": null,
-          "shape": 7
-        }
-      ],
-      "outputs": [
-        {
-          "name": "images",
-          "type": "IMAGE",
-          "links": [
-            1237,
-            1238
-          ]
-        },
-        {
-          "name": "masks",
-          "type": "MASK",
-          "links": []
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "ImagePadKJ"
-      },
-      "widgets_values": [
-        0,
-        256,
-        0,
-        0,
-        0,
-        "edge_pixel",
-        "0, 0, 0"
-      ],
-      "color": "#233",
-      "bgcolor": "#355"
-    },
-    {
-      "id": 1032,
-      "type": "SetNode",
-      "title": "Set_OUTPAINT_EDGE_IMAGE",
-      "pos": [
-        446,
-        14580
-      ],
-      "size": [
-        210,
-        40
-      ],
-      "flags": {
-        "pinned": true,
-        "collapsed": true
-      },
-      "order": 1032,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "link": 1238
-        }
-      ],
-      "outputs": [
-        {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": []
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "SetNode",
-        "previousName": "OUTPAINT_EDGE_IMAGE"
-      },
-      "widgets_values": [
-        "OUTPAINT_EDGE_IMAGE"
-      ],
-      "color": "#233",
-      "bgcolor": "#355"
-    },
-    {
       "id": 959,
       "type": "ImagePadForOutpaint",
       "title": "↔️ Расширение холста",
@@ -54079,6 +54101,7 @@
           "name": "IMAGE",
           "type": "IMAGE",
           "links": [
+            1154,
             1222
           ]
         },
@@ -60341,14 +60364,6 @@
       "LATENT"
     ],
     [
-      1086,
-      914,
-      0,
-      931,
-      0,
-      "LATENT"
-    ],
-    [
       1087,
       930,
       0,
@@ -60451,14 +60466,6 @@
       942,
       0,
       "CONDITIONING"
-    ],
-    [
-      1115,
-      937,
-      0,
-      944,
-      0,
-      "LATENT"
     ],
     [
       1117,
@@ -60605,14 +60612,6 @@
       "IMAGE"
     ],
     [
-      1147,
-      955,
-      0,
-      956,
-      0,
-      "LATENT"
-    ],
-    [
       1149,
       950,
       0,
@@ -60642,6 +60641,14 @@
       0,
       959,
       0,
+      "IMAGE"
+    ],
+    [
+      1154,
+      959,
+      0,
+      913,
+      8,
       "IMAGE"
     ],
     [
@@ -61214,27 +61221,99 @@
     ],
     [
       1236,
-      907,
+      972,
       0,
-      1031,
+      1033,
       0,
       "IMAGE"
     ],
     [
       1237,
-      1031,
+      973,
       0,
-      913,
-      8,
-      "IMAGE"
+      1033,
+      1,
+      "VAE"
     ],
     [
       1238,
-      1031,
+      930,
       0,
-      1032,
+      1033,
+      2,
+      "MASK"
+    ],
+    [
+      1239,
+      1033,
+      0,
+      931,
+      0,
+      "LATENT"
+    ],
+    [
+      1240,
+      987,
+      0,
+      1034,
       0,
       "IMAGE"
+    ],
+    [
+      1241,
+      988,
+      0,
+      1034,
+      1,
+      "VAE"
+    ],
+    [
+      1242,
+      1001,
+      0,
+      1034,
+      2,
+      "MASK"
+    ],
+    [
+      1243,
+      1034,
+      0,
+      944,
+      0,
+      "LATENT"
+    ],
+    [
+      1244,
+      950,
+      0,
+      1035,
+      0,
+      "IMAGE"
+    ],
+    [
+      1245,
+      1013,
+      0,
+      1035,
+      1,
+      "VAE"
+    ],
+    [
+      1246,
+      1015,
+      0,
+      1035,
+      2,
+      "MASK"
+    ],
+    [
+      1247,
+      1035,
+      0,
+      956,
+      0,
+      "LATENT"
     ]
   ],
   "groups": [
