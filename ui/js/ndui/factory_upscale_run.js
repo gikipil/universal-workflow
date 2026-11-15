@@ -5,7 +5,29 @@ import {app} from '../../../scripts/app.js';
 import {FactoryProgress,bindFactoryProgress} from './factory_progress.js';
 import {rewriteUpscale,upscaleStage} from './factory_upscale_tasks.js';
 export const upscaleProgress=new FactoryProgress();
-export function upscalePrompt(data,targets,modes,spec){const output=rewriteUpscale(structuredClone(data.output||{}),spec),keep=new Set();function visit(id){id=String(id);if(keep.has(id))return;const n=output[id];if(!n)throw Error('Не найден узел апскейла '+id);keep.add(id);for(const [key,input] of Object.entries(n.inputs||{})){let v=input;const seen=new Set();while(Array.isArray(v)&&output[v[0]]?.class_type==='easy anythingIndexSwitch'){const q=output[v[0]],i=Number(q.inputs.index);if(!Number.isInteger(i)||!Array.isArray(q.inputs['value'+i]))throw Error('Не найден выбранный режим обработки фото · '+v[0]+' · '+JSON.stringify(q.inputs.index));if(seen.has(String(v[0])))throw Error('Зацикленный режим обработки фото.');seen.add(String(v[0]));v=q.inputs['value'+i];}n.inputs[key]=v;if(Array.isArray(v)&&v.length===2&&typeof v[1]==='number'&&Object.hasOwn(output,String(v[0])))visit(v[0]);}}for(const id of targets)visit(id);const workflow=structuredClone(data.workflow);for(const n of workflow?.nodes||[])if(modes.has(n.id))n.mode=modes.get(n.id);return{...data,workflow,output:Object.fromEntries([...keep].map(id=>[id,output[id]]))};}
+export function upscalePrompt(data,targets,modes,spec){
+ const output=rewriteUpscale(structuredClone(data.output||{}),spec),keep=new Set();
+ function scalar(value,seen=new Set()){
+  if(!Array.isArray(value))return typeof value==='boolean'?Number(value):value;
+  const id=String(value[0]);if(seen.has(id))throw Error('Зацикленное управление режимом обработки фото.');seen.add(id);
+  const n=output[id];if(!n||value[1]!==0)return undefined;
+  if(['PrimitiveInt','PrimitiveFloat','PrimitiveBoolean'].includes(n.class_type))return scalar(n.inputs.value,seen);
+  if(n.class_type==='easy anythingIndexSwitch'){const i=scalar(n.inputs.index,new Set(seen));return Number.isInteger(i)?scalar(n.inputs['value'+i],seen):undefined;}
+  return undefined;
+ }
+ function visit(id){id=String(id);if(keep.has(id))return;const n=output[id];if(!n)throw Error('Не найден узел апскейла '+id);keep.add(id);
+  for(const [key,input]of Object.entries(n.inputs||{})){let v=input;const seen=new Set();
+   while(Array.isArray(v)&&output[v[0]]?.class_type==='easy anythingIndexSwitch'){
+    const q=output[v[0]],i=scalar(q.inputs.index);
+    if(!Number.isInteger(i)||i<0||!Array.isArray(q.inputs['value'+i]))throw Error('Не найден выбранный режим обработки фото · '+v[0]);
+    if(seen.has(String(v[0])))throw Error('Зацикленный режим обработки фото.');seen.add(String(v[0]));v=q.inputs['value'+i];
+   }
+   n.inputs[key]=v;if(Array.isArray(v)&&v.length===2&&typeof v[1]==='number'&&Object.hasOwn(output,String(v[0])))visit(v[0]);
+  }
+ }
+ for(const id of targets)visit(id);const workflow=structuredClone(data.workflow);for(const n of workflow?.nodes||[])if(modes.has(n.id))n.mode=modes.get(n.id);
+ return{...data,workflow,output:Object.fromEntries([...keep].map(id=>[id,output[id]]))};
+}
 let building=false;const queued=new Set(),owner=()=> (app.graph?._nodes||app.graph?.nodes||[]).find(n=>n.properties?.acf_upscale_task);
 export function upscalePlan(node){
  const s=node.properties.acf_upscale_task,g=node.graph,read=id=>Number(g.getNodeById(id)?.widgets?.find(w=>w.name==='index')?.value)||0,plan=[];
