@@ -79278,7 +79278,7 @@
           "id": "p_dataset",
           "name": "Датасет",
           "kind": "page",
-          "len": 1240,
+          "len": 1120,
           "control": {
             "nodes": [],
             "groups": [],
@@ -79302,7 +79302,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v0.16.2",
+            "text": "🧩 Универсальный воркфлоу · v0.16.3",
             "size": "M",
             "align": "left"
           },
@@ -81603,7 +81603,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v0.16.2",
+            "text": "🧩 Универсальный воркфлоу · v0.16.3",
             "size": "M",
             "align": "left"
           },
@@ -82422,7 +82422,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v0.16.2",
+            "text": "🧩 Универсальный воркфлоу · v0.16.3",
             "size": "M",
             "align": "left"
           },
@@ -83672,7 +83672,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v0.16.2",
+            "text": "🧩 Универсальный воркфлоу · v0.16.3",
             "size": "M",
             "align": "left"
           },
@@ -85009,7 +85009,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "↔️ Дорисовка за границами кадра · v0.16.2",
+            "text": "↔️ Дорисовка за границами кадра · v0.16.3",
             "size": "M",
             "align": "left"
           },
@@ -86931,7 +86931,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v0.16.2",
+            "text": "🧩 Универсальный воркфлоу · v0.16.3",
             "size": "M",
             "align": "left"
           },
@@ -87240,7 +87240,7 @@
             "accentA": "#36cfea",
             "accentB": "#59e68d",
             "visualProfile": "standard",
-            "canvasHeight": 1240
+            "canvasHeight": 1120
           },
           "look": {
             "bg": "transparent",
@@ -87258,12 +87258,12 @@
         },
         {
           "id": "caption_photo",
-          "type": "factoryphoto_v060",
+          "type": "factorycapsource_v0163",
           "page": "p_dataset",
           "x": 24,
           "y": 152,
           "w": 336,
-          "h": 280,
+          "h": 200,
           "z": 2,
           "parent": null,
           "hidden": false,
@@ -87273,20 +87273,25 @@
               "src": "src_caption_photo",
               "kind": "widget",
               "name": "image"
+            },
+            "config": {
+              "src": "src_caption_task",
+              "kind": "widget",
+              "name": "settings"
             }
           },
           "props": {
-            "label": "📷 Одно фото · для режима папки можно оставить пустым"
+            "flowBaseH": 200
           },
           "look": {
             "style": null,
             "shape": null,
             "accent": "#59e68d",
-            "bg": "#192b2a",
+            "bg": null,
             "field": "#20252d",
             "text": null,
             "labelColor": "#78e4cd",
-            "border": "#3d726c",
+            "border": null,
             "radius": 12,
             "shadow": null,
             "blur": null,
@@ -87305,9 +87310,9 @@
           "type": "factorycaption_v0160",
           "page": "p_dataset",
           "x": 24,
-          "y": 448,
+          "y": 368,
           "w": 336,
-          "h": 700,
+          "h": 650,
           "z": 2,
           "parent": null,
           "hidden": false,
@@ -87319,7 +87324,9 @@
               "name": "settings"
             }
           },
-          "props": {},
+          "props": {
+            "flowBaseH": 650
+          },
           "look": {
             "style": null,
             "shape": null,
@@ -87349,7 +87356,7 @@
           "x": 384,
           "y": 152,
           "w": 792,
-          "h": 924,
+          "h": 794,
           "z": 2,
           "parent": null,
           "hidden": false,
@@ -87391,7 +87398,7 @@
           "type": "factorycapprog_v0160",
           "page": "p_dataset",
           "x": 384,
-          "y": 1092,
+          "y": 962,
           "w": 792,
           "h": 56,
           "z": 2,
@@ -87436,7 +87443,7 @@
           "type": "factorycaprun_v0160",
           "page": "p_dataset",
           "x": 24,
-          "y": 1160,
+          "y": 1030,
           "w": 1152,
           "h": 56,
           "z": 2,
