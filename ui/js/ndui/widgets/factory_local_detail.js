@@ -6,6 +6,7 @@ import {viewer} from './viewer.js';
 import {el} from './util.js';
 import {factoryDialog,gearIcon} from './factory_dialog.js';
 import {editLocalMask,showLocalMask} from './factory_local_mask.js';
+import {forNode} from '../events.js';
 const titles={face:'🙂 Лицо',hands:'✋ Руки',sam:'🔎 SAM 3.1',manual:'🖌️ Ручная маска'};
 const button=(text,label)=>{const b=el('button','ndk-chip',text);b.type='button';if(label)b.setAttribute('aria-label',label);return b;};
 export const factorylocal_v030={type:'factorylocal_v030',label:'Лицо, руки и маски',icon:'sparkles',group:'Inputs',live:true,noLabel:true,fill:true,
@@ -39,10 +40,11 @@ export const factorylocal_v030={type:'factorylocal_v030',label:'Лицо, рук
 };
 
 export const factorylocalcompare_v030={type:'factorylocalcompare_v030',label:'Сравнение локальных режимов',icon:'compare',group:'Results',fill:true,noLabel:true,
- slots:Object.keys(titles).flatMap(k=>['a','b'].map(side=>({id:k+'_'+side,label:titles[k]+' '+side,accepts:['IMAGE'],data:'images',required:true}))),props:[],size:{w:768,h:1268,minW:300,minH:300},
+ slots:Object.keys(titles).flatMap(k=>['a','b'].map(side=>({id:k+'_'+side,label:titles[k]+' '+side,accepts:['IMAGE'],data:'images',required:false}))),props:[],size:{w:768,h:1268,minW:300,minH:300},
  mount(ctx){const root=el('div'),tabs=el('div'),body=el('div');Object.assign(root.style,{display:'flex',flexDirection:'column',height:'100%',width:'100%',minWidth:'0',boxSizing:'border-box',gap:'10px'});Object.assign(tabs.style,{display:'flex',gap:'8px',flexWrap:'wrap'});Object.assign(body.style,{display:'flex',flexDirection:'column',flex:'1 1 auto',minHeight:'0',minWidth:'0',width:'100%',boxSizing:'border-box'});root.append(tabs,body);ctx.body.append(root);let selected=ctx.prop('selected')||'face';const buttons=[];
  for(const[k,name]of Object.entries(titles)){const b=button(name);b.addEventListener('click',()=>{selected=k;ctx.setProp?.('selected',k);update();});tabs.append(b);buttons.push([k,b]);}
  const map=k=>k==='images'||k==='b'?selected+'_b':k==='a'?selected+'_a':k;
  const child=viewer.mount({...ctx,body,info:k=>ctx.info(map(k)),get:k=>ctx.get(map(k)),prop:k=>k==='compare'?true:k==='results'||k==='live'?false:k==='srcA'||k==='srcB'?'node':k==='labelA'?'До режима':k==='labelB'?'После режима':k==='thumbs'||k==='progress'?'off':ctx.prop(k)});
- function update(){for(const[k,b]of buttons){b.classList.toggle('on',k===selected);b.setAttribute('aria-pressed',String(k===selected));}child.update?.();}update();return{update,resize:()=>child.resize?.(),destroy:()=>child.destroy?.()};}
+ function hasPair(key){return ['a','b'].every(side=>{const node=ctx.info(key+'_'+side)?.node;return node&&forNode(node).images?.length;});}
+ function update(){if(!hasPair(selected)){const ready=Object.keys(titles).find(hasPair);if(ready){selected=ready;ctx.setProp?.('selected',selected);}}for(const[k,b]of buttons){b.classList.toggle('on',k===selected);b.setAttribute('aria-pressed',String(k===selected));}child.update?.();}update();return{update,resize:()=>child.resize?.(),destroy:()=>child.destroy?.()};}
 };
