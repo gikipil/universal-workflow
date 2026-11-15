@@ -112,11 +112,25 @@ export function modeParams(node, notify = touch) {
 
 /* ------------------------------------------------------------------ public */
 
+// A dedicated FLOAT control avoids PrimitiveFloat's coarser native step.
+// Write the value directly: native widget callbacks may snap it back to 0.1.
+export function denoiseParams(node,notify=touch){
+    if(!node?.properties?.acf_denoise)return[];
+    const target=()=>node.widgets?.find(w=>w.name==='value');
+    const proxy={name:'factory_denoise',node,type:'number',options:{min:0,max:1,step:0.5,step2:0.05,precision:2},
+        get value(){return target()?.value;},setValue(value){
+            if(typeof value!=='number'||!Number.isFinite(value)||value<0||value>1||!target())return false;
+            target().value=Number(value.toFixed(6));notify(node);return true;
+        }};
+    return[{name:proxy.name,label:'Denoise',node,widget:proxy,ptype:'FLOAT',min:0,max:1,step:0.05,precision:2,virtual:true,control:false,seed:false}];
+}
+
 export function virtualParams(node) {
     switch (classOf(node)) {
         case "KSampler": return [...outpaintParams(node,touch),...editParams(node,touch)];
         case "RMBG": return backgroundParams(node,touch);
         case "PrimitiveInt": return poseParams(node,touch);
+        case "PrimitiveFloat": return denoiseParams(node,touch);
         case "easy anythingIndexSwitch": return [...upscaleTaskParams(node,touch),...upscaleParams(node,touch),...localParams(node,touch),...factoryRefineLoraParams(node, touch),...sliderBankParams(node,touch),...userLoraBankParams(node,touch)];
         case "Image Saver Simple": return factorySaveParams(node, touch);
         case "NDValueSlider": { const p = sliderParam(node); return p ? [p] : []; }

@@ -25573,7 +25573,8 @@
         "nd_ui_src": {
           "uid": "src_k2pass_denoise",
           "tag": "k2pass-denoise"
-        }
+        },
+        "acf_denoise": true
       },
       "widgets_values": [
         0.15
@@ -44553,7 +44554,8 @@
         "nd_ui_src": {
           "uid": "src_editref_79",
           "tag": "editref-79"
-        }
+        },
+        "acf_denoise": true
       },
       "widgets_values": [
         0.15
@@ -66733,7 +66735,8 @@
         "nd_ui_src": {
           "uid": "src_photo_775",
           "tag": "photo-775"
-        }
+        },
+        "acf_denoise": true
       },
       "widgets_values": [
         0.15
@@ -80117,14 +80120,14 @@
             "value": {
               "src": "src_k2pass_denoise",
               "kind": "widget",
-              "name": "value"
+              "name": "factory_denoise"
             }
           },
           "props": {
             "label": "🎚️ Сила перерисовки · denoise",
             "min": 0,
             "max": 1,
-            "step": 0.01,
+            "step": 0.05,
             "decimals": 2,
             "buttons": true
           },
@@ -84591,14 +84594,14 @@
             "value": {
               "src": "src_editref_79",
               "kind": "widget",
-              "name": "value"
+              "name": "factory_denoise"
             }
           },
           "props": {
             "label": "🎚️ Сила перерисовки · denoise",
             "min": 0,
             "max": 1,
-            "step": 0.01,
+            "step": 0.05,
             "decimals": 2,
             "buttons": true
           },
@@ -86207,14 +86210,14 @@
             "value": {
               "src": "src_photo_775",
               "kind": "widget",
-              "name": "value"
+              "name": "factory_denoise"
             }
           },
           "props": {
             "label": "🎚️ Сила перерисовки · denoise",
             "min": 0,
             "max": 1,
-            "step": 0.01,
+            "step": 0.05,
             "decimals": 2,
             "buttons": true
           },
