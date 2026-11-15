@@ -1,7 +1,7 @@
 {
   "id": "6156223e-7f85-4578-923d-9d05cf820581",
   "revision": 0,
-  "last_node_id": 1302,
+  "last_node_id": 1304,
   "last_link_id": 1538,
   "nodes": [
     {
@@ -68291,6 +68291,109 @@
       "widgets_values": [],
       "color": "#232",
       "bgcolor": "#353"
+    },
+    {
+      "id": 1304,
+      "type": "UniversalCaptionTask",
+      "title": "📝 Датасет · локальный caption",
+      "pos": [
+        56,
+        19930
+      ],
+      "size": [
+        340,
+        210
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 1304,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "settings",
+          "type": "STRING",
+          "link": null,
+          "widget": {
+            "name": "settings"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "UniversalCaptionTask",
+        "nd_ui_src": {
+          "uid": "src_caption_task",
+          "tag": "caption-task"
+        },
+        "acf_caption": {
+          "photo": 1303
+        }
+      },
+      "widgets_values": [
+        "{\"engine\": \"qwen\", \"source\": \"single\", \"folder\": \"\", \"image_name\": \"\", \"trigger\": \"\", \"instruction\": \"Write a concise, factual English caption for this training image. Describe only visible clothing, pose, expression, framing, lighting and environment. Do not invent details or identify the person. Return only the caption.\", \"max_tokens\": 256, \"save_txt\": false, \"skip_existing\": true, \"florence_task\": \"detailed_caption\", \"quantization\": \"8-bit (Balanced)\", \"models\": {\"florence\": \"MiaoshouAI/Florence-2-large-PromptGen-v2.0\", \"qwen\": \"Qwen3-VL-4B-Instruct\", \"joy\": \"fancyfeast/llama-joycaption-beta-one-hf-llava\"}}"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 1303,
+      "type": "LoadImage",
+      "title": "📷 Датасет · одно фото",
+      "pos": [
+        40,
+        19880
+      ],
+      "size": [
+        340,
+        350
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 1303,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "COMBO",
+          "link": null,
+          "widget": {
+            "name": "image"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": []
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage",
+        "nd_ui_src": {
+          "uid": "src_caption_photo",
+          "tag": "caption-photo"
+        }
+      },
+      "widgets_values": [
+        "universal-local-empty-mask.png"
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
     }
   ],
   "links": [
@@ -77752,6 +77855,18 @@
       "color": "#3d726c",
       "font_size": 24,
       "flags": {}
+    },
+    {
+      "title": "📝 Датасет · локальные подписи",
+      "bounding": [
+        20,
+        19820,
+        420,
+        460
+      ],
+      "color": "#3d726c",
+      "font_size": 24,
+      "flags": {}
     }
   ],
   "config": {},
@@ -79084,6 +79199,18 @@
           "tag": "photo-862",
           "class": "PreviewImage",
           "title": "📷 Обработка фото · ✨ После рефайнера · редактор"
+        },
+        {
+          "uid": "src_caption_photo",
+          "tag": "caption-photo",
+          "class": "LoadImage",
+          "title": "📷 Датасет · одно фото"
+        },
+        {
+          "uid": "src_caption_task",
+          "tag": "caption-task",
+          "class": "UniversalCaptionTask",
+          "title": "📝 Датасет · локальный caption"
         }
       ],
       "pages": [
@@ -79146,6 +79273,18 @@
             "how": "mute",
             "bindIndex": null
           }
+        },
+        {
+          "id": "p_dataset",
+          "name": "Датасет",
+          "kind": "page",
+          "len": 1240,
+          "control": {
+            "nodes": [],
+            "groups": [],
+            "how": "mute",
+            "bindIndex": null
+          }
         }
       ],
       "widgets": [
@@ -79163,7 +79302,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v0.15.5",
+            "text": "🧩 Универсальный воркфлоу · v0.16.0",
             "size": "M",
             "align": "left"
           },
@@ -80614,6 +80753,11 @@
               "src": "src_edit_q21_vae",
               "kind": "widget",
               "name": "vae_name"
+            },
+            "caption_config": {
+              "src": "src_caption_task",
+              "kind": "widget",
+              "name": "settings"
             }
           },
           "props": {
@@ -81459,7 +81603,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v0.15.5",
+            "text": "🧩 Универсальный воркфлоу · v0.16.0",
             "size": "M",
             "align": "left"
           },
@@ -81756,6 +81900,11 @@
               "src": "src_edit_q21_vae",
               "kind": "widget",
               "name": "vae_name"
+            },
+            "caption_config": {
+              "src": "src_caption_task",
+              "kind": "widget",
+              "name": "settings"
             }
           },
           "props": {
@@ -82273,7 +82422,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v0.15.5",
+            "text": "🧩 Универсальный воркфлоу · v0.16.0",
             "size": "M",
             "align": "left"
           },
@@ -82570,6 +82719,11 @@
               "src": "src_edit_q21_vae",
               "kind": "widget",
               "name": "vae_name"
+            },
+            "caption_config": {
+              "src": "src_caption_task",
+              "kind": "widget",
+              "name": "settings"
             }
           },
           "props": {
@@ -83518,7 +83672,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v0.15.5",
+            "text": "🧩 Универсальный воркфлоу · v0.16.0",
             "size": "M",
             "align": "left"
           },
@@ -83815,6 +83969,11 @@
               "src": "src_edit_q21_vae",
               "kind": "widget",
               "name": "vae_name"
+            },
+            "caption_config": {
+              "src": "src_caption_task",
+              "kind": "widget",
+              "name": "settings"
             }
           },
           "props": {
@@ -84850,7 +85009,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "↔️ Дорисовка за границами кадра · v0.15.5",
+            "text": "↔️ Дорисовка за границами кадра · v0.16.0",
             "size": "M",
             "align": "left"
           },
@@ -85147,6 +85306,11 @@
               "src": "src_edit_q21_vae",
               "kind": "widget",
               "name": "vae_name"
+            },
+            "caption_config": {
+              "src": "src_caption_task",
+              "kind": "widget",
+              "name": "settings"
             }
           },
           "props": {
@@ -86749,6 +86913,569 @@
           "adapt": {
             "mode": "scale",
             "max": 10000,
+            "unit": "%",
+            "align": "left"
+          }
+        },
+        {
+          "id": "caption_header",
+          "type": "heading",
+          "page": "p_dataset",
+          "x": 24,
+          "y": 16,
+          "w": 1152,
+          "h": 40,
+          "z": 2,
+          "parent": null,
+          "hidden": false,
+          "locked": true,
+          "slots": {},
+          "props": {
+            "text": "🧩 Универсальный воркфлоу · v0.16.0",
+            "size": "M",
+            "align": "left"
+          },
+          "look": {
+            "style": null,
+            "shape": null,
+            "accent": null,
+            "bg": null,
+            "field": null,
+            "text": "#e8eaf0",
+            "labelColor": null,
+            "border": null,
+            "radius": null,
+            "shadow": null,
+            "blur": null,
+            "label": null,
+            "scale": 115
+          }
+        },
+        {
+          "id": "caption_taskbar",
+          "type": "factorytaskbar_v0215",
+          "page": "p_dataset",
+          "x": 24,
+          "y": 72,
+          "w": 1152,
+          "h": 64,
+          "z": 10,
+          "parent": null,
+          "hidden": false,
+          "locked": true,
+          "slots": {
+            "k_model": {
+              "src": "src_k2module_model",
+              "kind": "widget",
+              "name": "unet_name"
+            },
+            "k_clip": {
+              "src": "src_settings_k_clip",
+              "kind": "widget",
+              "name": "clip_name"
+            },
+            "k_vae": {
+              "src": "src_settings_k_vae",
+              "kind": "widget",
+              "name": "vae_name"
+            },
+            "z_model": {
+              "src": "src_settings_z_model",
+              "kind": "widget",
+              "name": "unet_name"
+            },
+            "z_clip": {
+              "src": "src_settings_z_clip",
+              "kind": "widget",
+              "name": "clip_name"
+            },
+            "z_vae": {
+              "src": "src_settings_z_vae",
+              "kind": "widget",
+              "name": "vae_name"
+            },
+            "k_turbo": {
+              "src": "src_settings_k_turbo",
+              "kind": "widget",
+              "name": "power_lora_1.lora"
+            },
+            "kg_1_lora": {
+              "src": "src_k2module_lora",
+              "kind": "widget",
+              "name": "power_lora_1.lora"
+            },
+            "kg_1_on": {
+              "src": "src_k2module_lora",
+              "kind": "widget",
+              "name": "power_lora_1.on"
+            },
+            "kg_1_strength": {
+              "src": "src_k2module_lora",
+              "kind": "widget",
+              "name": "power_lora_1.strength"
+            },
+            "kg_2_lora": {
+              "src": "src_k2module_lora",
+              "kind": "widget",
+              "name": "power_lora_2.lora"
+            },
+            "kg_2_on": {
+              "src": "src_k2module_lora",
+              "kind": "widget",
+              "name": "power_lora_2.on"
+            },
+            "kg_2_strength": {
+              "src": "src_k2module_lora",
+              "kind": "widget",
+              "name": "power_lora_2.strength"
+            },
+            "kg_3_lora": {
+              "src": "src_k2module_lora",
+              "kind": "widget",
+              "name": "power_lora_3.lora"
+            },
+            "kg_3_on": {
+              "src": "src_k2module_lora",
+              "kind": "widget",
+              "name": "power_lora_3.on"
+            },
+            "kg_3_strength": {
+              "src": "src_k2module_lora",
+              "kind": "widget",
+              "name": "power_lora_3.strength"
+            },
+            "kr_1_lora": {
+              "src": "src_k2pass_krea_lora",
+              "kind": "widget",
+              "name": "power_lora_1.lora"
+            },
+            "kr_1_on": {
+              "src": "src_k2pass_krea_lora",
+              "kind": "widget",
+              "name": "power_lora_1.on"
+            },
+            "kr_1_strength": {
+              "src": "src_k2pass_krea_lora",
+              "kind": "widget",
+              "name": "power_lora_1.strength"
+            },
+            "kr_2_lora": {
+              "src": "src_k2pass_krea_lora",
+              "kind": "widget",
+              "name": "power_lora_2.lora"
+            },
+            "kr_2_on": {
+              "src": "src_k2pass_krea_lora",
+              "kind": "widget",
+              "name": "power_lora_2.on"
+            },
+            "kr_2_strength": {
+              "src": "src_k2pass_krea_lora",
+              "kind": "widget",
+              "name": "power_lora_2.strength"
+            },
+            "kr_3_lora": {
+              "src": "src_k2pass_krea_lora",
+              "kind": "widget",
+              "name": "power_lora_3.lora"
+            },
+            "kr_3_on": {
+              "src": "src_k2pass_krea_lora",
+              "kind": "widget",
+              "name": "power_lora_3.on"
+            },
+            "kr_3_strength": {
+              "src": "src_k2pass_krea_lora",
+              "kind": "widget",
+              "name": "power_lora_3.strength"
+            },
+            "zr_1_lora": {
+              "src": "src_k2pass_z_lora",
+              "kind": "widget",
+              "name": "power_lora_1.lora"
+            },
+            "zr_1_on": {
+              "src": "src_k2pass_z_lora",
+              "kind": "widget",
+              "name": "power_lora_1.on"
+            },
+            "zr_1_strength": {
+              "src": "src_k2pass_z_lora",
+              "kind": "widget",
+              "name": "power_lora_1.strength"
+            },
+            "zr_2_lora": {
+              "src": "src_k2pass_z_lora",
+              "kind": "widget",
+              "name": "power_lora_2.lora"
+            },
+            "zr_2_on": {
+              "src": "src_k2pass_z_lora",
+              "kind": "widget",
+              "name": "power_lora_2.on"
+            },
+            "zr_2_strength": {
+              "src": "src_k2pass_z_lora",
+              "kind": "widget",
+              "name": "power_lora_2.strength"
+            },
+            "zr_3_lora": {
+              "src": "src_k2pass_z_lora",
+              "kind": "widget",
+              "name": "power_lora_3.lora"
+            },
+            "zr_3_on": {
+              "src": "src_k2pass_z_lora",
+              "kind": "widget",
+              "name": "power_lora_3.on"
+            },
+            "zr_3_strength": {
+              "src": "src_k2pass_z_lora",
+              "kind": "widget",
+              "name": "power_lora_3.strength"
+            },
+            "sam_model": {
+              "src": "src_settings_sam_model",
+              "kind": "widget",
+              "name": "ckpt_name"
+            },
+            "face_detector": {
+              "src": "src_settings_face_detector",
+              "kind": "widget",
+              "name": "model_name"
+            },
+            "hand_detector": {
+              "src": "src_settings_hand_detector",
+              "kind": "widget",
+              "name": "model_name"
+            },
+            "up_simple_model": {
+              "src": "src_upscale_simple-model",
+              "kind": "widget",
+              "name": "model_name"
+            },
+            "up_ultimate_model": {
+              "src": "src_upscale_ultimate-model",
+              "kind": "widget",
+              "name": "model_name"
+            },
+            "up_seed_dit": {
+              "src": "src_upscale_seed-dit",
+              "kind": "widget",
+              "name": "model"
+            },
+            "up_seed_vae": {
+              "src": "src_upscale_seed-vae",
+              "kind": "widget",
+              "name": "model"
+            },
+            "pose_lora": {
+              "src": "src_pose_controller",
+              "kind": "widget",
+              "name": "factory_pose_lora"
+            },
+            "pose_bbox": {
+              "src": "src_pose_detector",
+              "kind": "widget",
+              "name": "bbox_detector"
+            },
+            "pose_estimator": {
+              "src": "src_pose_detector",
+              "kind": "widget",
+              "name": "pose_estimator"
+            },
+            "bg_model": {
+              "src": "src_background_controller",
+              "kind": "widget",
+              "name": "model"
+            },
+            "edit_model": {
+              "src": "src_edit_model",
+              "kind": "widget",
+              "name": "unet_name"
+            },
+            "edit_clip": {
+              "src": "src_edit_clip",
+              "kind": "widget",
+              "name": "clip_name"
+            },
+            "edit_vae": {
+              "src": "src_edit_vae",
+              "kind": "widget",
+              "name": "vae_name"
+            },
+            "edit_krea_general": {
+              "src": "src_edit_controller",
+              "kind": "widget",
+              "name": "factory_edit_general_file"
+            },
+            "edit_krea_identity": {
+              "src": "src_edit_controller",
+              "kind": "widget",
+              "name": "factory_edit_identity_file"
+            },
+            "edit_q21_model": {
+              "src": "src_edit_q21_model",
+              "kind": "widget",
+              "name": "unet_name"
+            },
+            "edit_q21_clip": {
+              "src": "src_edit_q21_clip",
+              "kind": "widget",
+              "name": "clip_name"
+            },
+            "edit_q21_vae": {
+              "src": "src_edit_q21_vae",
+              "kind": "widget",
+              "name": "vae_name"
+            },
+            "caption_config": {
+              "src": "src_caption_task",
+              "kind": "widget",
+              "name": "settings"
+            }
+          },
+          "props": {
+            "glow": "soft",
+            "accentA": "#36cfea",
+            "accentB": "#59e68d",
+            "visualProfile": "standard",
+            "canvasHeight": 1240
+          },
+          "look": {
+            "bg": "transparent",
+            "border": "transparent",
+            "label": "hidden",
+            "radius": 0,
+            "scale": 100
+          },
+          "adapt": {
+            "mode": "stretch",
+            "max": 10000,
+            "unit": "%",
+            "align": "left"
+          }
+        },
+        {
+          "id": "caption_photo",
+          "type": "factoryphoto_v060",
+          "page": "p_dataset",
+          "x": 24,
+          "y": 152,
+          "w": 336,
+          "h": 280,
+          "z": 2,
+          "parent": null,
+          "hidden": false,
+          "locked": true,
+          "slots": {
+            "image": {
+              "src": "src_caption_photo",
+              "kind": "widget",
+              "name": "image"
+            }
+          },
+          "props": {
+            "label": "📷 Одно фото · для режима папки можно оставить пустым"
+          },
+          "look": {
+            "style": null,
+            "shape": null,
+            "accent": "#59e68d",
+            "bg": "#192b2a",
+            "field": "#20252d",
+            "text": null,
+            "labelColor": "#78e4cd",
+            "border": "#3d726c",
+            "radius": 12,
+            "shadow": null,
+            "blur": null,
+            "label": null,
+            "scale": 100
+          },
+          "adapt": {
+            "mode": "stretch",
+            "max": 10000,
+            "unit": "%",
+            "align": "center"
+          }
+        },
+        {
+          "id": "caption_controls",
+          "type": "factorycaption_v0160",
+          "page": "p_dataset",
+          "x": 24,
+          "y": 448,
+          "w": 336,
+          "h": 700,
+          "z": 2,
+          "parent": null,
+          "hidden": false,
+          "locked": true,
+          "slots": {
+            "config": {
+              "src": "src_caption_task",
+              "kind": "widget",
+              "name": "settings"
+            }
+          },
+          "props": {},
+          "look": {
+            "style": null,
+            "shape": null,
+            "accent": "#59e68d",
+            "bg": null,
+            "field": "#20252d",
+            "text": null,
+            "labelColor": "#8eefb4",
+            "border": "#365a45",
+            "radius": 12,
+            "shadow": null,
+            "blur": null,
+            "label": null,
+            "scale": 100
+          },
+          "adapt": {
+            "mode": "stretch",
+            "max": 10000,
+            "unit": "%",
+            "align": "center"
+          }
+        },
+        {
+          "id": "caption_result",
+          "type": "factorycapresult_v0160",
+          "page": "p_dataset",
+          "x": 384,
+          "y": 152,
+          "w": 792,
+          "h": 924,
+          "z": 2,
+          "parent": null,
+          "hidden": false,
+          "locked": true,
+          "slots": {
+            "config": {
+              "src": "src_caption_task",
+              "kind": "widget",
+              "name": "settings"
+            },
+            "result": {
+              "src": "src_caption_task",
+              "kind": "text",
+              "name": ""
+            }
+          },
+          "props": {
+            "bottomWith": "caption_controls",
+            "bottomInset": 72
+          },
+          "look": {
+            "style": null,
+            "shape": null,
+            "accent": "#36cfea",
+            "bg": "#181c23",
+            "field": "#20252d",
+            "text": null,
+            "labelColor": "#65e3f4",
+            "border": "#286f80",
+            "radius": 12,
+            "shadow": null,
+            "blur": null,
+            "label": "hidden",
+            "scale": 100
+          }
+        },
+        {
+          "id": "caption_progress",
+          "type": "factorycapprog_v0160",
+          "page": "p_dataset",
+          "x": 384,
+          "y": 1092,
+          "w": 792,
+          "h": 56,
+          "z": 2,
+          "parent": null,
+          "hidden": false,
+          "locked": true,
+          "slots": {
+            "result": {
+              "src": "src_caption_task",
+              "kind": "text",
+              "name": ""
+            }
+          },
+          "props": {
+            "afterWith": "caption_result",
+            "afterGap": 16
+          },
+          "look": {
+            "style": null,
+            "shape": null,
+            "accent": "#36cfea",
+            "bg": "#181c23",
+            "field": "#20252d",
+            "text": null,
+            "labelColor": "#65e3f4",
+            "border": "#286f80",
+            "radius": 12,
+            "shadow": null,
+            "blur": null,
+            "label": "hidden",
+            "scale": 100
+          },
+          "adapt": {
+            "mode": "stretch",
+            "max": 10000,
+            "unit": "%",
+            "align": "left"
+          }
+        },
+        {
+          "id": "caption_run",
+          "type": "factorycaprun_v0160",
+          "page": "p_dataset",
+          "x": 24,
+          "y": 1160,
+          "w": 1152,
+          "h": 56,
+          "z": 2,
+          "parent": null,
+          "hidden": false,
+          "locked": true,
+          "slots": {
+            "config": {
+              "src": "src_caption_task",
+              "kind": "widget",
+              "name": "settings"
+            }
+          },
+          "props": {
+            "text": "Создать подписи",
+            "batch": false,
+            "stop": true,
+            "stopIdle": false,
+            "afterWith": "caption_progress",
+            "afterGap": 12
+          },
+          "look": {
+            "style": null,
+            "shape": null,
+            "accent": null,
+            "bg": null,
+            "field": null,
+            "text": null,
+            "labelColor": null,
+            "border": null,
+            "radius": 12,
+            "shadow": null,
+            "blur": null,
+            "label": null,
+            "scale": 100
+          },
+          "adapt": {
+            "mode": "scale",
+            "max": 50,
             "unit": "%",
             "align": "left"
           }

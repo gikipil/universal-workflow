@@ -1,3 +1,4 @@
+import {captionModelFields} from './factory_caption.js';
 // Universal Workflow update by gikipil, 2026-11-14: standalone and post-edit upscale.
 // SPDX-License-Identifier: AGPL-3.0-only
 // Universal Workflow additions by gikipil, 2026-11-12.
@@ -23,7 +24,7 @@ const MODEL_FIELDS = [
 export const CONSTANT_LORA_GROUPS = [
     ['kg','Krea · генерация'], ['kr','Krea · детализация'], ['zr','Z-Image · детализация'],
 ];
-export const SETTINGS_SLOTS = [
+export const SETTINGS_SLOTS = [{id:'caption_config',label:'Модели captioning',accepts:['STRING'],required:false},
     ...MODEL_FIELDS.map(([id,label]) => ({id,label,accepts:['COMBO'],required:true})),
     ...CONSTANT_LORA_GROUPS.flatMap(([prefix]) => Array.from({length:3},(_,i) => [
         {id:`${prefix}_${i+1}_lora`,label:`Постоянная LoRA ${i+1}`,accepts:['COMBO'],required:true},
@@ -99,6 +100,7 @@ export function openFactorySettings(ctx, onClose=()=>{}) {
         const container=key.startsWith('edit_q21_')?qwen21Editor:key.startsWith('edit_krea_')?kreaEditor:key.startsWith('edit_')?editor:key==='bg_model'?background:key.startsWith('pose_')?pose:key==='up_simple_model'||key==='up_ultimate_model'?upModels:key.startsWith('up_seed_')?upSeed:['sam_model','face_detector','hand_detector'].includes(key)?detection:key.includes('turbo')?turbo:key.startsWith('z_')?zimage:krea;
         picker(container,key,caption,folder,key==='up_seed_dit'?value=>{if(/3b/i.test(String(value))){const state=ctx.info(key),node=state.p?.node||state.node,w=node?.widgets?.find(w=>w.name==='blocks_to_swap');if(w&&w.value>32){w.value=32;w.callback?.(32);node.graph?.change?.();}}}:undefined);
     }
+    if(ctx.info('caption_config')?.bound){const captionCard=card(modelsGrid,'📝 Датасет · модели','Локальные Florence, Qwen и JoyCaption.');captionModelFields(ctx,captionCard);}
     models.append(el('h3','acf-settings-subtitle','Постоянные LoRA'));
     models.append(el('p','acf-settings-caption','По три слота на каждый набор. Включённые LoRA действуют во всех режимах своего этапа и не занимают пользовательские слоты на главной странице.'));
     const loraGrid=el('div','acf-settings-grid');loraGrid.style.marginTop='16px';models.append(loraGrid);
