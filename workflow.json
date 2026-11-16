@@ -1,8 +1,8 @@
 {
   "id": "6156223e-7f85-4578-923d-9d05cf820581",
   "revision": 0,
-  "last_node_id": 1304,
-  "last_link_id": 1538,
+  "last_node_id": 1306,
+  "last_link_id": 1547,
   "nodes": [
     {
       "id": 965,
@@ -47515,8 +47515,8 @@
     },
     {
       "id": 911,
-      "type": "CLIPTextEncode",
-      "title": "Техническое · дорисовка · ✍️ Инструкция редактирования",
+      "type": "TextEncodeQwenImageEditPlus",
+      "title": "Техническая инструкция и исходное фото Qwen",
       "pos": [
         1266,
         14580
@@ -47533,7 +47533,7 @@
       "mode": 0,
       "inputs": [
         {
-          "name": "text",
+          "name": "prompt",
           "type": "STRING",
           "link": 1175,
           "widget": {
@@ -47544,6 +47544,26 @@
           "name": "clip",
           "type": "CLIP",
           "link": 1057
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 1540
+        },
+        {
+          "name": "image1",
+          "type": "IMAGE",
+          "link": 1541
+        },
+        {
+          "name": "image2",
+          "type": "IMAGE",
+          "link": null
+        },
+        {
+          "name": "image3",
+          "type": "IMAGE",
+          "link": null
         }
       ],
       "outputs": [
@@ -47551,12 +47571,14 @@
           "name": "CONDITIONING",
           "type": "CONDITIONING",
           "links": [
-            1065
+            1065,
+            1542,
+            1543
           ]
         }
       ],
       "properties": {
-        "Node name for S&R": "CLIPTextEncode",
+        "Node name for S&R": "TextEncodeQwenImageEditPlus",
         "nd_ui_src": {
           "uid": "src_out_463",
           "tag": "out-463"
@@ -47813,8 +47835,7 @@
           "type": "CONDITIONING",
           "links": [
             1070,
-            1075,
-            1077
+            1075
           ]
         }
       ],
@@ -47976,7 +47997,7 @@
         }
       },
       "widgets_values": [
-        true
+        false
       ],
       "color": "#233",
       "bgcolor": "#355"
@@ -48023,9 +48044,7 @@
         {
           "name": "output",
           "type": "CONDITIONING",
-          "links": [
-            1080
-          ]
+          "links": []
         }
       ],
       "properties": {
@@ -48063,7 +48082,7 @@
         {
           "name": "conditioning",
           "type": "CONDITIONING",
-          "link": 1077
+          "link": 1543
         }
       ],
       "outputs": [
@@ -48121,7 +48140,8 @@
           "name": "IMAGE",
           "type": "IMAGE",
           "links": [
-            1124
+            1124,
+            1546
           ]
         }
       ],
@@ -48233,8 +48253,7 @@
           "links": [
             1087,
             1090,
-            1219,
-            1238
+            1219
           ]
         },
         {
@@ -48297,9 +48316,7 @@
         {
           "name": "LATENT",
           "type": "LATENT",
-          "links": [
-            1082
-          ]
+          "links": []
         }
       ],
       "properties": {
@@ -49153,8 +49170,7 @@
           "name": "value",
           "type": "IMAGE",
           "links": [
-            1089,
-            1159
+            1089
           ]
         }
       ],
@@ -49988,7 +50004,7 @@
         {
           "name": "image",
           "type": "IMAGE",
-          "link": 1159
+          "link": 1546
         },
         {
           "name": "upscale_method",
@@ -50028,7 +50044,8 @@
           "name": "IMAGE",
           "type": "IMAGE",
           "links": [
-            1163
+            1163,
+            1547
           ]
         }
       ],
@@ -50108,9 +50125,7 @@
         {
           "name": "IMAGE",
           "type": "IMAGE",
-          "links": [
-            1230
-          ]
+          "links": []
         }
       ],
       "properties": {
@@ -50427,7 +50442,8 @@
           "type": "VAE",
           "links": [
             1178,
-            1237
+            1237,
+            1540
           ]
         }
       ],
@@ -50823,7 +50839,8 @@
           "name": "MASK",
           "type": "MASK",
           "links": [
-            1188
+            1188,
+            1544
           ]
         }
       ],
@@ -52366,7 +52383,7 @@
         {
           "name": "IMAGE",
           "type": "IMAGE",
-          "link": 1230
+          "link": 1547
         }
       ],
       "outputs": [
@@ -52581,6 +52598,48 @@
       "bgcolor": "#355"
     },
     {
+      "id": 1305,
+      "type": "SetNode",
+      "title": "SetNode_OUTPAINT_SOURCE_IMAGE",
+      "pos": [
+        56,
+        14580
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 1017,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "link": 1539
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SetNode",
+        "previousName": "OUTPAINT_SOURCE_IMAGE"
+      },
+      "widgets_values": [
+        "OUTPAINT_SOURCE_IMAGE"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
       "id": 907,
       "type": "LoadImage",
       "title": "🖼️ Дорисовка · 📷 Редактирование · основной кадр",
@@ -52612,7 +52671,8 @@
           "name": "IMAGE",
           "type": "IMAGE",
           "links": [
-            1153
+            1153,
+            1539
           ]
         },
         {
@@ -53108,7 +53168,7 @@
         {
           "name": "mask",
           "type": "MASK",
-          "link": 1238
+          "link": 1544
         },
         {
           "name": "grow_mask_by",
@@ -53124,7 +53184,8 @@
           "name": "LATENT",
           "type": "LATENT",
           "links": [
-            1239
+            1239,
+            1545
           ]
         }
       ],
@@ -53133,6 +53194,44 @@
       },
       "widgets_values": [
         0
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 1306,
+      "type": "GetNode",
+      "title": "GetNode_OUTPAINT_SOURCE_IMAGE",
+      "pos": [
+        1266,
+        14580
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 1018,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            1541
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "previousName": "OUTPAINT_SOURCE_IMAGE"
+      },
+      "widgets_values": [
+        "OUTPAINT_SOURCE_IMAGE"
       ],
       "color": "#233",
       "bgcolor": "#355"
@@ -53203,7 +53302,7 @@
         {
           "name": "positive",
           "type": "CONDITIONING",
-          "link": 1080
+          "link": 1542
         },
         {
           "name": "negative",
@@ -53213,7 +53312,7 @@
         {
           "name": "latent_image",
           "type": "LATENT",
-          "link": 1082
+          "link": 1545
         },
         {
           "name": "denoise",
@@ -53251,10 +53350,7 @@
             "double": 922,
             "shift": 910,
             "seed": 912,
-            "optionalRefs": [
-              919,
-              921
-            ],
+            "optionalRefs": [],
             "nodes": [
               907,
               908,
@@ -53382,7 +53478,9 @@
               1030,
               1033,
               1034,
-              1035
+              1035,
+              1305,
+              1306
             ],
             "save": false,
             "maskFile": null,
@@ -53422,7 +53520,7 @@
             }
           },
           "pad": 959,
-          "final": 962,
+          "final": 961,
           "resize": 961,
           "maskPreview": 964,
           "rawQwen21": 954,
@@ -53555,7 +53653,9 @@
             1030,
             1033,
             1034,
-            1035
+            1035,
+            1305,
+            1306
           ],
           "targetSize": {
             "width": 0,
@@ -53566,7 +53666,9 @@
             1033,
             1034,
             1035
-          ]
+          ],
+          "nativeQwen": 911,
+          "sourceImageGet": 1306
         }
       },
       "widgets_values": [
@@ -53865,7 +53967,7 @@
         }
       },
       "widgets_values": [
-        "Extend the existing photograph naturally into the new canvas area. Continue the same room or landscape, perspective, materials, lighting and colors. Preserve the original subject and composition. Return one seamless photograph."
+        "Outpaint the photograph beyond its original edges. Extend the same scene naturally, continuing the background, floor, walls, materials, objects and lighting with consistent perspective. Keep the existing central scene unchanged. Produce one wider or taller full-frame photograph, without borders, gray areas, inset images or duplicated subjects."
       ],
       "color": "#232",
       "bgcolor": "#353"
@@ -74526,14 +74628,6 @@
       "CONDITIONING"
     ],
     [
-      1077,
-      919,
-      0,
-      924,
-      0,
-      "CONDITIONING"
-    ],
-    [
       1078,
       910,
       0,
@@ -74542,28 +74636,12 @@
       "MODEL"
     ],
     [
-      1080,
-      923,
-      0,
-      925,
-      6,
-      "CONDITIONING"
-    ],
-    [
       1081,
       924,
       0,
       925,
       7,
       "CONDITIONING"
-    ],
-    [
-      1082,
-      931,
-      0,
-      925,
-      8,
-      "LATENT"
     ],
     [
       1083,
@@ -74868,14 +74946,6 @@
       913,
       9,
       "MASK"
-    ],
-    [
-      1159,
-      947,
-      0,
-      961,
-      0,
-      "IMAGE"
     ],
     [
       1160,
@@ -75382,14 +75452,6 @@
       "IMAGE"
     ],
     [
-      1230,
-      962,
-      0,
-      1025,
-      0,
-      "IMAGE"
-    ],
-    [
       1231,
       1026,
       0,
@@ -75444,14 +75506,6 @@
       1033,
       1,
       "VAE"
-    ],
-    [
-      1238,
-      930,
-      0,
-      1033,
-      2,
-      "MASK"
     ],
     [
       1239,
@@ -77364,6 +77418,78 @@
       1110,
       0,
       "IMAGE"
+    ],
+    [
+      1539,
+      907,
+      0,
+      1305,
+      0,
+      "IMAGE"
+    ],
+    [
+      1540,
+      973,
+      0,
+      911,
+      2,
+      "VAE"
+    ],
+    [
+      1541,
+      1306,
+      0,
+      911,
+      3,
+      "IMAGE"
+    ],
+    [
+      1542,
+      911,
+      0,
+      925,
+      6,
+      "CONDITIONING"
+    ],
+    [
+      1543,
+      911,
+      0,
+      924,
+      0,
+      "CONDITIONING"
+    ],
+    [
+      1544,
+      983,
+      0,
+      1033,
+      2,
+      "MASK"
+    ],
+    [
+      1545,
+      1033,
+      0,
+      925,
+      8,
+      "LATENT"
+    ],
+    [
+      1546,
+      926,
+      0,
+      961,
+      0,
+      "IMAGE"
+    ],
+    [
+      1547,
+      961,
+      0,
+      1025,
+      0,
+      "IMAGE"
     ]
   ],
   "groups": [
@@ -78735,8 +78861,8 @@
         {
           "uid": "src_out_463",
           "tag": "out-463",
-          "class": "CLIPTextEncode",
-          "title": "Техническое · дорисовка · ✍️ Инструкция редактирования"
+          "class": "TextEncodeQwenImageEditPlus",
+          "title": "Техническая инструкция и исходное фото Qwen"
         },
         {
           "uid": "src_out_464",
@@ -79302,7 +79428,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v0.16.9",
+            "text": "🧩 Универсальный воркфлоу · v0.16.10",
             "size": "M",
             "align": "left"
           },
@@ -81604,7 +81730,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v0.16.9",
+            "text": "🧩 Универсальный воркфлоу · v0.16.10",
             "size": "M",
             "align": "left"
           },
@@ -82424,7 +82550,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v0.16.9",
+            "text": "🧩 Универсальный воркфлоу · v0.16.10",
             "size": "M",
             "align": "left"
           },
@@ -83675,7 +83801,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v0.16.9",
+            "text": "🧩 Универсальный воркфлоу · v0.16.10",
             "size": "M",
             "align": "left"
           },
@@ -85013,7 +85139,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "↔️ Дорисовка за границами кадра · v0.16.9",
+            "text": "↔️ Дорисовка за границами кадра · v0.16.10",
             "size": "M",
             "align": "left"
           },
@@ -85511,7 +85637,7 @@
             }
           },
           "props": {
-            "hint": "Выбери способ продолжения сцены. Размер обработки — в шестерёнке."
+            "hint": "Qwen Edit 2511 · генерация новых полей по маске. Параметры — в шестерёнке."
           },
           "look": {
             "style": null,
@@ -86936,7 +87062,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v0.16.9",
+            "text": "🧩 Универсальный воркфлоу · v0.16.10",
             "size": "M",
             "align": "left"
           },

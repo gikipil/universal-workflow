@@ -7,7 +7,7 @@ import {factoryprogress_v037} from './factory_progress.js';
 import {factoryDialog} from './factory_dialog.js';
 import {fileUrl,refFromName} from '../media/io.js';
 import {queueOutpaint,outpaintProgress} from '../factory_outpaint_run.js';
-export const factoryoutpaintsettings_v0140={...factoryedit_v070,type:'factoryoutset_v0141',size:{w:336,h:120,minW:270,minH:120}};
+export const factoryoutpaintsettings_v0140={...factoryedit_v070,type:'factoryoutset_v0141',size:{w:336,h:120,minW:270,minH:120},mount:ctx=>factoryedit_v070.mount({...ctx,prop:k=>k==='fixedBackend'?'qwen':ctx.prop(k)})};
 export const factoryoutpaintprogress_v0140={...factoryprogress_v037,type:'factoryoutprog_v0141',mount:ctx=>factoryprogress_v037.mount({...ctx,progress:outpaintProgress})};
 export const factoryoutpaintrun_v0140={...generate,type:'factoryoutpaintrun_v0140',slots:[{id:'config',accepts:['STRING'],required:true}],mount(ctx){let dialog,alive=true;const inst=generate.mount({...ctx,queue:async batch=>{const st=ctx.info('config');try{await queueOutpaint(st.p?.node||st.node,batch);}catch(error){if(!alive)return;dialog?.close();dialog=factoryDialog(ctx,{title:'Дорисовка',width:520});dialog.body.append(el('p','',error.message||String(error)));}}});return{...inst,destroy(){alive=false;inst.destroy?.();dialog?.close();}};}};
 // Compatibility with already-normalized v0.14.0 pages, whose two long names were truncated.
