@@ -13,9 +13,39 @@ export const captionInstructionPresets=[
     "text": "Write a concise, factual English caption for this LoRA training image.\n\nDescribe only:\n\n- clothing or nudity state\n- pose and body orientation\n- facial expression\n- framing / crop\n- camera angle or viewpoint\n- lighting\n- background / environment\n\nDo not describe permanent identity traits such as body shape, breast size or shape, skin tone, facial structure, hair color, eye color, age, ethnicity, tattoos, scars, or other stable physical characteristics unless they are clearly temporary or scene-specific.\n\nDo not identify the person.\nDo not infer hidden anatomy.\nDo not invent details.\nDo not use aesthetic judgments such as beautiful, attractive, sexy, perfect, rough, smooth, or ideal.\nDo not describe image quality unless it is directly relevant to the scene.\n\nKeep the caption short and literal.\nUse simple natural English.\nReturn only one caption, with no explanation, labels, or formatting."
   },
   {
-    "id": "short",
-    "label": "Краткое описание изображения",
-    "text": "Write a concise, factual English caption for this training image. Describe only visible clothing, pose, expression, framing, lighting and environment. Do not invent details or identify the person. Return only the caption."
+    "id": "simple",
+    "label": "Простое описание",
+    "text": "Describe the main visible subject, action and setting in one short, plain English sentence. Mention only the most important elements. Describe only what is visibly supported by the image. Do not identify the person, invent details, infer hidden features, or add aesthetic judgments. Return only the English description, without explanations, labels or formatting."
+  },
+  {
+    "id": "standard",
+    "label": "Обычное описание",
+    "text": "Write a factual English description of the image in one compact paragraph. Describe the subject, visible appearance and clothing, pose, expression, framing, camera viewpoint, lighting and environment. Balance useful detail with brevity; avoid an exhaustive inventory. Describe only what is visibly supported by the image. Do not identify the person, invent details, infer hidden features, or add aesthetic judgments. Return only the English description, without explanations, labels or formatting."
+  },
+  {
+    "id": "detailed",
+    "label": "Максимально подробное описание",
+    "text": "Write a thorough, factual English description of the visible image. Cover the main subject and visible appearance, clothing, pose and body orientation, hand placement, facial expression and gaze, framing, viewpoint and perspective, foreground, background, object positions, lighting direction and softness, shadows, colors, materials and visible textures. Distinguish observable details from uncertainty; omit anything that cannot be established visually. Use coherent paragraphs without repeating information. Describe only what is visibly supported by the image. Do not identify the person, invent details, infer hidden features, or add aesthetic judgments. Return only the English description, without explanations, labels or formatting."
+  },
+  {
+    "id": "clothing",
+    "label": "Только одежда",
+    "text": "Describe only the visible clothing, footwear and accessories in English. Specify garment types, colors, patterns, materials when visually supported, cut, fit, length, layering, fastenings and visible fabric details. If relevant, state which areas are uncovered, neutrally and briefly. Do not describe the person's identity, body shape, pose, facial expression, background or lighting. Describe only what is visibly supported by the image. Do not identify the person, invent details, infer hidden features, or add aesthetic judgments. Return only the English description, without explanations, labels or formatting."
+  },
+  {
+    "id": "pose",
+    "label": "Только поза",
+    "text": "Describe only the visible pose and body orientation in precise English. Include sitting, standing or lying position, torso rotation and lean, head direction, arm and leg placement, hand positions, contact with surfaces and gaze direction when visible. Distinguish the subject's left and right only when unambiguous; otherwise use image-left and image-right. Do not describe appearance, clothing, environment or lighting, except a support surface needed to explain the pose. Describe only what is visibly supported by the image. Do not identify the person, invent details, infer hidden features, or add aesthetic judgments. Return only the English description, without explanations, labels or formatting."
+  },
+  {
+    "id": "emotion",
+    "label": "Только эмоция и мимика",
+    "text": "Describe only the visible facial expression and expressive cues in English: mouth position, eyebrows, eyes, gaze and head tilt. State an apparent emotion cautiously only if these visible cues support it. Do not claim to know internal feelings, intentions or personality. Do not describe clothing, identity, setting or lighting. Describe only what is visibly supported by the image. Do not identify the person, invent details, infer hidden features, or add aesthetic judgments. Return only the English description, without explanations, labels or formatting."
+  },
+  {
+    "id": "appearance",
+    "label": "Только внешность",
+    "text": "Describe only the subject's visible physical appearance in factual English: hair color, length and style, visible facial features, eye color only if discernible, skin tone, overall build and clearly visible distinctive marks. Do not identify the person or infer ethnicity, exact age, hidden anatomy or details obscured by clothing. Do not describe clothing, pose, emotions, background or lighting. Describe only what is visibly supported by the image. Do not identify the person, invent details, infer hidden features, or add aesthetic judgments. Return only the English description, without explanations, labels or formatting."
   },
   {
     "id": "recreate",
@@ -23,7 +53,7 @@ export const captionInstructionPresets=[
     "text": "Write one English image-generation prompt that recreates the visible photograph. Describe the subject, clothing, pose, expression, composition, crop, camera viewpoint, environment, lighting, colors and visible materials. Use concrete visual descriptions. Do not identify the person, invent hidden details, add objects or actions, or use quality tags and promotional adjectives. Return only the prompt, with no explanation or formatting."
   }
 ];
-const instructionPreset=text=>captionInstructionPresets.find(p=>p.text===text)?.id||'custom';
+const instructionPreset=text=>captionInstructionPresets.find(p=>p.text===text)?.id||'';
 const slots=[{id:'config',accepts:['STRING'],required:true}];
 const owner=ctx=>{const b=ctx.info('config');return b.p?.node||b.node;};
 const readConfig=(ctx,slot='config')=>{const raw=ctx.get(slot);if(typeof raw!=='string'||!raw.trim())return null;try{const v=JSON.parse(raw);return v&&typeof v==='object'&&v.models?v:null;}catch{return null;}};
@@ -62,8 +92,12 @@ export const factorycaption_v0160={type:'factorycaption_v0160',label:'Caption ·
  gear.addEventListener('click',()=>{dialog?.close();dialog=factoryDialog(ctx,{title:'Caption · параметры',width:650});dialog.body.style.cssText='display:flex;flex-direction:column;gap:14px';field(dialog.body,'Максимум токенов',read().max_tokens,x=>patch('max_tokens',x),{number:true,min:32,max:2048,step:32});field(dialog.body,'Точность Qwen / JoyCaption',read().quantization,x=>patch('quantization',x),{options:['8-bit (Balanced)','4-bit (VRAM-friendly)','None (FP16)']});field(dialog.body,'Задача Florence',read().florence_task,x=>patch('florence_task',x),{options:['caption','detailed_caption','more_detailed_caption']});dialog.body.append(el('small','','Свободная инструкция применяется к Qwen и JoyCaption. Florence использует выбранную задачу. Файлы моделей выбираются в общих настройках сверху.'));});
  function update(){const v=read();gear.disabled=!v;if(!v){stamp='';for(const t of toggles)t.destroy?.();toggles.length=0;inputs.replaceChildren();error.textContent=missingConfig;ctx.setContentHeight?.(Math.max(650,root.scrollHeight||0));return;}if(error.textContent===missingConfig)error.textContent='';const next=JSON.stringify([v.engine,v.source]);if(next!==stamp){stamp=next;for(const t of toggles)t.destroy?.();toggles.length=0;inputs.replaceChildren();field(inputs,'Способ описания',v.engine,x=>{patch('engine',x);update();},{options:[['florence','Florence'],['qwen','Qwen'],['joy','JoyCaption']]}); field(inputs,'Trigger word · необязательно',v.trigger,x=>patch('trigger',x));
  let instruction;
- const preset=field(inputs,'Готовая инструкция',instructionPreset(v.instruction),id=>{const selected=captionInstructionPresets.find(p=>p.id===id);if(selected){patch('instruction',selected.text);instruction.value=selected.text;}},{options:[...captionInstructionPresets.map(p=>[p.id,p.label]),['custom','Своя инструкция']]});preset.disabled=v.engine==='florence';
+ const preset=field(inputs,'Готовая инструкция',instructionPreset(v.instruction),id=>{const selected=captionInstructionPresets.find(p=>p.id===id);if(selected){patch('instruction',selected.text);instruction.value=selected.text;}},{options:[['','Выбрать инструкцию…'],...captionInstructionPresets.map(p=>[p.id,p.label])]});preset.children[0].disabled=true;preset.disabled=v.engine==='florence';
  instruction=field(inputs,'Инструкция описания',v.instruction,x=>{patch('instruction',x);preset.value=instructionPreset(x);},{area:true});instruction.disabled=v.engine==='florence';
+ instruction.addEventListener('input',()=>{patch('instruction',instruction.value);preset.value=instructionPreset(instruction.value);});
+ const clear=button('Очистить');clear.setAttribute('aria-label','Очистить инструкцию');clear.style.cssText='justify-self:end;font:inherit';clear.disabled=v.engine==='florence';const instructionLabel=instruction.parentElement,heading=instructionLabel.children[0],instructionBar=el('div');instructionBar.style.cssText='display:flex;align-items:center;justify-content:space-between;gap:8px';instructionBar.append(heading,clear);instructionLabel.replaceChildren(instructionBar,instruction);
+ clear.addEventListener('click',()=>{patch('instruction','');instruction.value='';preset.value='';instruction.focus();});
+
  toggles.push(switchField(ctx,inputs,'Сохранять .txt автоматически',()=>read().save_txt,x=>patch('save_txt',x)),switchField(ctx,inputs,'Пропускать существующие .txt',()=>read().skip_existing,x=>patch('skip_existing',x)));
  const scan=button('📂 Открыть фото и подписи');scan.addEventListener('click',async()=>{try{await scanCaptions(owner(ctx));error.textContent='';}catch(e){error.textContent=e.message;}});inputs.append(scan,el('small','','Обрабатывается текущая папка без подпапок. Фото не изменяются. Подписи сохраняются рядом, с тем же именем. Для одиночного загруженного фото — рядом с копией в input ComfyUI.'));}
  for(const t of toggles)t.update?.();ctx.setContentHeight?.(Math.max(650,root.scrollHeight||0));}
