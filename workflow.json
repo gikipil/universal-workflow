@@ -79302,7 +79302,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v0.16.6",
+            "text": "🧩 Универсальный воркфлоу · v0.16.7",
             "size": "M",
             "align": "left"
           },
@@ -79811,7 +79811,8 @@
             "save": true,
             "tools": true,
             "bottomWith": "right_tabs",
-            "bottomInset": 12
+            "bottomInset": 12,
+            "zoom": true
           },
           "look": {
             "style": null,
@@ -81603,7 +81604,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v0.16.6",
+            "text": "🧩 Универсальный воркфлоу · v0.16.7",
             "size": "M",
             "align": "left"
           },
@@ -82091,7 +82092,8 @@
             "thumbs": "bottom",
             "save": true,
             "tools": true,
-            "bottomInset": 12
+            "bottomInset": 12,
+            "zoom": true
           },
           "look": {
             "style": null,
@@ -82422,7 +82424,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v0.16.6",
+            "text": "🧩 Универсальный воркфлоу · v0.16.7",
             "size": "M",
             "align": "left"
           },
@@ -83158,7 +83160,8 @@
             "save": true,
             "tools": true,
             "bottomWith": "edit_results",
-            "bottomInset": 12
+            "bottomInset": 12,
+            "zoom": true
           },
           "look": {
             "style": null,
@@ -83672,7 +83675,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v0.16.6",
+            "text": "🧩 Универсальный воркфлоу · v0.16.7",
             "size": "M",
             "align": "left"
           },
@@ -84208,7 +84211,8 @@
             "save": true,
             "tools": true,
             "bottomWith": "up_results",
-            "bottomInset": 12
+            "bottomInset": 12,
+            "zoom": true
           },
           "look": {
             "style": null,
@@ -85009,7 +85013,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "↔️ Дорисовка за границами кадра · v0.16.6",
+            "text": "↔️ Дорисовка за границами кадра · v0.16.7",
             "size": "M",
             "align": "left"
           },
@@ -85689,7 +85693,8 @@
             "save": true,
             "tools": true,
             "bottomWith": "out_results",
-            "bottomInset": 12
+            "bottomInset": 12,
+            "zoom": true
           },
           "look": {
             "style": null,
@@ -86931,7 +86936,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v0.16.6",
+            "text": "🧩 Универсальный воркфлоу · v0.16.7",
             "size": "M",
             "align": "left"
           },
