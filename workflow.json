@@ -65374,7 +65374,8 @@
               "clip": 729,
               "vae": 730,
               "encode": 1332,
-              "cache": 1339
+              "cache": 1339,
+              "negative": 1355
             },
             "qwen": {
               "sampler": 1386,
@@ -65383,7 +65384,8 @@
               "model": 458,
               "clip": 459,
               "vae": 460,
-              "shift": 1368
+              "shift": 1368,
+              "negative": 1385
             }
           },
           "gate": 1387,
@@ -76564,7 +76566,7 @@
           "id": "p_outpaint",
           "name": "Дорисовка",
           "kind": "page",
-          "len": 1024,
+          "len": 1256,
           "control": {
             "nodes": [],
             "groups": [],
@@ -76624,7 +76626,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v0.17.1",
+            "text": "🧩 Универсальный воркфлоу · v0.17.2",
             "size": "M",
             "align": "left"
           },
@@ -78936,7 +78938,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v0.17.1",
+            "text": "🧩 Универсальный воркфлоу · v0.17.2",
             "size": "M",
             "align": "left"
           },
@@ -79764,7 +79766,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v0.17.1",
+            "text": "🧩 Универсальный воркфлоу · v0.17.2",
             "size": "M",
             "align": "left"
           },
@@ -81023,7 +81025,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v0.17.1",
+            "text": "🧩 Универсальный воркфлоу · v0.17.2",
             "size": "M",
             "align": "left"
           },
@@ -82369,7 +82371,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "↔️ Дорисовка за границами кадра · v0.17.1",
+            "text": "↔️ Дорисовка за границами кадра · v0.17.2",
             "size": "M",
             "align": "left"
           },
@@ -82683,7 +82685,7 @@
             "accentA": "#36cfea",
             "accentB": "#59e68d",
             "visualProfile": "standard",
-            "canvasHeight": 1048
+            "canvasHeight": 1280
           },
           "look": {
             "bg": "transparent",
@@ -82906,7 +82908,7 @@
           "type": "spoiler",
           "page": "p_outpaint",
           "x": 24,
-          "y": 904,
+          "y": 1136,
           "w": 336,
           "h": 48,
           "z": 2,
@@ -82988,7 +82990,7 @@
           "x": 384,
           "y": 152,
           "w": 792,
-          "h": 732,
+          "h": 964,
           "z": 0,
           "parent": null,
           "hidden": false,
@@ -83149,7 +83151,7 @@
           "type": "factoryoutprog_v0141",
           "page": "p_outpaint",
           "x": 384,
-          "y": 896,
+          "y": 1128,
           "w": 344,
           "h": 56,
           "z": 2,
@@ -83190,7 +83192,7 @@
           "type": "factoryqueuestatus_v023",
           "page": "p_outpaint",
           "x": 740,
-          "y": 896,
+          "y": 1128,
           "w": 184,
           "h": 56,
           "z": 2,
@@ -83229,7 +83231,7 @@
           "type": "factorysavetoggle_v023",
           "page": "p_outpaint",
           "x": 936,
-          "y": 896,
+          "y": 1128,
           "w": 240,
           "h": 56,
           "z": 2,
@@ -83276,12 +83278,12 @@
           "type": "prompt",
           "page": "p_outpaint",
           "x": 24,
-          "y": 1020,
-          "w": 1152,
-          "h": 144,
+          "y": 904,
+          "w": 336,
+          "h": 220,
           "z": 2,
           "parent": null,
-          "hidden": true,
+          "hidden": false,
           "locked": true,
           "slots": {
             "value": {
@@ -83291,14 +83293,12 @@
             }
           },
           "props": {
-            "label": "✍️ Что дорисовать",
-            "placeholder": "Опиши продолжение комнаты, пейзажа или фона…",
+            "label": "✍️ Позитивный промт",
+            "placeholder": "Опиши сцену и желаемое продолжение…",
             "counter": false,
             "spell": false,
             "weights": true,
-            "mono": false,
-            "afterWith": "out_progress",
-            "afterGap": 12
+            "mono": false
           },
           "look": {
             "style": null,
@@ -83321,7 +83321,7 @@
           "type": "factoryoutpaintrun_v0140",
           "page": "p_outpaint",
           "x": 24,
-          "y": 964,
+          "y": 1196,
           "w": 1152,
           "h": 56,
           "z": 2,
@@ -84308,7 +84308,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v0.17.1",
+            "text": "🧩 Универсальный воркфлоу · v0.17.2",
             "size": "M",
             "align": "left"
           },
@@ -84883,7 +84883,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v0.17.1",
+            "text": "🧩 Универсальный воркфлоу · v0.17.2",
             "size": "M",
             "align": "left"
           },
@@ -85396,7 +85396,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v0.17.1",
+            "text": "🧩 Универсальный воркфлоу · v0.17.2",
             "size": "M",
             "align": "left"
           },
