@@ -25415,7 +25415,7 @@
         true,
         100,
         false,
-        true,
+        false,
         false,
         0,
         "%Y-%m-%d-%H%M%S",
@@ -27531,7 +27531,7 @@
         true,
         100,
         false,
-        true,
+        false,
         false,
         0,
         "%Y-%m-%d-%H%M%S",
@@ -33118,7 +33118,7 @@
         true,
         100,
         false,
-        true,
+        false,
         false,
         0,
         "%Y-%m-%d-%H%M%S",
@@ -36429,7 +36429,7 @@
         true,
         100,
         false,
-        true,
+        false,
         false,
         0,
         "%Y-%m-%d-%H%M%S",
@@ -39411,7 +39411,7 @@
         true,
         100,
         false,
-        true,
+        false,
         false,
         0,
         "%Y-%m-%d-%H%M%S",
@@ -53914,7 +53914,7 @@
         true,
         100,
         false,
-        true,
+        false,
         false,
         0,
         "%Y-%m-%d-%H%M%S",
@@ -79428,7 +79428,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v0.16.10",
+            "text": "🧩 Универсальный воркфлоу · v0.16.11",
             "size": "M",
             "align": "left"
           },
@@ -79938,7 +79938,8 @@
             "tools": true,
             "bottomWith": "right_tabs",
             "bottomInset": 12,
-            "zoom": true
+            "zoom": true,
+            "stripWorkflow": true
           },
           "look": {
             "style": null,
@@ -80522,7 +80523,8 @@
             "save": true,
             "tools": true,
             "bottomWith": "right_tabs",
-            "bottomInset": 12
+            "bottomInset": 12,
+            "stripWorkflow": true
           },
           "look": {
             "style": null,
@@ -80585,7 +80587,8 @@
             "srcB": "node",
             "cmpMode": "wipe",
             "labelA": "Первый проход",
-            "labelB": "После доработки"
+            "labelB": "После доработки",
+            "stripWorkflow": true
           },
           "look": {
             "style": null,
@@ -81394,7 +81397,8 @@
             "save": true,
             "tools": true,
             "bottomWith": "right_tabs",
-            "bottomInset": 12
+            "bottomInset": 12,
+            "stripWorkflow": true
           },
           "look": {
             "style": null,
@@ -81634,7 +81638,8 @@
             "srcB": "node",
             "cmpMode": "wipe",
             "labelA": "До апскейла",
-            "labelB": "После апскейла"
+            "labelB": "После апскейла",
+            "stripWorkflow": true
           },
           "look": {
             "style": null,
@@ -81730,7 +81735,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v0.16.10",
+            "text": "🧩 Универсальный воркфлоу · v0.16.11",
             "size": "M",
             "align": "left"
           },
@@ -82219,7 +82224,8 @@
             "save": true,
             "tools": true,
             "bottomInset": 12,
-            "zoom": true
+            "zoom": true,
+            "stripWorkflow": true
           },
           "look": {
             "style": null,
@@ -82272,7 +82278,8 @@
             "thumbs": "bottom",
             "save": true,
             "tools": true,
-            "bottomInset": 12
+            "bottomInset": 12,
+            "stripWorkflow": true
           },
           "look": {
             "style": null,
@@ -82341,7 +82348,8 @@
             "srcB": "node",
             "cmpMode": "wipe",
             "labelA": "Исходник",
-            "labelB": "Без фона"
+            "labelB": "Без фона",
+            "stripWorkflow": true
           },
           "look": {
             "style": null,
@@ -82550,7 +82558,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v0.16.10",
+            "text": "🧩 Универсальный воркфлоу · v0.16.11",
             "size": "M",
             "align": "left"
           },
@@ -83287,7 +83295,8 @@
             "tools": true,
             "bottomWith": "edit_results",
             "bottomInset": 12,
-            "zoom": true
+            "zoom": true,
+            "stripWorkflow": true
           },
           "look": {
             "style": null,
@@ -83350,7 +83359,8 @@
             "srcB": "node",
             "cmpMode": "wipe",
             "labelA": "Исходник",
-            "labelB": "После редактирования"
+            "labelB": "После редактирования",
+            "stripWorkflow": true
           },
           "look": {
             "style": null,
@@ -83768,7 +83778,8 @@
             "srcB": "node",
             "cmpMode": "wipe",
             "labelA": "До апскейла",
-            "labelB": "После апскейла"
+            "labelB": "После апскейла",
+            "stripWorkflow": true
           },
           "look": {
             "style": null,
@@ -83801,7 +83812,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v0.16.10",
+            "text": "🧩 Универсальный воркфлоу · v0.16.11",
             "size": "M",
             "align": "left"
           },
@@ -84338,7 +84349,8 @@
             "tools": true,
             "bottomWith": "up_results",
             "bottomInset": 12,
-            "zoom": true
+            "zoom": true,
+            "stripWorkflow": true
           },
           "look": {
             "style": null,
@@ -84401,7 +84413,8 @@
             "srcB": "node",
             "cmpMode": "wipe",
             "labelA": "До апскейла",
-            "labelB": "После апскейла"
+            "labelB": "После апскейла",
+            "stripWorkflow": true
           },
           "look": {
             "style": null,
@@ -85106,7 +85119,8 @@
             "srcB": "node",
             "cmpMode": "wipe",
             "labelA": "До рефайнера",
-            "labelB": "После рефайнера"
+            "labelB": "После рефайнера",
+            "stripWorkflow": true
           },
           "look": {
             "style": null,
@@ -85139,7 +85153,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "↔️ Дорисовка за границами кадра · v0.16.10",
+            "text": "↔️ Дорисовка за границами кадра · v0.16.11",
             "size": "M",
             "align": "left"
           },
@@ -85820,7 +85834,8 @@
             "tools": true,
             "bottomWith": "out_results",
             "bottomInset": 12,
-            "zoom": true
+            "zoom": true,
+            "stripWorkflow": true
           },
           "look": {
             "style": null,
@@ -85883,7 +85898,8 @@
             "srcB": "node",
             "cmpMode": "wipe",
             "labelA": "Исходник на расширенном холсте",
-            "labelB": "После дорисовки"
+            "labelB": "После дорисовки",
+            "stripWorkflow": true
           },
           "look": {
             "style": null,
@@ -86199,7 +86215,8 @@
             "save": true,
             "tools": true,
             "bottomWith": "out_results",
-            "bottomInset": 12
+            "bottomInset": 12,
+            "stripWorkflow": true
           },
           "look": {
             "style": null,
@@ -86934,7 +86951,8 @@
             "srcB": "node",
             "cmpMode": "wipe",
             "labelA": "До рефайнера",
-            "labelB": "После рефайнера"
+            "labelB": "После рефайнера",
+            "stripWorkflow": true
           },
           "look": {
             "style": null,
@@ -87062,7 +87080,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v0.16.10",
+            "text": "🧩 Универсальный воркфлоу · v0.16.11",
             "size": "M",
             "align": "left"
           },

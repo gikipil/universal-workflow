@@ -7,6 +7,7 @@
 //   results  the pictures of a node, thumbnails of the earlier runs of the session, Save, and pulling a picture out of the page.
 //   compare  picture A and picture B (wipe or side by side): from the results, the run before, a node, a file name or the thumbnails.
 import { installResultZoom } from "./viewer_zoom.js";
+import { downloadWithoutWorkflow } from "./image_export.js";
 import { el, icon } from "./util.js";
 import { events, forNode, latestAny, viewUrl, bridgeFor } from "../events.js";
 import { openLightbox } from "./media.js";
@@ -64,6 +65,7 @@ export const viewer = {
         { id: "muteComfy", kind: "bool", label: "Silence the preview of ComfyUI", def: false, when: (p) => p.live === true, hint: "While this viewer shows frames of an ND UI Live Bridge, the sampler's own preview (on the node) is switched off for the run." },
         { id: "thumbs", kind: "select", label: "Thumbnails", def: "bottom", options: [["bottom", "Below"], ["right", "On the right"], ["off", "Off"]], when: (p) => p.results !== false || p.compare === true },
         { id: "save", kind: "bool", label: "Save button", def: true, hint: "Downloads the picture. A picture can also be pulled out of the page onto the desktop or an image input." },
+        { id: "stripWorkflow", kind: "bool", label: "Exclude workflow from PNG downloads", def: false },
         { id: "tools", kind: "bool", label: "Buttons on the picture", def: true },
         { id: "zoom", kind: "bool", label: "Zoom inside the result", def: false },
         ...BUSY_PROPS,
@@ -287,7 +289,12 @@ export const viewer = {
                 if (m === "results" && (set.length || showLiveImg)) {
                     if (p.save) tools.append(pillBtn("download", ctx.tr("Save"), () => {
                         if (showLiveImg && !set.length) downloadUrl(frame.url, "preview.jpg");
-                        else for (const r of set) downloadRef(r);
+                        else for (const r of set) {
+                            if (ctx.prop("stripWorkflow") === true) downloadWithoutWorkflow(r).catch(error => {
+                                hintEl.textContent = error.message; hintEl.style.display = "";
+                            });
+                            else downloadRef(r);
+                        }
                     }, "save"));
                     if (p.tools) {
                         const items = () => (showLiveImg ? [{ url: frame.url, name: "preview" }] : set.map((r) => ({ url: urlOf(r), name: r.filename })));
