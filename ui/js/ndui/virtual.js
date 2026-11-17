@@ -128,6 +128,7 @@ export function denoiseParams(node,notify=touch){
 export function virtualParams(node) {
     switch (classOf(node)) {
         case "KSampler": return [...outpaintParams(node,touch),...editParams(node,touch)];
+        case "LanPaint_KSampler": return outpaintParams(node,touch);
         case "RMBG": return backgroundParams(node,touch);
         case "PrimitiveInt": return poseParams(node,touch);
         case "PrimitiveFloat": return denoiseParams(node,touch);
