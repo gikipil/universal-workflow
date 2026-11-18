@@ -27,7 +27,7 @@ const MODEL_FIELDS = [
 export const CONSTANT_LORA_GROUPS = [
     ['kg','Krea · генерация'], ['kr','Krea · детализация'], ['zr','Z-Image · детализация'],
 ];
-export const SETTINGS_SLOTS = [{id:'caption_config',label:'Модели captioning',accepts:['STRING'],required:false},
+export const SETTINGS_SLOTS = [{id:'vid_family',label:'MiniMax REF / FL',accepts:['COMBO'],required:false},{id:'caption_config',label:'Модели captioning',accepts:['STRING'],required:false},
     ...MODEL_FIELDS.map(([id,label]) => ({id,label,accepts:['COMBO'],required:true})),
     ...CONSTANT_LORA_GROUPS.flatMap(([prefix]) => Array.from({length:3},(_,i) => [
         {id:`${prefix}_${i+1}_lora`,label:`Постоянная LoRA ${i+1}`,accepts:['COMBO'],required:true},
@@ -98,7 +98,8 @@ export function openFactorySettings(ctx, onClose=()=>{}) {
     const qwen21Editor=card(modelsGrid,'✏️ Редактирование · Qwen 2.1','Отдельные модель, энкодер Qwen3-VL 8B и VAE Qwen 2.1. Комплект 2511 сюда не подходит. LoRA выбираются на вкладке редактора.');
     const editor=card(modelsGrid,'✏️ Редактирование · Qwen 2511','Независимый комплект редактора. Обычные LoRA выбираются на вкладке редактирования.');
     const audioCard=card(modelsGrid,'🔊 Звук · Higgs v3','Модель синтеза речи и Whisper для расшифровки голосовых референсов. Один выбор Whisper действует для обоих голосов.');
-    const videoCard=card(modelsGrid,'🎬 Видео · MiniMax H3','Модель, энкодер, Video VAE, Audio VAE и один Turbo-адаптер для генерации и рефайнера. Пользовательские LoRA выбираются отдельно во вкладке видео.');
+    const videoCard=card(modelsGrid,'🎬 Видео · MiniMax H3','REF использует референсы, FL — первый и последний кадр. Выбранные файлы моделей запоминаются отдельно. Энкодер, VAE и Turbo-адаптер общие. Пользовательские LoRA выбираются отдельно во вкладке видео.');
+    if(ctx.info('vid_family')?.bound){const group=el('div');group.setAttribute('role','radiogroup');group.setAttribute('aria-label','Модель MiniMax');group.style.cssText='display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-bottom:14px';const buttons=[];function showFamily(){const value=ctx.get('vid_family');for(const[b,family]of buttons){const active=value===family;b.setAttribute('aria-checked',String(active));b.style.cssText='min-height:46px;padding:8px;border-radius:10px;border:1px solid '+(active?'#59e68d':'#3d5962')+';background:'+(active?'linear-gradient(125deg,#235b46,#1b474f)':'#20252d')+';color:'+(active?'#a5ffd2':'#d8e5e8')+';font:inherit;font-weight:700;cursor:pointer';}}for(const[family,label]of[['ref','REF · референсы'],['fl','FL · начало / конец']]){const button=el('button','',label);button.type='button';button.setAttribute('role','radio');button.addEventListener('click',()=>{ctx.set('vid_family',family);update();});buttons.push([button,family]);group.append(button);}videoCard.append(group);updaters.push(showFamily);showFamily();}
     const outpaint=card(modelsGrid,'↔️ Дорисовка · Krea2','Проверенный вариант использует готовую Turbo-модель. Энкодер и VAE общие с Krea; Qwen берёт комплекты редактора. Дополнительные LoRA выбираются во вкладке дорисовки.');
     const background=card(modelsGrid,'🧽 Удаление фона','Отдельная функция. Выбор модели не меняет генерацию.');
     const upSeed=card(modelsGrid,'Апскейл · SeedVR','Общие DiT и VAE для генерации, редактирования и отдельного апскейла.');
