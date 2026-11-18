@@ -2,6 +2,7 @@ import {rewriteUpscale,upscaleStage} from './factory_upscale_tasks.js';
 // SPDX-License-Identifier: AGPL-3.0-only
 // Universal Workflow additions by gikipil, 2026-11-14.
 import {api} from '../../../scripts/api.js';
+import {queueWithMemory} from './factory_memory.js';
 import {app} from '../../../scripts/app.js';
 import {FactoryProgress,bindFactoryProgress} from './factory_progress.js';
 export const editProgress=new FactoryProgress();
@@ -69,7 +70,7 @@ export async function queueEdit(node,batch=1){
  const targets=[s.before,s.result,...(refEnabled?[ref.before,ref.after]:[]),...(upEnabled?[u.before,u.after]:[]),...(s.save?[s.saver]:[])],modes=new Map(targets.map(id=>[id,g.getNodeById(id)?.mode]));if([...modes.values()].some(v=>v==null))throw Error('Не найдены выходы редактора.');
  building=true;try{let data;for(const id of targets)g.getNodeById(id).mode=0;try{data=await app.graphToPrompt();}finally{for(const[id,mode]of modes)g.getNodeById(id).mode=mode;}
   data=editPrompt(data,targets,modes,s,hasEditImage(file(s.reference)),s.maskEnabled===true,u);
-  for(let i=0;i<Math.max(1,Math.min(64,Math.round(batch)));i++){const result=await api.queuePrompt(0,data,{partialExecutionTargets:targets.map(String)});if(result?.prompt_id)activeIds.add(result.prompt_id);if(result?.node_errors&&Object.keys(result.node_errors).length)throw Error('Ошибка редактора: '+JSON.stringify(result.node_errors));}return true;
+  for(let i=0;i<Math.max(1,Math.min(64,Math.round(batch)));i++){const result=await queueWithMemory(api,0,data,{partialExecutionTargets:targets.map(String)});if(result?.prompt_id)activeIds.add(result.prompt_id);if(result?.node_errors&&Object.keys(result.node_errors).length)throw Error('Ошибка редактора: '+JSON.stringify(result.node_errors));}return true;
  }finally{building=false;}
 }
 bindFactoryProgress(editProgress,{plan:()=>{const n=owner();return n?editPlan(n):null;},queued:activeIds,contains:id=>{const n=owner();return !!n?.properties?.acf_edit?.nodes.map(String).includes(String(id));},recognize:id=>{const n=owner(),s=n?.properties?.acf_edit;return !!s&&Number(id)>=s.photo&&s.nodes.map(String).includes(String(id));}});

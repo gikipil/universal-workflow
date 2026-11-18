@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 // Universal Workflow by gikipil, 2026-11-17: isolated LanPaint outpainting.
 import {api} from '../../../scripts/api.js';
+import {queueWithMemory} from './factory_memory.js';
 import {app} from '../../../scripts/app.js';
 import {fileUrl,refFromName} from './media/io.js';
 import {hasEditImage} from './factory_edit_run.js';
@@ -23,6 +24,6 @@ export async function queueOutpaint(node,batch=1){if(building)throw Error('По�
  const working=outpaintWorkingSize(size.width,size.height,b.megapixels),borders=outpaintGeometry(working.width,working.height,b),pad=g.getNodeById(s.pad);for(const k of['left','right','top','bottom']){const w=pad?.widgets?.find(w=>w.name===k);if(!w)throw Error('Не найдена настройка холста.');w.value=borders[k];}
  for(const[id,key,label]of[[branch.model,'unet_name','модель'],[branch.clip,'clip_name','энкодер'],[branch.vae,'vae_name','VAE']]){const w=g.getNodeById(id)?.widgets?.find(w=>w.name===key),values=typeof w?.options?.values==='function'?w.options.values():w?.options?.values;if(!w?.value||Array.isArray(values)&&!values.includes(w.value))throw Error('Не найден '+label+'. Выбери файл в общих настройках.');}
  const targets=[s.before,s.result,s.maskPreview,...(s.save?[s.saver]:[])],modes=new Map(targets.map(id=>[id,g.getNodeById(id)?.mode]));if([...modes.values()].some(v=>v==null))throw Error('Не найдены выходы дорисовки.');let data;for(const id of targets)g.getNodeById(id).mode=0;try{data=await app.graphToPrompt();}finally{for(const[id,mode]of modes)g.getNodeById(id).mode=mode;}
- data=outpaintPrompt(data,targets,modes,s,borders);for(let i=0;i<Math.max(1,Math.min(64,Math.round(batch)));i++){const r=await api.queuePrompt(0,data,{partialExecutionTargets:targets.map(String)});if(r?.prompt_id)queued.add(r.prompt_id);if(r?.node_errors&&Object.keys(r.node_errors).length)throw Error('Ошибка дорисовки: '+JSON.stringify(r.node_errors));}return true;
+ data=outpaintPrompt(data,targets,modes,s,borders);for(let i=0;i<Math.max(1,Math.min(64,Math.round(batch)));i++){const r=await queueWithMemory(api,0,data,{partialExecutionTargets:targets.map(String)});if(r?.prompt_id)queued.add(r.prompt_id);if(r?.node_errors&&Object.keys(r.node_errors).length)throw Error('Ошибка дорисовки: '+JSON.stringify(r.node_errors));}return true;
  }finally{building=false;}}
 bindFactoryProgress(outpaintProgress,{plan:()=>{const n=owner();return n?outpaintPlan(n):null;},queued,contains:id=>{const n=owner();return !!n?.properties?.acf_outpaint?.nodes.map(String).includes(String(id));}});

@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 // Universal Workflow additions by gikipil, 2026-11-14.
 import {api} from '../../../scripts/api.js';
+import {queueWithMemory} from './factory_memory.js';
 // Keep the regular ComfyUI queue path (including rgthree Seed hooks), but submit
 // only this task's selected branches. Custom editor/SAM/background/upscale jobs
 // already carry explicit targets and are left untouched.
@@ -20,7 +21,7 @@ export function generationPrompt(data){
 }
 export function installGenerationQueue(queueApi=api){
  if(queueApi.queuePrompt?.universalGenerationScope)return;const original=queueApi.queuePrompt;
- async function scoped(number,data,options){const explicit=Array.isArray(options?.partialExecutionTargets)&&options.partialExecutionTargets.length>0;const selected=explicit?null:generationPrompt(data);return original.call(this,number,selected?.data||data,selected?{...options,partialExecutionTargets:selected.targets}:options);}
+ async function scoped(number,data,options){const explicit=Array.isArray(options?.partialExecutionTargets)&&options.partialExecutionTargets.length>0;const selected=explicit?null:generationPrompt(data);if(selected)return queueWithMemory(this,number,selected.data,{...options,partialExecutionTargets:selected.targets},original);return original.call(this,number,data,options);}
  scoped.universalGenerationScope=true;queueApi.queuePrompt=scoped;
 }
 installGenerationQueue();

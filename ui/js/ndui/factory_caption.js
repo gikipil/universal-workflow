@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 // Universal Workflow by gikipil, 2026-11-15: local image dataset captions.
 import {api} from '../../../scripts/api.js';
+import {queueWithMemory} from './factory_memory.js';
 import {app} from '../../../scripts/app.js';
 import {events} from './events.js';
 export const captionState={rows:[],session:'',running:false,done:0,total:0,status:'Ожидание',selected:0,error:''};
@@ -16,7 +17,7 @@ export async function queueCaption(node){
  const c=captionFiles(node);if(c.source==='folder'&&!c.folder.trim())throw Error('Укажи папку на ПК с ComfyUI.');if(c.source==='single'&&(!c.image_name||c.image_name==='universal-local-empty-mask.png'))throw Error('Загрузи фото.');
  const check=await api.fetchApi('/object_info/UniversalCaptionTask');const meta=await check.json();if(!meta.UniversalCaptionTask)throw Error('Нужен перезапуск ComfyUI после установки модуля датасета.');
  currentNode=String(node.id);captionState.running=true;captionState.done=captionState.total=0;captionState.error='';captionState.status='Загрузка модели и подготовка';events.version++;
- try{const data={output:{[node.id]:{class_type:'UniversalCaptionTask',inputs:{settings:JSON.stringify(c)}}},workflow:node.graph.serialize()};const r=await api.queuePrompt(0,data,{partialExecutionTargets:[String(node.id)]});if(r.node_errors&&Object.keys(r.node_errors).length)throw Error(JSON.stringify(r.node_errors));promptId=r.prompt_id;}catch(e){captionState.running=false;captionState.error=e.message;throw e;}
+ try{const data={output:{[node.id]:{class_type:'UniversalCaptionTask',inputs:{settings:JSON.stringify(c)}}},workflow:node.graph.serialize()};const r=await queueWithMemory(api,0,data,{partialExecutionTargets:[String(node.id)]});if(r.node_errors&&Object.keys(r.node_errors).length)throw Error(JSON.stringify(r.node_errors));promptId=r.prompt_id;}catch(e){captionState.running=false;captionState.error=e.message;throw e;}
 }
 api.addEventListener('universal-caption-progress',e=>{const d=e.detail;if(String(d.node)!==currentNode)return;if(d.rows)acceptCaptions(d);else if(d.row)captionState.rows[d.row.index]=d.row;captionState.total=Math.max(0,Number(d.max)||0);captionState.done=Math.min(captionState.total,Math.max(0,Number(d.value)||0));captionState.status='Обработка изображений';events.version++;});
 api.addEventListener('executed',e=>{if(String(e.detail.node)!==currentNode)return;const text=e.detail.output?.text?.[0];if(text){try{acceptCaptions(JSON.parse(text));captionState.total=captionState.done=captionState.rows.length;captionState.status='Завершено';}catch{captionState.error='Не удалось прочитать подписи.';}}captionState.running=false;events.version++;});

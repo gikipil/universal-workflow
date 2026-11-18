@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 // Universal Workflow additions by gikipil, 2026-11-13.
 import {api} from '../../../scripts/api.js';
+import {queueWithMemory} from './factory_memory.js';
 import {app} from '../../../scripts/app.js';
 import {FactoryProgress,bindFactoryProgress} from './factory_progress.js';
 export const backgroundProgress=new FactoryProgress();
@@ -17,7 +18,7 @@ export async function queueBackground(node,batch=1){
  if(building)throw Error('Подожди завершения отправки предыдущего задания.');const s=node.properties.acf_background,g=node.graph,file=g.getNodeById(s.photo)?.widgets?.find(w=>w.name==='image')?.value;if(!file||file==='universal-local-empty-mask.png')throw Error('Сначала загрузи исходное фото.');
  const targets=[s.before,s.result,s.mask,...(s.save?[s.saver]:[])],originalModes=new Map(targets.map(id=>[id,g.getNodeById(id)?.mode]));if([...originalModes.values()].some(v=>v==null))throw Error('Не найдены выходы удаления фона.');building=true;let data;
  try{for(const id of targets)g.getNodeById(id).mode=0;try{data=await app.graphToPrompt();}finally{for(const[id,mode]of originalModes)g.getNodeById(id).mode=mode;}
-  data=backgroundPrompt(data,targets,originalModes);for(let i=0;i<Math.max(1,Math.min(64,Math.round(batch)));i++){const result=await api.queuePrompt(0,data,{partialExecutionTargets:targets.map(String)});if(result?.prompt_id)queued.add(result.prompt_id);if(result?.node_errors&&Object.keys(result.node_errors).length)throw Error('Ошибка удаления фона: '+JSON.stringify(result.node_errors));}return true;
+  data=backgroundPrompt(data,targets,originalModes);for(let i=0;i<Math.max(1,Math.min(64,Math.round(batch)));i++){const result=await queueWithMemory(api,0,data,{partialExecutionTargets:targets.map(String)});if(result?.prompt_id)queued.add(result.prompt_id);if(result?.node_errors&&Object.keys(result.node_errors).length)throw Error('Ошибка удаления фона: '+JSON.stringify(result.node_errors));}return true;
  }finally{building=false;}
 }
 bindFactoryProgress(backgroundProgress,{plan:()=>{const n=owner();return n?backgroundPlan(n):null;},queued:queued,contains:id=>{const n=owner();return !!n?.properties?.acf_background?.nodes.map(String).includes(String(id));}});

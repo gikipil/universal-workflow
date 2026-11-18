@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 // Universal Workflow additions by gikipil, 2026-11-14.
 import {api} from '../../../scripts/api.js';
+import {queueWithMemory} from './factory_memory.js';
 import {app} from '../../../scripts/app.js';
 import {hasEditImage} from './factory_edit_run.js';
 let building=false;
@@ -40,6 +41,6 @@ export async function queueEditAutoMask(node,options,{signal,onStatus=()=>{}}={}
    if(name==='execution_success')cached();
   }
   for(const name of['execution_start','executing','executed','execution_error','execution_interrupted','execution_success']){const fn=e=>handle(name,e.detail);listeners.push([name,fn]);api.addEventListener(name,fn);}
-  onStatus('Маска в очереди…');api.queuePrompt(0,data,{partialExecutionTargets:[String(a.preview)]}).then(result=>{if(result?.node_errors&&Object.keys(result.node_errors).length)throw Error('Ошибка автомаски: '+JSON.stringify(result.node_errors));if(!result?.prompt_id)throw Error('ComfyUI не принял задание маски.');pid=String(result.prompt_id);if(done)return;timer=setTimeout(()=>finish(Error('Маска слишком долго ожидает в очереди. Проверь очередь ComfyUI.')),60*60*1000);for(const[name,d]of early)handle(name,d);early.length=0;}).catch(error=>finish(error));
+  onStatus('Маска в очереди…');queueWithMemory(api,0,data,{partialExecutionTargets:[String(a.preview)]}).then(result=>{if(result?.node_errors&&Object.keys(result.node_errors).length)throw Error('Ошибка автомаски: '+JSON.stringify(result.node_errors));if(!result?.prompt_id)throw Error('ComfyUI не принял задание маски.');pid=String(result.prompt_id);if(done)return;timer=setTimeout(()=>finish(Error('Маска слишком долго ожидает в очереди. Проверь очередь ComfyUI.')),60*60*1000);for(const[name,d]of early)handle(name,d);early.length=0;}).catch(error=>finish(error));
  });
 }

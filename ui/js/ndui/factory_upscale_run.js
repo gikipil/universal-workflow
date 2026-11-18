@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 // Universal Workflow additions by gikipil, 2026-11-14.
 import {api} from '../../../scripts/api.js';
+import {queueWithMemory} from './factory_memory.js';
 import {app} from '../../../scripts/app.js';
 import {FactoryProgress,bindFactoryProgress} from './factory_progress.js';
 import {rewriteUpscale,upscaleStage} from './factory_upscale_tasks.js';
@@ -40,6 +41,6 @@ export function upscalePlan(node){
 export async function queueUpscale(node,batch=1){
  if(building)throw Error('Подожди завершения отправки предыдущего задания.');const s=node.properties.acf_upscale_task,u=node.properties.acf_upscale,g=node.graph,file=g.getNodeById(s.photo)?.widgets?.find(w=>w.name==='image')?.value;if(!file||file==='universal-local-empty-mask.png')throw Error('Сначала загрузи фото для увеличения.');
  const local=g.getNodeById(s.local)?.properties?.acf_local,previews=s.refiner?[s.refiner.before,s.refiner.after]:[];if(local){previews.push(local.manual.before);for(const key of local.order){const d=local[key];if(Number(g.getNodeById(d.gate)?.widgets?.find(w=>w.name==='index')?.value))previews.push(d.before,d.after,d.maskPreview);}}const targets=[...new Set([u.before,u.after,...previews,...(s.save?[s.saver]:[])])],modes=new Map(targets.map(id=>[id,g.getNodeById(id)?.mode]));if([...modes.values()].some(v=>v==null))throw Error('Не найдены выходы апскейла.');
- building=true;try{let data;for(const id of targets)g.getNodeById(id).mode=0;try{data=await app.graphToPrompt();}finally{for(const[id,mode]of modes)g.getNodeById(id).mode=mode;}data=upscalePrompt(data,targets,modes,u);for(let i=0;i<Math.max(1,Math.min(64,Math.round(batch)));i++){const r=await api.queuePrompt(0,data,{partialExecutionTargets:targets.map(String)});if(r?.prompt_id)queued.add(r.prompt_id);if(r?.node_errors&&Object.keys(r.node_errors).length)throw Error('Ошибка апскейла: '+JSON.stringify(r.node_errors));}return true;}finally{building=false;}
+ building=true;try{let data;for(const id of targets)g.getNodeById(id).mode=0;try{data=await app.graphToPrompt();}finally{for(const[id,mode]of modes)g.getNodeById(id).mode=mode;}data=upscalePrompt(data,targets,modes,u);for(let i=0;i<Math.max(1,Math.min(64,Math.round(batch)));i++){const r=await queueWithMemory(api,0,data,{partialExecutionTargets:targets.map(String)});if(r?.prompt_id)queued.add(r.prompt_id);if(r?.node_errors&&Object.keys(r.node_errors).length)throw Error('Ошибка апскейла: '+JSON.stringify(r.node_errors));}return true;}finally{building=false;}
 }
 bindFactoryProgress(upscaleProgress,{plan:()=>{const n=owner();return n?upscalePlan(n):null;},queued:queued,contains:id=>{const n=owner();return !!n?.properties?.acf_upscale_task?.nodes.map(String).includes(String(id));},recognize:id=>{const n=owner(),s=n?.properties?.acf_upscale_task;return !!s&&Number(id)>=s.photo&&s.nodes.map(String).includes(String(id));}});
