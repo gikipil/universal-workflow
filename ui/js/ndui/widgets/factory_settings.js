@@ -97,7 +97,7 @@ export function openFactorySettings(ctx, onClose=()=>{}) {
     const kreaEditor=card(modelsGrid,'✏️ Редактирование · Krea','Выбери файлы General Edit и Identity Edit. В настройках режима редактора переключается их назначение. Комплект Krea и Turbo-адаптер общие.');
     const qwen21Editor=card(modelsGrid,'✏️ Редактирование · Qwen 2.1','Отдельные модель, энкодер Qwen3-VL 8B и VAE Qwen 2.1. Комплект 2511 сюда не подходит. LoRA выбираются на вкладке редактора.');
     const editor=card(modelsGrid,'✏️ Редактирование · Qwen 2511','Независимый комплект редактора. Обычные LoRA выбираются на вкладке редактирования.');
-    const audioCard=card(modelsGrid,'🔊 Звук · Higgs v3','Модель синтеза речи и Whisper для расшифровки голосовых референсов. Один выбор Whisper действует для обоих голосов.');
+    const audioCard=card(modelsGrid,'🔊 Звук · модели','Higgs и Whisper для голосовых референсов. Один выбор Whisper действует для обоих голосов. Голос по описанию использует отдельную фиксированную модель Qwen3-TTS VoiceDesign 1.7B из models/TTS/Qwen3-TTS.');
     const videoCard=card(modelsGrid,'🎬 Видео · MiniMax H3','REF использует референсы, FL — первый и последний кадр. Назначь файлы обеих моделей. Рабочий режим REF / FL переключается слева во вкладке видео. Энкодер, VAE и Turbo-адаптер общие. Пользовательские LoRA выбираются отдельно во вкладке видео.');
     const outpaint=card(modelsGrid,'↔️ Дорисовка · Krea2','Проверенный вариант использует готовую Turbo-модель. Энкодер и VAE общие с Krea; Qwen берёт комплекты редактора. Дополнительные LoRA выбираются во вкладке дорисовки.');
     const background=card(modelsGrid,'🧽 Удаление фона','Отдельная функция. Выбор модели не меняет генерацию.');

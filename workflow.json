@@ -1,9 +1,85 @@
 {
   "id": "6156223e-7f85-4578-923d-9d05cf820581",
   "revision": 0,
-  "last_node_id": 1578,
-  "last_link_id": 1807,
+  "last_node_id": 1581,
+  "last_link_id": 1809,
   "nodes": [
+    {
+      "id": 1580,
+      "type": "GetNode",
+      "title": "Get LP_AUDIO_13_0",
+      "pos": [
+        52,
+        4804
+      ],
+      "size": [
+        210,
+        30
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 1580,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            1808
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "previousName": "LP_AUDIO_13_0"
+      },
+      "widgets_values": [
+        "LP_AUDIO_13_0"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 1581,
+      "type": "GetNode",
+      "title": "Get LP_AUDIO_14_0",
+      "pos": [
+        52,
+        4804
+      ],
+      "size": [
+        210,
+        30
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 1581,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            1809
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "previousName": "LP_AUDIO_14_0"
+      },
+      "widgets_values": [
+        "LP_AUDIO_14_0"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
     {
       "id": 894,
       "type": "SetNode",
@@ -47882,7 +47958,10 @@
             1552,
             1553,
             1575,
-            1578
+            1578,
+            1579,
+            1580,
+            1581
           ],
           "autoTranscript": [
             true,
@@ -47892,7 +47971,8 @@
             "",
             ""
           ],
-          "seedMode": "fixed"
+          "seedMode": "fixed",
+          "design": 1579
         },
         "nd_ui_src": {
           "uid": "src_audio_controller",
@@ -74352,6 +74432,81 @@
       ],
       "color": "#223",
       "bgcolor": "#335"
+    },
+    {
+      "id": 1579,
+      "type": "AILab_Qwen3TTSVoiceDesign_Advanced",
+      "pos": [
+        40,
+        4770
+      ],
+      "size": [
+        600,
+        650
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 1579,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "widget": {
+            "name": "text"
+          },
+          "link": 1808
+        },
+        {
+          "name": "seed",
+          "type": "INT",
+          "widget": {
+            "name": "seed"
+          },
+          "link": 1809
+        }
+      ],
+      "outputs": [
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "AILab_Qwen3TTSVoiceDesign_Advanced",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {},
+          "version": "7.5.2"
+        },
+        "nd_ui_src": {
+          "uid": "src_audio_design",
+          "tag": "audio-design"
+        }
+      },
+      "widgets_values": [
+        "",
+        "A warm female voice with a medium-low pitch, a slightly husky timbre and calm, conversational delivery.",
+        "1.7B",
+        "auto",
+        "bf16",
+        "Auto",
+        2048,
+        true,
+        0.9,
+        50,
+        0.9,
+        1,
+        "auto",
+        true,
+        0,
+        "fixed"
+      ],
+      "color": "#322",
+      "bgcolor": "#533",
+      "title": "🔴 Голос по описанию · Qwen3-TTS"
     }
   ],
   "links": [
@@ -84138,6 +84293,22 @@
       1578,
       0,
       "AUDIO"
+    ],
+    [
+      1808,
+      1580,
+      0,
+      1579,
+      0,
+      "STRING"
+    ],
+    [
+      1809,
+      1581,
+      0,
+      1579,
+      1,
+      "INT"
     ]
   ],
   "groups": [
@@ -84925,6 +85096,18 @@
         5270,
         640,
         560
+      ],
+      "color": "#31564f",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "title": "🎙️ Звук · Голос по описанию",
+      "bounding": [
+        20,
+        4720,
+        640,
+        720
       ],
       "color": "#31564f",
       "font_size": 24,
@@ -86159,6 +86342,12 @@
           "tag": "audio-save",
           "class": "SaveAudioMP3",
           "title": "💾 Сохранить MP3 · выключено"
+        },
+        {
+          "uid": "src_audio_design",
+          "tag": "audio-design",
+          "class": "AILab_Qwen3TTSVoiceDesign_Advanced",
+          "title": "🔴 Голос по описанию · Qwen3-TTS"
         }
       ],
       "pages": [
@@ -86286,7 +86475,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v0.19.5",
+            "text": "🧩 Универсальный воркфлоу · v0.20.0",
             "size": "M",
             "align": "left"
           },
@@ -88638,7 +88827,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v0.19.5",
+            "text": "🧩 Универсальный воркфлоу · v0.20.0",
             "size": "M",
             "align": "left"
           },
@@ -89506,7 +89695,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v0.19.5",
+            "text": "🧩 Универсальный воркфлоу · v0.20.0",
             "size": "M",
             "align": "left"
           },
@@ -90805,7 +90994,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v0.19.5",
+            "text": "🧩 Универсальный воркфлоу · v0.20.0",
             "size": "M",
             "align": "left"
           },
@@ -92191,7 +92380,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "↔️ Дорисовка за границами кадра · v0.19.5",
+            "text": "↔️ Дорисовка за границами кадра · v0.20.0",
             "size": "M",
             "align": "left"
           },
@@ -94168,7 +94357,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v0.19.5",
+            "text": "🧩 Универсальный воркфлоу · v0.20.0",
             "size": "M",
             "align": "left"
           },
@@ -94783,7 +94972,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v0.19.5",
+            "text": "🧩 Универсальный воркфлоу · v0.20.0",
             "size": "M",
             "align": "left"
           },
@@ -95336,7 +95525,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🎬 Видео · MiniMax H3 · v0.19.5",
+            "text": "🎬 Видео · MiniMax H3 · v0.20.0",
             "size": "M",
             "align": "left"
           },
@@ -96283,7 +96472,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🎬 Звук · Higgs v3 · v0.19.5",
+            "text": "🎬 Звук · Higgs v3 · v0.20.0",
             "size": "M",
             "align": "left"
           },
