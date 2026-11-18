@@ -176,6 +176,8 @@ export class PageView {
                 const height = target.y + target.h - box.y - (Number(widget.props.bottomInset) || 0);
                 if (height > 0) box.h = height;
             }
+            const right = this.rects.get(widget.props?.rightWith);
+            if (right && right.vis !== false) box.w = Math.max(1, right.x + right.w - box.x);
             const after = this.rects.get(widget.props?.afterWith);
             if (after && after.vis !== false) box.y = Math.max(box.y, after.y + after.h + (Number(widget.props.afterGap) || 0));
         }

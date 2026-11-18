@@ -1,9 +1,292 @@
 {
   "id": "6156223e-7f85-4578-923d-9d05cf820581",
   "revision": 0,
-  "last_node_id": 1607,
-  "last_link_id": 1829,
+  "last_node_id": 1617,
+  "last_link_id": 1839,
   "nodes": [
+    {
+      "id": 1610,
+      "type": "easy cleanGpuUsed",
+      "title": "Техническое освобождение памяти",
+      "pos": [
+        3542,
+        5016.0
+      ],
+      "size": [
+        210,
+        30
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 1610,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "anything",
+          "type": "IMAGE",
+          "link": 1831
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            1832
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "easy cleanGpuUsed"
+      },
+      "widgets_values": [],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 1611,
+      "type": "ComfySwitchNode",
+      "title": "Технический выбор кадров",
+      "pos": [
+        3542,
+        5016.0
+      ],
+      "size": [
+        210,
+        30
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 1611,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "index",
+          "type": "INT",
+          "link": 1836
+        },
+        {
+          "name": "value0",
+          "type": "IMAGE",
+          "link": 1837
+        },
+        {
+          "name": "value1",
+          "type": "IMAGE",
+          "link": 1838
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            1839
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ComfySwitchNode"
+      },
+      "widgets_values": [
+        0
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 1612,
+      "type": "SetNode",
+      "title": "Техническая передача IMAGE",
+      "pos": [
+        5624,
+        5796.0
+      ],
+      "size": [
+        210,
+        30
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 1612,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "link": 1830
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SetNode"
+      },
+      "widgets_values": [
+        "VIDEO_UP_1522"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 1613,
+      "type": "GetNode",
+      "title": "Техническое получение IMAGE",
+      "pos": [
+        3554,
+        5052.0
+      ],
+      "size": [
+        210,
+        30
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 1613,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            1831
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetNode"
+      },
+      "widgets_values": [
+        "VIDEO_UP_1522"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 1614,
+      "type": "GetNode",
+      "title": "Техническое получение SEEDVR2_DIT",
+      "pos": [
+        3542,
+        5016.0
+      ],
+      "size": [
+        210,
+        30
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 1614,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "SEEDVR2_DIT",
+          "type": "SEEDVR2_DIT",
+          "links": [
+            1833
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetNode"
+      },
+      "widgets_values": [
+        "UPS080_546_0"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 1615,
+      "type": "GetNode",
+      "title": "Техническое получение SEEDVR2_VAE",
+      "pos": [
+        3542,
+        5016.0
+      ],
+      "size": [
+        210,
+        30
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 1615,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "SEEDVR2_VAE",
+          "type": "SEEDVR2_VAE",
+          "links": [
+            1834
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetNode"
+      },
+      "widgets_values": [
+        "UPS080_547_0"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 1617,
+      "type": "GetNode",
+      "title": "Техническое получение IMAGE",
+      "pos": [
+        3554,
+        5052.0
+      ],
+      "size": [
+        210,
+        30
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 1617,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            1837
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetNode"
+      },
+      "widgets_values": [
+        "VIDEO_UP_1522"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
     {
       "id": 1585,
       "type": "ModelSamplingAuraFlow",
@@ -43739,7 +44022,16 @@
             1536,
             1537,
             1538,
-            1539
+            1539,
+            1608,
+            1609,
+            1610,
+            1611,
+            1612,
+            1613,
+            1614,
+            1615,
+            1617
           ],
           "mediaSlots": {
             "picture": [
@@ -43768,7 +44060,15 @@
             "ref": "MiniMax\\minimax_h3_ref2va_pruned_int8_convrot.safetensors",
             "fl": "MiniMax\\minimax_h3_fl2va_pruned_int8_convrot.safetensors"
           },
-          "modelFamily": "ref"
+          "modelFamily": "ref",
+          "upscale": {
+            "enabled": 1608,
+            "sample": 1609,
+            "gate": 1611,
+            "dit": 280,
+            "vae": 281,
+            "clean": 1610
+          }
         },
         "nd_ui_src": {
           "uid": "src_video_media",
@@ -47743,7 +48043,7 @@
           "name": "IMAGE",
           "type": "IMAGE",
           "links": [
-            1766
+            1830
           ]
         }
       ],
@@ -47898,7 +48198,7 @@
         {
           "name": "images",
           "type": "IMAGE",
-          "link": 1766
+          "link": 1839
         },
         {
           "name": "audio",
@@ -76063,6 +76363,208 @@
       ],
       "color": "#223",
       "bgcolor": "#335"
+    },
+    {
+      "id": 1608,
+      "type": "PrimitiveInt",
+      "title": "🔎 SeedVR видео · включение",
+      "pos": [
+        3240,
+        4980.0
+      ],
+      "size": [
+        250,
+        90
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 1608,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            1836
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PrimitiveInt"
+      },
+      "widgets_values": [
+        0
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 1609,
+      "type": "SeedVR2VideoUpscaler",
+      "pos": [
+        3530,
+        4980.0
+      ],
+      "size": [
+        410,
+        500
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 1609,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 1832
+        },
+        {
+          "name": "dit",
+          "type": "SEEDVR2_DIT",
+          "link": 1833
+        },
+        {
+          "name": "vae",
+          "type": "SEEDVR2_VAE",
+          "link": 1834
+        },
+        {
+          "name": "seed",
+          "type": "INT",
+          "link": null,
+          "widget": {
+            "name": "seed"
+          }
+        },
+        {
+          "name": "resolution",
+          "type": "INT",
+          "link": null,
+          "widget": {
+            "name": "resolution"
+          }
+        },
+        {
+          "name": "max_resolution",
+          "type": "INT",
+          "link": null,
+          "widget": {
+            "name": "max_resolution"
+          }
+        },
+        {
+          "name": "batch_size",
+          "type": "INT",
+          "link": null,
+          "widget": {
+            "name": "batch_size"
+          }
+        },
+        {
+          "name": "uniform_batch_size",
+          "type": "BOOLEAN",
+          "link": null,
+          "widget": {
+            "name": "uniform_batch_size"
+          }
+        },
+        {
+          "name": "color_correction",
+          "type": "COMBO",
+          "link": null,
+          "widget": {
+            "name": "color_correction"
+          }
+        },
+        {
+          "name": "temporal_overlap",
+          "type": "INT",
+          "link": null,
+          "widget": {
+            "name": "temporal_overlap"
+          },
+          "shape": 7
+        },
+        {
+          "name": "prepend_frames",
+          "type": "INT",
+          "link": null,
+          "widget": {
+            "name": "prepend_frames"
+          },
+          "shape": 7
+        },
+        {
+          "name": "input_noise_scale",
+          "type": "FLOAT",
+          "link": null,
+          "widget": {
+            "name": "input_noise_scale"
+          },
+          "shape": 7
+        },
+        {
+          "name": "latent_noise_scale",
+          "type": "FLOAT",
+          "link": null,
+          "widget": {
+            "name": "latent_noise_scale"
+          },
+          "shape": 7
+        },
+        {
+          "name": "offload_device",
+          "type": "COMBO",
+          "link": null,
+          "widget": {
+            "name": "offload_device"
+          },
+          "shape": 7
+        },
+        {
+          "name": "enable_debug",
+          "type": "BOOLEAN",
+          "link": null,
+          "widget": {
+            "name": "enable_debug"
+          },
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            1838
+          ]
+        }
+      ],
+      "title": "🔎 SeedVR · апскейл кадров видео",
+      "properties": {
+        "Node name for S&R": "SeedVR2VideoUpscaler"
+      },
+      "widgets_values": [
+        42,
+        "fixed",
+        1080,
+        1920,
+        5,
+        true,
+        "lab",
+        1,
+        0,
+        0,
+        0,
+        "cpu",
+        false
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
     }
   ],
   "links": [
@@ -85515,14 +86017,6 @@
       "VAE"
     ],
     [
-      1766,
-      1522,
-      0,
-      1526,
-      0,
-      "IMAGE"
-    ],
-    [
       1767,
       1524,
       0,
@@ -86025,6 +86519,78 @@
       1607,
       0,
       "AUDIO"
+    ],
+    [
+      1830,
+      1522,
+      0,
+      1612,
+      0,
+      "IMAGE"
+    ],
+    [
+      1831,
+      1613,
+      0,
+      1610,
+      0,
+      "IMAGE"
+    ],
+    [
+      1832,
+      1610,
+      0,
+      1609,
+      0,
+      "IMAGE"
+    ],
+    [
+      1833,
+      1614,
+      0,
+      1609,
+      1,
+      "SEEDVR2_DIT"
+    ],
+    [
+      1834,
+      1615,
+      0,
+      1609,
+      2,
+      "SEEDVR2_VAE"
+    ],
+    [
+      1836,
+      1608,
+      0,
+      1611,
+      0,
+      "INT"
+    ],
+    [
+      1837,
+      1617,
+      0,
+      1611,
+      1,
+      "IMAGE"
+    ],
+    [
+      1838,
+      1609,
+      0,
+      1611,
+      2,
+      "IMAGE"
+    ],
+    [
+      1839,
+      1611,
+      0,
+      1526,
+      0,
+      "IMAGE"
     ]
   ],
   "groups": [
@@ -86862,6 +87428,18 @@
         800
       ],
       "color": "#31564f",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "title": "🔎 Видео · SeedVR Upscale",
+      "bounding": [
+        3220,
+        4920,
+        750,
+        600
+      ],
+      "color": "#2f5b58",
       "font_size": 24,
       "flags": {}
     }
@@ -88245,7 +88823,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v0.21.2",
+            "text": "🧩 Универсальный воркфлоу · v0.22.0",
             "size": "M",
             "align": "left"
           },
@@ -90617,7 +91195,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v0.21.2",
+            "text": "🧩 Универсальный воркфлоу · v0.22.0",
             "size": "M",
             "align": "left"
           },
@@ -91505,7 +92083,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v0.21.2",
+            "text": "🧩 Универсальный воркфлоу · v0.22.0",
             "size": "M",
             "align": "left"
           },
@@ -92824,7 +93402,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v0.21.2",
+            "text": "🧩 Универсальный воркфлоу · v0.22.0",
             "size": "M",
             "align": "left"
           },
@@ -94230,7 +94808,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "↔️ Дорисовка за границами кадра · v0.21.2",
+            "text": "↔️ Дорисовка за границами кадра · v0.22.0",
             "size": "M",
             "align": "left"
           },
@@ -96227,7 +96805,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v0.21.2",
+            "text": "🧩 Универсальный воркфлоу · v0.22.0",
             "size": "M",
             "align": "left"
           },
@@ -96862,7 +97440,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v0.21.2",
+            "text": "🧩 Универсальный воркфлоу · v0.22.0",
             "size": "M",
             "align": "left"
           },
@@ -97435,7 +98013,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🎬 Видео · MiniMax H3 · v0.21.2",
+            "text": "🎬 Видео · MiniMax H3 · v0.22.0",
             "size": "M",
             "align": "left"
           },
@@ -98174,7 +98752,8 @@
             "history": true,
             "save": true,
             "bottomWith": "vid_ref_loras",
-            "bottomInset": 68
+            "bottomInset": 68,
+            "rightWith": "vid_prompt"
           },
           "look": {
             "style": null,
@@ -98282,7 +98861,8 @@
             "text": "💾 Сохранять видео",
             "description": "Выключено по умолчанию",
             "afterWith": "vid_result",
-            "afterGap": 12
+            "afterGap": 12,
+            "rightWith": "vid_prompt"
           },
           "look": {
             "style": null,
@@ -98370,7 +98950,8 @@
             "stop": true,
             "stopIdle": false,
             "afterWith": "vid_prompt",
-            "afterGap": 12
+            "afterGap": 12,
+            "rightWith": "vid_prompt"
           },
           "look": {
             "style": null,
@@ -98402,7 +98983,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🎬 Звук · Higgs v3 · v0.21.2",
+            "text": "🎬 Звук · Higgs v3 · v0.22.0",
             "size": "M",
             "align": "left"
           },
