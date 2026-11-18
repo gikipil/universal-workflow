@@ -8,3 +8,5 @@ The source files in ui/ contain additions and modifications by gikipil dated 202
 The local caption module in nodes/ComfyUI-Universal-Caption is Copyright (c) 2026 gikipil, released under AGPL-3.0-only. It uses separately installed Florence2/QwenVL nodes and the JoyCaption model; their authors retain their respective rights and licences.
 
 The MiniMax H3 video chain is adapted from ND_MiniMax_H3_Ultimate_Def_v2.0 by Neural Dreamer. The prompt enhancer and sampling live preview are not included. The local ComfyUI-Universal-Video output module is Copyright (c) 2026 gikipil, released under AGPL-3.0-only.
+
+The Higgs audio chain is adapted from higgs_audio_v3-tts_example_workflow.json supplied with Higgs_v3-TTS-ComfyUI by Saganaki22 (https://github.com/Saganaki22/Higgs_v3-TTS-ComfyUI). The original nodes and models are installed separately and retain their respective licences.

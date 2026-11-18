@@ -1,8 +1,8 @@
 {
   "id": "6156223e-7f85-4578-923d-9d05cf820581",
   "revision": 0,
-  "last_node_id": 1539,
-  "last_link_id": 1780,
+  "last_node_id": 1578,
+  "last_link_id": 1807,
   "nodes": [
     {
       "id": 894,
@@ -47526,6 +47526,1241 @@
       "bgcolor": "#355"
     },
     {
+      "id": 1544,
+      "type": "HiggsV3WhisperTranscribe",
+      "title": "Техническая расшифровка голоса 2",
+      "pos": [
+        8052,
+        5974
+      ],
+      "size": [
+        210,
+        30
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 1544,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "audio",
+          "name": "audio",
+          "type": "AUDIO",
+          "link": 1784
+        },
+        {
+          "localized_name": "model",
+          "name": "model",
+          "type": "COMBO",
+          "widget": {
+            "name": "model"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "dtype",
+          "name": "dtype",
+          "type": "COMBO",
+          "widget": {
+            "name": "dtype"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "language",
+          "name": "language",
+          "type": "COMBO",
+          "widget": {
+            "name": "language"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "task",
+          "name": "task",
+          "type": "COMBO",
+          "widget": {
+            "name": "task"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "chunk_length_s",
+          "name": "chunk_length_s",
+          "type": "INT",
+          "widget": {
+            "name": "chunk_length_s"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "download_if_missing",
+          "name": "download_if_missing",
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "download_if_missing"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "transcript",
+          "name": "transcript",
+          "type": "STRING",
+          "links": [
+            1803
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "HiggsV3WhisperTranscribe",
+        "cnr_id": "Higgs_v3-TTS-ComfyUI",
+        "ver": "dfe191bef0a622bd52b67f5fe53a50aedac412bc",
+        "aux_id": "Saganaki22/Higgs_v3-TTS-ComfyUI",
+        "nd_ui_src": {
+          "uid": "src_audio_whisper2",
+          "tag": "audio-whisper2"
+        }
+      },
+      "widgets_values": [
+        "whisper-large-v3 (auto-download)",
+        "auto",
+        "auto",
+        "transcribe",
+        30,
+        true
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 1545,
+      "type": "SetNode",
+      "title": "Set LP_AUDIO_2_0",
+      "pos": [
+        8052,
+        5614
+      ],
+      "size": [
+        210,
+        30
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 1545,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "AUDIO",
+          "type": "AUDIO",
+          "link": 1781
+        }
+      ],
+      "outputs": [
+        {
+          "name": "AUDIO",
+          "type": "AUDIO",
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SetNode",
+        "previousName": "LP_AUDIO_2_0"
+      },
+      "widgets_values": [
+        "LP_AUDIO_2_0"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 1546,
+      "type": "GetNode",
+      "title": "Get LP_AUDIO_2_0",
+      "pos": [
+        8052,
+        5974
+      ],
+      "size": [
+        210,
+        30
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 1546,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "AUDIO",
+          "type": "AUDIO",
+          "links": [
+            1782
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "previousName": "LP_AUDIO_2_0"
+      },
+      "widgets_values": [
+        "LP_AUDIO_2_0"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 1547,
+      "type": "SetNode",
+      "title": "Set LP_AUDIO_3_0",
+      "pos": [
+        8052,
+        5794
+      ],
+      "size": [
+        210,
+        30
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 1547,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "AUDIO",
+          "type": "AUDIO",
+          "link": 1783
+        }
+      ],
+      "outputs": [
+        {
+          "name": "AUDIO",
+          "type": "AUDIO",
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SetNode",
+        "previousName": "LP_AUDIO_3_0"
+      },
+      "widgets_values": [
+        "LP_AUDIO_3_0"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 1548,
+      "type": "GetNode",
+      "title": "Get LP_AUDIO_3_0",
+      "pos": [
+        8064,
+        6008
+      ],
+      "size": [
+        210,
+        30
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 1548,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "AUDIO",
+          "type": "AUDIO",
+          "links": [
+            1784
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "previousName": "LP_AUDIO_3_0"
+      },
+      "widgets_values": [
+        "LP_AUDIO_3_0"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 1554,
+      "type": "PrimitiveInt",
+      "title": "Режим звука · UI",
+      "pos": [
+        9492,
+        6024
+      ],
+      "size": [
+        210,
+        30
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 1554,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PrimitiveInt",
+        "acf_audio": {
+          "model": 1540,
+          "ref1": 1541,
+          "ref2": 1542,
+          "whisper1": 1543,
+          "whisper2": 1544,
+          "plain": 1549,
+          "clonevoice": 1550,
+          "dialog": 1551,
+          "text": 1552,
+          "seed": 1553,
+          "controller": 1554,
+          "preview": 1575,
+          "save": 1578,
+          "nodes": [
+            1544,
+            1545,
+            1546,
+            1547,
+            1548,
+            1554,
+            1555,
+            1556,
+            1557,
+            1558,
+            1559,
+            1560,
+            1561,
+            1562,
+            1563,
+            1564,
+            1565,
+            1566,
+            1567,
+            1568,
+            1569,
+            1570,
+            1571,
+            1572,
+            1573,
+            1574,
+            1576,
+            1577,
+            1540,
+            1541,
+            1542,
+            1543,
+            1549,
+            1550,
+            1551,
+            1552,
+            1553,
+            1575,
+            1578
+          ],
+          "autoTranscript": [
+            true,
+            true
+          ],
+          "transcripts": [
+            "",
+            ""
+          ],
+          "seedMode": "fixed"
+        },
+        "nd_ui_src": {
+          "uid": "src_audio_controller",
+          "tag": "audio-controller"
+        }
+      },
+      "widgets_values": [
+        1
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 1555,
+      "type": "SetNode",
+      "title": "Set LP_AUDIO_1_0",
+      "pos": [
+        8052,
+        5364
+      ],
+      "size": [
+        210,
+        30
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 1555,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "HIGGSV3TTS_MODEL",
+          "type": "HIGGSV3TTS_MODEL",
+          "link": 1785
+        }
+      ],
+      "outputs": [
+        {
+          "name": "HIGGSV3TTS_MODEL",
+          "type": "HIGGSV3TTS_MODEL",
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SetNode",
+        "previousName": "LP_AUDIO_1_0"
+      },
+      "widgets_values": [
+        "LP_AUDIO_1_0"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 1556,
+      "type": "GetNode",
+      "title": "Get LP_AUDIO_1_0",
+      "pos": [
+        8532,
+        5364
+      ],
+      "size": [
+        210,
+        30
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 1556,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "HIGGSV3TTS_MODEL",
+          "type": "HIGGSV3TTS_MODEL",
+          "links": [
+            1786
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "previousName": "LP_AUDIO_1_0"
+      },
+      "widgets_values": [
+        "LP_AUDIO_1_0"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 1557,
+      "type": "SetNode",
+      "title": "Set LP_AUDIO_13_0",
+      "pos": [
+        8532,
+        6024
+      ],
+      "size": [
+        210,
+        30
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 1557,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "link": 1787
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SetNode",
+        "previousName": "LP_AUDIO_13_0"
+      },
+      "widgets_values": [
+        "LP_AUDIO_13_0"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 1558,
+      "type": "GetNode",
+      "title": "Get LP_AUDIO_13_0",
+      "pos": [
+        8532,
+        5364
+      ],
+      "size": [
+        210,
+        30
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 1558,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            1788
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "previousName": "LP_AUDIO_13_0"
+      },
+      "widgets_values": [
+        "LP_AUDIO_13_0"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 1559,
+      "type": "SetNode",
+      "title": "Set LP_AUDIO_14_0",
+      "pos": [
+        9492,
+        6024
+      ],
+      "size": [
+        210,
+        30
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 1559,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "link": 1789
+        }
+      ],
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SetNode",
+        "previousName": "LP_AUDIO_14_0"
+      },
+      "widgets_values": [
+        "LP_AUDIO_14_0"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 1560,
+      "type": "GetNode",
+      "title": "Get LP_AUDIO_14_0",
+      "pos": [
+        8532,
+        5364
+      ],
+      "size": [
+        210,
+        30
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 1560,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            1790
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "previousName": "LP_AUDIO_14_0"
+      },
+      "widgets_values": [
+        "LP_AUDIO_14_0"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 1561,
+      "type": "GetNode",
+      "title": "Get LP_AUDIO_1_0",
+      "pos": [
+        9012,
+        5364
+      ],
+      "size": [
+        210,
+        30
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 1561,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "HIGGSV3TTS_MODEL",
+          "type": "HIGGSV3TTS_MODEL",
+          "links": [
+            1791
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "previousName": "LP_AUDIO_1_0"
+      },
+      "widgets_values": [
+        "LP_AUDIO_1_0"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 1562,
+      "type": "GetNode",
+      "title": "Get LP_AUDIO_13_0",
+      "pos": [
+        9012,
+        5364
+      ],
+      "size": [
+        210,
+        30
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 1562,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            1792
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "previousName": "LP_AUDIO_13_0"
+      },
+      "widgets_values": [
+        "LP_AUDIO_13_0"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 1563,
+      "type": "GetNode",
+      "title": "Get LP_AUDIO_14_0",
+      "pos": [
+        9012,
+        5364
+      ],
+      "size": [
+        210,
+        30
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 1563,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            1793
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "previousName": "LP_AUDIO_14_0"
+      },
+      "widgets_values": [
+        "LP_AUDIO_14_0"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 1564,
+      "type": "GetNode",
+      "title": "Get LP_AUDIO_1_0",
+      "pos": [
+        9492,
+        5364
+      ],
+      "size": [
+        210,
+        30
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 1564,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "HIGGSV3TTS_MODEL",
+          "type": "HIGGSV3TTS_MODEL",
+          "links": [
+            1794
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "previousName": "LP_AUDIO_1_0"
+      },
+      "widgets_values": [
+        "LP_AUDIO_1_0"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 1565,
+      "type": "GetNode",
+      "title": "Get LP_AUDIO_13_0",
+      "pos": [
+        9492,
+        5364
+      ],
+      "size": [
+        210,
+        30
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 1565,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            1795
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "previousName": "LP_AUDIO_13_0"
+      },
+      "widgets_values": [
+        "LP_AUDIO_13_0"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 1566,
+      "type": "GetNode",
+      "title": "Get LP_AUDIO_14_0",
+      "pos": [
+        9492,
+        5364
+      ],
+      "size": [
+        210,
+        30
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 1566,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            1796
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "previousName": "LP_AUDIO_14_0"
+      },
+      "widgets_values": [
+        "LP_AUDIO_14_0"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 1567,
+      "type": "GetNode",
+      "title": "Get LP_AUDIO_2_0",
+      "pos": [
+        9012,
+        5364
+      ],
+      "size": [
+        210,
+        30
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 1567,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "AUDIO",
+          "type": "AUDIO",
+          "links": [
+            1797
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "previousName": "LP_AUDIO_2_0"
+      },
+      "widgets_values": [
+        "LP_AUDIO_2_0"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 1568,
+      "type": "SetNode",
+      "title": "Set LP_AUDIO_4_0",
+      "pos": [
+        8052,
+        5974
+      ],
+      "size": [
+        210,
+        30
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 1568,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "link": 1798
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SetNode",
+        "previousName": "LP_AUDIO_4_0"
+      },
+      "widgets_values": [
+        "LP_AUDIO_4_0"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 1569,
+      "type": "GetNode",
+      "title": "Get LP_AUDIO_4_0",
+      "pos": [
+        9012,
+        5364
+      ],
+      "size": [
+        210,
+        30
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 1569,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            1799
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "previousName": "LP_AUDIO_4_0"
+      },
+      "widgets_values": [
+        "LP_AUDIO_4_0"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 1570,
+      "type": "GetNode",
+      "title": "Get LP_AUDIO_2_0",
+      "pos": [
+        9492,
+        5364
+      ],
+      "size": [
+        210,
+        30
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 1570,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "AUDIO",
+          "type": "AUDIO",
+          "links": [
+            1800
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "previousName": "LP_AUDIO_2_0"
+      },
+      "widgets_values": [
+        "LP_AUDIO_2_0"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 1571,
+      "type": "GetNode",
+      "title": "Get LP_AUDIO_4_0",
+      "pos": [
+        9492,
+        5364
+      ],
+      "size": [
+        210,
+        30
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 1571,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            1801
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "previousName": "LP_AUDIO_4_0"
+      },
+      "widgets_values": [
+        "LP_AUDIO_4_0"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 1572,
+      "type": "GetNode",
+      "title": "Get LP_AUDIO_3_0",
+      "pos": [
+        9492,
+        5364
+      ],
+      "size": [
+        210,
+        30
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 1572,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "AUDIO",
+          "type": "AUDIO",
+          "links": [
+            1802
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "previousName": "LP_AUDIO_3_0"
+      },
+      "widgets_values": [
+        "LP_AUDIO_3_0"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 1573,
+      "type": "SetNode",
+      "title": "Set LP_AUDIO_5_0",
+      "pos": [
+        8064,
+        6008
+      ],
+      "size": [
+        210,
+        30
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 1573,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "link": 1803
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SetNode",
+        "previousName": "LP_AUDIO_5_0"
+      },
+      "widgets_values": [
+        "LP_AUDIO_5_0"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 1574,
+      "type": "GetNode",
+      "title": "Get LP_AUDIO_5_0",
+      "pos": [
+        9492,
+        5364
+      ],
+      "size": [
+        210,
+        30
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 1574,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            1804
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "previousName": "LP_AUDIO_5_0"
+      },
+      "widgets_values": [
+        "LP_AUDIO_5_0"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 1576,
+      "type": "SetNode",
+      "title": "Set LP_AUDIO_11_0",
+      "pos": [
+        9012,
+        5364
+      ],
+      "size": [
+        210,
+        30
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 1576,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "AUDIO",
+          "type": "AUDIO",
+          "link": 1805
+        }
+      ],
+      "outputs": [
+        {
+          "name": "AUDIO",
+          "type": "AUDIO",
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SetNode",
+        "previousName": "LP_AUDIO_11_0"
+      },
+      "widgets_values": [
+        "LP_AUDIO_11_0"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 1577,
+      "type": "GetNode",
+      "title": "Get LP_AUDIO_11_0",
+      "pos": [
+        9992,
+        5364
+      ],
+      "size": [
+        210,
+        30
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 1577,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "AUDIO",
+          "type": "AUDIO",
+          "links": [
+            1806
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "previousName": "LP_AUDIO_11_0"
+      },
+      "widgets_values": [
+        "LP_AUDIO_11_0"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
       "id": 1,
       "type": "UNETLoader",
       "pos": [
@@ -72069,6 +73304,1049 @@
       ],
       "color": "#223",
       "bgcolor": "#335"
+    },
+    {
+      "id": 1540,
+      "type": "HiggsV3LoadModel",
+      "title": "🗣️ Higgs v3 · модель",
+      "pos": [
+        8040,
+        5330
+      ],
+      "size": [
+        420,
+        220
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 1540,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "model",
+          "name": "model",
+          "type": "COMBO",
+          "widget": {
+            "name": "model"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "dtype",
+          "name": "dtype",
+          "type": "COMBO",
+          "widget": {
+            "name": "dtype"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "device",
+          "name": "device",
+          "type": "COMBO",
+          "widget": {
+            "name": "device"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "attention",
+          "name": "attention",
+          "type": "COMBO",
+          "widget": {
+            "name": "attention"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "download_if_missing",
+          "name": "download_if_missing",
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "download_if_missing"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "higgs_model",
+          "name": "higgs_model",
+          "type": "HIGGSV3TTS_MODEL",
+          "links": [
+            1785
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "HiggsV3LoadModel",
+        "cnr_id": "Higgs_v3-TTS-ComfyUI",
+        "ver": "dfe191bef0a622bd52b67f5fe53a50aedac412bc",
+        "aux_id": "Saganaki22/Higgs_v3-TTS-ComfyUI",
+        "nd_ui_src": {
+          "uid": "src_audio_model",
+          "tag": "audio-model"
+        }
+      },
+      "widgets_values": [
+        "higgs-audio-v3-tts-4b",
+        "auto",
+        "auto",
+        "auto",
+        true
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 1541,
+      "type": "LoadAudio",
+      "title": "🎙️ Голос 1 · референс",
+      "pos": [
+        8040,
+        5580
+      ],
+      "size": [
+        420,
+        150
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 1541,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "audio",
+          "name": "audio",
+          "type": "COMBO",
+          "widget": {
+            "name": "audio"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "audioUI",
+          "name": "audioUI",
+          "type": "AUDIO_UI",
+          "widget": {
+            "name": "audioUI"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "choose file to upload",
+          "name": "upload",
+          "type": "AUDIOUPLOAD",
+          "widget": {
+            "name": "upload"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "AUDIO",
+          "name": "AUDIO",
+          "type": "AUDIO",
+          "links": [
+            1781
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadAudio",
+        "cnr_id": "comfy-core",
+        "ver": "0.24.0",
+        "nd_ui_src": {
+          "uid": "src_audio_ref1",
+          "tag": "audio-ref1"
+        }
+      },
+      "widgets_values": [
+        "",
+        null,
+        null
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 1542,
+      "type": "LoadAudio",
+      "title": "🎙️ Голос 2 · референс",
+      "pos": [
+        8040,
+        5760
+      ],
+      "size": [
+        420,
+        150
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 1542,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "audio",
+          "name": "audio",
+          "type": "COMBO",
+          "widget": {
+            "name": "audio"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "audioUI",
+          "name": "audioUI",
+          "type": "AUDIO_UI",
+          "widget": {
+            "name": "audioUI"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "choose file to upload",
+          "name": "upload",
+          "type": "AUDIOUPLOAD",
+          "widget": {
+            "name": "upload"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "AUDIO",
+          "name": "AUDIO",
+          "type": "AUDIO",
+          "links": [
+            1783
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadAudio",
+        "cnr_id": "comfy-core",
+        "ver": "0.24.0",
+        "nd_ui_src": {
+          "uid": "src_audio_ref2",
+          "tag": "audio-ref2"
+        }
+      },
+      "widgets_values": [
+        "",
+        null,
+        null
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 1543,
+      "type": "HiggsV3WhisperTranscribe",
+      "title": "🔤 Whisper · голос 1",
+      "pos": [
+        8040,
+        5940
+      ],
+      "size": [
+        420,
+        240
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 1543,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "audio",
+          "name": "audio",
+          "type": "AUDIO",
+          "link": 1782
+        },
+        {
+          "localized_name": "model",
+          "name": "model",
+          "type": "COMBO",
+          "widget": {
+            "name": "model"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "dtype",
+          "name": "dtype",
+          "type": "COMBO",
+          "widget": {
+            "name": "dtype"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "language",
+          "name": "language",
+          "type": "COMBO",
+          "widget": {
+            "name": "language"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "task",
+          "name": "task",
+          "type": "COMBO",
+          "widget": {
+            "name": "task"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "chunk_length_s",
+          "name": "chunk_length_s",
+          "type": "INT",
+          "widget": {
+            "name": "chunk_length_s"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "download_if_missing",
+          "name": "download_if_missing",
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "download_if_missing"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "transcript",
+          "name": "transcript",
+          "type": "STRING",
+          "links": [
+            1798
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "HiggsV3WhisperTranscribe",
+        "cnr_id": "Higgs_v3-TTS-ComfyUI",
+        "ver": "dfe191bef0a622bd52b67f5fe53a50aedac412bc",
+        "aux_id": "Saganaki22/Higgs_v3-TTS-ComfyUI",
+        "nd_ui_src": {
+          "uid": "src_audio_whisper1",
+          "tag": "audio-whisper1"
+        }
+      },
+      "widgets_values": [
+        "whisper-large-v3 (auto-download)",
+        "auto",
+        "auto",
+        "transcribe",
+        30,
+        true
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 1549,
+      "type": "HiggsV3Generate",
+      "title": "🔴 Речь по тексту",
+      "pos": [
+        8520,
+        5330
+      ],
+      "size": [
+        440,
+        520
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 1549,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "higgs_model",
+          "name": "higgs_model",
+          "type": "HIGGSV3TTS_MODEL",
+          "link": 1786
+        },
+        {
+          "localized_name": "text",
+          "name": "text",
+          "type": "STRING",
+          "widget": {
+            "name": "text"
+          },
+          "link": 1788
+        },
+        {
+          "localized_name": "max_new_tokens",
+          "name": "max_new_tokens",
+          "type": "INT",
+          "widget": {
+            "name": "max_new_tokens"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "temperature",
+          "name": "temperature",
+          "type": "FLOAT",
+          "widget": {
+            "name": "temperature"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "top_p",
+          "name": "top_p",
+          "type": "FLOAT",
+          "widget": {
+            "name": "top_p"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "top_k",
+          "name": "top_k",
+          "type": "INT",
+          "widget": {
+            "name": "top_k"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "seed",
+          "name": "seed",
+          "type": "INT",
+          "widget": {
+            "name": "seed"
+          },
+          "link": 1790
+        },
+        {
+          "localized_name": "longform_chunking",
+          "name": "longform_chunking",
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "longform_chunking"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "words_per_chunk",
+          "name": "words_per_chunk",
+          "type": "INT",
+          "widget": {
+            "name": "words_per_chunk"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "pause_between_chunks",
+          "name": "pause_between_chunks",
+          "type": "FLOAT",
+          "widget": {
+            "name": "pause_between_chunks"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "audio",
+          "name": "audio",
+          "type": "AUDIO",
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "HiggsV3Generate",
+        "cnr_id": "Higgs_v3-TTS-ComfyUI",
+        "ver": "e483a63ef5497331c31883d8b73a5fda97087aed",
+        "nd_ui_src": {
+          "uid": "src_audio_plain",
+          "tag": "audio-plain"
+        }
+      },
+      "widgets_values": [
+        "",
+        2048,
+        1,
+        0.95,
+        50,
+        731896063,
+        "randomize",
+        true,
+        45,
+        0.15
+      ],
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 1550,
+      "type": "HiggsV3VoiceClone",
+      "title": "🔴 Голос по референсу",
+      "pos": [
+        9000,
+        5330
+      ],
+      "size": [
+        440,
+        600
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 1550,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "higgs_model",
+          "name": "higgs_model",
+          "type": "HIGGSV3TTS_MODEL",
+          "link": 1791
+        },
+        {
+          "localized_name": "reference_audio",
+          "name": "reference_audio",
+          "type": "AUDIO",
+          "link": 1797
+        },
+        {
+          "localized_name": "text",
+          "name": "text",
+          "type": "STRING",
+          "widget": {
+            "name": "text"
+          },
+          "link": 1792
+        },
+        {
+          "localized_name": "reference_text",
+          "name": "reference_text",
+          "type": "STRING",
+          "widget": {
+            "name": "reference_text"
+          },
+          "link": 1799
+        },
+        {
+          "localized_name": "max_new_tokens",
+          "name": "max_new_tokens",
+          "type": "INT",
+          "widget": {
+            "name": "max_new_tokens"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "temperature",
+          "name": "temperature",
+          "type": "FLOAT",
+          "widget": {
+            "name": "temperature"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "top_p",
+          "name": "top_p",
+          "type": "FLOAT",
+          "widget": {
+            "name": "top_p"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "top_k",
+          "name": "top_k",
+          "type": "INT",
+          "widget": {
+            "name": "top_k"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "seed",
+          "name": "seed",
+          "type": "INT",
+          "widget": {
+            "name": "seed"
+          },
+          "link": 1793
+        },
+        {
+          "localized_name": "longform_chunking",
+          "name": "longform_chunking",
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "longform_chunking"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "words_per_chunk",
+          "name": "words_per_chunk",
+          "type": "INT",
+          "widget": {
+            "name": "words_per_chunk"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "pause_between_chunks",
+          "name": "pause_between_chunks",
+          "type": "FLOAT",
+          "widget": {
+            "name": "pause_between_chunks"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "audio",
+          "name": "audio",
+          "type": "AUDIO",
+          "links": [
+            1805
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "HiggsV3VoiceClone",
+        "cnr_id": "Higgs_v3-TTS-ComfyUI",
+        "ver": "e483a63ef5497331c31883d8b73a5fda97087aed",
+        "nd_ui_src": {
+          "uid": "src_audio_clonevoice",
+          "tag": "audio-clonevoice"
+        }
+      },
+      "widgets_values": [
+        "",
+        "",
+        2048,
+        1,
+        0.95,
+        50,
+        1093223824,
+        "randomize",
+        true,
+        45,
+        0.15
+      ],
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 1551,
+      "type": "HiggsV3MultiSpeaker",
+      "title": "🔴 Диалог двух голосов",
+      "pos": [
+        9480,
+        5330
+      ],
+      "size": [
+        440,
+        600
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 1551,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "higgs_model",
+          "name": "higgs_model",
+          "type": "HIGGSV3TTS_MODEL",
+          "link": 1794
+        },
+        {
+          "localized_name": "text",
+          "name": "text",
+          "type": "STRING",
+          "widget": {
+            "name": "text"
+          },
+          "link": 1795
+        },
+        {
+          "localized_name": "num_speakers",
+          "name": "num_speakers",
+          "type": "COMFY_DYNAMICCOMBO_V3",
+          "widget": {
+            "name": "num_speakers"
+          },
+          "link": null
+        },
+        {
+          "label": "speaker_1_audio",
+          "localized_name": "num_speakers.speaker_1_audio",
+          "name": "num_speakers.speaker_1_audio",
+          "shape": 7,
+          "type": "AUDIO",
+          "link": 1800
+        },
+        {
+          "localized_name": "num_speakers.speaker_1_reference_text",
+          "name": "num_speakers.speaker_1_reference_text",
+          "shape": 7,
+          "type": "STRING",
+          "widget": {
+            "name": "num_speakers.speaker_1_reference_text"
+          },
+          "link": 1801
+        },
+        {
+          "label": "speaker_2_audio",
+          "localized_name": "num_speakers.speaker_2_audio",
+          "name": "num_speakers.speaker_2_audio",
+          "shape": 7,
+          "type": "AUDIO",
+          "link": 1802
+        },
+        {
+          "localized_name": "num_speakers.speaker_2_reference_text",
+          "name": "num_speakers.speaker_2_reference_text",
+          "shape": 7,
+          "type": "STRING",
+          "widget": {
+            "name": "num_speakers.speaker_2_reference_text"
+          },
+          "link": 1804
+        },
+        {
+          "localized_name": "pause_between_speakers",
+          "name": "pause_between_speakers",
+          "type": "FLOAT",
+          "widget": {
+            "name": "pause_between_speakers"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "max_new_tokens",
+          "name": "max_new_tokens",
+          "type": "INT",
+          "widget": {
+            "name": "max_new_tokens"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "temperature",
+          "name": "temperature",
+          "type": "FLOAT",
+          "widget": {
+            "name": "temperature"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "top_p",
+          "name": "top_p",
+          "type": "FLOAT",
+          "widget": {
+            "name": "top_p"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "top_k",
+          "name": "top_k",
+          "type": "INT",
+          "widget": {
+            "name": "top_k"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "seed",
+          "name": "seed",
+          "type": "INT",
+          "widget": {
+            "name": "seed"
+          },
+          "link": 1796
+        },
+        {
+          "localized_name": "longform_chunking",
+          "name": "longform_chunking",
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "longform_chunking"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "words_per_chunk",
+          "name": "words_per_chunk",
+          "type": "INT",
+          "widget": {
+            "name": "words_per_chunk"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "pause_between_chunks",
+          "name": "pause_between_chunks",
+          "type": "FLOAT",
+          "widget": {
+            "name": "pause_between_chunks"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "audio",
+          "name": "audio",
+          "type": "AUDIO",
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "HiggsV3MultiSpeaker",
+        "cnr_id": "Higgs_v3-TTS-ComfyUI",
+        "ver": "e483a63ef5497331c31883d8b73a5fda97087aed",
+        "nd_ui_src": {
+          "uid": "src_audio_dialog",
+          "tag": "audio-dialog"
+        }
+      },
+      "widgets_values": [
+        "",
+        "2",
+        "",
+        "",
+        0.3,
+        2048,
+        1,
+        0.95,
+        50,
+        1398726061,
+        "randomize",
+        false,
+        45,
+        0.15
+      ],
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 1552,
+      "type": "PrimitiveStringMultiline",
+      "title": "✍️ Текст для озвучки",
+      "pos": [
+        8520,
+        5990
+      ],
+      "size": [
+        920,
+        280
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 1552,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            1787
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PrimitiveStringMultiline",
+        "nd_ui_src": {
+          "uid": "src_audio_text",
+          "tag": "audio-text"
+        }
+      },
+      "widgets_values": [
+        ""
+      ],
+      "color": "#263b29",
+      "bgcolor": "#35593c"
+    },
+    {
+      "id": 1553,
+      "type": "Seed (rgthree)",
+      "title": "🎲 Seed · Higgs",
+      "pos": [
+        9480,
+        5990
+      ],
+      "size": [
+        440,
+        140
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 1553,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "SEED",
+          "type": "INT",
+          "links": [
+            1789
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Seed (rgthree)",
+        "nd_ui_src": {
+          "uid": "src_audio_seed",
+          "tag": "audio-seed"
+        }
+      },
+      "widgets_values": [
+        1093223824,
+        "",
+        "",
+        ""
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 1575,
+      "type": "PreviewAudio",
+      "title": "🔊 Прослушать результат",
+      "pos": [
+        9980,
+        5330
+      ],
+      "size": [
+        600,
+        240
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 1575,
+      "mode": 2,
+      "inputs": [
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "link": 1806
+        }
+      ],
+      "outputs": [
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "links": [
+            1807
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PreviewAudio",
+        "nd_ui_src": {
+          "uid": "src_audio_preview",
+          "tag": "audio-preview"
+        }
+      },
+      "widgets_values": [],
+      "color": "#223",
+      "bgcolor": "#335"
+    },
+    {
+      "id": 1578,
+      "type": "SaveAudioMP3",
+      "title": "💾 Сохранить MP3 · выключено",
+      "pos": [
+        9980,
+        5610
+      ],
+      "size": [
+        600,
+        180
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 1578,
+      "mode": 2,
+      "inputs": [
+        {
+          "localized_name": "audio",
+          "name": "audio",
+          "type": "AUDIO",
+          "link": 1807
+        },
+        {
+          "localized_name": "filename_prefix",
+          "name": "filename_prefix",
+          "type": "STRING",
+          "widget": {
+            "name": "filename_prefix"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "quality",
+          "name": "quality",
+          "type": "COMBO",
+          "widget": {
+            "name": "quality"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "audioUI",
+          "name": "audioUI",
+          "type": "AUDIO_UI",
+          "widget": {
+            "name": "audioUI"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "audio",
+          "name": "audio",
+          "type": "AUDIO",
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SaveAudioMP3",
+        "cnr_id": "comfy-core",
+        "ver": "0.24.0",
+        "nd_ui_src": {
+          "uid": "src_audio_save",
+          "tag": "audio-save"
+        }
+      },
+      "widgets_values": [
+        "audio/Universal_Higgs",
+        "V0"
+      ],
+      "color": "#223",
+      "bgcolor": "#335"
     }
   ],
   "links": [
@@ -81639,6 +83917,222 @@
       1524,
       0,
       "LATENT"
+    ],
+    [
+      1781,
+      1541,
+      0,
+      1545,
+      0,
+      "AUDIO"
+    ],
+    [
+      1782,
+      1546,
+      0,
+      1543,
+      0,
+      "AUDIO"
+    ],
+    [
+      1783,
+      1542,
+      0,
+      1547,
+      0,
+      "AUDIO"
+    ],
+    [
+      1784,
+      1548,
+      0,
+      1544,
+      0,
+      "AUDIO"
+    ],
+    [
+      1785,
+      1540,
+      0,
+      1555,
+      0,
+      "HIGGSV3TTS_MODEL"
+    ],
+    [
+      1786,
+      1556,
+      0,
+      1549,
+      0,
+      "HIGGSV3TTS_MODEL"
+    ],
+    [
+      1787,
+      1552,
+      0,
+      1557,
+      0,
+      "STRING"
+    ],
+    [
+      1788,
+      1558,
+      0,
+      1549,
+      1,
+      "STRING"
+    ],
+    [
+      1789,
+      1553,
+      0,
+      1559,
+      0,
+      "INT"
+    ],
+    [
+      1790,
+      1560,
+      0,
+      1549,
+      6,
+      "INT"
+    ],
+    [
+      1791,
+      1561,
+      0,
+      1550,
+      0,
+      "HIGGSV3TTS_MODEL"
+    ],
+    [
+      1792,
+      1562,
+      0,
+      1550,
+      2,
+      "STRING"
+    ],
+    [
+      1793,
+      1563,
+      0,
+      1550,
+      8,
+      "INT"
+    ],
+    [
+      1794,
+      1564,
+      0,
+      1551,
+      0,
+      "HIGGSV3TTS_MODEL"
+    ],
+    [
+      1795,
+      1565,
+      0,
+      1551,
+      1,
+      "STRING"
+    ],
+    [
+      1796,
+      1566,
+      0,
+      1551,
+      12,
+      "INT"
+    ],
+    [
+      1797,
+      1567,
+      0,
+      1550,
+      1,
+      "AUDIO"
+    ],
+    [
+      1798,
+      1543,
+      0,
+      1568,
+      0,
+      "STRING"
+    ],
+    [
+      1799,
+      1569,
+      0,
+      1550,
+      3,
+      "STRING"
+    ],
+    [
+      1800,
+      1570,
+      0,
+      1551,
+      3,
+      "AUDIO"
+    ],
+    [
+      1801,
+      1571,
+      0,
+      1551,
+      4,
+      "STRING"
+    ],
+    [
+      1802,
+      1572,
+      0,
+      1551,
+      5,
+      "AUDIO"
+    ],
+    [
+      1803,
+      1544,
+      0,
+      1573,
+      0,
+      "STRING"
+    ],
+    [
+      1804,
+      1574,
+      0,
+      1551,
+      6,
+      "STRING"
+    ],
+    [
+      1805,
+      1550,
+      0,
+      1576,
+      0,
+      "AUDIO"
+    ],
+    [
+      1806,
+      1577,
+      0,
+      1575,
+      0,
+      "AUDIO"
+    ],
+    [
+      1807,
+      1575,
+      0,
+      1578,
+      0,
+      "AUDIO"
     ]
   ],
   "groups": [
@@ -82366,6 +84860,66 @@
         5666.0,
         700,
         750
+      ],
+      "color": "#31564f",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "title": "🔊 Звук · Модель и голоса",
+      "bounding": [
+        8020,
+        5270,
+        460,
+        940
+      ],
+      "color": "#31564f",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "title": "🗣️ Звук · Речь и голос",
+      "bounding": [
+        8500,
+        5270,
+        960,
+        690
+      ],
+      "color": "#31564f",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "title": "🎭 Звук · Диалог",
+      "bounding": [
+        9460,
+        5270,
+        480,
+        690
+      ],
+      "color": "#31564f",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "title": "✍️ Звук · Текст и Seed",
+      "bounding": [
+        8500,
+        5970,
+        1440,
+        330
+      ],
+      "color": "#31564f",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "title": "🔊 Звук · Результат",
+      "bounding": [
+        9960,
+        5270,
+        640,
+        560
       ],
       "color": "#31564f",
       "font_size": 24,
@@ -83522,6 +86076,84 @@
           "tag": "video-schedule",
           "class": "BasicScheduler",
           "title": "Scheduler · simple"
+        },
+        {
+          "uid": "src_audio_model",
+          "tag": "audio-model",
+          "class": "HiggsV3LoadModel",
+          "title": "🗣️ Higgs v3 · модель"
+        },
+        {
+          "uid": "src_audio_ref1",
+          "tag": "audio-ref1",
+          "class": "LoadAudio",
+          "title": "🎙️ Голос 1 · референс"
+        },
+        {
+          "uid": "src_audio_ref2",
+          "tag": "audio-ref2",
+          "class": "LoadAudio",
+          "title": "🎙️ Голос 2 · референс"
+        },
+        {
+          "uid": "src_audio_whisper1",
+          "tag": "audio-whisper1",
+          "class": "HiggsV3WhisperTranscribe",
+          "title": "🔤 Whisper · голос 1"
+        },
+        {
+          "uid": "src_audio_whisper2",
+          "tag": "audio-whisper2",
+          "class": "HiggsV3WhisperTranscribe",
+          "title": "Техническая расшифровка голоса 2"
+        },
+        {
+          "uid": "src_audio_plain",
+          "tag": "audio-plain",
+          "class": "HiggsV3Generate",
+          "title": "🔴 Речь по тексту"
+        },
+        {
+          "uid": "src_audio_clonevoice",
+          "tag": "audio-clonevoice",
+          "class": "HiggsV3VoiceClone",
+          "title": "🔴 Голос по референсу"
+        },
+        {
+          "uid": "src_audio_dialog",
+          "tag": "audio-dialog",
+          "class": "HiggsV3MultiSpeaker",
+          "title": "🔴 Диалог двух голосов"
+        },
+        {
+          "uid": "src_audio_text",
+          "tag": "audio-text",
+          "class": "PrimitiveStringMultiline",
+          "title": "✍️ Текст для озвучки"
+        },
+        {
+          "uid": "src_audio_seed",
+          "tag": "audio-seed",
+          "class": "Seed (rgthree)",
+          "title": "🎲 Seed · Higgs"
+        },
+        {
+          "uid": "src_audio_controller",
+          "tag": "audio-controller",
+          "class": "PrimitiveInt",
+          "title": "Режим звука · UI"
+        },
+        {
+          "uid": "src_audio_preview",
+          "tag": "audio-preview",
+          "class": "PreviewAudio",
+          "title": "🔊 Прослушать результат"
+        },
+        {
+          "uid": "src_audio_save",
+          "tag": "audio-save",
+          "class": "SaveAudioMP3",
+          "title": "💾 Сохранить MP3 · выключено"
         }
       ],
       "pages": [
@@ -83620,6 +86252,18 @@
             "how": "mute",
             "bindIndex": null
           }
+        },
+        {
+          "id": "p_audio",
+          "name": "Звук",
+          "kind": "page",
+          "len": 916,
+          "control": {
+            "nodes": [],
+            "groups": [],
+            "how": "mute",
+            "bindIndex": null
+          }
         }
       ],
       "widgets": [
@@ -83637,7 +86281,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v0.18.0",
+            "text": "🧩 Универсальный воркфлоу · v0.19.0",
             "size": "M",
             "align": "left"
           },
@@ -85127,6 +87771,16 @@
               "src": "src_video_mturbo",
               "kind": "widget",
               "name": "power_lora_1.lora"
+            },
+            "aud_model": {
+              "src": "src_audio_model",
+              "kind": "widget",
+              "name": "model"
+            },
+            "aud_whisper": {
+              "src": "src_audio_whisper1",
+              "kind": "widget",
+              "name": "model"
             }
           },
           "props": {
@@ -85974,7 +88628,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v0.18.0",
+            "text": "🧩 Универсальный воркфлоу · v0.19.0",
             "size": "M",
             "align": "left"
           },
@@ -86306,6 +88960,16 @@
               "src": "src_video_mturbo",
               "kind": "widget",
               "name": "power_lora_1.lora"
+            },
+            "aud_model": {
+              "src": "src_audio_model",
+              "kind": "widget",
+              "name": "model"
+            },
+            "aud_whisper": {
+              "src": "src_audio_whisper1",
+              "kind": "widget",
+              "name": "model"
             }
           },
           "props": {
@@ -86827,7 +89491,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v0.18.0",
+            "text": "🧩 Универсальный воркфлоу · v0.19.0",
             "size": "M",
             "align": "left"
           },
@@ -87159,6 +89823,16 @@
               "src": "src_video_mturbo",
               "kind": "widget",
               "name": "power_lora_1.lora"
+            },
+            "aud_model": {
+              "src": "src_audio_model",
+              "kind": "widget",
+              "name": "model"
+            },
+            "aud_whisper": {
+              "src": "src_audio_whisper1",
+              "kind": "widget",
+              "name": "model"
             }
           },
           "props": {
@@ -88111,7 +90785,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v0.18.0",
+            "text": "🧩 Универсальный воркфлоу · v0.19.0",
             "size": "M",
             "align": "left"
           },
@@ -88443,6 +91117,16 @@
               "src": "src_video_mturbo",
               "kind": "widget",
               "name": "power_lora_1.lora"
+            },
+            "aud_model": {
+              "src": "src_audio_model",
+              "kind": "widget",
+              "name": "model"
+            },
+            "aud_whisper": {
+              "src": "src_audio_whisper1",
+              "kind": "widget",
+              "name": "model"
             }
           },
           "props": {
@@ -89482,7 +92166,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "↔️ Дорисовка за границами кадра · v0.18.0",
+            "text": "↔️ Дорисовка за границами кадра · v0.19.0",
             "size": "M",
             "align": "left"
           },
@@ -89814,6 +92498,16 @@
               "src": "src_video_mturbo",
               "kind": "widget",
               "name": "power_lora_1.lora"
+            },
+            "aud_model": {
+              "src": "src_audio_model",
+              "kind": "widget",
+              "name": "model"
+            },
+            "aud_whisper": {
+              "src": "src_audio_whisper1",
+              "kind": "widget",
+              "name": "model"
             }
           },
           "props": {
@@ -91444,7 +94138,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v0.18.0",
+            "text": "🧩 Универсальный воркфлоу · v0.19.0",
             "size": "M",
             "align": "left"
           },
@@ -91776,6 +94470,16 @@
               "src": "src_video_mturbo",
               "kind": "widget",
               "name": "power_lora_1.lora"
+            },
+            "aud_model": {
+              "src": "src_audio_model",
+              "kind": "widget",
+              "name": "model"
+            },
+            "aud_whisper": {
+              "src": "src_audio_whisper1",
+              "kind": "widget",
+              "name": "model"
             }
           },
           "props": {
@@ -92044,7 +94748,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v0.18.0",
+            "text": "🧩 Универсальный воркфлоу · v0.19.0",
             "size": "M",
             "align": "left"
           },
@@ -92376,6 +95080,16 @@
               "src": "src_video_mturbo",
               "kind": "widget",
               "name": "power_lora_1.lora"
+            },
+            "aud_model": {
+              "src": "src_audio_model",
+              "kind": "widget",
+              "name": "model"
+            },
+            "aud_whisper": {
+              "src": "src_audio_whisper1",
+              "kind": "widget",
+              "name": "model"
             }
           },
           "props": {
@@ -92582,7 +95296,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🎬 Видео · MiniMax H3 · v0.18.0",
+            "text": "🎬 Видео · MiniMax H3 · v0.19.0",
             "size": "M",
             "align": "left"
           },
@@ -92914,6 +95628,16 @@
               "src": "src_video_mturbo",
               "kind": "widget",
               "name": "power_lora_1.lora"
+            },
+            "aud_model": {
+              "src": "src_audio_model",
+              "kind": "widget",
+              "name": "model"
+            },
+            "aud_whisper": {
+              "src": "src_audio_whisper1",
+              "kind": "widget",
+              "name": "model"
             }
           },
           "props": {
@@ -93472,6 +96196,719 @@
             "stop": true,
             "stopIdle": false,
             "afterWith": "vid_prompt",
+            "afterGap": 12
+          },
+          "look": {
+            "style": null,
+            "shape": null,
+            "accent": null,
+            "bg": null,
+            "field": null,
+            "text": null,
+            "labelColor": null,
+            "border": null,
+            "radius": 12,
+            "shadow": null,
+            "blur": null,
+            "label": null,
+            "scale": 100
+          }
+        },
+        {
+          "id": "aud_header",
+          "type": "heading",
+          "page": "p_audio",
+          "x": 24,
+          "y": 16,
+          "w": 1152,
+          "h": 44,
+          "z": 2,
+          "parent": null,
+          "hidden": false,
+          "locked": true,
+          "slots": {},
+          "props": {
+            "text": "🎬 Звук · Higgs v3 · v0.19.0",
+            "size": "M",
+            "align": "left"
+          },
+          "look": {
+            "style": null,
+            "shape": null,
+            "accent": null,
+            "bg": null,
+            "field": null,
+            "text": "#e8eaf0",
+            "labelColor": null,
+            "border": null,
+            "radius": null,
+            "shadow": null,
+            "blur": null,
+            "label": null,
+            "scale": 115
+          }
+        },
+        {
+          "id": "aud_taskbar",
+          "type": "factorytaskbar_v0215",
+          "page": "p_audio",
+          "x": 24,
+          "y": 72,
+          "w": 1152,
+          "h": 64,
+          "z": 10,
+          "parent": null,
+          "hidden": false,
+          "locked": true,
+          "slots": {
+            "k_model": {
+              "src": "src_k2module_model",
+              "kind": "widget",
+              "name": "unet_name"
+            },
+            "k_clip": {
+              "src": "src_settings_k_clip",
+              "kind": "widget",
+              "name": "clip_name"
+            },
+            "k_vae": {
+              "src": "src_settings_k_vae",
+              "kind": "widget",
+              "name": "vae_name"
+            },
+            "z_model": {
+              "src": "src_settings_z_model",
+              "kind": "widget",
+              "name": "unet_name"
+            },
+            "z_clip": {
+              "src": "src_settings_z_clip",
+              "kind": "widget",
+              "name": "clip_name"
+            },
+            "z_vae": {
+              "src": "src_settings_z_vae",
+              "kind": "widget",
+              "name": "vae_name"
+            },
+            "k_turbo": {
+              "src": "src_settings_k_turbo",
+              "kind": "widget",
+              "name": "power_lora_1.lora"
+            },
+            "kg_1_lora": {
+              "src": "src_k2module_lora",
+              "kind": "widget",
+              "name": "power_lora_1.lora"
+            },
+            "kg_1_on": {
+              "src": "src_k2module_lora",
+              "kind": "widget",
+              "name": "power_lora_1.on"
+            },
+            "kg_1_strength": {
+              "src": "src_k2module_lora",
+              "kind": "widget",
+              "name": "power_lora_1.strength"
+            },
+            "kg_2_lora": {
+              "src": "src_k2module_lora",
+              "kind": "widget",
+              "name": "power_lora_2.lora"
+            },
+            "kg_2_on": {
+              "src": "src_k2module_lora",
+              "kind": "widget",
+              "name": "power_lora_2.on"
+            },
+            "kg_2_strength": {
+              "src": "src_k2module_lora",
+              "kind": "widget",
+              "name": "power_lora_2.strength"
+            },
+            "kg_3_lora": {
+              "src": "src_k2module_lora",
+              "kind": "widget",
+              "name": "power_lora_3.lora"
+            },
+            "kg_3_on": {
+              "src": "src_k2module_lora",
+              "kind": "widget",
+              "name": "power_lora_3.on"
+            },
+            "kg_3_strength": {
+              "src": "src_k2module_lora",
+              "kind": "widget",
+              "name": "power_lora_3.strength"
+            },
+            "kr_1_lora": {
+              "src": "src_k2pass_krea_lora",
+              "kind": "widget",
+              "name": "power_lora_1.lora"
+            },
+            "kr_1_on": {
+              "src": "src_k2pass_krea_lora",
+              "kind": "widget",
+              "name": "power_lora_1.on"
+            },
+            "kr_1_strength": {
+              "src": "src_k2pass_krea_lora",
+              "kind": "widget",
+              "name": "power_lora_1.strength"
+            },
+            "kr_2_lora": {
+              "src": "src_k2pass_krea_lora",
+              "kind": "widget",
+              "name": "power_lora_2.lora"
+            },
+            "kr_2_on": {
+              "src": "src_k2pass_krea_lora",
+              "kind": "widget",
+              "name": "power_lora_2.on"
+            },
+            "kr_2_strength": {
+              "src": "src_k2pass_krea_lora",
+              "kind": "widget",
+              "name": "power_lora_2.strength"
+            },
+            "kr_3_lora": {
+              "src": "src_k2pass_krea_lora",
+              "kind": "widget",
+              "name": "power_lora_3.lora"
+            },
+            "kr_3_on": {
+              "src": "src_k2pass_krea_lora",
+              "kind": "widget",
+              "name": "power_lora_3.on"
+            },
+            "kr_3_strength": {
+              "src": "src_k2pass_krea_lora",
+              "kind": "widget",
+              "name": "power_lora_3.strength"
+            },
+            "zr_1_lora": {
+              "src": "src_k2pass_z_lora",
+              "kind": "widget",
+              "name": "power_lora_1.lora"
+            },
+            "zr_1_on": {
+              "src": "src_k2pass_z_lora",
+              "kind": "widget",
+              "name": "power_lora_1.on"
+            },
+            "zr_1_strength": {
+              "src": "src_k2pass_z_lora",
+              "kind": "widget",
+              "name": "power_lora_1.strength"
+            },
+            "zr_2_lora": {
+              "src": "src_k2pass_z_lora",
+              "kind": "widget",
+              "name": "power_lora_2.lora"
+            },
+            "zr_2_on": {
+              "src": "src_k2pass_z_lora",
+              "kind": "widget",
+              "name": "power_lora_2.on"
+            },
+            "zr_2_strength": {
+              "src": "src_k2pass_z_lora",
+              "kind": "widget",
+              "name": "power_lora_2.strength"
+            },
+            "zr_3_lora": {
+              "src": "src_k2pass_z_lora",
+              "kind": "widget",
+              "name": "power_lora_3.lora"
+            },
+            "zr_3_on": {
+              "src": "src_k2pass_z_lora",
+              "kind": "widget",
+              "name": "power_lora_3.on"
+            },
+            "zr_3_strength": {
+              "src": "src_k2pass_z_lora",
+              "kind": "widget",
+              "name": "power_lora_3.strength"
+            },
+            "sam_model": {
+              "src": "src_settings_sam_model",
+              "kind": "widget",
+              "name": "ckpt_name"
+            },
+            "face_detector": {
+              "src": "src_settings_face_detector",
+              "kind": "widget",
+              "name": "model_name"
+            },
+            "hand_detector": {
+              "src": "src_settings_hand_detector",
+              "kind": "widget",
+              "name": "model_name"
+            },
+            "up_simple_model": {
+              "src": "src_upscale_simple-model",
+              "kind": "widget",
+              "name": "model_name"
+            },
+            "up_ultimate_model": {
+              "src": "src_upscale_ultimate-model",
+              "kind": "widget",
+              "name": "model_name"
+            },
+            "up_seed_dit": {
+              "src": "src_upscale_seed-dit",
+              "kind": "widget",
+              "name": "model"
+            },
+            "up_seed_vae": {
+              "src": "src_upscale_seed-vae",
+              "kind": "widget",
+              "name": "model"
+            },
+            "pose_lora": {
+              "src": "src_pose_controller",
+              "kind": "widget",
+              "name": "factory_pose_lora"
+            },
+            "pose_bbox": {
+              "src": "src_pose_detector",
+              "kind": "widget",
+              "name": "bbox_detector"
+            },
+            "pose_estimator": {
+              "src": "src_pose_detector",
+              "kind": "widget",
+              "name": "pose_estimator"
+            },
+            "bg_model": {
+              "src": "src_background_controller",
+              "kind": "widget",
+              "name": "model"
+            },
+            "edit_model": {
+              "src": "src_edit_model",
+              "kind": "widget",
+              "name": "unet_name"
+            },
+            "edit_clip": {
+              "src": "src_edit_clip",
+              "kind": "widget",
+              "name": "clip_name"
+            },
+            "edit_vae": {
+              "src": "src_edit_vae",
+              "kind": "widget",
+              "name": "vae_name"
+            },
+            "edit_krea_general": {
+              "src": "src_edit_controller",
+              "kind": "widget",
+              "name": "factory_edit_general_file"
+            },
+            "edit_krea_identity": {
+              "src": "src_edit_controller",
+              "kind": "widget",
+              "name": "factory_edit_identity_file"
+            },
+            "edit_q21_model": {
+              "src": "src_edit_q21_model",
+              "kind": "widget",
+              "name": "unet_name"
+            },
+            "edit_q21_clip": {
+              "src": "src_edit_q21_clip",
+              "kind": "widget",
+              "name": "clip_name"
+            },
+            "edit_q21_vae": {
+              "src": "src_edit_q21_vae",
+              "kind": "widget",
+              "name": "vae_name"
+            },
+            "caption_config": {
+              "src": "src_caption_task",
+              "kind": "widget",
+              "name": "settings"
+            },
+            "out_k_model": {
+              "src": "src_out_k_model",
+              "kind": "widget",
+              "name": "unet_name"
+            },
+            "vid_model": {
+              "src": "src_video_model",
+              "kind": "widget",
+              "name": "model_name"
+            },
+            "vid_clip": {
+              "src": "src_video_clip",
+              "kind": "widget",
+              "name": "clip_name"
+            },
+            "vid_video_vae": {
+              "src": "src_video_vv",
+              "kind": "widget",
+              "name": "vae_name"
+            },
+            "vid_audio_vae": {
+              "src": "src_video_av",
+              "kind": "widget",
+              "name": "vae_name"
+            },
+            "vid_turbo": {
+              "src": "src_video_mturbo",
+              "kind": "widget",
+              "name": "power_lora_1.lora"
+            },
+            "aud_model": {
+              "src": "src_audio_model",
+              "kind": "widget",
+              "name": "model"
+            },
+            "aud_whisper": {
+              "src": "src_audio_whisper1",
+              "kind": "widget",
+              "name": "model"
+            }
+          },
+          "props": {
+            "glow": "soft",
+            "accentA": "#36cfea",
+            "accentB": "#59e68d",
+            "visualProfile": "standard",
+            "canvasHeight": 916
+          },
+          "look": {
+            "bg": "transparent",
+            "border": "transparent",
+            "label": "hidden",
+            "radius": 0,
+            "scale": 100
+          },
+          "adapt": {
+            "mode": "stretch",
+            "max": 10000,
+            "unit": "%",
+            "align": "left"
+          }
+        },
+        {
+          "id": "aud_seed",
+          "type": "seed",
+          "page": "p_audio",
+          "x": 24,
+          "y": 152,
+          "w": 336,
+          "h": 88,
+          "z": 2,
+          "parent": null,
+          "hidden": false,
+          "locked": true,
+          "slots": {
+            "value": {
+              "src": "src_audio_controller",
+              "kind": "widget",
+              "name": "factory_audio_seed"
+            },
+            "control": {
+              "src": "src_audio_controller",
+              "kind": "widget",
+              "name": "factory_audio_seed_control"
+            }
+          },
+          "props": {
+            "label": "🎲 Seed",
+            "max": 2147483647
+          },
+          "look": {
+            "style": null,
+            "shape": null,
+            "accent": "#59e68d",
+            "bg": "#181c23",
+            "field": "#20252d",
+            "text": null,
+            "labelColor": "#8eefb4",
+            "border": "#365a45",
+            "radius": 12,
+            "shadow": null,
+            "blur": null,
+            "label": null,
+            "scale": 100
+          }
+        },
+        {
+          "id": "aud_settings",
+          "type": "factoryaudio_v0190",
+          "page": "p_audio",
+          "x": 24,
+          "y": 252,
+          "w": 336,
+          "h": 556,
+          "z": 2,
+          "parent": null,
+          "hidden": false,
+          "locked": true,
+          "slots": {
+            "config": {
+              "src": "src_audio_controller",
+              "kind": "widget",
+              "name": "factory_audio_config"
+            },
+            "ref1": {
+              "src": "src_audio_controller",
+              "kind": "widget",
+              "name": "factory_audio_ref1"
+            },
+            "ref2": {
+              "src": "src_audio_controller",
+              "kind": "widget",
+              "name": "factory_audio_ref2"
+            }
+          },
+          "props": {
+            "flowBaseH": 336
+          },
+          "look": {
+            "style": null,
+            "shape": null,
+            "accent": "#59e68d",
+            "bg": null,
+            "field": "#20252d",
+            "text": null,
+            "labelColor": "#8eefb4",
+            "border": "#365a45",
+            "radius": 12,
+            "shadow": null,
+            "blur": null,
+            "label": null,
+            "scale": 100
+          }
+        },
+        {
+          "id": "aud_result",
+          "type": "audioplayer",
+          "page": "p_audio",
+          "x": 384,
+          "y": 152,
+          "w": 792,
+          "h": 368,
+          "z": 2,
+          "parent": null,
+          "hidden": false,
+          "locked": true,
+          "slots": {
+            "audio": {
+              "src": "src_audio_preview",
+              "kind": "audio",
+              "name": ""
+            }
+          },
+          "props": {
+            "label": "🔊 Результат",
+            "autoplay": false,
+            "loop": false,
+            "muted": false,
+            "wave": true,
+            "history": true,
+            "save": true,
+            "bottomWith": "aud_settings",
+            "bottomInset": 68
+          },
+          "look": {
+            "style": null,
+            "shape": null,
+            "accent": "#36cfea",
+            "bg": null,
+            "field": "#20252d",
+            "text": null,
+            "labelColor": "#8eefb4",
+            "border": "#36cfea",
+            "radius": 12,
+            "shadow": null,
+            "blur": null,
+            "label": null,
+            "scale": 100
+          }
+        },
+        {
+          "id": "aud_progress",
+          "type": "factoryaudioprog_v0190",
+          "page": "p_audio",
+          "x": 384,
+          "y": 532,
+          "w": 344,
+          "h": 56,
+          "z": 2,
+          "parent": null,
+          "hidden": false,
+          "locked": true,
+          "slots": {},
+          "props": {
+            "afterWith": "aud_result",
+            "afterGap": 12,
+            "steps": true
+          },
+          "look": {
+            "style": null,
+            "shape": null,
+            "accent": "#36cfea",
+            "bg": "#181c23",
+            "field": "#20252d",
+            "text": null,
+            "labelColor": "#65e3f4",
+            "border": "#286f80",
+            "radius": 12,
+            "shadow": null,
+            "blur": null,
+            "label": "hidden",
+            "scale": 100
+          }
+        },
+        {
+          "id": "aud_queue",
+          "type": "factoryqueuestatus_v023",
+          "page": "p_audio",
+          "x": 740,
+          "y": 532,
+          "w": 184,
+          "h": 56,
+          "z": 2,
+          "parent": null,
+          "hidden": false,
+          "locked": true,
+          "slots": {},
+          "props": {
+            "afterWith": "aud_result",
+            "afterGap": 12
+          },
+          "look": {
+            "style": null,
+            "shape": null,
+            "accent": "#36cfea",
+            "bg": "#181c23",
+            "field": "#20252d",
+            "text": null,
+            "labelColor": "#65e3f4",
+            "border": "#286f80",
+            "radius": 12,
+            "shadow": null,
+            "blur": null,
+            "label": "hidden",
+            "scale": 100
+          }
+        },
+        {
+          "id": "aud_save",
+          "type": "factorysavetoggle_v023",
+          "page": "p_audio",
+          "x": 936,
+          "y": 532,
+          "w": 240,
+          "h": 56,
+          "z": 2,
+          "parent": null,
+          "hidden": false,
+          "locked": true,
+          "slots": {
+            "value": {
+              "src": "src_audio_controller",
+              "kind": "widget",
+              "name": "factory_audio_save"
+            }
+          },
+          "props": {
+            "text": "💾 Сохранять MP3",
+            "description": "Выключено по умолчанию",
+            "afterWith": "aud_result",
+            "afterGap": 12
+          },
+          "look": {
+            "style": null,
+            "shape": null,
+            "accent": "#36cfea",
+            "bg": "#181c23",
+            "field": "#20252d",
+            "text": null,
+            "labelColor": "#65e3f4",
+            "border": "#286f80",
+            "radius": 12,
+            "shadow": null,
+            "blur": null,
+            "label": null,
+            "scale": 100
+          }
+        },
+        {
+          "id": "aud_prompt",
+          "type": "prompt",
+          "page": "p_audio",
+          "x": 24,
+          "y": 600,
+          "w": 1152,
+          "h": 220,
+          "z": 2,
+          "parent": null,
+          "hidden": false,
+          "locked": true,
+          "slots": {
+            "value": {
+              "src": "src_audio_text",
+              "kind": "widget",
+              "name": "value"
+            }
+          },
+          "props": {
+            "label": "✍️ Текст для озвучки",
+            "placeholder": "Текст речи. Для диалога: [Speaker_1]: реплика, затем [Speaker_2]: реплика.",
+            "counter": false,
+            "spell": false,
+            "weights": true,
+            "mono": false,
+            "afterWith": "aud_progress",
+            "afterGap": 12
+          },
+          "look": {
+            "style": null,
+            "shape": null,
+            "accent": "#59e68d",
+            "bg": "#17241c",
+            "field": "#192b22",
+            "text": "#e8eaf0",
+            "labelColor": "#80f2a9",
+            "border": "#3b9e66",
+            "radius": 12,
+            "shadow": null,
+            "blur": null,
+            "label": null,
+            "scale": 100
+          }
+        },
+        {
+          "id": "aud_run",
+          "type": "factoryaudiorun_v0190",
+          "page": "p_audio",
+          "x": 24,
+          "y": 832,
+          "w": 1152,
+          "h": 56,
+          "z": 2,
+          "parent": null,
+          "hidden": false,
+          "locked": true,
+          "slots": {
+            "config": {
+              "src": "src_audio_controller",
+              "kind": "widget",
+              "name": "factory_audio_config"
+            }
+          },
+          "props": {
+            "text": "Создать звук",
+            "batch": false,
+            "stop": true,
+            "stopIdle": false,
+            "afterWith": "aud_prompt",
             "afterGap": 12
           },
           "look": {

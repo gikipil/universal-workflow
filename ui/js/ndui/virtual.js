@@ -1,3 +1,4 @@
+import {audioParams} from './factory_audio_params.js';
 import {videoParams} from './factory_video_params.js';
 import {outpaintParams} from './factory_outpaint_params.js';
 // Universal Workflow update by gikipil, 2026-11-14: standalone and post-edit upscale.
@@ -132,7 +133,7 @@ export function virtualParams(node) {
         case "LanPaint_KSampler": return outpaintParams(node,touch);
         case "MiniMaxH3MediaLoader": return videoParams(node,touch);
         case "RMBG": return backgroundParams(node,touch);
-        case "PrimitiveInt": return poseParams(node,touch);
+        case "PrimitiveInt": return [...audioParams(node,touch),...poseParams(node,touch)];
         case "PrimitiveFloat": return denoiseParams(node,touch);
         case "easy anythingIndexSwitch": return [...upscaleTaskParams(node,touch),...upscaleParams(node,touch),...localParams(node,touch),...factoryRefineLoraParams(node, touch),...sliderBankParams(node,touch),...userLoraBankParams(node,touch)];
         case "Image Saver Simple": return factorySaveParams(node, touch);
