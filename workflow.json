@@ -86245,7 +86245,7 @@
           "id": "p_video",
           "name": "Видео",
           "kind": "page",
-          "len": 1576,
+          "len": 1696,
           "control": {
             "nodes": [],
             "groups": [],
@@ -86281,7 +86281,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v0.19.0",
+            "text": "🧩 Универсальный воркфлоу · v0.19.1",
             "size": "M",
             "align": "left"
           },
@@ -88628,7 +88628,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v0.19.0",
+            "text": "🧩 Универсальный воркфлоу · v0.19.1",
             "size": "M",
             "align": "left"
           },
@@ -89491,7 +89491,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v0.19.0",
+            "text": "🧩 Универсальный воркфлоу · v0.19.1",
             "size": "M",
             "align": "left"
           },
@@ -90785,7 +90785,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v0.19.0",
+            "text": "🧩 Универсальный воркфлоу · v0.19.1",
             "size": "M",
             "align": "left"
           },
@@ -92166,7 +92166,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "↔️ Дорисовка за границами кадра · v0.19.0",
+            "text": "↔️ Дорисовка за границами кадра · v0.19.1",
             "size": "M",
             "align": "left"
           },
@@ -94138,7 +94138,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v0.19.0",
+            "text": "🧩 Универсальный воркфлоу · v0.19.1",
             "size": "M",
             "align": "left"
           },
@@ -94748,7 +94748,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v0.19.0",
+            "text": "🧩 Универсальный воркфлоу · v0.19.1",
             "size": "M",
             "align": "left"
           },
@@ -95296,7 +95296,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🎬 Видео · MiniMax H3 · v0.19.0",
+            "text": "🎬 Видео · MiniMax H3 · v0.19.1",
             "size": "M",
             "align": "left"
           },
@@ -95645,7 +95645,7 @@
             "accentA": "#36cfea",
             "accentB": "#59e68d",
             "visualProfile": "standard",
-            "canvasHeight": 1576
+            "canvasHeight": 1696
           },
           "look": {
             "bg": "transparent",
@@ -95749,7 +95749,7 @@
           "x": 24,
           "y": 808,
           "w": 336,
-          "h": 360,
+          "h": 480,
           "z": 2,
           "parent": null,
           "hidden": false,
@@ -95797,7 +95797,7 @@
             }
           },
           "props": {
-            "flowBaseH": 360
+            "flowBaseH": 480
           },
           "look": {
             "style": null,
@@ -95820,7 +95820,7 @@
           "type": "spoiler",
           "page": "p_video",
           "x": 24,
-          "y": 1180,
+          "y": 1300,
           "w": 336,
           "h": 48,
           "z": 2,
@@ -95897,7 +95897,7 @@
           "type": "spoiler",
           "page": "p_video",
           "x": 24,
-          "y": 1240,
+          "y": 1360,
           "w": 336,
           "h": 48,
           "z": 2,
@@ -95976,7 +95976,7 @@
           "x": 384,
           "y": 152,
           "w": 792,
-          "h": 1068,
+          "h": 1188,
           "z": 2,
           "parent": null,
           "hidden": false,
@@ -96023,7 +96023,7 @@
           "type": "factoryvidprog_v0180",
           "page": "p_video",
           "x": 384,
-          "y": 1232,
+          "y": 1352,
           "w": 344,
           "h": 56,
           "z": 2,
@@ -96057,7 +96057,7 @@
           "type": "factoryqueuestatus_v023",
           "page": "p_video",
           "x": 740,
-          "y": 1232,
+          "y": 1352,
           "w": 184,
           "h": 56,
           "z": 2,
@@ -96090,7 +96090,7 @@
           "type": "factorysavetoggle_v023",
           "page": "p_video",
           "x": 936,
-          "y": 1232,
+          "y": 1352,
           "w": 240,
           "h": 56,
           "z": 2,
@@ -96131,7 +96131,7 @@
           "type": "prompt",
           "page": "p_video",
           "x": 24,
-          "y": 1300,
+          "y": 1420,
           "w": 1152,
           "h": 180,
           "z": 2,
@@ -96176,7 +96176,7 @@
           "type": "factoryvidrun_v0180",
           "page": "p_video",
           "x": 24,
-          "y": 1492,
+          "y": 1612,
           "w": 1152,
           "h": 56,
           "z": 2,
@@ -96228,7 +96228,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🎬 Звук · Higgs v3 · v0.19.0",
+            "text": "🎬 Звук · Higgs v3 · v0.19.1",
             "size": "M",
             "align": "left"
           },
