@@ -86245,7 +86245,7 @@
           "id": "p_video",
           "name": "Видео",
           "kind": "page",
-          "len": 1696,
+          "len": 1168,
           "control": {
             "nodes": [],
             "groups": [],
@@ -86257,7 +86257,7 @@
           "id": "p_audio",
           "name": "Звук",
           "kind": "page",
-          "len": 916,
+          "len": 820,
           "control": {
             "nodes": [],
             "groups": [],
@@ -86281,7 +86281,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v0.19.1",
+            "text": "🧩 Универсальный воркфлоу · v0.19.2",
             "size": "M",
             "align": "left"
           },
@@ -88628,7 +88628,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v0.19.1",
+            "text": "🧩 Универсальный воркфлоу · v0.19.2",
             "size": "M",
             "align": "left"
           },
@@ -89491,7 +89491,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v0.19.1",
+            "text": "🧩 Универсальный воркфлоу · v0.19.2",
             "size": "M",
             "align": "left"
           },
@@ -90785,7 +90785,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v0.19.1",
+            "text": "🧩 Универсальный воркфлоу · v0.19.2",
             "size": "M",
             "align": "left"
           },
@@ -92166,7 +92166,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "↔️ Дорисовка за границами кадра · v0.19.1",
+            "text": "↔️ Дорисовка за границами кадра · v0.19.2",
             "size": "M",
             "align": "left"
           },
@@ -94138,7 +94138,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v0.19.1",
+            "text": "🧩 Универсальный воркфлоу · v0.19.2",
             "size": "M",
             "align": "left"
           },
@@ -94748,7 +94748,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v0.19.1",
+            "text": "🧩 Универсальный воркфлоу · v0.19.2",
             "size": "M",
             "align": "left"
           },
@@ -95296,7 +95296,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🎬 Видео · MiniMax H3 · v0.19.1",
+            "text": "🎬 Видео · MiniMax H3 · v0.19.2",
             "size": "M",
             "align": "left"
           },
@@ -95645,7 +95645,7 @@
             "accentA": "#36cfea",
             "accentB": "#59e68d",
             "visualProfile": "standard",
-            "canvasHeight": 1696
+            "canvasHeight": 1168
           },
           "look": {
             "bg": "transparent",
@@ -95668,7 +95668,7 @@
           "x": 24,
           "y": 152,
           "w": 336,
-          "h": 544,
+          "h": 464,
           "z": 2,
           "parent": null,
           "hidden": false,
@@ -95681,7 +95681,7 @@
             }
           },
           "props": {
-            "flowBaseH": 544
+            "flowBaseH": 256
           },
           "look": {
             "style": null,
@@ -95704,9 +95704,9 @@
           "type": "seed",
           "page": "p_video",
           "x": 24,
-          "y": 708,
+          "y": 420,
           "w": 336,
-          "h": 88,
+          "h": 72,
           "z": 2,
           "parent": null,
           "hidden": false,
@@ -95747,9 +95747,9 @@
           "type": "factoryvidsettings_v0180",
           "page": "p_video",
           "x": 24,
-          "y": 808,
+          "y": 504,
           "w": 336,
-          "h": 480,
+          "h": 400,
           "z": 2,
           "parent": null,
           "hidden": false,
@@ -95797,7 +95797,7 @@
             }
           },
           "props": {
-            "flowBaseH": 480
+            "flowBaseH": 256
           },
           "look": {
             "style": null,
@@ -95820,7 +95820,7 @@
           "type": "spoiler",
           "page": "p_video",
           "x": 24,
-          "y": 1300,
+          "y": 772,
           "w": 336,
           "h": 48,
           "z": 2,
@@ -95897,7 +95897,7 @@
           "type": "spoiler",
           "page": "p_video",
           "x": 24,
-          "y": 1360,
+          "y": 832,
           "w": 336,
           "h": 48,
           "z": 2,
@@ -95976,7 +95976,7 @@
           "x": 384,
           "y": 152,
           "w": 792,
-          "h": 1188,
+          "h": 660,
           "z": 2,
           "parent": null,
           "hidden": false,
@@ -96023,7 +96023,7 @@
           "type": "factoryvidprog_v0180",
           "page": "p_video",
           "x": 384,
-          "y": 1352,
+          "y": 824,
           "w": 344,
           "h": 56,
           "z": 2,
@@ -96057,7 +96057,7 @@
           "type": "factoryqueuestatus_v023",
           "page": "p_video",
           "x": 740,
-          "y": 1352,
+          "y": 824,
           "w": 184,
           "h": 56,
           "z": 2,
@@ -96090,7 +96090,7 @@
           "type": "factorysavetoggle_v023",
           "page": "p_video",
           "x": 936,
-          "y": 1352,
+          "y": 824,
           "w": 240,
           "h": 56,
           "z": 2,
@@ -96131,7 +96131,7 @@
           "type": "prompt",
           "page": "p_video",
           "x": 24,
-          "y": 1420,
+          "y": 892,
           "w": 1152,
           "h": 180,
           "z": 2,
@@ -96176,7 +96176,7 @@
           "type": "factoryvidrun_v0180",
           "page": "p_video",
           "x": 24,
-          "y": 1612,
+          "y": 1084,
           "w": 1152,
           "h": 56,
           "z": 2,
@@ -96228,7 +96228,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🎬 Звук · Higgs v3 · v0.19.1",
+            "text": "🎬 Звук · Higgs v3 · v0.19.2",
             "size": "M",
             "align": "left"
           },
@@ -96577,7 +96577,7 @@
             "accentA": "#36cfea",
             "accentB": "#59e68d",
             "visualProfile": "standard",
-            "canvasHeight": 916
+            "canvasHeight": 820
           },
           "look": {
             "bg": "transparent",
@@ -96600,7 +96600,7 @@
           "x": 24,
           "y": 152,
           "w": 336,
-          "h": 88,
+          "h": 72,
           "z": 2,
           "parent": null,
           "hidden": false,
@@ -96642,7 +96642,7 @@
           "type": "factoryaudio_v0190",
           "page": "p_audio",
           "x": 24,
-          "y": 252,
+          "y": 236,
           "w": 336,
           "h": 556,
           "z": 2,
@@ -96667,7 +96667,7 @@
             }
           },
           "props": {
-            "flowBaseH": 336
+            "flowBaseH": 256
           },
           "look": {
             "style": null,
@@ -96692,7 +96692,7 @@
           "x": 384,
           "y": 152,
           "w": 792,
-          "h": 368,
+          "h": 272,
           "z": 2,
           "parent": null,
           "hidden": false,
@@ -96736,7 +96736,7 @@
           "type": "factoryaudioprog_v0190",
           "page": "p_audio",
           "x": 384,
-          "y": 532,
+          "y": 436,
           "w": 344,
           "h": 56,
           "z": 2,
@@ -96770,7 +96770,7 @@
           "type": "factoryqueuestatus_v023",
           "page": "p_audio",
           "x": 740,
-          "y": 532,
+          "y": 436,
           "w": 184,
           "h": 56,
           "z": 2,
@@ -96803,7 +96803,7 @@
           "type": "factorysavetoggle_v023",
           "page": "p_audio",
           "x": 936,
-          "y": 532,
+          "y": 436,
           "w": 240,
           "h": 56,
           "z": 2,
@@ -96844,7 +96844,7 @@
           "type": "prompt",
           "page": "p_audio",
           "x": 24,
-          "y": 600,
+          "y": 504,
           "w": 1152,
           "h": 220,
           "z": 2,
@@ -96889,7 +96889,7 @@
           "type": "factoryaudiorun_v0190",
           "page": "p_audio",
           "x": 24,
-          "y": 832,
+          "y": 736,
           "w": 1152,
           "h": 56,
           "z": 2,
