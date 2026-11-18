@@ -86286,7 +86286,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v0.19.3",
+            "text": "🧩 Универсальный воркфлоу · v0.19.4",
             "size": "M",
             "align": "left"
           },
@@ -87752,11 +87752,6 @@
               "kind": "widget",
               "name": "unet_name"
             },
-            "vid_model": {
-              "src": "src_video_model",
-              "kind": "widget",
-              "name": "model_name"
-            },
             "vid_clip": {
               "src": "src_video_clip",
               "kind": "widget",
@@ -87787,10 +87782,15 @@
               "kind": "widget",
               "name": "model"
             },
-            "vid_family": {
+            "vid_ref_model": {
               "src": "src_video_media",
               "kind": "widget",
-              "name": "factory_video_family"
+              "name": "factory_video_model_ref"
+            },
+            "vid_fl_model": {
+              "src": "src_video_media",
+              "kind": "widget",
+              "name": "factory_video_model_fl"
             }
           },
           "props": {
@@ -88638,7 +88638,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v0.19.3",
+            "text": "🧩 Универсальный воркфлоу · v0.19.4",
             "size": "M",
             "align": "left"
           },
@@ -88946,11 +88946,6 @@
               "kind": "widget",
               "name": "unet_name"
             },
-            "vid_model": {
-              "src": "src_video_model",
-              "kind": "widget",
-              "name": "model_name"
-            },
             "vid_clip": {
               "src": "src_video_clip",
               "kind": "widget",
@@ -88981,10 +88976,15 @@
               "kind": "widget",
               "name": "model"
             },
-            "vid_family": {
+            "vid_ref_model": {
               "src": "src_video_media",
               "kind": "widget",
-              "name": "factory_video_family"
+              "name": "factory_video_model_ref"
+            },
+            "vid_fl_model": {
+              "src": "src_video_media",
+              "kind": "widget",
+              "name": "factory_video_model_fl"
             }
           },
           "props": {
@@ -89506,7 +89506,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v0.19.3",
+            "text": "🧩 Универсальный воркфлоу · v0.19.4",
             "size": "M",
             "align": "left"
           },
@@ -89814,11 +89814,6 @@
               "kind": "widget",
               "name": "unet_name"
             },
-            "vid_model": {
-              "src": "src_video_model",
-              "kind": "widget",
-              "name": "model_name"
-            },
             "vid_clip": {
               "src": "src_video_clip",
               "kind": "widget",
@@ -89849,10 +89844,15 @@
               "kind": "widget",
               "name": "model"
             },
-            "vid_family": {
+            "vid_ref_model": {
               "src": "src_video_media",
               "kind": "widget",
-              "name": "factory_video_family"
+              "name": "factory_video_model_ref"
+            },
+            "vid_fl_model": {
+              "src": "src_video_media",
+              "kind": "widget",
+              "name": "factory_video_model_fl"
             }
           },
           "props": {
@@ -90805,7 +90805,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v0.19.3",
+            "text": "🧩 Универсальный воркфлоу · v0.19.4",
             "size": "M",
             "align": "left"
           },
@@ -91113,11 +91113,6 @@
               "kind": "widget",
               "name": "unet_name"
             },
-            "vid_model": {
-              "src": "src_video_model",
-              "kind": "widget",
-              "name": "model_name"
-            },
             "vid_clip": {
               "src": "src_video_clip",
               "kind": "widget",
@@ -91148,10 +91143,15 @@
               "kind": "widget",
               "name": "model"
             },
-            "vid_family": {
+            "vid_ref_model": {
               "src": "src_video_media",
               "kind": "widget",
-              "name": "factory_video_family"
+              "name": "factory_video_model_ref"
+            },
+            "vid_fl_model": {
+              "src": "src_video_media",
+              "kind": "widget",
+              "name": "factory_video_model_fl"
             }
           },
           "props": {
@@ -92191,7 +92191,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "↔️ Дорисовка за границами кадра · v0.19.3",
+            "text": "↔️ Дорисовка за границами кадра · v0.19.4",
             "size": "M",
             "align": "left"
           },
@@ -92499,11 +92499,6 @@
               "kind": "widget",
               "name": "unet_name"
             },
-            "vid_model": {
-              "src": "src_video_model",
-              "kind": "widget",
-              "name": "model_name"
-            },
             "vid_clip": {
               "src": "src_video_clip",
               "kind": "widget",
@@ -92534,10 +92529,15 @@
               "kind": "widget",
               "name": "model"
             },
-            "vid_family": {
+            "vid_ref_model": {
               "src": "src_video_media",
               "kind": "widget",
-              "name": "factory_video_family"
+              "name": "factory_video_model_ref"
+            },
+            "vid_fl_model": {
+              "src": "src_video_media",
+              "kind": "widget",
+              "name": "factory_video_model_fl"
             }
           },
           "props": {
@@ -94168,7 +94168,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v0.19.3",
+            "text": "🧩 Универсальный воркфлоу · v0.19.4",
             "size": "M",
             "align": "left"
           },
@@ -94476,11 +94476,6 @@
               "kind": "widget",
               "name": "unet_name"
             },
-            "vid_model": {
-              "src": "src_video_model",
-              "kind": "widget",
-              "name": "model_name"
-            },
             "vid_clip": {
               "src": "src_video_clip",
               "kind": "widget",
@@ -94511,10 +94506,15 @@
               "kind": "widget",
               "name": "model"
             },
-            "vid_family": {
+            "vid_ref_model": {
               "src": "src_video_media",
               "kind": "widget",
-              "name": "factory_video_family"
+              "name": "factory_video_model_ref"
+            },
+            "vid_fl_model": {
+              "src": "src_video_media",
+              "kind": "widget",
+              "name": "factory_video_model_fl"
             }
           },
           "props": {
@@ -94783,7 +94783,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v0.19.3",
+            "text": "🧩 Универсальный воркфлоу · v0.19.4",
             "size": "M",
             "align": "left"
           },
@@ -95091,11 +95091,6 @@
               "kind": "widget",
               "name": "unet_name"
             },
-            "vid_model": {
-              "src": "src_video_model",
-              "kind": "widget",
-              "name": "model_name"
-            },
             "vid_clip": {
               "src": "src_video_clip",
               "kind": "widget",
@@ -95126,10 +95121,15 @@
               "kind": "widget",
               "name": "model"
             },
-            "vid_family": {
+            "vid_ref_model": {
               "src": "src_video_media",
               "kind": "widget",
-              "name": "factory_video_family"
+              "name": "factory_video_model_ref"
+            },
+            "vid_fl_model": {
+              "src": "src_video_media",
+              "kind": "widget",
+              "name": "factory_video_model_fl"
             }
           },
           "props": {
@@ -95336,7 +95336,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🎬 Видео · MiniMax H3 · v0.19.3",
+            "text": "🎬 Видео · MiniMax H3 · v0.19.4",
             "size": "M",
             "align": "left"
           },
@@ -95644,11 +95644,6 @@
               "kind": "widget",
               "name": "unet_name"
             },
-            "vid_model": {
-              "src": "src_video_model",
-              "kind": "widget",
-              "name": "model_name"
-            },
             "vid_clip": {
               "src": "src_video_clip",
               "kind": "widget",
@@ -95679,10 +95674,15 @@
               "kind": "widget",
               "name": "model"
             },
-            "vid_family": {
+            "vid_ref_model": {
               "src": "src_video_media",
               "kind": "widget",
-              "name": "factory_video_family"
+              "name": "factory_video_model_ref"
+            },
+            "vid_fl_model": {
+              "src": "src_video_media",
+              "kind": "widget",
+              "name": "factory_video_model_fl"
             }
           },
           "props": {
@@ -95799,7 +95799,7 @@
           "x": 24,
           "y": 376,
           "w": 336,
-          "h": 400,
+          "h": 456,
           "z": 2,
           "parent": null,
           "hidden": false,
@@ -95844,6 +95844,11 @@
               "src": "src_video_schedule",
               "kind": "widget",
               "name": "scheduler"
+            },
+            "family": {
+              "src": "src_video_media",
+              "kind": "widget",
+              "name": "factory_video_family"
             }
           },
           "props": {
@@ -96278,7 +96283,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🎬 Звук · Higgs v3 · v0.19.3",
+            "text": "🎬 Звук · Higgs v3 · v0.19.4",
             "size": "M",
             "align": "left"
           },
@@ -96586,11 +96591,6 @@
               "kind": "widget",
               "name": "unet_name"
             },
-            "vid_model": {
-              "src": "src_video_model",
-              "kind": "widget",
-              "name": "model_name"
-            },
             "vid_clip": {
               "src": "src_video_clip",
               "kind": "widget",
@@ -96621,10 +96621,15 @@
               "kind": "widget",
               "name": "model"
             },
-            "vid_family": {
+            "vid_ref_model": {
               "src": "src_video_media",
               "kind": "widget",
-              "name": "factory_video_family"
+              "name": "factory_video_model_ref"
+            },
+            "vid_fl_model": {
+              "src": "src_video_media",
+              "kind": "widget",
+              "name": "factory_video_model_fl"
             }
           },
           "props": {
