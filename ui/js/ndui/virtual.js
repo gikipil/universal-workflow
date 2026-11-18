@@ -1,3 +1,4 @@
+import {videoParams} from './factory_video_params.js';
 import {outpaintParams} from './factory_outpaint_params.js';
 // Universal Workflow update by gikipil, 2026-11-14: standalone and post-edit upscale.
 import {upscaleTaskParams} from './factory_upscale_tasks.js';
@@ -129,6 +130,7 @@ export function virtualParams(node) {
     switch (classOf(node)) {
         case "KSampler": return [...outpaintParams(node,touch),...editParams(node,touch)];
         case "LanPaint_KSampler": return outpaintParams(node,touch);
+        case "MiniMaxH3MediaLoader": return videoParams(node,touch);
         case "RMBG": return backgroundParams(node,touch);
         case "PrimitiveInt": return poseParams(node,touch);
         case "PrimitiveFloat": return denoiseParams(node,touch);

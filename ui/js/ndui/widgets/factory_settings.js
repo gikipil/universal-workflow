@@ -9,6 +9,7 @@ import {applyVars} from '../kit.js';
 import {APPEARANCE_PROFILES} from '../factory_appearance.js';
 
 const MODEL_FIELDS = [
+    ['vid_model','MiniMax H3 · модель','diffusion_models'],['vid_clip','MiniMax H3 · энкодер','text_encoders'],['vid_video_vae','MiniMax H3 · Video VAE','vae'],['vid_audio_vae','MiniMax H3 · Audio VAE','vae'],['vid_turbo','MiniMax H3 · общий Turbo-адаптер','loras'],
     ['out_k_model','Модель Krea Turbo · дорисовка','diffusion_models'],
     ['edit_q21_model','Модель Qwen 2.1','diffusion_models'],['edit_q21_clip','Энкодер Qwen 2.1','text_encoders'],['edit_q21_vae','VAE Qwen 2.1','vae'],
     ['edit_krea_general','General Edit V2 · файл LoRA','loras'],['edit_krea_identity','Identity Edit V2 · файл LoRA','loras'],
@@ -78,7 +79,7 @@ export function openFactorySettings(ctx, onClose=()=>{}) {
         return {...ctx,body,w:{...ctx.w,slots:{value:ctx.w.slots[key]}},popupHost:()=>overlay,
             get:id=>ctx.get(id==='value'?key:id),info:id=>ctx.info(id==='value'?key:id),
             set(id,value){ctx.set(id==='value'?key:id,value);afterSet?.(value);},
-            prop:id=>id==='requiredModel'?['k_turbo','pose_lora'].includes(key):id==='folder'?folder:id==='pickerStyle'&&folder==='loras'?'lora':id==='placeholder'?'Выбрать файл…':ctx.prop(id)};
+            prop:id=>id==='requiredModel'?['k_turbo','pose_lora','vid_turbo'].includes(key):id==='folder'?folder:id==='pickerStyle'&&folder==='loras'?'lora':id==='placeholder'?'Выбрать файл…':ctx.prop(id)};
     }
     function picker(container,key,caption,folder,afterSet) {
         const field=el('div','acf-settings-field'),body=el('div','acf-settings-picker');if(caption)field.append(el('span','',caption));field.append(body);container.append(field);
@@ -95,11 +96,12 @@ export function openFactorySettings(ctx, onClose=()=>{}) {
     const kreaEditor=card(modelsGrid,'✏️ Редактирование · Krea','Выбери файлы General Edit и Identity Edit. В настройках режима редактора переключается их назначение. Комплект Krea и Turbo-адаптер общие.');
     const qwen21Editor=card(modelsGrid,'✏️ Редактирование · Qwen 2.1','Отдельные модель, энкодер Qwen3-VL 8B и VAE Qwen 2.1. Комплект 2511 сюда не подходит. LoRA выбираются на вкладке редактора.');
     const editor=card(modelsGrid,'✏️ Редактирование · Qwen 2511','Независимый комплект редактора. Обычные LoRA выбираются на вкладке редактирования.');
+    const videoCard=card(modelsGrid,'🎬 Видео · MiniMax H3','Модель, энкодер, Video VAE, Audio VAE и один Turbo-адаптер для генерации и рефайнера. Пользовательские LoRA выбираются отдельно во вкладке видео.');
     const outpaint=card(modelsGrid,'↔️ Дорисовка · Krea2','Проверенный вариант использует готовую Turbo-модель. Энкодер и VAE общие с Krea; Qwen берёт комплекты редактора. Дополнительные LoRA выбираются во вкладке дорисовки.');
     const background=card(modelsGrid,'🧽 Удаление фона','Отдельная функция. Выбор модели не меняет генерацию.');
     const upSeed=card(modelsGrid,'Апскейл · SeedVR','Общие DiT и VAE для генерации, редактирования и отдельного апскейла.');
     for (const [key,caption,folder] of MODEL_FIELDS) {
-        const container=key==='out_k_model'?outpaint:key.startsWith('edit_q21_')?qwen21Editor:key.startsWith('edit_krea_')?kreaEditor:key.startsWith('edit_')?editor:key==='bg_model'?background:key.startsWith('pose_')?pose:key==='up_simple_model'||key==='up_ultimate_model'?upModels:key.startsWith('up_seed_')?upSeed:['sam_model','face_detector','hand_detector'].includes(key)?detection:key.includes('turbo')?turbo:key.startsWith('z_')?zimage:krea;
+        const container=key.startsWith('vid_')?videoCard:key==='out_k_model'?outpaint:key.startsWith('edit_q21_')?qwen21Editor:key.startsWith('edit_krea_')?kreaEditor:key.startsWith('edit_')?editor:key==='bg_model'?background:key.startsWith('pose_')?pose:key==='up_simple_model'||key==='up_ultimate_model'?upModels:key.startsWith('up_seed_')?upSeed:['sam_model','face_detector','hand_detector'].includes(key)?detection:key.includes('turbo')?turbo:key.startsWith('z_')?zimage:krea;
         picker(container,key,caption,folder,key==='up_seed_dit'?value=>{if(/3b/i.test(String(value))){const state=ctx.info(key),node=state.p?.node||state.node,w=node?.widgets?.find(w=>w.name==='blocks_to_swap');if(w&&w.value>32){w.value=32;w.callback?.(32);node.graph?.change?.();}}}:undefined);
     }
     if(ctx.info('caption_config')?.bound){const captionCard=card(modelsGrid,'📝 Промты · модели','Локальные Florence, Qwen и JoyCaption.');captionModelFields(ctx,captionCard);}
