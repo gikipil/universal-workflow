@@ -12,3 +12,5 @@ The MiniMax H3 video chain is adapted from ND_MiniMax_H3_Ultimate_Def_v2.0 by Ne
 The Higgs audio chain is adapted from higgs_audio_v3-tts_example_workflow.json supplied with Higgs_v3-TTS-ComfyUI by Saganaki22 (https://github.com/Saganaki22/Higgs_v3-TTS-ComfyUI). The original nodes and models are installed separately and retain their respective licences.
 
 The Voice Design audio branch uses the separately installed ComfyUI-QwenTTS nodes by 1038lab (https://github.com/1038lab/ComfyUI-QwenTTS) and Qwen3-TTS-12Hz-1.7B-VoiceDesign by the Qwen team (https://huggingface.co/Qwen/Qwen3-TTS-12Hz-1.7B-VoiceDesign). Their respective licences apply to those separately installed components.
+
+The song branch is adapted from the user-supplied audio_ace_step1_5_xl_sft.json workflow. It uses ACE-Step 1.5 support from ComfyUI and separately installed ACE-Step/Qwen model assets; their respective authors retain their rights and licences.

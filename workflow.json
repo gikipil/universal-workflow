@@ -1,9 +1,805 @@
 {
   "id": "6156223e-7f85-4578-923d-9d05cf820581",
   "revision": 0,
-  "last_node_id": 1581,
-  "last_link_id": 1809,
+  "last_node_id": 1607,
+  "last_link_id": 1829,
   "nodes": [
+    {
+      "id": 1585,
+      "type": "ModelSamplingAuraFlow",
+      "title": "Технический сдвиг ACE",
+      "pos": [
+        52,
+        5964
+      ],
+      "size": [
+        210,
+        30
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 1585,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "model",
+          "name": "model",
+          "type": "MODEL",
+          "link": 1810
+        },
+        {
+          "localized_name": "shift",
+          "name": "shift",
+          "type": "FLOAT",
+          "widget": {
+            "name": "shift"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "MODEL",
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            1820
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ModelSamplingAuraFlow",
+        "cnr_id": "comfy-core",
+        "ver": "0.11.1",
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65
+      },
+      "widgets_values": [
+        3
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 1589,
+      "type": "EmptyAceStep1.5LatentAudio",
+      "title": "Технический музыкальный латент",
+      "pos": [
+        1292,
+        5964
+      ],
+      "size": [
+        210,
+        30
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 1589,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "seconds",
+          "name": "seconds",
+          "type": "FLOAT",
+          "widget": {
+            "name": "seconds"
+          },
+          "link": 1812
+        },
+        {
+          "localized_name": "batch_size",
+          "name": "batch_size",
+          "type": "INT",
+          "widget": {
+            "name": "batch_size"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "LATENT",
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            1824
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "EmptyAceStep1.5LatentAudio",
+        "cnr_id": "comfy-core",
+        "ver": "0.11.1",
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65
+      },
+      "widgets_values": [
+        120,
+        1
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 1590,
+      "type": "SetNode",
+      "title": "Set LP_SONG_7_0",
+      "pos": [
+        1532,
+        6364
+      ],
+      "size": [
+        210,
+        30
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 1590,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "FLOAT",
+          "type": "FLOAT",
+          "link": 1811
+        }
+      ],
+      "outputs": [
+        {
+          "name": "FLOAT",
+          "type": "FLOAT",
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SetNode",
+        "previousName": "LP_SONG_7_0"
+      },
+      "widgets_values": [
+        "LP_SONG_7_0"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 1591,
+      "type": "GetNode",
+      "title": "Get LP_SONG_7_0",
+      "pos": [
+        1304,
+        5998
+      ],
+      "size": [
+        210,
+        30
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 1591,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "FLOAT",
+          "type": "FLOAT",
+          "links": [
+            1812
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "previousName": "LP_SONG_7_0"
+      },
+      "widgets_values": [
+        "LP_SONG_7_0"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 1592,
+      "type": "GetNode",
+      "title": "Get LP_SONG_7_0",
+      "pos": [
+        552,
+        5964
+      ],
+      "size": [
+        210,
+        30
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 1592,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "FLOAT",
+          "type": "FLOAT",
+          "links": [
+            1813
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "previousName": "LP_SONG_7_0"
+      },
+      "widgets_values": [
+        "LP_SONG_7_0"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 1593,
+      "type": "SetNode",
+      "title": "Set LP_SONG_6_0",
+      "pos": [
+        1292,
+        6364
+      ],
+      "size": [
+        210,
+        30
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 1593,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "link": 1814
+        }
+      ],
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SetNode",
+        "previousName": "LP_SONG_6_0"
+      },
+      "widgets_values": [
+        "LP_SONG_6_0"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 1594,
+      "type": "GetNode",
+      "title": "Get LP_SONG_6_0",
+      "pos": [
+        552,
+        5964
+      ],
+      "size": [
+        210,
+        30
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 1594,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            1815
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "previousName": "LP_SONG_6_0"
+      },
+      "widgets_values": [
+        "LP_SONG_6_0"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 1596,
+      "type": "ConditioningZeroOut",
+      "title": "Техническое нулевое условие",
+      "pos": [
+        1292,
+        5964
+      ],
+      "size": [
+        210,
+        30
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 1596,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "conditioning",
+          "name": "conditioning",
+          "type": "CONDITIONING",
+          "link": 1817
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "CONDITIONING",
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            1819
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ConditioningZeroOut",
+        "cnr_id": "comfy-core",
+        "ver": "0.11.1",
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65
+      },
+      "widgets_values": [],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 1597,
+      "type": "SetNode",
+      "title": "Set LP_SONG_5_0",
+      "pos": [
+        552,
+        5964
+      ],
+      "size": [
+        210,
+        30
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 1597,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "link": 1816
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SetNode",
+        "previousName": "LP_SONG_5_0"
+      },
+      "widgets_values": [
+        "LP_SONG_5_0"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 1598,
+      "type": "GetNode",
+      "title": "Get LP_SONG_5_0",
+      "pos": [
+        1304,
+        5998
+      ],
+      "size": [
+        210,
+        30
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 1598,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            1817
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "previousName": "LP_SONG_5_0"
+      },
+      "widgets_values": [
+        "LP_SONG_5_0"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 1599,
+      "type": "GetNode",
+      "title": "Get LP_SONG_5_0",
+      "pos": [
+        1292,
+        5964
+      ],
+      "size": [
+        210,
+        30
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 1599,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            1818
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "previousName": "LP_SONG_5_0"
+      },
+      "widgets_values": [
+        "LP_SONG_5_0"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 1600,
+      "type": "SetNode",
+      "title": "Set LP_SONG_4_0",
+      "pos": [
+        64,
+        5998
+      ],
+      "size": [
+        210,
+        30
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 1600,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "link": 1820
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SetNode",
+        "previousName": "LP_SONG_4_0"
+      },
+      "widgets_values": [
+        "LP_SONG_4_0"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 1601,
+      "type": "GetNode",
+      "title": "Get LP_SONG_4_0",
+      "pos": [
+        1292,
+        5964
+      ],
+      "size": [
+        210,
+        30
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 1601,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            1821
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "previousName": "LP_SONG_4_0"
+      },
+      "widgets_values": [
+        "LP_SONG_4_0"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 1602,
+      "type": "SetNode",
+      "title": "Set LP_SONG_2_0",
+      "pos": [
+        52,
+        6124
+      ],
+      "size": [
+        210,
+        30
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 1602,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "link": 1822
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SetNode",
+        "previousName": "LP_SONG_2_0"
+      },
+      "widgets_values": [
+        "LP_SONG_2_0"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 1603,
+      "type": "GetNode",
+      "title": "Get LP_SONG_2_0",
+      "pos": [
+        552,
+        5964
+      ],
+      "size": [
+        210,
+        30
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 1603,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            1823
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "previousName": "LP_SONG_2_0"
+      },
+      "widgets_values": [
+        "LP_SONG_2_0"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 1604,
+      "type": "VAEDecodeAudio",
+      "title": "Техническое декодирование музыки",
+      "pos": [
+        1292,
+        5964
+      ],
+      "size": [
+        210,
+        30
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 1604,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "samples",
+          "name": "samples",
+          "type": "LATENT",
+          "link": 1826
+        },
+        {
+          "localized_name": "vae",
+          "name": "vae",
+          "type": "VAE",
+          "link": 1828
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "AUDIO",
+          "name": "AUDIO",
+          "type": "AUDIO",
+          "links": [
+            1829
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEDecodeAudio",
+        "cnr_id": "comfy-core",
+        "ver": "0.11.1",
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65
+      },
+      "widgets_values": [],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 1605,
+      "type": "SetNode",
+      "title": "Set LP_SONG_3_0",
+      "pos": [
+        52,
+        6354
+      ],
+      "size": [
+        210,
+        30
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 1605,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "link": 1827
+        }
+      ],
+      "outputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SetNode",
+        "previousName": "LP_SONG_3_0"
+      },
+      "widgets_values": [
+        "LP_SONG_3_0"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 1606,
+      "type": "GetNode",
+      "title": "Get LP_SONG_3_0",
+      "pos": [
+        1304,
+        5998
+      ],
+      "size": [
+        210,
+        30
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 1606,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            1828
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetNode",
+        "previousName": "LP_SONG_3_0"
+      },
+      "widgets_values": [
+        "LP_SONG_3_0"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
     {
       "id": 1580,
       "type": "GetNode",
@@ -47961,7 +48757,33 @@
             1578,
             1579,
             1580,
-            1581
+            1581,
+            1585,
+            1589,
+            1590,
+            1591,
+            1592,
+            1593,
+            1594,
+            1596,
+            1597,
+            1598,
+            1599,
+            1600,
+            1601,
+            1602,
+            1603,
+            1604,
+            1605,
+            1606,
+            1582,
+            1583,
+            1584,
+            1586,
+            1587,
+            1588,
+            1595,
+            1607
           ],
           "autoTranscript": [
             true,
@@ -47972,7 +48794,21 @@
             ""
           ],
           "seedMode": "fixed",
-          "design": 1579
+          "design": 1579,
+          "song": {
+            "model": 1582,
+            "clip": 1583,
+            "vae": 1584,
+            "shift": 1585,
+            "encode": 1586,
+            "seed": 1587,
+            "duration": 1588,
+            "empty": 1589,
+            "sampler": 1595,
+            "zero": 1596,
+            "decode": 1604,
+            "save": 1607
+          }
         },
         "nd_ui_src": {
           "uid": "src_audio_controller",
@@ -74507,6 +75343,726 @@
       "color": "#322",
       "bgcolor": "#533",
       "title": "🔴 Голос по описанию · Qwen3-TTS"
+    },
+    {
+      "id": 1582,
+      "type": "UNETLoader",
+      "title": "🧠 ACE-Step 1.5 XL SFT",
+      "pos": [
+        40,
+        5930
+      ],
+      "size": [
+        440,
+        130
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 1582,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "unet_name",
+          "name": "unet_name",
+          "type": "COMBO",
+          "widget": {
+            "name": "unet_name"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "weight_dtype",
+          "name": "weight_dtype",
+          "type": "COMBO",
+          "widget": {
+            "name": "weight_dtype"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "MODEL",
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            1810
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "UNETLoader",
+        "cnr_id": "comfy-core",
+        "ver": "0.11.1",
+        "models": [
+          {
+            "name": "acestep_v1.5_xl_sft_bf16.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/ace_step_1.5_ComfyUI_files/resolve/main/split_files/diffusion_models/acestep_v1.5_xl_sft_bf16.safetensors",
+            "directory": "diffusion_models"
+          }
+        ],
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65,
+        "nd_ui_src": {
+          "uid": "src_song_model",
+          "tag": "song-model"
+        }
+      },
+      "widgets_values": [
+        "ACE\\acestep_v1.5_xl_sft_bf16.safetensors",
+        "default"
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 1583,
+      "type": "DualCLIPLoader",
+      "title": "🔤 ACE · два энкодера",
+      "pos": [
+        40,
+        6090
+      ],
+      "size": [
+        440,
+        190
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 1583,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "clip_name1",
+          "name": "clip_name1",
+          "type": "COMBO",
+          "widget": {
+            "name": "clip_name1"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "clip_name2",
+          "name": "clip_name2",
+          "type": "COMBO",
+          "widget": {
+            "name": "clip_name2"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "type",
+          "name": "type",
+          "type": "COMBO",
+          "widget": {
+            "name": "type"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "device",
+          "name": "device",
+          "shape": 7,
+          "type": "COMBO",
+          "widget": {
+            "name": "device"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "CLIP",
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            1822
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "DualCLIPLoader",
+        "cnr_id": "comfy-core",
+        "ver": "0.11.1",
+        "models": [
+          {
+            "name": "qwen_0.6b_ace15.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/ace_step_1.5_ComfyUI_files/resolve/main/split_files/text_encoders/qwen_0.6b_ace15.safetensors",
+            "directory": "text_encoders"
+          },
+          {
+            "name": "qwen_4b_ace15.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/ace_step_1.5_ComfyUI_files/resolve/main/split_files/text_encoders/qwen_4b_ace15.safetensors",
+            "directory": "text_encoders"
+          }
+        ],
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65,
+        "nd_ui_src": {
+          "uid": "src_song_clip",
+          "tag": "song-clip"
+        }
+      },
+      "widgets_values": [
+        "Ace\\qwen_0.6b_ace15.safetensors",
+        "Ace\\qwen_4b_ace15.safetensors",
+        "ace",
+        "default"
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 1584,
+      "type": "VAELoader",
+      "title": "🎨 ACE · Audio VAE",
+      "pos": [
+        40,
+        6320
+      ],
+      "size": [
+        440,
+        115
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 1584,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "vae_name",
+          "name": "vae_name",
+          "type": "COMBO",
+          "widget": {
+            "name": "vae_name"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "VAE",
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            1827
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAELoader",
+        "cnr_id": "comfy-core",
+        "ver": "0.11.1",
+        "models": [
+          {
+            "name": "ace_1.5_vae.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/ace_step_1.5_ComfyUI_files/resolve/main/split_files/vae/ace_1.5_vae.safetensors",
+            "directory": "vae"
+          }
+        ],
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65,
+        "nd_ui_src": {
+          "uid": "src_song_vae",
+          "tag": "song-vae"
+        }
+      },
+      "widgets_values": [
+        "ACE\\ace_1.5_vae.safetensors"
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 1586,
+      "type": "TextEncodeAceStepAudio1.5",
+      "title": "🎼 Стиль, слова и музыкальные параметры",
+      "pos": [
+        540,
+        5930
+      ],
+      "size": [
+        680,
+        650
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 1586,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "clip",
+          "name": "clip",
+          "type": "CLIP",
+          "link": 1823
+        },
+        {
+          "localized_name": "tags",
+          "name": "tags",
+          "type": "STRING",
+          "widget": {
+            "name": "tags"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "lyrics",
+          "name": "lyrics",
+          "type": "STRING",
+          "widget": {
+            "name": "lyrics"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "seed",
+          "name": "seed",
+          "type": "INT",
+          "widget": {
+            "name": "seed"
+          },
+          "link": 1815
+        },
+        {
+          "localized_name": "bpm",
+          "name": "bpm",
+          "type": "INT",
+          "widget": {
+            "name": "bpm"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "duration",
+          "name": "duration",
+          "type": "FLOAT",
+          "widget": {
+            "name": "duration"
+          },
+          "link": 1813
+        },
+        {
+          "localized_name": "timesignature",
+          "name": "timesignature",
+          "type": "COMBO",
+          "widget": {
+            "name": "timesignature"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "language",
+          "name": "language",
+          "type": "COMBO",
+          "widget": {
+            "name": "language"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "keyscale",
+          "name": "keyscale",
+          "type": "COMBO",
+          "widget": {
+            "name": "keyscale"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "generate_audio_codes",
+          "name": "generate_audio_codes",
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "generate_audio_codes"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "cfg_scale",
+          "name": "cfg_scale",
+          "type": "FLOAT",
+          "widget": {
+            "name": "cfg_scale"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "temperature",
+          "name": "temperature",
+          "type": "FLOAT",
+          "widget": {
+            "name": "temperature"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "top_p",
+          "name": "top_p",
+          "type": "FLOAT",
+          "widget": {
+            "name": "top_p"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "top_k",
+          "name": "top_k",
+          "type": "INT",
+          "widget": {
+            "name": "top_k"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "min_p",
+          "name": "min_p",
+          "type": "FLOAT",
+          "widget": {
+            "name": "min_p"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "CONDITIONING",
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            1816
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "TextEncodeAceStepAudio1.5",
+        "cnr_id": "comfy-core",
+        "ver": "0.11.1",
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65
+      },
+      "widgets_values": [
+        "A lush neo-soul track anchored by a warm Rhodes electric piano playing rich ninth and thirteenth chords over a loose, soulful live drum groove with heavy use of ghost notes and rim shots. A fretless bass provides a melodic, singing counterline beneath the harmony. The lead vocalist is a powerful, expressive woman who moves fluidly between a smoky chest voice and an airy falsetto, employing tasteful melismatic runs and bluesy bends. A tight three-part vocal harmony stack fills out the chorus. A muted trumpet and alto saxophone trade fills during the instrumental bridge, channeling the spirit of classic 1970s soul. The production is warm and analog-sounding, with subtle tape saturation and a slight room ambience.",
+        "[Intro — Rhodes piano and brushed drums]\n[Verse 1]\nYou never call when the neon goes dark\nJust send a signal like an afterthought\nI learned to read the silence between the lines\nAnd honey that's a language I know too well by now\n[Pre-Chorus]\nMaybe I'm the fool who kept the door wide open\nMaybe you're the draft that keeps on blowing through\n[Chorus]\nI'm done rewriting your story in my head\nDone saving room for someone who's already gone\nI'll keep the record on\nBut I'll stop singing your part\n[Instrumental Bridge — Muted trumpet and alto saxophone trade phrases]\n[Verse 2]\nThe coffee shop still plays our favourite song\nI ordered something different, stayed too long\nBut every note just proved that I was right\nTo let the whole thing go before it burned my life\n[Final Chorus — Layered harmonies, fuller arrangement]\n[Outro — Rhodes vamp fades, final bass note sustains]\n",
+        0,
+        "fixed",
+        120,
+        120,
+        "4",
+        "en",
+        "E minor",
+        true,
+        2,
+        0.85,
+        1,
+        0,
+        0
+      ],
+      "color": "#263b29",
+      "bgcolor": "#35593c"
+    },
+    {
+      "id": 1587,
+      "type": "Seed (rgthree)",
+      "title": "🎲 Seed · песня",
+      "pos": [
+        1280,
+        6330
+      ],
+      "size": [
+        220,
+        140
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 1587,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "SEED",
+          "type": "INT",
+          "links": [
+            1814,
+            1825
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Seed (rgthree)"
+      },
+      "widgets_values": [
+        0,
+        "",
+        "",
+        ""
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 1588,
+      "type": "PrimitiveFloat",
+      "title": "⏱️ Длительность песни, с",
+      "pos": [
+        1520,
+        6330
+      ],
+      "size": [
+        220,
+        100
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 1588,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "FLOAT",
+          "type": "FLOAT",
+          "links": [
+            1811
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PrimitiveFloat"
+      },
+      "widgets_values": [
+        120
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 1595,
+      "type": "KSampler",
+      "title": "🔴 ACE · генерация звука",
+      "pos": [
+        1280,
+        5930
+      ],
+      "size": [
+        460,
+        370
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 1595,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "model",
+          "name": "model",
+          "type": "MODEL",
+          "link": 1821
+        },
+        {
+          "localized_name": "positive",
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 1818
+        },
+        {
+          "localized_name": "negative",
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 1819
+        },
+        {
+          "localized_name": "latent_image",
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 1824
+        },
+        {
+          "localized_name": "seed",
+          "name": "seed",
+          "type": "INT",
+          "widget": {
+            "name": "seed"
+          },
+          "link": 1825
+        },
+        {
+          "localized_name": "steps",
+          "name": "steps",
+          "type": "INT",
+          "widget": {
+            "name": "steps"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "cfg",
+          "name": "cfg",
+          "type": "FLOAT",
+          "widget": {
+            "name": "cfg"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "sampler_name",
+          "name": "sampler_name",
+          "type": "COMBO",
+          "widget": {
+            "name": "sampler_name"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "scheduler",
+          "name": "scheduler",
+          "type": "COMBO",
+          "widget": {
+            "name": "scheduler"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "denoise",
+          "name": "denoise",
+          "type": "FLOAT",
+          "widget": {
+            "name": "denoise"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "LATENT",
+          "name": "LATENT",
+          "type": "LATENT",
+          "slot_index": 0,
+          "links": [
+            1826
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "KSampler",
+        "cnr_id": "comfy-core",
+        "ver": "0.11.1",
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65
+      },
+      "widgets_values": [
+        0,
+        "fixed",
+        50,
+        7,
+        "euler",
+        "simple",
+        1
+      ],
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 1607,
+      "type": "SaveAudioAdvanced",
+      "title": "💾 Песня · FLAC · выключено",
+      "pos": [
+        1280,
+        6500
+      ],
+      "size": [
+        460,
+        130
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 1607,
+      "mode": 2,
+      "inputs": [
+        {
+          "localized_name": "audio",
+          "name": "audio",
+          "type": "AUDIO",
+          "link": 1829
+        },
+        {
+          "localized_name": "filename_prefix",
+          "name": "filename_prefix",
+          "type": "STRING",
+          "widget": {
+            "name": "filename_prefix"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "format",
+          "name": "format",
+          "type": "COMFY_DYNAMICCOMBO_V3",
+          "widget": {
+            "name": "format"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "audioUI",
+          "name": "audioUI",
+          "type": "AUDIO_UI",
+          "widget": {
+            "name": "audioUI"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "audio",
+          "name": "audio",
+          "type": "AUDIO",
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SaveAudioAdvanced",
+        "cnr_id": "comfy-core",
+        "ver": "0.30.2"
+      },
+      "widgets_values": [
+        "audio/Universal_ACE",
+        "flac"
+      ],
+      "color": "#223",
+      "bgcolor": "#335"
     }
   ],
   "links": [
@@ -84309,6 +85865,166 @@
       1579,
       1,
       "INT"
+    ],
+    [
+      1810,
+      1582,
+      0,
+      1585,
+      0,
+      "MODEL"
+    ],
+    [
+      1811,
+      1588,
+      0,
+      1590,
+      0,
+      "FLOAT"
+    ],
+    [
+      1812,
+      1591,
+      0,
+      1589,
+      0,
+      "FLOAT"
+    ],
+    [
+      1813,
+      1592,
+      0,
+      1586,
+      5,
+      "FLOAT"
+    ],
+    [
+      1814,
+      1587,
+      0,
+      1593,
+      0,
+      "INT"
+    ],
+    [
+      1815,
+      1594,
+      0,
+      1586,
+      3,
+      "INT"
+    ],
+    [
+      1816,
+      1586,
+      0,
+      1597,
+      0,
+      "CONDITIONING"
+    ],
+    [
+      1817,
+      1598,
+      0,
+      1596,
+      0,
+      "CONDITIONING"
+    ],
+    [
+      1818,
+      1599,
+      0,
+      1595,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      1819,
+      1596,
+      0,
+      1595,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      1820,
+      1585,
+      0,
+      1600,
+      0,
+      "MODEL"
+    ],
+    [
+      1821,
+      1601,
+      0,
+      1595,
+      0,
+      "MODEL"
+    ],
+    [
+      1822,
+      1583,
+      0,
+      1602,
+      0,
+      "CLIP"
+    ],
+    [
+      1823,
+      1603,
+      0,
+      1586,
+      0,
+      "CLIP"
+    ],
+    [
+      1824,
+      1589,
+      0,
+      1595,
+      3,
+      "LATENT"
+    ],
+    [
+      1825,
+      1587,
+      0,
+      1595,
+      4,
+      "INT"
+    ],
+    [
+      1826,
+      1595,
+      0,
+      1604,
+      0,
+      "LATENT"
+    ],
+    [
+      1827,
+      1584,
+      0,
+      1605,
+      0,
+      "VAE"
+    ],
+    [
+      1828,
+      1606,
+      0,
+      1604,
+      1,
+      "VAE"
+    ],
+    [
+      1829,
+      1604,
+      0,
+      1607,
+      0,
+      "AUDIO"
     ]
   ],
   "groups": [
@@ -85108,6 +86824,42 @@
         4720,
         640,
         720
+      ],
+      "color": "#31564f",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "title": "🎼 Песня · Модели",
+      "bounding": [
+        20,
+        5870,
+        480,
+        600
+      ],
+      "color": "#31564f",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "title": "🎼 Песня · Композиция",
+      "bounding": [
+        520,
+        5870,
+        720,
+        740
+      ],
+      "color": "#31564f",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "title": "🎼 Песня · Генерация",
+      "bounding": [
+        1260,
+        5870,
+        500,
+        800
       ],
       "color": "#31564f",
       "font_size": 24,
@@ -86348,6 +88100,24 @@
           "tag": "audio-design",
           "class": "AILab_Qwen3TTSVoiceDesign_Advanced",
           "title": "🔴 Голос по описанию · Qwen3-TTS"
+        },
+        {
+          "uid": "src_song_model",
+          "tag": "song-model",
+          "class": "UNETLoader",
+          "title": "🧠 ACE-Step 1.5 XL SFT"
+        },
+        {
+          "uid": "src_song_clip",
+          "tag": "song-clip",
+          "class": "DualCLIPLoader",
+          "title": "🔤 ACE · два энкодера"
+        },
+        {
+          "uid": "src_song_vae",
+          "tag": "song-vae",
+          "class": "VAELoader",
+          "title": "🎨 ACE · Audio VAE"
         }
       ],
       "pages": [
@@ -86475,7 +88245,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v0.20.0",
+            "text": "🧩 Универсальный воркфлоу · v0.21.0",
             "size": "M",
             "align": "left"
           },
@@ -87980,6 +89750,26 @@
               "src": "src_video_media",
               "kind": "widget",
               "name": "factory_video_model_fl"
+            },
+            "song_model": {
+              "src": "src_song_model",
+              "kind": "widget",
+              "name": "unet_name"
+            },
+            "song_clip1": {
+              "src": "src_song_clip",
+              "kind": "widget",
+              "name": "clip_name1"
+            },
+            "song_clip2": {
+              "src": "src_song_clip",
+              "kind": "widget",
+              "name": "clip_name2"
+            },
+            "song_vae": {
+              "src": "src_song_vae",
+              "kind": "widget",
+              "name": "vae_name"
             }
           },
           "props": {
@@ -88827,7 +90617,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v0.20.0",
+            "text": "🧩 Универсальный воркфлоу · v0.21.0",
             "size": "M",
             "align": "left"
           },
@@ -89174,6 +90964,26 @@
               "src": "src_video_media",
               "kind": "widget",
               "name": "factory_video_model_fl"
+            },
+            "song_model": {
+              "src": "src_song_model",
+              "kind": "widget",
+              "name": "unet_name"
+            },
+            "song_clip1": {
+              "src": "src_song_clip",
+              "kind": "widget",
+              "name": "clip_name1"
+            },
+            "song_clip2": {
+              "src": "src_song_clip",
+              "kind": "widget",
+              "name": "clip_name2"
+            },
+            "song_vae": {
+              "src": "src_song_vae",
+              "kind": "widget",
+              "name": "vae_name"
             }
           },
           "props": {
@@ -89695,7 +91505,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v0.20.0",
+            "text": "🧩 Универсальный воркфлоу · v0.21.0",
             "size": "M",
             "align": "left"
           },
@@ -90042,6 +91852,26 @@
               "src": "src_video_media",
               "kind": "widget",
               "name": "factory_video_model_fl"
+            },
+            "song_model": {
+              "src": "src_song_model",
+              "kind": "widget",
+              "name": "unet_name"
+            },
+            "song_clip1": {
+              "src": "src_song_clip",
+              "kind": "widget",
+              "name": "clip_name1"
+            },
+            "song_clip2": {
+              "src": "src_song_clip",
+              "kind": "widget",
+              "name": "clip_name2"
+            },
+            "song_vae": {
+              "src": "src_song_vae",
+              "kind": "widget",
+              "name": "vae_name"
             }
           },
           "props": {
@@ -90994,7 +92824,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v0.20.0",
+            "text": "🧩 Универсальный воркфлоу · v0.21.0",
             "size": "M",
             "align": "left"
           },
@@ -91341,6 +93171,26 @@
               "src": "src_video_media",
               "kind": "widget",
               "name": "factory_video_model_fl"
+            },
+            "song_model": {
+              "src": "src_song_model",
+              "kind": "widget",
+              "name": "unet_name"
+            },
+            "song_clip1": {
+              "src": "src_song_clip",
+              "kind": "widget",
+              "name": "clip_name1"
+            },
+            "song_clip2": {
+              "src": "src_song_clip",
+              "kind": "widget",
+              "name": "clip_name2"
+            },
+            "song_vae": {
+              "src": "src_song_vae",
+              "kind": "widget",
+              "name": "vae_name"
             }
           },
           "props": {
@@ -92380,7 +94230,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "↔️ Дорисовка за границами кадра · v0.20.0",
+            "text": "↔️ Дорисовка за границами кадра · v0.21.0",
             "size": "M",
             "align": "left"
           },
@@ -92727,6 +94577,26 @@
               "src": "src_video_media",
               "kind": "widget",
               "name": "factory_video_model_fl"
+            },
+            "song_model": {
+              "src": "src_song_model",
+              "kind": "widget",
+              "name": "unet_name"
+            },
+            "song_clip1": {
+              "src": "src_song_clip",
+              "kind": "widget",
+              "name": "clip_name1"
+            },
+            "song_clip2": {
+              "src": "src_song_clip",
+              "kind": "widget",
+              "name": "clip_name2"
+            },
+            "song_vae": {
+              "src": "src_song_vae",
+              "kind": "widget",
+              "name": "vae_name"
             }
           },
           "props": {
@@ -94357,7 +96227,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v0.20.0",
+            "text": "🧩 Универсальный воркфлоу · v0.21.0",
             "size": "M",
             "align": "left"
           },
@@ -94704,6 +96574,26 @@
               "src": "src_video_media",
               "kind": "widget",
               "name": "factory_video_model_fl"
+            },
+            "song_model": {
+              "src": "src_song_model",
+              "kind": "widget",
+              "name": "unet_name"
+            },
+            "song_clip1": {
+              "src": "src_song_clip",
+              "kind": "widget",
+              "name": "clip_name1"
+            },
+            "song_clip2": {
+              "src": "src_song_clip",
+              "kind": "widget",
+              "name": "clip_name2"
+            },
+            "song_vae": {
+              "src": "src_song_vae",
+              "kind": "widget",
+              "name": "vae_name"
             }
           },
           "props": {
@@ -94972,7 +96862,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v0.20.0",
+            "text": "🧩 Универсальный воркфлоу · v0.21.0",
             "size": "M",
             "align": "left"
           },
@@ -95319,6 +97209,26 @@
               "src": "src_video_media",
               "kind": "widget",
               "name": "factory_video_model_fl"
+            },
+            "song_model": {
+              "src": "src_song_model",
+              "kind": "widget",
+              "name": "unet_name"
+            },
+            "song_clip1": {
+              "src": "src_song_clip",
+              "kind": "widget",
+              "name": "clip_name1"
+            },
+            "song_clip2": {
+              "src": "src_song_clip",
+              "kind": "widget",
+              "name": "clip_name2"
+            },
+            "song_vae": {
+              "src": "src_song_vae",
+              "kind": "widget",
+              "name": "vae_name"
             }
           },
           "props": {
@@ -95525,7 +97435,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🎬 Видео · MiniMax H3 · v0.20.0",
+            "text": "🎬 Видео · MiniMax H3 · v0.21.0",
             "size": "M",
             "align": "left"
           },
@@ -95872,6 +97782,26 @@
               "src": "src_video_media",
               "kind": "widget",
               "name": "factory_video_model_fl"
+            },
+            "song_model": {
+              "src": "src_song_model",
+              "kind": "widget",
+              "name": "unet_name"
+            },
+            "song_clip1": {
+              "src": "src_song_clip",
+              "kind": "widget",
+              "name": "clip_name1"
+            },
+            "song_clip2": {
+              "src": "src_song_clip",
+              "kind": "widget",
+              "name": "clip_name2"
+            },
+            "song_vae": {
+              "src": "src_song_vae",
+              "kind": "widget",
+              "name": "vae_name"
             }
           },
           "props": {
@@ -96472,7 +98402,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🎬 Звук · Higgs v3 · v0.20.0",
+            "text": "🎬 Звук · Higgs v3 · v0.21.0",
             "size": "M",
             "align": "left"
           },
@@ -96819,6 +98749,26 @@
               "src": "src_video_media",
               "kind": "widget",
               "name": "factory_video_model_fl"
+            },
+            "song_model": {
+              "src": "src_song_model",
+              "kind": "widget",
+              "name": "unet_name"
+            },
+            "song_clip1": {
+              "src": "src_song_clip",
+              "kind": "widget",
+              "name": "clip_name1"
+            },
+            "song_clip2": {
+              "src": "src_song_clip",
+              "kind": "widget",
+              "name": "clip_name2"
+            },
+            "song_vae": {
+              "src": "src_song_vae",
+              "kind": "widget",
+              "name": "vae_name"
             }
           },
           "props": {
@@ -97067,7 +99017,7 @@
             }
           },
           "props": {
-            "text": "💾 Сохранять MP3",
+            "text": "💾 Сохранять аудио",
             "description": "Выключено по умолчанию",
             "afterWith": "aud_result",
             "afterGap": 12
@@ -97102,14 +99052,14 @@
           "locked": true,
           "slots": {
             "value": {
-              "src": "src_audio_text",
+              "src": "src_audio_controller",
               "kind": "widget",
-              "name": "value"
+              "name": "factory_audio_text"
             }
           },
           "props": {
-            "label": "✍️ Текст для озвучки",
-            "placeholder": "Текст речи. Для диалога: [Speaker_1]: реплика, затем [Speaker_2]: реплика.",
+            "label": "✍️ Текст / слова песни",
+            "placeholder": "Текст речи или слова песни с разметкой [Verse] / [Chorus]…",
             "counter": false,
             "spell": false,
             "weights": true,
