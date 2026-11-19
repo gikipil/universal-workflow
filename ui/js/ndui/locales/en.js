@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 // Universal Workflow English UI dictionary, gikipil 2026. Russian source keys.
 export default {
-  "Светлый камень и белые блоки, красные акценты и тёмный бирюзовый текст.": "Light stone and white blocks, red accents and dark teal text.",
+  "Слоновая кость, красные акценты и тёмный бирюзовый текст.": "Ivory, red accents and dark teal text.",
   "Нейтральные графитовые поверхности и серебристые акценты.": "Neutral graphite surfaces and silver accents.",
   "Чернильный синий, светлая лаванда и прохладные голубые акценты.": "Inky blue, pale lavender and cool blue accents.",
   "Тёмные морские поверхности, мятные и светло-голубые акценты.": "Dark ocean surfaces, mint and pale blue accents.",
