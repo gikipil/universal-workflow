@@ -68,8 +68,8 @@ export const PREVIEW_BACKGROUNDS=[
 ];
 export const APPEARANCE_CONTROL_CSS=`
 .acf-visual-font,.acf-visual-font :is(button,input,select,textarea,label){font-family:var(--ndk-font)!important}
-.acf-visual-density :is(.ndk-field,.ndk-chip,.acf-settings-select,select:not([multiple])){height:var(--ndk-ctl)!important;min-height:var(--ndk-ctl)!important;max-height:var(--ndk-ctl)!important;box-sizing:border-box}
-.acf-visual-density .ndk-field .ndk-input{min-height:0!important}
+.acf-visual-density :is(.ndk-field:not(.ndk-area):not(:has(textarea)),.ndk-chip,.acf-settings-select,select:not([multiple])){height:var(--ndk-ctl)!important;min-height:var(--ndk-ctl)!important;max-height:var(--ndk-ctl)!important;box-sizing:border-box}
+.acf-visual-density .ndk-field:not(.ndk-area):not(:has(textarea)) .ndk-input{min-height:0!important}
 .acf-visual-density .ndk-field .ndk-chip{height:100%!important;min-height:0!important;max-height:none!important}
 .acf-visual-density .acf-settings-picker{min-height:var(--ndk-ctl)!important}
 .acf-visual-style[data-field-style="soft"] :is(.ndk-field,.acf-settings-select,select:not([multiple])){background:var(--ndk-s2,#20252d)!important;border:1px solid var(--ndk-border,#3b4955)!important;box-shadow:inset 0 1px 0 #ffffff0d,0 1px 2px #0004!important;backdrop-filter:none!important}
