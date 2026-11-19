@@ -58,6 +58,13 @@ export const APPEARANCE_FONTS=[
  {id:'consolas',name:'Consolas · моноширинный',family:'Consolas, "Courier New", monospace'},
  {id:'courier',name:'Courier New · печатный',family:'"Courier New", Courier, monospace'},
 ];
+export const PREVIEW_BACKGROUNDS=[
+ {id:'standard',name:'Как в цветовом профиле',background:'#20252d'},
+ {id:'dark',name:'Тёмный',background:'#12151b'},
+ {id:'gray',name:'Нейтральный серый',background:'#777b82'},
+ {id:'light',name:'Светлый',background:'#eceef2'},
+ {id:'checker',name:'Шахматный · прозрачность',background:'repeating-conic-gradient(#a6abb3 0 25%,#d8dce2 0 50%)',size:'20px 20px'},
+];
 export const APPEARANCE_CONTROL_CSS=`
 .acf-visual-font,.acf-visual-font :is(button,input,select,textarea,label){font-family:var(--ndk-font)!important}
 .acf-visual-density :is(.ndk-field,.ndk-chip,.acf-settings-select,select:not([multiple])){height:var(--ndk-ctl)!important;min-height:var(--ndk-ctl)!important;max-height:var(--ndk-ctl)!important;box-sizing:border-box}
@@ -69,20 +76,24 @@ export const APPEARANCE_CONTROL_CSS=`
 .acf-visual-style[data-field-style="glass"] :is(.ndk-field,.acf-settings-select,select:not([multiple])){background:linear-gradient(135deg,#ffffff22,#ffffff08)!important;border:1px solid #c6eee84d!important;box-shadow:inset 0 1px 0 #ffffff38,0 4px 12px #0003!important;backdrop-filter:blur(12px) saturate(135%)!important;-webkit-backdrop-filter:blur(12px) saturate(135%)!important}
 .acf-visual-style[data-field-style="minimal"] :is(.ndk-field,.acf-settings-select,select:not([multiple])){background:transparent!important;border:0!important;border-bottom:1px solid var(--ndk-border-strong,#67827e)!important;border-radius:0!important;box-shadow:none!important;backdrop-filter:none!important}
 .acf-visual-style .ndk-field .ndk-input{background:transparent!important}
+.acf-preview-custom :is(.ndk-media-main,.ndk-cmp,.ndk-vw-side .cell,.ndk-pl.video .stage){background:var(--acf-preview-bg)!important;background-size:var(--acf-preview-size,auto)!important}
+.acf-motion-fast *{transition-duration:75ms!important;transition-delay:0s!important}
+.acf-motion-off *,.acf-motion-off *::before,.acf-motion-off *::after{transition:none!important;animation:none!important;scroll-behavior:auto!important}
 
 `;
-export function syncAppearanceRoot(ui,root){const v=appearanceBar(ui)?.props?.visualControls||{};root.classList.toggle('acf-visual-font',!!v.font);root.classList.toggle('acf-visual-density',!!v.density||['compact','comfortable'].includes(ui.kit?.density));root.classList.toggle('acf-visual-style',!!v.style||ui.kit?.style!=='soft');root.setAttribute('data-field-style',v.style||ui.kit?.style||'soft');}
+export function syncAppearanceRoot(ui,root){const v=appearanceBar(ui)?.props?.visualControls||{};root.classList.toggle('acf-visual-font',!!v.font);root.classList.toggle('acf-visual-density',!!v.density||['compact','comfortable'].includes(ui.kit?.density));root.classList.toggle('acf-visual-style',!!v.style||ui.kit?.style!=='soft');root.setAttribute('data-field-style',v.style||ui.kit?.style||'soft');root.classList.toggle('acf-preview-custom',!!v.previewBackground&&v.previewBackground!=='standard');root.classList.toggle('acf-motion-fast',v.animations==='fast');root.classList.toggle('acf-motion-off',v.animations==='off');}
 // Presentation preferences: processing nodes and model settings are never touched.
 const appearanceBar=ui=>ui.widgets?.find(w=>w.id==='taskbar');
 export function readAppearanceControls(ui){
  const bar=appearanceBar(ui),v=bar?.props?.visualControls||{},kit=ui.kit||{};
- return{font:v.font||kit.font||'inter',density:kit.density||'spacious',style:kit.style||'soft',fontSize:v.fontSize??({compact:12,comfortable:13,spacious:14}[kit.density]||14),radius:v.radius??'default',accentA:bar?.props?.accentA||'#36cfea',accentB:bar?.props?.accentB||'#59e68d'};
+ return{columnWidth:v.columnWidth??0,previewBackground:v.previewBackground||'standard',animations:v.animations||'normal',font:v.font||kit.font||'inter',density:kit.density||'spacious',style:kit.style||'soft',fontSize:v.fontSize??({compact:12,comfortable:13,spacious:14}[kit.density]||14),radius:v.radius??'default',accentA:bar?.props?.accentA||'#36cfea',accentB:bar?.props?.accentB||'#59e68d'};
 }
 export function applyAppearanceControls(ui,patch){
  const bar=appearanceBar(ui);if(!bar||!patch||typeof patch!=='object'||Array.isArray(patch))return false;
- const enums={font:APPEARANCE_FONTS.map(f=>f.id),density:['compact','comfortable','spacious'],style:['soft','outline','glass','minimal']};
+ const enums={font:APPEARANCE_FONTS.map(f=>f.id),density:['compact','comfortable','spacious'],style:['soft','outline','glass','minimal'],previewBackground:PREVIEW_BACKGROUNDS.map(b=>b.id),animations:['normal','fast','off']};
  for(const[k,v]of Object.entries(patch)){
   if(k in enums){if(!enums[k].includes(v))return false;}
+  else if(k==='columnWidth'){if(![0,24,28,32,36,40].includes(v))return false;}
   else if(k==='fontSize'){if(!Number.isInteger(v)||v<12||v>18)return false;}
   else if(k==='radius'){if(v!=='default'&&(!Number.isInteger(v)||v<0||v>24))return false;}
   else return false;
@@ -92,6 +103,7 @@ export function applyAppearanceControls(ui,patch){
   if(k==='font'){ui.kit.font=v==='inter'?'inter':'system';bar.props.visualControls.font=v;}
   else if(k==='density'){ui.kit.density=v;bar.props.visualControls.density=v;}
   else if(k==='style'){ui.kit.style=v;bar.props.visualControls.style=v;}
+  else if(k==='previewBackground'||k==='animations')bar.props.visualControls[k]=v;
   else if(k in enums)ui.kit[k]=v;
   else if(k==='radius'&&v==='default')delete bar.props.visualControls.radius;
   else bar.props.visualControls[k]=v;
@@ -99,10 +111,25 @@ export function applyAppearanceControls(ui,patch){
  for(const other of ui.widgets.filter(w=>w.type==='factorytaskbar_v0215')){other.props||={};other.props.visualControls=clone(bar.props.visualControls);for(const k of['accentA','accentB'])other.props[k]=bar.props[k];}
  return true;
 }
-export function appearanceVars(ui,vars){const v=appearanceBar(ui)?.props?.visualControls;const font=APPEARANCE_FONTS.find(f=>f.id===(v?.font||ui.kit?.font));if(font)vars['--ndk-font']=font.family;vars['--ndk-ctl']=({compact:30,comfortable:36,spacious:44}[v?.density||ui.kit?.density]||44)+'px';if(v?.fontSize)vars['--ndk-fs']=v.fontSize+'px';if(Number.isInteger(v?.radius))for(const key of['--ndk-rs','--ndk-rm','--ndk-rl','--ndk-ra'])vars[key]=v.radius+'px';return vars;}
+export function appearanceVars(ui,vars){const v=appearanceBar(ui)?.props?.visualControls;const font=APPEARANCE_FONTS.find(f=>f.id===(v?.font||ui.kit?.font));if(font)vars['--ndk-font']=font.family;vars['--ndk-ctl']=({compact:30,comfortable:36,spacious:44}[v?.density||ui.kit?.density]||44)+'px';const preview=PREVIEW_BACKGROUNDS.find(b=>b.id===v?.previewBackground);if(preview){vars['--acf-preview-bg']=preview.background;vars['--acf-preview-size']=preview.size||'auto';}if(v?.fontSize)vars['--ndk-fs']=v.fontSize+'px';if(Number.isInteger(v?.radius))for(const key of['--ndk-rs','--ndk-rm','--ndk-rl','--ndk-ra'])vars[key]=v.radius+'px';return vars;}
 export function resetAppearanceControls(ui){
  if(!applyAppearanceProfile(ui,'standard'))return false;
  Object.assign(ui.kit,{font:'inter',density:'spacious',style:'soft'});
  for(const bar of ui.widgets.filter(w=>w.type==='factorytaskbar_v0215')){delete bar.props.visualControls;bar.props.glow='soft';}
  return true;
+}
+
+// Reflow display rectangles only: saved widget geometry and graph inputs stay intact.
+export function appearanceColumns(ui,page,rects){
+ const percent=readAppearanceControls(ui).columnWidth;if(!percent)return rects;
+ const widgets=ui.widgets.filter(w=>w.page===page),byId=new Map(widgets.map(w=>[w.id,w]));
+ const leftWidget=widgets.find(w=>!w.parent&&w.x===24&&w.w===336&&rects.has(w.id));
+ const rightWidget=widgets.find(w=>!w.parent&&w.x===384&&w.w===792&&rects.has(w.id));
+ if(!leftWidget||!rightWidget)return rects;
+ const left=rects.get(leftWidget.id),right=rects.get(rightWidget.id),leftX=left.x,oldLeftEnd=left.x+left.w,rightEnd=right.x+right.w,gap=Math.max(12,right.x-oldLeftEnd),available=rightEnd-leftX-gap;
+ if(available<600||left.w<=0||right.w<=0)return rects;
+ const leftWidth=Math.max(280,Math.min(available*.45,available*percent/100)),newRight=leftX+leftWidth+gap;
+ const region=w=>{let n=w;while(n.parent&&byId.has(n.parent))n=byId.get(n.parent);return n.x+n.w<=361?'left':n.x>=384?'right':null;};
+ const move=(box,side)=>{const scale=side==='left'?leftWidth/left.w:(rightEnd-newRight)/right.w,origin=side==='left'?leftX:right.x,start=side==='left'?leftX:newRight;return{...box,x:start+(box.x-origin)*scale,w:box.w*scale};};
+ return new Map([...rects].map(([id,box])=>{const w=byId.get(id),side=w&&region(w);if(!side)return[id,box];const next=move(box,side);if(box.clip)next.clip=move(box.clip,side);return[id,next];}));
 }

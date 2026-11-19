@@ -6,7 +6,7 @@ import {captionModelFields} from './factory_caption.js';
 import {el, closePopup} from './util.js';
 import {modelpicker} from './special.js';
 import {applyVars} from '../kit.js';
-import {APPEARANCE_PROFILES,APPEARANCE_FONTS,APPEARANCE_CONTROL_CSS} from '../factory_appearance.js';
+import {APPEARANCE_PROFILES,APPEARANCE_FONTS,APPEARANCE_CONTROL_CSS,PREVIEW_BACKGROUNDS} from '../factory_appearance.js';
 
 const MODEL_FIELDS = [
     ['song_model','ACE-Step · модель','diffusion_models'],['song_clip1','ACE · энкодер 0.6B','text_encoders'],['song_clip2','ACE · энкодер 4B','text_encoders'],['song_vae','ACE · Audio VAE','vae'],
@@ -188,7 +188,7 @@ export function openFactorySettings(ctx, onClose=()=>{}) {
     function appearanceSelect(container,key,label,items){
         const field=el('label','acf-settings-field'),select=el('select','acf-settings-select');select.setAttribute('aria-label',label);field.append(el('span','',label),select);container.append(field);
         for(const[value,name]of items){const option=el('option','',name);option.value=String(value);select.append(option);}
-        select.addEventListener('change',()=>{ctx.setAppearanceControls?.({[key]:key==='fontSize'||key==='radius'&&select.value!=='default'?Number(select.value):select.value});update();});
+        select.addEventListener('change',()=>{ctx.setAppearanceControls?.({[key]:key==='fontSize'||key==='columnWidth'||key==='radius'&&select.value!=='default'?Number(select.value):select.value});update();});
         select.addEventListener('keydown',e=>e.stopPropagation());appearanceControls.push([select,key]);return select;
     }
     appearanceSelect(textCard,'font','Шрифт',APPEARANCE_FONTS.map(f=>[f.id,f.name]));
@@ -197,6 +197,11 @@ export function openFactorySettings(ctx, onClose=()=>{}) {
     const fieldsCard=card(appearanceGrid,'▢ Оформление полей','Цвета задаются выбранным профилем. Назначение промтов, LoRA и кнопки генерации остаётся прежним.');
     appearanceSelect(fieldsCard,'style','Стиль полей',[['soft','Мягкая подложка'],['outline','Контур'],['glass','Стекло'],['minimal','Минимальный']]);
     const radius=appearanceSelect(fieldsCard,'radius','Скругление',[['default','Стандартное'],['0','Прямые углы'],['6','Небольшое · 6 px'],['12','Мягкое · 12 px'],['18','Выраженное · 18 px'],['24','Круглое · 24 px']]);
+    const workspaceCard=card(appearanceGrid,'▥ Рабочее пространство','Ширина меняется на рабочих вкладках. Настройки генерации и размер сохраняемого результата остаются прежними.');
+    appearanceSelect(workspaceCard,'columnWidth','Ширина колонки настроек',[[0,'Стандартная'],[24,'Узкая · 24%'],[28,'Немного уже · 28%'],[32,'Средняя · 32%'],[36,'Широкая · 36%'],[40,'Очень широкая · 40%']]);
+    appearanceSelect(workspaceCard,'previewBackground','Фон превью',PREVIEW_BACKGROUNDS.map(b=>[b.id,b.name]));
+    const motionCard=card(appearanceGrid,'✦ Анимации','Управляет переходами интерфейса. Воспроизведение видео и выполнение задач продолжаются в любом режиме.');
+    appearanceSelect(motionCard,'animations','Режим анимаций',[['normal','Обычные'],['fast','Быстрые переходы'],['off','Выключены']]);
     const previewCard=card(visual,'👁️ Предпросмотр','Изменения применяются сразу. Сохрани workflow, чтобы перенести оформление вместе с ним.');previewCard.style.marginTop='20px';
     const preview=el('div','acf-settings-preview'),previewTitle=el('strong','','Пример поля'),previewText=el('div','','Текст остаётся читаемым, элементы — различимыми.'),previewControls=el('div','acf-settings-preview-controls'),sampleField=el('span','ndk-field','Значение · 1024'),sampleAccent=el('span','','Активный раздел');
     for(const node of[sampleField,sampleAccent]){node.style.padding='8px 12px';node.style.border='1px solid #53776e';}previewControls.append(sampleField,sampleAccent);preview.append(previewTitle,previewText,previewControls);previewCard.append(preview);
@@ -207,10 +212,11 @@ export function openFactorySettings(ctx, onClose=()=>{}) {
         const appearance=ctx.appearance?.()||'standard',profile=APPEARANCE_PROFILES.find(p=>p.id===appearance)||APPEARANCE_PROFILES[0];overlay.style.background=profile.bg;
         applyVars(overlay,ctx.vars());for(const[b,id]of profileButtons)b.setAttribute('aria-pressed',String(id===appearance));
         for(const[b,value]of glowButtons)b.setAttribute('aria-pressed',String((ctx.prop('glow')||'soft')===value));
-        const visualOptions=ctx.appearanceControls?.()||{font:'inter',fontSize:14,density:'spacious',style:'soft',radius:'default',accentA:ctx.prop('accentA')||'#36cfea',accentB:ctx.prop('accentB')||'#59e68d'};
-        overlay.classList.toggle('acf-visual-font',!!ctx.appearanceControls);overlay.classList.toggle('acf-visual-density',!!ctx.appearanceControls);overlay.classList.toggle('acf-visual-style',!!ctx.appearanceControls);overlay.setAttribute('data-field-style',visualOptions.style);
+        const visualOptions=ctx.appearanceControls?.()||{columnWidth:0,previewBackground:'standard',animations:'normal',font:'inter',fontSize:14,density:'spacious',style:'soft',radius:'default',accentA:ctx.prop('accentA')||'#36cfea',accentB:ctx.prop('accentB')||'#59e68d'};
+        overlay.classList.toggle('acf-visual-font',!!ctx.appearanceControls);overlay.classList.toggle('acf-visual-density',!!ctx.appearanceControls);overlay.classList.toggle('acf-visual-style',!!ctx.appearanceControls);overlay.setAttribute('data-field-style',visualOptions.style);overlay.classList.toggle('acf-motion-fast',visualOptions.animations==='fast');overlay.classList.toggle('acf-motion-off',visualOptions.animations==='off');
         for(const[input,key,code]of appearanceControls){if(document.activeElement!==input)input.value=String(visualOptions[key]);if(code)code.textContent=String(visualOptions[key]).toUpperCase();}
         const rounding=visualOptions.radius==='default'?12:Number(visualOptions.radius);preview.style.fontSize=visualOptions.fontSize+'px';preview.style.fontFamily=APPEARANCE_FONTS.find(f=>f.id===visualOptions.font)?.family||'system-ui,sans-serif';preview.style.borderRadius=rounding+'px';
+        const previewBg=PREVIEW_BACKGROUNDS.find(b=>b.id===visualOptions.previewBackground);preview.style.background=previewBg?.background||'#20252d';preview.style.backgroundSize=previewBg?.size||'auto';preview.style.color=['light','checker'].includes(visualOptions.previewBackground)?'#17212b':'#e8eaf0';
         for(const element of[sampleField,sampleAccent])element.style.borderRadius=rounding+'px';sampleAccent.style.background=`linear-gradient(115deg,${visualOptions.accentA},${visualOptions.accentB})`;sampleAccent.style.color='#101820';sampleField.style.background=visualOptions.style==='outline'?'transparent':'#29353e';
 
     }

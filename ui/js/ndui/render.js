@@ -7,7 +7,7 @@ import {taskPageUi} from './task_page.js';
 // ND UI — PageView: draws a page of the panel (in the node, in the editor, on the full screen).
 // It keeps one frame per widget, gives each widget its context (ctx), and every frame looks at the bound parameters to keep the widgets in step with the graph.
 
-import {applyAppearanceProfile,appearanceProfile,readAppearanceControls,applyAppearanceControls,resetAppearanceControls,appearanceVars,APPEARANCE_CONTROL_CSS,syncAppearanceRoot} from "./factory_appearance.js";
+import {applyAppearanceProfile,appearanceProfile,readAppearanceControls,applyAppearanceControls,resetAppearanceControls,appearanceVars,APPEARANCE_CONTROL_CSS,syncAppearanceRoot,appearanceColumns} from "./factory_appearance.js";
 import { applyVars, varsFor, tokensOf, pageBackground, injectKit } from "./kit.js";
 import { defOf, defaultProps } from "./widgets/index.js";
 import { resolveSlot, writeSlot, effectiveLimits, stateLabel } from "./bind.js";
@@ -183,6 +183,7 @@ export class PageView {
             if (after && after.vis !== false) box.y = Math.max(box.y, after.y + after.h + (Number(widget.props.afterGap) || 0));
         }
 
+        if(this.mode!=='edit'&&!this.scope)this.rects=appearanceColumns(this.ui,this.page,this.rects);
         for (const [id, i] of L.info) this.scrollTops.set(id, i.top);
     }
     // the size of the page that is shown: the page, or the inside of the spoiler
