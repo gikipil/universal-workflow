@@ -17,4 +17,4 @@ The song branch is adapted from the user-supplied audio_ace_step1_5_xl_sft.json 
 
 The local ComfyUI-Universal-Memory module is Copyright (c) 2026 gikipil, released under AGPL-3.0-only. It uses ComfyUI memory management to clean up before marked Universal Workflow jobs.
 
-The native widget localization bridge in ui/js/ndui/locales/native_widgets.js includes English, Russian and Chinese labels from ComfyUI-ND-UI-Builder by neural-dreamer, with Spanish and French additions by gikipil (2026), under AGPL-3.0-only.
+The native widget localization bridge in ui/js/ndui/locales/native_widgets.js includes English, Russian and Chinese labels from ComfyUI-ND-UI-Builder by neural-dreamer, with Spanish, French and Japanese additions by gikipil (2026), under AGPL-3.0-only.

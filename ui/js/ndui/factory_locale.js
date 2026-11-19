@@ -4,9 +4,10 @@ import english,{patterns as englishPatterns} from './locales/en.js';
 import chinese,{patterns as chinesePatterns} from './locales/zh.js';
 import spanish,{patterns as spanishPatterns} from './locales/es.js';
 import french,{patterns as frenchPatterns} from './locales/fr.js';
+import japanese,{patterns as japanesePatterns} from './locales/ja.js';
 import nativeWidgets from './locales/native_widgets.js';
 // Add a dictionary and registry entry here to expose another language in the UI.
-export const INTERFACE_LANGUAGES=[{id:'ru',name:'Русский',dictionary:{}},{id:'en',name:'English',dictionary:english,patterns:englishPatterns},{id:'zh',name:'简体中文',dictionary:chinese,patterns:chinesePatterns},{id:'es',name:'Español',dictionary:spanish,patterns:spanishPatterns},{id:'fr',name:'Français',dictionary:french,patterns:frenchPatterns}];
+export const INTERFACE_LANGUAGES=[{id:'ru',name:'Русский',dictionary:{}},{id:'en',name:'English',dictionary:english,patterns:englishPatterns},{id:'zh',name:'简体中文',dictionary:chinese,patterns:chinesePatterns},{id:'es',name:'Español',dictionary:spanish,patterns:spanishPatterns},{id:'fr',name:'Français',dictionary:french,patterns:frenchPatterns},{id:'ja',name:'日本語',dictionary:japanese,patterns:japanesePatterns}];
 export const isUniversalInterface=ui=>!!ui?.widgets?.some(w=>w.id==='taskbar'&&w.type==='factorytaskbar_v0215');
 const barOf=ui=>ui?.widgets?.find(w=>w.id==='taskbar');
 export const interfaceLanguage=ui=>INTERFACE_LANGUAGES.some(l=>l.id===barOf(ui)?.props?.language)?barOf(ui).props.language:'ru';
