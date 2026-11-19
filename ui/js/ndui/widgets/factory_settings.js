@@ -46,7 +46,7 @@ const css = `
 .acf-settings-tab{padding:12px 22px;border:1px solid #3b4955;border-radius:12px 12px 0 0;background:#1c2530;color:#b5c3d1;cursor:pointer;font-weight:650}.acf-settings-tab[aria-selected=true]{background:linear-gradient(145deg,#1c3c3d,#192d31);border-color:#5bdcb3;color:#b8ffe0;box-shadow:0 -2px 15px #39ddc51a}
 .acf-settings-pane{min-height:0;overflow:auto;padding:24px 28px 32px}.acf-settings-pane[hidden]{display:none!important}
 .acf-settings-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,360px),1fr));gap:16px;align-items:start}
-.acf-settings-models{grid-template-columns:repeat(2,minmax(0,1fr))}
+.acf-settings-models{grid-template-columns:repeat(2,minmax(0,1fr))}.acf-settings-column{display:flex;flex-direction:column;gap:16px;min-width:0}
 .acf-settings-layout{display:grid;grid-template-columns:230px minmax(0,1fr);gap:24px;align-items:start}
 .acf-settings-categories{display:flex;flex-direction:column;gap:7px;position:sticky;top:0;padding:10px;background:#172129;border:1px solid #344b51;border-radius:14px}
 .acf-settings-category{display:flex;align-items:center;justify-content:space-between;gap:10px;min-height:44px;padding:10px 12px;border:1px solid transparent;border-radius:10px;background:transparent;color:#b7c7d1;text-align:left;cursor:pointer;font-weight:650}
@@ -150,17 +150,22 @@ export function openFactorySettings(ctx, onClose=()=>{}) {
         ['🔊 Звук',[audioCard,songCard]],
         ...(captionCard?[['📝 Промты',[captionCard]]]:[]),
     ];
-    const allCards=[...modelsGrid.children],categoryButtons=[];
+    const allCards=[...modelsGrid.children],categoryButtons=[],narrow=window.matchMedia?.('(max-width:620px)');let categoryIndex=0;
     function selectCategory(index){
-        const [,cards]=groups[index];
+        categoryIndex=index;const [,cards]=groups[index],count=cards.length===1||narrow?.matches?1:2;
+        // Deal cards left-to-right, then stack each lane without shared row heights.
+        const columns=Array.from({length:count},()=>el('div','acf-settings-column'));
         for(const box of allCards)box.hidden=!cards.includes(box);
-        modelsGrid.style.gridTemplateColumns=cards.length===1?'minmax(0,1fr)':'';
+        for(const [i,box]of cards.entries())columns[i%count].append(box);
+        modelsGrid.replaceChildren(...columns);
+        modelsGrid.style.gridTemplateColumns=count===1?'minmax(0,1fr)':'';
         for(const [i,button]of categoryButtons.entries())button.setAttribute('aria-pressed',String(i===index));
     }
     for(const [i,[name,cards]]of groups.entries()){
         const button=el('button','acf-settings-category');button.type='button';button.append(el('span','',name),el('small','',String(cards.length)));
         button.addEventListener('click',()=>selectCategory(i));categories.append(button);categoryButtons.push(button);
     }
+    const relayout=()=>selectCategory(categoryIndex);narrow?.addEventListener?.('change',relayout);
     selectCategory(0);
     const visualGrid=el('div','acf-settings-grid');visual.append(el('h3','acf-settings-subtitle','Цветовой профиль'));visual.firstElementChild.style.marginTop='0';visual.append(visualGrid);
     for(const profile of APPEARANCE_PROFILES) {
@@ -180,7 +185,7 @@ export function openFactorySettings(ctx, onClose=()=>{}) {
         for(const[b,value]of glowButtons)b.setAttribute('aria-pressed',String((ctx.prop('glow')||'soft')===value));
     }
     function dismiss() {
-        if(closed)return;closed=true;closePopup();window.removeEventListener('keydown',key,true);for(const instance of instances)instance.destroy?.();overlay.remove();document.body.style.overflow=oldOverflow;previous?.focus?.();onClose();
+        if(closed)return;closed=true;narrow?.removeEventListener?.('change',relayout);closePopup();window.removeEventListener('keydown',key,true);for(const instance of instances)instance.destroy?.();overlay.remove();document.body.style.overflow=oldOverflow;previous?.focus?.();onClose();
     }
     function key(event) {
         if(event.key==='Escape'){if(overlay.querySelector('.ndk-pop'))return;event.preventDefault();event.stopPropagation();dismiss();}
