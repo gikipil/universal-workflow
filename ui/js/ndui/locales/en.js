@@ -1,6 +1,9 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 // Universal Workflow English UI dictionary, gikipil 2026. Russian source keys.
 export default {
+  "Нейтральные графитовые поверхности и серебристые акценты.": "Neutral graphite surfaces and silver accents.",
+  "Чернильный синий, светлая лаванда и прохладные голубые акценты.": "Inky blue, pale lavender and cool blue accents.",
+  "Тёмные морские поверхности, мятные и светло-голубые акценты.": "Dark ocean surfaces, mint and pale blue accents.",
   "Нави и золото": "Navy & Gold",
   "Тёмная магия": "Dark Magic",
   "Лагуна": "Lagoon",

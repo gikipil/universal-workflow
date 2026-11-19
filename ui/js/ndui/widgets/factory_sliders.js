@@ -36,7 +36,7 @@ const signature=bank=>JSON.stringify([bank.owner,bank.items.map(i=>[i.id,i.hint,
 export const factorysliders_v0216={type:'factorysliders_v0216',label:'Слайдеры LoRA',icon:'sliders',group:'Run',live:true,noLabel:true,fill:true,
     slots:[{id:'bank',label:'Slider bank',accepts:['STRING'],required:true}],props:[],size:{w:336,h:44,minW:240,minH:44},
     mount(ctx){
-        const button=el('button'),caption=el('span','','Слайдеры'),badge=el('span');let dialog=null,grid=null,error=null,add=null,stamp='',cards=[];
+        const button=el('button','acf-slider-open'),caption=el('span','','Слайдеры'),badge=el('span');let dialog=null,grid=null,error=null,add=null,stamp='',cards=[];
         button.type='button';button.setAttribute('aria-haspopup','dialog');button.setAttribute('aria-expanded','false');
         Object.assign(button.style,{display:'flex',alignItems:'center',justifyContent:'space-between',gap:'10px',width:'100%',height:'44px',padding:'0 16px',border:'1px solid #8c6bb2',borderRadius:'11px',background:'linear-gradient(110deg,#29283e,#3a2745)',color:'#e0c6f5',font:'inherit',fontWeight:'650',fontSize:'15px',cursor:'pointer',boxSizing:'border-box'});
         const icon=el('span');icon.style.display='inline-flex';icon.innerHTML='<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 6h7m4 0h7M3 12h2m4 0h12M3 18h11m4 0h3"/><circle cx="12" cy="6" r="2"/><circle cx="7" cy="12" r="2"/><circle cx="16" cy="18" r="2"/></svg>';

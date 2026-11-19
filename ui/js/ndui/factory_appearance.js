@@ -1,4 +1,4 @@
-import {REFERENCE_PROFILES,paletteVariables,PROFILE_CSS,mix} from './factory_palette.js';
+import {REFERENCE_PROFILES,ADDITIONAL_PROFILES,isFullPalette,paletteVariables,PROFILE_CSS,mix} from './factory_palette.js';
 import {INTERFACE_LANGUAGES,interfaceLanguage,setInterfaceLanguage} from './factory_locale.js';
 // SPDX-License-Identifier: AGPL-3.0-only
 // Universal Workflow additions by gikipil, 2026-11-12.
@@ -6,13 +6,11 @@ import {INTERFACE_LANGUAGES,interfaceLanguage,setInterfaceLanguage} from './fact
 const clone = value => JSON.parse(JSON.stringify(value));
 export const APPEARANCE_PROFILES = [
     ...REFERENCE_PROFILES,
+    ...ADDITIONAL_PROFILES,
     {id:'standard', name:'Стандартный', description:'Исходная тёмная палитра с бирюзовыми и зелёными акцентами.', bg:'#111318', s1:'#181c23', s2:'#20252d', s3:'#2c333e', border:'#303742', end:'#1b2429', a:'#36cfea', b:'#59e68d'},
-    {id:'graphite', name:'Графит', description:'Нейтральный графит и спокойные серебристые акценты.', bg:'#121315', s1:'#1c1d20', s2:'#27292d', s3:'#35383e', border:'#44484f', end:'#24272c', a:'#a4c5da', b:'#b2d5c8'},
-    {id:'indigo', name:'Индиго', description:'Глубокий синий фон и фиолетово-бирюзовая навигация.', bg:'#101322', s1:'#191e32', s2:'#242a43', s3:'#353d5c', border:'#3b4667', end:'#252038', a:'#9b8aff', b:'#55dce4'},
-    {id:'ocean', name:'Морской', description:'Тёмный сине-зелёный фон и свежие мятные акценты.', bg:'#0d191c', s1:'#14262a', s2:'#1e343a', s3:'#2a4950', border:'#33565e', end:'#163235', a:'#32d3df', b:'#7ae5b2'},
 ];
 export function appearanceProfile(ui) {
-    return ui?.widgets?.find(w => w.id === 'taskbar')?.props?.visualProfile || 'standard';
+    const id=ui?.widgets?.find(w => w.id === 'taskbar')?.props?.visualProfile;return APPEARANCE_PROFILES.some(p=>p.id===id)?id:'standard';
 }
 export const activeAppearanceProfile=ui=>APPEARANCE_PROFILES.find(p=>p.id===appearanceProfile(ui))||APPEARANCE_PROFILES.find(p=>p.id==='standard');
 export function applyAppearanceProfile(ui, id) {
@@ -44,8 +42,7 @@ export function applyAppearanceProfile(ui, id) {
         bar.props.accentA = selected.a;
         bar.props.accentB = selected.b;
     }
-    Object.assign(ui.theme.overrides||={}, {bg:selected.bg,s1:selected.s1,s2:selected.s2,s3:selected.s3,border:selected.border,text:selected.text||'#e8eaf0',accent:selected.a,accent2:selected.b});
-    bar.props.accentA=selected.a;bar.props.accentB=selected.b;
+    if(id!=='standard'){Object.assign(ui.theme.overrides||={}, {bg:selected.bg,s1:selected.s1,s2:selected.s2,s3:selected.s3,border:selected.border,text:selected.text||'#e8eaf0',accent:selected.a,accent2:selected.b});bar.props.accentA=selected.a;bar.props.accentB=selected.b;}
     bar.props.visualProfile = id;
     for(const other of ui.widgets.filter(w=>w.type==='factorytaskbar_v0215'&&w.id!==bar.id)){other.props ||= {};for(const key of ['accentA','accentB','visualProfile'])other.props[key]=bar.props[key];}
     return true;
@@ -79,8 +76,10 @@ export const APPEARANCE_CONTROL_CSS=PROFILE_CSS+`
 .acf-visual-density .acf-settings-picker{min-height:var(--ndk-ctl)!important}
 .acf-visual-style[data-field-style="soft"] :is(.ndk-field,.acf-settings-select,select:not([multiple])){background:var(--ndk-s2,#20252d)!important;border:1px solid var(--ndk-border,#3b4955)!important;box-shadow:inset 0 1px 0 #ffffff0d,0 1px 2px #0004!important;backdrop-filter:none!important}
 .acf-visual-style[data-field-style="outline"] :is(.ndk-field,.acf-settings-select,select:not([multiple])){background:transparent!important;border:1px solid var(--ndk-border-strong,#67827e)!important;box-shadow:none!important;backdrop-filter:none!important}
-.acf-visual-style[data-field-style="glass"] :is(.ndk-field,.acf-settings-select,select:not([multiple])){background:linear-gradient(135deg,#ffffff22,#ffffff08)!important;border:1px solid color-mix(in srgb,var(--acf-accent,var(--ndk-accent)) 45%,transparent)!important;box-shadow:inset 0 1px 0 #ffffff38,0 4px 12px #0003!important;backdrop-filter:blur(12px) saturate(135%)!important;-webkit-backdrop-filter:blur(12px) saturate(135%)!important}
+.acf-visual-style[data-field-style="glass"] :is(.ndk-field,.acf-settings-select,select:not([multiple])){background:linear-gradient(135deg,#ffffff22,#ffffff08)!important;border:1px solid #c6eee84d!important;box-shadow:inset 0 1px 0 #ffffff38,0 4px 12px #0003!important;backdrop-filter:blur(12px) saturate(135%)!important;-webkit-backdrop-filter:blur(12px) saturate(135%)!important}
 .acf-visual-style[data-field-style="minimal"] :is(.ndk-field,.acf-settings-select,select:not([multiple])){background:transparent!important;border:0!important;border-bottom:1px solid var(--ndk-border-strong,#67827e)!important;border-radius:0!important;box-shadow:none!important;backdrop-filter:none!important}
+.acf-themed.acf-visual-style[data-field-style="glass"] :is(.ndk-field,.acf-settings-select,select:not([multiple])){border-color:color-mix(in srgb,var(--acf-accent) 45%,transparent)!important}
+.acf-themed.acf-visual-style[data-field-style="soft"] :is(.ndk-field,.acf-settings-select,select:not([multiple])){background:var(--ndk-field-bg,var(--ndk-s2))!important;border-color:var(--ndk-field-border,var(--ndk-border))!important}
 .acf-visual-style .ndk-field .ndk-input{background:transparent!important}
 .acf-preview-custom :is(.ndk-media-main,.ndk-cmp,.ndk-vw-side .cell,.ndk-pl.video .stage){background:var(--acf-preview-bg)!important;background-size:var(--acf-preview-size,auto)!important}
 .acf-motion-fast *{transition-duration:75ms!important;transition-delay:0s!important}
@@ -120,14 +119,14 @@ export function applyAppearanceControls(ui,patch){
 }
 export function appearanceVars(ui,vars,widget=null){
  const p=APPEARANCE_PROFILES.find(p=>p.id===appearanceProfile(ui))||APPEARANCE_PROFILES.find(p=>p.id==='standard');
- if(ui.widgets?.some(w=>w.id==='taskbar')){
-  const c=paletteVariables(p);Object.assign(vars,c);
+ if(ui.widgets?.some(w=>w.id==='taskbar')&&isFullPalette(p.id)){
+  const transparentBackground=vars['--ndk-wbg']==='transparent',transparentBorder=vars['--ndk-cbd']==='transparent';const c=paletteVariables(p);Object.assign(vars,c);
   const role=appearanceRole(widget),accent=role==='positive'?c['--acf-positive']:role==='negative'?c['--acf-negative']:role==='lora'?c['--acf-lora-a']:p.a;
-  Object.assign(vars,{'--ndk-bg':p.bg,'--ndk-s1':p.s1,'--ndk-s2':p.s2,'--ndk-s3':p.s3,'--ndk-border':p.border,'--ndk-border-strong':mix(p.border,p.a,.35),'--ndk-text':c['--acf-text'],'--ndk-value':c['--acf-text'],'--ndk-muted':c['--acf-muted'],'--ndk-faint':c['--acf-muted'],'--ndk-label':c['--acf-label'],'--ndk-accent':accent,'--ndk-accent2':p.b,'--ndk-on-accent':c['--acf-accent-text'],'--ndk-success':c['--acf-positive'],'--ndk-warning':c['--acf-run-a'],'--ndk-danger':c['--acf-negative'],'--ndk-shadow':c['--acf-shadow'],'--ndk-cbds':mix(p.border,p.a,.35),'--ndk-grad-btn':p.a,'--ndk-grad-sl':`linear-gradient(90deg,${p.a},${p.b})`,'--ndk-accent-hi':p.b,'--ndk-accent-soft':`color-mix(in srgb,${accent} 15%,transparent)`,'--ndk-accent-ring':`color-mix(in srgb,${accent} 35%,transparent)`,'--ndk-pbg':p.s1,'--ndk-wbg':p.s1,'--ndk-cbd':p.border,'--ndk-ptitle':c['--acf-label'],'--ndk-field-bg':p.s2,'--ndk-field-border':p.border,'--ndk-grad':`linear-gradient(110deg,${p.a},${p.b})`});
+  Object.assign(vars,{'--ndk-bg':p.bg,'--ndk-s1':p.s1,'--ndk-s2':p.s2,'--ndk-s3':p.s3,'--ndk-border':p.border,'--ndk-border-strong':mix(p.border,p.a,.35),'--ndk-text':c['--acf-text'],'--ndk-value':c['--acf-text'],'--ndk-muted':c['--acf-muted'],'--ndk-faint':c['--acf-muted'],'--ndk-label':c['--acf-label'],'--ndk-accent':accent,'--ndk-accent2':p.b,'--ndk-on-accent':c['--acf-accent-text'],'--ndk-success':c['--acf-positive'],'--ndk-warning':c['--acf-run-a'],'--ndk-danger':c['--acf-negative'],'--ndk-shadow':c['--acf-shadow'],'--ndk-cbds':transparentBorder?'transparent':mix(p.border,p.a,.35),'--ndk-grad-btn':p.a,'--ndk-grad-sl':`linear-gradient(90deg,${p.a},${p.b})`,'--ndk-accent-hi':p.b,'--ndk-accent-soft':`color-mix(in srgb,${accent} 15%,transparent)`,'--ndk-accent-ring':`color-mix(in srgb,${accent} 35%,transparent)`,'--acf-preview-bg':c['--acf-preview'],'--ndk-pbg':p.s1,'--ndk-wbg':transparentBackground?'transparent':p.s1,'--ndk-cbd':transparentBorder?'transparent':p.border,'--ndk-ptitle':c['--acf-label'],'--ndk-field-bg':p.s2,'--ndk-field-border':p.border,'--ndk-grad':`linear-gradient(110deg,${p.a},${p.b})`});
   if(role==='positive'||role==='negative'){const bg=c['--acf-'+role+'-bg'];Object.assign(vars,{'--ndk-wbg':bg,'--ndk-field-bg':bg,'--ndk-field-border':accent,'--ndk-cbd':accent,'--ndk-label':accent});}
   if(role==='run')Object.assign(vars,{'--ndk-grad':`linear-gradient(110deg,${c['--acf-run-a']},${c['--acf-run-b']})`,'--ndk-on-accent':c['--acf-run-text']});
  }
-const v=appearanceBar(ui)?.props?.visualControls;const font=APPEARANCE_FONTS.find(f=>f.id===(v?.font||ui.kit?.font));if(font)vars['--ndk-font']=font.family;vars['--ndk-ctl']=({compact:30,comfortable:36,spacious:44}[v?.density||ui.kit?.density]||44)+'px';const preview=PREVIEW_BACKGROUNDS.find(b=>b.id===v?.previewBackground);if(preview){vars['--acf-preview-bg']=preview.background;vars['--acf-preview-size']=preview.size||'auto';}if(v?.fontSize)vars['--ndk-fs']=v.fontSize+'px';if(Number.isInteger(v?.radius))for(const key of['--ndk-rs','--ndk-rm','--ndk-rl','--ndk-ra'])vars[key]=v.radius+'px';return vars;
+const v=appearanceBar(ui)?.props?.visualControls;const font=APPEARANCE_FONTS.find(f=>f.id===(v?.font||ui.kit?.font));if(font)vars['--ndk-font']=font.family;vars['--ndk-ctl']=({compact:30,comfortable:36,spacious:44}[v?.density||ui.kit?.density]||44)+'px';const preview=PREVIEW_BACKGROUNDS.find(b=>b.id===v?.previewBackground);if(preview&&preview.id!=='standard'){vars['--acf-preview-bg']=preview.background;vars['--acf-preview-size']=preview.size||'auto';}if(v?.fontSize)vars['--ndk-fs']=v.fontSize+'px';if(Number.isInteger(v?.radius))for(const key of['--ndk-rs','--ndk-rm','--ndk-rl','--ndk-ra'])vars[key]=v.radius+'px';return vars;
 }
 export function appearanceRole(w){if(!w)return'general';const id=w.id||'';if(id.includes('lora_gradient'))return'lora-gradient';if(w.type==='prompt')return /negative/i.test(id)?'negative':'positive';if(/lora|slider/i.test(id))return'lora';if(w.type==='generate'||/run$/.test(id))return'run';return'general';}
 
