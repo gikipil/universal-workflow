@@ -13,6 +13,8 @@ export function generationPrompt(data){
  function index(id){const value=scalar(output[id]?.inputs?.index);return typeof value==='boolean'?Number(value):typeof value==='number'&&Number.isInteger(value)?value:undefined;}
  function redirect(value){const seen=new Set();while(Array.isArray(value)&&value.length===2){const id=String(value[0]),n=output[id];if(n?.class_type!=='easy anythingIndexSwitch')break;const i=index(id);if(i===undefined)break;if(seen.has(id))throw Error('Зацикленная ветка генерации.');seen.add(id);value=n.inputs['value'+i];if(!Array.isArray(value))throw Error('Не подключён выбранный режим генерации · '+id);}return value;}
  const targets=['69','162','164'].filter(id=>output[id]);const local=nodes.find(n=>n.properties?.acf_local)?.properties.acf_local;
+ // Keep the pre-local image available for painting even while all local modes are off.
+ if(local?.sam?.before&&output[local.sam.before])targets.push(String(local.sam.before));
  if(local)for(const key of local.order||[]){const s=local[key];if(s&&index(s.gate))for(const id of[s.before,s.after,s.maskPreview])if(output[id])targets.push(String(id));}
  const up=tag('upscale-controller')?.properties?.acf_upscale;if(up&&index(up.enabled))for(const id of[up.before,up.after])if(output[id])targets.push(String(id));
  for(const id of['71','167'])if(output[id]&&nodes.find(n=>String(n.id)===id)?.mode===0)targets.push(id);

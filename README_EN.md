@@ -2,11 +2,11 @@
 
 [Русский](README.md) · **English**
 
-**Version 1.0.0 · ComfyUI · English interface by default**
+**Version 1.0.1 · ComfyUI · English interface by default**
 
 One interface for image generation, refinement, editing, outpainting, background removal, upscaling, image captions, video and audio. Common settings are on the left, results and comparisons on the right. Less frequent settings open from gear buttons.
 
-**Download:** [1.0.0 release](https://github.com/gikipil/universal-workflow/releases/tag/v1.0.0) · [complete ZIP](https://github.com/gikipil/universal-workflow/archive/refs/tags/v1.0.0.zip) · [workflow JSON](Universal-Workflow-v1.0.0.json).
+**Download:** [1.0.1 release](https://github.com/gikipil/universal-workflow/releases/tag/v1.0.1) · [complete ZIP](https://github.com/gikipil/universal-workflow/archive/refs/tags/v1.0.1.zip) · [workflow JSON](Universal-Workflow-v1.0.1.json).
 
 The JSON alone is not enough: install the UI files and bundled nodes below. Model weights, external node packs and personal photographs are not included.
 
@@ -125,7 +125,7 @@ Select your actual local files in Settings. Saved Z-Image encoder/VAE aliases ma
 
 ### 7. Open the workflow
 
-Restart ComfyUI, hard-refresh with **Ctrl+F5**, and drag **`Universal-Workflow-v1.0.0.json`** into ComfyUI. Press **ND UI**. English is the default; change it in **Settings → Appearance → Interface language**.
+Restart ComfyUI, hard-refresh with **Ctrl+F5**, and drag **`Universal-Workflow-v1.0.1.json`** into ComfyUI. Press **ND UI**. English is the default; change it in **Settings → Appearance → Interface language**.
 
 For the first run, select Generation, confirm Krea models and the Turbo adapter, disable uninstalled persistent LoRAs, and leave refinement/local processing/upscaling off until an image succeeds. Enter a prompt and press Generate, then enable other stages one at a time.
 
@@ -177,3 +177,7 @@ UI code and bundled modules retain **AGPL-3.0-only**; the QwenTTS patch retains 
 - English default and English workflow filename.
 - Russian/English guides, full model catalog, node dependencies and QwenTTS compatibility patch.
 - Existing generation, editing, local, upscale, caption, video and audio chains retained.
+
+### 1.0.1
+
+- Fixed manual-mask editing in Generation when local treatments are disabled. The editor selects the image before the manual stage, respecting the treatment order.

@@ -6,7 +6,7 @@ Copyright (c) 2026 gikipil.
 
 ### Scope
 
-These terms apply only to gikipil's original, independently copyrightable workflow arrangement in `Universal-Workflow-v1.0.0.json`, original panel layout stored in that file, original README text, and the placeholder asset, to the extent those materials are not third-party works. They do not relicense third-party contributions or software source code.
+These terms apply only to gikipil's original, independently copyrightable workflow arrangement in the versioned `Universal-Workflow-v*.json` files, original panel layout stored in that file, original README text, and the placeholder asset, to the extent those materials are not third-party works. They do not relicense third-party contributions or software source code.
 
 All files under `ui/` and `nodes/` remain under **AGPL-3.0-only**, as already stated in those sources. The QwenTTS compatibility patch under `compat/` remains under **GPL-3.0-only**. Those licenses, including their commercial-use rights, control their respective code without additional restrictions from this document. License texts are in `LICENSES/`; attribution is in `NOTICE.md`.
 
