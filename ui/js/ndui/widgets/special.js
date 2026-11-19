@@ -230,7 +230,7 @@ export const modelpicker = {
                         for (const part of directory.split("/").filter(Boolean)) {
                             path = path ? path + "/" + part : part;
                             const dest = path;
-                            nav.append(button(part, () => go(dest)));
+                            const crumb=button(part, () => go(dest));crumb.setAttribute('data-no-translate','true');nav.append(crumb);
                         }
                         if (q) nav.append(el("small", "", "Поиск во всех папках"));
                         grid.textContent = "";

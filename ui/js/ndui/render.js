@@ -1,3 +1,5 @@
+import {T as nativeUiText,loadLang} from './core/i18n.js';
+import {interfaceLanguage,translateInterface,localizeInterface,isUniversalInterface} from './factory_locale.js';
 import {taskPageUi} from './task_page.js';
 // SPDX-License-Identifier: AGPL-3.0-only
 // Universal Workflow additions/modifications by gikipil, 2026-11-12.
@@ -33,7 +35,7 @@ export class PageView {
         this.mode = opts.mode || "run";
         this.fit = opts.fit || "proportions";
         this.kind = opts.kind || "node";               // where this view lives: "uimode" | "node" | "editor"
-        this.tr = opts.tr || ((s, v) => (v ? s.replace(/\{(\w+)\}/g, (m, k) => (k in v ? v[k] : m)) : s));
+        this.tr = (s,v)=>isUniversalInterface(this.ui)?translateInterface(nativeUiText(interfaceLanguage(this.ui),s,v),interfaceLanguage(this.ui)):(opts.tr?opts.tr(s,v):v?s.replace(/\{(\w+)\}/g,(m,k)=>k in v?v[k]:m):s);
         this.popupHost = opts.popupHost || (() => document.body);
         this.onPage = opts.onPage || (() => {});
         this.onChange = opts.onChange || (() => {});
@@ -70,8 +72,10 @@ export class PageView {
         this.fillDim = document.createElement("div"); this.fillDim.className = "ndk-page-dim";
         this.fillBg.append(this.fillDim);
         host.append(this.fillBg, this.root);
+        this.localization=isUniversalInterface(this.ui)?localizeInterface(this.root,()=>interfaceLanguage(this.ui)):null;
         this.geo = { px: 1, py: 1, su: 1, s: 1, ox: 0, oy: 0 };
         this.alive = true;
+        if(isUniversalInterface(this.ui))loadLang(interfaceLanguage(this.ui)).then(()=>{if(this.alive)this.refresh();});
         this.root.addEventListener("wheel", (e) => this.onWheel(e), { passive: false, capture: true });
         this.ro = new ResizeObserver(() => this.resize());
         this.ro.observe(host);
@@ -89,6 +93,7 @@ export class PageView {
         this.offOpen?.();
         cancelAnimationFrame(this.raf);
         this.ro.disconnect();
+        this.localization?.destroy();
         for (const f of this.frames.values()) this.dropFrame(f);
         this.frames.clear();
         this.root.remove(); this.fillBg.remove();
@@ -229,6 +234,7 @@ export class PageView {
             this.update(f);
         }
         this.layoutPage();
+        this.localization?.update();
     }
 
     // paints a background value of pageBackground() on a layer and its dimming layer
@@ -361,8 +367,9 @@ export class PageView {
                 }
             },
             limits(id) { return effectiveLimits(state(id), f.w.props || {}); },
+            language: isUniversalInterface(view.ui)?()=>interfaceLanguage(view.ui):undefined,
             appearanceControls: () => readAppearanceControls(view.ui),
-            setAppearanceControls(patch) {if(!applyAppearanceControls(view.ui,patch))return false;clearTimeout(writeTimer);writeTimer=setTimeout(touchWorkflow,300);view.refresh();view.resize();view.onChange();return true;},
+            setAppearanceControls(patch) {if(!applyAppearanceControls(view.ui,patch))return false;clearTimeout(writeTimer);writeTimer=setTimeout(touchWorkflow,300);view.refresh();view.resize();view.onChange();if(patch.language)loadLang(patch.language).then(()=>{if(view.alive)view.refresh();});return true;},
             resetAppearanceControls() {if(!resetAppearanceControls(view.ui))return;clearTimeout(writeTimer);writeTimer=setTimeout(touchWorkflow,300);view.refresh();view.resize();view.onChange();},
             appearance: () => appearanceProfile(view.ui),
             setAppearance(id) {

@@ -1,3 +1,4 @@
+import {INTERFACE_LANGUAGES,interfaceLanguage,setInterfaceLanguage} from './factory_locale.js';
 // SPDX-License-Identifier: AGPL-3.0-only
 // Universal Workflow additions by gikipil, 2026-11-12.
 // Based on ND UI Builder by Ivan Ovchinnikov (Neural Dreamer).
@@ -86,11 +87,11 @@ export function syncAppearanceRoot(ui,root){const v=appearanceBar(ui)?.props?.vi
 const appearanceBar=ui=>ui.widgets?.find(w=>w.id==='taskbar');
 export function readAppearanceControls(ui){
  const bar=appearanceBar(ui),v=bar?.props?.visualControls||{},kit=ui.kit||{};
- return{columnWidth:v.columnWidth??0,previewBackground:v.previewBackground||'standard',animations:v.animations||'normal',font:v.font||kit.font||'inter',density:kit.density||'spacious',style:kit.style||'soft',fontSize:v.fontSize??({compact:12,comfortable:13,spacious:14}[kit.density]||14),radius:v.radius??'default',accentA:bar?.props?.accentA||'#36cfea',accentB:bar?.props?.accentB||'#59e68d'};
+ return{language:interfaceLanguage(ui),columnWidth:v.columnWidth??0,previewBackground:v.previewBackground||'standard',animations:v.animations||'normal',font:v.font||kit.font||'inter',density:kit.density||'spacious',style:kit.style||'soft',fontSize:v.fontSize??({compact:12,comfortable:13,spacious:14}[kit.density]||14),radius:v.radius??'default',accentA:bar?.props?.accentA||'#36cfea',accentB:bar?.props?.accentB||'#59e68d'};
 }
 export function applyAppearanceControls(ui,patch){
  const bar=appearanceBar(ui);if(!bar||!patch||typeof patch!=='object'||Array.isArray(patch))return false;
- const enums={font:APPEARANCE_FONTS.map(f=>f.id),density:['compact','comfortable','spacious'],style:['soft','outline','glass','minimal'],previewBackground:PREVIEW_BACKGROUNDS.map(b=>b.id),animations:['normal','fast','off']};
+ const enums={language:INTERFACE_LANGUAGES.map(l=>l.id),font:APPEARANCE_FONTS.map(f=>f.id),density:['compact','comfortable','spacious'],style:['soft','outline','glass','minimal'],previewBackground:PREVIEW_BACKGROUNDS.map(b=>b.id),animations:['normal','fast','off']};
  for(const[k,v]of Object.entries(patch)){
   if(k in enums){if(!enums[k].includes(v))return false;}
   else if(k==='columnWidth'){if(![0,24,28,32,36,40].includes(v))return false;}
@@ -100,7 +101,8 @@ export function applyAppearanceControls(ui,patch){
  }
  ui.kit||={};bar.props||={};bar.props.visualControls||={};
  for(const[k,v]of Object.entries(patch)){
-  if(k==='font'){ui.kit.font=v==='inter'?'inter':'system';bar.props.visualControls.font=v;}
+  if(k==='language')setInterfaceLanguage(ui,v);
+  else if(k==='font'){ui.kit.font=v==='inter'?'inter':'system';bar.props.visualControls.font=v;}
   else if(k==='density'){ui.kit.density=v;bar.props.visualControls.density=v;}
   else if(k==='style'){ui.kit.style=v;bar.props.visualControls.style=v;}
   else if(k==='previewBackground'||k==='animations')bar.props.visualControls[k]=v;
