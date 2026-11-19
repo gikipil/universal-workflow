@@ -46,7 +46,15 @@ const css = `
 .acf-settings-tab{padding:12px 22px;border:1px solid #3b4955;border-radius:12px 12px 0 0;background:#1c2530;color:#b5c3d1;cursor:pointer;font-weight:650}.acf-settings-tab[aria-selected=true]{background:linear-gradient(145deg,#1c3c3d,#192d31);border-color:#5bdcb3;color:#b8ffe0;box-shadow:0 -2px 15px #39ddc51a}
 .acf-settings-pane{min-height:0;overflow:auto;padding:24px 28px 32px}.acf-settings-pane[hidden]{display:none!important}
 .acf-settings-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,360px),1fr));gap:20px;align-items:start}
-.acf-settings-models{grid-template-columns:repeat(3,minmax(0,1fr))}
+.acf-settings-models{grid-template-columns:repeat(2,minmax(0,1fr))}
+.acf-settings-layout{display:grid;grid-template-columns:230px minmax(0,1fr);gap:24px;align-items:start}
+.acf-settings-categories{display:flex;flex-direction:column;gap:7px;position:sticky;top:0;padding:10px;background:#172129;border:1px solid #344b51;border-radius:14px}
+.acf-settings-category{display:flex;align-items:center;justify-content:space-between;gap:10px;min-height:44px;padding:10px 12px;border:1px solid transparent;border-radius:10px;background:transparent;color:#b7c7d1;text-align:left;cursor:pointer;font-weight:650}
+.acf-settings-category[aria-pressed=true]{color:#c5ffeb;background:linear-gradient(120deg,#214338,#19343d);border-color:#50c5a1}
+.acf-settings-category:hover{border-color:#47776b}.acf-settings-category small{color:#9cb4bd;font-size:12px}
+.acf-settings-content{min-width:0}.acf-settings-content [hidden]{display:none!important}
+@media(max-width:850px){.acf-settings-layout{grid-template-columns:minmax(0,1fr);gap:16px}.acf-settings-categories{position:static;flex-direction:row;flex-wrap:wrap}.acf-settings-category{flex:1 1 150px}}
+
 @media(max-width:1100px){.acf-settings-models{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:620px){.acf-settings-models{grid-template-columns:minmax(0,1fr)}}
 .acf-settings-card{padding:20px;border:1px solid #35554b;border-radius:16px;background:#18232a;min-width:0}
@@ -108,9 +116,10 @@ export function openFactorySettings(ctx, onClose=()=>{}) {
         const container=key.startsWith('song_')?songCard:key.startsWith('aud_')?audioCard:key.startsWith('vid_')?videoCard:key==='out_k_model'?outpaint:key.startsWith('edit_q21_')?qwen21Editor:key.startsWith('edit_krea_')?kreaEditor:key.startsWith('edit_')?editor:key==='bg_model'?background:key.startsWith('pose_')?pose:key==='up_simple_model'||key==='up_ultimate_model'?upModels:key.startsWith('up_seed_')?upSeed:['sam_model','face_detector','hand_detector'].includes(key)?detection:key.includes('turbo')?turbo:key.startsWith('z_')?zimage:krea;
         picker(container,key,caption,folder,key==='up_seed_dit'?value=>{if(/3b/i.test(String(value))){const state=ctx.info(key),node=state.p?.node||state.node,w=node?.widgets?.find(w=>w.name==='blocks_to_swap');if(w&&w.value>32){w.value=32;w.callback?.(32);node.graph?.change?.();}}}:undefined);
     }
-    if(ctx.info('caption_config')?.bound){const captionCard=card(modelsGrid,'📝 Промты · модели','Локальные Florence, Qwen и JoyCaption.');captionModelFields(ctx,captionCard);}
-    models.append(el('h3','acf-settings-subtitle','Постоянные LoRA'));
-    models.append(el('p','acf-settings-caption','По три слота на каждый набор. Включённые LoRA действуют во всех режимах своего этапа и не занимают пользовательские слоты на главной странице.'));
+    let captionCard=null;
+    if(ctx.info('caption_config')?.bound){captionCard=card(modelsGrid,'📝 Промты · модели','Локальные Florence, Qwen и JoyCaption.');captionModelFields(ctx,captionCard);}
+    const loraTitle=el('h3','acf-settings-subtitle','Постоянные LoRA');models.append(loraTitle);
+    const loraHint=el('p','acf-settings-caption','По три слота на каждый набор. Включённые LoRA действуют во всех режимах своего этапа и не занимают пользовательские слоты на главной странице.');models.append(loraHint);
     const loraGrid=el('div','acf-settings-grid');loraGrid.style.marginTop='16px';models.append(loraGrid);
     for (const [prefix,name] of CONSTANT_LORA_GROUPS) {
         const box=card(loraGrid,name,'Выбери файл, включи слот и задай силу. Пустые слоты можно оставить выключенными.');
@@ -127,6 +136,35 @@ export function openFactorySettings(ctx, onClose=()=>{}) {
             row.append(toggle,file,strength);box.append(row);
         }
     }
+    // Presentation only: existing pickers keep their slots, instances and values.
+    const settingsLayout=el('div','acf-settings-layout'),categories=el('nav','acf-settings-categories'),content=el('div','acf-settings-content');
+    categories.setAttribute('aria-label','Категории моделей');
+    for(const part of[modelsGrid,loraTitle,loraHint,loraGrid])content.append(part);
+    settingsLayout.append(categories,content);models.append(settingsLayout);
+    const groups=[
+        ['🧠 Основные модели',[krea,zimage,turbo]],
+        ['✏️ Редактирование',[kreaEditor,qwen21Editor,editor,outpaint]],
+        ['🎯 Лицо, руки и поза',[detection,pose]],
+        ['🔍 Апскейл',[upModels,upSeed]],
+        ['🧽 Удаление фона',[background]],
+        ['🎬 Видео',[videoCard]],
+        ['🔊 Звук',[audioCard,songCard]],
+        ...(captionCard?[['📝 Промты',[captionCard]]]:[]),
+        ['🧩 Постоянные LoRA',[]],
+    ];
+    const allCards=[...modelsGrid.children],categoryButtons=[];
+    function selectCategory(index){
+        const [,cards]=groups[index],isLora=index===groups.length-1;
+        for(const box of allCards)box.hidden=!cards.includes(box);
+        modelsGrid.hidden=isLora;loraTitle.hidden=!isLora;loraHint.hidden=!isLora;loraGrid.hidden=!isLora;
+        modelsGrid.style.gridTemplateColumns=cards.length===1?'minmax(0,1fr)':'';
+        for(const [i,button]of categoryButtons.entries())button.setAttribute('aria-pressed',String(i===index));
+    }
+    for(const [i,[name,cards]]of groups.entries()){
+        const button=el('button','acf-settings-category');button.type='button';button.append(el('span','',name),el('small','',String(cards.length||CONSTANT_LORA_GROUPS.length)));
+        button.addEventListener('click',()=>selectCategory(i));categories.append(button);categoryButtons.push(button);
+    }
+    selectCategory(0);
     const visualGrid=el('div','acf-settings-grid');visual.append(el('h3','acf-settings-subtitle','Цветовой профиль'));visual.firstElementChild.style.marginTop='0';visual.append(visualGrid);
     for(const profile of APPEARANCE_PROFILES) {
         const button=el('button','acf-settings-profile'),swatches=el('span','acf-settings-swatches');button.type='button';
