@@ -30,7 +30,7 @@ export function factoryDialog(ctx,{title,width=1060,onClose=()=>{}}) {
         if(stack.at(-1)!==dialog||root.querySelector('.ndk-pop'))return;
         if(event.key==='Escape'){event.preventDefault();event.stopPropagation();dialog.close();}
         if(event.key==='Tab'){
-            const controls=[...root.querySelectorAll('button,input,textarea,select,[tabindex="0"]')].filter(e=>!e.disabled&&e.getClientRects().length);const first=controls[0],last=controls.at(-1);if(!first)return;
+            const controls=[...root.querySelectorAll('button,input,textarea,select,a[href],summary,[tabindex="0"]')].filter(e=>!e.disabled&&e.getClientRects().length);const first=controls[0],last=controls.at(-1);if(!first)return;
             if(event.shiftKey&&(document.activeElement===first||!root.contains(document.activeElement))){event.preventDefault();last.focus();}
             else if(!event.shiftKey&&(document.activeElement===last||!root.contains(document.activeElement))){event.preventDefault();first.focus();}
         }

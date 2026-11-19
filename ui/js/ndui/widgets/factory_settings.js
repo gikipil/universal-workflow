@@ -1,3 +1,4 @@
+import {openModelDownloads} from './factory_model_help.js';
 import {themeInterface,paletteVariables} from '../factory_palette.js';
 import {INTERFACE_LANGUAGES,localizeInterface} from '../factory_locale.js';
 import {captionModelFields} from './factory_caption.js';
@@ -39,7 +40,8 @@ export const SETTINGS_SLOTS = [{id:'caption_config',label:'Модели captioni
     ]).flat()),
 ];
 const css = `
-.acf-settings{position:fixed!important;inset:0!important;width:100vw!important;height:100dvh!important;max-width:none!important;max-height:none!important;z-index:1000000;display:grid;grid-template-rows:auto auto minmax(0,1fr);box-sizing:border-box;background:#111820;color:#e8eaf0;font-family:Inter,system-ui,sans-serif;font-size:15px;line-height:1.5;isolation:isolate}
+.acf-settings{position:fixed!important;inset:0!important;width:100vw!important;height:100dvh!important;max-width:none!important;max-height:none!important;z-index:1000000;display:grid;grid-template-rows:auto auto minmax(0,1fr) auto;box-sizing:border-box;background:#111820;color:#e8eaf0;font-family:Inter,system-ui,sans-serif;font-size:15px;line-height:1.5;isolation:isolate}
+.acf-settings-footer{padding:12px 28px;border-top:1px solid var(--ndk-border);display:flex;justify-content:flex-start}.acf-settings-footer[hidden]{display:none!important}.acf-settings-help{display:inline-flex;align-items:center;gap:8px;min-height:40px;padding:8px 16px;border:1px solid var(--ndk-border);border-radius:10px;background:var(--ndk-s2);color:var(--ndk-text);cursor:pointer;font-weight:650}.acf-settings-help:hover{border-color:var(--ndk-accent);color:var(--ndk-accent)}
 .acf-settings *{box-sizing:border-box}.acf-settings button,.acf-settings input{font:inherit}
 .acf-settings-head{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:22px 28px;border-bottom:1px solid #34414b}
 .acf-settings-title{font-size:24px;font-weight:750;margin:0}.acf-settings-caption{font-size:13px;color:#a4adbf;margin-top:3px}
@@ -84,11 +86,12 @@ export function openFactorySettings(ctx, onClose=()=>{}) {
     titleBox.append(el('h2','acf-settings-title','Настройки'),el('div','acf-settings-caption','Модели, постоянные LoRA и оформление интерфейса'));
     close.type='button';close.setAttribute('aria-label','Закрыть настройки');close.innerHTML='<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg>';close.append(el('span','','Закрыть'));header.append(titleBox,close);
     const tabs=el('div','acf-settings-tabs'), models=el('section','acf-settings-pane'), visual=el('section','acf-settings-pane');tabs.setAttribute('role','tablist');tabs.setAttribute('aria-label','Разделы настроек');
+    const helpFooter=el('footer','acf-settings-footer'),help=el('button','acf-settings-help');help.type='button';help.setAttribute('aria-label','Help · Скачать модели');help.setAttribute('aria-haspopup','dialog');help.append(el('span','','ⓘ'),el('span','','Help'));helpFooter.append(help);let helpWindow=null;help.addEventListener('click',()=>{if(!helpWindow)helpWindow=openModelDownloads(ctx,()=>{helpWindow=null;});});
     const panes=[models,visual],tabButtons=[];let active=0,closed=false;
     const previous=document.activeElement,oldOverflow=document.body.style.overflow,instances=[],updaters=[],profileButtons=[],glowButtons=[];
     for (const [i,name] of ['Модели и LoRA','Внешний вид'].entries()) {
         const button=el('button','acf-settings-tab',name);button.type='button';button.id=`acf-settings-tab-${i}`;button.setAttribute('role','tab');button.setAttribute('aria-controls',`acf-settings-panel-${i}`);
-        const select=()=>{active=i;for(const[j,b]of tabButtons.entries()){b.setAttribute('aria-selected',String(i===j));b.tabIndex=i===j?0:-1;panes[j].hidden=i!==j;}};
+        const select=()=>{active=i;helpFooter.hidden=i!==0;for(const[j,b]of tabButtons.entries()){b.setAttribute('aria-selected',String(i===j));b.tabIndex=i===j?0:-1;panes[j].hidden=i!==j;}};
         button.addEventListener('click',select);button.addEventListener('keydown',event=>{if(event.key==='ArrowRight'||event.key==='ArrowLeft'){event.preventDefault();const next=(active+(event.key==='ArrowRight'?1:-1)+2)%2;tabButtons[next].click();tabButtons[next].focus();}});
         panes[i].id=`acf-settings-panel-${i}`;panes[i].setAttribute('role','tabpanel');panes[i].setAttribute('aria-labelledby',button.id);tabs.append(button);tabButtons.push(button);
     }
@@ -210,7 +213,7 @@ export function openFactorySettings(ctx, onClose=()=>{}) {
     const preview=el('div','acf-settings-preview'),previewTitle=el('strong','','Пример поля'),previewText=el('div','','Текст остаётся читаемым, элементы — различимыми.'),previewControls=el('div','acf-settings-preview-controls'),sampleField=el('span','ndk-field','Значение · 1024'),sampleAccent=el('span','','Активный раздел');
     for(const node of[sampleField,sampleAccent]){node.style.padding='8px 12px';node.style.border='1px solid #53776e';}previewControls.append(sampleField,sampleAccent);preview.append(previewTitle,previewText,previewControls);previewCard.append(preview);
     const reset=el('button','acf-settings-reset','↺ Вернуть стандартное оформление');reset.type='button';reset.addEventListener('click',()=>{ctx.resetAppearanceControls?.();update();});previewCard.append(reset);
-    overlay.append(header,tabs,models,visual);applyVars(overlay,ctx.vars());document.body.append(overlay);document.body.style.overflow='hidden';
+    overlay.append(header,tabs,models,visual,helpFooter);applyVars(overlay,ctx.vars());document.body.append(overlay);document.body.style.overflow='hidden';
     const palette=themeInterface(overlay,()=>ctx.colorProfile?.()||APPEARANCE_PROFILES.find(p=>p.id===(ctx.appearance?.()||'standard')));
     const localization=localizeInterface(overlay,()=>ctx.appearanceControls?.().language||ctx.language?.()||'ru');
     function update() {
@@ -228,9 +231,10 @@ export function openFactorySettings(ctx, onClose=()=>{}) {
 
     }
     function dismiss() {
-        if(closed)return;closed=true;localization.destroy();palette.destroy();narrow?.removeEventListener?.('change',relayout);closePopup();window.removeEventListener('keydown',key,true);for(const instance of instances)instance.destroy?.();overlay.remove();document.body.style.overflow=oldOverflow;previous?.focus?.();onClose();
+        if(closed)return;closed=true;helpWindow?.close?.();localization.destroy();palette.destroy();narrow?.removeEventListener?.('change',relayout);closePopup();window.removeEventListener('keydown',key,true);for(const instance of instances)instance.destroy?.();overlay.remove();document.body.style.overflow=oldOverflow;previous?.focus?.();onClose();
     }
     function key(event) {
+        if(helpWindow)return;
         if(event.key==='Escape'){if(overlay.querySelector('.ndk-pop'))return;event.preventDefault();event.stopPropagation();dismiss();}
         if(event.key==='Tab'){
             const nodes=[...overlay.querySelectorAll('button,[tabindex="0"],input,select,textarea,a[href]')].filter(n=>!n.disabled&&n.getClientRects().length);
