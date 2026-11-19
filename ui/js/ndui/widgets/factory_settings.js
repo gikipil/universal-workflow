@@ -197,7 +197,7 @@ export function openFactorySettings(ctx, onClose=()=>{}) {
         select.addEventListener('keydown',e=>e.stopPropagation());appearanceControls.push([select,key]);return select;
     }
     const languageCard=card(visual,'🌐 Язык','Язык применяется ко всем рабочим вкладкам и сохраняется вместе с workflow.');languageCard.style.marginBottom='20px';visual.insertBefore(languageCard,visual.firstElementChild);
-    const languageSelect=appearanceSelect(languageCard,'language','Язык интерфейса',INTERFACE_LANGUAGES.map(l=>[l.id,l.name]));languageSelect.setAttribute('data-no-translate','true');
+    const languageSelect=appearanceSelect(languageCard,'language','Язык интерфейса',INTERFACE_LANGUAGES.map(l=>[l.id,l.name]));for(const option of languageSelect.children)option.setAttribute('data-no-translate','true');
     appearanceSelect(textCard,'font','Шрифт',APPEARANCE_FONTS.map(f=>[f.id,f.name]));
     appearanceSelect(textCard,'fontSize','Размер основного текста',[12,13,14,15,16,17,18].map(v=>[v,v+' px']));
     appearanceSelect(textCard,'density','Размер полей',[['compact','Компактные'],['comfortable','Обычные'],['spacious','Крупные']]);

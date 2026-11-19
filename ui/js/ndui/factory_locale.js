@@ -1,8 +1,9 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 // Universal Workflow language registry and scoped UI translation, gikipil 2026.
 import english,{patterns as englishPatterns} from './locales/en.js';
+import chinese,{patterns as chinesePatterns} from './locales/zh.js';
 // Add a dictionary and registry entry here to expose another language in the UI.
-export const INTERFACE_LANGUAGES=[{id:'ru',name:'Русский',dictionary:{}},{id:'en',name:'English',dictionary:english,patterns:englishPatterns}];
+export const INTERFACE_LANGUAGES=[{id:'ru',name:'Русский',dictionary:{}},{id:'en',name:'English',dictionary:english,patterns:englishPatterns},{id:'zh',name:'简体中文',dictionary:chinese,patterns:chinesePatterns}];
 export const isUniversalInterface=ui=>!!ui?.widgets?.some(w=>w.id==='taskbar'&&w.type==='factorytaskbar_v0215');
 const barOf=ui=>ui?.widgets?.find(w=>w.id==='taskbar');
 export const interfaceLanguage=ui=>INTERFACE_LANGUAGES.some(l=>l.id===barOf(ui)?.props?.language)?barOf(ui).props.language:'ru';
@@ -10,12 +11,13 @@ export function setInterfaceLanguage(ui,id){if(!INTERFACE_LANGUAGES.some(l=>l.id
 const lowerDictionaries=new WeakMap();
 const insensitive=d=>{if(!lowerDictionaries.has(d))lowerDictionaries.set(d,new Map(Object.entries(d).map(([k,v])=>[k.toLocaleLowerCase(),v])));return lowerDictionaries.get(d);};
 const reverse=new Map(Object.entries(english).map(([ru,en])=>[en,ru]));
+for(const[source,translated]of Object.entries(chinese))if(!reverse.has(translated))reverse.set(translated,source);
 export function translateInterface(text,language='ru'){
  if(typeof text!=='string'||!text)return text;
  const dict=INTERFACE_LANGUAGES.find(l=>l.id===language)?.dictionary||{};
  function line(value,depth=0){
   const lead=value.match(/^\s*/)[0],trail=value.match(/\s*$/)[0],trim=value.trim();if(!trim)return value;
-  let result=language==='ru'?reverse.get(trim):dict[trim]||dict[reverse.get(trim)]||insensitive(dict).get(trim.toLocaleLowerCase());if(result&&language!=='ru'&&/^[а-яё]/u.test(trim))result=result[0].toLowerCase()+result.slice(1);
+  let result=language==='ru'?reverse.get(trim):dict[trim]||dict[reverse.get(trim)]||insensitive(dict).get(trim.toLocaleLowerCase());if(result&&language==='en'&&/^[а-яё]/u.test(trim))result=result[0].toLowerCase()+result.slice(1);
   if(result)return lead+result+trail;
   for(const[pattern,replacement]of INTERFACE_LANGUAGES.find(l=>l.id===language)?.patterns||[])if(pattern.test(trim))return lead+trim.replace(pattern,replacement)+trail;
   if(depth>3)return value;
