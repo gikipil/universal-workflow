@@ -3,7 +3,6 @@ import functools
 import gc
 import inspect
 import logging
-import sys
 import traceback
 
 from aiohttp import web
@@ -25,16 +24,11 @@ def requested(extra_data):
 
 
 def release_memory(executor):
-    # Reset before execution, never from a graph node or the HTTP/UI thread.
-    # This releases cached node instances and outputs as well as their CPU tensors.
-    executor.reset()
-    mm.unload_all_models()  # Includes installed plugins' native unload hooks (Higgs).
-    for module in tuple(sys.modules.values()):
-        path = str(getattr(module, "__file__", "")).replace("\\", "/")
-        if path.endswith("/ComfyUI-QwenTTS/AILab_QwenTTS.py"):
-            cache = getattr(module, "_MODEL_CACHE", None)
-            if isinstance(cache, dict):
-                cache.clear()
+    # Keep executor.caches and cached node outputs/instances intact. Native managed
+    # model offload preserves ModelPatchers so cached loaders remain usable.
+    # Do not invoke plugin hard-unload hooks which can destroy cached bundles.
+    for device in mm.get_all_torch_devices():
+        mm.free_memory(1e30, device)
     gc.collect()
     mm.soft_empty_cache(force=True)
 
@@ -53,7 +47,7 @@ def install(executor_class=execution.PromptExecutor):
             return original(self, *args, **kwargs)
         prompt_id = bound.arguments.get("prompt_id")
         try:
-            logging.info("[Universal Workflow] Releasing node cache, models, RAM and accelerator cache before %s", prompt_id)
+            logging.info("[Universal Workflow] Offloading managed models and releasing unused memory; retaining node results before %s", prompt_id)
             release_memory(self)
         except Exception as error:
             # Do not let a cleanup failure terminate ComfyUI's queue worker.
@@ -83,7 +77,7 @@ install()
 
 @PromptServer.instance.routes.get("/universal-memory/status")
 async def status(request):
-    return web.json_response({"ready": True, "version": 1})
+    return web.json_response({"ready": True, "version": 2, "preserves_results": True})
 
 
 NODE_CLASS_MAPPINGS = {}
