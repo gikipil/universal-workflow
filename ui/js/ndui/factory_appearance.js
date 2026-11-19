@@ -68,7 +68,7 @@ export const PREVIEW_BACKGROUNDS=[
 ];
 export const APPEARANCE_CONTROL_CSS=`
 .acf-visual-font,.acf-visual-font :is(button,input,select,textarea,label){font-family:var(--ndk-font)!important}
-.acf-visual-density :is(.ndk-field:not(.ndk-area):not(:has(textarea)),.ndk-chip,.acf-settings-select,select:not([multiple])){height:var(--ndk-ctl)!important;min-height:var(--ndk-ctl)!important;max-height:var(--ndk-ctl)!important;box-sizing:border-box}
+.acf-visual-density :is(.ndk-field:not(.ndk-area):not(:has(textarea)),.ndk-chip:not(.acf-fixed-control),.acf-settings-select,select:not([multiple])){height:var(--ndk-ctl)!important;min-height:var(--ndk-ctl)!important;max-height:var(--ndk-ctl)!important;box-sizing:border-box}
 .acf-visual-density .ndk-field:not(.ndk-area):not(:has(textarea)) .ndk-input{min-height:0!important}
 .acf-visual-density .ndk-field .ndk-chip{height:100%!important;min-height:0!important;max-height:none!important}
 .acf-visual-density .acf-settings-picker{min-height:var(--ndk-ctl)!important}
