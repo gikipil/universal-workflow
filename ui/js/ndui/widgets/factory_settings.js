@@ -66,6 +66,12 @@ const css = `
 .acf-settings-strength{width:100%;min-width:0;height:44px;padding:0 10px;background:#20252d;border:1px solid #704a77;border-radius:10px;color:#f2d8f7;font-variant-numeric:tabular-nums}
 .acf-settings-profile{display:flex;flex-direction:column;gap:10px;align-items:flex-start;text-align:left;width:100%;min-height:145px;padding:20px;background:#18232a;color:#dbe6ef;border:1px solid #3b4955;border-radius:14px;cursor:pointer}.acf-settings-profile[aria-pressed=true]{border-color:#76e5b6;box-shadow:0 0 0 2px #59e68d22}.acf-settings-profile strong{font-size:17px}.acf-settings-profile small{color:#a4adbf;font-size:13px}.acf-settings-swatches{display:flex;gap:6px}.acf-settings-swatches i{display:block;width:28px;height:18px;border-radius:5px;border:1px solid #ffffff33}
 .acf-settings-glow{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}.acf-settings-glow button{flex:1;min-width:100px;min-height:42px;border:1px solid #3d6555;border-radius:10px;background:#202b31;color:#d9ede4;cursor:pointer}.acf-settings-glow button[aria-pressed=true]{background:#28513f;color:#c6ffdd;border-color:#6ae7a4}
+.acf-settings-appearance-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:20px}
+.acf-settings-select{width:100%;height:42px;padding:0 12px;border:1px solid #486570;border-radius:10px;background:#202a32;color:#e8eaf0;color-scheme:dark;font:inherit}.acf-settings-select option{background:#202a32;color:#e8eaf0}
+.acf-settings-color{display:flex;align-items:center;gap:12px}.acf-settings-color input{width:64px;height:40px;padding:3px;background:#202a32;border:1px solid #486570;border-radius:8px;cursor:pointer}.acf-settings-color code{font-size:13px;color:#b9cbd6}
+.acf-settings-preview{margin-top:16px;padding:20px;border:1px solid #486570;border-radius:12px;background:#20252d}.acf-settings-preview-controls{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+.acf-settings-reset{margin-top:16px;padding:10px 16px;min-height:42px;background:#30252e;color:#ffd7df;border:1px solid #9b6072;border-radius:10px;cursor:pointer}
+@media(max-width:740px){.acf-settings-appearance-grid{grid-template-columns:minmax(0,1fr)}}
 .acf-settings button:focus-visible,.acf-settings input:focus-visible{outline:2px solid #75e4df;outline-offset:3px}
 @media(max-width:620px){.acf-settings-head{padding:16px;align-items:flex-start}.acf-settings-title{font-size:21px}.acf-settings-tabs{padding:12px 16px 0}.acf-settings-tab{padding:10px 14px}.acf-settings-pane{padding:18px 16px}.acf-settings-card{padding:15px}.acf-settings-lora-row{gap:7px;grid-template-columns:40px minmax(0,1fr) 76px}.acf-settings-lora-switch{width:40px}.acf-settings-close{padding:8px 10px}}
 `;
@@ -177,12 +183,40 @@ export function openFactorySettings(ctx, onClose=()=>{}) {
     const glowCard=card(visual,'Свечение активной вкладки','Выбери комфортную яркость контура вкладки «Генерация».');glowCard.style.marginTop='24px';
     const glowRow=el('div','acf-settings-glow');glowCard.append(glowRow);
     for(const[value,label]of[['off','Выключено'],['soft','Мягкое'],['bright','Яркое']]){const button=el('button','',label);button.type='button';button.addEventListener('click',()=>{ctx.setProp('glow',value);update();});glowRow.append(button);glowButtons.push([button,value]);}
+    const appearanceGrid=el('div','acf-settings-appearance-grid');visual.append(appearanceGrid);
+    const textCard=card(appearanceGrid,'🔤 Текст и поля','Настройки общих полей интерфейса. Заголовки и специальные элементы сохраняют своё оформление.');
+    const appearanceControls=[];
+    function appearanceSelect(container,key,label,items){
+        const field=el('label','acf-settings-field'),select=el('select','acf-settings-select');select.setAttribute('aria-label',label);field.append(el('span','',label),select);container.append(field);
+        for(const[value,name]of items){const option=el('option','',name);option.value=String(value);select.append(option);}
+        select.addEventListener('change',()=>{ctx.setAppearanceControls?.({[key]:key==='fontSize'||key==='radius'&&select.value!=='default'?Number(select.value):select.value});update();});
+        select.addEventListener('keydown',e=>e.stopPropagation());appearanceControls.push([select,key]);return select;
+    }
+    appearanceSelect(textCard,'font','Шрифт',[['inter','Inter'],['system','Системный']]);
+    appearanceSelect(textCard,'fontSize','Размер основного текста',[12,13,14,15,16,17,18].map(v=>[v,v+' px']));
+    appearanceSelect(textCard,'density','Размер полей',[['compact','Компактные'],['comfortable','Обычные'],['spacious','Крупные']]);
+    const fieldsCard=card(appearanceGrid,'▢ Форма и акценты','Цвета меняют навигацию. Назначение промтов, LoRA и кнопки генерации остаётся прежним.');
+    appearanceSelect(fieldsCard,'style','Стиль полей',[['soft','Мягкая подложка'],['outline','Контур'],['glass','Стекло'],['minimal','Минимальный']]);
+    const radius=appearanceSelect(fieldsCard,'radius','Скругление',[['default','Стандартное'],['0','Прямые углы'],['6','Небольшое · 6 px'],['12','Мягкое · 12 px'],['18','Выраженное · 18 px'],['24','Круглое · 24 px']]);
+    for(const[key,label]of[['accentA','Начало градиента'],['accentB','Конец градиента']]){
+        const field=el('label','acf-settings-field'),row=el('div','acf-settings-color'),input=el('input'),code=el('code');input.type='color';input.setAttribute('aria-label',label);row.append(input,code);field.append(el('span','',label),row);fieldsCard.append(field);
+        input.addEventListener('change',()=>{ctx.setAppearanceControls?.({[key]:input.value});update();});appearanceControls.push([input,key,code]);
+    }
+    const previewCard=card(visual,'👁️ Предпросмотр','Изменения применяются сразу. Сохрани workflow, чтобы перенести оформление вместе с ним.');previewCard.style.marginTop='20px';
+    const preview=el('div','acf-settings-preview'),previewTitle=el('strong','','Пример поля'),previewText=el('div','','Текст остаётся читаемым, элементы — различимыми.'),previewControls=el('div','acf-settings-preview-controls'),sampleField=el('span','','Значение · 1024'),sampleAccent=el('span','','Активный раздел');
+    for(const node of[sampleField,sampleAccent]){node.style.padding='8px 12px';node.style.border='1px solid #53776e';}previewControls.append(sampleField,sampleAccent);preview.append(previewTitle,previewText,previewControls);previewCard.append(preview);
+    const reset=el('button','acf-settings-reset','↺ Вернуть стандартное оформление');reset.type='button';reset.addEventListener('click',()=>{ctx.resetAppearanceControls?.();update();});previewCard.append(reset);
     overlay.append(header,tabs,models,visual);applyVars(overlay,ctx.vars());document.body.append(overlay);document.body.style.overflow='hidden';
     function update() {
         for(const instance of instances)instance.update?.();for(const fn of updaters)fn();
         const appearance=ctx.appearance?.()||'standard',profile=APPEARANCE_PROFILES.find(p=>p.id===appearance)||APPEARANCE_PROFILES[0];overlay.style.background=profile.bg;
         applyVars(overlay,ctx.vars());for(const[b,id]of profileButtons)b.setAttribute('aria-pressed',String(id===appearance));
         for(const[b,value]of glowButtons)b.setAttribute('aria-pressed',String((ctx.prop('glow')||'soft')===value));
+        const visualOptions=ctx.appearanceControls?.()||{font:'inter',fontSize:14,density:'spacious',style:'soft',radius:'default',accentA:ctx.prop('accentA')||'#36cfea',accentB:ctx.prop('accentB')||'#59e68d'};
+        for(const[input,key,code]of appearanceControls){if(document.activeElement!==input)input.value=String(visualOptions[key]);if(code)code.textContent=String(visualOptions[key]).toUpperCase();}
+        const rounding=visualOptions.radius==='default'?12:Number(visualOptions.radius);preview.style.fontSize=visualOptions.fontSize+'px';preview.style.fontFamily=visualOptions.font==='system'?'system-ui,sans-serif':'Inter,system-ui,sans-serif';preview.style.borderRadius=rounding+'px';
+        for(const element of[sampleField,sampleAccent])element.style.borderRadius=rounding+'px';sampleAccent.style.background=`linear-gradient(115deg,${visualOptions.accentA},${visualOptions.accentB})`;sampleAccent.style.color='#101820';sampleField.style.background=visualOptions.style==='outline'?'transparent':'#29353e';
+
     }
     function dismiss() {
         if(closed)return;closed=true;narrow?.removeEventListener?.('change',relayout);closePopup();window.removeEventListener('keydown',key,true);for(const instance of instances)instance.destroy?.();overlay.remove();document.body.style.overflow=oldOverflow;previous?.focus?.();onClose();

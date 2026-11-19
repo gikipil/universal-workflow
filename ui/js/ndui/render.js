@@ -7,7 +7,7 @@ import {taskPageUi} from './task_page.js';
 // ND UI — PageView: draws a page of the panel (in the node, in the editor, on the full screen).
 // It keeps one frame per widget, gives each widget its context (ctx), and every frame looks at the bound parameters to keep the widgets in step with the graph.
 
-import {applyAppearanceProfile,appearanceProfile} from "./factory_appearance.js";
+import {applyAppearanceProfile,appearanceProfile,readAppearanceControls,applyAppearanceControls,resetAppearanceControls,appearanceVars} from "./factory_appearance.js";
 import { applyVars, varsFor, tokensOf, pageBackground, injectKit } from "./kit.js";
 import { defOf, defaultProps } from "./widgets/index.js";
 import { resolveSlot, writeSlot, effectiveLimits, stateLabel } from "./bind.js";
@@ -209,7 +209,7 @@ export class PageView {
         if (!ui.pages.some((p) => p.id === this.page)) this.page = ui.pages[0].id;
         this.root.classList.toggle("ndk-edit", this.mode === "edit");
         const tokens = this.tokens;
-        applyVars(this.root, varsFor(tokens, ui.kit, {}));
+        applyVars(this.root, appearanceVars(ui,varsFor(tokens, ui.kit, {})));
         this.applyBackground(tokens);
         this.computeLayout();
         const wanted = new Map(widgetsOf(ui, this.page).filter((w) => this.rects.has(w.id)).map((w) => [w.id, w]));
@@ -358,6 +358,9 @@ export class PageView {
                 }
             },
             limits(id) { return effectiveLimits(state(id), f.w.props || {}); },
+            appearanceControls: () => readAppearanceControls(view.ui),
+            setAppearanceControls(patch) {if(!applyAppearanceControls(view.ui,patch))return false;clearTimeout(writeTimer);writeTimer=setTimeout(touchWorkflow,300);view.refresh();view.resize();view.onChange();return true;},
+            resetAppearanceControls() {if(!resetAppearanceControls(view.ui))return;clearTimeout(writeTimer);writeTimer=setTimeout(touchWorkflow,300);view.refresh();view.resize();view.onChange();},
             appearance: () => appearanceProfile(view.ui),
             setAppearance(id) {
                 if (!applyAppearanceProfile(view.ui,id)) return;
@@ -481,7 +484,7 @@ export class PageView {
     applyLook(f) {
         const w = f.w, def = f.def;
         const look = this.effectiveLook(w);
-        const vars = varsFor(this.tokens, this.ui.kit, look);
+        const vars = appearanceVars(this.ui,varsFor(this.tokens, this.ui.kit, look));
         if (isPanelLike(w) || w.type === "spoiler") { vars["--ndk-pbg"] = look.bg || vars["--ndk-s1"]; vars["--ndk-ptitle"] = look.labelColor || look.text || vars["--ndk-text"]; vars["--ndk-wbg"] = "transparent"; }
         f.vars = vars;
         applyVars(f.frame, vars);

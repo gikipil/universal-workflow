@@ -44,3 +44,37 @@ export function applyAppearanceProfile(ui, id) {
     for(const other of ui.widgets.filter(w=>w.type==='factorytaskbar_v0215'&&w.id!==bar.id)){other.props ||= {};for(const key of ['accentA','accentB','visualProfile'])other.props[key]=bar.props[key];}
     return true;
 }
+
+// Presentation preferences: processing nodes and model settings are never touched.
+const appearanceBar=ui=>ui.widgets?.find(w=>w.id==='taskbar');
+export function readAppearanceControls(ui){
+ const bar=appearanceBar(ui),v=bar?.props?.visualControls||{},kit=ui.kit||{};
+ return{font:kit.font||'inter',density:kit.density||'spacious',style:kit.style||'soft',fontSize:v.fontSize??({compact:12,comfortable:13,spacious:14}[kit.density]||14),radius:v.radius??'default',accentA:bar?.props?.accentA||'#36cfea',accentB:bar?.props?.accentB||'#59e68d'};
+}
+export function applyAppearanceControls(ui,patch){
+ const bar=appearanceBar(ui);if(!bar||!patch||typeof patch!=='object'||Array.isArray(patch))return false;
+ const enums={font:['inter','system'],density:['compact','comfortable','spacious'],style:['soft','outline','glass','minimal']};
+ for(const[k,v]of Object.entries(patch)){
+  if(k in enums){if(!enums[k].includes(v))return false;}
+  else if(k==='fontSize'){if(!Number.isInteger(v)||v<12||v>18)return false;}
+  else if(k==='radius'){if(v!=='default'&&(!Number.isInteger(v)||v<0||v>24))return false;}
+  else if(k==='accentA'||k==='accentB'){if(!/^#[0-9a-f]{6}$/i.test(v))return false;}
+  else return false;
+ }
+ ui.kit||={};bar.props||={};bar.props.visualControls||={};
+ for(const[k,v]of Object.entries(patch)){
+  if(k in enums)ui.kit[k]=v;
+  else if(k==='accentA'||k==='accentB')bar.props[k]=v;
+  else if(k==='radius'&&v==='default')delete bar.props.visualControls.radius;
+  else bar.props.visualControls[k]=v;
+ }
+ for(const other of ui.widgets.filter(w=>w.type==='factorytaskbar_v0215')){other.props||={};other.props.visualControls=clone(bar.props.visualControls);for(const k of['accentA','accentB'])other.props[k]=bar.props[k];}
+ return true;
+}
+export function appearanceVars(ui,vars){const v=appearanceBar(ui)?.props?.visualControls;if(v?.fontSize)vars['--ndk-fs']=v.fontSize+'px';if(Number.isInteger(v?.radius))for(const key of['--ndk-rs','--ndk-rm','--ndk-rl','--ndk-ra'])vars[key]=v.radius+'px';return vars;}
+export function resetAppearanceControls(ui){
+ if(!applyAppearanceProfile(ui,'standard'))return false;
+ Object.assign(ui.kit,{font:'inter',density:'spacious',style:'soft'});
+ for(const bar of ui.widgets.filter(w=>w.type==='factorytaskbar_v0215')){delete bar.props.visualControls;bar.props.glow='soft';}
+ return true;
+}
