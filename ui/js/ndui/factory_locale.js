@@ -2,8 +2,11 @@
 // Universal Workflow language registry and scoped UI translation, gikipil 2026.
 import english,{patterns as englishPatterns} from './locales/en.js';
 import chinese,{patterns as chinesePatterns} from './locales/zh.js';
+import spanish,{patterns as spanishPatterns} from './locales/es.js';
+import french,{patterns as frenchPatterns} from './locales/fr.js';
+import nativeWidgets from './locales/native_widgets.js';
 // Add a dictionary and registry entry here to expose another language in the UI.
-export const INTERFACE_LANGUAGES=[{id:'ru',name:'Русский',dictionary:{}},{id:'en',name:'English',dictionary:english,patterns:englishPatterns},{id:'zh',name:'简体中文',dictionary:chinese,patterns:chinesePatterns}];
+export const INTERFACE_LANGUAGES=[{id:'ru',name:'Русский',dictionary:{}},{id:'en',name:'English',dictionary:english,patterns:englishPatterns},{id:'zh',name:'简体中文',dictionary:chinese,patterns:chinesePatterns},{id:'es',name:'Español',dictionary:spanish,patterns:spanishPatterns},{id:'fr',name:'Français',dictionary:french,patterns:frenchPatterns}];
 export const isUniversalInterface=ui=>!!ui?.widgets?.some(w=>w.id==='taskbar'&&w.type==='factorytaskbar_v0215');
 const barOf=ui=>ui?.widgets?.find(w=>w.id==='taskbar');
 export const interfaceLanguage=ui=>INTERFACE_LANGUAGES.some(l=>l.id===barOf(ui)?.props?.language)?barOf(ui).props.language:'ru';
@@ -11,13 +14,26 @@ export function setInterfaceLanguage(ui,id){if(!INTERFACE_LANGUAGES.some(l=>l.id
 const lowerDictionaries=new WeakMap();
 const insensitive=d=>{if(!lowerDictionaries.has(d))lowerDictionaries.set(d,new Map(Object.entries(d).map(([k,v])=>[k.toLocaleLowerCase(),v])));return lowerDictionaries.get(d);};
 const reverse=new Map(Object.entries(english).map(([ru,en])=>[en,ru]));
-for(const[source,translated]of Object.entries(chinese))if(!reverse.has(translated))reverse.set(translated,source);
+for(const language of INTERFACE_LANGUAGES)for(const[source,translated]of Object.entries(language.dictionary))if(!reverse.has(translated))reverse.set(translated,source);
+const nativeSources=new Map();
+for(const[en,translations]of Object.entries(nativeWidgets)){
+ const source=reverse.get(en)||translations.ru;nativeSources.set(source,{en,...translations});
+ for(const label of[en,...Object.values(translations)])if(!reverse.has(label))reverse.set(label,source);
+}
+// Native widgets interpolate {name}/{n} before translation; retain these values.
+const nativeTemplates=[];
+for(const translations of nativeSources.values())for(const template of Object.values(translations)){
+ const fields=[];const escaped=template.split(/(\{[A-Za-z_]+\})/).map(part=>/^\{[A-Za-z_]+\}$/.test(part)?(fields.push(part),'(.+?)'):part.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')).join('');
+ if(fields.length)nativeTemplates.push({pattern:new RegExp('^'+escaped+'$'),fields,translations});
+}
+function nativeText(value,language){for(const{pattern,fields,translations}of nativeTemplates){const match=value.match(pattern);if(match&&translations[language])return translations[language].replace(/\{[A-Za-z_]+\}/g,field=>match[fields.indexOf(field)+1]??field);}return null;}
 export function translateInterface(text,language='ru'){
  if(typeof text!=='string'||!text)return text;
  const dict=INTERFACE_LANGUAGES.find(l=>l.id===language)?.dictionary||{};
  function line(value,depth=0){
   const lead=value.match(/^\s*/)[0],trail=value.match(/\s*$/)[0],trim=value.trim();if(!trim)return value;
-  let result=language==='ru'?reverse.get(trim):dict[trim]||dict[reverse.get(trim)]||insensitive(dict).get(trim.toLocaleLowerCase());if(result&&language==='en'&&/^[а-яё]/u.test(trim))result=result[0].toLowerCase()+result.slice(1);
+  const source=reverse.get(trim)||trim;
+  let result=language==='ru'?reverse.get(trim):dict[trim]||dict[source]||nativeSources.get(source)?.[language]||insensitive(dict).get(trim.toLocaleLowerCase());result||=nativeText(trim,language);if(result&&language==='en'&&/^[а-яё]/u.test(trim))result=result[0].toLowerCase()+result.slice(1);
   if(result)return lead+result+trail;
   for(const[pattern,replacement]of INTERFACE_LANGUAGES.find(l=>l.id===language)?.patterns||[])if(pattern.test(trim))return lead+trim.replace(pattern,replacement)+trail;
   if(depth>3)return value;
@@ -40,7 +56,7 @@ const isFile=value=>/^(?:https?:|[a-z]:[\\/])/i.test(value)||/\.(?:safetensors|c
 export function localizeInterface(root,getLanguage){
  const memory=new WeakMap();let current=getLanguage?.()||'ru',closed=false;
  root.setAttribute?.('data-acf-localized','');
- function translated(target,key,value){let props=memory.get(target);if(!props){props=new Map();memory.set(target,props);}let record=props.get(key);if(!record||value!==record.shown)record={source:value,shown:value};const next=isFile(record.source)?record.source:translateInterface(record.source,current);record.shown=next;props.set(key,record);return next;}
+ function translated(target,key,value){let props=memory.get(target);if(!props){props=new Map();memory.set(target,props);}let record=props.get(key);if(!record||value!==record.shown)record={source:value,shown:value};const next=isFile(record.source)&&!(key!=='text'&&record.source.includes(' · '))?record.source:translateInterface(record.source,current);record.shown=next;props.set(key,record);return next;}
  function blocked(node){const el=node.nodeType===3?node.parentElement:node;return !!el?.closest?.(protectedSelector);}
  function walk(node){
   if(!node||closed||blocked(node))return;
