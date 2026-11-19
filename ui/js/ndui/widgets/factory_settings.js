@@ -6,7 +6,7 @@ import {captionModelFields} from './factory_caption.js';
 import {el, closePopup} from './util.js';
 import {modelpicker} from './special.js';
 import {applyVars} from '../kit.js';
-import {APPEARANCE_PROFILES} from '../factory_appearance.js';
+import {APPEARANCE_PROFILES,APPEARANCE_FONTS,APPEARANCE_CONTROL_CSS} from '../factory_appearance.js';
 
 const MODEL_FIELDS = [
     ['song_model','ACE-Step · модель','diffusion_models'],['song_clip1','ACE · энкодер 0.6B','text_encoders'],['song_clip2','ACE · энкодер 4B','text_encoders'],['song_vae','ACE · Audio VAE','vae'],
@@ -68,7 +68,6 @@ const css = `
 .acf-settings-glow{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}.acf-settings-glow button{flex:1;min-width:100px;min-height:42px;border:1px solid #3d6555;border-radius:10px;background:#202b31;color:#d9ede4;cursor:pointer}.acf-settings-glow button[aria-pressed=true]{background:#28513f;color:#c6ffdd;border-color:#6ae7a4}
 .acf-settings-appearance-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:20px}
 .acf-settings-select{width:100%;height:42px;padding:0 12px;border:1px solid #486570;border-radius:10px;background:#202a32;color:#e8eaf0;color-scheme:dark;font:inherit}.acf-settings-select option{background:#202a32;color:#e8eaf0}
-.acf-settings-color{display:flex;align-items:center;gap:12px}.acf-settings-color input{width:64px;height:40px;padding:3px;background:#202a32;border:1px solid #486570;border-radius:8px;cursor:pointer}.acf-settings-color code{font-size:13px;color:#b9cbd6}
 .acf-settings-preview{margin-top:16px;padding:20px;border:1px solid #486570;border-radius:12px;background:#20252d}.acf-settings-preview-controls{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
 .acf-settings-reset{margin-top:16px;padding:10px 16px;min-height:42px;background:#30252e;color:#ffd7df;border:1px solid #9b6072;border-radius:10px;cursor:pointer}
 @media(max-width:740px){.acf-settings-appearance-grid{grid-template-columns:minmax(0,1fr)}}
@@ -79,7 +78,7 @@ const css = `
 export function openFactorySettings(ctx, onClose=()=>{}) {
     closePopup();
     const overlay=el('div','ndk acf-settings'), style=el('style'), header=el('header','acf-settings-head'), titleBox=el('div'), close=el('button','acf-settings-close');
-    style.textContent=css;overlay.append(style);overlay.setAttribute('role','dialog');overlay.setAttribute('aria-modal','true');overlay.setAttribute('aria-label','Настройки универсального workflow');overlay.tabIndex=-1;
+    style.textContent=css+APPEARANCE_CONTROL_CSS;overlay.append(style);overlay.setAttribute('role','dialog');overlay.setAttribute('aria-modal','true');overlay.setAttribute('aria-label','Настройки универсального workflow');overlay.tabIndex=-1;
     titleBox.append(el('h2','acf-settings-title','Настройки'),el('div','acf-settings-caption','Модели, постоянные LoRA и оформление интерфейса'));
     close.type='button';close.setAttribute('aria-label','Закрыть настройки');close.innerHTML='<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg>';close.append(el('span','','Закрыть'));header.append(titleBox,close);
     const tabs=el('div','acf-settings-tabs'), models=el('section','acf-settings-pane'), visual=el('section','acf-settings-pane');tabs.setAttribute('role','tablist');tabs.setAttribute('aria-label','Разделы настроек');
@@ -192,18 +191,14 @@ export function openFactorySettings(ctx, onClose=()=>{}) {
         select.addEventListener('change',()=>{ctx.setAppearanceControls?.({[key]:key==='fontSize'||key==='radius'&&select.value!=='default'?Number(select.value):select.value});update();});
         select.addEventListener('keydown',e=>e.stopPropagation());appearanceControls.push([select,key]);return select;
     }
-    appearanceSelect(textCard,'font','Шрифт',[['inter','Inter'],['system','Системный']]);
+    appearanceSelect(textCard,'font','Шрифт',APPEARANCE_FONTS.map(f=>[f.id,f.name]));
     appearanceSelect(textCard,'fontSize','Размер основного текста',[12,13,14,15,16,17,18].map(v=>[v,v+' px']));
     appearanceSelect(textCard,'density','Размер полей',[['compact','Компактные'],['comfortable','Обычные'],['spacious','Крупные']]);
-    const fieldsCard=card(appearanceGrid,'▢ Форма и акценты','Цвета меняют навигацию. Назначение промтов, LoRA и кнопки генерации остаётся прежним.');
+    const fieldsCard=card(appearanceGrid,'▢ Оформление полей','Цвета задаются выбранным профилем. Назначение промтов, LoRA и кнопки генерации остаётся прежним.');
     appearanceSelect(fieldsCard,'style','Стиль полей',[['soft','Мягкая подложка'],['outline','Контур'],['glass','Стекло'],['minimal','Минимальный']]);
     const radius=appearanceSelect(fieldsCard,'radius','Скругление',[['default','Стандартное'],['0','Прямые углы'],['6','Небольшое · 6 px'],['12','Мягкое · 12 px'],['18','Выраженное · 18 px'],['24','Круглое · 24 px']]);
-    for(const[key,label]of[['accentA','Начало градиента'],['accentB','Конец градиента']]){
-        const field=el('label','acf-settings-field'),row=el('div','acf-settings-color'),input=el('input'),code=el('code');input.type='color';input.setAttribute('aria-label',label);row.append(input,code);field.append(el('span','',label),row);fieldsCard.append(field);
-        input.addEventListener('change',()=>{ctx.setAppearanceControls?.({[key]:input.value});update();});appearanceControls.push([input,key,code]);
-    }
     const previewCard=card(visual,'👁️ Предпросмотр','Изменения применяются сразу. Сохрани workflow, чтобы перенести оформление вместе с ним.');previewCard.style.marginTop='20px';
-    const preview=el('div','acf-settings-preview'),previewTitle=el('strong','','Пример поля'),previewText=el('div','','Текст остаётся читаемым, элементы — различимыми.'),previewControls=el('div','acf-settings-preview-controls'),sampleField=el('span','','Значение · 1024'),sampleAccent=el('span','','Активный раздел');
+    const preview=el('div','acf-settings-preview'),previewTitle=el('strong','','Пример поля'),previewText=el('div','','Текст остаётся читаемым, элементы — различимыми.'),previewControls=el('div','acf-settings-preview-controls'),sampleField=el('span','ndk-field','Значение · 1024'),sampleAccent=el('span','','Активный раздел');
     for(const node of[sampleField,sampleAccent]){node.style.padding='8px 12px';node.style.border='1px solid #53776e';}previewControls.append(sampleField,sampleAccent);preview.append(previewTitle,previewText,previewControls);previewCard.append(preview);
     const reset=el('button','acf-settings-reset','↺ Вернуть стандартное оформление');reset.type='button';reset.addEventListener('click',()=>{ctx.resetAppearanceControls?.();update();});previewCard.append(reset);
     overlay.append(header,tabs,models,visual);applyVars(overlay,ctx.vars());document.body.append(overlay);document.body.style.overflow='hidden';
@@ -213,8 +208,9 @@ export function openFactorySettings(ctx, onClose=()=>{}) {
         applyVars(overlay,ctx.vars());for(const[b,id]of profileButtons)b.setAttribute('aria-pressed',String(id===appearance));
         for(const[b,value]of glowButtons)b.setAttribute('aria-pressed',String((ctx.prop('glow')||'soft')===value));
         const visualOptions=ctx.appearanceControls?.()||{font:'inter',fontSize:14,density:'spacious',style:'soft',radius:'default',accentA:ctx.prop('accentA')||'#36cfea',accentB:ctx.prop('accentB')||'#59e68d'};
+        overlay.classList.toggle('acf-visual-font',!!ctx.appearanceControls);overlay.classList.toggle('acf-visual-density',!!ctx.appearanceControls);overlay.classList.toggle('acf-visual-style',!!ctx.appearanceControls);overlay.setAttribute('data-field-style',visualOptions.style);
         for(const[input,key,code]of appearanceControls){if(document.activeElement!==input)input.value=String(visualOptions[key]);if(code)code.textContent=String(visualOptions[key]).toUpperCase();}
-        const rounding=visualOptions.radius==='default'?12:Number(visualOptions.radius);preview.style.fontSize=visualOptions.fontSize+'px';preview.style.fontFamily=visualOptions.font==='system'?'system-ui,sans-serif':'Inter,system-ui,sans-serif';preview.style.borderRadius=rounding+'px';
+        const rounding=visualOptions.radius==='default'?12:Number(visualOptions.radius);preview.style.fontSize=visualOptions.fontSize+'px';preview.style.fontFamily=APPEARANCE_FONTS.find(f=>f.id===visualOptions.font)?.family||'system-ui,sans-serif';preview.style.borderRadius=rounding+'px';
         for(const element of[sampleField,sampleAccent])element.style.borderRadius=rounding+'px';sampleAccent.style.background=`linear-gradient(115deg,${visualOptions.accentA},${visualOptions.accentB})`;sampleAccent.style.color='#101820';sampleField.style.background=visualOptions.style==='outline'?'transparent':'#29353e';
 
     }

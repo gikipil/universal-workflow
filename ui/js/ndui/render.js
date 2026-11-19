@@ -7,7 +7,7 @@ import {taskPageUi} from './task_page.js';
 // ND UI — PageView: draws a page of the panel (in the node, in the editor, on the full screen).
 // It keeps one frame per widget, gives each widget its context (ctx), and every frame looks at the bound parameters to keep the widgets in step with the graph.
 
-import {applyAppearanceProfile,appearanceProfile,readAppearanceControls,applyAppearanceControls,resetAppearanceControls,appearanceVars} from "./factory_appearance.js";
+import {applyAppearanceProfile,appearanceProfile,readAppearanceControls,applyAppearanceControls,resetAppearanceControls,appearanceVars,APPEARANCE_CONTROL_CSS,syncAppearanceRoot} from "./factory_appearance.js";
 import { applyVars, varsFor, tokensOf, pageBackground, injectKit } from "./kit.js";
 import { defOf, defaultProps } from "./widgets/index.js";
 import { resolveSlot, writeSlot, effectiveLimits, stateLabel } from "./bind.js";
@@ -57,6 +57,7 @@ export class PageView {
         this.frames = new Map(); // widget id -> {frame, inner, label, body, badge, inst, ctx, sig, local}
         this.root = document.createElement("div");
         this.root.className = "ndk ndk-stage";
+        const appearanceStyle=document.createElement("style");appearanceStyle.textContent=APPEARANCE_CONTROL_CSS;this.root.append(appearanceStyle);
         this.root.dataset.ndScroll = "";           // a page taller than the host scrolls by the wheel
         this.pageEl = document.createElement("div");
         this.pageEl.className = "ndk-page";
@@ -209,6 +210,7 @@ export class PageView {
         if (!ui.pages.some((p) => p.id === this.page)) this.page = ui.pages[0].id;
         this.root.classList.toggle("ndk-edit", this.mode === "edit");
         const tokens = this.tokens;
+        syncAppearanceRoot(ui,this.root);
         applyVars(this.root, appearanceVars(ui,varsFor(tokens, ui.kit, {})));
         this.applyBackground(tokens);
         this.computeLayout();
