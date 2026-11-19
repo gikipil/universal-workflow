@@ -1,6 +1,15 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 // Universal Workflow English UI dictionary, gikipil 2026. Russian source keys.
 export default {
+  "Нави и золото": "Navy & Gold",
+  "Тёмная магия": "Dark Magic",
+  "Лагуна": "Lagoon",
+  "Синий и коралл": "Blue & Coral",
+  "Тёмный синий, тёплый бежевый и мягкое золото.": "Navy blue, warm beige and soft gold.",
+  "Глубокий фиолетовый, лавандовый и пудровый розовый.": "Deep purple, lavender and powder pink.",
+  "Глубокие бирюзовые тона, светлый камень и тёмно-красные акценты.": "Deep teal, light stone and dark red accents.",
+  "Глубокий синий, тёплый коралл и прохладный серо-голубой.": "Deep blue, warm coral and cool blue gray.",
+  "Профиль задаёт цвета всей страницы: кнопок, градиентов, блоков, полей и рамок.": "The profile sets colors across the page: buttons, gradients, blocks, fields and borders.",
   "Язык интерфейса": "Interface language",
   "Язык": "Language",
   "Генерация": "Generation",

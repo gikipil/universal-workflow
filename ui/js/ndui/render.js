@@ -1,3 +1,4 @@
+import {themeInterface} from './factory_palette.js';
 import {T as nativeUiText,loadLang} from './core/i18n.js';
 import {interfaceLanguage,translateInterface,localizeInterface,isUniversalInterface} from './factory_locale.js';
 import {taskPageUi} from './task_page.js';
@@ -9,7 +10,7 @@ import {taskPageUi} from './task_page.js';
 // ND UI — PageView: draws a page of the panel (in the node, in the editor, on the full screen).
 // It keeps one frame per widget, gives each widget its context (ctx), and every frame looks at the bound parameters to keep the widgets in step with the graph.
 
-import {applyAppearanceProfile,appearanceProfile,readAppearanceControls,applyAppearanceControls,resetAppearanceControls,appearanceVars,APPEARANCE_CONTROL_CSS,syncAppearanceRoot,appearanceColumns} from "./factory_appearance.js";
+import {applyAppearanceProfile,appearanceProfile,readAppearanceControls,applyAppearanceControls,resetAppearanceControls,appearanceVars,APPEARANCE_CONTROL_CSS,syncAppearanceRoot,appearanceColumns,activeAppearanceProfile,appearanceRole} from "./factory_appearance.js";
 import { applyVars, varsFor, tokensOf, pageBackground, injectKit } from "./kit.js";
 import { defOf, defaultProps } from "./widgets/index.js";
 import { resolveSlot, writeSlot, effectiveLimits, stateLabel } from "./bind.js";
@@ -72,6 +73,7 @@ export class PageView {
         this.fillDim = document.createElement("div"); this.fillDim.className = "ndk-page-dim";
         this.fillBg.append(this.fillDim);
         host.append(this.fillBg, this.root);
+        this.palette=isUniversalInterface(this.ui)?themeInterface(this.root,()=>activeAppearanceProfile(this.ui)):null;
         this.localization=isUniversalInterface(this.ui)?localizeInterface(this.root,()=>interfaceLanguage(this.ui)):null;
         this.geo = { px: 1, py: 1, su: 1, s: 1, ox: 0, oy: 0 };
         this.alive = true;
@@ -93,7 +95,7 @@ export class PageView {
         this.offOpen?.();
         cancelAnimationFrame(this.raf);
         this.ro.disconnect();
-        this.localization?.destroy();
+        this.localization?.destroy();this.palette?.destroy();
         for (const f of this.frames.values()) this.dropFrame(f);
         this.frames.clear();
         this.root.remove(); this.fillBg.remove();
@@ -234,7 +236,7 @@ export class PageView {
             this.update(f);
         }
         this.layoutPage();
-        this.localization?.update();
+        this.localization?.update();this.palette?.update();
     }
 
     // paints a background value of pageBackground() on a layer and its dimming layer
@@ -371,6 +373,7 @@ export class PageView {
             appearanceControls: () => readAppearanceControls(view.ui),
             setAppearanceControls(patch) {if(!applyAppearanceControls(view.ui,patch))return false;clearTimeout(writeTimer);writeTimer=setTimeout(touchWorkflow,300);view.refresh();view.resize();view.onChange();if(patch.language)loadLang(patch.language).then(()=>{if(view.alive)view.refresh();});return true;},
             resetAppearanceControls() {if(!resetAppearanceControls(view.ui))return;clearTimeout(writeTimer);writeTimer=setTimeout(touchWorkflow,300);view.refresh();view.resize();view.onChange();},
+            colorProfile: isUniversalInterface(view.ui)?()=>activeAppearanceProfile(view.ui):undefined,
             appearance: () => appearanceProfile(view.ui),
             setAppearance(id) {
                 if (!applyAppearanceProfile(view.ui,id)) return;
@@ -494,8 +497,9 @@ export class PageView {
     applyLook(f) {
         const w = f.w, def = f.def;
         const look = this.effectiveLook(w);
-        const vars = appearanceVars(this.ui,varsFor(this.tokens, this.ui.kit, look));
+        const vars = varsFor(this.tokens, this.ui.kit, look);
         if (isPanelLike(w) || w.type === "spoiler") { vars["--ndk-pbg"] = look.bg || vars["--ndk-s1"]; vars["--ndk-ptitle"] = look.labelColor || look.text || vars["--ndk-text"]; vars["--ndk-wbg"] = "transparent"; }
+        appearanceVars(this.ui,vars,w);f.frame.setAttribute('data-acf-role',appearanceRole(w));
         f.vars = vars;
         applyVars(f.frame, vars);
         const lp = !def || def.noLabel ? "hidden" : (w.look?.label || "top");

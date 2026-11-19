@@ -1,3 +1,4 @@
+import {themeInterface,paletteVariables} from '../factory_palette.js';
 import {INTERFACE_LANGUAGES,localizeInterface} from '../factory_locale.js';
 import {captionModelFields} from './factory_caption.js';
 // Universal Workflow update by gikipil, 2026-11-14: standalone and post-edit upscale.
@@ -176,7 +177,7 @@ export function openFactorySettings(ctx, onClose=()=>{}) {
     const visualGrid=el('div','acf-settings-grid');visual.append(el('h3','acf-settings-subtitle','Цветовой профиль'));visual.firstElementChild.style.marginTop='0';visual.append(visualGrid);
     for(const profile of APPEARANCE_PROFILES) {
         const button=el('button','acf-settings-profile'),swatches=el('span','acf-settings-swatches');button.type='button';
-        for(const color of[profile.bg,profile.s2,profile.a,profile.b]){const sample=el('i');sample.style.background=color;swatches.append(sample);}
+        for(const color of(profile.palette||[profile.bg,profile.s2,profile.a,profile.b])){const sample=el('i');sample.style.background=color;swatches.append(sample);}
         button.append(swatches,el('strong','',profile.name),el('small','',profile.description));button.addEventListener('click',()=>{ctx.setAppearance?.(profile.id);update();});visualGrid.append(button);profileButtons.push([button,profile.id]);
     }
     visual.append(el('p','acf-settings-caption','Цвета промтов, LoRA и кнопки генерации сохраняют своё назначение. Изменения оформления сохраняются вместе с workflow.'));
@@ -197,7 +198,7 @@ export function openFactorySettings(ctx, onClose=()=>{}) {
     appearanceSelect(textCard,'font','Шрифт',APPEARANCE_FONTS.map(f=>[f.id,f.name]));
     appearanceSelect(textCard,'fontSize','Размер основного текста',[12,13,14,15,16,17,18].map(v=>[v,v+' px']));
     appearanceSelect(textCard,'density','Размер полей',[['compact','Компактные'],['comfortable','Обычные'],['spacious','Крупные']]);
-    const fieldsCard=card(appearanceGrid,'▢ Оформление полей','Цвета задаются выбранным профилем. Назначение промтов, LoRA и кнопки генерации остаётся прежним.');
+    const fieldsCard=card(appearanceGrid,'▢ Оформление полей','Профиль задаёт цвета всей страницы: кнопок, градиентов, блоков, полей и рамок.');
     appearanceSelect(fieldsCard,'style','Стиль полей',[['soft','Мягкая подложка'],['outline','Контур'],['glass','Стекло'],['minimal','Минимальный']]);
     const radius=appearanceSelect(fieldsCard,'radius','Скругление',[['default','Стандартное'],['0','Прямые углы'],['6','Небольшое · 6 px'],['12','Мягкое · 12 px'],['18','Выраженное · 18 px'],['24','Круглое · 24 px']]);
     const workspaceCard=card(appearanceGrid,'▥ Рабочее пространство','Ширина меняется на рабочих вкладках. Настройки генерации и размер сохраняемого результата остаются прежними.');
@@ -210,23 +211,24 @@ export function openFactorySettings(ctx, onClose=()=>{}) {
     for(const node of[sampleField,sampleAccent]){node.style.padding='8px 12px';node.style.border='1px solid #53776e';}previewControls.append(sampleField,sampleAccent);preview.append(previewTitle,previewText,previewControls);previewCard.append(preview);
     const reset=el('button','acf-settings-reset','↺ Вернуть стандартное оформление');reset.type='button';reset.addEventListener('click',()=>{ctx.resetAppearanceControls?.();update();});previewCard.append(reset);
     overlay.append(header,tabs,models,visual);applyVars(overlay,ctx.vars());document.body.append(overlay);document.body.style.overflow='hidden';
+    const palette=themeInterface(overlay,()=>ctx.colorProfile?.()||APPEARANCE_PROFILES.find(p=>p.id===(ctx.appearance?.()||'standard')));
     const localization=localizeInterface(overlay,()=>ctx.appearanceControls?.().language||ctx.language?.()||'ru');
     function update() {
         for(const instance of instances)instance.update?.();for(const fn of updaters)fn();
-        const appearance=ctx.appearance?.()||'standard',profile=APPEARANCE_PROFILES.find(p=>p.id===appearance)||APPEARANCE_PROFILES[0];overlay.style.background=profile.bg;
+        const appearance=ctx.appearance?.()||'standard',profile=APPEARANCE_PROFILES.find(p=>p.id===appearance)||APPEARANCE_PROFILES.find(p=>p.id==='standard');overlay.style.background=profile.bg;
         applyVars(overlay,ctx.vars());for(const[b,id]of profileButtons)b.setAttribute('aria-pressed',String(id===appearance));
         for(const[b,value]of glowButtons)b.setAttribute('aria-pressed',String((ctx.prop('glow')||'soft')===value));
         const visualOptions=ctx.appearanceControls?.()||{columnWidth:0,previewBackground:'standard',animations:'normal',font:'inter',fontSize:14,density:'spacious',style:'soft',radius:'default',accentA:ctx.prop('accentA')||'#36cfea',accentB:ctx.prop('accentB')||'#59e68d'};
         overlay.classList.toggle('acf-visual-font',!!ctx.appearanceControls);overlay.classList.toggle('acf-visual-density',!!ctx.appearanceControls);overlay.classList.toggle('acf-visual-style',!!ctx.appearanceControls);overlay.setAttribute('data-field-style',visualOptions.style);overlay.classList.toggle('acf-motion-fast',visualOptions.animations==='fast');overlay.classList.toggle('acf-motion-off',visualOptions.animations==='off');
         for(const[input,key,code]of appearanceControls){if(document.activeElement!==input)input.value=String(visualOptions[key]);if(code)code.textContent=String(visualOptions[key]).toUpperCase();}
-        localization.update();
+        localization.update();palette.update();
         const rounding=visualOptions.radius==='default'?12:Number(visualOptions.radius);preview.style.fontSize=visualOptions.fontSize+'px';preview.style.fontFamily=APPEARANCE_FONTS.find(f=>f.id===visualOptions.font)?.family||'system-ui,sans-serif';preview.style.borderRadius=rounding+'px';
-        const previewBg=PREVIEW_BACKGROUNDS.find(b=>b.id===visualOptions.previewBackground);preview.style.background=previewBg?.background||'#20252d';preview.style.backgroundSize=previewBg?.size||'auto';preview.style.color=['light','checker'].includes(visualOptions.previewBackground)?'#17212b':'#e8eaf0';
-        for(const element of[sampleField,sampleAccent])element.style.borderRadius=rounding+'px';sampleAccent.style.background=`linear-gradient(115deg,${visualOptions.accentA},${visualOptions.accentB})`;sampleAccent.style.color='#101820';sampleField.style.background=visualOptions.style==='outline'?'transparent':'#29353e';
+        const colors=paletteVariables(profile),previewBg=PREVIEW_BACKGROUNDS.find(b=>b.id===visualOptions.previewBackground&&b.id!=='standard');preview.style.background=previewBg?.background||profile.s2;preview.style.backgroundSize=previewBg?.size||'auto';preview.style.color=['light','checker'].includes(visualOptions.previewBackground)?'#17212b':colors['--acf-text'];
+        for(const element of[sampleField,sampleAccent])element.style.borderRadius=rounding+'px';sampleAccent.style.background=profile.a;sampleAccent.style.color=colors['--acf-accent-text'];sampleField.style.background=visualOptions.style==='outline'?'transparent':profile.s3;sampleField.style.color=colors['--acf-text'];for(const element of[sampleField,sampleAccent])element.style.borderColor=profile.border;
 
     }
     function dismiss() {
-        if(closed)return;closed=true;localization.destroy();narrow?.removeEventListener?.('change',relayout);closePopup();window.removeEventListener('keydown',key,true);for(const instance of instances)instance.destroy?.();overlay.remove();document.body.style.overflow=oldOverflow;previous?.focus?.();onClose();
+        if(closed)return;closed=true;localization.destroy();palette.destroy();narrow?.removeEventListener?.('change',relayout);closePopup();window.removeEventListener('keydown',key,true);for(const instance of instances)instance.destroy?.();overlay.remove();document.body.style.overflow=oldOverflow;previous?.focus?.();onClose();
     }
     function key(event) {
         if(event.key==='Escape'){if(overlay.querySelector('.ndk-pop'))return;event.preventDefault();event.stopPropagation();dismiss();}

@@ -1,3 +1,4 @@
+import {themeInterface} from '../factory_palette.js';
 // Universal Workflow update, gikipil 2026: scoped popup localization.
 import {localizeInterface} from '../factory_locale.js';
 // SPDX-License-Identifier: AGPL-3.0-only
@@ -153,6 +154,7 @@ export function popup(ctx, anchor, { width, build, maxH = 340, center = null }) 
     const box = el("div", "ndk ndk-pop");
 
     applyVars(box, ctx.vars());
+    const palette=typeof ctx.colorProfile==='function'?themeInterface(box,()=>ctx.colorProfile()):null;
     const localization=typeof ctx.language==='function'?localizeInterface(box,()=>ctx.language()):{update(){},destroy(){}};
 
     box.style.visibility = "hidden";
@@ -165,7 +167,7 @@ export function popup(ctx, anchor, { width, build, maxH = 340, center = null }) 
 
         if (closed) return;
 
-        closed = true;localization.destroy();
+        closed = true;localization.destroy();palette?.destroy();
 
         window.removeEventListener("pointerdown", outside, true);
 
@@ -195,7 +197,7 @@ export function popup(ctx, anchor, { width, build, maxH = 340, center = null }) 
 
     window.addEventListener("resize", close);
 
-    build(box, close);localization.update();
+    build(box, close);localization.update();palette?.update();
 
     if (center) {
 

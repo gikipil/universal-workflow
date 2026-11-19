@@ -1,3 +1,4 @@
+import {themeInterface} from '../factory_palette.js';
 import {localizeInterface} from '../factory_locale.js';
 // SPDX-License-Identifier: AGPL-3.0-only
 // Universal Workflow additions by gikipil, 2026-11-12.
@@ -18,11 +19,12 @@ export function factoryDialog(ctx,{title,width=1060,onClose=()=>{}}) {
     x.type='button';x.setAttribute('aria-label','Закрыть окно');Object.assign(x.style,{width:'36px',height:'36px',border:'1px solid #715166',borderRadius:'10px',background:'#302332',color:'#f5c4d2',fontSize:'24px',cursor:'pointer'});
     Object.assign(body.style,{padding:'20px',overflowY:'auto',minHeight:'0'});Object.assign(footer.style,{padding:'0 20px 20px'});
     root.setAttribute('role','dialog');root.setAttribute('aria-modal','true');root.setAttribute('aria-label',title);root.tabIndex=-1;head.append(heading,x);windowBox.append(head,body,footer);root.append(windowBox);applyVars(root,ctx.vars());
+    const palette=typeof ctx.colorProfile==='function'?themeInterface(root,()=>ctx.colorProfile()):null;
     const localization=localizeInterface(root,()=>ctx.language?.()||ctx.appearanceControls?.().language||'ru');
     const previous=document.activeElement,overflow=document.body.style.overflow;let closed=false;
     const dialog={root,body,footer,heading,close(){
         if(closed)return;const index=stack.indexOf(dialog);for(const child of stack.slice(index+1).reverse())child.close();
-        closed=true;localization.destroy();if(root.querySelector('.ndk-pop'))closePopup();stack.splice(stack.indexOf(dialog),1);window.removeEventListener('keydown',key,true);root.remove();document.body.style.overflow=overflow;if(previous?.isConnected!==false)previous?.focus?.();onClose();
+        closed=true;localization.destroy();palette?.destroy();if(root.querySelector('.ndk-pop'))closePopup();stack.splice(stack.indexOf(dialog),1);window.removeEventListener('keydown',key,true);root.remove();document.body.style.overflow=overflow;if(previous?.isConnected!==false)previous?.focus?.();onClose();
     }};
     function key(event) {
         if(stack.at(-1)!==dialog||root.querySelector('.ndk-pop'))return;
