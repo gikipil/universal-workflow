@@ -45,7 +45,7 @@ const css = `
 .acf-settings-tabs{display:flex;gap:8px;padding:14px 28px 0;border-bottom:1px solid #34414b;flex-wrap:wrap}
 .acf-settings-tab{padding:12px 22px;border:1px solid #3b4955;border-radius:12px 12px 0 0;background:#1c2530;color:#b5c3d1;cursor:pointer;font-weight:650}.acf-settings-tab[aria-selected=true]{background:linear-gradient(145deg,#1c3c3d,#192d31);border-color:#5bdcb3;color:#b8ffe0;box-shadow:0 -2px 15px #39ddc51a}
 .acf-settings-pane{min-height:0;overflow:auto;padding:24px 28px 32px}.acf-settings-pane[hidden]{display:none!important}
-.acf-settings-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,360px),1fr));gap:20px;align-items:start}
+.acf-settings-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,360px),1fr));gap:16px;align-items:start}
 .acf-settings-models{grid-template-columns:repeat(2,minmax(0,1fr))}
 .acf-settings-layout{display:grid;grid-template-columns:230px minmax(0,1fr);gap:24px;align-items:start}
 .acf-settings-categories{display:flex;flex-direction:column;gap:7px;position:sticky;top:0;padding:10px;background:#172129;border:1px solid #344b51;border-radius:14px}
@@ -58,8 +58,8 @@ const css = `
 @media(max-width:1100px){.acf-settings-models{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:620px){.acf-settings-models{grid-template-columns:minmax(0,1fr)}}
 .acf-settings-card{padding:20px;border:1px solid #35554b;border-radius:16px;background:#18232a;min-width:0}
-.acf-settings-card h3{margin:0 0 6px;font-size:18px;color:#8eefb4}.acf-settings-card p{margin:0 0 18px;font-size:13px;color:#a4adbf}
-.acf-settings-field{display:flex;flex-direction:column;gap:6px;margin-top:16px;min-width:0}.acf-settings-field>span{font-size:13px;color:#a9d9bc}.acf-settings-picker{min-width:0;display:flex;flex-direction:column;min-height:44px}.acf-settings-picker .ndk-field{min-height:44px;width:100%}
+.acf-settings-card h3{margin:0 0 6px;font-size:18px;color:#8eefb4}.acf-settings-card p{margin:0 0 12px;font-size:13px;color:#a4adbf}
+.acf-settings-field{display:flex;flex-direction:column;gap:6px;margin-top:12px;min-width:0}.acf-settings-field>span{font-size:13px;color:#a9d9bc}.acf-settings-picker{min-width:0;display:flex;flex-direction:column;min-height:44px}.acf-settings-picker .ndk-field{min-height:44px;width:100%}
 .acf-settings-subtitle{margin:26px 0 14px;font-size:20px;color:#f0c5f7}
 .acf-settings-lora-row{display:grid;grid-template-columns:46px minmax(0,1fr) 90px;gap:10px;align-items:center;margin-top:12px;min-width:0}
 .acf-settings-lora-switch{display:flex;align-items:center;justify-content:center;width:46px;height:40px;border:1px solid #704a77;border-radius:10px;background:#28212f;color:#aaa0b0;cursor:pointer}.acf-settings-lora-switch[aria-checked=true]{background:linear-gradient(120deg,#e8588b,#9f43e7);color:#fff;border-color:#e680d1}
@@ -97,9 +97,9 @@ export function openFactorySettings(ctx, onClose=()=>{}) {
     }
     function card(container,title,hint) {const box=el('div','acf-settings-card');box.append(el('h3','',title));if(hint)box.append(el('p','',hint));container.append(box);return box;}
     const modelsGrid=el('div','acf-settings-grid acf-settings-models');models.append(modelsGrid);
-    const krea=card(modelsGrid,'Krea','Общий комплект для генерации, детализации, локальных областей и Krea Edit. Выбирай Raw-модель: Turbo-адаптер подключается в нужных режимах автоматически.');
-    const zimage=card(modelsGrid,'Z-Image','Общий комплект Z-Image для второго прохода и локальных областей. LoRA каждого этапа независимы.');
-    const turbo=card(modelsGrid,'Krea · Turbo-адаптер','Один файл для всех Turbo-режимов Krea: генерации, детализации и локальных областей. Применяется автоматически.');
+    const krea=card(modelsGrid,'💠 Krea 2 · основной комплект','Общий комплект для генерации, детализации, локальных областей и Krea Edit. Выбирай Raw-модель: Turbo-адаптер подключается в нужных режимах автоматически.');
+    const zimage=card(modelsGrid,'⚡ Z-Image · основной комплект','Общий комплект Z-Image для второго прохода и локальных областей. LoRA каждого этапа независимы.');
+    const turbo=card(modelsGrid,'⚡ Krea 2 · Turbo-адаптер','Один файл для всех Turbo-режимов Krea: генерации, детализации и локальных областей. Применяется автоматически.');
     const detection=card(modelsGrid,'🔎 SAM и YOLO','SAM выделяет область по описанию, YOLO находит лица и руки. Здесь выбираются установленные файлы детекторов.');
     const upModels=card(modelsGrid,'Апскейл · общие модели','Один выбор для генерации, редактирования и отдельной вкладки. У Simple и Ultimate свои файлы.');
     const pose=card(modelsGrid,'🦴 Поза по референсу','OpenPose LoRA подключается автоматически при включении позы. Детекторы извлекают скелет из фото.');
@@ -118,11 +118,9 @@ export function openFactorySettings(ctx, onClose=()=>{}) {
     }
     let captionCard=null;
     if(ctx.info('caption_config')?.bound){captionCard=card(modelsGrid,'📝 Промты · модели','Локальные Florence, Qwen и JoyCaption.');captionModelFields(ctx,captionCard);}
-    const loraTitle=el('h3','acf-settings-subtitle','Постоянные LoRA');models.append(loraTitle);
-    const loraHint=el('p','acf-settings-caption','По три слота на каждый набор. Включённые LoRA действуют во всех режимах своего этапа и не занимают пользовательские слоты на главной странице.');models.append(loraHint);
-    const loraGrid=el('div','acf-settings-grid');loraGrid.style.marginTop='16px';models.append(loraGrid);
+    const constantCards=new Map();
     for (const [prefix,name] of CONSTANT_LORA_GROUPS) {
-        const box=card(loraGrid,name,'Выбери файл, включи слот и задай силу. Пустые слоты можно оставить выключенными.');
+        const box=card(modelsGrid,'🧩 Постоянные LoRA · '+name,'Три независимых слота. Не занимают список LoRA на главной странице.');constantCards.set(prefix,box);
         for(let i=1;i<=3;i++) {
             const row=el('div','acf-settings-lora-row'),toggle=el('button','acf-settings-lora-switch'),file=el('div'),strength=el('input','acf-settings-strength');
             const lora=`${prefix}_${i}_lora`,enabled=`${prefix}_${i}_on`,weight=`${prefix}_${i}_strength`;
@@ -139,29 +137,28 @@ export function openFactorySettings(ctx, onClose=()=>{}) {
     // Presentation only: existing pickers keep their slots, instances and values.
     const settingsLayout=el('div','acf-settings-layout'),categories=el('nav','acf-settings-categories'),content=el('div','acf-settings-content');
     categories.setAttribute('aria-label','Категории моделей');
-    for(const part of[modelsGrid,loraTitle,loraHint,loraGrid])content.append(part);
+    content.append(modelsGrid);
     settingsLayout.append(categories,content);models.append(settingsLayout);
     const groups=[
-        ['🧠 Основные модели',[krea,zimage,turbo]],
-        ['✏️ Редактирование',[kreaEditor,qwen21Editor,editor,outpaint]],
+        ['💠 Krea 2',[krea,turbo,kreaEditor,outpaint,constantCards.get('kg'),constantCards.get('kr')]],
+        ['⚡ Z-Image',[zimage,constantCards.get('zr')]],
+        ['✏️ Редактирование и дорисовка',[qwen21Editor,editor]],
         ['🎯 Лицо, руки и поза',[detection,pose]],
         ['🔍 Апскейл',[upModels,upSeed]],
         ['🧽 Удаление фона',[background]],
         ['🎬 Видео',[videoCard]],
         ['🔊 Звук',[audioCard,songCard]],
         ...(captionCard?[['📝 Промты',[captionCard]]]:[]),
-        ['🧩 Постоянные LoRA',[]],
     ];
     const allCards=[...modelsGrid.children],categoryButtons=[];
     function selectCategory(index){
-        const [,cards]=groups[index],isLora=index===groups.length-1;
+        const [,cards]=groups[index];
         for(const box of allCards)box.hidden=!cards.includes(box);
-        modelsGrid.hidden=isLora;loraTitle.hidden=!isLora;loraHint.hidden=!isLora;loraGrid.hidden=!isLora;
         modelsGrid.style.gridTemplateColumns=cards.length===1?'minmax(0,1fr)':'';
         for(const [i,button]of categoryButtons.entries())button.setAttribute('aria-pressed',String(i===index));
     }
     for(const [i,[name,cards]]of groups.entries()){
-        const button=el('button','acf-settings-category');button.type='button';button.append(el('span','',name),el('small','',String(cards.length||CONSTANT_LORA_GROUPS.length)));
+        const button=el('button','acf-settings-category');button.type='button';button.append(el('span','',name),el('small','',String(cards.length)));
         button.addEventListener('click',()=>selectCategory(i));categories.append(button);categoryButtons.push(button);
     }
     selectCategory(0);
