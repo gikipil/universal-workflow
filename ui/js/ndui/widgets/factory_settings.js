@@ -46,7 +46,7 @@ const css = `
 .acf-settings-tab{padding:12px 22px;border:1px solid #3b4955;border-radius:12px 12px 0 0;background:#1c2530;color:#b5c3d1;cursor:pointer;font-weight:650}.acf-settings-tab[aria-selected=true]{background:linear-gradient(145deg,#1c3c3d,#192d31);border-color:#5bdcb3;color:#b8ffe0;box-shadow:0 -2px 15px #39ddc51a}
 .acf-settings-pane{min-height:0;overflow:auto;padding:24px 28px 32px}.acf-settings-pane[hidden]{display:none!important}
 .acf-settings-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,360px),1fr));gap:16px;align-items:start}
-.acf-settings-models{display:block;column-count:2;column-gap:16px}.acf-settings-models>.acf-settings-card{display:inline-block;vertical-align:top;width:100%;break-inside:avoid;margin-bottom:16px}
+.acf-settings-models{grid-template-columns:repeat(2,minmax(0,1fr))}
 .acf-settings-layout{display:grid;grid-template-columns:230px minmax(0,1fr);gap:24px;align-items:start}
 .acf-settings-categories{display:flex;flex-direction:column;gap:7px;position:sticky;top:0;padding:10px;background:#172129;border:1px solid #344b51;border-radius:14px}
 .acf-settings-category{display:flex;align-items:center;justify-content:space-between;gap:10px;min-height:44px;padding:10px 12px;border:1px solid transparent;border-radius:10px;background:transparent;color:#b7c7d1;text-align:left;cursor:pointer;font-weight:650}
@@ -55,8 +55,8 @@ const css = `
 .acf-settings-content{min-width:0}.acf-settings-content [hidden]{display:none!important}
 @media(max-width:850px){.acf-settings-layout{grid-template-columns:minmax(0,1fr);gap:16px}.acf-settings-categories{position:static;flex-direction:row;flex-wrap:wrap}.acf-settings-category{flex:1 1 150px}}
 
-@media(max-width:1100px){.acf-settings-models{column-count:2}}
-@media(max-width:620px){.acf-settings-models{column-count:1}}
+@media(max-width:1100px){.acf-settings-models{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:620px){.acf-settings-models{grid-template-columns:minmax(0,1fr)}}
 .acf-settings-card{padding:20px;border:1px solid #35554b;border-radius:16px;background:#18232a;min-width:0}
 .acf-settings-card h3{margin:0 0 6px;font-size:18px;color:#8eefb4}.acf-settings-card p{margin:0 0 12px;font-size:13px;color:#a4adbf}
 .acf-settings-field{display:flex;flex-direction:column;gap:6px;margin-top:12px;min-width:0}.acf-settings-field>span{font-size:13px;color:#a9d9bc}.acf-settings-picker{min-width:0;display:flex;flex-direction:column;min-height:44px}.acf-settings-picker .ndk-field{min-height:44px;width:100%}
@@ -154,7 +154,7 @@ export function openFactorySettings(ctx, onClose=()=>{}) {
     function selectCategory(index){
         const [,cards]=groups[index];
         for(const box of allCards)box.hidden=!cards.includes(box);
-        modelsGrid.style.columnCount=cards.length===1?'1':'';
+        modelsGrid.style.gridTemplateColumns=cards.length===1?'minmax(0,1fr)':'';
         for(const [i,button]of categoryButtons.entries())button.setAttribute('aria-pressed',String(i===index));
     }
     for(const [i,[name,cards]]of groups.entries()){
