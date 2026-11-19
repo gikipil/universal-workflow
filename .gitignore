@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+.env
+.local/
+project.local.json
+.DS_Store
+Thumbs.db

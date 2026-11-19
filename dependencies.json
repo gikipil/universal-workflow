@@ -1,0 +1,324 @@
+{
+  "version": "1.0.0",
+  "comfyui_repository": "https://github.com/Comfy-Org/ComfyUI",
+  "core_node_types": [
+    "BasicGuider",
+    "BasicScheduler",
+    "CFGNorm",
+    "CLIPLoader",
+    "CLIPTextEncode",
+    "CheckpointLoaderSimple",
+    "ComfyMathExpression",
+    "ComfySwitchNode",
+    "ConditioningZeroOut",
+    "CreateVideo",
+    "DualCLIPLoader",
+    "EmptyAceStep1.5LatentAudio",
+    "EmptySD3LatentImage",
+    "FluxKontextImageScale",
+    "FluxKontextMultiReferenceLatentMethod",
+    "GetImageSize",
+    "ImageCompositeMasked",
+    "ImagePadForOutpaint",
+    "ImageScale",
+    "ImageScaleBy",
+    "ImageScaleToMaxDimension",
+    "ImageScaleToTotalPixels",
+    "ImageToMask",
+    "ImageUpscaleWithModel",
+    "KSampler",
+    "KSamplerAdvanced",
+    "KSamplerSelect",
+    "LoadAudio",
+    "LoadImage",
+    "LoadImageMask",
+    "MaskToImage",
+    "MiniMaxH3ImageToVideo",
+    "MiniMaxH3ReferenceToVideo",
+    "MiniMaxH3SigmaShift",
+    "ModelSamplingAuraFlow",
+    "PreviewAudio",
+    "PreviewImage",
+    "PrimitiveBoolean",
+    "PrimitiveFloat",
+    "PrimitiveInt",
+    "PrimitiveStringMultiline",
+    "QwenImage21Cache",
+    "RandomNoise",
+    "ReferenceLatent",
+    "SAM3_Detect",
+    "SamplerCustomAdvanced",
+    "SaveAudioAdvanced",
+    "SaveAudioMP3",
+    "SetLatentNoiseMask",
+    "SolidMask",
+    "SplitImageWithAlpha",
+    "TextEncodeAceStepAudio1.5",
+    "TextEncodeQwenImage21",
+    "TextEncodeQwenImageEditPlus",
+    "ThresholdMask",
+    "UNETLoader",
+    "UpscaleModelLoader",
+    "VAEDecode",
+    "VAEDecodeAudio",
+    "VAEEncode",
+    "VAELoader"
+  ],
+  "custom_nodes": [
+    {
+      "folder": "rgthree-comfy",
+      "repository": "https://github.com/rgthree/rgthree-comfy",
+      "tested_version": "1.0.2610300006",
+      "tested_revision": null,
+      "node_types": [
+        "Image Comparer (rgthree)",
+        "Power Lora Loader (rgthree)",
+        "Seed (rgthree)"
+      ]
+    },
+    {
+      "folder": "RES4LYF",
+      "repository": "https://github.com/ClownsharkBatwing/RES4LYF",
+      "tested_version": "1.1.0",
+      "tested_revision": "022c873c6d198c67b3312a1804336533a050df18",
+      "node_types": [
+        "ClownsharKSampler_Beta"
+      ]
+    },
+    {
+      "folder": "Krea-2-Two-Stage-Sampler",
+      "repository": "https://github.com/Auryg/Krea-2-Two-Stage-Sampler",
+      "tested_version": "0.4.0",
+      "tested_revision": "df2692f11d5227b440c501b1f22ca5c63987530c",
+      "node_types": [
+        "Krea2ModelSampling",
+        "KreaTwoStageSampler"
+      ]
+    },
+    {
+      "folder": "comfyui-easy-use",
+      "repository": "https://github.com/yolain/ComfyUI-Easy-Use",
+      "tested_version": "1.4.1",
+      "tested_revision": null,
+      "node_types": [
+        "easy anythingIndexSwitch",
+        "easy cleanGpuUsed"
+      ]
+    },
+    {
+      "folder": "comfyui-image-saver",
+      "repository": "https://github.com/alexopus/ComfyUI-Image-Saver",
+      "tested_version": "1.23.0",
+      "tested_revision": null,
+      "node_types": [
+        "Image Saver Simple"
+      ]
+    },
+    {
+      "folder": "comfyui-kjnodes",
+      "repository": "https://github.com/kijai/ComfyUI-KJNodes",
+      "tested_version": "1.5.3",
+      "tested_revision": null,
+      "node_types": [
+        "DiffusionModelLoaderKJ",
+        "GetNode",
+        "GrowMaskWithBlur",
+        "MiniMaxChunkFeedForward",
+        "MiniMaxH3MemoryEfficientSageAttentionPatch",
+        "SetNode"
+      ]
+    },
+    {
+      "folder": "comfyui_layerstyle",
+      "repository": "https://github.com/chflame163/ComfyUI_LayerStyle",
+      "tested_version": "2.0.40",
+      "tested_revision": null,
+      "node_types": [
+        "LayerUtility: ImageScaleByAspectRatio"
+      ]
+    },
+    {
+      "folder": "LanPaint",
+      "repository": "https://github.com/scraed/LanPaint",
+      "tested_version": "2.1.0",
+      "tested_revision": null,
+      "node_types": [
+        "LanPaint_ImageDecode",
+        "LanPaint_ImageEncode",
+        "LanPaint_KSampler"
+      ]
+    },
+    {
+      "folder": "comfyui-inpaint-cropandstitch",
+      "repository": "https://github.com/lquesada/ComfyUI-Inpaint-CropAndStitch",
+      "tested_version": null,
+      "tested_revision": "6005efc02f7745649118edd89cdd084c2b9bd3ae",
+      "node_types": [
+        "InpaintCropImproved",
+        "InpaintStitchImproved"
+      ]
+    },
+    {
+      "folder": "comfyui-krea2edit",
+      "repository": "https://github.com/lbouaraba/comfyui-krea2edit",
+      "tested_version": "1.2.3",
+      "tested_revision": null,
+      "node_types": [
+        "Krea2EditGroundedEncode",
+        "Krea2EditModelPatch"
+      ]
+    },
+    {
+      "folder": "comfyui-custom-scripts",
+      "repository": "https://github.com/pythongosssss/ComfyUI-Custom-Scripts",
+      "tested_version": "1.2.5",
+      "tested_revision": null,
+      "node_types": [
+        "MathExpression|pysssss"
+      ]
+    },
+    {
+      "folder": "comfyui_ultimatesdupscale",
+      "repository": "https://github.com/ssitu/ComfyUI_UltimateSDUpscale",
+      "tested_version": "1.7.2",
+      "tested_revision": null,
+      "node_types": [
+        "UltimateSDUpscaleNoUpscale"
+      ]
+    },
+    {
+      "folder": "seedvr2_videoupscaler",
+      "repository": "https://github.com/numz/ComfyUI-SeedVR2_VideoUpscaler",
+      "tested_version": "2.5.22",
+      "tested_revision": null,
+      "node_types": [
+        "SeedVR2LoadDiTModel",
+        "SeedVR2LoadVAEModel",
+        "SeedVR2VideoUpscaler"
+      ]
+    },
+    {
+      "folder": "comfyui-impact-pack",
+      "repository": "https://github.com/ltdrdata/ComfyUI-Impact-Pack",
+      "tested_version": "8.30",
+      "tested_revision": null,
+      "node_types": [
+        "BboxDetectorSEGS",
+        "DetailerForEach",
+        "MaskToSEGS",
+        "SegsToCombinedMask"
+      ]
+    },
+    {
+      "folder": "comfyui-impact-subpack",
+      "repository": "https://github.com/ltdrdata/ComfyUI-Impact-Subpack",
+      "tested_version": "1.3.5",
+      "tested_revision": null,
+      "node_types": [
+        "UltralyticsDetectorProvider"
+      ]
+    },
+    {
+      "folder": "ComfyUI-YCRMBG",
+      "repository": "https://github.com/yichengup/ComfyUI-YCRMBG",
+      "tested_version": "2.6.0",
+      "tested_revision": "4abdef6cd8933f8aec8972b5beb80eba0c621f28",
+      "node_types": [
+        "RMBG"
+      ]
+    },
+    {
+      "folder": "comfyui-krea2-ostris-edit",
+      "repository": "https://github.com/ostris/ComfyUI-Krea2-Ostris-Edit",
+      "tested_version": "1.0.1",
+      "tested_revision": "7756566160c4a1b24bb1bd9f0ff3ced1a83d7547",
+      "node_types": [
+        "Krea2OstrisEditModelPatch",
+        "TextEncodeKrea2OstrisEdit"
+      ]
+    },
+    {
+      "folder": "comfyui_controlnet_aux",
+      "repository": "https://github.com/Fannovel16/comfyui_controlnet_aux",
+      "tested_version": "1.1.4",
+      "tested_revision": null,
+      "node_types": [
+        "DWPreprocessor"
+      ]
+    },
+    {
+      "folder": "fantastic-minimax-h3-prompt-builder",
+      "repository": "https://github.com/Adudeguyman/ComfyUI-Fantastic-MiniMaxH3-PromptBuilder",
+      "tested_version": "1.5.8",
+      "tested_revision": "c100a10818ad48013b54d13fd2f7a13c6bba07b1",
+      "node_types": [
+        "MiniMaxH3MediaLoader",
+        "MiniMaxH3ReferenceSplitter"
+      ]
+    },
+    {
+      "folder": "ComfyUI-SolAttn_triton",
+      "repository": "https://github.com/kijai/ComfyUI-SolAttn_triton",
+      "tested_version": null,
+      "tested_revision": "842c4eaa7d91dbaef3fee3ccdbf36a39521e82fc",
+      "node_types": [
+        "SolAttnPatch"
+      ]
+    },
+    {
+      "folder": "Higgs_v3-TTS-ComfyUI",
+      "repository": "https://github.com/Saganaki22/Higgs_v3-TTS-ComfyUI",
+      "tested_version": "0.1.71",
+      "tested_revision": null,
+      "node_types": [
+        "HiggsV3Generate",
+        "HiggsV3LoadModel",
+        "HiggsV3MultiSpeaker",
+        "HiggsV3VoiceClone",
+        "HiggsV3WhisperTranscribe"
+      ]
+    },
+    {
+      "folder": "ComfyUI-QwenTTS",
+      "repository": "https://github.com/1038lab/ComfyUI-QwenTTS",
+      "tested_version": "1.1.4",
+      "tested_revision": "d8122a8ba835b65fd65c113d2b273b1ad1579293",
+      "node_types": [
+        "AILab_Qwen3TTSVoiceDesign_Advanced"
+      ]
+    },
+    {
+      "folder": "comfyui-florence2",
+      "repository": "https://github.com/kijai/ComfyUI-Florence2",
+      "tested_version": "1.1.0",
+      "tested_revision": null,
+      "node_types": [
+        "DownloadAndLoadFlorence2Model",
+        "Florence2Run"
+      ]
+    },
+    {
+      "folder": "ComfyUI-QwenVL",
+      "repository": "https://github.com/1038lab/ComfyUI-QwenVL",
+      "tested_version": "2.3.2",
+      "tested_revision": null,
+      "node_types": [
+        "AILab_QwenVL"
+      ]
+    },
+    {
+      "folder": "ComfyUI-NeuralDreamer-UI-Builder",
+      "repository": "https://github.com/neural-dreamer/ComfyUI-ND-UI-Builder",
+      "tested_version": "1.0.0",
+      "tested_revision": "ad176bd9731c70e2b3246ea9ff1129606591448c",
+      "node_types": []
+    }
+  ],
+  "bundled_nodes": [
+    "ComfyUI-Universal-Caption",
+    "ComfyUI-Universal-Memory",
+    "ComfyUI-Universal-Video"
+  ],
+  "ui_base_revision": "ad176bd9731c70e2b3246ea9ff1129606591448c",
+  "qwentts_compatibility_patch": "compat/qwentts-transformers5.patch"
+}

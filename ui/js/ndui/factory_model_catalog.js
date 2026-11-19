@@ -1,0 +1,1172 @@
+// SPDX-License-Identifier: AGPL-3.0-only
+// Universal Workflow model download catalog, gikipil, 2026-11-20.
+export const MODEL_DOWNLOADS=[
+  {
+    "id": "krea",
+    "label": "💠 Krea 2",
+    "models": [
+      {
+        "label": "Krea Raw · FP8",
+        "folder": "models/diffusion_models/Krea2/",
+        "note": "",
+        "slots": [
+          "k_model"
+        ],
+        "optional": false,
+        "source": "https://huggingface.co/Comfy-Org/Krea-2",
+        "files": [
+          {
+            "name": "krea2_raw_fp8_scaled.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/Krea-2/resolve/main/diffusion_models/krea2_raw_fp8_scaled.safetensors?download=true",
+            "path": "models/diffusion_models/Krea2/krea2_raw_fp8_scaled.safetensors"
+          }
+        ]
+      },
+      {
+        "label": "Текстовый энкодер Krea",
+        "folder": "models/text_encoders/Krea2/",
+        "note": "",
+        "slots": [
+          "k_clip"
+        ],
+        "optional": false,
+        "source": "https://huggingface.co/Comfy-Org/Krea-2",
+        "files": [
+          {
+            "name": "qwen3vl_4b_fp8_scaled.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/Krea-2/resolve/main/text_encoders/qwen3vl_4b_fp8_scaled.safetensors?download=true",
+            "path": "models/text_encoders/Krea2/qwen3vl_4b_fp8_scaled.safetensors"
+          }
+        ]
+      },
+      {
+        "label": "VAE Krea / Qwen Edit 2511",
+        "folder": "models/vae/Krea2/",
+        "note": "",
+        "slots": [
+          "k_vae"
+        ],
+        "optional": false,
+        "source": "https://huggingface.co/Comfy-Org/Krea-2",
+        "files": [
+          {
+            "name": "qwen_image_vae.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/Krea-2/resolve/main/vae/qwen_image_vae.safetensors?download=true",
+            "path": "models/vae/Krea2/qwen_image_vae.safetensors"
+          }
+        ]
+      },
+      {
+        "label": "Общий Turbo-адаптер",
+        "folder": "models/loras/Krea2/",
+        "note": "",
+        "slots": [
+          "k_turbo"
+        ],
+        "optional": false,
+        "source": "https://huggingface.co/Comfy-Org/Krea-2",
+        "files": [
+          {
+            "name": "krea2_turbo_lora_rank_64_bf16.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/Krea-2/resolve/main/loras/krea2_turbo_lora_rank_64_bf16.safetensors?download=true",
+            "path": "models/loras/Krea2/krea2_turbo_lora_rank_64_bf16.safetensors"
+          }
+        ]
+      },
+      {
+        "label": "Krea Turbo · дорисовка",
+        "folder": "models/diffusion_models/Krea2/",
+        "note": "",
+        "slots": [
+          "out_k_model"
+        ],
+        "optional": false,
+        "source": "https://huggingface.co/Comfy-Org/Krea-2",
+        "files": [
+          {
+            "name": "krea2_turbo_mxfp8.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/Krea-2/resolve/main/diffusion_models/krea2_turbo_mxfp8.safetensors?download=true",
+            "path": "models/diffusion_models/Krea2/krea2_turbo_mxfp8.safetensors"
+          }
+        ]
+      },
+      {
+        "label": "krea2_general_edit_v2.safetensors",
+        "folder": "models/loras/Krea2/",
+        "note": "",
+        "slots": [
+          "edit_krea_general"
+        ],
+        "optional": false,
+        "source": "https://huggingface.co/conradlocke/krea2-identity-edit",
+        "files": [
+          {
+            "name": "krea2_general_edit_v2.safetensors",
+            "url": "https://huggingface.co/conradlocke/krea2-identity-edit/resolve/main/krea2_general_edit_v2.safetensors?download=true",
+            "path": "models/loras/Krea2/krea2_general_edit_v2.safetensors"
+          }
+        ]
+      },
+      {
+        "label": "krea2_identity_edit_v2.safetensors",
+        "folder": "models/loras/Krea2/",
+        "note": "",
+        "slots": [
+          "edit_krea_identity"
+        ],
+        "optional": false,
+        "source": "https://huggingface.co/conradlocke/krea2-identity-edit",
+        "files": [
+          {
+            "name": "krea2_identity_edit_v2.safetensors",
+            "url": "https://huggingface.co/conradlocke/krea2-identity-edit/resolve/main/krea2_identity_edit_v2.safetensors?download=true",
+            "path": "models/loras/Krea2/krea2_identity_edit_v2.safetensors"
+          }
+        ]
+      },
+      {
+        "label": "SNOFS Krea v1.6",
+        "folder": "models/loras/Krea2/",
+        "note": "Необязательная постоянная LoRA. Civitai может запросить вход в аккаунт.",
+        "optional": true,
+        "slots": [],
+        "source": "https://civitai.com/models/1972981?modelVersionId=3446779",
+        "files": [
+          {
+            "name": "snofs_krea_v1_6.safetensors",
+            "url": "https://civitai.com/api/download/models/3446779?fileId=3345891",
+            "path": "models/loras/Krea2/snofs_krea_v1_6.safetensors"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "zimage",
+    "label": "⚡ Z-Image",
+    "models": [
+      {
+        "label": "CyberRealistic Z-Image v5 · текущая модель",
+        "folder": "models/diffusion_models/Zimage/",
+        "note": "Зеркало файла CyberRealistic Z-Image v5.",
+        "slots": [
+          "z_model"
+        ],
+        "optional": false,
+        "source": "https://huggingface.co/publikey/cyberrealistic-z-image-turbo",
+        "files": [
+          {
+            "name": "cyberrealisticZImage_v50.safetensors",
+            "url": "https://huggingface.co/publikey/cyberrealistic-z-image-turbo/resolve/main/cyberrealisticZImage_v50.safetensors?download=true",
+            "path": "models/diffusion_models/Zimage/cyberrealisticZImage_v50.safetensors"
+          }
+        ]
+      },
+      {
+        "label": "Z-Image Turbo · базовая альтернатива",
+        "folder": "models/diffusion_models/Zimage/",
+        "note": "Альтернатива CyberRealistic. Выберите одну подходящую Turbo-модель.",
+        "slots": [],
+        "optional": true,
+        "source": "https://huggingface.co/Comfy-Org/z_image_turbo",
+        "files": [
+          {
+            "name": "z_image_turbo_bf16.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/z_image_turbo/resolve/main/split_files/diffusion_models/z_image_turbo_bf16.safetensors?download=true",
+            "path": "models/diffusion_models/Zimage/z_image_turbo_bf16.safetensors"
+          }
+        ]
+      },
+      {
+        "label": "Текстовый энкодер Z-Image",
+        "folder": "models/text_encoders/ZImage/",
+        "note": "В прежней установке переименован в zImageTurbo_turbo_txt.safetensors. Новый файл выбирается в настройках.",
+        "slots": [
+          "z_clip"
+        ],
+        "optional": false,
+        "source": "https://huggingface.co/Comfy-Org/z_image_turbo",
+        "files": [
+          {
+            "name": "qwen_3_4b.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/z_image_turbo/resolve/main/split_files/text_encoders/qwen_3_4b.safetensors?download=true",
+            "path": "models/text_encoders/ZImage/qwen_3_4b.safetensors"
+          }
+        ]
+      },
+      {
+        "label": "VAE Z-Image",
+        "folder": "models/vae/ZImage/",
+        "note": "В прежней установке переименован в ae_zimgturbo.safetensors.",
+        "slots": [
+          "z_vae"
+        ],
+        "optional": false,
+        "source": "https://huggingface.co/Comfy-Org/z_image_turbo",
+        "files": [
+          {
+            "name": "ae.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/z_image_turbo/resolve/main/split_files/vae/ae.safetensors?download=true",
+            "path": "models/vae/ZImage/ae.safetensors"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "editing",
+    "label": "✏️ Редактирование и дорисовка",
+    "models": [
+      {
+        "label": "Qwen Edit 2511 · FP8 Mixed",
+        "folder": "models/diffusion_models/Qwen/",
+        "note": "",
+        "slots": [
+          "edit_model"
+        ],
+        "optional": false,
+        "source": "https://huggingface.co/Comfy-Org/Qwen-Image-Edit",
+        "files": [
+          {
+            "name": "qwen_image_edit_2511_fp8mixed.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/Qwen-Image-Edit/resolve/main/split_files/diffusion_models/qwen_image_edit_2511_fp8mixed.safetensors?download=true",
+            "path": "models/diffusion_models/Qwen/qwen_image_edit_2511_fp8mixed.safetensors"
+          }
+        ]
+      },
+      {
+        "label": "Текстовый энкодер Qwen Edit 2511",
+        "folder": "models/text_encoders/Qwen/",
+        "note": "",
+        "slots": [
+          "edit_clip"
+        ],
+        "optional": false,
+        "source": "https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI",
+        "files": [
+          {
+            "name": "qwen_2.5_vl_7b_fp8_scaled.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/resolve/main/split_files/text_encoders/qwen_2.5_vl_7b_fp8_scaled.safetensors?download=true",
+            "path": "models/text_encoders/Qwen/qwen_2.5_vl_7b_fp8_scaled.safetensors"
+          }
+        ]
+      },
+      {
+        "label": "VAE Qwen Edit 2511",
+        "folder": "models/vae/Krea2/",
+        "note": "Можно выбрать уже скачанный VAE Krea — повторная загрузка не нужна.",
+        "slots": [
+          "edit_vae"
+        ],
+        "optional": false,
+        "source": "https://huggingface.co/Comfy-Org/Krea-2",
+        "files": [
+          {
+            "name": "qwen_image_vae.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/Krea-2/resolve/main/vae/qwen_image_vae.safetensors?download=true",
+            "path": "models/vae/Krea2/qwen_image_vae.safetensors"
+          }
+        ]
+      },
+      {
+        "label": "Qwen 2.1 · INT8",
+        "folder": "models/diffusion_models/Qwen2.1/",
+        "note": "",
+        "slots": [
+          "edit_q21_model"
+        ],
+        "optional": false,
+        "source": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1",
+        "files": [
+          {
+            "name": "qwen_image_2.1_int8_convrot.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/main/diffusion_models/qwen_image_2.1_int8_convrot.safetensors?download=true",
+            "path": "models/diffusion_models/Qwen2.1/qwen_image_2.1_int8_convrot.safetensors"
+          }
+        ]
+      },
+      {
+        "label": "Текстовый энкодер Qwen 2.1",
+        "folder": "models/text_encoders/Qwen2.1/",
+        "note": "",
+        "slots": [
+          "edit_q21_clip"
+        ],
+        "optional": false,
+        "source": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1",
+        "files": [
+          {
+            "name": "qwen3vl_8b_int8_convrot.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/main/text_encoders/qwen3vl_8b_int8_convrot.safetensors?download=true",
+            "path": "models/text_encoders/Qwen2.1/qwen3vl_8b_int8_convrot.safetensors"
+          }
+        ]
+      },
+      {
+        "label": "VAE Qwen 2.1",
+        "folder": "models/vae/Qwen2.1/",
+        "note": "",
+        "slots": [
+          "edit_q21_vae"
+        ],
+        "optional": false,
+        "source": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1",
+        "files": [
+          {
+            "name": "qwen_image_2.1_vae_bf16.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/main/vae/qwen_image_2.1_vae_bf16.safetensors?download=true",
+            "path": "models/vae/Qwen2.1/qwen_image_2.1_vae_bf16.safetensors"
+          }
+        ]
+      },
+      {
+        "label": "Qwen 2.1 Turbo · альтернатива",
+        "folder": "models/diffusion_models/Qwen2.1/",
+        "note": "Использует те же энкодер и VAE Qwen 2.1.",
+        "slots": [],
+        "optional": true,
+        "source": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1",
+        "files": [
+          {
+            "name": "qwen_image_2.1_turbo_int8_convrot.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/main/diffusion_models/qwen_image_2.1_turbo_int8_convrot.safetensors?download=true",
+            "path": "models/diffusion_models/Qwen2.1/qwen_image_2.1_turbo_int8_convrot.safetensors"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "pose",
+    "label": "🎯 Лицо, руки и поза",
+    "models": [
+      {
+        "label": "SAM 3.1",
+        "folder": "models/checkpoints/",
+        "note": "",
+        "slots": [
+          "sam_model"
+        ],
+        "source": "https://huggingface.co/Comfy-Org/sam3.1",
+        "files": [
+          {
+            "name": "sam3.1_multiplex_fp16.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/sam3.1/resolve/main/checkpoints/sam3.1_multiplex_fp16.safetensors?download=true",
+            "path": "models/checkpoints/sam3.1_multiplex_fp16.safetensors"
+          }
+        ]
+      },
+      {
+        "label": "face_yolov8m.pt",
+        "folder": "models/ultralytics/bbox/",
+        "note": "",
+        "slots": [
+          "face_detector"
+        ],
+        "optional": false,
+        "source": "https://huggingface.co/Bingsu/adetailer",
+        "files": [
+          {
+            "name": "face_yolov8m.pt",
+            "url": "https://huggingface.co/Bingsu/adetailer/resolve/main/face_yolov8m.pt?download=true",
+            "path": "models/ultralytics/bbox/face_yolov8m.pt"
+          }
+        ]
+      },
+      {
+        "label": "hand_yolov8s.pt",
+        "folder": "models/ultralytics/bbox/",
+        "note": "",
+        "slots": [
+          "hand_detector"
+        ],
+        "optional": false,
+        "source": "https://huggingface.co/Bingsu/adetailer",
+        "files": [
+          {
+            "name": "hand_yolov8s.pt",
+            "url": "https://huggingface.co/Bingsu/adetailer/resolve/main/hand_yolov8s.pt?download=true",
+            "path": "models/ultralytics/bbox/hand_yolov8s.pt"
+          }
+        ]
+      },
+      {
+        "label": "OpenPose · адаптер Krea",
+        "folder": "models/loras/Krea2/",
+        "note": "",
+        "slots": [
+          "pose_lora"
+        ],
+        "optional": false,
+        "source": "https://huggingface.co/thedeoxen/Krea-2-pose-controlnet",
+        "files": [
+          {
+            "name": "krea2_turbo_openpose_controlnet.safetensors",
+            "url": "https://huggingface.co/thedeoxen/Krea-2-pose-controlnet/resolve/main/krea2_turbo_openpose_controlnet.safetensors?download=true",
+            "path": "models/loras/Krea2/krea2_turbo_openpose_controlnet.safetensors"
+          }
+        ]
+      },
+      {
+        "label": "yolox_l.onnx",
+        "folder": "custom_nodes/comfyui_controlnet_aux/ckpts/yzd-v/DWPose/",
+        "note": "Путь по умолчанию ControlNet Aux. Нода также умеет скачивать детекторы автоматически.",
+        "slots": [
+          "pose_bbox"
+        ],
+        "optional": false,
+        "source": "https://huggingface.co/yzd-v/DWPose",
+        "files": [
+          {
+            "name": "yolox_l.onnx",
+            "url": "https://huggingface.co/yzd-v/DWPose/resolve/main/yolox_l.onnx?download=true",
+            "path": "custom_nodes/comfyui_controlnet_aux/ckpts/yzd-v/DWPose/yolox_l.onnx"
+          }
+        ]
+      },
+      {
+        "label": "dw-ll_ucoco_384.onnx",
+        "folder": "custom_nodes/comfyui_controlnet_aux/ckpts/yzd-v/DWPose/",
+        "note": "Путь по умолчанию ControlNet Aux. Нода также умеет скачивать детекторы автоматически.",
+        "slots": [
+          "pose_estimator"
+        ],
+        "optional": false,
+        "source": "https://huggingface.co/yzd-v/DWPose",
+        "files": [
+          {
+            "name": "dw-ll_ucoco_384.onnx",
+            "url": "https://huggingface.co/yzd-v/DWPose/resolve/main/dw-ll_ucoco_384.onnx?download=true",
+            "path": "custom_nodes/comfyui_controlnet_aux/ckpts/yzd-v/DWPose/dw-ll_ucoco_384.onnx"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "upscale",
+    "label": "🔍 Апскейл",
+    "models": [
+      {
+        "label": "Simple / Ultimate · NMKD Siax",
+        "folder": "models/upscale_models/",
+        "note": "Один файл подходит обоим режимам; в настройках их можно выбрать независимо.",
+        "slots": [
+          "up_simple_model",
+          "up_ultimate_model"
+        ],
+        "optional": false,
+        "source": "https://huggingface.co/uwg/upscaler",
+        "files": [
+          {
+            "name": "4x_NMKD-Siax_200k.pth",
+            "url": "https://huggingface.co/uwg/upscaler/resolve/main/ESRGAN/4x_NMKD-Siax_200k.pth?download=true",
+            "path": "models/upscale_models/4x_NMKD-Siax_200k.pth"
+          }
+        ]
+      },
+      {
+        "label": "SeedVR2 · DiT 7B Q4",
+        "folder": "models/SEEDVR2/",
+        "note": "",
+        "slots": [
+          "up_seed_dit"
+        ],
+        "optional": false,
+        "source": "https://huggingface.co/AInVFX/SeedVR2_comfyUI",
+        "files": [
+          {
+            "name": "seedvr2_ema_7b-Q4_K_M.gguf",
+            "url": "https://huggingface.co/AInVFX/SeedVR2_comfyUI/resolve/main/seedvr2_ema_7b-Q4_K_M.gguf?download=true",
+            "path": "models/SEEDVR2/seedvr2_ema_7b-Q4_K_M.gguf"
+          }
+        ]
+      },
+      {
+        "label": "SeedVR2 · VAE",
+        "folder": "models/SEEDVR2/",
+        "note": "",
+        "slots": [
+          "up_seed_vae"
+        ],
+        "optional": false,
+        "source": "https://huggingface.co/numz/SeedVR2_comfyUI",
+        "files": [
+          {
+            "name": "ema_vae_fp16.safetensors",
+            "url": "https://huggingface.co/numz/SeedVR2_comfyUI/resolve/main/ema_vae_fp16.safetensors?download=true",
+            "path": "models/SEEDVR2/ema_vae_fp16.safetensors"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "background",
+    "label": "🧽 Удаление фона",
+    "models": [
+      {
+        "label": "RMBG-2.0 · полный комплект",
+        "folder": "models/RMBG/RMBG-2.0/",
+        "note": "",
+        "slots": [
+          "bg_model"
+        ],
+        "source": "https://huggingface.co/1038lab/RMBG-2.0",
+        "files": [
+          {
+            "name": "BiRefNet_config.py",
+            "url": "https://huggingface.co/1038lab/RMBG-2.0/resolve/main/BiRefNet_config.py?download=true",
+            "path": "models/RMBG/RMBG-2.0/BiRefNet_config.py"
+          },
+          {
+            "name": "birefnet.py",
+            "url": "https://huggingface.co/1038lab/RMBG-2.0/resolve/main/birefnet.py?download=true",
+            "path": "models/RMBG/RMBG-2.0/birefnet.py"
+          },
+          {
+            "name": "config.json",
+            "url": "https://huggingface.co/1038lab/RMBG-2.0/resolve/main/config.json?download=true",
+            "path": "models/RMBG/RMBG-2.0/config.json"
+          },
+          {
+            "name": "model.safetensors",
+            "url": "https://huggingface.co/1038lab/RMBG-2.0/resolve/main/model.safetensors?download=true",
+            "path": "models/RMBG/RMBG-2.0/model.safetensors"
+          }
+        ]
+      },
+      {
+        "label": "BEN2 · альтернативный комплект",
+        "folder": "models/RMBG/BEN2/",
+        "note": "Альтернатива RMBG-2.0 для выбора в настройках.",
+        "slots": [],
+        "source": "https://huggingface.co/1038lab/BEN2",
+        "files": [
+          {
+            "name": "BEN2.py",
+            "url": "https://huggingface.co/1038lab/BEN2/resolve/main/BEN2.py?download=true",
+            "path": "models/RMBG/BEN2/BEN2.py"
+          },
+          {
+            "name": "BEN2_Base.pth",
+            "url": "https://huggingface.co/1038lab/BEN2/resolve/main/BEN2_Base.pth?download=true",
+            "path": "models/RMBG/BEN2/BEN2_Base.pth"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "video",
+    "label": "🎬 Видео",
+    "models": [
+      {
+        "label": "MiniMax H3 · REF",
+        "folder": "models/diffusion_models/MiniMax/",
+        "note": "",
+        "slots": [
+          "vid_ref_model"
+        ],
+        "optional": false,
+        "source": "https://huggingface.co/Comfy-Org/MiniMax-H3",
+        "files": [
+          {
+            "name": "minimax_h3_ref2va_pruned_int8_convrot.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/diffusion_models/minimax_h3_ref2va_pruned_int8_convrot.safetensors?download=true",
+            "path": "models/diffusion_models/MiniMax/minimax_h3_ref2va_pruned_int8_convrot.safetensors"
+          }
+        ]
+      },
+      {
+        "label": "MiniMax H3 · FL",
+        "folder": "models/diffusion_models/MiniMax/",
+        "note": "",
+        "slots": [
+          "vid_fl_model"
+        ],
+        "optional": false,
+        "source": "https://huggingface.co/Comfy-Org/MiniMax-H3",
+        "files": [
+          {
+            "name": "minimax_h3_fl2va_pruned_int8_convrot.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/diffusion_models/minimax_h3_fl2va_pruned_int8_convrot.safetensors?download=true",
+            "path": "models/diffusion_models/MiniMax/minimax_h3_fl2va_pruned_int8_convrot.safetensors"
+          }
+        ]
+      },
+      {
+        "label": "MiniMax H3 · штатный энкодер",
+        "folder": "models/text_encoders/MiniMax/",
+        "note": "",
+        "slots": [
+          "vid_clip"
+        ],
+        "optional": false,
+        "source": "https://huggingface.co/Comfy-Org/MiniMax-H3",
+        "files": [
+          {
+            "name": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/text_encoders/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors?download=true",
+            "path": "models/text_encoders/MiniMax/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors"
+          }
+        ]
+      },
+      {
+        "label": "MiniMax H3 · Video VAE",
+        "folder": "models/vae/MiniMax/",
+        "note": "",
+        "slots": [
+          "vid_video_vae"
+        ],
+        "optional": false,
+        "source": "https://huggingface.co/Comfy-Org/MiniMax-H3",
+        "files": [
+          {
+            "name": "minimax_h3_video_vae_fp16.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/vae/minimax_h3_video_vae_fp16.safetensors?download=true",
+            "path": "models/vae/MiniMax/minimax_h3_video_vae_fp16.safetensors"
+          }
+        ]
+      },
+      {
+        "label": "MiniMax H3 · Audio VAE",
+        "folder": "models/vae/MiniMax/",
+        "note": "",
+        "slots": [
+          "vid_audio_vae"
+        ],
+        "optional": false,
+        "source": "https://huggingface.co/Comfy-Org/MiniMax-H3",
+        "files": [
+          {
+            "name": "minimax_h3_audio_vae_fp32.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/vae/minimax_h3_audio_vae_fp32.safetensors?download=true",
+            "path": "models/vae/MiniMax/minimax_h3_audio_vae_fp32.safetensors"
+          }
+        ]
+      },
+      {
+        "label": "MiniMax H3 · Turbo-адаптер 8 шагов",
+        "folder": "models/loras/MiniMax/",
+        "note": "",
+        "slots": [
+          "vid_turbo"
+        ],
+        "optional": false,
+        "source": "https://huggingface.co/Comfy-Org/MiniMax-H3",
+        "files": [
+          {
+            "name": "minimax_h3_fl2v_turbo_8step_v1.0_comfyui_bf16.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/loras/minimax_h3_fl2v_turbo_8step_v1.0_comfyui_bf16.safetensors?download=true",
+            "path": "models/loras/MiniMax/minimax_h3_fl2v_turbo_8step_v1.0_comfyui_bf16.safetensors"
+          }
+        ]
+      },
+      {
+        "label": "MiniMax H3 · альтернативный энкодер Heretic",
+        "folder": "models/text_encoders/MiniMax/",
+        "note": "Используется в текущей установке. Выберите этот или штатный энкодер.",
+        "slots": [],
+        "optional": true,
+        "source": "https://huggingface.co/sakamakismile/Qwen3-VL-32B-Heretic-MiniMax-H3-NVFP4",
+        "files": [
+          {
+            "name": "qwen3vl_32b_heretic_minimax_h3_nvfp4.safetensors",
+            "url": "https://huggingface.co/sakamakismile/Qwen3-VL-32B-Heretic-MiniMax-H3-NVFP4/resolve/main/qwen3vl_32b_heretic_minimax_h3_nvfp4.safetensors?download=true",
+            "path": "models/text_encoders/MiniMax/qwen3vl_32b_heretic_minimax_h3_nvfp4.safetensors"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "audio",
+    "label": "🔊 Звук",
+    "models": [
+      {
+        "label": "Higgs v3 · полный комплект",
+        "folder": "models/higgsv3tts/higgs-audio-v3-tts-4b/",
+        "note": "",
+        "slots": [
+          "aud_model"
+        ],
+        "source": "https://huggingface.co/bosonai/higgs-audio-v3-tts-4b",
+        "files": [
+          {
+            "name": "LICENSE",
+            "url": "https://huggingface.co/bosonai/higgs-audio-v3-tts-4b/resolve/main/LICENSE?download=true",
+            "path": "models/higgsv3tts/higgs-audio-v3-tts-4b/LICENSE"
+          },
+          {
+            "name": "chat_template.jinja",
+            "url": "https://huggingface.co/bosonai/higgs-audio-v3-tts-4b/resolve/main/chat_template.jinja?download=true",
+            "path": "models/higgsv3tts/higgs-audio-v3-tts-4b/chat_template.jinja"
+          },
+          {
+            "name": "config.json",
+            "url": "https://huggingface.co/bosonai/higgs-audio-v3-tts-4b/resolve/main/config.json?download=true",
+            "path": "models/higgsv3tts/higgs-audio-v3-tts-4b/config.json"
+          },
+          {
+            "name": "model.safetensors",
+            "url": "https://huggingface.co/bosonai/higgs-audio-v3-tts-4b/resolve/main/model.safetensors?download=true",
+            "path": "models/higgsv3tts/higgs-audio-v3-tts-4b/model.safetensors"
+          },
+          {
+            "name": "model.safetensors.index.json",
+            "url": "https://huggingface.co/bosonai/higgs-audio-v3-tts-4b/resolve/main/model.safetensors.index.json?download=true",
+            "path": "models/higgsv3tts/higgs-audio-v3-tts-4b/model.safetensors.index.json"
+          },
+          {
+            "name": "tokenizer.json",
+            "url": "https://huggingface.co/bosonai/higgs-audio-v3-tts-4b/resolve/main/tokenizer.json?download=true",
+            "path": "models/higgsv3tts/higgs-audio-v3-tts-4b/tokenizer.json"
+          },
+          {
+            "name": "tokenizer_config.json",
+            "url": "https://huggingface.co/bosonai/higgs-audio-v3-tts-4b/resolve/main/tokenizer_config.json?download=true",
+            "path": "models/higgsv3tts/higgs-audio-v3-tts-4b/tokenizer_config.json"
+          }
+        ]
+      },
+      {
+        "label": "Whisper Large v3 · расшифровка",
+        "folder": "models/audio_encoders/openai_whisper-large-v3/",
+        "note": "Нужен для автоматической расшифровки референса, при ручном тексте не используется.",
+        "slots": [
+          "aud_whisper"
+        ],
+        "source": "https://huggingface.co/openai/whisper-large-v3",
+        "files": [
+          {
+            "name": "added_tokens.json",
+            "url": "https://huggingface.co/openai/whisper-large-v3/resolve/main/added_tokens.json?download=true",
+            "path": "models/audio_encoders/openai_whisper-large-v3/added_tokens.json"
+          },
+          {
+            "name": "config.json",
+            "url": "https://huggingface.co/openai/whisper-large-v3/resolve/main/config.json?download=true",
+            "path": "models/audio_encoders/openai_whisper-large-v3/config.json"
+          },
+          {
+            "name": "generation_config.json",
+            "url": "https://huggingface.co/openai/whisper-large-v3/resolve/main/generation_config.json?download=true",
+            "path": "models/audio_encoders/openai_whisper-large-v3/generation_config.json"
+          },
+          {
+            "name": "merges.txt",
+            "url": "https://huggingface.co/openai/whisper-large-v3/resolve/main/merges.txt?download=true",
+            "path": "models/audio_encoders/openai_whisper-large-v3/merges.txt"
+          },
+          {
+            "name": "model.safetensors",
+            "url": "https://huggingface.co/openai/whisper-large-v3/resolve/main/model.safetensors?download=true",
+            "path": "models/audio_encoders/openai_whisper-large-v3/model.safetensors"
+          },
+          {
+            "name": "normalizer.json",
+            "url": "https://huggingface.co/openai/whisper-large-v3/resolve/main/normalizer.json?download=true",
+            "path": "models/audio_encoders/openai_whisper-large-v3/normalizer.json"
+          },
+          {
+            "name": "preprocessor_config.json",
+            "url": "https://huggingface.co/openai/whisper-large-v3/resolve/main/preprocessor_config.json?download=true",
+            "path": "models/audio_encoders/openai_whisper-large-v3/preprocessor_config.json"
+          },
+          {
+            "name": "special_tokens_map.json",
+            "url": "https://huggingface.co/openai/whisper-large-v3/resolve/main/special_tokens_map.json?download=true",
+            "path": "models/audio_encoders/openai_whisper-large-v3/special_tokens_map.json"
+          },
+          {
+            "name": "tokenizer.json",
+            "url": "https://huggingface.co/openai/whisper-large-v3/resolve/main/tokenizer.json?download=true",
+            "path": "models/audio_encoders/openai_whisper-large-v3/tokenizer.json"
+          },
+          {
+            "name": "tokenizer_config.json",
+            "url": "https://huggingface.co/openai/whisper-large-v3/resolve/main/tokenizer_config.json?download=true",
+            "path": "models/audio_encoders/openai_whisper-large-v3/tokenizer_config.json"
+          },
+          {
+            "name": "vocab.json",
+            "url": "https://huggingface.co/openai/whisper-large-v3/resolve/main/vocab.json?download=true",
+            "path": "models/audio_encoders/openai_whisper-large-v3/vocab.json"
+          }
+        ]
+      },
+      {
+        "label": "Qwen3-TTS VoiceDesign · полный комплект",
+        "folder": "models/TTS/Qwen3-TTS/Qwen3-TTS-12Hz-1.7B-VoiceDesign/",
+        "note": "Сохраните вложенную папку speech_tokenizer. Нода использует этот фиксированный комплект.",
+        "slots": [],
+        "source": "https://huggingface.co/Qwen/Qwen3-TTS-12Hz-1.7B-VoiceDesign",
+        "files": [
+          {
+            "name": "config.json",
+            "url": "https://huggingface.co/Qwen/Qwen3-TTS-12Hz-1.7B-VoiceDesign/resolve/main/config.json?download=true",
+            "path": "models/TTS/Qwen3-TTS/Qwen3-TTS-12Hz-1.7B-VoiceDesign/config.json"
+          },
+          {
+            "name": "generation_config.json",
+            "url": "https://huggingface.co/Qwen/Qwen3-TTS-12Hz-1.7B-VoiceDesign/resolve/main/generation_config.json?download=true",
+            "path": "models/TTS/Qwen3-TTS/Qwen3-TTS-12Hz-1.7B-VoiceDesign/generation_config.json"
+          },
+          {
+            "name": "merges.txt",
+            "url": "https://huggingface.co/Qwen/Qwen3-TTS-12Hz-1.7B-VoiceDesign/resolve/main/merges.txt?download=true",
+            "path": "models/TTS/Qwen3-TTS/Qwen3-TTS-12Hz-1.7B-VoiceDesign/merges.txt"
+          },
+          {
+            "name": "model.safetensors",
+            "url": "https://huggingface.co/Qwen/Qwen3-TTS-12Hz-1.7B-VoiceDesign/resolve/main/model.safetensors?download=true",
+            "path": "models/TTS/Qwen3-TTS/Qwen3-TTS-12Hz-1.7B-VoiceDesign/model.safetensors"
+          },
+          {
+            "name": "preprocessor_config.json",
+            "url": "https://huggingface.co/Qwen/Qwen3-TTS-12Hz-1.7B-VoiceDesign/resolve/main/preprocessor_config.json?download=true",
+            "path": "models/TTS/Qwen3-TTS/Qwen3-TTS-12Hz-1.7B-VoiceDesign/preprocessor_config.json"
+          },
+          {
+            "name": "speech_tokenizer/config.json",
+            "url": "https://huggingface.co/Qwen/Qwen3-TTS-12Hz-1.7B-VoiceDesign/resolve/main/speech_tokenizer/config.json?download=true",
+            "path": "models/TTS/Qwen3-TTS/Qwen3-TTS-12Hz-1.7B-VoiceDesign/speech_tokenizer/config.json"
+          },
+          {
+            "name": "speech_tokenizer/configuration.json",
+            "url": "https://huggingface.co/Qwen/Qwen3-TTS-12Hz-1.7B-VoiceDesign/resolve/main/speech_tokenizer/configuration.json?download=true",
+            "path": "models/TTS/Qwen3-TTS/Qwen3-TTS-12Hz-1.7B-VoiceDesign/speech_tokenizer/configuration.json"
+          },
+          {
+            "name": "speech_tokenizer/model.safetensors",
+            "url": "https://huggingface.co/Qwen/Qwen3-TTS-12Hz-1.7B-VoiceDesign/resolve/main/speech_tokenizer/model.safetensors?download=true",
+            "path": "models/TTS/Qwen3-TTS/Qwen3-TTS-12Hz-1.7B-VoiceDesign/speech_tokenizer/model.safetensors"
+          },
+          {
+            "name": "speech_tokenizer/preprocessor_config.json",
+            "url": "https://huggingface.co/Qwen/Qwen3-TTS-12Hz-1.7B-VoiceDesign/resolve/main/speech_tokenizer/preprocessor_config.json?download=true",
+            "path": "models/TTS/Qwen3-TTS/Qwen3-TTS-12Hz-1.7B-VoiceDesign/speech_tokenizer/preprocessor_config.json"
+          },
+          {
+            "name": "tokenizer_config.json",
+            "url": "https://huggingface.co/Qwen/Qwen3-TTS-12Hz-1.7B-VoiceDesign/resolve/main/tokenizer_config.json?download=true",
+            "path": "models/TTS/Qwen3-TTS/Qwen3-TTS-12Hz-1.7B-VoiceDesign/tokenizer_config.json"
+          },
+          {
+            "name": "vocab.json",
+            "url": "https://huggingface.co/Qwen/Qwen3-TTS-12Hz-1.7B-VoiceDesign/resolve/main/vocab.json?download=true",
+            "path": "models/TTS/Qwen3-TTS/Qwen3-TTS-12Hz-1.7B-VoiceDesign/vocab.json"
+          }
+        ]
+      },
+      {
+        "label": "ACE-Step 1.5 XL SFT",
+        "folder": "models/diffusion_models/ACE/",
+        "note": "",
+        "slots": [
+          "song_model"
+        ],
+        "optional": false,
+        "source": "https://huggingface.co/Comfy-Org/ace_step_1.5_ComfyUI_files",
+        "files": [
+          {
+            "name": "acestep_v1.5_xl_sft_bf16.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/ace_step_1.5_ComfyUI_files/resolve/main/split_files/diffusion_models/acestep_v1.5_xl_sft_bf16.safetensors?download=true",
+            "path": "models/diffusion_models/ACE/acestep_v1.5_xl_sft_bf16.safetensors"
+          }
+        ]
+      },
+      {
+        "label": "ACE · энкодер 0.6B",
+        "folder": "models/text_encoders/Ace/",
+        "note": "",
+        "slots": [
+          "song_clip1"
+        ],
+        "optional": false,
+        "source": "https://huggingface.co/Comfy-Org/ace_step_1.5_ComfyUI_files",
+        "files": [
+          {
+            "name": "qwen_0.6b_ace15.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/ace_step_1.5_ComfyUI_files/resolve/main/split_files/text_encoders/qwen_0.6b_ace15.safetensors?download=true",
+            "path": "models/text_encoders/Ace/qwen_0.6b_ace15.safetensors"
+          }
+        ]
+      },
+      {
+        "label": "ACE · энкодер 4B",
+        "folder": "models/text_encoders/Ace/",
+        "note": "",
+        "slots": [
+          "song_clip2"
+        ],
+        "optional": false,
+        "source": "https://huggingface.co/Comfy-Org/ace_step_1.5_ComfyUI_files",
+        "files": [
+          {
+            "name": "qwen_4b_ace15.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/ace_step_1.5_ComfyUI_files/resolve/main/split_files/text_encoders/qwen_4b_ace15.safetensors?download=true",
+            "path": "models/text_encoders/Ace/qwen_4b_ace15.safetensors"
+          }
+        ]
+      },
+      {
+        "label": "ACE · Audio VAE",
+        "folder": "models/vae/ACE/",
+        "note": "",
+        "slots": [
+          "song_vae"
+        ],
+        "optional": false,
+        "source": "https://huggingface.co/Comfy-Org/ace_step_1.5_ComfyUI_files",
+        "files": [
+          {
+            "name": "ace_1.5_vae.safetensors",
+            "url": "https://huggingface.co/Comfy-Org/ace_step_1.5_ComfyUI_files/resolve/main/split_files/vae/ace_1.5_vae.safetensors?download=true",
+            "path": "models/vae/ACE/ace_1.5_vae.safetensors"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "caption",
+    "label": "📝 Промты",
+    "models": [
+      {
+        "label": "Florence 2 PromptGen v2.0 · полный комплект",
+        "folder": "models/LLM/Florence-2-large-PromptGen-v2.0/",
+        "note": "Скачайте все перечисленные файлы в одну папку. Нода также поддерживает автоматическую загрузку.",
+        "slots": [
+          "caption_config"
+        ],
+        "source": "https://huggingface.co/MiaoshouAI/Florence-2-large-PromptGen-v2.0",
+        "files": [
+          {
+            "name": "added_tokens.json",
+            "url": "https://huggingface.co/MiaoshouAI/Florence-2-large-PromptGen-v2.0/resolve/main/added_tokens.json?download=true",
+            "path": "models/LLM/Florence-2-large-PromptGen-v2.0/added_tokens.json"
+          },
+          {
+            "name": "config.json",
+            "url": "https://huggingface.co/MiaoshouAI/Florence-2-large-PromptGen-v2.0/resolve/main/config.json?download=true",
+            "path": "models/LLM/Florence-2-large-PromptGen-v2.0/config.json"
+          },
+          {
+            "name": "configuration_florence2.py",
+            "url": "https://huggingface.co/MiaoshouAI/Florence-2-large-PromptGen-v2.0/resolve/main/configuration_florence2.py?download=true",
+            "path": "models/LLM/Florence-2-large-PromptGen-v2.0/configuration_florence2.py"
+          },
+          {
+            "name": "generation_config.json",
+            "url": "https://huggingface.co/MiaoshouAI/Florence-2-large-PromptGen-v2.0/resolve/main/generation_config.json?download=true",
+            "path": "models/LLM/Florence-2-large-PromptGen-v2.0/generation_config.json"
+          },
+          {
+            "name": "merges.txt",
+            "url": "https://huggingface.co/MiaoshouAI/Florence-2-large-PromptGen-v2.0/resolve/main/merges.txt?download=true",
+            "path": "models/LLM/Florence-2-large-PromptGen-v2.0/merges.txt"
+          },
+          {
+            "name": "model.safetensors",
+            "url": "https://huggingface.co/MiaoshouAI/Florence-2-large-PromptGen-v2.0/resolve/main/model.safetensors?download=true",
+            "path": "models/LLM/Florence-2-large-PromptGen-v2.0/model.safetensors"
+          },
+          {
+            "name": "modeling_florence2.py",
+            "url": "https://huggingface.co/MiaoshouAI/Florence-2-large-PromptGen-v2.0/resolve/main/modeling_florence2.py?download=true",
+            "path": "models/LLM/Florence-2-large-PromptGen-v2.0/modeling_florence2.py"
+          },
+          {
+            "name": "preprocessor_config.json",
+            "url": "https://huggingface.co/MiaoshouAI/Florence-2-large-PromptGen-v2.0/resolve/main/preprocessor_config.json?download=true",
+            "path": "models/LLM/Florence-2-large-PromptGen-v2.0/preprocessor_config.json"
+          },
+          {
+            "name": "processing_florence2.py",
+            "url": "https://huggingface.co/MiaoshouAI/Florence-2-large-PromptGen-v2.0/resolve/main/processing_florence2.py?download=true",
+            "path": "models/LLM/Florence-2-large-PromptGen-v2.0/processing_florence2.py"
+          },
+          {
+            "name": "special_tokens_map.json",
+            "url": "https://huggingface.co/MiaoshouAI/Florence-2-large-PromptGen-v2.0/resolve/main/special_tokens_map.json?download=true",
+            "path": "models/LLM/Florence-2-large-PromptGen-v2.0/special_tokens_map.json"
+          },
+          {
+            "name": "tokenizer.json",
+            "url": "https://huggingface.co/MiaoshouAI/Florence-2-large-PromptGen-v2.0/resolve/main/tokenizer.json?download=true",
+            "path": "models/LLM/Florence-2-large-PromptGen-v2.0/tokenizer.json"
+          },
+          {
+            "name": "tokenizer_config.json",
+            "url": "https://huggingface.co/MiaoshouAI/Florence-2-large-PromptGen-v2.0/resolve/main/tokenizer_config.json?download=true",
+            "path": "models/LLM/Florence-2-large-PromptGen-v2.0/tokenizer_config.json"
+          },
+          {
+            "name": "vocab.json",
+            "url": "https://huggingface.co/MiaoshouAI/Florence-2-large-PromptGen-v2.0/resolve/main/vocab.json?download=true",
+            "path": "models/LLM/Florence-2-large-PromptGen-v2.0/vocab.json"
+          }
+        ]
+      },
+      {
+        "label": "Qwen3-VL 4B Instruct · полный комплект",
+        "folder": "models/LLM/Qwen/Qwen3-VL-4B-Instruct/",
+        "note": "Скачайте все перечисленные файлы в одну папку. Нода также поддерживает автоматическую загрузку.",
+        "slots": [
+          "caption_config"
+        ],
+        "source": "https://huggingface.co/Qwen/Qwen3-VL-4B-Instruct",
+        "files": [
+          {
+            "name": "chat_template.json",
+            "url": "https://huggingface.co/Qwen/Qwen3-VL-4B-Instruct/resolve/main/chat_template.json?download=true",
+            "path": "models/LLM/Qwen/Qwen3-VL-4B-Instruct/chat_template.json"
+          },
+          {
+            "name": "config.json",
+            "url": "https://huggingface.co/Qwen/Qwen3-VL-4B-Instruct/resolve/main/config.json?download=true",
+            "path": "models/LLM/Qwen/Qwen3-VL-4B-Instruct/config.json"
+          },
+          {
+            "name": "generation_config.json",
+            "url": "https://huggingface.co/Qwen/Qwen3-VL-4B-Instruct/resolve/main/generation_config.json?download=true",
+            "path": "models/LLM/Qwen/Qwen3-VL-4B-Instruct/generation_config.json"
+          },
+          {
+            "name": "merges.txt",
+            "url": "https://huggingface.co/Qwen/Qwen3-VL-4B-Instruct/resolve/main/merges.txt?download=true",
+            "path": "models/LLM/Qwen/Qwen3-VL-4B-Instruct/merges.txt"
+          },
+          {
+            "name": "model-00001-of-00002.safetensors",
+            "url": "https://huggingface.co/Qwen/Qwen3-VL-4B-Instruct/resolve/main/model-00001-of-00002.safetensors?download=true",
+            "path": "models/LLM/Qwen/Qwen3-VL-4B-Instruct/model-00001-of-00002.safetensors"
+          },
+          {
+            "name": "model-00002-of-00002.safetensors",
+            "url": "https://huggingface.co/Qwen/Qwen3-VL-4B-Instruct/resolve/main/model-00002-of-00002.safetensors?download=true",
+            "path": "models/LLM/Qwen/Qwen3-VL-4B-Instruct/model-00002-of-00002.safetensors"
+          },
+          {
+            "name": "model.safetensors.index.json",
+            "url": "https://huggingface.co/Qwen/Qwen3-VL-4B-Instruct/resolve/main/model.safetensors.index.json?download=true",
+            "path": "models/LLM/Qwen/Qwen3-VL-4B-Instruct/model.safetensors.index.json"
+          },
+          {
+            "name": "preprocessor_config.json",
+            "url": "https://huggingface.co/Qwen/Qwen3-VL-4B-Instruct/resolve/main/preprocessor_config.json?download=true",
+            "path": "models/LLM/Qwen/Qwen3-VL-4B-Instruct/preprocessor_config.json"
+          },
+          {
+            "name": "tokenizer.json",
+            "url": "https://huggingface.co/Qwen/Qwen3-VL-4B-Instruct/resolve/main/tokenizer.json?download=true",
+            "path": "models/LLM/Qwen/Qwen3-VL-4B-Instruct/tokenizer.json"
+          },
+          {
+            "name": "tokenizer_config.json",
+            "url": "https://huggingface.co/Qwen/Qwen3-VL-4B-Instruct/resolve/main/tokenizer_config.json?download=true",
+            "path": "models/LLM/Qwen/Qwen3-VL-4B-Instruct/tokenizer_config.json"
+          },
+          {
+            "name": "video_preprocessor_config.json",
+            "url": "https://huggingface.co/Qwen/Qwen3-VL-4B-Instruct/resolve/main/video_preprocessor_config.json?download=true",
+            "path": "models/LLM/Qwen/Qwen3-VL-4B-Instruct/video_preprocessor_config.json"
+          },
+          {
+            "name": "vocab.json",
+            "url": "https://huggingface.co/Qwen/Qwen3-VL-4B-Instruct/resolve/main/vocab.json?download=true",
+            "path": "models/LLM/Qwen/Qwen3-VL-4B-Instruct/vocab.json"
+          }
+        ]
+      },
+      {
+        "label": "JoyCaption Beta One · полный комплект",
+        "folder": "models/LLM/JoyCaption/llama-joycaption-beta-one-hf-llava/",
+        "note": "Скачайте все перечисленные файлы в одну папку. Нода также поддерживает автоматическую загрузку.",
+        "slots": [
+          "caption_config"
+        ],
+        "source": "https://huggingface.co/fancyfeast/llama-joycaption-beta-one-hf-llava",
+        "files": [
+          {
+            "name": "LLAMA_LICENSE",
+            "url": "https://huggingface.co/fancyfeast/llama-joycaption-beta-one-hf-llava/resolve/main/LLAMA_LICENSE?download=true",
+            "path": "models/LLM/JoyCaption/llama-joycaption-beta-one-hf-llava/LLAMA_LICENSE"
+          },
+          {
+            "name": "LLAMA_USE_POLICY.md",
+            "url": "https://huggingface.co/fancyfeast/llama-joycaption-beta-one-hf-llava/resolve/main/LLAMA_USE_POLICY.md?download=true",
+            "path": "models/LLM/JoyCaption/llama-joycaption-beta-one-hf-llava/LLAMA_USE_POLICY.md"
+          },
+          {
+            "name": "chat_template.json",
+            "url": "https://huggingface.co/fancyfeast/llama-joycaption-beta-one-hf-llava/resolve/main/chat_template.json?download=true",
+            "path": "models/LLM/JoyCaption/llama-joycaption-beta-one-hf-llava/chat_template.json"
+          },
+          {
+            "name": "config.json",
+            "url": "https://huggingface.co/fancyfeast/llama-joycaption-beta-one-hf-llava/resolve/main/config.json?download=true",
+            "path": "models/LLM/JoyCaption/llama-joycaption-beta-one-hf-llava/config.json"
+          },
+          {
+            "name": "generation_config.json",
+            "url": "https://huggingface.co/fancyfeast/llama-joycaption-beta-one-hf-llava/resolve/main/generation_config.json?download=true",
+            "path": "models/LLM/JoyCaption/llama-joycaption-beta-one-hf-llava/generation_config.json"
+          },
+          {
+            "name": "model-00001-of-00004.safetensors",
+            "url": "https://huggingface.co/fancyfeast/llama-joycaption-beta-one-hf-llava/resolve/main/model-00001-of-00004.safetensors?download=true",
+            "path": "models/LLM/JoyCaption/llama-joycaption-beta-one-hf-llava/model-00001-of-00004.safetensors"
+          },
+          {
+            "name": "model-00002-of-00004.safetensors",
+            "url": "https://huggingface.co/fancyfeast/llama-joycaption-beta-one-hf-llava/resolve/main/model-00002-of-00004.safetensors?download=true",
+            "path": "models/LLM/JoyCaption/llama-joycaption-beta-one-hf-llava/model-00002-of-00004.safetensors"
+          },
+          {
+            "name": "model-00003-of-00004.safetensors",
+            "url": "https://huggingface.co/fancyfeast/llama-joycaption-beta-one-hf-llava/resolve/main/model-00003-of-00004.safetensors?download=true",
+            "path": "models/LLM/JoyCaption/llama-joycaption-beta-one-hf-llava/model-00003-of-00004.safetensors"
+          },
+          {
+            "name": "model-00004-of-00004.safetensors",
+            "url": "https://huggingface.co/fancyfeast/llama-joycaption-beta-one-hf-llava/resolve/main/model-00004-of-00004.safetensors?download=true",
+            "path": "models/LLM/JoyCaption/llama-joycaption-beta-one-hf-llava/model-00004-of-00004.safetensors"
+          },
+          {
+            "name": "model.safetensors.index.json",
+            "url": "https://huggingface.co/fancyfeast/llama-joycaption-beta-one-hf-llava/resolve/main/model.safetensors.index.json?download=true",
+            "path": "models/LLM/JoyCaption/llama-joycaption-beta-one-hf-llava/model.safetensors.index.json"
+          },
+          {
+            "name": "preprocessor_config.json",
+            "url": "https://huggingface.co/fancyfeast/llama-joycaption-beta-one-hf-llava/resolve/main/preprocessor_config.json?download=true",
+            "path": "models/LLM/JoyCaption/llama-joycaption-beta-one-hf-llava/preprocessor_config.json"
+          },
+          {
+            "name": "processor_config.json",
+            "url": "https://huggingface.co/fancyfeast/llama-joycaption-beta-one-hf-llava/resolve/main/processor_config.json?download=true",
+            "path": "models/LLM/JoyCaption/llama-joycaption-beta-one-hf-llava/processor_config.json"
+          },
+          {
+            "name": "special_tokens_map.json",
+            "url": "https://huggingface.co/fancyfeast/llama-joycaption-beta-one-hf-llava/resolve/main/special_tokens_map.json?download=true",
+            "path": "models/LLM/JoyCaption/llama-joycaption-beta-one-hf-llava/special_tokens_map.json"
+          },
+          {
+            "name": "tokenizer.json",
+            "url": "https://huggingface.co/fancyfeast/llama-joycaption-beta-one-hf-llava/resolve/main/tokenizer.json?download=true",
+            "path": "models/LLM/JoyCaption/llama-joycaption-beta-one-hf-llava/tokenizer.json"
+          },
+          {
+            "name": "tokenizer_config.json",
+            "url": "https://huggingface.co/fancyfeast/llama-joycaption-beta-one-hf-llava/resolve/main/tokenizer_config.json?download=true",
+            "path": "models/LLM/JoyCaption/llama-joycaption-beta-one-hf-llava/tokenizer_config.json"
+          }
+        ]
+      }
+    ]
+  }
+];

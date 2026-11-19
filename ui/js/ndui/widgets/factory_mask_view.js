@@ -1,0 +1,23 @@
+// SPDX-License-Identifier: AGPL-3.0-only
+// Universal Workflow additions by gikipil, 2026-11-14.
+import {el} from './util.js';
+export function maskViewport(viewport,content,tools,{onTransform=()=>{}}={}){
+ let width=0,height=0,scale=1,x=0,y=0,space=false,hand=false,drag=null,fitted=true,closed=false;
+ const minus=el('button','ndk-chip','−'),label=el('span','','—'),plus=el('button','ndk-chip','＋'),fit=el('button','ndk-chip','Вписать'),pan=el('button','ndk-chip','✋');
+ for(const[b,title]of[[minus,'Уменьшить'],[plus,'Приблизить'],[fit,'Вписать изображение'],[pan,'Перемещать изображение']]){b.type='button';b.setAttribute('aria-label',title);b.title=title;b.style.height='36px';}pan.setAttribute('aria-pressed','false');label.style.cssText='min-width:48px;text-align:center;font-variant-numeric:tabular-nums;color:#ddc8f1';tools.append(minus,label,plus,fit,pan);
+ Object.assign(viewport.style,{position:'relative',width:'100%',height:'min(60vh,600px)',minHeight:'240px',overflow:'hidden',border:'1px solid #51405f',borderRadius:'10px',background:'#11151d',touchAction:'none',marginTop:'12px'});viewport.tabIndex=0;viewport.setAttribute('aria-label','Изображение и маска · колесо для масштаба, пробел для перемещения');Object.assign(content.style,{position:'absolute',left:'0',top:'0',transformOrigin:'0 0',maxWidth:'none',margin:'0',willChange:'transform'});
+ const bounds=()=>viewport.getBoundingClientRect(),fitScale=()=>{const r=bounds();return Math.min(Math.max(1,r.width-16)/width,Math.max(1,r.height-16)/height);};
+ function update(){content.style.transform=`translate(${x}px,${y}px) scale(${scale})`;label.textContent=width?Math.round(scale*100)+'%':'—';pan.setAttribute('aria-pressed',String(hand));pan.style.background=hand?'#5b3b70':'#242934';viewport.style.cursor=drag?'grabbing':space||hand?'grab':'crosshair';content.style.cursor=viewport.style.cursor;for(const b of[minus,plus,fit,pan])b.disabled=!width;}
+ function reset(){if(!width)return;const r=bounds();scale=fitScale();x=(r.width-width*scale)/2;y=(r.height-height*scale)/2;fitted=true;onTransform();update();}
+ function zoom(factor,cx,cy){if(!width)return;const r=bounds(),px=cx??r.width/2,py=cy??r.height/2,next=Math.max(fitScale()/4,Math.min(Math.max(8,fitScale()),scale*factor)),ratio=next/scale;x=px-(px-x)*ratio;y=py-(py-y)*ratio;scale=next;fitted=false;onTransform();update();}
+ minus.addEventListener('click',()=>zoom(1/1.25));plus.addEventListener('click',()=>zoom(1.25));fit.addEventListener('click',reset);pan.addEventListener('click',()=>{hand=!hand;onTransform();update();});
+ const wheel=e=>{if(!width)return;e.preventDefault();e.stopPropagation();const r=bounds(),delta=e.deltaY*(e.deltaMode===1?16:e.deltaMode===2?r.height:1);zoom(Math.exp(-Math.max(-500,Math.min(500,delta))*.002),e.clientX-r.left,e.clientY-r.top);};viewport.addEventListener('wheel',wheel,{passive:false});
+ const down=e=>{if(!width)return;viewport.focus({preventScroll:true});if(e.button!==1&&!(e.button===0&&(space||hand)))return;e.preventDefault();e.stopImmediatePropagation();drag={id:e.pointerId,x:e.clientX,y:e.clientY,ox:x,oy:y};viewport.setPointerCapture(e.pointerId);onTransform();update();};
+ const move=e=>{if(!drag||drag.id!==e.pointerId)return;e.preventDefault();e.stopImmediatePropagation();x=drag.ox+e.clientX-drag.x;y=drag.oy+e.clientY-drag.y;fitted=false;update();};
+ const end=e=>{if(!drag||drag.id!==e.pointerId)return;e.preventDefault?.();e.stopImmediatePropagation?.();drag=null;update();};
+ viewport.addEventListener('pointerdown',down,true);viewport.addEventListener('pointermove',move,true);for(const event of['pointerup','pointercancel','lostpointercapture'])viewport.addEventListener(event,end,true);
+ const key=e=>{if(e.code!=='Space')return;if(e.type==='keyup'){space=false;update();return;}const tag=String(e.target?.tagName||e.target?.tag||'').toLowerCase();if(['input','textarea','select','button','a'].includes(tag)||e.target?.isContentEditable||!viewport.contains(document.activeElement))return;e.preventDefault();e.stopPropagation();space=true;onTransform();update();};
+ const blur=()=>{space=false;drag=null;onTransform();update();};window.addEventListener('keydown',key,true);window.addEventListener('keyup',key,true);window.addEventListener('blur',blur);
+ const observer=typeof ResizeObserver==='function'?new ResizeObserver(()=>{if(!closed&&fitted)reset();}):null;observer?.observe(viewport);update();
+ return{setSize(w,h){width=w;height=h;content.style.width=w+'px';content.style.height=h+'px';reset();},destroy(){closed=true;observer?.disconnect();window.removeEventListener('keydown',key,true);window.removeEventListener('keyup',key,true);window.removeEventListener('blur',blur);}};
+}
