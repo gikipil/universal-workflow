@@ -8,6 +8,8 @@ One interface for image generation, refinement, editing, outpainting, background
 
 **Download:** [1.0.2 release](https://github.com/gikipil/universal-workflow/releases/tag/v1.0.2) · [complete ZIP](https://github.com/gikipil/universal-workflow/archive/refs/tags/v1.0.2.zip) · [workflow JSON](Universal-Workflow-v1.0.2.json).
 
+**All versions:** [version history and tagged downloads](https://github.com/gikipil/universal-workflow/tags). The main branch contains the current version; previous versions remain available in the same repository.
+
 The JSON alone is not enough: install the UI files and bundled nodes below. Model weights, external node packs and personal photographs are not included.
 
 ## 🎯 Features
@@ -173,7 +175,7 @@ UI code and bundled modules retain **AGPL-3.0-only**; the QwenTTS patch retains 
 
 ### 1.0.0
 
-- First public release: current complete workflow/UI, without private development history.
+- First stable public release of the complete workflow and interface.
 - English default and English workflow filename.
 - Russian/English guides, full model catalog, node dependencies and QwenTTS compatibility patch.
 - Existing generation, editing, local, upscale, caption, video and audio chains retained.
