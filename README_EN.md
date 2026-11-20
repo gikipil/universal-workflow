@@ -2,11 +2,11 @@
 
 [Русский](README.md) · **English**
 
-**Version 1.0.2 · ComfyUI · English interface by default**
+**Version 1.0.3 · ComfyUI · English interface by default**
 
 One interface for image generation, refinement, editing, outpainting, background removal, upscaling, image captions, video and audio. Common settings are on the left, results and comparisons on the right. Less frequent settings open from gear buttons.
 
-**Download:** [1.0.2 release](https://github.com/gikipil/universal-workflow/releases/tag/v1.0.2) · [complete ZIP](https://github.com/gikipil/universal-workflow/archive/refs/tags/v1.0.2.zip) · [workflow JSON](Universal-Workflow-v1.0.2.json).
+**Download:** [1.0.3 release](https://github.com/gikipil/universal-workflow/releases/tag/v1.0.3) · [complete ZIP](https://github.com/gikipil/universal-workflow/archive/refs/tags/v1.0.3.zip) · [workflow JSON](Universal-Workflow-v1.0.3.json).
 
 **All versions:** [version history and tagged downloads](https://github.com/gikipil/universal-workflow/tags). The main branch contains the current version; previous versions remain available in the same repository.
 
@@ -127,7 +127,7 @@ Select your actual local files in Settings. Saved Z-Image encoder/VAE aliases ma
 
 ### 7. Open the workflow
 
-Restart ComfyUI, hard-refresh with **Ctrl+F5**, and drag **`Universal-Workflow-v1.0.2.json`** into ComfyUI. Press **ND UI**. English is the default; change it in **Settings → Appearance → Interface language**.
+Restart ComfyUI, hard-refresh with **Ctrl+F5**, and drag **`Universal-Workflow-v1.0.3.json`** into ComfyUI. Press **ND UI**. English is the default; change it in **Settings → Appearance → Interface language**.
 
 For the first run, select Generation, confirm Krea models and the Turbo adapter, disable uninstalled persistent LoRAs, and leave refinement/local processing/upscaling off until an image succeeds. Enter a prompt and press Generate, then enable other stages one at a time.
 
@@ -187,3 +187,7 @@ UI code and bundled modules retain **AGPL-3.0-only**; the QwenTTS patch retains 
 ### 1.0.2
 
 - All four Show Mask buttons work before refinement: face/hands run only their detector, SAM runs only segmentation, and manual mode shows the saved mask without processing.
+
+### 1.0.3
+
+- The settings columns in Video and Audio now expand with the interface, matching the other tabs.

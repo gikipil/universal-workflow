@@ -89381,7 +89381,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v1.0.2",
+            "text": "🧩 Универсальный воркфлоу · v1.0.3",
             "size": "M",
             "align": "left"
           },
@@ -91756,7 +91756,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v1.0.2",
+            "text": "🧩 Универсальный воркфлоу · v1.0.3",
             "size": "M",
             "align": "left"
           },
@@ -92645,7 +92645,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v1.0.2",
+            "text": "🧩 Универсальный воркфлоу · v1.0.3",
             "size": "M",
             "align": "left"
           },
@@ -93965,7 +93965,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v1.0.2",
+            "text": "🧩 Универсальный воркфлоу · v1.0.3",
             "size": "M",
             "align": "left"
           },
@@ -95372,7 +95372,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "↔️ Дорисовка за границами кадра · v1.0.2",
+            "text": "↔️ Дорисовка за границами кадра · v1.0.3",
             "size": "M",
             "align": "left"
           },
@@ -97371,7 +97371,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v1.0.2",
+            "text": "🧩 Универсальный воркфлоу · v1.0.3",
             "size": "M",
             "align": "left"
           },
@@ -98007,7 +98007,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v1.0.2",
+            "text": "🧩 Универсальный воркфлоу · v1.0.3",
             "size": "M",
             "align": "left"
           },
@@ -98581,7 +98581,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🎬 Видео · MiniMax H3 · v1.0.2",
+            "text": "🎬 Видео · MiniMax H3 · v1.0.3",
             "size": "M",
             "align": "left"
           },
@@ -99013,6 +99013,9 @@
             "blur": null,
             "label": null,
             "scale": 100
+          },
+          "adapt": {
+            "mode": "scale"
           }
         },
         {
@@ -99056,6 +99059,9 @@
             "blur": null,
             "label": null,
             "scale": 100
+          },
+          "adapt": {
+            "mode": "scale"
           }
         },
         {
@@ -99134,6 +99140,9 @@
             "blur": null,
             "label": null,
             "scale": 100
+          },
+          "adapt": {
+            "mode": "scale"
           }
         },
         {
@@ -99175,6 +99184,9 @@
             "blur": null,
             "label": null,
             "scale": 115
+          },
+          "adapt": {
+            "mode": "scale"
           }
         },
         {
@@ -99252,6 +99264,9 @@
             "blur": null,
             "label": null,
             "scale": 115
+          },
+          "adapt": {
+            "mode": "scale"
           }
         },
         {
@@ -99338,6 +99353,9 @@
             "blur": null,
             "label": null,
             "scale": 100
+          },
+          "adapt": {
+            "mode": "scale"
           }
         },
         {
@@ -99552,7 +99570,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🎬 Звук · Higgs v3 · v1.0.2",
+            "text": "🎬 Звук · Higgs v3 · v1.0.3",
             "size": "M",
             "align": "left"
           },
@@ -99985,6 +100003,9 @@
             "blur": null,
             "label": null,
             "scale": 100
+          },
+          "adapt": {
+            "mode": "scale"
           }
         },
         {
@@ -100033,6 +100054,9 @@
             "blur": null,
             "label": null,
             "scale": 100
+          },
+          "adapt": {
+            "mode": "scale"
           }
         },
         {
@@ -100079,6 +100103,9 @@
             "blur": null,
             "label": null,
             "scale": 100
+          },
+          "adapt": {
+            "mode": "scale"
           }
         },
         {
