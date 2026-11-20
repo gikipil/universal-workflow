@@ -848,7 +848,16 @@ export default {
   "Файл модели выбирается в общих настройках. В маске белое — объект, чёрное — фон. Сохранение включается отдельно.": "Choisis le modèle dans les réglages généraux. Blanc : sujet ; noir : fond. Active l’enregistrement séparément.",
   "Для диалога используй [Speaker_1]: и [Speaker_2]: перед репликами.": "Préfixe les répliques du dialogue avec [Speaker_1]: et [Speaker_2]:.",
   "Для крупного плана включи «По маске» и сохрани маску основного кадра.": "Active «Utiliser un masque» et enregistre le masque principal pour le traitement en gros plan.",
-  "Один Seed и один размер на все режимы.": "Un Seed et une taille communs à tous les modes."
+  "Один Seed и один размер на все режимы.": "Un Seed et une taille communs à tous les modes.",
+  "Не найден выбранный режим.": "Mode sélectionné introuvable.",
+  "Сначала получи кадр для просмотра маски.": "Génère une image avant de prévisualiser son masque.",
+  "Не найден детектор маски.": "Détecteur de masque introuvable.",
+  "Повторяющийся идентификатор маски.": "Identifiant de masque en double.",
+  "Зацикленная цепочка маски.": "La chaîne du masque contient une boucle.",
+  "Просмотр маски не должен запускать обработку изображения.": "L’aperçu du masque ne peut pas lancer le traitement d’image.",
+  "Просмотр маски закрыт.": "Aperçu du masque fermé.",
+  "Не удалось получить маску. Проверь очередь ComfyUI.": "Impossible de récupérer le masque. Vérifie la file ComfyUI.",
+  "Выделение маски остановлено.": "Sélection du masque arrêtée."
 };
 
 export const patterns=[

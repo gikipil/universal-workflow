@@ -14,8 +14,7 @@ export default {
   "расшифровка": "transcription",
   "Текстовый энкодер Qwen Edit 2511": "Qwen Edit 2511 text encoder",
   "Текстовый энкодер Qwen 2.1": "Qwen 2.1 text encoder",
-  "OpenPose · адаптер Krea": "OpenPose \u00b7 Krea adapter",
-
+  "OpenPose · адаптер Krea": "OpenPose · Krea adapter",
   "Скачать модели": "Download models",
   "Скачать файл": "Download file",
   "Поиск моделей для скачивания": "Search model downloads",
@@ -41,7 +40,6 @@ export default {
   "Нужен для автоматической расшифровки референса, при ручном тексте не используется.": "Needed for automatic reference transcription; not used with manual text.",
   "Сохраните вложенную папку speech_tokenizer. Нода использует этот фиксированный комплект.": "Keep the nested speech_tokenizer folder. The node uses this fixed bundle.",
   "Скачайте все перечисленные файлы в одну папку. Нода также поддерживает автоматическую загрузку.": "Download all listed files into one folder. The node also supports automatic downloads.",
-
   "Слоновая кость, красные акценты и тёмный бирюзовый текст.": "Ivory, red accents and dark teal text.",
   "Нейтральные графитовые поверхности и серебристые акценты.": "Neutral graphite surfaces and silver accents.",
   "Чернильный синий, светлая лаванда и прохладные голубые акценты.": "Inky blue, pale lavender and cool blue accents.",
@@ -850,7 +848,16 @@ export default {
   "Файл модели выбирается в общих настройках. В маске белое — объект, чёрное — фон. Сохранение включается отдельно.": "Choose the model file in shared settings. White is foreground; black is background. Enable saving separately.",
   "Для диалога используй [Speaker_1]: и [Speaker_2]: перед репликами.": "Prefix dialogue lines with [Speaker_1]: and [Speaker_2]:.",
   "Для крупного плана включи «По маске» и сохрани маску основного кадра.": "Enable mask mode and save the main-image mask for close-up processing.",
-  "Один Seed и один размер на все режимы.": "One seed and size shared across modes."
+  "Один Seed и один размер на все режимы.": "One seed and size shared across modes.",
+  "Не найден выбранный режим.": "Selected mode not found.",
+  "Сначала получи кадр для просмотра маски.": "Generate an image before previewing its mask.",
+  "Не найден детектор маски.": "Mask detector not found.",
+  "Повторяющийся идентификатор маски.": "Duplicate mask identifier.",
+  "Зацикленная цепочка маски.": "Cyclic mask chain.",
+  "Просмотр маски не должен запускать обработку изображения.": "Mask preview cannot start image processing.",
+  "Просмотр маски закрыт.": "Mask preview closed.",
+  "Не удалось получить маску. Проверь очередь ComfyUI.": "Could not retrieve the mask. Check the ComfyUI queue.",
+  "Выделение маски остановлено.": "Mask selection stopped."
 };
 export const patterns=[
  [/^Этап (\d+) из (\d+)$/,'Stage $1 of $2'],
