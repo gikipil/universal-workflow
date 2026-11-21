@@ -1,6 +1,19 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 // Universal Workflow interface translation, gikipil 2026.
 export default {
+  "1 · Генерация видео": "1 · Generación de vídeo",
+  "2 · Рефайнер": "2 · Refinado",
+  "3 · Апскейл": "3 · Ampliación",
+  "Настройки генерации видео": "Ajustes de generación de vídeo",
+  "Настройки рефайнера": "Ajustes del refinador",
+  "Настройки апскейла видео": "Ajustes de ampliación de vídeo",
+  "Включить рефайнер": "Activar refinado",
+  "Полное расписание рефайнера": "Programa completo del refinador",
+  "Шаги в низком разрешении": "Pasos a baja resolución",
+  "Доработка видео после генерации. Исходный звук сохраняется.": "Refina el vídeo generado. Conserva el audio original.",
+  "Основной проход: 6 шагов в низком разрешении и 3 в высоком по умолчанию. Звук создаётся вместе с видео.": "Proceso principal predeterminado: 6 pasos a baja resolución y 3 a alta resolución. El audio se genera con el vídeo.",
+  "Рефайнер выполняет последние выбранные шаги своего расписания. Больше шагов при том же расписании — сильнее перерисовка. Модель общая, LoRA рефайнера независимы.": "El refinador ejecuta los últimos pasos seleccionados de su programa. Más pasos implican cambios mayores. El modelo es compartido; sus LoRA son independientes.",
+
   "Генерация видео · SelfLift": "Generación de vídeo · SelfLift",
   "Переход в высокое разрешение, шаг": "Paso de cambio a alta resolución",
   "Дополнительные финальные шаги": "Pasos finales adicionales",

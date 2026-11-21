@@ -1,6 +1,19 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 // Universal Workflow interface translation, gikipil 2026.
 export default {
+  "1 · Генерация видео": "1 · Génération vidéo",
+  "2 · Рефайнер": "2 · Affinage",
+  "3 · Апскейл": "3 · Agrandissement",
+  "Настройки генерации видео": "Réglages de génération vidéo",
+  "Настройки рефайнера": "Réglages de l’affinage",
+  "Настройки апскейла видео": "Réglages d’agrandissement vidéo",
+  "Включить рефайнер": "Activer l’affinage",
+  "Полное расписание рефайнера": "Programme complet de l’affinage",
+  "Шаги в низком разрешении": "Étapes en basse résolution",
+  "Доработка видео после генерации. Исходный звук сохраняется.": "Affine la vidéo générée. Le son d’origine est conservé.",
+  "Основной проход: 6 шагов в низком разрешении и 3 в высоком по умолчанию. Звук создаётся вместе с видео.": "Passe principale par défaut : 6 étapes en basse résolution et 3 en haute résolution. Le son est généré avec la vidéo.",
+  "Рефайнер выполняет последние выбранные шаги своего расписания. Больше шагов при том же расписании — сильнее перерисовка. Модель общая, LoRA рефайнера независимы.": "L’affinage exécute les dernières étapes choisies de son programme. Plus d’étapes produisent des changements plus forts. Le modèle est partagé, les LoRA sont indépendantes.",
+
   "Генерация видео · SelfLift": "Génération vidéo · SelfLift",
   "Переход в высокое разрешение, шаг": "Étape de passage en haute résolution",
   "Дополнительные финальные шаги": "Étapes finales supplémentaires",

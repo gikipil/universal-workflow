@@ -26,7 +26,6 @@ export function videoPrompt(data,targets,modes,s,config){
  for(const[role,key,id]of[['first','first_frame',s.first],['last','last_frame',s.last]]){const item=s.mediaSlots?.[role]?.[0];delete enc.inputs[key];if(item?.file?.trim()){const load=output[id];if(!load)throw Error('Не найден загрузчик кадра MiniMax.');load.inputs.image=item.file;enc.inputs[key]=[String(id),0];}}
  const mainTurbo=output[s.mturbo],refTurbo=output[s.rturbo];if(!mainTurbo||!refTurbo)throw Error('Не найден Turbo-адаптер MiniMax.');
  for(const[k,v]of Object.entries(mainTurbo.inputs))if(/^lora_\d+$/.test(k))refTurbo.inputs[k]=structuredClone(v);
- output[s.ref].inputs.sampler_name=output[s.select].inputs.sampler_name;output[s.ref].inputs.scheduler=output[s.schedule].inputs.scheduler;
  const bypass=new Map([[String(s.gate),[String(config.refiner?s.ref:s.main),0]]]);
  if(s.upscale)bypass.set(String(s.upscale.gate),[String(config.upscale?s.upscale.sample:s.vdecode),0]);
  for(const n of Object.values(output))for(const[k,v]of Object.entries(n.inputs||{}))if(Array.isArray(v)&&bypass.has(String(v[0])))n.inputs[k]=bypass.get(String(v[0]));

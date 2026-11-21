@@ -1,6 +1,19 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 // Universal Workflow English UI dictionary, gikipil 2026. Russian source keys.
 export default {
+  "1 · Генерация видео": "1 · Video generation",
+  "2 · Рефайнер": "2 · Refiner",
+  "3 · Апскейл": "3 · Upscale",
+  "Настройки генерации видео": "Video generation settings",
+  "Настройки рефайнера": "Refiner settings",
+  "Настройки апскейла видео": "Video upscale settings",
+  "Включить рефайнер": "Enable refiner",
+  "Полное расписание рефайнера": "Full refiner schedule",
+  "Шаги в низком разрешении": "Low-resolution steps",
+  "Доработка видео после генерации. Исходный звук сохраняется.": "Refine the generated video. Original audio is preserved.",
+  "Основной проход: 6 шагов в низком разрешении и 3 в высоком по умолчанию. Звук создаётся вместе с видео.": "Default main pass: 6 low-resolution and 3 high-resolution steps. Audio is generated with the video.",
+  "Рефайнер выполняет последние выбранные шаги своего расписания. Больше шагов при том же расписании — сильнее перерисовка. Модель общая, LoRA рефайнера независимы.": "The refiner runs the selected final steps of its schedule. More steps within the same schedule mean stronger changes. The model is shared; refiner LoRAs are independent.",
+
   "Генерация видео · SelfLift": "Video generation · SelfLift",
   "Переход в высокое разрешение, шаг": "Switch to high resolution at step",
   "Дополнительные финальные шаги": "Additional final steps",
