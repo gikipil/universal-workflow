@@ -562,36 +562,56 @@ export const MODEL_DOWNLOADS=[
     "label": "🎬 Видео",
     "models": [
       {
-        "label": "MiniMax H3 · REF",
-        "folder": "models/diffusion_models/MiniMax/",
+        "label": "SelfLift · увеличение латента",
+        "label_en": "SelfLift · latent upscaler",
+        "folder": "models/latent_upscale_models/",
         "note": "",
         "slots": [
-          "vid_ref_model"
+          "vid_latent_upscaler"
         ],
         "optional": false,
-        "source": "https://huggingface.co/Comfy-Org/MiniMax-H3",
+        "source": "https://huggingface.co/KENIC-1/minimax_h3_latent_upscaler_3d_fp16_V2",
         "files": [
           {
-            "name": "minimax_h3_ref2va_pruned_int8_convrot.safetensors",
-            "url": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/diffusion_models/minimax_h3_ref2va_pruned_int8_convrot.safetensors?download=true",
-            "path": "models/diffusion_models/MiniMax/minimax_h3_ref2va_pruned_int8_convrot.safetensors"
+            "name": "minimax_h3_latent_upscaler_3d_fp16_V2.safetensors",
+            "url": "https://huggingface.co/KENIC-1/minimax_h3_latent_upscaler_3d_fp16_V2/resolve/main/minimax_h3_latent_upscaler_3d_fp16_V2.safetensors?download=true",
+            "path": "models/latent_upscale_models/minimax_h3_latent_upscaler_3d_fp16_V2.safetensors"
           }
         ]
       },
       {
-        "label": "MiniMax H3 · FL",
+        "label": "MiniMax H3 · Turbo V4",
+        "label_en": "MiniMax H3 · Turbo V4",
+        "folder": "models/loras/MiniMax/",
+        "note": "",
+        "slots": [
+          "vid_turbo"
+        ],
+        "optional": false,
+        "source": "https://huggingface.co/drbaph/MiniMax-H3-Turbo-Lora-ComfyUI",
+        "files": [
+          {
+            "name": "minimax_h3_turbo_v4_step600_ema_pruned_comfyui.safetensors",
+            "url": "https://huggingface.co/drbaph/MiniMax-H3-Turbo-Lora-ComfyUI/resolve/main/minimax_h3_turbo_v4_step600_ema_pruned_comfyui.safetensors?download=true",
+            "path": "models/loras/MiniMax/minimax_h3_turbo_v4_step600_ema_pruned_comfyui.safetensors"
+          }
+        ]
+      },
+      {
+        "label": "MiniMax H3 · универсальная Hybrid-модель",
+        "label_en": "MiniMax H3 · Hybrid model",
         "folder": "models/diffusion_models/MiniMax/",
         "note": "",
         "slots": [
-          "vid_fl_model"
+          "vid_model"
         ],
         "optional": false,
-        "source": "https://huggingface.co/Comfy-Org/MiniMax-H3",
+        "source": "https://huggingface.co/smhfacct/Minimax-H3-fl2va-ref2va-hybrid-models",
         "files": [
           {
-            "name": "minimax_h3_fl2va_pruned_int8_convrot.safetensors",
-            "url": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/diffusion_models/minimax_h3_fl2va_pruned_int8_convrot.safetensors?download=true",
-            "path": "models/diffusion_models/MiniMax/minimax_h3_fl2va_pruned_int8_convrot.safetensors"
+            "name": "minimax_h3_hybrid_fl2va_ref2va_b25-49-int8.safetensors",
+            "url": "https://huggingface.co/smhfacct/Minimax-H3-fl2va-ref2va-hybrid-models/resolve/main/minimax_h3_hybrid_fl2va_ref2va_b25-49-int8.safetensors?download=true",
+            "path": "models/diffusion_models/MiniMax/minimax_h3_hybrid_fl2va_ref2va_b25-49-int8.safetensors"
           }
         ]
       },
@@ -610,7 +630,9 @@ export const MODEL_DOWNLOADS=[
             "url": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/text_encoders/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors?download=true",
             "path": "models/text_encoders/MiniMax/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors"
           }
-        ]
+        ],
+        "label_en": "MiniMax H3 · standard encoder",
+        "note_en": ""
       },
       {
         "label": "MiniMax H3 · Video VAE",
@@ -627,7 +649,9 @@ export const MODEL_DOWNLOADS=[
             "url": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/vae/minimax_h3_video_vae_fp16.safetensors?download=true",
             "path": "models/vae/MiniMax/minimax_h3_video_vae_fp16.safetensors"
           }
-        ]
+        ],
+        "label_en": "MiniMax H3 · Video VAE",
+        "note_en": ""
       },
       {
         "label": "MiniMax H3 · Audio VAE",
@@ -644,24 +668,9 @@ export const MODEL_DOWNLOADS=[
             "url": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/vae/minimax_h3_audio_vae_fp32.safetensors?download=true",
             "path": "models/vae/MiniMax/minimax_h3_audio_vae_fp32.safetensors"
           }
-        ]
-      },
-      {
-        "label": "MiniMax H3 · Turbo-адаптер 8 шагов",
-        "folder": "models/loras/MiniMax/",
-        "note": "",
-        "slots": [
-          "vid_turbo"
         ],
-        "optional": false,
-        "source": "https://huggingface.co/Comfy-Org/MiniMax-H3",
-        "files": [
-          {
-            "name": "minimax_h3_fl2v_turbo_8step_v1.0_comfyui_bf16.safetensors",
-            "url": "https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/loras/minimax_h3_fl2v_turbo_8step_v1.0_comfyui_bf16.safetensors?download=true",
-            "path": "models/loras/MiniMax/minimax_h3_fl2v_turbo_8step_v1.0_comfyui_bf16.safetensors"
-          }
-        ]
+        "label_en": "MiniMax H3 · Audio VAE",
+        "note_en": ""
       },
       {
         "label": "MiniMax H3 · альтернативный энкодер Heretic",
@@ -676,9 +685,12 @@ export const MODEL_DOWNLOADS=[
             "url": "https://huggingface.co/sakamakismile/Qwen3-VL-32B-Heretic-MiniMax-H3-NVFP4/resolve/main/qwen3vl_32b_heretic_minimax_h3_nvfp4.safetensors?download=true",
             "path": "models/text_encoders/MiniMax/qwen3vl_32b_heretic_minimax_h3_nvfp4.safetensors"
           }
-        ]
+        ],
+        "label_en": "MiniMax H3 · alternative Heretic encoder",
+        "note_en": "Used in the current setup. Select this or the standard encoder."
       }
-    ]
+    ],
+    "label_en": "🎬 Video"
   },
   {
     "id": "audio",

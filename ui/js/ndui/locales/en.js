@@ -1,6 +1,15 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 // Universal Workflow English UI dictionary, gikipil 2026. Russian source keys.
 export default {
+  "Генерация видео · SelfLift": "Video generation · SelfLift",
+  "Переход в высокое разрешение, шаг": "Switch to high resolution at step",
+  "Дополнительные финальные шаги": "Additional final steps",
+  "Масштаб первого этапа": "First-stage scale",
+  "Sol-Attention · порог": "Sol-Attention · threshold",
+  "MiniMax H3 · универсальная модель": "MiniMax H3 · Hybrid model",
+  "SelfLift · увеличение латента": "SelfLift · latent upscaler",
+  "SelfLift использует сэмплер Euler.": "SelfLift requires the Euler sampler.",
+
   "полный комплект": "full bundle",
   "альтернативный комплект": "alternative bundle",
   "альтернатива": "alternative",

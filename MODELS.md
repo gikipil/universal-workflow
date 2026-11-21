@@ -286,23 +286,31 @@ Alternative to RMBG-2.0, selectable in settings.
 
 ## 🎬 Video
 
-### MiniMax H3 · REF
+### SelfLift · увеличение латента
 
-[Source / Источник](https://huggingface.co/Comfy-Org/MiniMax-H3)
-
-| Download / Скачать | Destination / Путь |
-| --- | --- |
-| [minimax_h3_ref2va_pruned_int8_convrot.safetensors](https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/diffusion_models/minimax_h3_ref2va_pruned_int8_convrot.safetensors?download=true) | `models/diffusion_models/MiniMax/minimax_h3_ref2va_pruned_int8_convrot.safetensors` |
-
-### MiniMax H3 · FL
-
-[Source / Источник](https://huggingface.co/Comfy-Org/MiniMax-H3)
+[Source / Источник](https://huggingface.co/KENIC-1/minimax_h3_latent_upscaler_3d_fp16_V2)
 
 | Download / Скачать | Destination / Путь |
 | --- | --- |
-| [minimax_h3_fl2va_pruned_int8_convrot.safetensors](https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/diffusion_models/minimax_h3_fl2va_pruned_int8_convrot.safetensors?download=true) | `models/diffusion_models/MiniMax/minimax_h3_fl2va_pruned_int8_convrot.safetensors` |
+| [minimax_h3_latent_upscaler_3d_fp16_V2.safetensors](https://huggingface.co/KENIC-1/minimax_h3_latent_upscaler_3d_fp16_V2/resolve/main/minimax_h3_latent_upscaler_3d_fp16_V2.safetensors?download=true) | `models/latent_upscale_models/minimax_h3_latent_upscaler_3d_fp16_V2.safetensors` |
 
-### MiniMax H3 · standard encoder
+### MiniMax H3 · Turbo V4
+
+[Source / Источник](https://huggingface.co/drbaph/MiniMax-H3-Turbo-Lora-ComfyUI)
+
+| Download / Скачать | Destination / Путь |
+| --- | --- |
+| [minimax_h3_turbo_v4_step600_ema_pruned_comfyui.safetensors](https://huggingface.co/drbaph/MiniMax-H3-Turbo-Lora-ComfyUI/resolve/main/minimax_h3_turbo_v4_step600_ema_pruned_comfyui.safetensors?download=true) | `models/loras/MiniMax/minimax_h3_turbo_v4_step600_ema_pruned_comfyui.safetensors` |
+
+### MiniMax H3 · универсальная Hybrid-модель
+
+[Source / Источник](https://huggingface.co/smhfacct/Minimax-H3-fl2va-ref2va-hybrid-models)
+
+| Download / Скачать | Destination / Путь |
+| --- | --- |
+| [minimax_h3_hybrid_fl2va_ref2va_b25-49-int8.safetensors](https://huggingface.co/smhfacct/Minimax-H3-fl2va-ref2va-hybrid-models/resolve/main/minimax_h3_hybrid_fl2va_ref2va_b25-49-int8.safetensors?download=true) | `models/diffusion_models/MiniMax/minimax_h3_hybrid_fl2va_ref2va_b25-49-int8.safetensors` |
+
+### MiniMax H3 · штатный энкодер
 
 [Source / Источник](https://huggingface.co/Comfy-Org/MiniMax-H3)
 
@@ -326,19 +334,11 @@ Alternative to RMBG-2.0, selectable in settings.
 | --- | --- |
 | [minimax_h3_audio_vae_fp32.safetensors](https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/vae/minimax_h3_audio_vae_fp32.safetensors?download=true) | `models/vae/MiniMax/minimax_h3_audio_vae_fp32.safetensors` |
 
-### MiniMax H3 · 8-step Turbo adapter
-
-[Source / Источник](https://huggingface.co/Comfy-Org/MiniMax-H3)
-
-| Download / Скачать | Destination / Путь |
-| --- | --- |
-| [minimax_h3_fl2v_turbo_8step_v1.0_comfyui_bf16.safetensors](https://huggingface.co/Comfy-Org/MiniMax-H3/resolve/main/loras/minimax_h3_fl2v_turbo_8step_v1.0_comfyui_bf16.safetensors?download=true) | `models/loras/MiniMax/minimax_h3_fl2v_turbo_8step_v1.0_comfyui_bf16.safetensors` |
-
-### MiniMax H3 · alternative Heretic encoder · optional / необязательно
-
-Used in the current setup. Select this or the standard encoder.
+### MiniMax H3 · альтернативный энкодер Heretic
 
 [Source / Источник](https://huggingface.co/sakamakismile/Qwen3-VL-32B-Heretic-MiniMax-H3-NVFP4)
+
+Используется в текущей установке. Выберите этот или штатный энкодер.
 
 | Download / Скачать | Destination / Путь |
 | --- | --- |

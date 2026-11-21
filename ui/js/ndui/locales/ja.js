@@ -1,6 +1,15 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 // Universal Workflow Japanese interface translation, gikipil 2026.
 export default {
+  "Генерация видео · SelfLift": "動画生成 · SelfLift",
+  "Переход в высокое разрешение, шаг": "高解像度へ切り替えるステップ",
+  "Дополнительные финальные шаги": "追加の最終ステップ",
+  "Масштаб первого этапа": "第1段階の倍率",
+  "Sol-Attention · порог": "Sol-Attention · しきい値",
+  "MiniMax H3 · универсальная модель": "MiniMax H3 · ハイブリッドモデル",
+  "SelfLift · увеличение латента": "SelfLift · 潜在空間アップスケーラー",
+  "SelfLift использует сэмплер Euler.": "SelfLift は Euler サンプラーを使用します。",
+
   "полный комплект": "一式",
   "альтернативный комплект": "代替セット",
   "альтернатива": "代替",

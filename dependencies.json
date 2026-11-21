@@ -1,9 +1,9 @@
 {
-  "version": "1.0.3",
+  "version": "1.1.0",
   "comfyui_repository": "https://github.com/Comfy-Org/ComfyUI",
   "core_node_types": [
-    "BasicGuider",
     "BasicScheduler",
+    "BlockSparseAttention",
     "CFGNorm",
     "CLIPLoader",
     "CLIPTextEncode",
@@ -33,9 +33,6 @@
     "LoadImage",
     "LoadImageMask",
     "MaskToImage",
-    "MiniMaxH3ImageToVideo",
-    "MiniMaxH3ReferenceToVideo",
-    "MiniMaxH3SigmaShift",
     "ModelSamplingAuraFlow",
     "PreviewAudio",
     "PreviewImage",
@@ -44,10 +41,8 @@
     "PrimitiveInt",
     "PrimitiveStringMultiline",
     "QwenImage21Cache",
-    "RandomNoise",
     "ReferenceLatent",
     "SAM3_Detect",
-    "SamplerCustomAdvanced",
     "SaveAudioAdvanced",
     "SaveAudioMP3",
     "SetLatentNoiseMask",
@@ -120,11 +115,8 @@
       "tested_version": "1.5.3",
       "tested_revision": null,
       "node_types": [
-        "DiffusionModelLoaderKJ",
         "GetNode",
         "GrowMaskWithBlur",
-        "MiniMaxChunkFeedForward",
-        "MiniMaxH3MemoryEfficientSageAttentionPatch",
         "SetNode"
       ]
     },
@@ -257,15 +249,6 @@
       ]
     },
     {
-      "folder": "ComfyUI-SolAttn_triton",
-      "repository": "https://github.com/kijai/ComfyUI-SolAttn_triton",
-      "tested_version": null,
-      "tested_revision": "842c4eaa7d91dbaef3fee3ccdbf36a39521e82fc",
-      "node_types": [
-        "SolAttnPatch"
-      ]
-    },
-    {
       "folder": "Higgs_v3-TTS-ComfyUI",
       "repository": "https://github.com/Saganaki22/Higgs_v3-TTS-ComfyUI",
       "tested_version": "0.1.71",
@@ -288,30 +271,28 @@
       ]
     },
     {
-      "folder": "comfyui-florence2",
-      "repository": "https://github.com/kijai/ComfyUI-Florence2",
-      "tested_version": "1.1.0",
-      "tested_revision": null,
-      "node_types": [
-        "DownloadAndLoadFlorence2Model",
-        "Florence2Run"
-      ]
-    },
-    {
-      "folder": "ComfyUI-QwenVL",
-      "repository": "https://github.com/1038lab/ComfyUI-QwenVL",
-      "tested_version": "2.3.2",
-      "tested_revision": null,
-      "node_types": [
-        "AILab_QwenVL"
-      ]
-    },
-    {
       "folder": "ComfyUI-NeuralDreamer-UI-Builder",
       "repository": "https://github.com/neural-dreamer/ComfyUI-ND-UI-Builder",
       "tested_version": "1.0.0",
       "tested_revision": "ad176bd9731c70e2b3246ea9ff1129606591448c",
       "node_types": []
+    },
+    {
+      "folder": "selflift-Avatar",
+      "repository": "https://github.com/slmonker/selflift-Avatar",
+      "tested_revision": "460f88629b35f792a2ca68b219f13c1ba46e2ee3",
+      "node_types": [
+        "SelfLiftAvatarH3Sampler",
+        "H3SigmaRefiner"
+      ]
+    },
+    {
+      "folder": "comfyui-minimax-h3-audio-T8",
+      "repository": "https://github.com/T8mars/comfyui-minimax-h3-audio-T8",
+      "tested_revision": "be3a3e9219feb63848b3415f1dd1d1571b812203",
+      "node_types": [
+        "MiniMaxH3AudioConditioningT8"
+      ]
     }
   ],
   "bundled_nodes": [
@@ -320,5 +301,11 @@
     "ComfyUI-Universal-Video"
   ],
   "ui_base_revision": "ad176bd9731c70e2b3246ea9ff1129606591448c",
-  "qwentts_compatibility_patch": "compat/qwentts-transformers5.patch"
+  "qwentts_compatibility_patch": "compat/qwentts-transformers5.patch",
+  "video_runtime": {
+    "pytorch": "2.10.0+cu130",
+    "cuda": "13.0",
+    "attention": "native BlockSparseAttention / sol-attn",
+    "selflift_mode": "global_stream"
+  }
 }

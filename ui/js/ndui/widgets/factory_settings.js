@@ -12,9 +12,10 @@ import {applyVars} from '../kit.js';
 import {APPEARANCE_PROFILES,APPEARANCE_FONTS,APPEARANCE_CONTROL_CSS,PREVIEW_BACKGROUNDS} from '../factory_appearance.js';
 
 const MODEL_FIELDS = [
+    ['vid_ref_model','MiniMax REF · модель','diffusion_models'],['vid_fl_model','MiniMax FL · модель','diffusion_models'],
     ['song_model','ACE-Step · модель','diffusion_models'],['song_clip1','ACE · энкодер 0.6B','text_encoders'],['song_clip2','ACE · энкодер 4B','text_encoders'],['song_vae','ACE · Audio VAE','vae'],
     ['aud_model','Higgs v3 · модель','auto'],['aud_whisper','Whisper · расшифровка','auto'],
-    ['vid_ref_model','MiniMax REF · модель','diffusion_models'],['vid_fl_model','MiniMax FL · модель','diffusion_models'],['vid_clip','MiniMax H3 · энкодер','text_encoders'],['vid_video_vae','MiniMax H3 · Video VAE','vae'],['vid_audio_vae','MiniMax H3 · Audio VAE','vae'],['vid_turbo','MiniMax H3 · общий Turbo-адаптер','loras'],
+    ['vid_model','MiniMax H3 · универсальная модель','diffusion_models'],['vid_latent_upscaler','SelfLift · увеличение латента','latent_upscale_models'],['vid_clip','MiniMax H3 · энкодер','text_encoders'],['vid_video_vae','MiniMax H3 · Video VAE','vae'],['vid_audio_vae','MiniMax H3 · Audio VAE','vae'],['vid_turbo','MiniMax H3 · общий Turbo-адаптер','loras'],
     ['out_k_model','Модель Krea Turbo · дорисовка','diffusion_models'],
     ['edit_q21_model','Модель Qwen 2.1','diffusion_models'],['edit_q21_clip','Энкодер Qwen 2.1','text_encoders'],['edit_q21_vae','VAE Qwen 2.1','vae'],
     ['edit_krea_general','General Edit V2 · файл LoRA','loras'],['edit_krea_identity','Identity Edit V2 · файл LoRA','loras'],
@@ -32,7 +33,7 @@ export const CONSTANT_LORA_GROUPS = [
     ['kg','Krea · генерация'], ['kr','Krea · детализация'], ['zr','Z-Image · детализация'],
 ];
 export const SETTINGS_SLOTS = [{id:'caption_config',label:'Модели captioning',accepts:['STRING'],required:false},
-    ...MODEL_FIELDS.map(([id,label]) => ({id,label,accepts:['COMBO'],required:true})),
+    ...MODEL_FIELDS.map(([id,label]) => ({id,label,accepts:['COMBO'],required:!id.startsWith('vid_')})),
     ...CONSTANT_LORA_GROUPS.flatMap(([prefix]) => Array.from({length:3},(_,i) => [
         {id:`${prefix}_${i+1}_lora`,label:`Постоянная LoRA ${i+1}`,accepts:['COMBO'],required:true},
         {id:`${prefix}_${i+1}_on`,label:`Включить LoRA ${i+1}`,accepts:['BOOLEAN'],required:true},
@@ -118,11 +119,12 @@ export function openFactorySettings(ctx, onClose=()=>{}) {
     const editor=card(modelsGrid,'✏️ Редактирование · Qwen 2511','Независимый комплект редактора. Обычные LoRA выбираются на вкладке редактирования.');
     const audioCard=card(modelsGrid,'🔊 Звук · модели','Higgs и Whisper для голосовых референсов. Один выбор Whisper действует для обоих голосов. Голос по описанию использует отдельную фиксированную модель Qwen3-TTS VoiceDesign 1.7B из models/TTS/Qwen3-TTS.');
     const songCard=card(modelsGrid,'🎼 Звук · песни ACE-Step','Модель XL SFT, оба текстовых энкодера и Audio VAE существующего workflow для песен.');
-    const videoCard=card(modelsGrid,'🎬 Видео · MiniMax H3','REF использует референсы, FL — первый и последний кадр. Назначь файлы обеих моделей. Рабочий режим REF / FL переключается слева во вкладке видео. Энкодер, VAE и Turbo-адаптер общие. Пользовательские LoRA выбираются отдельно во вкладке видео.');
+    const videoCard=card(modelsGrid,'🎬 Видео · MiniMax H3',ctx.w?.slots?.vid_model?'Одна Hybrid-модель для текста, референсов и первого/последнего кадра. Общая Turbo-LoRA используется генерацией и рефайнером. SelfLift увеличивает латент перед финальными шагами. Дополнительные LoRA выбираются отдельно во вкладке видео.':'REF использует референсы, FL — первый и последний кадр. Назначь файлы обеих моделей. Энкодер, VAE и Turbo-адаптер общие.');
     const outpaint=card(modelsGrid,'↔️ Дорисовка · Krea2','Проверенный вариант использует готовую Turbo-модель. Энкодер и VAE общие с Krea; Qwen берёт комплекты редактора. Дополнительные LoRA выбираются во вкладке дорисовки.');
     const background=card(modelsGrid,'🧽 Удаление фона','Отдельная функция. Выбор модели не меняет генерацию.');
     const upSeed=card(modelsGrid,'Апскейл · SeedVR','Общие DiT и VAE для генерации, редактирования и отдельного апскейла.');
     for (const [key,caption,folder] of MODEL_FIELDS) {
+        if(key.startsWith('vid_')&&!ctx.w?.slots?.[key])continue;
         const container=key.startsWith('song_')?songCard:key.startsWith('aud_')?audioCard:key.startsWith('vid_')?videoCard:key==='out_k_model'?outpaint:key.startsWith('edit_q21_')?qwen21Editor:key.startsWith('edit_krea_')?kreaEditor:key.startsWith('edit_')?editor:key==='bg_model'?background:key.startsWith('pose_')?pose:key==='up_simple_model'||key==='up_ultimate_model'?upModels:key.startsWith('up_seed_')?upSeed:['sam_model','face_detector','hand_detector'].includes(key)?detection:key.includes('turbo')?turbo:key.startsWith('z_')?zimage:krea;
         picker(container,key,caption,folder,key==='up_seed_dit'?value=>{if(/3b/i.test(String(value))){const state=ctx.info(key),node=state.p?.node||state.node,w=node?.widgets?.find(w=>w.name==='blocks_to_swap');if(w&&w.value>32){w.value=32;w.callback?.(32);node.graph?.change?.();}}}:undefined);
     }

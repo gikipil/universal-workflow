@@ -3,6 +3,15 @@
 // 61 shared labels adapted from ND UI Builder Chinese translations:
 // Copyright (c) 2026 Ivan Ovchinnikov (Neural Dreamer).
 export default {
+  "Генерация видео · SelfLift": "视频生成 · SelfLift",
+  "Переход в высокое разрешение, шаг": "切换高分辨率的步数",
+  "Дополнительные финальные шаги": "额外最终步数",
+  "Масштаб первого этапа": "第一阶段缩放比例",
+  "Sol-Attention · порог": "Sol-Attention · 阈值",
+  "MiniMax H3 · универсальная модель": "MiniMax H3 · 混合模型",
+  "SelfLift · увеличение латента": "SelfLift · 潜空间放大模型",
+  "SelfLift использует сэмплер Euler.": "SelfLift 需要 Euler 采样器。",
+
   "полный комплект": "完整文件包",
   "альтернативный комплект": "替代文件包",
   "альтернатива": "替代选项",

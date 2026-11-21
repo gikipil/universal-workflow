@@ -3,6 +3,30 @@ import os
 import uuid
 import folder_paths
 
+
+class UniversalVideoStreamModel:
+    """Apply SelfLift's supported native streaming path to the optional refiner."""
+    @classmethod
+    def INPUT_TYPES(cls):
+        return {"required": {"model": ("MODEL",),
+                "token_chunk": ("INT", {"default": 4096, "min": 128, "max": 16384, "step": 128}),
+                "weight_cache_gb": ("FLOAT", {"default": 4.0, "min": 0.0, "max": 64.0, "step": 0.5})}}
+
+    RETURN_TYPES = ("MODEL",)
+    FUNCTION = "patch"
+    CATEGORY = "Universal Workflow/video"
+
+    def patch(self, model, token_chunk=4096, weight_cache_gb=4.0):
+        import importlib
+        import nodes
+        sampler = nodes.NODE_CLASS_MAPPINGS.get("SelfLiftAvatarH3Sampler")
+        if sampler is None:
+            raise RuntimeError("Install selflift-Avatar and restart ComfyUI before using video refinement.")
+        package = sampler.__module__.rsplit(".", 1)[0]
+        streaming = importlib.import_module(package + ".h3_global_tiling")
+        return (streaming.tiled_model(model, chunk_size=token_chunk, use_stream=True,
+                                      weight_cache_gb=weight_cache_gb),)
+
 class UniversalVideoOutput:
     @classmethod
     def INPUT_TYPES(cls):
@@ -26,5 +50,30 @@ class UniversalVideoOutput:
         ref = {"filename": file, "subfolder": subfolder, "type": "output" if save_output else "temp"}
         return {"ui": {"images": [ref]}, "result": (video,)}
 
-NODE_CLASS_MAPPINGS = {"UniversalVideoOutput": UniversalVideoOutput}
-NODE_DISPLAY_NAME_MAPPINGS = {"UniversalVideoOutput": "Universal Video Output"}
+NODE_CLASS_MAPPINGS = {"UniversalVideoOutput": UniversalVideoOutput,
+                       "UniversalVideoStreamModel": UniversalVideoStreamModel}
+NODE_DISPLAY_NAME_MAPPINGS = {"UniversalVideoOutput": "Universal Video Output",
+                              "UniversalVideoStreamModel": "Universal Video · Native Stream Refiner"}
+
+
+# Read-only capability check: reject unsupported video runtimes before loading weights.
+try:
+    from server import PromptServer
+except ImportError:
+    PromptServer = None
+
+if PromptServer is not None:
+    @PromptServer.instance.routes.get('/universal/video/runtime')
+    async def video_runtime(request):
+        import torch
+        import nodes
+        import comfy_kitchen as ck
+        from aiohttp import web
+        required = ['BlockSparseAttention', 'SelfLiftAvatarH3Sampler', 'H3SigmaRefiner',
+                    'MiniMaxH3AudioConditioningT8', 'UniversalVideoStreamModel']
+        missing = [name for name in required if name not in nodes.NODE_CLASS_MAPPINGS]
+        cuda = torch.version.cuda or ''
+        cuda_major = int(cuda.split('.')[0]) if cuda else 0
+        available = cuda_major >= 13 and torch.cuda.is_available() and ck.sol_attn_is_available()
+        return web.json_response({'ok': bool(available and not missing), 'cuda': cuda,
+                                  'sol_available': bool(available), 'missing_nodes': missing})
