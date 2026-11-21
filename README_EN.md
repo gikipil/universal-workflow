@@ -2,11 +2,11 @@
 
 [Русский](README.md) · **English**
 
-**Version 1.0.3 · ComfyUI · English interface by default**
+**Version 1.1.0 · ComfyUI · English interface by default**
 
 One interface for image generation, refinement, editing, outpainting, background removal, upscaling, image captions, video and audio. Common settings are on the left, results and comparisons on the right. Less frequent settings open from gear buttons.
 
-**Download:** [1.1.0 release](https://github.com/gikipil/universal-workflow/releases/tag/v1.1.0) · [complete ZIP](https://github.com/gikipil/universal-workflow/archive/refs/tags/v1.1.0.zip) · [workflow JSON](Universal-Workflow-v1.1.0.json).
+**Download:** [1.1.0 release](https://github.com/gikipil/universal-workflow/releases/tag/v1.1.0) · [complete ZIP](https://github.com/gikipil/universal-workflow/releases/download/v1.1.0/Universal-Workflow-v1.1.0.zip) · [workflow JSON](Universal-Workflow-v1.1.0.json).
 
 **All versions:** [version history and tagged downloads](https://github.com/gikipil/universal-workflow/tags). The main branch contains the current version; previous versions remain available in the same repository.
 

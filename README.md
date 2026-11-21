@@ -2,11 +2,11 @@
 
 **Русский** · [English](README_EN.md)
 
-**Версия 1.0.3 · ComfyUI · English по умолчанию**
+**Версия 1.1.0 · ComfyUI · English по умолчанию**
 
 Один интерфейс для генерации изображений, детализации, редактирования, дорисовки, удаления фона, апскейла, описания изображений, видео и звука. Основные настройки слева, результат и сравнения справа, дополнительные параметры открываются по шестерёнке.
 
-**Скачать:** [релиз 1.1.0](https://github.com/gikipil/universal-workflow/releases/tag/v1.1.0) · [полный ZIP](https://github.com/gikipil/universal-workflow/archive/refs/tags/v1.1.0.zip) · [JSON workflow](Universal-Workflow-v1.1.0.json).
+**Скачать:** [релиз 1.1.0](https://github.com/gikipil/universal-workflow/releases/tag/v1.1.0) · [полный ZIP](https://github.com/gikipil/universal-workflow/releases/download/v1.1.0/Universal-Workflow-v1.1.0.zip) · [JSON workflow](Universal-Workflow-v1.1.0.json).
 
 **Все версии:** [история версий и загрузка по меткам](https://github.com/gikipil/universal-workflow/tags). В основной ветке находится актуальная версия; предыдущие доступны в том же репозитории.
 
