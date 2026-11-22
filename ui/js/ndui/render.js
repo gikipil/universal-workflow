@@ -181,7 +181,9 @@ export class PageView {
             if (!box) continue;
             const target = this.rects.get(widget.props?.bottomWith);
             if (target && target.vis !== false) {
-                const height = target.y + target.h - box.y - (Number(widget.props.bottomInset) || 0);
+                const insetPeer = this.rects.get(widget.props?.bottomInsetWith);
+                const inset = insetPeer ? insetPeer.h + (Number(widget.props.bottomInsetGap) || 0) : Number(widget.props.bottomInset) || 0;
+                const height = target.y + target.h - box.y - inset;
                 if (height > 0) box.h = height;
             }
             const right = this.rects.get(widget.props?.rightWith);

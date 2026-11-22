@@ -73,6 +73,7 @@ export const spoiler = {
             title.textContent = ctx.prop("title") || "";
             if(ctx.prop('factoryLora')){Object.assign(head.style,{background:'linear-gradient(110deg,#ff6b86,#b84dff)',color:'#10131c',borderRadius:'12px',fontWeight:'700',border:'0'});for(const item of[chev,ic,title,count])item.style.color='#10131c';Object.assign(count.style,{background:'#56205e33',borderRadius:'999px',padding:'3px 8px'});Object.assign(box.style,{borderRadius:'12px',border:open?'1px solid #9a638980':'0',background:open?'linear-gradient(180deg,#40263f,#181c23 90px)':'transparent'});}
 
+            if(ctx.prop('factoryModule')){Object.assign(head.style,{background:'transparent',color:'#78e4cd',fontWeight:'700',fontSize:'17px',border:'0'});Object.assign(box.style,{background:'linear-gradient(150deg,#192b2a,#191e28)',border:'1px solid #3d726c',borderRadius:'12px'});}
             ic.textContent = "";
             const name = ctx.prop("icon");
             if (name) ic.append(icon(name, 16));
