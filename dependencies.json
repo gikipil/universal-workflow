@@ -1,5 +1,5 @@
 {
-  "version": "1.1.5",
+  "version": "1.2.0",
   "comfyui_repository": "https://github.com/Comfy-Org/ComfyUI",
   "core_node_types": [
     "BasicScheduler",
@@ -283,8 +283,7 @@
       "repository": "https://github.com/slmonker/selflift-Avatar",
       "tested_revision": "460f88629b35f792a2ca68b219f13c1ba46e2ee3",
       "node_types": [
-        "SelfLiftAvatarH3Sampler",
-        "H3SigmaRefiner"
+        "SelfLiftAvatarH3Sampler"
       ]
     },
     {
@@ -293,6 +292,31 @@
       "tested_revision": "be3a3e9219feb63848b3415f1dd1d1571b812203",
       "node_types": [
         "MiniMaxH3AudioConditioningT8"
+      ]
+    },
+    {
+      "folder": "ComfyUI-YCNodes-MiniMax-H3",
+      "repository": "https://github.com/yichengup/ComfyUI-YCNodes-MiniMax-H3",
+      "revision": "efbe83f69ffa97a251a575ce42edc7bf8005da0c",
+      "tested_revision": "efbe83f69ffa97a251a575ce42edc7bf8005da0c",
+      "node_types": [
+        "H3SigmaRefiner"
+      ]
+    },
+    {
+      "folder": "comfyui-florence2",
+      "repository": "https://github.com/kijai/ComfyUI-Florence2",
+      "tested_revision": "9ece3de914214c5f581d725167bc9d0eeb0d1120",
+      "node_types": [
+        "DownloadAndLoadFlorence2Model"
+      ]
+    },
+    {
+      "folder": "ComfyUI-QwenVL",
+      "repository": "https://github.com/1038lab/ComfyUI-QwenVL",
+      "tested_revision": "1b67b443918801f571714bab636edc1845b7002a",
+      "node_types": [
+        "AILab_QwenVL"
       ]
     }
   ],

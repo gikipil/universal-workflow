@@ -2,11 +2,11 @@
 
 **Русский** · [English](README_EN.md)
 
-**Версия 1.1.9 · ComfyUI · English по умолчанию**
+**Версия 1.2.0 · ComfyUI · English по умолчанию**
 
 Один интерфейс для генерации изображений, детализации, редактирования, дорисовки, удаления фона, апскейла, описания изображений, видео и звука. Основные настройки слева, результат и сравнения справа, дополнительные параметры открываются по шестерёнке.
 
-**Скачать:** [релиз 1.1.9](https://github.com/gikipil/universal-workflow/releases/tag/v1.1.9) · [полный ZIP](https://github.com/gikipil/universal-workflow/releases/download/v1.1.9/Universal-Workflow-v1.1.9.zip) · [JSON workflow](Universal-Workflow-v1.1.9.json).
+**Скачать:** [релиз 1.2.0](https://github.com/gikipil/universal-workflow/releases/tag/v1.2.0) · [полный ZIP](https://github.com/gikipil/universal-workflow/releases/download/v1.2.0/Universal-Workflow-v1.2.0.zip) · [JSON workflow](Universal-Workflow-v1.2.0.json).
 
 **Все версии:** [история версий и загрузка по меткам](https://github.com/gikipil/universal-workflow/tags). В основной ветке находится актуальная версия; предыдущие доступны в том же репозитории.
 
@@ -31,6 +31,23 @@
 «Обработка фото» подготовлена под будущую негенеративную ретушь и работу с цветом. В 1.0.0 она ещё не обрабатывает фото.
 
 ## 📦 How to Install
+
+### Установка для Windows — через мастер
+
+1. Скачай **полный ZIP релиза**, распакуй его целиком и открой `START-HERE.txt`.
+2. Закрой ComfyUI и запусти **Install.cmd**. Выбери папку своего ComfyUI или его portable-папку.
+3. Дождись проверки. Мастер покажет изменения ComfyUI, нод и пакетов Python. Прочитай план и подтверди установку. Заменяемые файлы сохраняются в резервную копию.
+4. Запусти ComfyUI как обычно, обнови страницу **Ctrl+F5**, открой JSON Universal Workflow и нажми **ND UI**.
+5. Выбери модели в настройках. В **Help** кнопки скачивают рекомендованные файлы прямо в нужные папки; отдельное создание каталогов не требуется.
+
+В архиве уже есть ND UI Builder с лицензиями, наш интерфейс и локальные модули. Установщик скачивает недостающие исходники нод и библиотеки Python, **но не скачивает веса моделей**. Help — рекомендации автора, а не обязательный список: другие совместимые модели тоже можно выбирать в настройках. Для источников с авторизацией остаётся прямая ссылка для ручной загрузки.
+
+Нужны Windows, интернет и существующий ComfyUI с Python/pip. Полная подготовка видео/звука предназначена для NVIDIA; рекомендуется Python 3.12, совместимость пакетов проверяется; можно выбрать подготовку только изображений без смены линейки PyTorch. Изменения окружения выполняются только после подтверждения. Установка библиотек может занять несколько ГБ. Рабочий процесс не останавливается автоматически — ComfyUI нужно закрыть самостоятельно. Конфликты зависимостей выводятся в журнал и не считаются успешной установкой.
+
+<details>
+<summary>Ручная установка и дополнительные сведения</summary>
+
+Для ручной установки файлы релиза находятся в `resources/package/`, исходники ND UI — в `resources/ND-UI-Builder/`. Ниже пути считаются относительно папки `package` или корня Git-репозитория.
 
 ### 1. Подготовь ComfyUI
 
@@ -64,6 +81,7 @@ Workflow работает локально на ПК. На рабочей NVIDIA
 | `ComfyUI-YCRMBG` | [GitHub](https://github.com/yichengup/ComfyUI-YCRMBG) |
 | `comfyui-krea2-ostris-edit` | [GitHub](https://github.com/ostris/ComfyUI-Krea2-Ostris-Edit) |
 | `comfyui_controlnet_aux` | [GitHub](https://github.com/Fannovel16/comfyui_controlnet_aux) |
+| `ComfyUI-YCNodes-MiniMax-H3` | [GitHub](https://github.com/yichengup/ComfyUI-YCNodes-MiniMax-H3) |
 | `selflift-Avatar` | [GitHub](https://github.com/slmonker/selflift-Avatar) |
 | `comfyui-minimax-h3-audio-T8` | [GitHub](https://github.com/T8mars/comfyui-minimax-h3-audio-T8) |
 | `fantastic-minimax-h3-prompt-builder` | [GitHub](https://github.com/Adudeguyman/ComfyUI-Fantastic-MiniMaxH3-PromptBuilder) |
@@ -131,9 +149,11 @@ SNOFS — заранее назначенная необязательная п�
 
 ### 7. Открой workflow
 
-Перезапусти ComfyUI, обнови страницу через **Ctrl+F5** и перетащи **`Universal-Workflow-v1.1.9.json`** в ComfyUI. Нажми **ND UI**. По умолчанию English; язык меняется через **Settings → Appearance → Interface language**.
+Перезапусти ComfyUI, обнови страницу через **Ctrl+F5** и перетащи **`Universal-Workflow-v1.2.0.json`** в ComfyUI. Нажми **ND UI**. По умолчанию English; язык меняется через **Settings → Appearance → Interface language**.
 
 Для первого запуска выбери Generation, назначь комплект Krea и Turbo-адаптер, выключи неустановленные постоянные LoRA. Рефайнер, локальные режимы и апскейл оставь выключенными до первого успешного кадра. Напиши промт и нажми Generate, затем подключай этапы по одному.
+
+</details>
 
 ## 🎛️ Как пользоваться
 
@@ -176,6 +196,10 @@ Fit / «Вписать» показывает весь результат. `− 
 Код интерфейса и локальных модулей сохраняет **AGPL-3.0-only**, патч QwenTTS — **GPL-3.0-only**. Эти лицензии разрешают коммерческое использование своего кода и не ограничиваются условиями workflow. У нод, моделей и LoRA свои лицензии; исключение для результатов не отменяет их ограничений и чужих прав. См. [NOTICE.md](NOTICE.md).
 
 ## 📝 История релиза
+
+### 1.2.0
+
+- Добавлен Windows-установщик с проверкой окружения, планом изменений и подтверждением. Полный ZIP включает ND UI Builder и ресурсы без моделей. Help скачивает рекомендованные модели прямо в нужные папки с прогрессом и отменой; прямая загрузка по ссылке сохранена.
 
 ### 1.1.9
 

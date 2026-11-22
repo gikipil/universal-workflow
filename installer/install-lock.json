@@ -1,0 +1,273 @@
+{
+  "version": "1.2.0",
+  "workflow": "Universal-Workflow-v1.2.0.json",
+  "comfy": {
+    "repository": "https://github.com/Comfy-Org/ComfyUI",
+    "revision": "73c9bad4d21e7addbe1d13bc92eee0f1431b017d"
+  },
+  "nd_archive_sha256": "f384049808614020556af4e05700f30e2bcb6b5a4214d2e683600c9f44572bbd",
+  "nodes": [
+    {
+      "folder": "rgthree-comfy",
+      "repository": "https://github.com/rgthree/rgthree-comfy",
+      "revision": "bc48c6aaeca87bedbc14245d89f9bc6be37a630e",
+      "node_types": [
+        "Image Comparer (rgthree)",
+        "Power Lora Loader (rgthree)",
+        "Seed (rgthree)"
+      ],
+      "bundled": false
+    },
+    {
+      "folder": "RES4LYF",
+      "repository": "https://github.com/ClownsharkBatwing/RES4LYF",
+      "revision": "022c873c6d198c67b3312a1804336533a050df18",
+      "node_types": [
+        "ClownsharKSampler_Beta"
+      ],
+      "bundled": false
+    },
+    {
+      "folder": "Krea-2-Two-Stage-Sampler",
+      "repository": "https://github.com/Auryg/Krea-2-Two-Stage-Sampler",
+      "revision": "df2692f11d5227b440c501b1f22ca5c63987530c",
+      "node_types": [
+        "Krea2ModelSampling",
+        "KreaTwoStageSampler"
+      ],
+      "bundled": false
+    },
+    {
+      "folder": "comfyui-easy-use",
+      "repository": "https://github.com/yolain/ComfyUI-Easy-Use",
+      "revision": "f141539dfea4e69ac742967d5380cf97d60c007d",
+      "node_types": [
+        "easy anythingIndexSwitch",
+        "easy cleanGpuUsed"
+      ],
+      "bundled": false
+    },
+    {
+      "folder": "comfyui-image-saver",
+      "repository": "https://github.com/alexopus/ComfyUI-Image-Saver",
+      "revision": "8d54809d37aa0eca308b763eebb57cb52c04461f",
+      "node_types": [
+        "Image Saver Simple"
+      ],
+      "bundled": false
+    },
+    {
+      "folder": "comfyui-kjnodes",
+      "repository": "https://github.com/kijai/ComfyUI-KJNodes",
+      "revision": "aa2b5ea5e7f61b51f5d26d726f23c1d74e951016",
+      "node_types": [
+        "GetNode",
+        "GrowMaskWithBlur",
+        "SetNode"
+      ],
+      "bundled": false
+    },
+    {
+      "folder": "comfyui_layerstyle",
+      "repository": "https://github.com/chflame163/ComfyUI_LayerStyle",
+      "revision": "1f7edb65371526195621fdde274bf895e117120e",
+      "node_types": [
+        "LayerUtility: ImageScaleByAspectRatio"
+      ],
+      "bundled": false
+    },
+    {
+      "folder": "LanPaint",
+      "repository": "https://github.com/scraed/LanPaint",
+      "revision": "2d7912f9a5efe5ece8de334c7ca18317b8288c39",
+      "node_types": [
+        "LanPaint_ImageDecode",
+        "LanPaint_ImageEncode",
+        "LanPaint_KSampler"
+      ],
+      "bundled": false
+    },
+    {
+      "folder": "comfyui-inpaint-cropandstitch",
+      "repository": "https://github.com/lquesada/ComfyUI-Inpaint-CropAndStitch",
+      "revision": "6005efc02f7745649118edd89cdd084c2b9bd3ae",
+      "node_types": [
+        "InpaintCropImproved",
+        "InpaintStitchImproved"
+      ],
+      "bundled": false
+    },
+    {
+      "folder": "comfyui-krea2edit",
+      "repository": "https://github.com/lbouaraba/comfyui-krea2edit",
+      "revision": "13ef60f20828949becada815d3cbc371eb5ccaab",
+      "node_types": [
+        "Krea2EditGroundedEncode",
+        "Krea2EditModelPatch"
+      ],
+      "bundled": false
+    },
+    {
+      "folder": "comfyui-custom-scripts",
+      "repository": "https://github.com/pythongosssss/ComfyUI-Custom-Scripts",
+      "revision": "609f3afaa74b2f88ef9ce8d939626065e3247469",
+      "node_types": [
+        "MathExpression|pysssss"
+      ],
+      "bundled": false
+    },
+    {
+      "folder": "comfyui_ultimatesdupscale",
+      "repository": "https://github.com/ssitu/ComfyUI_UltimateSDUpscale",
+      "revision": "a5547db9e1d07d3318bb21e9e9c474f4c1e9c8df",
+      "node_types": [
+        "UltimateSDUpscaleNoUpscale"
+      ],
+      "bundled": false
+    },
+    {
+      "folder": "seedvr2_videoupscaler",
+      "repository": "https://github.com/numz/ComfyUI-SeedVR2_VideoUpscaler",
+      "revision": "4490bd1f482e026674543386bb2a4d176da245b9",
+      "node_types": [
+        "SeedVR2LoadDiTModel",
+        "SeedVR2LoadVAEModel",
+        "SeedVR2VideoUpscaler"
+      ],
+      "bundled": false
+    },
+    {
+      "folder": "comfyui-impact-pack",
+      "repository": "https://github.com/ltdrdata/ComfyUI-Impact-Pack",
+      "revision": "e98ec4afb0d917b2848d1454b160395e805e7522",
+      "node_types": [
+        "BboxDetectorSEGS",
+        "DetailerForEach",
+        "MaskToSEGS",
+        "SegsToCombinedMask"
+      ],
+      "bundled": false
+    },
+    {
+      "folder": "comfyui-impact-subpack",
+      "repository": "https://github.com/ltdrdata/ComfyUI-Impact-Subpack",
+      "revision": "50c7b71a6a224734cc9b21963c6d1926816a97f1",
+      "node_types": [
+        "UltralyticsDetectorProvider"
+      ],
+      "bundled": false
+    },
+    {
+      "folder": "ComfyUI-YCRMBG",
+      "repository": "https://github.com/yichengup/ComfyUI-YCRMBG",
+      "revision": "4abdef6cd8933f8aec8972b5beb80eba0c621f28",
+      "node_types": [
+        "RMBG"
+      ],
+      "bundled": false
+    },
+    {
+      "folder": "comfyui-krea2-ostris-edit",
+      "repository": "https://github.com/ostris/ComfyUI-Krea2-Ostris-Edit",
+      "revision": "7756566160c4a1b24bb1bd9f0ff3ced1a83d7547",
+      "node_types": [
+        "Krea2OstrisEditModelPatch",
+        "TextEncodeKrea2OstrisEdit"
+      ],
+      "bundled": false
+    },
+    {
+      "folder": "comfyui_controlnet_aux",
+      "repository": "https://github.com/Fannovel16/comfyui_controlnet_aux",
+      "revision": "c2655d2970d810d8a3d71deed204cdf416b66132",
+      "node_types": [
+        "DWPreprocessor"
+      ],
+      "bundled": false
+    },
+    {
+      "folder": "fantastic-minimax-h3-prompt-builder",
+      "repository": "https://github.com/Adudeguyman/ComfyUI-Fantastic-MiniMaxH3-PromptBuilder",
+      "revision": "c100a10818ad48013b54d13fd2f7a13c6bba07b1",
+      "node_types": [
+        "MiniMaxH3MediaLoader",
+        "MiniMaxH3ReferenceSplitter"
+      ],
+      "bundled": false
+    },
+    {
+      "folder": "Higgs_v3-TTS-ComfyUI",
+      "repository": "https://github.com/Saganaki22/Higgs_v3-TTS-ComfyUI",
+      "revision": "8259e65715c799bb866d1ecd6572f9b78f545df8",
+      "node_types": [
+        "HiggsV3Generate",
+        "HiggsV3LoadModel",
+        "HiggsV3MultiSpeaker",
+        "HiggsV3VoiceClone",
+        "HiggsV3WhisperTranscribe"
+      ],
+      "bundled": false
+    },
+    {
+      "folder": "ComfyUI-QwenTTS",
+      "repository": "https://github.com/1038lab/ComfyUI-QwenTTS",
+      "revision": "d8122a8ba835b65fd65c113d2b273b1ad1579293",
+      "node_types": [
+        "AILab_Qwen3TTSVoiceDesign_Advanced"
+      ],
+      "bundled": false
+    },
+    {
+      "folder": "ComfyUI-NeuralDreamer-UI-Builder",
+      "repository": "https://github.com/neural-dreamer/ComfyUI-ND-UI-Builder",
+      "revision": "ad176bd9731c70e2b3246ea9ff1129606591448c",
+      "node_types": [],
+      "bundled": true
+    },
+    {
+      "folder": "selflift-Avatar",
+      "repository": "https://github.com/slmonker/selflift-Avatar",
+      "revision": "460f88629b35f792a2ca68b219f13c1ba46e2ee3",
+      "node_types": [
+        "SelfLiftAvatarH3Sampler"
+      ],
+      "bundled": false
+    },
+    {
+      "folder": "comfyui-minimax-h3-audio-T8",
+      "repository": "https://github.com/T8mars/comfyui-minimax-h3-audio-T8",
+      "revision": "be3a3e9219feb63848b3415f1dd1d1571b812203",
+      "node_types": [
+        "MiniMaxH3AudioConditioningT8"
+      ],
+      "bundled": false
+    },
+    {
+      "folder": "comfyui-florence2",
+      "repository": "https://github.com/kijai/ComfyUI-Florence2",
+      "revision": "9ece3de914214c5f581d725167bc9d0eeb0d1120",
+      "node_types": [
+        "DownloadAndLoadFlorence2Model"
+      ],
+      "bundled": false
+    },
+    {
+      "folder": "ComfyUI-QwenVL",
+      "repository": "https://github.com/1038lab/ComfyUI-QwenVL",
+      "revision": "1b67b443918801f571714bab636edc1845b7002a",
+      "node_types": [
+        "AILab_QwenVL"
+      ],
+      "bundled": false
+    },
+    {
+      "folder": "ComfyUI-YCNodes-MiniMax-H3",
+      "repository": "https://github.com/yichengup/ComfyUI-YCNodes-MiniMax-H3",
+      "revision": "efbe83f69ffa97a251a575ce42edc7bf8005da0c",
+      "tested_revision": "efbe83f69ffa97a251a575ce42edc7bf8005da0c",
+      "node_types": [
+        "H3SigmaRefiner"
+      ]
+    }
+  ]
+}

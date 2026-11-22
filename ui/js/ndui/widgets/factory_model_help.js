@@ -43,33 +43,45 @@ export function downloadLink(file){
     const link=el('a','acf-model-help-link','Скачать файл');link.href=url.href;link.target='_blank';link.rel='noopener noreferrer';link.setAttribute('aria-label','Скачать файл · '+file.name);return link;
 }
 export function openModelDownloads(ctx,onClose=()=>{}){
-    const dialog=factoryDialog(ctx,{title:'Help · Скачать модели',width:1080,onClose}),root=el('div','acf-model-help'),style=el('style');style.textContent=CSS;
-    const intro=el('p','','Скачивай только комплекты для нужных режимов. Пути указаны относительно папки ComfyUI. После загрузки выбери файлы в настройках моделей.'),tools=el('div','acf-model-help-tools'),search=el('input'),select=el('select'),list=el('div','acf-model-help-list'),empty=el('p','','Ничего не найдено');
+    let alive=true,timer=null;const dialog=factoryDialog(ctx,{title:'Help · Скачать модели',width:1080,onClose:()=>{alive=false;clearTimeout(timer);onClose();}}),root=el('div','acf-model-help'),style=el('style');style.textContent=CSS;
+    const intro=el('p','','Это рекомендации автора, а не обязательный список. Кнопка скачивания сохраняет файлы прямо в ComfyUI. Можно использовать и другие совместимые модели; после загрузки выбери их в настройках.'),tools=el('div','acf-model-help-tools'),search=el('input'),select=el('select'),list=el('div','acf-model-help-list'),empty=el('p','','Ничего не найдено');
     search.type='search';search.placeholder='Найти модель или файл…';search.setAttribute('aria-label','Поиск моделей для скачивания');select.setAttribute('aria-label','Раздел моделей');
     for(const[id,label]of [['all','Все разделы'],...MODEL_DOWNLOADS.map(g=>[g.id,g.label])]){const option=el('option','',label);option.value=id;select.append(option);}
-    const folderTools=el('div','acf-model-help-heading'),createFolders=el('button','acf-model-help-link','📁 Создать каталоги моделей'),folderStatus=el('p');createFolders.type='button';folderStatus.setAttribute('role','status');
-    createFolders.addEventListener('click',async()=>{
-        createFolders.disabled=true;folderStatus.textContent=translateInterface('Создание каталогов…',ctx.language?.()||'ru');
-        try{const response=await api.fetchApi('/universal/models/folders',{method:'POST'});if(response.status===404)throw Error('Перезапусти ComfyUI после обновления модуля Universal Memory.');const result=await response.json();if(!response.ok||!result.ok)throw Error(result.error||'Не удалось создать каталоги.');folderStatus.textContent=translateInterface('Каталоги моделей готовы.',ctx.language?.()||'ru')+' '+result.total;}
-        catch(error){folderStatus.textContent=translateInterface(error.message,ctx.language?.()||'ru');}
-        finally{createFolders.disabled=false;}
-    });folderTools.append(createFolders);tools.append(search,select);root.append(style,intro,folderTools,folderStatus,tools,list,empty);dialog.body.append(root);
-    const sections=[],checks=[],refresh=el('button','acf-model-help-link','Проверить модели');refresh.type='button';folderTools.append(refresh);
+    const folderTools=el('div','acf-model-help-heading'),folderStatus=el('p');folderStatus.setAttribute('role','status');tools.append(search,select);root.append(style,intro,folderTools,folderStatus,tools,list,empty);dialog.body.append(root);
+    const sections=[],checks=[],cards=new Map(),finished=new Set(),refresh=el('button','acf-model-help-link','Проверить модели');refresh.type='button';folderTools.append(refresh);
     refresh.addEventListener('click',async()=>{refresh.disabled=true;clearModelPresence();try{await Promise.all(checks.map(check=>check()));}finally{refresh.disabled=false;}});
+    async function start(id,file){
+        try{const response=await api.fetchApi('/universal/models/download',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({id,...(file==null?{}:{file})})});if(response.status===404)throw Error('Перезапусти ComfyUI после обновления модуля Universal Memory.');const result=await response.json();if(!response.ok)throw Error(result.error||'Не удалось начать скачивание.');await poll(false);}
+        catch(error){folderStatus.textContent=translateInterface(error.message,ctx.language?.()||'ru');}
+    }
+    async function poll(schedule=true){
+        try{const response=await api.fetchApi('/universal/models/downloads');if(!response.ok)return;const data=await response.json();if(!alive)return;
+            for(const[id,card]of cards){const jobs=(data.jobs||[]).filter(j=>j.model_id===id),job=jobs.find(j=>['queued','downloading'].includes(j.state))||jobs.at(-1);if(!job)continue;
+                card.status.hidden=false;const language=ctx.language?.()||'ru',tr=s=>translateInterface(s,language),active=['queued','downloading'].includes(job.state);card.cancel.hidden=!active;card.cancel.onclick=()=>api.fetchApi('/universal/models/downloads/cancel',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({id:job.id})});
+                const amount=job.total_bytes?' · '+Math.round(job.bytes/job.total_bytes*100)+'%':'';
+                card.status.textContent=tr(job.state==='done'?'Скачивание завершено':job.state==='error'?'Ошибка скачивания':job.state==='cancelled'?'Скачивание отменено':job.state==='queued'?'В очереди':'Скачивание')+' · '+job.completed+'/'+job.files+(active?' · '+job.file+amount:job.error?' · '+job.error:'');
+                for(const button of card.buttons)button.disabled=active;
+                if(job.state==='done'&&!finished.has(job.id)){finished.add(job.id);clearModelPresence();card.check();}
+            }
+        }catch{}finally{if(schedule&&alive)timer=setTimeout(poll,1500);}
+    }
     for(const group of MODEL_DOWNLOADS){
         const section=el('section'),heading=el('h3','',group.label),items=[];section.append(heading);
-        for(const model of group.models){
+        for(const [modelIndex,model] of group.models.entries()){
+            const modelId=group.id+':'+modelIndex;
             const article=el('article','acf-model-help-item'),top=el('div','acf-model-help-heading'),title=el('h4','',model.label);
             if(model.optional)title.append(el('span','acf-model-help-optional','Необязательно'));top.append(title);
             const actions=el('div','acf-model-help-actions'),loaded=el('span','acf-model-help-loaded','Загружено');loaded.hidden=true;loaded.setAttribute('role','status');actions.append(loaded);top.append(actions);
             let checkTicket=0;const check=()=>{const ticket=++checkTicket;return modelDownloadStatus(ctx,model).then(status=>{if(ticket===checkTicket)loaded.hidden=status.missing!==false||status.empty===true;}).catch(()=>{if(ticket===checkTicket)loaded.hidden=true;});};checks.push(check);check();
-            if(model.files.length===1)actions.append(downloadLink(model.files[0]));
-            const folder=el('div','acf-model-help-folder'),path=el('code','',model.folder);path.setAttribute('data-no-translate','');folder.append(el('span','','Куда положить:'),path);article.append(top,folder);
+            const buttons=[],download=el('button','acf-model-help-link',model.files.length===1?'Скачать файл':'Скачать комплект');download.type='button';download.addEventListener('click',()=>start(modelId));actions.append(download);buttons.push(download);
+            if(model.files.length===1){const direct=downloadLink(model.files[0]);direct.textContent='↗';direct.title='Прямая ссылка';actions.append(direct);}
+            const progressRow=el('div','acf-model-help-heading'),status=el('p'),cancel=el('button','acf-model-help-link','Отменить');status.hidden=true;status.style.cssText='overflow-wrap:anywhere;min-width:0;flex:1';status.setAttribute('role','status');cancel.type='button';cancel.hidden=true;progressRow.append(status,cancel);cards.set(modelId,{status,cancel,buttons,check});
+            const folder=el('div','acf-model-help-folder'),path=el('code','',model.folder);path.setAttribute('data-no-translate','');folder.append(el('span','','Куда положить:'),path);article.append(top,folder,progressRow);
             if(model.note)article.append(el('p','',model.note));
             if(model.files.length>1){
                 const details=el('details'),summary=el('summary');summary.append(el('span','','Файлы комплекта'),el('small','',` (${model.files.length})`));details.append(summary);
                 details.open=true;
-                for(const file of model.files){const row=el('div','acf-model-help-file'),info=el('div'),name=el('code','',file.name),destination=el('small','',file.path);name.setAttribute('data-no-translate','');destination.setAttribute('data-no-translate','');info.append(name,destination);row.append(info,downloadLink(file));details.append(row);}
+                for(const [fileIndex,file] of model.files.entries()){const row=el('div','acf-model-help-file'),info=el('div'),name=el('code','',file.name),destination=el('small','',file.path);name.setAttribute('data-no-translate','');destination.setAttribute('data-no-translate','');info.append(name,destination);const fileActions=el('div','acf-model-help-actions'),button=el('button','acf-model-help-link','Скачать файл');button.type='button';button.addEventListener('click',()=>start(modelId,fileIndex));buttons.push(button);const direct=downloadLink(file);direct.textContent='↗';direct.title='Прямая ссылка';fileActions.append(button,direct);row.append(info,fileActions);details.append(row);}
                 article.append(details);
             }else{const name=el('code','',model.files[0].name);name.setAttribute('data-no-translate','');const p=el('p');p.append(name);article.append(p);}
             const source=el('a','acf-model-help-source','Страница источника');source.href=model.source;source.target='_blank';source.rel='noopener noreferrer';const sourceRow=el('p');sourceRow.append(source);article.append(sourceRow);section.append(article);items.push({article,model});
@@ -81,5 +93,5 @@ export function openModelDownloads(ctx,onClose=()=>{}){
         for(const {section,group,items}of sections){let shown=0;for(const{article,model}of items){const text=[group.label,translateInterface(group.label,language),model.label,translateInterface(model.label,language),model.folder,model.note,...model.files.map(f=>f.name)].join(' ').toLocaleLowerCase();const visible=(select.value==='all'||select.value===group.id)&&(!query||text.includes(query));article.hidden=!visible;if(visible)shown++;}section.hidden=!shown;total+=shown;}
         empty.hidden=total>0;
     }
-    search.addEventListener('input',filter);search.addEventListener('keydown',e=>e.stopPropagation());select.addEventListener('change',filter);select.value='all';filter();search.focus();return dialog;
+    search.addEventListener('input',filter);search.addEventListener('keydown',e=>e.stopPropagation());select.addEventListener('change',filter);select.value='all';filter();search.focus();poll();return dialog;
 }

@@ -1,6 +1,16 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 // Universal Workflow English UI dictionary, gikipil 2026. Russian source keys.
 export default {
+  "Скачать комплект": "Download bundle",
+  "Прямая ссылка": "Direct link",
+  "Отменить": "Cancel",
+  "Скачивание завершено": "Download complete",
+  "Ошибка скачивания": "Download failed",
+  "Скачивание отменено": "Download cancelled",
+  "Скачивание": "Downloading",
+  "Не удалось начать скачивание.": "Could not start the download.",
+  "Это рекомендации автора, а не обязательный список. Кнопка скачивания сохраняет файлы прямо в ComfyUI. Можно использовать и другие совместимые модели; после загрузки выбери их в настройках.": "These are the author’s recommendations, not a mandatory list. Downloads save directly into ComfyUI. Other compatible models can also be selected in settings.",
+
   "Загружено": "Loaded",
   "Проверить модели": "Check models",
 

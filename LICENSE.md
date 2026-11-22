@@ -8,7 +8,7 @@ Copyright (c) 2026 gikipil.
 
 These terms apply only to gikipil's original, independently copyrightable workflow arrangement in the versioned `Universal-Workflow-v*.json` files, original panel layout stored in that file, original README text, and the placeholder asset, to the extent those materials are not third-party works. They do not relicense third-party contributions or software source code.
 
-All files under `ui/` and `nodes/` remain under **AGPL-3.0-only**, as already stated in those sources. The QwenTTS compatibility patch under `compat/` remains under **GPL-3.0-only**. Those licenses, including their commercial-use rights, control their respective code without additional restrictions from this document. License texts are in `LICENSES/`; attribution is in `NOTICE.md`.
+All files under `ui/`, `nodes/` and `installer/` (including `Install.cmd`) remain under **AGPL-3.0-only**, as already stated in those sources. The QwenTTS compatibility patch under `compat/` remains under **GPL-3.0-only**. Those licenses, including their commercial-use rights, control their respective code without additional restrictions from this document. License texts are in `LICENSES/`; attribution is in `NOTICE.md`.
 
 ### Permission and restrictions
 
@@ -36,4 +36,4 @@ For permission beyond these terms, contact gikipil through the repository's GitH
 
 **Исключение: можно использовать workflow для коммерческой генерации и заказов, продавать и монетизировать созданные изображения, видео, аудио и тексты без отчислений gikipil.** Лицензия workflow не переносится на результаты автоматически. Это не отменяет условий моделей, LoRA, сторонних компонентов и прав на входные материалы или внешность людей.
 
-Код `ui/` и `nodes/` сохраняет AGPL-3.0-only, патч QwenTTS — GPL-3.0-only. Их собственные разрешения, в том числе коммерческое использование кода, действуют независимо. Материалы предоставляются без гарантий в допустимых законом пределах. При расхождении толкования определяющим является английский текст выше.
+Код `ui/`, `nodes/` и `installer/` (включая `Install.cmd`) сохраняет AGPL-3.0-only, патч QwenTTS — GPL-3.0-only. Их собственные разрешения, в том числе коммерческое использование кода, действуют независимо. Материалы предоставляются без гарантий в допустимых законом пределах. При расхождении толкования определяющим является английский текст выше.

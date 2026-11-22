@@ -1,6 +1,16 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 // Universal Workflow interface translation, gikipil 2026.
 export default {
+  "Скачать комплект": "Télécharger le lot",
+  "Прямая ссылка": "Lien direct",
+  "Отменить": "Annuler",
+  "Скачивание завершено": "Téléchargement terminé",
+  "Ошибка скачивания": "Échec du téléchargement",
+  "Скачивание отменено": "Téléchargement annulé",
+  "Скачивание": "Téléchargement",
+  "Не удалось начать скачивание.": "Impossible de lancer le téléchargement.",
+  "Это рекомендации автора, а не обязательный список. Кнопка скачивания сохраняет файлы прямо в ComfyUI. Можно использовать и другие совместимые модели; после загрузки выбери их в настройках.": "Ce sont les recommandations de l’auteur, pas une liste obligatoire. Les fichiers sont enregistrés dans ComfyUI. D’autres modèles compatibles peuvent être sélectionnés.",
+
   "Загружено": "Téléchargé",
   "Проверить модели": "Vérifier les modèles",
 

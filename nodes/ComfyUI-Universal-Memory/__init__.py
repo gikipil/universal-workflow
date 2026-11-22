@@ -139,3 +139,31 @@ async def selected_model_status(request):
         return web.json_response(result)
     except (OSError, ValueError, TypeError, AttributeError):
         return web.json_response({'missing': None, 'error': 'Не удалось проверить комплект модели.'}, status=400)
+
+
+@PromptServer.instance.routes.post('/universal/models/download')
+async def start_model_download(request):
+    import folder_paths
+    from .model_downloads import downloads
+    try:
+        data = await request.json()
+        return web.json_response(downloads.start(folder_paths.base_path, folder_paths.models_dir,
+                                                 data.get('id'), data.get('file')))
+    except (OSError, ValueError, TypeError):
+        return web.json_response({'error': 'Could not start the model download.'}, status=400)
+
+
+@PromptServer.instance.routes.get('/universal/models/downloads')
+async def model_download_status(request):
+    from .model_downloads import downloads
+    return web.json_response({'jobs': downloads.status()})
+
+
+@PromptServer.instance.routes.post('/universal/models/downloads/cancel')
+async def cancel_model_download(request):
+    from .model_downloads import downloads
+    try:
+        downloads.cancel((await request.json()).get('id'))
+        return web.json_response({'ok': True})
+    except (ValueError, TypeError, AttributeError):
+        return web.json_response({'ok': False}, status=400)

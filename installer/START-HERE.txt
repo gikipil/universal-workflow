@@ -1,0 +1,67 @@
+UNIVERSAL WORKFLOW — WINDOWS SETUP / УСТАНОВКА ДЛЯ WINDOWS
+
+ENGLISH
+1. Extract the ENTIRE ZIP. Keep the resources folder beside Install.cmd.
+2. Close ComfyUI. Double-click Install.cmd. Administrator rights are not required.
+3. Select your installed ComfyUI folder or its portable parent. Python is detected
+   automatically; if you use a custom environment, select its python.exe.
+4. Wait for the checks. Read the proposed node/package/ComfyUI changes, then click
+   Install this plan and confirm. Nothing is installed until you approve.
+5. Start ComfyUI as usual, refresh the browser with Ctrl+F5, open the new Universal
+   Workflow and click ND UI. Choose and download models in Settings / Help.
+
+The installer includes ND UI Builder and the workflow resources. It downloads
+node source and Python libraries as needed, but NEVER downloads model weights.
+Internet access and an existing ComfyUI installation with pip are required.
+The full video/audio runtime is intended for NVIDIA; Python 3.12 is recommended and package compatibility is checked. The Images-only
+option keeps the current PyTorch family and does not prepare the CUDA13 runtime.
+Python updates can be several GB; review the plan before approving them.
+
+Existing files are backed up; user models, photos, results and other workflows
+are not removed. Your Python environment changes only after approval. If setup
+fails, open the log folder: it contains the plan, logs, file backups and the
+previous package list. Existing dependency conflicts are reported, not hidden.
+No third-party install.py hooks are run because some download model weights.
+
+Help is the author's RECOMMENDATION catalog, not a mandatory list. Download only
+what you need. You may also add other compatible models yourself. Help downloads
+create the correct folders automatically. Gated downloads may require accepting
+the model license/signing in on the source website and installing it manually.
+Ordinary Save overwrites the current workflow; Save As exports a separate copy.
+
+РУССКИЙ
+1. Распакуйте ВЕСЬ ZIP. Папка resources должна остаться рядом с Install.cmd.
+2. Закройте ComfyUI. Запустите Install.cmd. Права администратора не требуются.
+3. Выберите папку установленного ComfyUI или его portable-папку. Python найдётся
+   автоматически; для своего окружения можно вручную указать его python.exe.
+4. Дождитесь проверки. Прочитайте план изменений нод, пакетов Python и ComfyUI.
+   Нажмите «Установить по этому плану» и подтвердите. До этого установки нет.
+5. Запустите ComfyUI как обычно, обновите страницу Ctrl+F5, откройте новый
+   Universal Workflow и нажмите ND UI. Модели выбирайте в Settings / Help.
+
+ND UI Builder и ресурсы workflow уже в архиве. При необходимости скачиваются
+исходники нод и библиотеки Python. ВЕСА МОДЕЛЕЙ установщик НЕ скачивает.
+Нужны интернет и уже установленный ComfyUI с pip. Полная подготовка видео/звука
+предназначена для NVIDIA; рекомендуется Python 3.12, совместимость пакетов проверяется. «Только изображения» сохраняет текущую
+линейку PyTorch и не подготавливает видеосреду CUDA13. Библиотеки могут занимать
+несколько ГБ — сначала посмотрите план.
+
+Заменяемые файлы сохраняются в резервную копию. Модели, фото, результаты и другие
+workflow не удаляются. Python меняется только после подтверждения. При ошибке
+откройте журнал: там план, логи, резервные копии и прежний список пакетов.
+Конфликты зависимостей показываются явно. Сторонние install.py не запускаются:
+некоторые из них автоматически скачивают веса моделей.
+
+Help — РЕКОМЕНДАЦИИ автора, а не обязательный список. Скачивайте только нужное.
+Можно самостоятельно добавить другие совместимые модели. При скачивании из
+Help каталоги создаются автоматически. Если источник требует входа или принятия
+лицензии модели, скачайте её по прямой ссылке и положите вручную.
+«Сохранить» перезаписывает текущий workflow, «Сохранить как» экспортирует копию.
+
+LICENSES / ЛИЦЕНЗИИ
+Workflow terms: resources/package/LICENSE.md.
+Installer, UI additions and local modules: AGPL-3.0-only, without warranty.
+ND UI Builder by Ivan Ovchinnikov / Neural Dreamer is included as source with
+its original LICENSE, THIRD_PARTY_NOTICES.md, GPL and font license files.
+Other node packs and models retain their own authorship and licenses.
+Source and releases: https://github.com/gikipil/universal-workflow

@@ -2,6 +2,10 @@
 
 [Русский](README.md) · [English](README_EN.md)
 
+Author recommendations, not an exhaustive or mandatory list. Other compatible models are supported. Help can download these files directly into ComfyUI.
+
+Рекомендации автора, а не обязательный или исчерпывающий список. Можно выбирать другие совместимые модели. Help умеет скачивать перечисленные файлы прямо в ComfyUI.
+
 Paths are relative to **ComfyUI/**. Download only the models you need. For bundles, download every file and keep subfolders. Select downloaded files in Settings; their names can differ from saved aliases. Model licenses and host access conditions apply.
 
 Пути указаны относительно **ComfyUI/**. Скачивай только нужные модели. У составных комплектов сохраняй все файлы и подпапки. Выбери реальные файлы в настройках; имена могут отличаться от сохранённых. У моделей собственные лицензии и условия доступа.
