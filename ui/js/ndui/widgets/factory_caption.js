@@ -6,6 +6,7 @@ import {generate} from './run.js';
 import {toggle} from './inputs.js';
 import {factoryphoto_v060} from './factory_background.js';
 import {captionState,queueCaption,scanCaptions,saveCaption} from '../factory_caption.js';
+import {checkSelectedBundle,lostModelBadge,paintModelBadge} from '../model_presence.js';
 export const captionInstructionPresets=[
   {
     "id": "lora",
@@ -69,7 +70,10 @@ function switchField(ctx,body,label,get,set){const box=el('div');body.append(box
 export function captionModelFields(ctx,body,slot='caption_config'){
  const read=()=>readConfig(ctx,slot),write=v=>ctx.set(slot,JSON.stringify(v));
  if(!read()){body.append(el('small','',missingConfig));return;}
- for(const [key,label,options]of [['florence','Florence · модель',['MiaoshouAI/Florence-2-large-PromptGen-v2.0','microsoft/Florence-2-large','microsoft/Florence-2-base']],['qwen','Qwen · модель',['Qwen3-VL-2B-Instruct','Qwen3-VL-4B-Instruct','Qwen3-VL-8B-Instruct','Qwen2.5-VL-7B-Instruct']],['joy','JoyCaption · Hugging Face ID или локальная папка',null]])field(body,label,read().models[key],x=>{const v=read();v.models[key]=x;write(v);},{options});
+ for(const [key,label,options]of [['florence','Florence · модель',['MiaoshouAI/Florence-2-large-PromptGen-v2.0','microsoft/Florence-2-large','microsoft/Florence-2-base']],['qwen','Qwen · модель',['Qwen3-VL-2B-Instruct','Qwen3-VL-4B-Instruct','Qwen3-VL-8B-Instruct','Qwen2.5-VL-7B-Instruct']],['joy','JoyCaption · Hugging Face ID или локальная папка',null]]){
+  const badge=lostModelBadge(el);let ticket=0;const check=async()=>{const current=++ticket,status=await checkSelectedBundle(key,read().models[key]);if(current===ticket)paintModelBadge(badge,status);};
+  const input=field(body,label,read().models[key],x=>{const v=read();v.models[key]=x;write(v);check();},{options});input.parentElement.append(badge);check();
+ }
  body.append(el('small','','Модели локальные. При первом запуске недостающие веса скачиваются автоматически. JoyCaption — отдельная модель, энкодер Krea его не заменяет.'));
 }
 

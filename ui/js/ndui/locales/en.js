@@ -1,6 +1,9 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 // Universal Workflow English UI dictionary, gikipil 2026. Russian source keys.
 export default {
+  "Загружено": "Loaded",
+  "Проверить модели": "Check models",
+
   "Общее число шагов": "Total steps",
   "Низкое разрешение": "Low resolution",
   "Полное разрешение": "Full resolution",

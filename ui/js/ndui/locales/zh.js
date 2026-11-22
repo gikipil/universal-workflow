@@ -3,6 +3,9 @@
 // 61 shared labels adapted from ND UI Builder Chinese translations:
 // Copyright (c) 2026 Ivan Ovchinnikov (Neural Dreamer).
 export default {
+  "Загружено": "已下载",
+  "Проверить модели": "检查模型",
+
   "Общее число шагов": "总步数",
   "Низкое разрешение": "低分辨率",
   "Полное разрешение": "完整分辨率",

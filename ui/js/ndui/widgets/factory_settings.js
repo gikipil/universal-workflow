@@ -100,7 +100,7 @@ export function openFactorySettings(ctx, onClose=()=>{}) {
         return {...ctx,body,w:{...ctx.w,slots:{value:ctx.w.slots[key]}},popupHost:()=>overlay,
             get:id=>ctx.get(id==='value'?key:id),info:id=>ctx.info(id==='value'?key:id),
             set(id,value){ctx.set(id==='value'?key:id,value);afterSet?.(value);},
-            prop:id=>id==='requiredModel'?['k_turbo','pose_lora','vid_turbo'].includes(key):id==='folder'?folder:id==='pickerStyle'&&folder==='loras'?'lora':id==='placeholder'?'Выбрать файл…':ctx.prop(id)};
+            prop:id=>id==='checkModelFile'?true:id==='requiredModel'?['k_turbo','pose_lora','vid_turbo'].includes(key):id==='folder'?folder:id==='pickerStyle'&&folder==='loras'?'lora':id==='placeholder'?'Выбрать файл…':ctx.prop(id)};
     }
     function picker(container,key,caption,folder,afterSet) {
         const field=el('div','acf-settings-field'),body=el('div','acf-settings-picker');if(caption)field.append(el('span','',caption));field.append(body);container.append(field);

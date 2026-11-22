@@ -5,6 +5,8 @@ import {factoryDialog} from './factory_dialog.js';
 import {MODEL_DOWNLOADS} from '../factory_model_catalog.js';
 import {translateInterface} from '../factory_locale.js';
 import {api} from '../../../../scripts/api.js';
+import {modelDownloadStatus} from '../factory_model_download_status.js';
+import {clearModelPresence} from '../model_presence.js';
 
 const CSS=`
 .acf-model-help{display:flex;flex-direction:column;gap:18px;color:var(--ndk-text)}
@@ -28,6 +30,7 @@ const CSS=`
 .acf-model-help-file{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px;align-items:center;padding:10px 0;border-top:1px solid var(--ndk-border)}
 .acf-model-help-file small{display:block;color:var(--ndk-muted);overflow-wrap:anywhere;font-size:11px;margin-top:4px}
 .acf-model-help-optional{font-size:11px;color:var(--ndk-muted);margin-left:8px;font-weight:400}
+.acf-model-help-loaded{color:#65d98b;font-size:12px;font-weight:750;white-space:nowrap}
 .acf-model-help button{font:inherit;background:var(--ndk-s2);cursor:pointer}
 .acf-model-help [hidden]{display:none!important}
 @media(max-width:620px){.acf-model-help-tools{grid-template-columns:minmax(0,1fr)}.acf-model-help-file{grid-template-columns:minmax(0,1fr)}.acf-model-help-link{justify-self:start}}
@@ -49,12 +52,15 @@ export function openModelDownloads(ctx,onClose=()=>{}){
         catch(error){folderStatus.textContent=translateInterface(error.message,ctx.language?.()||'ru');}
         finally{createFolders.disabled=false;}
     });folderTools.append(createFolders);tools.append(search,select);root.append(style,intro,folderTools,folderStatus,tools,list,empty);dialog.body.append(root);
-    const sections=[];
+    const sections=[],checks=[],refresh=el('button','acf-model-help-link','Проверить модели');refresh.type='button';folderTools.append(refresh);
+    refresh.addEventListener('click',async()=>{refresh.disabled=true;clearModelPresence();try{await Promise.all(checks.map(check=>check()));}finally{refresh.disabled=false;}});
     for(const group of MODEL_DOWNLOADS){
         const section=el('section'),heading=el('h3','',group.label),items=[];section.append(heading);
         for(const model of group.models){
             const article=el('article','acf-model-help-item'),top=el('div','acf-model-help-heading'),title=el('h4','',model.label);
             if(model.optional)title.append(el('span','acf-model-help-optional','Необязательно'));top.append(title);
+            const loaded=el('span','acf-model-help-loaded','Загружено');loaded.hidden=true;loaded.setAttribute('role','status');top.append(loaded);
+            let checkTicket=0;const check=()=>{const ticket=++checkTicket;return modelDownloadStatus(ctx,model).then(status=>{if(ticket===checkTicket)loaded.hidden=status.missing!==false||status.empty===true;}).catch(()=>{if(ticket===checkTicket)loaded.hidden=true;});};checks.push(check);check();
             if(model.files.length===1)top.append(downloadLink(model.files[0]));
             const folder=el('div','acf-model-help-folder'),path=el('code','',model.folder);path.setAttribute('data-no-translate','');folder.append(el('span','','Куда положить:'),path);article.append(top,folder);
             if(model.note)article.append(el('p','',model.note));

@@ -1,6 +1,9 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 // Universal Workflow interface translation, gikipil 2026.
 export default {
+  "Загружено": "Téléchargé",
+  "Проверить модели": "Vérifier les modèles",
+
   "Общее число шагов": "Nombre total d’étapes",
   "Низкое разрешение": "Basse résolution",
   "Полное разрешение": "Pleine résolution",

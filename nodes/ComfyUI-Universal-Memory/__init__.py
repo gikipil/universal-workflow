@@ -125,3 +125,17 @@ async def model_folders(request):
 
 # Fixed destinations from the shipped model catalog; no client-provided paths.
 MODEL_DIRECTORIES = ['custom_nodes/comfyui_controlnet_aux/ckpts/yzd-v/DWPose', 'models/LLM/Florence-2-large-PromptGen-v2.0', 'models/LLM/JoyCaption/llama-joycaption-beta-one-hf-llava', 'models/LLM/Qwen/Qwen3-VL-4B-Instruct', 'models/RMBG/BEN2', 'models/RMBG/RMBG-2.0', 'models/SEEDVR2', 'models/TTS/Qwen3-TTS/Qwen3-TTS-12Hz-1.7B-VoiceDesign', 'models/TTS/Qwen3-TTS/Qwen3-TTS-12Hz-1.7B-VoiceDesign/speech_tokenizer', 'models/audio_encoders/openai_whisper-large-v3', 'models/checkpoints', 'models/diffusion_models/ACE', 'models/diffusion_models/Krea2', 'models/diffusion_models/MiniMax', 'models/diffusion_models/Qwen', 'models/diffusion_models/Qwen2.1', 'models/diffusion_models/Zimage', 'models/higgsv3tts/higgs-audio-v3-tts-4b', 'models/latent_upscale_models', 'models/loras/Krea2', 'models/loras/MiniMax', 'models/text_encoders/Ace', 'models/text_encoders/Krea2', 'models/text_encoders/MiniMax', 'models/text_encoders/Qwen', 'models/text_encoders/Qwen2.1', 'models/text_encoders/ZImage', 'models/ultralytics/bbox', 'models/upscale_models', 'models/vae/ACE', 'models/vae/Krea2', 'models/vae/MiniMax', 'models/vae/Qwen2.1', 'models/vae/ZImage']
+
+
+@PromptServer.instance.routes.post('/universal/models/selected')
+async def selected_model_status(request):
+    import asyncio
+    import folder_paths
+    from .model_selection_status import selected_status
+    try:
+        data = await request.json()
+        result = await asyncio.to_thread(selected_status, folder_paths.models_dir,
+                                         data.get('kind'), data.get('value'), data.get('files'))
+        return web.json_response(result)
+    except (OSError, ValueError, TypeError, AttributeError):
+        return web.json_response({'missing': None, 'error': 'Не удалось проверить комплект модели.'}, status=400)
