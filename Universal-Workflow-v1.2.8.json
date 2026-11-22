@@ -90320,7 +90320,7 @@
           "id": "p_upscale",
           "name": "Апскейл",
           "kind": "page",
-          "len": 728,
+          "len": 914,
           "control": {
             "nodes": [],
             "groups": [],
@@ -90404,7 +90404,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v1.2.7",
+            "text": "🧩 Универсальный воркфлоу · v1.2.8",
             "size": "M",
             "align": "left"
           },
@@ -92728,7 +92728,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v1.2.7",
+            "text": "🧩 Универсальный воркфлоу · v1.2.8",
             "size": "M",
             "align": "left"
           },
@@ -93617,7 +93617,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v1.2.7",
+            "text": "🧩 Универсальный воркфлоу · v1.2.8",
             "size": "M",
             "align": "left"
           },
@@ -94940,7 +94940,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v1.2.7",
+            "text": "🧩 Универсальный воркфлоу · v1.2.8",
             "size": "M",
             "align": "left"
           },
@@ -95314,7 +95314,7 @@
             "accentA": "#36cfea",
             "accentB": "#59e68d",
             "visualProfile": "standard",
-            "canvasHeight": 728,
+            "canvasHeight": 914,
             "language": "en"
           },
           "look": {
@@ -95379,12 +95379,12 @@
           "id": "up_controls",
           "type": "factoryupscale_v040",
           "page": "p_upscale",
-          "x": 0,
-          "y": 0,
+          "x": 24,
+          "y": 576,
           "w": 336,
-          "h": 180,
+          "h": 234,
           "z": 2,
-          "parent": "up_module_upscale",
+          "parent": null,
           "hidden": false,
           "locked": true,
           "slots": {
@@ -95435,9 +95435,9 @@
             }
           },
           "props": {
+            "title": "3 · Апскейл",
             "required": false,
-            "embedded": true,
-            "flowBaseH": 180
+            "flowBaseH": 234
           },
           "look": {
             "style": null,
@@ -95468,7 +95468,7 @@
           "x": 384,
           "y": 152,
           "w": 792,
-          "h": 400,
+          "h": 586,
           "z": 0,
           "parent": null,
           "hidden": false,
@@ -95495,7 +95495,7 @@
             ],
             "active": "up_result",
             "shadow": false,
-            "bottomWith": "up_module_upscale",
+            "bottomWith": "up_controls",
             "bottomInset": 72,
             "bottomInsetWith": "up_progress",
             "bottomInsetGap": 16
@@ -95523,7 +95523,7 @@
           "x": 396,
           "y": 208,
           "w": 768,
-          "h": 332,
+          "h": 518,
           "z": 2,
           "parent": null,
           "hidden": false,
@@ -95573,7 +95573,7 @@
           "x": 396,
           "y": 208,
           "w": 768,
-          "h": 332,
+          "h": 518,
           "z": 2,
           "parent": null,
           "hidden": false,
@@ -95762,7 +95762,7 @@
           "type": "factoryuprun_v080",
           "page": "p_upscale",
           "x": 24,
-          "y": 640,
+          "y": 826,
           "w": 1152,
           "h": 56,
           "z": 2,
@@ -96282,7 +96282,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "↔️ Дорисовка за границами кадра · v1.2.7",
+            "text": "↔️ Дорисовка за границами кадра · v1.2.8",
             "size": "M",
             "align": "left"
           },
@@ -98047,7 +98047,7 @@
           "x": 396,
           "y": 208,
           "w": 768,
-          "h": 332,
+          "h": 518,
           "z": 2,
           "parent": null,
           "hidden": false,
@@ -98111,7 +98111,7 @@
           "x": 396,
           "y": 208,
           "w": 768,
-          "h": 332,
+          "h": 518,
           "z": 2,
           "parent": null,
           "tab": "photo_local_compare",
@@ -98213,7 +98213,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v1.2.7",
+            "text": "🧩 Универсальный воркфлоу · v1.2.8",
             "size": "M",
             "align": "left"
           },
@@ -98849,7 +98849,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v1.2.7",
+            "text": "🧩 Универсальный воркфлоу · v1.2.8",
             "size": "M",
             "align": "left"
           },
@@ -99423,7 +99423,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🎬 Видео · MiniMax H3 · v1.2.7",
+            "text": "🎬 Видео · MiniMax H3 · v1.2.8",
             "size": "M",
             "align": "left"
           },
@@ -100412,7 +100412,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🎬 Звук · Higgs v3 · v1.2.7",
+            "text": "🎬 Звук · Higgs v3 · v1.2.8",
             "size": "M",
             "align": "left"
           },
@@ -101638,53 +101638,6 @@
           "locked": true,
           "props": {
             "title": "🎯 2 · Лицо, руки и маски",
-            "icon": "",
-            "open": true,
-            "remember": true,
-            "head_h": 48,
-            "pad": 0,
-            "max_h": 0,
-            "shadow": false,
-            "itemCount": 0,
-            "factoryModule": true
-          },
-          "slots": {},
-          "look": {
-            "style": null,
-            "shape": null,
-            "accent": null,
-            "bg": "#192b2a",
-            "field": "#20252d",
-            "text": null,
-            "labelColor": null,
-            "border": "#3d726c",
-            "radius": 12,
-            "shadow": null,
-            "blur": null,
-            "label": null,
-            "scale": 100
-          },
-          "adapt": {
-            "mode": "stretch",
-            "max": 10000,
-            "unit": "%",
-            "align": "center"
-          }
-        },
-        {
-          "id": "up_module_upscale",
-          "type": "spoiler",
-          "page": "p_upscale",
-          "x": 24,
-          "y": 576,
-          "w": 336,
-          "h": 48,
-          "z": 1,
-          "parent": null,
-          "hidden": false,
-          "locked": true,
-          "props": {
-            "title": "🔍 3 · Апскейл",
             "icon": "",
             "open": true,
             "remember": true,
