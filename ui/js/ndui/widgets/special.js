@@ -221,8 +221,13 @@ export const modelpicker = {
                         const q = input.value.trim();
                         // A draft/virtual STRING field has no COMBO options. Its folder
                         // catalog is still a valid source of model names.
-                        const boundOptions = ctx.info("value").options;
-                        const options = Array.isArray(boundOptions) && boundOptions.length ? boundOptions : [...info.keys()];
+                        const state = ctx.info("value"), boundOptions = state.options;
+                        // Virtual LoRA adapters cache COMBO names independently.
+                        // A refreshed catalog must expose newly installed files
+                        // too. Native COMBO constraints remain authoritative.
+                        const options = state.p?.virtual && fo === "loras"
+                            ? [...new Set([...(Array.isArray(boundOptions) ? boundOptions : []), ...info.keys()])]
+                            : Array.isArray(boundOptions) && boundOptions.length ? boundOptions : [...info.keys()];
                         const listing = modelFolderEntries(options, directory, q);
                         nav.textContent = "";
                         nav.append(button("📁 Все папки", () => go("")));
