@@ -25,7 +25,11 @@ export function videoPrompt(data,targets,modes,s,config){
  for(const key of Object.keys(enc.inputs)){let m;if((m=/^ref_images\.ref_image_(\d+)$/.exec(key))&&Number(m[1])>=grouped.picture.length)delete enc.inputs[key];if((m=/^ref_videos\.ref_video_(\d+)$/.exec(key))&&Number(m[1])>=grouped.video.length)delete enc.inputs[key];if((m=/^ref_video_audios\.ref_video_audio_(\d+)$/.exec(key))&&!grouped.video[Number(m[1])]?.has_audio)delete enc.inputs[key];if((m=/^ref_audios\.ref_audio_(\d+)$/.exec(key))&&Number(m[1])>=grouped.audio.length)delete enc.inputs[key];}
  for(const[role,key,id]of[['first','first_frame',s.first],['last','last_frame',s.last]]){const item=s.mediaSlots?.[role]?.[0];delete enc.inputs[key];if(item?.file?.trim()){const load=output[id];if(!load)throw Error('Не найден загрузчик кадра MiniMax.');load.inputs.image=item.file;enc.inputs[key]=[String(id),0];}}
  const mainTurbo=output[s.mturbo],refTurbo=output[s.rturbo];if(!mainTurbo||!refTurbo)throw Error('Не найден Turbo-адаптер MiniMax.');
- for(const[k,v]of Object.entries(mainTurbo.inputs))if(/^lora_\d+$/.test(k))refTurbo.inputs[k]=structuredClone(v);
+ if(mainTurbo.class_type==='LoraLoaderBypassModelOnly'){
+  if(refTurbo.class_type!==mainTurbo.class_type)throw Error('Не найден Turbo-адаптер MiniMax.');
+  refTurbo.inputs.lora_name=mainTurbo.inputs.lora_name;
+  refTurbo.inputs.strength_model=mainTurbo.inputs.strength_model;
+ }else for(const[k,v]of Object.entries(mainTurbo.inputs))if(/^lora_\d+$/.test(k))refTurbo.inputs[k]=structuredClone(v);
  const bypass=new Map([[String(s.gate),[String(config.refiner?s.ref:s.main),0]]]);
  if(s.upscale)bypass.set(String(s.upscale.gate),[String(config.upscale?s.upscale.sample:s.vdecode),0]);
  for(const n of Object.values(output))for(const[k,v]of Object.entries(n.inputs||{}))if(Array.isArray(v)&&bypass.has(String(v[0])))n.inputs[k]=bypass.get(String(v[0]));
