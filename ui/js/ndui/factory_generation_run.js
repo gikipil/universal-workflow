@@ -11,7 +11,16 @@ export function generationPrompt(data){
  const output=structuredClone(data.output);
  function scalar(value,seen=new Set()){if(!Array.isArray(value))return value;const id=String(value[0]);if(seen.has(id))throw Error('Зацикленный переключатель генерации.');seen.add(id);const n=output[id];if(!n)return undefined;if(['PrimitiveInt','PrimitiveFloat','PrimitiveBoolean'].includes(n.class_type))return scalar(n.inputs.value,seen);return undefined;}
  function index(id){const value=scalar(output[id]?.inputs?.index);return typeof value==='boolean'?Number(value):typeof value==='number'&&Number.isInteger(value)?value:undefined;}
- function redirect(value){const seen=new Set();while(Array.isArray(value)&&value.length===2){const id=String(value[0]),n=output[id];if(n?.class_type!=='easy anythingIndexSwitch')break;const i=index(id);if(i===undefined)break;if(seen.has(id))throw Error('Зацикленная ветка генерации.');seen.add(id);value=n.inputs['value'+i];if(!Array.isArray(value))throw Error('Не подключён выбранный режим генерации · '+id);}return value;}
+ const generation=tag('k2module-mode'),settings=generation.properties?.acf_generation,mode=index(generation.id);
+ const lightweight=(mode===0||mode===1)&&settings?.lightweight?.[mode]===true;
+ if(lightweight){
+  const loader=output[settings.turboModel],user=output[settings.userLora],adapter=output[settings.turboAdapter];
+  if(loader?.class_type!=='UNETLoader'||user?.class_type!=='Power Lora Loader (rgthree)'||adapter?.class_type!=='Power Lora Loader (rgthree)'||typeof loader.inputs?.unet_name!=='string'||!loader.inputs.unet_name.trim()||loader.inputs.unet_name==='None')throw Error('Выбери готовую Turbo-модель Krea2 в общих настройках.');
+  // Only the first generation bundle changes. Refiner/local/editing bundles
+  // keep their existing Raw model and adapter. User LoRAs and pose stay wired.
+  user.inputs.model=[String(settings.turboModel),0];
+ }
+ function redirect(value){const seen=new Set();while(Array.isArray(value)&&value.length===2){const id=String(value[0]),n=output[id];if(lightweight&&id===String(settings.turboAdapter)&&value[1]===0){if(seen.has(id))throw Error('Зацикленная ветка генерации.');seen.add(id);value=n.inputs.model;continue;}if(n?.class_type!=='easy anythingIndexSwitch')break;const i=index(id);if(i===undefined)break;if(seen.has(id))throw Error('Зацикленная ветка генерации.');seen.add(id);value=n.inputs['value'+i];if(!Array.isArray(value))throw Error('Не подключён выбранный режим генерации · '+id);}return value;}
  const targets=['69','162','164'].filter(id=>output[id]);const local=nodes.find(n=>n.properties?.acf_local)?.properties.acf_local;
  // Keep the pre-local image available for painting even while all local modes are off.
  if(local?.sam?.before&&output[local.sam.before])targets.push(String(local.sam.before));

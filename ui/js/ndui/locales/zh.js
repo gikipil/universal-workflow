@@ -3,6 +3,13 @@
 // 61 shared labels adapted from ND UI Builder Chinese translations:
 // Copyright (c) 2026 Ivan Ovchinnikov (Neural Dreamer).
 export default {
+  "Облегчённая версия": "轻量版本",
+  "Готовая Turbo-модель без Turbo LoRA. Файл — в общих настройках Krea2.": "使用现成的 Turbo 模型，无需 Turbo LoRA。请在 Krea2 通用设置中选择文件。",
+  "Готовая модель Krea Turbo": "现成的 Krea Turbo 模型",
+  "⚡ Krea2 · готовая Turbo-модель": "⚡ Krea2 · 现成的 Turbo 模型",
+  "Для облегчённой генерации и дорисовки Krea. Turbo LoRA не нужна; энкодер и VAE общие с Krea.": "用于轻量生成和 Krea 扩图。无需 Turbo LoRA；文本编码器和 VAE 与 Krea 共用。",
+  "Выбери готовую Turbo-модель Krea2 в общих настройках.": "请在通用设置中选择现成的 Krea2 Turbo 模型。",
+
   "Скачать комплект": "下载整套文件",
   "Прямая ссылка": "直接链接",
   "Отменить": "取消",

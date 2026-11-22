@@ -1,6 +1,6 @@
 {
-  "version": "1.2.3",
-  "workflow": "Universal-Workflow-v1.2.3.json",
+  "version": "1.2.4",
+  "workflow": "Universal-Workflow-v1.2.4.json",
   "comfy": {
     "repository": "https://github.com/Comfy-Org/ComfyUI",
     "revision": "73c9bad4d21e7addbe1d13bc92eee0f1431b017d"

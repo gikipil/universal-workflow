@@ -16,7 +16,7 @@ const MODEL_FIELDS = [
     ['song_model','ACE-Step · модель','diffusion_models'],['song_clip1','ACE · энкодер 0.6B','text_encoders'],['song_clip2','ACE · энкодер 4B','text_encoders'],['song_vae','ACE · Audio VAE','vae'],
     ['aud_model','Higgs v3 · модель','auto'],['aud_whisper','Whisper · расшифровка','auto'],
     ['vid_model','MiniMax H3 · универсальная модель','diffusion_models'],['vid_latent_upscaler','MiniMax H3 · увеличение латента','latent_upscale_models'],['vid_clip','MiniMax H3 · энкодер','text_encoders'],['vid_video_vae','MiniMax H3 · Video VAE','vae'],['vid_audio_vae','MiniMax H3 · Audio VAE','vae'],['vid_turbo','MiniMax H3 · общий Turbo-адаптер','loras'],
-    ['out_k_model','Модель Krea Turbo · дорисовка','diffusion_models'],
+    ['out_k_model','Готовая модель Krea Turbo','diffusion_models'],
     ['edit_q21_model','Модель Qwen 2.1','diffusion_models'],['edit_q21_clip','Энкодер Qwen 2.1','text_encoders'],['edit_q21_vae','VAE Qwen 2.1','vae'],
     ['edit_krea_general','General Edit V2 · файл LoRA','loras'],['edit_krea_identity','Identity Edit V2 · файл LoRA','loras'],
     ['edit_model','Модель Qwen Edit 2511','diffusion_models'],['edit_clip','Энкодер Qwen Edit','text_encoders'],['edit_vae','VAE Qwen Edit','vae'],
@@ -120,7 +120,7 @@ export function openFactorySettings(ctx, onClose=()=>{}) {
     const audioCard=card(modelsGrid,'🔊 Звук · модели','Higgs и Whisper для голосовых референсов. Один выбор Whisper действует для обоих голосов. Голос по описанию использует отдельную фиксированную модель Qwen3-TTS VoiceDesign 1.7B из models/TTS/Qwen3-TTS.');
     const songCard=card(modelsGrid,'🎼 Звук · песни ACE-Step','Модель XL SFT, оба текстовых энкодера и Audio VAE существующего workflow для песен.');
     const videoCard=card(modelsGrid,'🎬 Видео · MiniMax H3',ctx.w?.slots?.vid_model?'Общая модель для текста и референсов. Генерация и рефайнер используют один Turbo-адаптер. Дополнительные LoRA выбираются во вкладке видео.':'REF использует референсы, FL — первый и последний кадр. Назначь файлы обеих моделей. Энкодер, VAE и Turbo-адаптер общие.');
-    const outpaint=card(modelsGrid,'↔️ Дорисовка · Krea2','Проверенный вариант использует готовую Turbo-модель. Энкодер и VAE общие с Krea; Qwen берёт комплекты редактора. Дополнительные LoRA выбираются во вкладке дорисовки.');
+    const outpaint=card(modelsGrid,'⚡ Krea2 · готовая Turbo-модель','Для облегчённой генерации и дорисовки Krea. Turbo LoRA не нужна; энкодер и VAE общие с Krea.');
     const background=card(modelsGrid,'🧽 Удаление фона','Отдельная функция. Выбор модели не меняет генерацию.');
     const upSeed=card(modelsGrid,'Апскейл · SeedVR','Общие DiT и VAE для генерации, редактирования и отдельного апскейла.');
     for (const [key,caption,folder] of MODEL_FIELDS) {

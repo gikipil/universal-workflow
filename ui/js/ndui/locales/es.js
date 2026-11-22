@@ -1,6 +1,13 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 // Universal Workflow interface translation, gikipil 2026.
 export default {
+  "Облегчённая версия": "Versión ligera",
+  "Готовая Turbo-модель без Turbo LoRA. Файл — в общих настройках Krea2.": "Modelo Turbo preparado sin Turbo LoRA. Selecciona su archivo en los ajustes generales de Krea2.",
+  "Готовая модель Krea Turbo": "Modelo Krea Turbo preparado",
+  "⚡ Krea2 · готовая Turbo-модель": "⚡ Krea2 · modelo Turbo preparado",
+  "Для облегчённой генерации и дорисовки Krea. Turbo LoRA не нужна; энкодер и VAE общие с Krea.": "Para generación ligera y ampliación de Krea. No requiere Turbo LoRA; comparte el codificador y VAE de Krea.",
+  "Выбери готовую Turbo-модель Krea2 в общих настройках.": "Selecciona un modelo Krea2 Turbo preparado en los ajustes generales.",
+
   "Скачать комплект": "Descargar conjunto",
   "Прямая ссылка": "Enlace directo",
   "Отменить": "Cancelar",
