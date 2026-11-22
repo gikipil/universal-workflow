@@ -1,6 +1,9 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 // Universal Workflow Japanese interface translation, gikipil 2026.
 export default {
+  "Сила Turbo-LoRA": "Turbo LoRA の強度",
+  "Сила Turbo-LoRA · значение": "Turbo LoRA の強度 · 値",
+
   "Создать каталоги моделей": "モデルフォルダーを作成",
   "Создание каталогов…": "フォルダーを作成中…",
   "Каталоги моделей готовы.": "モデルフォルダーの準備ができました。",

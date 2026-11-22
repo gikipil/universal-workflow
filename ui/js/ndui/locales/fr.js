@@ -1,6 +1,9 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 // Universal Workflow interface translation, gikipil 2026.
 export default {
+  "Сила Turbo-LoRA": "Intensité de la LoRA Turbo",
+  "Сила Turbo-LoRA · значение": "Intensité de la LoRA Turbo · valeur",
+
   "Создать каталоги моделей": "Créer les dossiers des modèles",
   "Создание каталогов…": "Création des dossiers…",
   "Каталоги моделей готовы.": "Les dossiers des modèles sont prêts.",

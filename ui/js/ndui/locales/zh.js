@@ -3,6 +3,9 @@
 // 61 shared labels adapted from ND UI Builder Chinese translations:
 // Copyright (c) 2026 Ivan Ovchinnikov (Neural Dreamer).
 export default {
+  "Сила Turbo-LoRA": "Turbo LoRA 强度",
+  "Сила Turbo-LoRA · значение": "Turbo LoRA 强度 · 数值",
+
   "Создать каталоги моделей": "创建模型目录",
   "Создание каталогов…": "正在创建目录…",
   "Каталоги моделей готовы.": "模型目录已准备好。",

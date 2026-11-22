@@ -58,6 +58,12 @@ export const factoryvidsettings_v0180={
   const main=card('🎬 1 · Генерация видео','Дополнительные настройки видео'),fields=grid(main.section);
   field(fields,'fps','FPS',{min:1,max:120});field(fields,'seconds','Секунды',{min:1,max:15});
   field(fields,'sampler','Сэмплер',{options:['euler']});field(fields,'scheduler','Шедулер',{options:ctx.info('scheduler').options||[]});
+  const turboBox=el('div'),turboLabel=el('label','','Сила Turbo-LoRA'),turboLine=el('div'),turboRange=el('input'),turboNumber=el('input','ndk-input acf-video-input');
+  turboBox.style.cssText='display:grid;gap:6px;min-width:0';turboLabel.style.cssText='font-size:12px;color:#ff94c0';turboLine.style.cssText='display:grid;grid-template-columns:minmax(0,1fr) 76px;align-items:center;gap:12px';
+  turboRange.type='range';turboRange.style.cssText='width:100%;min-width:0;margin:0;accent-color:var(--acf-lora-a,#b84dff);cursor:pointer';turboNumber.type='number';turboNumber.style.cssText=inputStyle+';min-width:0;text-align:center';
+  for(const input of[turboRange,turboNumber]){input.min='0';input.max='1.5';input.step='0.05';input.setAttribute('aria-label',input===turboRange?'Сила Turbo-LoRA':'Сила Turbo-LoRA · значение');inputs.set(input,'turboStrength');input.addEventListener('keydown',e=>e.stopPropagation());}
+  turboRange.addEventListener('input',()=>write('turboStrength',Number(turboRange.value)));turboNumber.addEventListener('change',()=>{if(turboNumber.value.trim())write('turboStrength',Number(turboNumber.value));else show();});
+  turboLabel.addEventListener('click',()=>turboRange.focus());turboLine.append(turboRange,turboNumber);turboBox.append(turboLabel,turboLine);main.section.append(turboBox);
   const sizeBody=el('div'),sizeHost=el('div'),sizeTitle=el('strong','','📐 Размер видео');sizeBody.style.cssText='display:flex;flex-direction:column;gap:8px';sizeTitle.style.cssText='color:#78e4cd;font-size:14px';sizeBody.append(sizeTitle,sizeHost);main.section.append(sizeBody);
   const sizeControl=factorysize_v0213.mount({...ctx,body:sizeHost,sizeOptions:{multiple:32,min:32,max:4096,noun:'видео',ratioTolerance:.04,megapixels:[.5,1,1.5,2,2.5,3],includeCurrentOption:false},get:k=>read()[k],set:(k,v)=>write(k,v),setSize:(width,height)=>{try{ctx.set('config',JSON.stringify({...read(),width,height}));error.hidden=true;}catch(e){error.hidden=false;error.textContent=e.message;}show();}});
   main.gear.addEventListener('click',()=>openSettings('Настройки генерации видео',host=>{
@@ -87,13 +93,13 @@ export const factoryvidsettings_v0180={
   function show(){
    const v=read();for(const[input,k]of inputs)if(document.activeElement!==input)input.value=String(v[k]);
    sizeControl.update?.();refToggle.update?.();upToggle.update?.();upFields.hidden=!v.upscale;upFields.style.display=v.upscale?'grid':'none';upUnit.value=String(v.upSize);upAmount.min=v.upSize?'64':'1';upAmount.max=v.upSize?'16384':'4';upAmount.step=v.upSize?'64':'0.1';
-   if(document.activeElement!==upAmount)upAmount.value=String(v.upSize?v.upLong:v.upFactor);presence.update();contentHeight.update((ctx.videoPart==='main'?300:ctx.videoPart==='ref'?112:ctx.videoPart==='up'?(v.upscale?208:112):490+(v.upscale?72:0))+(error.hidden?0:44));
+   if(document.activeElement!==upAmount)upAmount.value=String(v.upSize?v.upLong:v.upFactor);presence.update();contentHeight.update((ctx.videoPart==='main'?360:ctx.videoPart==='ref'?112:ctx.videoPart==='up'?(v.upscale?208:112):550+(v.upscale?72:0))+(error.hidden?0:44));
   }
   show();return{update:show,resize:()=>contentHeight.update(),destroy(){dialog?.close();contentHeight.destroy();sizeControl.destroy?.();refToggle.destroy?.();upToggle.destroy?.();presence.destroy();}};
  }
 };
 
-export const factoryvidgeneration_v112={...factoryvidsettings_v0180,type:'factoryvidgen_v113',size:{w:336,h:300,minW:270,minH:96},mount:ctx=>factoryvidsettings_v0180.mount({...ctx,videoPart:'main'})};
+export const factoryvidgeneration_v112={...factoryvidsettings_v0180,type:'factoryvidgen_v113',size:{w:336,h:360,minW:270,minH:96},mount:ctx=>factoryvidsettings_v0180.mount({...ctx,videoPart:'main'})};
 export const factoryvidrefiner_v112={...factoryvidsettings_v0180,type:'factoryvidrefiner_v112',size:{w:336,h:112,minW:270,minH:96},mount:ctx=>factoryvidsettings_v0180.mount({...ctx,videoPart:'ref'})};
 export const factoryvidupscale_v112={...factoryvidsettings_v0180,type:'factoryvidupscale_v112',size:{w:336,h:112,minW:270,minH:96},mount:ctx=>factoryvidsettings_v0180.mount({...ctx,videoPart:'up'})};
 export const factoryvidprog_v0180={...factoryprogress_v037,type:'factoryvidprog_v110',mount:ctx=>factoryprogress_v037.mount({...ctx,progress:videoProgress})};

@@ -1,6 +1,9 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 // Universal Workflow English UI dictionary, gikipil 2026. Russian source keys.
 export default {
+  "Сила Turbo-LoRA": "Turbo LoRA strength",
+  "Сила Turbo-LoRA · значение": "Turbo LoRA strength · value",
+
   "Создать каталоги моделей": "Create model folders",
   "Создание каталогов…": "Creating folders…",
   "Каталоги моделей готовы.": "Model folders are ready.",
