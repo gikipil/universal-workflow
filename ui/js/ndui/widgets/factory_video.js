@@ -93,8 +93,11 @@ export const factoryvidsettings_v0180={
  }
 };
 
-export const factoryvidgeneration_v112={...factoryvidsettings_v0180,type:'factoryvidgeneration_v112',size:{w:336,h:300,minW:270,minH:96},mount:ctx=>factoryvidsettings_v0180.mount({...ctx,videoPart:'main'})};
+export const factoryvidgeneration_v112={...factoryvidsettings_v0180,type:'factoryvidgen_v113',size:{w:336,h:300,minW:270,minH:96},mount:ctx=>factoryvidsettings_v0180.mount({...ctx,videoPart:'main'})};
 export const factoryvidrefiner_v112={...factoryvidsettings_v0180,type:'factoryvidrefiner_v112',size:{w:336,h:112,minW:270,minH:96},mount:ctx=>factoryvidsettings_v0180.mount({...ctx,videoPart:'ref'})};
 export const factoryvidupscale_v112={...factoryvidsettings_v0180,type:'factoryvidupscale_v112',size:{w:336,h:112,minW:270,minH:96},mount:ctx=>factoryvidsettings_v0180.mount({...ctx,videoPart:'up'})};
 export const factoryvidprog_v0180={...factoryprogress_v037,type:'factoryvidprog_v110',mount:ctx=>factoryprogress_v037.mount({...ctx,progress:videoProgress})};
 export const factoryvidrun_v0180={...generate,type:'factoryvidrun_v110',slots:[{id:'config',accepts:['STRING'],required:true}],mount(ctx){let dialog,alive=true;const inst=generate.mount({...ctx,queue:async batch=>{try{const state=ctx.info('config');await queueVideo(state.p?.node||state.node,batch);}catch(error){if(!alive)return;dialog?.close();dialog=factoryDialog(ctx,{title:'Видео',width:520});dialog.body.append(el('p','',error.message||String(error)));}}});return{...inst,destroy(){alive=false;dialog?.close();inst.destroy?.();}};}};
+
+// Compatibility with v1.1.2 panels normalized to the Builder's 24-character limit.
+export const factoryvidgeneration_compat={...factoryvidgeneration_v112,type:'factoryvidgeneration_v11'};

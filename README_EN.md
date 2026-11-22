@@ -2,11 +2,11 @@
 
 [Русский](README.md) · **English**
 
-**Version 1.1.2 · ComfyUI · English interface by default**
+**Version 1.1.3 · ComfyUI · English interface by default**
 
 One interface for image generation, refinement, editing, outpainting, background removal, upscaling, image captions, video and audio. Common settings are on the left, results and comparisons on the right. Less frequent settings open from gear buttons.
 
-**Download:** [1.1.2 release](https://github.com/gikipil/universal-workflow/releases/tag/v1.1.2) · [complete ZIP](https://github.com/gikipil/universal-workflow/releases/download/v1.1.2/Universal-Workflow-v1.1.2.zip) · [workflow JSON](Universal-Workflow-v1.1.2.json).
+**Download:** [1.1.3 release](https://github.com/gikipil/universal-workflow/releases/tag/v1.1.3) · [complete ZIP](https://github.com/gikipil/universal-workflow/releases/download/v1.1.3/Universal-Workflow-v1.1.3.zip) · [workflow JSON](Universal-Workflow-v1.1.3.json).
 
 **All versions:** [version history and tagged downloads](https://github.com/gikipil/universal-workflow/tags). The main branch contains the current version; previous versions remain available in the same repository.
 
@@ -131,7 +131,7 @@ In **Settings → Models → Help**, every model has a download button. Multi-fi
 
 ### 7. Open the workflow
 
-Restart ComfyUI, hard-refresh with **Ctrl+F5**, and drag **`Universal-Workflow-v1.1.2.json`** into ComfyUI. Press **ND UI**. English is the default; change it in **Settings → Appearance → Interface language**.
+Restart ComfyUI, hard-refresh with **Ctrl+F5**, and drag **`Universal-Workflow-v1.1.3.json`** into ComfyUI. Press **ND UI**. English is the default; change it in **Settings → Appearance → Interface language**.
 
 For the first run, select Generation, confirm Krea models and the Turbo adapter, disable uninstalled persistent LoRAs, and leave refinement/local processing/upscaling off until an image succeeds. Enter a prompt and press Generate, then enable other stages one at a time.
 
@@ -176,6 +176,11 @@ The workflow and original documentation are for non-commercial distribution/use,
 UI code and bundled modules retain **AGPL-3.0-only**; the QwenTTS patch retains **GPL-3.0-only**. These licenses permit commercial code use and are not overridden by workflow terms. Nodes, models and LoRAs keep their own licenses; the output exception does not override their restrictions or other people's rights. See [NOTICE.md](NOTICE.md).
 
 ## 📝 Release history
+
+### 1.1.3
+
+- Fixed the video generation card after loading a saved workflow.
+- Video preview, status and prompt now align below the full settings column, including Upscale.
 
 ### 1.1.2
 
