@@ -90332,7 +90332,7 @@
           "id": "p_outpaint",
           "name": "Дорисовка",
           "kind": "page",
-          "len": 1256,
+          "len": 1182,
           "control": {
             "nodes": [],
             "groups": [],
@@ -90404,7 +90404,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v1.2.5",
+            "text": "🧩 Универсальный воркфлоу · v1.2.6",
             "size": "M",
             "align": "left"
           },
@@ -92728,7 +92728,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v1.2.5",
+            "text": "🧩 Универсальный воркфлоу · v1.2.6",
             "size": "M",
             "align": "left"
           },
@@ -93617,7 +93617,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v1.2.5",
+            "text": "🧩 Универсальный воркфлоу · v1.2.6",
             "size": "M",
             "align": "left"
           },
@@ -94937,7 +94937,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v1.2.5",
+            "text": "🧩 Универсальный воркфлоу · v1.2.6",
             "size": "M",
             "align": "left"
           },
@@ -96344,7 +96344,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "↔️ Дорисовка за границами кадра · v1.2.5",
+            "text": "↔️ Дорисовка за границами кадра · v1.2.6",
             "size": "M",
             "align": "left"
           },
@@ -96718,7 +96718,7 @@
             "accentA": "#36cfea",
             "accentB": "#59e68d",
             "visualProfile": "standard",
-            "canvasHeight": 1280,
+            "canvasHeight": 1206,
             "language": "en"
           },
           "look": {
@@ -96784,7 +96784,7 @@
           "type": "seed",
           "page": "p_outpaint",
           "x": 24,
-          "y": 672,
+          "y": 598,
           "w": 336,
           "h": 88,
           "z": 2,
@@ -96833,7 +96833,7 @@
           "type": "factoryoutset_v0141",
           "page": "p_outpaint",
           "x": 24,
-          "y": 772,
+          "y": 698,
           "w": 336,
           "h": 120,
           "z": 2,
@@ -96942,7 +96942,7 @@
           "type": "spoiler",
           "page": "p_outpaint",
           "x": 24,
-          "y": 1136,
+          "y": 1062,
           "w": 336,
           "h": 48,
           "z": 2,
@@ -97024,7 +97024,7 @@
           "x": 384,
           "y": 152,
           "w": 792,
-          "h": 964,
+          "h": 890,
           "z": 0,
           "parent": null,
           "hidden": false,
@@ -97185,7 +97185,7 @@
           "type": "factoryoutprog_v0141",
           "page": "p_outpaint",
           "x": 384,
-          "y": 1128,
+          "y": 1054,
           "w": 344,
           "h": 56,
           "z": 2,
@@ -97226,7 +97226,7 @@
           "type": "factoryqueuestatus_v023",
           "page": "p_outpaint",
           "x": 740,
-          "y": 1128,
+          "y": 1054,
           "w": 184,
           "h": 56,
           "z": 2,
@@ -97265,7 +97265,7 @@
           "type": "factorysavetoggle_v023",
           "page": "p_outpaint",
           "x": 936,
-          "y": 1128,
+          "y": 1054,
           "w": 240,
           "h": 56,
           "z": 2,
@@ -97312,7 +97312,7 @@
           "type": "prompt",
           "page": "p_outpaint",
           "x": 24,
-          "y": 904,
+          "y": 830,
           "w": 336,
           "h": 220,
           "z": 2,
@@ -97355,7 +97355,7 @@
           "type": "factoryoutpaintrun_v0140",
           "page": "p_outpaint",
           "x": 24,
-          "y": 1196,
+          "y": 1122,
           "w": 1152,
           "h": 56,
           "z": 2,
@@ -97406,7 +97406,7 @@
           "x": 24,
           "y": 436,
           "w": 336,
-          "h": 224,
+          "h": 150,
           "z": 2,
           "parent": null,
           "hidden": false,
@@ -97424,7 +97424,7 @@
             }
           },
           "props": {
-            "flowBaseH": 224
+            "flowBaseH": 150
           },
           "look": {
             "style": null,
@@ -98343,7 +98343,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v1.2.5",
+            "text": "🧩 Универсальный воркфлоу · v1.2.6",
             "size": "M",
             "align": "left"
           },
@@ -98979,7 +98979,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v1.2.5",
+            "text": "🧩 Универсальный воркфлоу · v1.2.6",
             "size": "M",
             "align": "left"
           },
@@ -99553,7 +99553,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🎬 Видео · MiniMax H3 · v1.2.5",
+            "text": "🎬 Видео · MiniMax H3 · v1.2.6",
             "size": "M",
             "align": "left"
           },
@@ -100542,7 +100542,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🎬 Звук · Higgs v3 · v1.2.5",
+            "text": "🎬 Звук · Higgs v3 · v1.2.6",
             "size": "M",
             "align": "left"
           },
