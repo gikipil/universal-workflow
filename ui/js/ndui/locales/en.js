@@ -1,6 +1,12 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 // Universal Workflow English UI dictionary, gikipil 2026. Russian source keys.
 export default {
+  "Общее число шагов": "Total steps",
+  "Низкое разрешение": "Low resolution",
+  "Полное разрешение": "Full resolution",
+  "Всего шагов": "Total steps",
+  "Общее число включает дополнительные финальные шаги. Остальные шаги после первого этапа выполняются в полном разрешении.": "The total includes additional final steps. Steps after the first stage run at full resolution.",
+
   "Сила Turbo-LoRA": "Turbo LoRA strength",
   "Сила Turbo-LoRA · значение": "Turbo LoRA strength · value",
 

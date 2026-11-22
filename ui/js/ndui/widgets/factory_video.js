@@ -36,8 +36,8 @@ export const factoryvidsettings_v0180={
   root.style.cssText='display:flex;flex-direction:column;gap:12px;width:100%;box-sizing:border-box';
   error.style.cssText='color:#ffa7b9;font-size:12px';error.hidden=true;
   ctx.body.append(root);if(ctx.body.parentElement)ctx.body.parentElement.style.padding='0';
-  const contentHeight=fitFactoryContent(ctx,root,{min:96}),read=()=>JSON.parse(ctx.get('config'));let dialog;
-  function write(k,v){try{ctx.set('config',JSON.stringify({...read(),[k]:v}));error.hidden=true;}catch(e){error.hidden=false;error.textContent=e.message;}show();}
+  const contentHeight=fitFactoryContent(ctx,root,{min:96}),read=()=>{const v=JSON.parse(ctx.get('config'));return{...v,totalSteps:v.steps+v.extraSteps};};let dialog,distribution;
+  function write(k,v){try{const data=read();delete data.totalSteps;if(k==='totalSteps')data.steps=v-data.extraSteps;else data[k]=v;ctx.set('config',JSON.stringify(data));error.hidden=true;}catch(e){error.hidden=false;error.textContent=e.message;}show();}
   function card(label,aria){
    const section=el('section'),head=el('div'),title=el('strong','',label),gear=el('button','ndk-chip acf-fixed-control');
    section.style.cssText=surface;head.style.cssText='display:flex;align-items:center;justify-content:space-between;gap:8px';title.style.cssText='color:#78e4cd;font-size:16px';
@@ -54,7 +54,7 @@ export const factoryvidsettings_v0180={
    box.append(el('span','',label),input);host.append(box);input.value=String(read()[k]);inputs.set(input,k);return input;
   }
   function openSettings(title,build){dialog?.close();dialog=factoryDialog(ctx,{title,width:600});dialog.body.style.cssText+=';display:flex;flex-direction:column;gap:12px';build(dialog.body);}
-  function note(host,text){const n=el('small','',text);n.style.cssText='color:#a4adbf;line-height:1.5';host.append(n);}
+  function note(host,text){const n=el('small','',text);n.style.cssText='color:#a4adbf;line-height:1.5';host.append(n);return n;}
   const main=card('🎬 1 · Генерация видео','Дополнительные настройки видео'),fields=grid(main.section);
   field(fields,'fps','FPS',{min:1,max:120});field(fields,'seconds','Секунды',{min:1,max:15});
   field(fields,'sampler','Сэмплер',{options:['euler']});field(fields,'scheduler','Шедулер',{options:ctx.info('scheduler').options||[]});
@@ -68,8 +68,11 @@ export const factoryvidsettings_v0180={
   const sizeControl=factorysize_v0213.mount({...ctx,body:sizeHost,sizeOptions:{multiple:32,min:32,max:4096,noun:'видео',ratioTolerance:.04,megapixels:[.5,1,1.5,2,2.5,3],includeCurrentOption:false},get:k=>read()[k],set:(k,v)=>write(k,v),setSize:(width,height)=>{try{ctx.set('config',JSON.stringify({...read(),width,height}));error.hidden=true;}catch(e){error.hidden=false;error.textContent=e.message;}show();}});
   main.gear.addEventListener('click',()=>openSettings('Настройки генерации видео',host=>{
    const g=grid(host);
+   const total=field(g,'totalSteps','Общее число шагов',{min:2+read().extraSteps,max:1000+read().extraSteps});total.parentElement.style.gridColumn='1 / -1';
    for(const[k,label,min,max,step]of[['transition','Шаги в низком разрешении',1,999,1],['lowScale','Масштаб первого этапа',.25,1,.05],['extraSteps','Дополнительные финальные шаги',0,32,1],['tau','Sol-Attention · порог',0,4,.05]])field(g,k,label,{min,max,step});
-   note(host,'Основной проход: 6 шагов в низком разрешении и 3 в высоком по умолчанию. Звук создаётся вместе с видео.');
+   distribution=note(host,'');
+   note(host,'Общее число включает дополнительные финальные шаги. Остальные шаги после первого этапа выполняются в полном разрешении.');
+   show();
   }));
   const ref=card('✨ 2 · Рефайнер','Настройки рефайнера'),refBody=el('div');ref.section.append(refBody);
   const refToggle=toggle.mount({...ctx,body:refBody,w:{...ctx.w,slots:{}},get:()=>read().refiner,set:(_,v)=>write('refiner',v),prop:k=>k==='text'?'Включить рефайнер':k==='description'?'Доработка видео после генерации. Исходный звук сохраняется.':ctx.prop(k)});
@@ -91,7 +94,7 @@ export const factoryvidsettings_v0180={
   const part=ctx.videoPart;for(const[key,card]of[['main',main],['ref',ref],['up',up]])if(part&&part!==key){card.section.hidden=true;card.section.style.display='none';}
   root.append(error);const presence=mountModePresence(ctx,main.title,'video');
   function show(){
-   const v=read();for(const[input,k]of inputs)if(document.activeElement!==input)input.value=String(v[k]);
+   const v=read();if(distribution)distribution.textContent=(ctx.tr?.('Низкое разрешение')||'Низкое разрешение')+': '+v.transition+' · '+(ctx.tr?.('Полное разрешение')||'Полное разрешение')+': '+(v.totalSteps-v.transition)+' · '+(ctx.tr?.('Всего шагов')||'Всего шагов')+': '+v.totalSteps;for(const[input,k]of inputs)if(document.activeElement!==input)input.value=String(v[k]);
    sizeControl.update?.();refToggle.update?.();upToggle.update?.();upFields.hidden=!v.upscale;upFields.style.display=v.upscale?'grid':'none';upUnit.value=String(v.upSize);upAmount.min=v.upSize?'64':'1';upAmount.max=v.upSize?'16384':'4';upAmount.step=v.upSize?'64':'0.1';
    if(document.activeElement!==upAmount)upAmount.value=String(v.upSize?v.upLong:v.upFactor);presence.update();contentHeight.update((ctx.videoPart==='main'?360:ctx.videoPart==='ref'?112:ctx.videoPart==='up'?(v.upscale?208:112):550+(v.upscale?72:0))+(error.hidden?0:44));
   }

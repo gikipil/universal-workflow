@@ -1,6 +1,12 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 // Universal Workflow interface translation, gikipil 2026.
 export default {
+  "Общее число шагов": "Nombre total d’étapes",
+  "Низкое разрешение": "Basse résolution",
+  "Полное разрешение": "Pleine résolution",
+  "Всего шагов": "Total des étapes",
+  "Общее число включает дополнительные финальные шаги. Остальные шаги после первого этапа выполняются в полном разрешении.": "Le total inclut les étapes finales supplémentaires. Après la première phase, les étapes sont exécutées en pleine résolution.",
+
   "Сила Turbo-LoRA": "Intensité de la LoRA Turbo",
   "Сила Turbo-LoRA · значение": "Intensité de la LoRA Turbo · valeur",
 

@@ -3,6 +3,12 @@
 // 61 shared labels adapted from ND UI Builder Chinese translations:
 // Copyright (c) 2026 Ivan Ovchinnikov (Neural Dreamer).
 export default {
+  "Общее число шагов": "总步数",
+  "Низкое разрешение": "低分辨率",
+  "Полное разрешение": "完整分辨率",
+  "Всего шагов": "总步数",
+  "Общее число включает дополнительные финальные шаги. Остальные шаги после первого этапа выполняются в полном разрешении.": "总步数包含额外的最终步数。第一阶段之后的步骤以完整分辨率运行。",
+
   "Сила Turbo-LoRA": "Turbo LoRA 强度",
   "Сила Turbo-LoRA · значение": "Turbo LoRA 强度 · 数值",
 
