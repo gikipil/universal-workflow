@@ -2,11 +2,11 @@
 
 **Русский** · [English](README_EN.md)
 
-**Версия 1.1.7 · ComfyUI · English по умолчанию**
+**Версия 1.1.8 · ComfyUI · English по умолчанию**
 
 Один интерфейс для генерации изображений, детализации, редактирования, дорисовки, удаления фона, апскейла, описания изображений, видео и звука. Основные настройки слева, результат и сравнения справа, дополнительные параметры открываются по шестерёнке.
 
-**Скачать:** [релиз 1.1.7](https://github.com/gikipil/universal-workflow/releases/tag/v1.1.7) · [полный ZIP](https://github.com/gikipil/universal-workflow/releases/download/v1.1.7/Universal-Workflow-v1.1.7.zip) · [JSON workflow](Universal-Workflow-v1.1.7.json).
+**Скачать:** [релиз 1.1.8](https://github.com/gikipil/universal-workflow/releases/tag/v1.1.8) · [полный ZIP](https://github.com/gikipil/universal-workflow/releases/download/v1.1.8/Universal-Workflow-v1.1.8.zip) · [JSON workflow](Universal-Workflow-v1.1.8.json).
 
 **Все версии:** [история версий и загрузка по меткам](https://github.com/gikipil/universal-workflow/tags). В основной ветке находится актуальная версия; предыдущие доступны в том же репозитории.
 
@@ -131,7 +131,7 @@ SNOFS — заранее назначенная необязательная п�
 
 ### 7. Открой workflow
 
-Перезапусти ComfyUI, обнови страницу через **Ctrl+F5** и перетащи **`Universal-Workflow-v1.1.7.json`** в ComfyUI. Нажми **ND UI**. По умолчанию English; язык меняется через **Settings → Appearance → Interface language**.
+Перезапусти ComfyUI, обнови страницу через **Ctrl+F5** и перетащи **`Universal-Workflow-v1.1.8.json`** в ComfyUI. Нажми **ND UI**. По умолчанию English; язык меняется через **Settings → Appearance → Interface language**.
 
 Для первого запуска выбери Generation, назначь комплект Krea и Turbo-адаптер, выключи неустановленные постоянные LoRA. Рефайнер, локальные режимы и апскейл оставь выключенными до первого успешного кадра. Напиши промт и нажми Generate, затем подключай этапы по одному.
 
@@ -176,6 +176,10 @@ Fit / «Вписать» показывает весь результат. `− 
 Код интерфейса и локальных модулей сохраняет **AGPL-3.0-only**, патч QwenTTS — **GPL-3.0-only**. Эти лицензии разрешают коммерческое использование своего кода и не ограничиваются условиями workflow. У нод, моделей и LoRA свои лицензии; исключение для результатов не отменяет их ограничений и чужих прав. См. [NOTICE.md](NOTICE.md).
 
 ## 📝 История релиза
+
+### 1.1.8
+
+- Метка «Загружено» в Help оформлена как зелёная плашка с галочкой и выровнена рядом с кнопкой скачивания.
 
 ### 1.1.7
 

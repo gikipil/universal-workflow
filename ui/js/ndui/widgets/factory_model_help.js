@@ -30,7 +30,9 @@ const CSS=`
 .acf-model-help-file{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px;align-items:center;padding:10px 0;border-top:1px solid var(--ndk-border)}
 .acf-model-help-file small{display:block;color:var(--ndk-muted);overflow-wrap:anywhere;font-size:11px;margin-top:4px}
 .acf-model-help-optional{font-size:11px;color:var(--ndk-muted);margin-left:8px;font-weight:400}
-.acf-model-help-loaded{color:#65d98b;font-size:12px;font-weight:750;white-space:nowrap}
+.acf-model-help-actions{display:flex;align-items:center;justify-content:flex-end;gap:10px;margin-left:auto;flex:0 0 auto;max-width:100%}
+.acf-model-help-loaded{display:inline-flex;align-items:center;justify-content:center;gap:6px;box-sizing:border-box;min-height:34px;padding:6px 10px;border:1px solid #48bf7966;border-radius:8px;background:linear-gradient(135deg,#24533755,#16392766);color:#86efac;font-size:13px;line-height:20px;font-weight:800;white-space:nowrap;box-shadow:inset 0 1px 0 #a8ffc518}
+.acf-model-help-loaded::before{content:'✓';font-size:14px;font-weight:900}
 .acf-model-help button{font:inherit;background:var(--ndk-s2);cursor:pointer}
 .acf-model-help [hidden]{display:none!important}
 @media(max-width:620px){.acf-model-help-tools{grid-template-columns:minmax(0,1fr)}.acf-model-help-file{grid-template-columns:minmax(0,1fr)}.acf-model-help-link{justify-self:start}}
@@ -59,9 +61,9 @@ export function openModelDownloads(ctx,onClose=()=>{}){
         for(const model of group.models){
             const article=el('article','acf-model-help-item'),top=el('div','acf-model-help-heading'),title=el('h4','',model.label);
             if(model.optional)title.append(el('span','acf-model-help-optional','Необязательно'));top.append(title);
-            const loaded=el('span','acf-model-help-loaded','Загружено');loaded.hidden=true;loaded.setAttribute('role','status');top.append(loaded);
+            const actions=el('div','acf-model-help-actions'),loaded=el('span','acf-model-help-loaded','Загружено');loaded.hidden=true;loaded.setAttribute('role','status');actions.append(loaded);top.append(actions);
             let checkTicket=0;const check=()=>{const ticket=++checkTicket;return modelDownloadStatus(ctx,model).then(status=>{if(ticket===checkTicket)loaded.hidden=status.missing!==false||status.empty===true;}).catch(()=>{if(ticket===checkTicket)loaded.hidden=true;});};checks.push(check);check();
-            if(model.files.length===1)top.append(downloadLink(model.files[0]));
+            if(model.files.length===1)actions.append(downloadLink(model.files[0]));
             const folder=el('div','acf-model-help-folder'),path=el('code','',model.folder);path.setAttribute('data-no-translate','');folder.append(el('span','','Куда положить:'),path);article.append(top,folder);
             if(model.note)article.append(el('p','',model.note));
             if(model.files.length>1){
