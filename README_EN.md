@@ -2,11 +2,11 @@
 
 [Русский](README.md) · **English**
 
-**Version 1.2.0 · ComfyUI · English interface by default**
+**Version 1.2.1 · ComfyUI · English interface by default**
 
 One interface for image generation, refinement, editing, outpainting, background removal, upscaling, image captions, video and audio. Common settings are on the left, results and comparisons on the right. Less frequent settings open from gear buttons.
 
-**Download:** [1.2.0 release](https://github.com/gikipil/universal-workflow/releases/tag/v1.2.0) · [complete ZIP](https://github.com/gikipil/universal-workflow/releases/download/v1.2.0/Universal-Workflow-v1.2.0.zip) · [workflow JSON](Universal-Workflow-v1.2.0.json).
+**Download:** [1.2.1 release](https://github.com/gikipil/universal-workflow/releases/tag/v1.2.1) · [complete ZIP](https://github.com/gikipil/universal-workflow/releases/download/v1.2.1/Universal-Workflow-v1.2.1.zip) · [workflow JSON](Universal-Workflow-v1.2.1.json).
 
 **All versions:** [version history and tagged downloads](https://github.com/gikipil/universal-workflow/tags). The main branch contains the current version; previous versions remain available in the same repository.
 
@@ -44,8 +44,18 @@ The archive includes ND UI Builder with its licenses, our interface and local mo
 
 Requires Windows, internet and an existing ComfyUI installation with Python/pip. Full video/audio preparation targets NVIDIA; Python 3.12 is recommended and package compatibility is checked; Images only keeps the current PyTorch family. Environment changes require approval. Python libraries may take several GB. Running processes are never stopped automatically: close ComfyUI yourself. Dependency conflicts are logged and are not reported as a successful installation.
 
+### Manual installation — alternative to the wizard
+
+1. Download and fully extract the release ZIP. Close ComfyUI. You do not need to run `Install.cmd` for this method.
+2. Copy `resources/ND-UI-Builder` into `ComfyUI/custom_nodes/ComfyUI-ND-UI-Builder`. Its `__init__.py` must be directly inside that folder. Keep only one Builder installation.
+3. Copy the **contents** of `resources/package/ui/js/` into that Builder’s `js/` folder and replace matching files.
+4. Copy the three folders from `resources/package/nodes/` into `ComfyUI/custom_nodes/`. Copy `resources/package/assets/universal-local-empty-mask.png` into `ComfyUI/input/`.
+5. Install the external node packs listed below using ComfyUI-Manager or their author instructions. Install Python requirements into the environment that actually starts ComfyUI; optional video/audio compatibility steps are below.
+6. Restart ComfyUI, refresh the browser with **Ctrl+F5**, and open `resources/package/Universal-Workflow-v1.2.1.json`. Press **ND UI**.
+7. Download only the models you need, then select their actual files in Settings. Files may be at the root of their model category or in any subfolder. If an old saved path is marked missing, choose your local file instead; do not recreate the author's folder layout.
+
 <details>
-<summary>Manual installation and additional information</summary>
+<summary>Detailed manual steps, node links and runtime requirements</summary>
 
 For manual installation, release files are in `resources/package/` and original ND UI source is in `resources/ND-UI-Builder/`. Paths below are relative to `package` or the Git repository root.
 
@@ -96,7 +106,7 @@ For Prompts, Florence and Qwen use their node-pack loaders. JoyCaption uses `tra
 
 ### 3. Install the matching ND UI Builder and overlay
 
-Get [ND UI Builder from its author](https://github.com/neural-dreamer/ComfyUI-ND-UI-Builder). This release is based on revision `ad176bd9731c70e2b3246ea9ff1129606591448c`: [matching upstream ZIP](https://github.com/neural-dreamer/ComfyUI-ND-UI-Builder/archive/ad176bd9731c70e2b3246ea9ff1129606591448c.zip).
+The complete release ZIP already includes ND UI Builder in `resources/ND-UI-Builder/`. If installing from Git sources instead, get [ND UI Builder from its author](https://github.com/neural-dreamer/ComfyUI-ND-UI-Builder). This release is based on revision `ad176bd9731c70e2b3246ea9ff1129606591448c`: [matching upstream ZIP](https://github.com/neural-dreamer/ComfyUI-ND-UI-Builder/archive/ad176bd9731c70e2b3246ea9ff1129606591448c.zip).
 
 Extract Builder into `ComfyUI/custom_nodes/ComfyUI-ND-UI-Builder/`; its `__init__.py` must be directly inside. Keep one Builder copy. Back up an existing installation outside `custom_nodes` before replacement.
 
@@ -106,7 +116,7 @@ Stop ComfyUI. Merge the **contents** of this repository's `ui/js/` into Builder'
 ui/js/* → ComfyUI/custom_nodes/ComfyUI-ND-UI-Builder/js/*
 ```
 
-Do not create another `ui` or `js` directory inside `js`. Builder is downloaded separately; this repository includes only necessary additions/modifications. Updating Builder may overwrite the overlay; reapply the compatible release files if needed.
+Do not create another `ui` or `js` directory inside `js`. The Git repository includes only additions/modifications; the complete release ZIP also includes the matching original Builder source. Updating Builder may overwrite the overlay; reapply the compatible release files if needed.
 
 ### 4. Copy bundled nodes and placeholder
 
@@ -145,11 +155,11 @@ SNOFS is a preconfigured optional persistent LoRA. Disable its slot in Settings 
 Select your actual local files in Settings. Saved Z-Image encoder/VAE aliases may differ from download names; select the downloaded files rather than guessing a rename. The **missing** badge identifies required files for the selected mode, with a list on hover. It does not validate all third-party libraries or optional LoRAs.
 
 
-In **Settings → Models → Help**, every model has a download button. Multi-file model lists are expanded by default. **Create model folders** prepares all listed destinations on the ComfyUI server; existing files are preserved and model weights are not downloaded. Restart ComfyUI after updating the bundled Universal Memory module.
+In **Settings → Models → Help**, recommendation cards have download buttons and direct source links. Help creates folders when downloading; it runs independently of the installer. Restart ComfyUI after updating the bundled Universal Memory module.
 
 ### 7. Open the workflow
 
-Restart ComfyUI, hard-refresh with **Ctrl+F5**, and drag **`Universal-Workflow-v1.2.0.json`** into ComfyUI. Press **ND UI**. English is the default; change it in **Settings → Appearance → Interface language**.
+Restart ComfyUI, hard-refresh with **Ctrl+F5**, and drag **`Universal-Workflow-v1.2.1.json`** into ComfyUI. Press **ND UI**. English is the default; change it in **Settings → Appearance → Interface language**.
 
 For the first run, select Generation, confirm Krea models and the Turbo adapter, disable uninstalled persistent LoRAs, and leave refinement/local processing/upscaling off until an image succeeds. Enter a prompt and press Generate, then enable other stages one at a time.
 
@@ -196,6 +206,11 @@ The workflow and original documentation are for non-commercial distribution/use,
 UI code and bundled modules retain **AGPL-3.0-only**; the QwenTTS patch retains **GPL-3.0-only**. These licenses permit commercial code use and are not overridden by workflow terms. Nodes, models and LoRAs keep their own licenses; the output exception does not override their restrictions or other people's rights. See [NOTICE.md](NOTICE.md).
 
 ## 📝 Release history
+
+### 1.2.1
+
+- Fixed the shared Krea Turbo LoRA file selector when an older workflow contains a removed stage.
+- Added a visible manual-installation alternative and updated the bundled ND UI and Help instructions.
 
 ### 1.2.0
 

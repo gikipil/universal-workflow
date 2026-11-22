@@ -73,9 +73,23 @@ export function powerLoraParams(node, touch) {
                 // One file selection, applied to each independent stage's model bundle.
                 let sharedChanged = false;
                 if (field === "lora" && index === 0 && Array.isArray(node.properties?.acf_shared_turbo_targets)) {
-                    const targets = node.properties.acf_shared_turbo_targets.map(id => node.graph?.getNodeById(id));
-                    if (targets.some(n => !n || n === node || !powerLoraParams(n, touch).some(p => p.name === "power_lora_1.lora"))) return false;
-                    for (const target of targets) sharedChanged = powerLoraParams(target, touch).find(p => p.name === "power_lora_1.lora").widget.setValue(value) || sharedChanged;
+                    // Older saved graphs may still list a removed stage. A stale
+                    // target must not lock the primary file selector. Write only
+                    // existing Power Loader rows, without recursive fan-out.
+                    const visited = new Set([node]);
+                    for (const id of node.properties.acf_shared_turbo_targets) {
+                        const target = node.graph?.getNodeById(id);
+                        if (!target || visited.has(target) || (target.comfyClass || target.type) !== POWER_CLASS) continue;
+                        visited.add(target);
+                        const targetRow = (target.widgets || []).find(isRow);
+                        if (!targetRow || targetRow.value.lora === value) continue;
+                        targetRow.loraInfo = null;
+                        targetRow.loraInfoPromise = null;
+                        if (typeof targetRow.setLora === "function") targetRow.setLora(value);
+                        else { targetRow.value.lora = value; targetRow.getLoraInfo?.(); }
+                        if (typeof touch === "function") touch(target);
+                        sharedChanged = true;
+                    }
                 }
                 if (row.value[field] === value) return sharedChanged;
 

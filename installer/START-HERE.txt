@@ -1,6 +1,7 @@
 UNIVERSAL WORKFLOW — WINDOWS SETUP / УСТАНОВКА ДЛЯ WINDOWS
 
 ENGLISH
+Manual alternative: open resources/package/README_EN.md, section Manual installation.
 1. Extract the ENTIRE ZIP. Keep the resources folder beside Install.cmd.
 2. Close ComfyUI. Double-click Install.cmd. Administrator rights are not required.
 3. Select your installed ComfyUI folder or its portable parent. Python is detected
@@ -30,6 +31,7 @@ the model license/signing in on the source website and installing it manually.
 Ordinary Save overwrites the current workflow; Save As exports a separate copy.
 
 РУССКИЙ
+Ручной способ: откройте resources/package/README.md, раздел «Ручная установка».
 1. Распакуйте ВЕСЬ ZIP. Папка resources должна остаться рядом с Install.cmd.
 2. Закройте ComfyUI. Запустите Install.cmd. Права администратора не требуются.
 3. Выберите папку установленного ComfyUI или его portable-папку. Python найдётся
