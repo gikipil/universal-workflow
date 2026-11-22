@@ -286,7 +286,7 @@ Alternative to RMBG-2.0, selectable in settings.
 
 ## 🎬 Video
 
-### SelfLift · увеличение латента
+### MiniMax H3 · увеличение латента
 
 [Source / Источник](https://huggingface.co/KENIC-1/minimax_h3_latent_upscaler_3d_fp16_V2)
 

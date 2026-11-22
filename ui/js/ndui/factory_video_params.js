@@ -11,7 +11,7 @@ export function writeVideo(node,value,touch=()=>{}){
  for(const[k,min,max,int]of[['fps',1,120,true],['steps',2,1000,true],['seconds',1,15,false],['width',32,4096,true],['height',32,4096,true],['refSteps',1,1000,true],['refTotal',1,1000,true],['transition',1,1000,true],['lowScale',.25,1,false],['extraSteps',0,32,true],['tau',0,4,false]])if(!Number.isFinite(v[k])||v[k]<min||v[k]>max||int&&!Number.isInteger(v[k]))throw Error('Проверь параметры видео.');
  if(v.width%32||v.height%32)throw Error('Размер видео должен быть кратен 32.');
  v.transition=Math.min(v.transition,v.steps+v.extraSteps-1);
- if(v.sampler!=='euler')throw Error('SelfLift использует сэмплер Euler.');
+ if(v.sampler!=='euler')throw Error('Основная генерация видео использует сэмплер Euler.');
  if(v.refSteps>v.refTotal)throw Error('Число шагов рефайнера больше общего числа шагов.');
  if(typeof v.refiner!=='boolean'||typeof v.save!=='boolean')throw Error('Проверь переключатели видео.');
  if(typeof v.upscale!=='boolean'||![0,1].includes(v.upSize)||!Number.isFinite(v.upFactor)||v.upFactor<1||v.upFactor>4||!Number.isInteger(v.upLong)||v.upLong<64||v.upLong>16384||!Number.isInteger(v.upBatch)||v.upBatch<1||v.upBatch>16381||(v.upBatch-1)%4||!Number.isInteger(v.upOverlap)||v.upOverlap<0||v.upOverlap>16||v.upOverlap>=v.upBatch)throw Error('Проверь параметры SeedVR: пакет 1, 5, 9…; перекрытие меньше пакета.');
@@ -19,10 +19,10 @@ export function writeVideo(node,value,touch=()=>{}){
  for(const[id,k,vv]of fields){const w=widget(g.getNodeById(id),k);if(!w)throw Error('Не найдена настройка видео.');const opts=typeof w.options?.values==='function'?w.options.values():w.options?.values;if(Array.isArray(opts)&&!opts.includes(vv))throw Error('Выбери допустимый сэмплер или шедулер.');}
  for(const[id,k,vv]of fields){const w=widget(g.getNodeById(id),k);w.value=vv;w.callback?.(vv);}touch(node);return true;
 }
-export function readVideoMedia(node){const slots=structuredClone(node.properties.acf_video.mediaSlots);for(const kind of Object.keys(VIDEO_LIMITS))slots[kind]||=[{id:kind+'_1',kind:videoMediaKind(kind),file:''}];return slots;}
+export function readVideoMedia(node){const slots=structuredClone(node.properties.acf_video.mediaSlots);for(const kind of Object.keys(VIDEO_LIMITS))slots[kind]||=[];return slots;}
 export function writeVideoMedia(node,value,touch=()=>{}){
  const v=typeof value==='string'?JSON.parse(value):value,s=node.properties.acf_video,seen=new Set(),next={};
- for(const[k,max]of Object.entries(VIDEO_LIMITS)){if(!Array.isArray(v[k])||v[k].length<1||v[k].length>max)throw Error('Допустимо: первый и последний кадр, 9 фото, 3 видео и 3 аудио.');next[k]=v[k].map(item=>{if(typeof item.id!=='string'||!item.id||seen.has(item.id)||item.kind!==videoMediaKind(k)||typeof item.file!=='string'||item.file.length>4096)throw Error('Неверный слот референса.');seen.add(item.id);return{...item,enabled:true,...(k==='video'?{audio_mode:'paired'}:{})};});}
+ for(const[k,max]of Object.entries(VIDEO_LIMITS)){if(!Array.isArray(v[k])||v[k].length>max)throw Error('Допустимо: первый и последний кадр, 9 фото, 3 видео и 3 аудио.');next[k]=v[k].map(item=>{if(typeof item.id!=='string'||!item.id||seen.has(item.id)||item.kind!==videoMediaKind(k)||typeof item.file!=='string'||item.file.length>4096)throw Error('Неверный слот референса.');seen.add(item.id);return{...item,enabled:true,...(k==='video'?{audio_mode:'paired'}:{})};});}
  const items=['picture','video','audio'].flatMap(k=>next[k]).filter(i=>i.file.trim()),w=widget(node,'media_state');if(!w)throw Error('Не найден загрузчик референсов MiniMax.');w.value=JSON.stringify(items);w.callback?.(w.value);s.mediaSlots=next;touch(node);return true;
 }
 export function videoParams(node,touch=()=>{}){if(!node?.properties?.acf_video)return[];if(!node.properties.acf_video.sigmaRefiner)return legacyVideoParams(node,touch);const s=node.properties.acf_video,g=node.graph;function parameter(name,type,get,set,options={}){const w={name,node,type:'text',options,get value(){return get();},setValue(v){return set(v);}};return{name,label:name,ptype:type,widget:w,node,virtual:true,...(type==='BOOLEAN'?{modeControl:true}:{})};}return[

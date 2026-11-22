@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: AGPL-3.0-only
-// Universal Workflow model download catalog, gikipil, 2026-11-20.
+// Universal Workflow model download catalog, gikipil, 2026-11-22.
 export const MODEL_DOWNLOADS=[
   {
     "id": "krea",
@@ -20,7 +20,9 @@ export const MODEL_DOWNLOADS=[
             "url": "https://huggingface.co/Comfy-Org/Krea-2/resolve/main/diffusion_models/krea2_raw_fp8_scaled.safetensors?download=true",
             "path": "models/diffusion_models/Krea2/krea2_raw_fp8_scaled.safetensors"
           }
-        ]
+        ],
+        "label_en": "Krea Raw · FP8",
+        "note_en": ""
       },
       {
         "label": "Текстовый энкодер Krea",
@@ -37,7 +39,9 @@ export const MODEL_DOWNLOADS=[
             "url": "https://huggingface.co/Comfy-Org/Krea-2/resolve/main/text_encoders/qwen3vl_4b_fp8_scaled.safetensors?download=true",
             "path": "models/text_encoders/Krea2/qwen3vl_4b_fp8_scaled.safetensors"
           }
-        ]
+        ],
+        "label_en": "Krea text encoder",
+        "note_en": ""
       },
       {
         "label": "VAE Krea / Qwen Edit 2511",
@@ -54,7 +58,9 @@ export const MODEL_DOWNLOADS=[
             "url": "https://huggingface.co/Comfy-Org/Krea-2/resolve/main/vae/qwen_image_vae.safetensors?download=true",
             "path": "models/vae/Krea2/qwen_image_vae.safetensors"
           }
-        ]
+        ],
+        "label_en": "VAE Krea / Qwen Edit 2511",
+        "note_en": ""
       },
       {
         "label": "Общий Turbo-адаптер",
@@ -71,7 +77,9 @@ export const MODEL_DOWNLOADS=[
             "url": "https://huggingface.co/Comfy-Org/Krea-2/resolve/main/loras/krea2_turbo_lora_rank_64_bf16.safetensors?download=true",
             "path": "models/loras/Krea2/krea2_turbo_lora_rank_64_bf16.safetensors"
           }
-        ]
+        ],
+        "label_en": "shared Turbo adapter",
+        "note_en": ""
       },
       {
         "label": "Krea Turbo · дорисовка",
@@ -88,7 +96,9 @@ export const MODEL_DOWNLOADS=[
             "url": "https://huggingface.co/Comfy-Org/Krea-2/resolve/main/diffusion_models/krea2_turbo_mxfp8.safetensors?download=true",
             "path": "models/diffusion_models/Krea2/krea2_turbo_mxfp8.safetensors"
           }
-        ]
+        ],
+        "label_en": "Krea Turbo · outpainting",
+        "note_en": ""
       },
       {
         "label": "krea2_general_edit_v2.safetensors",
@@ -105,7 +115,9 @@ export const MODEL_DOWNLOADS=[
             "url": "https://huggingface.co/conradlocke/krea2-identity-edit/resolve/main/krea2_general_edit_v2.safetensors?download=true",
             "path": "models/loras/Krea2/krea2_general_edit_v2.safetensors"
           }
-        ]
+        ],
+        "label_en": "krea2_general_edit_v2.safetensors",
+        "note_en": ""
       },
       {
         "label": "krea2_identity_edit_v2.safetensors",
@@ -122,7 +134,9 @@ export const MODEL_DOWNLOADS=[
             "url": "https://huggingface.co/conradlocke/krea2-identity-edit/resolve/main/krea2_identity_edit_v2.safetensors?download=true",
             "path": "models/loras/Krea2/krea2_identity_edit_v2.safetensors"
           }
-        ]
+        ],
+        "label_en": "krea2_identity_edit_v2.safetensors",
+        "note_en": ""
       },
       {
         "label": "SNOFS Krea v1.6",
@@ -137,9 +151,12 @@ export const MODEL_DOWNLOADS=[
             "url": "https://civitai.com/api/download/models/3446779?fileId=3345891",
             "path": "models/loras/Krea2/snofs_krea_v1_6.safetensors"
           }
-        ]
+        ],
+        "label_en": "SNOFS Krea v1.6",
+        "note_en": "Optional persistent LoRA. Civitai may require sign-in."
       }
-    ]
+    ],
+    "label_en": "💠 Krea 2"
   },
   {
     "id": "zimage",
@@ -160,7 +177,9 @@ export const MODEL_DOWNLOADS=[
             "url": "https://huggingface.co/publikey/cyberrealistic-z-image-turbo/resolve/main/cyberrealisticZImage_v50.safetensors?download=true",
             "path": "models/diffusion_models/Zimage/cyberrealisticZImage_v50.safetensors"
           }
-        ]
+        ],
+        "label_en": "CyberRealistic Z-Image v5 · current model",
+        "note_en": "Mirror of the CyberRealistic Z-Image v5 file."
       },
       {
         "label": "Z-Image Turbo · базовая альтернатива",
@@ -175,7 +194,9 @@ export const MODEL_DOWNLOADS=[
             "url": "https://huggingface.co/Comfy-Org/z_image_turbo/resolve/main/split_files/diffusion_models/z_image_turbo_bf16.safetensors?download=true",
             "path": "models/diffusion_models/Zimage/z_image_turbo_bf16.safetensors"
           }
-        ]
+        ],
+        "label_en": "Z-Image Turbo · base alternative",
+        "note_en": "Alternative to CyberRealistic. Select one compatible Turbo model."
       },
       {
         "label": "Текстовый энкодер Z-Image",
@@ -192,7 +213,9 @@ export const MODEL_DOWNLOADS=[
             "url": "https://huggingface.co/Comfy-Org/z_image_turbo/resolve/main/split_files/text_encoders/qwen_3_4b.safetensors?download=true",
             "path": "models/text_encoders/ZImage/qwen_3_4b.safetensors"
           }
-        ]
+        ],
+        "label_en": "Z-Image text encoder",
+        "note_en": "Previously renamed to zImageTurbo_turbo_txt.safetensors. Select the new file in settings."
       },
       {
         "label": "VAE Z-Image",
@@ -209,9 +232,12 @@ export const MODEL_DOWNLOADS=[
             "url": "https://huggingface.co/Comfy-Org/z_image_turbo/resolve/main/split_files/vae/ae.safetensors?download=true",
             "path": "models/vae/ZImage/ae.safetensors"
           }
-        ]
+        ],
+        "label_en": "VAE Z-Image",
+        "note_en": "Previously renamed to ae_zimgturbo.safetensors."
       }
-    ]
+    ],
+    "label_en": "⚡ Z-Image"
   },
   {
     "id": "editing",
@@ -232,7 +258,9 @@ export const MODEL_DOWNLOADS=[
             "url": "https://huggingface.co/Comfy-Org/Qwen-Image-Edit/resolve/main/split_files/diffusion_models/qwen_image_edit_2511_fp8mixed.safetensors?download=true",
             "path": "models/diffusion_models/Qwen/qwen_image_edit_2511_fp8mixed.safetensors"
           }
-        ]
+        ],
+        "label_en": "Qwen Edit 2511 · FP8 Mixed",
+        "note_en": ""
       },
       {
         "label": "Текстовый энкодер Qwen Edit 2511",
@@ -249,7 +277,9 @@ export const MODEL_DOWNLOADS=[
             "url": "https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/resolve/main/split_files/text_encoders/qwen_2.5_vl_7b_fp8_scaled.safetensors?download=true",
             "path": "models/text_encoders/Qwen/qwen_2.5_vl_7b_fp8_scaled.safetensors"
           }
-        ]
+        ],
+        "label_en": "Qwen Edit 2511 text encoder",
+        "note_en": ""
       },
       {
         "label": "VAE Qwen Edit 2511",
@@ -266,7 +296,9 @@ export const MODEL_DOWNLOADS=[
             "url": "https://huggingface.co/Comfy-Org/Krea-2/resolve/main/vae/qwen_image_vae.safetensors?download=true",
             "path": "models/vae/Krea2/qwen_image_vae.safetensors"
           }
-        ]
+        ],
+        "label_en": "VAE Qwen Edit 2511",
+        "note_en": "Select the existing Krea VAE; there is no need to download it again."
       },
       {
         "label": "Qwen 2.1 · INT8",
@@ -283,7 +315,9 @@ export const MODEL_DOWNLOADS=[
             "url": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/main/diffusion_models/qwen_image_2.1_int8_convrot.safetensors?download=true",
             "path": "models/diffusion_models/Qwen2.1/qwen_image_2.1_int8_convrot.safetensors"
           }
-        ]
+        ],
+        "label_en": "Qwen 2.1 · INT8",
+        "note_en": ""
       },
       {
         "label": "Текстовый энкодер Qwen 2.1",
@@ -300,7 +334,9 @@ export const MODEL_DOWNLOADS=[
             "url": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/main/text_encoders/qwen3vl_8b_int8_convrot.safetensors?download=true",
             "path": "models/text_encoders/Qwen2.1/qwen3vl_8b_int8_convrot.safetensors"
           }
-        ]
+        ],
+        "label_en": "Qwen 2.1 text encoder",
+        "note_en": ""
       },
       {
         "label": "VAE Qwen 2.1",
@@ -317,7 +353,9 @@ export const MODEL_DOWNLOADS=[
             "url": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/main/vae/qwen_image_2.1_vae_bf16.safetensors?download=true",
             "path": "models/vae/Qwen2.1/qwen_image_2.1_vae_bf16.safetensors"
           }
-        ]
+        ],
+        "label_en": "VAE Qwen 2.1",
+        "note_en": ""
       },
       {
         "label": "Qwen 2.1 Turbo · альтернатива",
@@ -332,9 +370,12 @@ export const MODEL_DOWNLOADS=[
             "url": "https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/main/diffusion_models/qwen_image_2.1_turbo_int8_convrot.safetensors?download=true",
             "path": "models/diffusion_models/Qwen2.1/qwen_image_2.1_turbo_int8_convrot.safetensors"
           }
-        ]
+        ],
+        "label_en": "Qwen 2.1 Turbo · alternative",
+        "note_en": "Uses the same Qwen 2.1 encoder and VAE."
       }
-    ]
+    ],
+    "label_en": "✏️ Editing & outpainting"
   },
   {
     "id": "pose",
@@ -354,7 +395,9 @@ export const MODEL_DOWNLOADS=[
             "url": "https://huggingface.co/Comfy-Org/sam3.1/resolve/main/checkpoints/sam3.1_multiplex_fp16.safetensors?download=true",
             "path": "models/checkpoints/sam3.1_multiplex_fp16.safetensors"
           }
-        ]
+        ],
+        "label_en": "SAM 3.1",
+        "note_en": ""
       },
       {
         "label": "face_yolov8m.pt",
@@ -371,7 +414,9 @@ export const MODEL_DOWNLOADS=[
             "url": "https://huggingface.co/Bingsu/adetailer/resolve/main/face_yolov8m.pt?download=true",
             "path": "models/ultralytics/bbox/face_yolov8m.pt"
           }
-        ]
+        ],
+        "label_en": "face_yolov8m.pt",
+        "note_en": ""
       },
       {
         "label": "hand_yolov8s.pt",
@@ -388,7 +433,9 @@ export const MODEL_DOWNLOADS=[
             "url": "https://huggingface.co/Bingsu/adetailer/resolve/main/hand_yolov8s.pt?download=true",
             "path": "models/ultralytics/bbox/hand_yolov8s.pt"
           }
-        ]
+        ],
+        "label_en": "hand_yolov8s.pt",
+        "note_en": ""
       },
       {
         "label": "OpenPose · адаптер Krea",
@@ -405,7 +452,9 @@ export const MODEL_DOWNLOADS=[
             "url": "https://huggingface.co/thedeoxen/Krea-2-pose-controlnet/resolve/main/krea2_turbo_openpose_controlnet.safetensors?download=true",
             "path": "models/loras/Krea2/krea2_turbo_openpose_controlnet.safetensors"
           }
-        ]
+        ],
+        "label_en": "OpenPose · Krea adapter",
+        "note_en": ""
       },
       {
         "label": "yolox_l.onnx",
@@ -422,7 +471,9 @@ export const MODEL_DOWNLOADS=[
             "url": "https://huggingface.co/yzd-v/DWPose/resolve/main/yolox_l.onnx?download=true",
             "path": "custom_nodes/comfyui_controlnet_aux/ckpts/yzd-v/DWPose/yolox_l.onnx"
           }
-        ]
+        ],
+        "label_en": "yolox_l.onnx",
+        "note_en": "Default ControlNet Aux path. The node can also download the detectors automatically."
       },
       {
         "label": "dw-ll_ucoco_384.onnx",
@@ -439,9 +490,12 @@ export const MODEL_DOWNLOADS=[
             "url": "https://huggingface.co/yzd-v/DWPose/resolve/main/dw-ll_ucoco_384.onnx?download=true",
             "path": "custom_nodes/comfyui_controlnet_aux/ckpts/yzd-v/DWPose/dw-ll_ucoco_384.onnx"
           }
-        ]
+        ],
+        "label_en": "dw-ll_ucoco_384.onnx",
+        "note_en": "Default ControlNet Aux path. The node can also download the detectors automatically."
       }
-    ]
+    ],
+    "label_en": "🎯 Face, hands & pose"
   },
   {
     "id": "upscale",
@@ -463,7 +517,9 @@ export const MODEL_DOWNLOADS=[
             "url": "https://huggingface.co/uwg/upscaler/resolve/main/ESRGAN/4x_NMKD-Siax_200k.pth?download=true",
             "path": "models/upscale_models/4x_NMKD-Siax_200k.pth"
           }
-        ]
+        ],
+        "label_en": "Simple / Ultimate · NMKD Siax",
+        "note_en": "One file works for both modes; each mode can select it independently in settings."
       },
       {
         "label": "SeedVR2 · DiT 7B Q4",
@@ -480,7 +536,9 @@ export const MODEL_DOWNLOADS=[
             "url": "https://huggingface.co/AInVFX/SeedVR2_comfyUI/resolve/main/seedvr2_ema_7b-Q4_K_M.gguf?download=true",
             "path": "models/SEEDVR2/seedvr2_ema_7b-Q4_K_M.gguf"
           }
-        ]
+        ],
+        "label_en": "SeedVR2 · DiT 7B Q4",
+        "note_en": ""
       },
       {
         "label": "SeedVR2 · VAE",
@@ -497,9 +555,12 @@ export const MODEL_DOWNLOADS=[
             "url": "https://huggingface.co/numz/SeedVR2_comfyUI/resolve/main/ema_vae_fp16.safetensors?download=true",
             "path": "models/SEEDVR2/ema_vae_fp16.safetensors"
           }
-        ]
+        ],
+        "label_en": "SeedVR2 · VAE",
+        "note_en": ""
       }
-    ]
+    ],
+    "label_en": "🔍 Upscale"
   },
   {
     "id": "background",
@@ -534,7 +595,9 @@ export const MODEL_DOWNLOADS=[
             "url": "https://huggingface.co/1038lab/RMBG-2.0/resolve/main/model.safetensors?download=true",
             "path": "models/RMBG/RMBG-2.0/model.safetensors"
           }
-        ]
+        ],
+        "label_en": "RMBG-2.0 · full bundle",
+        "note_en": ""
       },
       {
         "label": "BEN2 · альтернативный комплект",
@@ -553,17 +616,20 @@ export const MODEL_DOWNLOADS=[
             "url": "https://huggingface.co/1038lab/BEN2/resolve/main/BEN2_Base.pth?download=true",
             "path": "models/RMBG/BEN2/BEN2_Base.pth"
           }
-        ]
+        ],
+        "label_en": "BEN2 · alternative bundle",
+        "note_en": "Alternative to RMBG-2.0, selectable in settings."
       }
-    ]
+    ],
+    "label_en": "🧽 Background removal"
   },
   {
     "id": "video",
     "label": "🎬 Видео",
     "models": [
       {
-        "label": "SelfLift · увеличение латента",
-        "label_en": "SelfLift · latent upscaler",
+        "label": "MiniMax H3 · увеличение латента",
+        "label_en": "MiniMax H3 · latent upscaler",
         "folder": "models/latent_upscale_models/",
         "note": "",
         "slots": [
@@ -740,7 +806,9 @@ export const MODEL_DOWNLOADS=[
             "url": "https://huggingface.co/bosonai/higgs-audio-v3-tts-4b/resolve/main/tokenizer_config.json?download=true",
             "path": "models/higgsv3tts/higgs-audio-v3-tts-4b/tokenizer_config.json"
           }
-        ]
+        ],
+        "label_en": "Higgs v3 · full bundle",
+        "note_en": ""
       },
       {
         "label": "Whisper Large v3 · расшифровка",
@@ -806,7 +874,9 @@ export const MODEL_DOWNLOADS=[
             "url": "https://huggingface.co/openai/whisper-large-v3/resolve/main/vocab.json?download=true",
             "path": "models/audio_encoders/openai_whisper-large-v3/vocab.json"
           }
-        ]
+        ],
+        "label_en": "Whisper Large v3 · transcription",
+        "note_en": "Needed for automatic reference transcription; not used with manual text."
       },
       {
         "label": "Qwen3-TTS VoiceDesign · полный комплект",
@@ -870,7 +940,9 @@ export const MODEL_DOWNLOADS=[
             "url": "https://huggingface.co/Qwen/Qwen3-TTS-12Hz-1.7B-VoiceDesign/resolve/main/vocab.json?download=true",
             "path": "models/TTS/Qwen3-TTS/Qwen3-TTS-12Hz-1.7B-VoiceDesign/vocab.json"
           }
-        ]
+        ],
+        "label_en": "Qwen3-TTS VoiceDesign · full bundle",
+        "note_en": "Keep the nested speech_tokenizer folder. The node uses this fixed bundle."
       },
       {
         "label": "ACE-Step 1.5 XL SFT",
@@ -887,7 +959,9 @@ export const MODEL_DOWNLOADS=[
             "url": "https://huggingface.co/Comfy-Org/ace_step_1.5_ComfyUI_files/resolve/main/split_files/diffusion_models/acestep_v1.5_xl_sft_bf16.safetensors?download=true",
             "path": "models/diffusion_models/ACE/acestep_v1.5_xl_sft_bf16.safetensors"
           }
-        ]
+        ],
+        "label_en": "ACE-Step 1.5 XL SFT",
+        "note_en": ""
       },
       {
         "label": "ACE · энкодер 0.6B",
@@ -904,7 +978,9 @@ export const MODEL_DOWNLOADS=[
             "url": "https://huggingface.co/Comfy-Org/ace_step_1.5_ComfyUI_files/resolve/main/split_files/text_encoders/qwen_0.6b_ace15.safetensors?download=true",
             "path": "models/text_encoders/Ace/qwen_0.6b_ace15.safetensors"
           }
-        ]
+        ],
+        "label_en": "ACE · 0.6B encoder",
+        "note_en": ""
       },
       {
         "label": "ACE · энкодер 4B",
@@ -921,7 +997,9 @@ export const MODEL_DOWNLOADS=[
             "url": "https://huggingface.co/Comfy-Org/ace_step_1.5_ComfyUI_files/resolve/main/split_files/text_encoders/qwen_4b_ace15.safetensors?download=true",
             "path": "models/text_encoders/Ace/qwen_4b_ace15.safetensors"
           }
-        ]
+        ],
+        "label_en": "ACE · 4B encoder",
+        "note_en": ""
       },
       {
         "label": "ACE · Audio VAE",
@@ -938,9 +1016,12 @@ export const MODEL_DOWNLOADS=[
             "url": "https://huggingface.co/Comfy-Org/ace_step_1.5_ComfyUI_files/resolve/main/split_files/vae/ace_1.5_vae.safetensors?download=true",
             "path": "models/vae/ACE/ace_1.5_vae.safetensors"
           }
-        ]
+        ],
+        "label_en": "ACE · Audio VAE",
+        "note_en": ""
       }
-    ]
+    ],
+    "label_en": "🔊 Audio"
   },
   {
     "id": "caption",
@@ -1020,7 +1101,9 @@ export const MODEL_DOWNLOADS=[
             "url": "https://huggingface.co/MiaoshouAI/Florence-2-large-PromptGen-v2.0/resolve/main/vocab.json?download=true",
             "path": "models/LLM/Florence-2-large-PromptGen-v2.0/vocab.json"
           }
-        ]
+        ],
+        "label_en": "Florence 2 PromptGen v2.0 · full bundle",
+        "note_en": "Download all listed files into one folder. The node also supports automatic downloads."
       },
       {
         "label": "Qwen3-VL 4B Instruct · полный комплект",
@@ -1091,7 +1174,9 @@ export const MODEL_DOWNLOADS=[
             "url": "https://huggingface.co/Qwen/Qwen3-VL-4B-Instruct/resolve/main/vocab.json?download=true",
             "path": "models/LLM/Qwen/Qwen3-VL-4B-Instruct/vocab.json"
           }
-        ]
+        ],
+        "label_en": "Qwen3-VL 4B Instruct · full bundle",
+        "note_en": "Download all listed files into one folder. The node also supports automatic downloads."
       },
       {
         "label": "JoyCaption Beta One · полный комплект",
@@ -1177,8 +1262,11 @@ export const MODEL_DOWNLOADS=[
             "url": "https://huggingface.co/fancyfeast/llama-joycaption-beta-one-hf-llava/resolve/main/tokenizer_config.json?download=true",
             "path": "models/LLM/JoyCaption/llama-joycaption-beta-one-hf-llava/tokenizer_config.json"
           }
-        ]
+        ],
+        "label_en": "JoyCaption Beta One · full bundle",
+        "note_en": "Download all listed files into one folder. The node also supports automatic downloads."
       }
-    ]
+    ],
+    "label_en": "📝 Prompts"
   }
 ];

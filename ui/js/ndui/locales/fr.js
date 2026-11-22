@@ -1,6 +1,17 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 // Universal Workflow interface translation, gikipil 2026.
 export default {
+  "Создать каталоги моделей": "Créer les dossiers des modèles",
+  "Создание каталогов…": "Création des dossiers…",
+  "Каталоги моделей готовы.": "Les dossiers des modèles sont prêts.",
+  "Не удалось создать каталоги.": "Impossible de créer les dossiers.",
+  "Перезапусти ComfyUI после обновления модуля Universal Memory.": "Redémarrez ComfyUI après la mise à jour du module Universal Memory.",
+  "Скачать файлы": "Télécharger les fichiers",
+  "Основная генерация видео использует сэмплер Euler.": "La génération vidéo nécessite le sampler Euler.",
+  "Для видео нужны CUDA 13 и установленные модули генерации и обработки референсов.": "La vidéo nécessite CUDA 13 et les modules de génération et de traitement des références.",
+  "Общая модель для текста и референсов. Генерация и рефайнер используют один Turbo-адаптер. Дополнительные LoRA выбираются во вкладке видео.": "Un modèle commun pour le texte et les références. Génération et affinage utilisent un seul adaptateur Turbo. Les LoRA supplémentaires se choisissent dans l’onglet Vidéo.",
+  "Видео · генерация": "Vidéo · génération",
+
   "1 · Генерация видео": "1 · Génération vidéo",
   "2 · Рефайнер": "2 · Affinage",
   "3 · Апскейл": "3 · Agrandissement",
@@ -14,14 +25,14 @@ export default {
   "Основной проход: 6 шагов в низком разрешении и 3 в высоком по умолчанию. Звук создаётся вместе с видео.": "Passe principale par défaut : 6 étapes en basse résolution et 3 en haute résolution. Le son est généré avec la vidéo.",
   "Рефайнер выполняет последние выбранные шаги своего расписания. Больше шагов при том же расписании — сильнее перерисовка. Модель общая, LoRA рефайнера независимы.": "L’affinage exécute les dernières étapes choisies de son programme. Plus d’étapes produisent des changements plus forts. Le modèle est partagé, les LoRA sont indépendantes.",
 
-  "Генерация видео · SelfLift": "Génération vidéo · SelfLift",
+  "Генерация видео · MiniMax H3": "Génération vidéo · MiniMax H3",
   "Переход в высокое разрешение, шаг": "Étape de passage en haute résolution",
   "Дополнительные финальные шаги": "Étapes finales supplémentaires",
   "Масштаб первого этапа": "Échelle de la première étape",
   "Sol-Attention · порог": "Sol-Attention · seuil",
   "MiniMax H3 · универсальная модель": "MiniMax H3 · modèle hybride",
-  "SelfLift · увеличение латента": "SelfLift · agrandissement latent",
-  "SelfLift использует сэмплер Euler.": "SelfLift nécessite le sampler Euler.",
+  "MiniMax H3 · увеличение латента": "MiniMax H3 · agrandissement latent",
+  "MiniMax H3 использует сэмплер Euler.": "MiniMax H3 nécessite le sampler Euler.",
 
   "полный комплект": "Pack complet",
   "альтернативный комплект": "Pack alternatif",

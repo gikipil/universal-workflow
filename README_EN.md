@@ -2,11 +2,11 @@
 
 [Русский](README.md) · **English**
 
-**Version 1.1.1 · ComfyUI · English interface by default**
+**Version 1.1.2 · ComfyUI · English interface by default**
 
 One interface for image generation, refinement, editing, outpainting, background removal, upscaling, image captions, video and audio. Common settings are on the left, results and comparisons on the right. Less frequent settings open from gear buttons.
 
-**Download:** [1.1.1 release](https://github.com/gikipil/universal-workflow/releases/tag/v1.1.1) · [complete ZIP](https://github.com/gikipil/universal-workflow/releases/download/v1.1.1/Universal-Workflow-v1.1.1.zip) · [workflow JSON](Universal-Workflow-v1.1.1.json).
+**Download:** [1.1.2 release](https://github.com/gikipil/universal-workflow/releases/tag/v1.1.2) · [complete ZIP](https://github.com/gikipil/universal-workflow/releases/download/v1.1.2/Universal-Workflow-v1.1.2.zip) · [workflow JSON](Universal-Workflow-v1.1.2.json).
 
 **All versions:** [version history and tagged downloads](https://github.com/gikipil/universal-workflow/tags). The main branch contains the current version; previous versions remain available in the same repository.
 
@@ -24,7 +24,7 @@ The JSON alone is not enough: install the UI files and bundled nodes below. Mode
 | 🧽 Background removal | Transparent PNG, comparison and mask preview. |
 | 📈 Upscaling | Simple, Ultimate or SeedVR, as a final module or a standalone tab. Ready-made photos can also use refinement and local treatments. |
 | 📝 Prompts | Local Florence, Qwen and JoyCaption descriptions for one image or a folder; editable captions and matching `.txt` files. |
-| 🎬 Video | MiniMax H3 Hybrid with SelfLift and native Sol-Attention; first/last frames, 9 image, 3 video and 3 audio references; optional refinement and SeedVR. |
+| 🎬 Video | MiniMax H3 Hybrid with two-resolution generation and native Sol-Attention; first/last frames, 9 image, 3 video and 3 audio references; optional refinement and SeedVR. |
 | 🔊 Audio | Higgs v3 speech/voice references, Qwen3-TTS voice design from text, ACE-Step songs and instrumental music. |
 | 🎨 Interface | Eight color profiles, typography and layout controls. Russian, English, Simplified Chinese, Spanish, French and Japanese. |
 
@@ -105,7 +105,7 @@ The PNG is a blank mask, not a reference photograph. Memory is used by task laun
 
 **Qwen3-TTS:** the working setup uses Transformers 5.5.0 and three compatibility fixes. [compat/README.md](compat/README.md) gives the exact upstream revision and patch commands. Apply only to that revision with ComfyUI stopped; do not upgrade all existing dependencies just to apply it.
 
-**MiniMax SelfLift:** requires PyTorch **CUDA 13** with a compatible NVIDIA driver/GPU. Verified setup: Python 3.12, PyTorch 2.10.0+cu130, ComfyUI 0.37.0. Install [selflift-Avatar](https://github.com/slmonker/selflift-Avatar) and [MiniMax H3 audio T8](https://github.com/T8mars/comfyui-minimax-h3-audio-T8), including its `tools` folder, then restart ComfyUI. Native Model Sparse Attention (sol-attn) and compiled comfy-kitchen CUDA kernels must be available. Get PyTorch from its [official installation page](https://pytorch.org/get-started/locally/). Do not add TST or another attention override to the video chain: it disables streaming.
+**MiniMax H3:** requires PyTorch **CUDA 13** with a compatible NVIDIA driver/GPU. Verified setup: Python 3.12, PyTorch 2.10.0+cu130, ComfyUI 0.37.0. Install [selflift-Avatar](https://github.com/slmonker/selflift-Avatar) and [MiniMax H3 audio T8](https://github.com/T8mars/comfyui-minimax-h3-audio-T8), including its `tools` folder, then restart ComfyUI. Native Model Sparse Attention (sol-attn) and compiled comfy-kitchen CUDA kernels must be available. Get PyTorch from its [official installation page](https://pytorch.org/get-started/locally/). Do not add TST or another attention override to the video chain: it disables streaming.
 
 ### 6. Download models and assign their files
 
@@ -126,9 +126,12 @@ SNOFS is a preconfigured optional persistent LoRA. Disable its slot in Settings 
 
 Select your actual local files in Settings. Saved Z-Image encoder/VAE aliases may differ from download names; select the downloaded files rather than guessing a rename. The **missing** badge identifies required files for the selected mode, with a list on hover. It does not validate all third-party libraries or optional LoRAs.
 
+
+In **Settings → Models → Help**, every model has a download button. Multi-file model lists are expanded by default. **Create model folders** prepares all listed destinations on the ComfyUI server; existing files are preserved and model weights are not downloaded. Restart ComfyUI after updating the bundled Universal Memory module.
+
 ### 7. Open the workflow
 
-Restart ComfyUI, hard-refresh with **Ctrl+F5**, and drag **`Universal-Workflow-v1.1.1.json`** into ComfyUI. Press **ND UI**. English is the default; change it in **Settings → Appearance → Interface language**.
+Restart ComfyUI, hard-refresh with **Ctrl+F5**, and drag **`Universal-Workflow-v1.1.2.json`** into ComfyUI. Press **ND UI**. English is the default; change it in **Settings → Appearance → Interface language**.
 
 For the first run, select Generation, confirm Krea models and the Turbo adapter, disable uninstalled persistent LoRAs, and leave refinement/local processing/upscaling off until an image succeeds. Enter a prompt and press Generate, then enable other stages one at a time.
 
@@ -143,7 +146,7 @@ For the first run, select Generation, confirm Krea models and the Turbo adapter,
 - **Outpainting:** select input, method, processing size and final size or extra pixels. The prompt describes continuation. The original area is preserved with a softened border transition; coherent geometry remains model-dependent.
 - **Upscaling:** Simple enlarges with an upscale model; Ultimate also regenerates tiles using shared Krea; SeedVR restores/enlarges. Simple and Ultimate file choices are independent; SeedVR choices are shared across tabs. Standalone Upscaling can run refinement/local treatment first.
 - **Prompts:** choose one image or a folder on the ComfyUI PC, engine and instruction. Folder processing is nonrecursive. Captions save beside images with matching names; for uploaded single images, beside their input copies. Existing captions can be skipped; trigger word is optional.
-- **Video:** one Hybrid model handles text, first/last frames and references automatically. First/last frames have separate optional slots; `+` adds up to 9 image, 3 video and 3 audio references. Empty slots are ignored. SelfLift starts at lower resolution and completes denoising at the target size. Defaults: 6 low-resolution + 3 high-resolution evaluations (8 base steps + 1 final step); Euler is required. Optional refinement uses the same model, independent user LoRAs, and keeps main-pass audio. Refinement and SeedVR default off. Select the Hybrid model, shared Turbo V4 LoRA and latent upscaler in Settings → Video. Start short and small.
+- **Video:** one Hybrid model handles text, first/last frames and references automatically. Reference fields are hidden until added with `+`; separate first/last slots and lists support up to 9 image, 3 video and 3 audio references. Empty slots are ignored. Video generation starts at lower resolution and completes denoising at the target size. Defaults: 6 low-resolution + 3 high-resolution evaluations (8 base steps + 1 final step); Euler is required. Optional refinement uses the same model, independent user LoRAs, and keeps main-pass audio. Refinement and SeedVR default off. Select the Hybrid model, shared Turbo V4 LoRA and latent upscaler in Settings → Video. Start short and small.
 - **Audio:** choose speech, voice reference/dialogue, voice design or songs. VoiceDesign reads the bottom text with the described voice. ACE-Step uses style and bottom lyrics; leave lyrics empty and include `instrumental` in style for instrumental music. Dialogue uses `[Speaker_1]:` / `[Speaker_2]:`.
 
 Saving is separate and defaults off. Image exports omit the full workflow graph. Transfer `input/universal-masks/` and `input/universal-edit-masks/` when moving your own saved masks.
@@ -161,7 +164,7 @@ Fit shows the whole result. `− / +` zoom the preview; drag to pan. The wheel s
 | Missing model | Complete bundle from Help/MODELS, actual file selection in Settings. |
 | Missing empty mask | Included PNG copied into `ComfyUI/input/`. |
 | Qwen voice config/tokenizer error | QwenTTS revision, Transformers version and compatibility patch. |
-| MiniMax CUDA / missing nodes | Use PyTorch CUDA 13, install SelfLift and T8, select video models and restart ComfyUI. |
+| MiniMax CUDA / missing nodes | Use PyTorch CUDA 13, install the video sampler and T8, select video models and restart ComfyUI. |
 | Out of memory / very slow video | Reduce size, duration and stages; check free VRAM. |
 
 Installation depends on OS, GPU and external packages. Successful imports do not prove every model fits your hardware. Included processing paths need no API keys or paid cloud accounts; some model downloads may require host sign-in.
@@ -174,6 +177,12 @@ UI code and bundled modules retain **AGPL-3.0-only**; the QwenTTS patch retains 
 
 ## 📝 Release history
 
+### 1.1.2
+
+- Video LoRA lists sit below their own stages; generation has six configurable LoRA sliders. Reference slots start empty and can be added or removed.
+- Video size presets: 0.5, 1, 1.5, 2, 2.5 and 3 MP. Help provides a download action for every model and can create all catalog folders without downloading weights.
+- Video fields and dialogs follow the selected language, color profile and visual preferences.
+
 ### 1.1.1
 
 - Video controls are split into Generation, Refiner and Upscale cards. FPS replaces the base-step field and controls both frame count and playback.
@@ -181,10 +190,10 @@ UI code and bundled modules retain **AGPL-3.0-only**; the QwenTTS patch retains 
 
 ### 1.1.0
 
-- Video now uses SelfLift + native Sol-Attention / Global Stream, keeping the existing interface.
+- Video now uses two-resolution generation + native Sol-Attention / Global Stream, keeping the existing interface.
 - One Hybrid model and shared Turbo V4 replace REF/FL; first/last-frame slots work alongside the reference lists.
 - Optional refinement uses the same Hybrid model and streaming path. Independent LoRAs and SeedVR are retained.
-- Settings include the latent upscaler and SelfLift controls. Video requires PyTorch CUDA 13.
+- Settings include the latent upscaler and video generation controls. Video requires PyTorch CUDA 13.
 
 ### 1.0.0
 

@@ -1,5 +1,5 @@
 {
-  "version": "1.1.1",
+  "version": "1.1.2",
   "path_base": "ComfyUI/",
   "groups": [
     {
@@ -629,8 +629,8 @@
       "label": "🎬 Видео",
       "models": [
         {
-          "label": "SelfLift · увеличение латента",
-          "label_en": "SelfLift · latent upscaler",
+          "label": "MiniMax H3 · увеличение латента",
+          "label_en": "MiniMax H3 · latent upscaler",
           "folder": "models/latent_upscale_models/",
           "note": "",
           "slots": [

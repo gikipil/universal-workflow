@@ -1,6 +1,17 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 // Universal Workflow English UI dictionary, gikipil 2026. Russian source keys.
 export default {
+  "Создать каталоги моделей": "Create model folders",
+  "Создание каталогов…": "Creating folders…",
+  "Каталоги моделей готовы.": "Model folders are ready.",
+  "Не удалось создать каталоги.": "Could not create folders.",
+  "Перезапусти ComfyUI после обновления модуля Universal Memory.": "Restart ComfyUI after updating the Universal Memory module.",
+  "Скачать файлы": "Download files",
+  "Основная генерация видео использует сэмплер Euler.": "Video generation requires the Euler sampler.",
+  "Для видео нужны CUDA 13 и установленные модули генерации и обработки референсов.": "Video requires CUDA 13 and the generation and reference-processing node packs.",
+  "Общая модель для текста и референсов. Генерация и рефайнер используют один Turbo-адаптер. Дополнительные LoRA выбираются во вкладке видео.": "A shared model for text and references. Generation and refinement use one Turbo adapter. Additional LoRAs are selected in the Video tab.",
+  "Видео · генерация": "Video · generation",
+
   "1 · Генерация видео": "1 · Video generation",
   "2 · Рефайнер": "2 · Refiner",
   "3 · Апскейл": "3 · Upscale",
@@ -14,14 +25,14 @@ export default {
   "Основной проход: 6 шагов в низком разрешении и 3 в высоком по умолчанию. Звук создаётся вместе с видео.": "Default main pass: 6 low-resolution and 3 high-resolution steps. Audio is generated with the video.",
   "Рефайнер выполняет последние выбранные шаги своего расписания. Больше шагов при том же расписании — сильнее перерисовка. Модель общая, LoRA рефайнера независимы.": "The refiner runs the selected final steps of its schedule. More steps within the same schedule mean stronger changes. The model is shared; refiner LoRAs are independent.",
 
-  "Генерация видео · SelfLift": "Video generation · SelfLift",
+  "Генерация видео · MiniMax H3": "Video generation · MiniMax H3",
   "Переход в высокое разрешение, шаг": "Switch to high resolution at step",
   "Дополнительные финальные шаги": "Additional final steps",
   "Масштаб первого этапа": "First-stage scale",
   "Sol-Attention · порог": "Sol-Attention · threshold",
   "MiniMax H3 · универсальная модель": "MiniMax H3 · Hybrid model",
-  "SelfLift · увеличение латента": "SelfLift · latent upscaler",
-  "SelfLift использует сэмплер Euler.": "SelfLift requires the Euler sampler.",
+  "MiniMax H3 · увеличение латента": "MiniMax H3 · latent upscaler",
+  "MiniMax H3 использует сэмплер Euler.": "MiniMax H3 requires the Euler sampler.",
 
   "полный комплект": "full bundle",
   "альтернативный комплект": "alternative bundle",

@@ -82,3 +82,46 @@ async def status(request):
 
 NODE_CLASS_MAPPINGS = {}
 NODE_DISPLAY_NAME_MAPPINGS = {}
+
+
+def create_model_directories(base_path, models_path):
+    """Create only catalog directories; preserve every existing file."""
+    from pathlib import Path, PurePosixPath
+    base, models = Path(base_path).resolve(), Path(models_path).resolve()
+    targets = []
+    for relative in MODEL_DIRECTORIES:
+        parts = PurePosixPath(relative).parts
+        if not parts or any(p in ('.', '..') for p in parts):
+            raise ValueError('Invalid catalog destination')
+        if parts[0] == 'models':
+            root, target = models, models.joinpath(*parts[1:]).resolve()
+        elif parts[:3] == ('custom_nodes', 'comfyui_controlnet_aux', 'ckpts'):
+            root, target = base, base.joinpath(*parts).resolve()
+        else:
+            raise ValueError('Unsupported catalog destination')
+        if target == root or not target.is_relative_to(root):
+            raise ValueError('Catalog destination is outside the model directories')
+        if target.exists() and not target.is_dir():
+            raise ValueError('A file occupies a model directory')
+        targets.append(target)
+    created = 0
+    for target in targets:
+        exists = target.exists()
+        target.mkdir(parents=True, exist_ok=True)
+        created += not exists
+    return {'ok': True, 'total': len(targets), 'created': created}
+
+
+@PromptServer.instance.routes.post('/universal/models/folders')
+async def model_folders(request):
+    import folder_paths
+    try:
+        return web.json_response(create_model_directories(folder_paths.base_path,
+                                                         folder_paths.models_dir))
+    except (OSError, ValueError):
+        logging.exception('[Universal Workflow] Could not create model directories')
+        return web.json_response({'ok': False, 'error': 'Не удалось создать каталоги.'}, status=400)
+
+
+# Fixed destinations from the shipped model catalog; no client-provided paths.
+MODEL_DIRECTORIES = ['custom_nodes/comfyui_controlnet_aux/ckpts/yzd-v/DWPose', 'models/LLM/Florence-2-large-PromptGen-v2.0', 'models/LLM/JoyCaption/llama-joycaption-beta-one-hf-llava', 'models/LLM/Qwen/Qwen3-VL-4B-Instruct', 'models/RMBG/BEN2', 'models/RMBG/RMBG-2.0', 'models/SEEDVR2', 'models/TTS/Qwen3-TTS/Qwen3-TTS-12Hz-1.7B-VoiceDesign', 'models/TTS/Qwen3-TTS/Qwen3-TTS-12Hz-1.7B-VoiceDesign/speech_tokenizer', 'models/audio_encoders/openai_whisper-large-v3', 'models/checkpoints', 'models/diffusion_models/ACE', 'models/diffusion_models/Krea2', 'models/diffusion_models/MiniMax', 'models/diffusion_models/Qwen', 'models/diffusion_models/Qwen2.1', 'models/diffusion_models/Zimage', 'models/higgsv3tts/higgs-audio-v3-tts-4b', 'models/latent_upscale_models', 'models/loras/Krea2', 'models/loras/MiniMax', 'models/text_encoders/Ace', 'models/text_encoders/Krea2', 'models/text_encoders/MiniMax', 'models/text_encoders/Qwen', 'models/text_encoders/Qwen2.1', 'models/text_encoders/ZImage', 'models/ultralytics/bbox', 'models/upscale_models', 'models/vae/ACE', 'models/vae/Krea2', 'models/vae/MiniMax', 'models/vae/Qwen2.1', 'models/vae/ZImage']

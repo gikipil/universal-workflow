@@ -5,6 +5,7 @@ import {localizeInterface} from '../factory_locale.js';
 // Based on ND UI Builder by Ivan Ovchinnikov (Neural Dreamer).
 import {el,closePopup} from './util.js';
 import {applyVars} from '../kit.js';
+import {APPEARANCE_CONTROL_CSS} from '../factory_appearance.js';
 const stack=[];
 export function gearIcon() {
     const gear=el('span');gear.style.display='inline-flex';
@@ -19,6 +20,7 @@ export function factoryDialog(ctx,{title,width=1060,onClose=()=>{}}) {
     x.type='button';x.setAttribute('aria-label','Закрыть окно');Object.assign(x.style,{width:'36px',height:'36px',border:'1px solid #715166',borderRadius:'10px',background:'#302332',color:'#f5c4d2',fontSize:'24px',cursor:'pointer'});
     Object.assign(body.style,{padding:'20px',overflowY:'auto',minHeight:'0'});Object.assign(footer.style,{padding:'0 20px 20px'});
     root.setAttribute('role','dialog');root.setAttribute('aria-modal','true');root.setAttribute('aria-label',title);root.tabIndex=-1;head.append(heading,x);windowBox.append(head,body,footer);root.append(windowBox);applyVars(root,ctx.vars());
+    const visual=ctx.appearanceControls?.()||{};root.classList.toggle('acf-visual-font',!!visual.font);root.classList.toggle('acf-visual-density',!!visual.density);root.classList.toggle('acf-visual-style',!!visual.style);root.classList.toggle('acf-motion-fast',visual.animations==='fast');root.classList.toggle('acf-motion-off',visual.animations==='off');root.setAttribute('data-field-style',visual.style||'soft');windowBox.style.fontFamily='var(--ndk-font,Inter,system-ui,sans-serif)';windowBox.style.fontSize='var(--ndk-fs,14px)';const visualStyle=el('style');visualStyle.textContent=APPEARANCE_CONTROL_CSS;root.append(visualStyle);
     const palette=typeof ctx.colorProfile==='function'?themeInterface(root,()=>ctx.colorProfile()):null;
     const localization=localizeInterface(root,()=>ctx.language?.()||ctx.appearanceControls?.().language||'ru');
     const previous=document.activeElement,overflow=document.body.style.overflow;let closed=false;

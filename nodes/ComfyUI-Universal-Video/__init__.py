@@ -21,7 +21,7 @@ class UniversalVideoStreamModel:
         import nodes
         sampler = nodes.NODE_CLASS_MAPPINGS.get("SelfLiftAvatarH3Sampler")
         if sampler is None:
-            raise RuntimeError("Install selflift-Avatar and restart ComfyUI before using video refinement.")
+            raise RuntimeError("Install the required video nodes and restart ComfyUI before using video refinement.")
         package = sampler.__module__.rsplit(".", 1)[0]
         streaming = importlib.import_module(package + ".h3_global_tiling")
         return (streaming.tiled_model(model, chunk_size=token_chunk, use_stream=True,

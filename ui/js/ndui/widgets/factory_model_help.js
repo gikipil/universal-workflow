@@ -4,6 +4,7 @@ import {el} from './util.js';
 import {factoryDialog} from './factory_dialog.js';
 import {MODEL_DOWNLOADS} from '../factory_model_catalog.js';
 import {translateInterface} from '../factory_locale.js';
+import {api} from '../../../../scripts/api.js';
 
 const CSS=`
 .acf-model-help{display:flex;flex-direction:column;gap:18px;color:var(--ndk-text)}
@@ -27,6 +28,7 @@ const CSS=`
 .acf-model-help-file{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px;align-items:center;padding:10px 0;border-top:1px solid var(--ndk-border)}
 .acf-model-help-file small{display:block;color:var(--ndk-muted);overflow-wrap:anywhere;font-size:11px;margin-top:4px}
 .acf-model-help-optional{font-size:11px;color:var(--ndk-muted);margin-left:8px;font-weight:400}
+.acf-model-help button{font:inherit;background:var(--ndk-s2);cursor:pointer}
 .acf-model-help [hidden]{display:none!important}
 @media(max-width:620px){.acf-model-help-tools{grid-template-columns:minmax(0,1fr)}.acf-model-help-file{grid-template-columns:minmax(0,1fr)}.acf-model-help-link{justify-self:start}}
 `;
@@ -40,7 +42,13 @@ export function openModelDownloads(ctx,onClose=()=>{}){
     const intro=el('p','','Скачивай только комплекты для нужных режимов. Пути указаны относительно папки ComfyUI. После загрузки выбери файлы в настройках моделей.'),tools=el('div','acf-model-help-tools'),search=el('input'),select=el('select'),list=el('div','acf-model-help-list'),empty=el('p','','Ничего не найдено');
     search.type='search';search.placeholder='Найти модель или файл…';search.setAttribute('aria-label','Поиск моделей для скачивания');select.setAttribute('aria-label','Раздел моделей');
     for(const[id,label]of [['all','Все разделы'],...MODEL_DOWNLOADS.map(g=>[g.id,g.label])]){const option=el('option','',label);option.value=id;select.append(option);}
-    tools.append(search,select);root.append(style,intro,tools,list,empty);dialog.body.append(root);
+    const folderTools=el('div','acf-model-help-heading'),createFolders=el('button','acf-model-help-link','📁 Создать каталоги моделей'),folderStatus=el('p');createFolders.type='button';folderStatus.setAttribute('role','status');
+    createFolders.addEventListener('click',async()=>{
+        createFolders.disabled=true;folderStatus.textContent=translateInterface('Создание каталогов…',ctx.language?.()||'ru');
+        try{const response=await api.fetchApi('/universal/models/folders',{method:'POST'});if(response.status===404)throw Error('Перезапусти ComfyUI после обновления модуля Universal Memory.');const result=await response.json();if(!response.ok||!result.ok)throw Error(result.error||'Не удалось создать каталоги.');folderStatus.textContent=translateInterface('Каталоги моделей готовы.',ctx.language?.()||'ru')+' '+result.total;}
+        catch(error){folderStatus.textContent=translateInterface(error.message,ctx.language?.()||'ru');}
+        finally{createFolders.disabled=false;}
+    });folderTools.append(createFolders);tools.append(search,select);root.append(style,intro,folderTools,folderStatus,tools,list,empty);dialog.body.append(root);
     const sections=[];
     for(const group of MODEL_DOWNLOADS){
         const section=el('section'),heading=el('h3','',group.label),items=[];section.append(heading);
@@ -52,6 +60,7 @@ export function openModelDownloads(ctx,onClose=()=>{}){
             if(model.note)article.append(el('p','',model.note));
             if(model.files.length>1){
                 const details=el('details'),summary=el('summary');summary.append(el('span','','Файлы комплекта'),el('small','',` (${model.files.length})`));details.append(summary);
+                details.open=true;
                 for(const file of model.files){const row=el('div','acf-model-help-file'),info=el('div'),name=el('code','',file.name),destination=el('small','',file.path);name.setAttribute('data-no-translate','');destination.setAttribute('data-no-translate','');info.append(name,destination);row.append(info,downloadLink(file));details.append(row);}
                 article.append(details);
             }else{const name=el('code','',model.files[0].name);name.setAttribute('data-no-translate','');const p=el('p');p.append(name);article.append(p);}
