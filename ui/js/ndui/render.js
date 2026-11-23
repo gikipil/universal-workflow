@@ -2,6 +2,7 @@ import {themeInterface} from './factory_palette.js';
 import {T as nativeUiText,loadLang} from './core/i18n.js';
 import {interfaceLanguage,translateInterface,localizeInterface,isUniversalInterface} from './factory_locale.js';
 import {taskPageUi,adaptTaskPageUi} from './task_page.js';
+import {fitTaskFooter,taskFooterLength} from './task_footer.js';
 // SPDX-License-Identifier: AGPL-3.0-only
 // Universal Workflow additions/modifications by gikipil, 2026-11-12.
 // Based on ND UI Builder by Ivan Ovchinnikov (Neural Dreamer).
@@ -197,6 +198,10 @@ export class PageView {
         }
 
         if(this.mode!=='edit'&&!this.scope)this.rects=appearanceColumns(this.ui,this.page,this.rects);
+        if(this.mode==='run'&&!this.scope&&isUniversalInterface(this.ui)){
+            const footerBottom=fitTaskFooter(ui,this.page,this.rects,Math.max(base.page.h,this.laidH||0));
+            if(footerBottom!==null)this.bottom=footerBottom;
+        }
         for (const [id, i] of L.info) this.scrollTops.set(id, i.top);
     }
     // the size of the page that is shown: the page, or the inside of the spoiler
@@ -205,6 +210,8 @@ export class PageView {
     // the length of the page in the modes: the window, or more when the page is set longer, or open spoilers / a low widget need it
     runLength() {
         const h = Math.max(this.layoutUi().page.h, this.laidH || 0), own = this.pageModel()?.len || 0;
+        const footerLength=taskFooterLength(this.ui,this.page,this.bottom,Math.max(h,own));
+        if(footerLength!==null)return footerLength;
         return Math.max(h, own, this.bottom > h ? Math.ceil(this.bottom + TAIL) : 0);
     }
     rectOf(w) { return this.rects.get(w.id) || { x: w.x, y: w.y, w: w.w, h: w.h, vis: true }; }

@@ -90558,7 +90558,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v1.3.0",
+            "text": "🧩 Универсальный воркфлоу · v1.3.1",
             "size": "M",
             "align": "left"
           },
@@ -92882,7 +92882,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v1.3.0",
+            "text": "🧩 Универсальный воркфлоу · v1.3.1",
             "size": "M",
             "align": "left"
           },
@@ -93771,7 +93771,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v1.3.0",
+            "text": "🧩 Универсальный воркфлоу · v1.3.1",
             "size": "M",
             "align": "left"
           },
@@ -95094,7 +95094,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v1.3.0",
+            "text": "🧩 Универсальный воркфлоу · v1.3.1",
             "size": "M",
             "align": "left"
           },
@@ -96436,7 +96436,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "↔️ Дорисовка за границами кадра · v1.3.0",
+            "text": "↔️ Дорисовка за границами кадра · v1.3.1",
             "size": "M",
             "align": "left"
           },
@@ -98367,7 +98367,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v1.3.0",
+            "text": "🧩 Универсальный воркфлоу · v1.3.1",
             "size": "M",
             "align": "left"
           },
@@ -99009,7 +99009,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v1.3.0",
+            "text": "🧩 Универсальный воркфлоу · v1.3.1",
             "size": "M",
             "align": "left"
           },
@@ -99583,7 +99583,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🎬 Видео · MiniMax H3 · v1.3.0",
+            "text": "🎬 Видео · MiniMax H3 · v1.3.1",
             "size": "M",
             "align": "left"
           },
@@ -100572,7 +100572,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🎬 Звук · Higgs v3 · v1.3.0",
+            "text": "🎬 Звук · Higgs v3 · v1.3.1",
             "size": "M",
             "align": "left"
           },
@@ -100947,7 +100947,10 @@
             "accentB": "#59e68d",
             "visualProfile": "standard",
             "canvasHeight": 820,
-            "language": "en"
+            "language": "en",
+            "footerWith": "aud_run",
+            "footerFill": "aud_prompt",
+            "footerGap": 24
           },
           "look": {
             "bg": "transparent",
