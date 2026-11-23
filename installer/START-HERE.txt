@@ -1,6 +1,8 @@
 UNIVERSAL WORKFLOW — WINDOWS SETUP / УСТАНОВКА ДЛЯ WINDOWS
 
 ENGLISH
+Setup does not downgrade installed packages. If requirements conflict with
+existing versions, checks stop before changing your environment.
 Setup follows Windows: English, Russian, French, Spanish, Simplified Chinese
 or Japanese. Other languages use English. Change it with Language before
 checking or installing. Technical logs stay in English.
@@ -34,6 +36,8 @@ the model license/signing in on the source website and installing it manually.
 Ordinary Save overwrites the current workflow; Save As exports a separate copy.
 
 РУССКИЙ
+Установщик не понижает пакеты. При конфликте с установленными версиями
+проверка останавливается до изменения окружения.
 Языки мастера: русский, английский, французский, испанский, китайский, японский.
 Выбирается язык Windows; для других языков — английский. Изменить можно
 в Language до проверки или установки. Журнал — на английском.

@@ -16,6 +16,8 @@ import time
 import urllib.request
 import zipfile
 
+from pip._vendor.packaging.version import Version, InvalidVersion
+
 PROTECTED = {'models', 'input', 'output', 'user', 'custom_nodes', '.git', '.venv', 'venv'}
 WEIGHTS = {'.safetensors', '.ckpt', '.pt', '.pth', '.gguf', '.onnx'}
 
@@ -140,6 +142,34 @@ def running(root):
     return any(re.search(r'(?:^|[\s"\\/])main\.py(?:[\s"]|$)', str(line), re.I) for line in lines or [])
 
 
+
+def video_runtime_needs_update(runtime):
+    try:
+        return runtime.get('cuda') != '13.0' or Version(runtime.get('torch', '0')) < Version('2.10.0')
+    except InvalidVersion:
+        return True
+
+
+def preservation_constraints(installed, mode):
+    lines = []
+    for name, value in sorted(installed.items()):
+        try:
+            Version(value)
+        except InvalidVersion:
+            raise ValueError('Cannot safely preserve the installed version of ' + name + ': ' + value)
+        # Images-only must not replace the user's PyTorch family at all.
+        operator = '==' if mode == 'images' and name in ('torch', 'torchvision', 'torchaudio') else '>='
+        # PEP 440 permits local CUDA suffixes in ==, but not in >=.
+        lines.append(name + operator + (value if operator == '==' else Version(value).public))
+    return '\n'.join(lines)
+
+
+def reject_downgrades(updates):
+    for item in updates:
+        if item.get('old') and Version(item['new']) < Version(item['old']):
+            raise ValueError('Setup will not downgrade ' + item['name'] + ' (' + item['old'] + ' -> ' + item['new'] + '). Resolve the conflicting dependency separately; no installation was started.')
+
+
 def audit(root, mode):
     if sys.version_info < (3, 10):
         raise ValueError('Python 3.10 or newer is required; Python 3.12 is recommended.')
@@ -174,7 +204,7 @@ def audit(root, mode):
                 raise ValueError('The accelerated video mode needs an Ampere or newer NVIDIA GPU. Select Images only on this GPU.')
     return dict(root=str(root), python=sys.executable, python_version=sys.version.split()[0], mode=mode,
                 comfy_version=version, update_comfy=update_core, runtime=runtime,
-                update_video_runtime=mode == 'all' and (runtime['cuda'] != '13.0' or not runtime['torch'].startswith('2.10.0')),
+                update_video_runtime=mode == 'all' and video_runtime_needs_update(runtime),
                 gpu=gpu.stdout.strip() if gpu and not gpu.returncode else 'not detected',
                 free_gb=round(shutil.disk_usage(root).free / 1024**3, 1), installed_packages=installed)
 
@@ -233,12 +263,14 @@ def plan(bundle, workspace, root, mode):
     text += '\naccelerate\nsentencepiece\n'
     if mode == 'all':
         # Keep the accelerated-video minimum without overriding ComfyUI's own pin.
-        text += 'transformers==5.5.0\ncomfy-kitchen>=0.2.35\n'
+        text += 'transformers>=5.5.0\ncomfy-kitchen>=0.2.35\n'
     if info['update_video_runtime']:
+        # The known CUDA13 fallback is allowed only when it is not a downgrade.
+        reject_downgrades([{'name': name, 'old': info['installed_packages'].get(name, ''), 'new': value} for name, value in [('torch', '2.10.0+cu130'), ('torchvision', '0.25.0+cu130'), ('torchaudio', '2.10.0+cu130')]])
         text += 'torch==2.10.0+cu130\ntorchvision==0.25.0+cu130\ntorchaudio==2.10.0+cu130\n'
     req.write_text(text, encoding='utf-8')
     constraint = workspace / 'constraints.txt'
-    constraint.write_text('' if info['update_video_runtime'] else '\n'.join(k + '==' + v for k, v in info['installed_packages'].items() if k in ('torch', 'torchvision', 'torchaudio')), encoding='utf-8')
+    constraint.write_text(preservation_constraints(info['installed_packages'], mode), encoding='utf-8')
     pip_args = ['-m', 'pip', 'install', '--disable-pip-version-check', '--no-user', '--prefer-binary', '-r', str(req), '-c', str(constraint)]
     if info['update_video_runtime']:
         pip_args += ['--extra-index-url', 'https://download.pytorch.org/whl/cu130']
@@ -247,9 +279,10 @@ def plan(bundle, workspace, root, mode):
     pip = command([sys.executable, *pip_args, '--dry-run', '--report', str(report_file)], check=False, stream=True)
     (workspace / 'pip-check.log').write_text(pip.stdout, encoding='utf-8')
     if pip.returncode:
-        raise RuntimeError('Python dependencies could not be resolved. No installed environment was changed. See pip-check.log.\n' + pip.stdout[-5000:])
+        raise RuntimeError('Python dependencies could not be resolved while preserving installed versions. Setup does not downgrade packages. No installed environment was changed. See pip-check.log.\n' + pip.stdout[-5000:])
     report = json.loads(report_file.read_text(encoding='utf-8'))
     updates = [{'name': e['metadata']['name'], 'old': info['installed_packages'].get(e['metadata']['name'].lower().replace('_', '-'), ''), 'new': e['metadata']['version']} for e in report.get('install', [])]
+    reject_downgrades(updates)
     approved = workspace / 'approved-constraints.txt'
     approved.write_text('\n'.join(p['name'] + '==' + p['new'] for p in updates), encoding='utf-8')
     pip_args += ['-c', str(approved)]
@@ -328,6 +361,7 @@ def apply(bundle, workspace, approved):
     for name, digest in info['artifacts'].items():
         if hashlib.sha256(Path(name).read_bytes()).hexdigest() != digest:
             raise ValueError('Installation files changed. Run the checks again.')
+    reject_downgrades(info['updates'])
     # Snapshot package versions before pip changes the selected environment.
     (workspace / 'packages-before.json').write_text(json.dumps(packages(), indent=2), encoding='utf-8')
     log('Installing the approved Python dependencies…')
