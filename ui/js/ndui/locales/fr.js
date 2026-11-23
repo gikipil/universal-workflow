@@ -1,6 +1,17 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 // Universal Workflow interface translation, gikipil 2026.
 export default {
+  "Видео · генерация MiniMax H3": "Vidéo · génération MiniMax H3",
+  "Видео · рефайнер": "Vidéo · affinage",
+  "Видео · SeedVR": "Vidéo · SeedVR",
+  "SAM · область": "SAM · zone",
+  "Папка изображений": "Dossier d’images",
+  "ACE-Step · планирование песни": "ACE-Step · préparation de la chanson",
+  "ACE-Step · генерация музыки": "ACE-Step · génération musicale",
+  "Расшифровка · голос 1": "Transcription · voix 1",
+  "Расшифровка · голос 2": "Transcription · voix 2",
+  "Будет выполнено": "Étapes prévues",
+  "Не удалось определить цепочку": "Impossible de déterminer les étapes",
   "Перетащи вкладку, чтобы изменить порядок": "Faites glisser un onglet pour changer son ordre",
   "Облегчённая версия": "Version allégée",
   "Готовая Turbo-модель без Turbo LoRA. Файл — в общих настройках Krea2.": "Modèle Turbo prêt à utiliser sans Turbo LoRA. Sélectionnez son fichier dans les paramètres généraux de Krea2.",
