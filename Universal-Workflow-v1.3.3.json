@@ -1,8 +1,8 @@
 {
   "id": "6156223e-7f85-4578-923d-9d05cf820581",
   "revision": 0,
-  "last_node_id": 1733,
-  "last_link_id": 2003,
+  "last_node_id": 1736,
+  "last_link_id": 2006,
   "nodes": [
     {
       "id": 1585,
@@ -75406,6 +75406,62 @@
       "bgcolor": "#355"
     },
     {
+      "id": 1736,
+      "type": "ComfySwitchNode",
+      "title": "Технический выбор MiniMax · INT8 / GGUF",
+      "pos": [
+        3744,
+        5750
+      ],
+      "size": [
+        300,
+        150
+      ],
+      "flags": {
+        "pinned": true,
+        "collapsed": true
+      },
+      "order": 1736,
+      "mode": 0,
+      "properties": {
+        "Node name for S&R": "ComfySwitchNode"
+      },
+      "inputs": [
+        {
+          "name": "switch",
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "switch"
+          },
+          "link": 2006
+        },
+        {
+          "name": "on_false",
+          "type": "MODEL",
+          "link": 2004
+        },
+        {
+          "name": "on_true",
+          "type": "MODEL",
+          "link": 2005
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output",
+          "type": "MODEL",
+          "links": [
+            1912
+          ]
+        }
+      ],
+      "widgets_values": [
+        false
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
       "id": 1413,
       "type": "UNETLoader",
       "title": "🧠 MiniMax H3 · Hybrid",
@@ -75452,7 +75508,7 @@
           "name": "MODEL",
           "type": "MODEL",
           "links": [
-            1912
+            2004
           ]
         }
       ],
@@ -76145,7 +76201,10 @@
             1622,
             1623,
             1624,
-            1625
+            1625,
+            1734,
+            1735,
+            1736
           ],
           "mediaSlots": {
             "first": [],
@@ -76170,7 +76229,10 @@
           "sparse": 1417,
           "refSparse": 1418,
           "refStream": 1419,
-          "sigmaRefiner": 1420
+          "sigmaRefiner": 1420,
+          "gguf": 1734,
+          "ggufToggle": 1735,
+          "modelSwitch": 1736
         },
         "nd_ui_src": {
           "uid": "src_video_media",
@@ -78119,6 +78181,100 @@
           "tag": "accelerator-enabled"
         }
       },
+      "widgets_values": [
+        false
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 1734,
+      "type": "UniversalMiniMaxGGUF",
+      "title": "🧠 MiniMax H3 · GGUF",
+      "pos": [
+        3720,
+        5500
+      ],
+      "size": [
+        360,
+        90
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 1734,
+      "mode": 0,
+      "properties": {
+        "Node name for S&R": "UniversalMiniMaxGGUF",
+        "nd_ui_src": {
+          "uid": "src_video_gguf_model",
+          "tag": "video-gguf-model"
+        }
+      },
+      "inputs": [
+        {
+          "name": "unet_name",
+          "type": "COMBO",
+          "widget": {
+            "name": "unet_name"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            2005
+          ]
+        }
+      ],
+      "widgets_values": [
+        "None"
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 1735,
+      "type": "PrimitiveBoolean",
+      "title": "⚡ Видео · облегчённая GGUF",
+      "pos": [
+        3720,
+        5600
+      ],
+      "size": [
+        360,
+        90
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 1735,
+      "mode": 0,
+      "properties": {
+        "Node name for S&R": "PrimitiveBoolean"
+      },
+      "inputs": [
+        {
+          "name": "value",
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "value"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "BOOLEAN",
+          "type": "BOOLEAN",
+          "links": [
+            2006
+          ]
+        }
+      ],
       "widgets_values": [
         false
       ],
@@ -87617,7 +87773,7 @@
     ],
     [
       1912,
-      1413,
+      1736,
       0,
       1684,
       0,
@@ -88301,6 +88457,30 @@
       0,
       51,
       20,
+      "BOOLEAN"
+    ],
+    [
+      2004,
+      1413,
+      0,
+      1736,
+      1,
+      "MODEL"
+    ],
+    [
+      2005,
+      1734,
+      0,
+      1736,
+      2,
+      "MODEL"
+    ],
+    [
+      2006,
+      1735,
+      0,
+      1736,
+      0,
       "BOOLEAN"
     ]
   ],
@@ -89110,9 +89290,9 @@
       "title": "🎬 Видео · Модель и LoRA",
       "bounding": [
         3700,
-        5666,
+        5446,
         420,
-        1390
+        1610
       ],
       "color": "#2f5b58",
       "font_size": 24,
@@ -90431,6 +90611,12 @@
           "tag": "accelerator-enabled",
           "class": "PrimitiveBoolean",
           "title": "⚡ Включить ускоритель · первая генерация"
+        },
+        {
+          "uid": "src_video_gguf_model",
+          "tag": "video-gguf-model",
+          "class": "UniversalMiniMaxGGUF",
+          "title": "🧠 MiniMax H3 · GGUF"
         }
       ],
       "pages": [
@@ -90558,7 +90744,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v1.3.2",
+            "text": "🧩 Универсальный воркфлоу · v1.3.3",
             "size": "M",
             "align": "left"
           },
@@ -92060,6 +92246,11 @@
               "src": "src_video_selflift",
               "kind": "widget",
               "name": "upscaler_model"
+            },
+            "vid_gguf_model": {
+              "src": "src_video_gguf_model",
+              "kind": "widget",
+              "name": "unet_name"
             }
           },
           "props": {
@@ -92882,7 +93073,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v1.3.2",
+            "text": "🧩 Универсальный воркфлоу · v1.3.3",
             "size": "M",
             "align": "left"
           },
@@ -93249,6 +93440,11 @@
               "src": "src_video_selflift",
               "kind": "widget",
               "name": "upscaler_model"
+            },
+            "vid_gguf_model": {
+              "src": "src_video_gguf_model",
+              "kind": "widget",
+              "name": "unet_name"
             }
           },
           "props": {
@@ -93771,7 +93967,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v1.3.2",
+            "text": "🧩 Универсальный воркфлоу · v1.3.3",
             "size": "M",
             "align": "left"
           },
@@ -94138,6 +94334,11 @@
               "src": "src_video_selflift",
               "kind": "widget",
               "name": "upscaler_model"
+            },
+            "vid_gguf_model": {
+              "src": "src_video_gguf_model",
+              "kind": "widget",
+              "name": "unet_name"
             }
           },
           "props": {
@@ -95094,7 +95295,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v1.3.2",
+            "text": "🧩 Универсальный воркфлоу · v1.3.3",
             "size": "M",
             "align": "left"
           },
@@ -95461,6 +95662,11 @@
               "src": "src_video_selflift",
               "kind": "widget",
               "name": "upscaler_model"
+            },
+            "vid_gguf_model": {
+              "src": "src_video_gguf_model",
+              "kind": "widget",
+              "name": "unet_name"
             }
           },
           "props": {
@@ -96436,7 +96642,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "↔️ Дорисовка за границами кадра · v1.3.2",
+            "text": "↔️ Дорисовка за границами кадра · v1.3.3",
             "size": "M",
             "align": "left"
           },
@@ -96803,6 +97009,11 @@
               "src": "src_video_selflift",
               "kind": "widget",
               "name": "upscaler_model"
+            },
+            "vid_gguf_model": {
+              "src": "src_video_gguf_model",
+              "kind": "widget",
+              "name": "unet_name"
             }
           },
           "props": {
@@ -98367,7 +98578,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v1.3.2",
+            "text": "🧩 Универсальный воркфлоу · v1.3.3",
             "size": "M",
             "align": "left"
           },
@@ -98734,6 +98945,11 @@
               "src": "src_video_selflift",
               "kind": "widget",
               "name": "upscaler_model"
+            },
+            "vid_gguf_model": {
+              "src": "src_video_gguf_model",
+              "kind": "widget",
+              "name": "unet_name"
             }
           },
           "props": {
@@ -99009,7 +99225,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v1.3.2",
+            "text": "🧩 Универсальный воркфлоу · v1.3.3",
             "size": "M",
             "align": "left"
           },
@@ -99376,6 +99592,11 @@
               "src": "src_video_selflift",
               "kind": "widget",
               "name": "upscaler_model"
+            },
+            "vid_gguf_model": {
+              "src": "src_video_gguf_model",
+              "kind": "widget",
+              "name": "unet_name"
             }
           },
           "props": {
@@ -99583,7 +99804,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🎬 Видео · MiniMax H3 · v1.3.2",
+            "text": "🎬 Видео · MiniMax H3 · v1.3.3",
             "size": "M",
             "align": "left"
           },
@@ -99950,6 +100171,11 @@
               "src": "src_video_selflift",
               "kind": "widget",
               "name": "upscaler_model"
+            },
+            "vid_gguf_model": {
+              "src": "src_video_gguf_model",
+              "kind": "widget",
+              "name": "unet_name"
             }
           },
           "props": {
@@ -100123,6 +100349,11 @@
               "src": "src_video_selflift",
               "kind": "widget",
               "name": "upscaler_model"
+            },
+            "status_vid_gguf_model": {
+              "src": "src_video_gguf_model",
+              "kind": "widget",
+              "name": "unet_name"
             }
           },
           "props": {
@@ -100572,7 +100803,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🎬 Звук · Higgs v3 · v1.3.2",
+            "text": "🎬 Звук · Higgs v3 · v1.3.3",
             "size": "M",
             "align": "left"
           },
@@ -100939,6 +101170,11 @@
               "src": "src_video_selflift",
               "kind": "widget",
               "name": "upscaler_model"
+            },
+            "vid_gguf_model": {
+              "src": "src_video_gguf_model",
+              "kind": "widget",
+              "name": "unet_name"
             }
           },
           "props": {
@@ -101372,6 +101608,11 @@
               "src": "src_video_selflift",
               "kind": "widget",
               "name": "upscaler_model"
+            },
+            "status_vid_gguf_model": {
+              "src": "src_video_gguf_model",
+              "kind": "widget",
+              "name": "unet_name"
             }
           },
           "props": {
@@ -101453,6 +101694,11 @@
               "src": "src_video_selflift",
               "kind": "widget",
               "name": "upscaler_model"
+            },
+            "status_vid_gguf_model": {
+              "src": "src_video_gguf_model",
+              "kind": "widget",
+              "name": "unet_name"
             }
           },
           "props": {

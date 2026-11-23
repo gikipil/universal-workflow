@@ -22,6 +22,11 @@ PROTECTED = {'models', 'input', 'output', 'user', 'custom_nodes', '.git', '.venv
 WEIGHTS = {'.safetensors', '.ckpt', '.pt', '.pth', '.gguf', '.onnx'}
 
 
+def bundled_requirements(package):
+    # Local modules ship code, not weights; include only their declared runtime deps.
+    return sorted(p for p in (Path(package) / 'nodes').glob('*/requirements.txt') if p.is_file())
+
+
 def log(text):
     print(text, flush=True)
 
@@ -265,6 +270,7 @@ def plan(bundle, workspace, root, mode):
     requirements = []
     core = download_source(lock['comfy']['repository'], lock['comfy']['revision'], workspace / 'sources') if info['update_comfy'] else root
     requirements.append(core / 'requirements.txt')
+    requirements.extend(bundled_requirements(package))
     sources.append({'source': str(core), 'destination': str(root), 'core': True, 'copy': info['update_comfy']})
     for pack in lock['nodes']:
         target = locate_pack(root, pack)

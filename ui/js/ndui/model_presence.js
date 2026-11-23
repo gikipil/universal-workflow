@@ -29,6 +29,7 @@ export async function checkModelPresence(folder,value,state={},fresh=false,requi
   const requirements={'RMBG-2.0':['RMBG-2.0/config.json','RMBG-2.0/model.safetensors','RMBG-2.0/birefnet.py','RMBG-2.0/BiRefNet_config.py'],INSPYRENET:['INSPYRENET/inspyrenet.safetensors'],BEN:['BEN/model.py','BEN/BEN_Base.pth'],BEN2:['BEN2/BEN2.py','BEN2/BEN2_Base.pth']}[value];
   const files=await list('rmbg',fresh);return{missing:!requirements?true:files?!requirements.every(f=>files.has(normalize(f))):null,reason:'Не найдены файлы модели удаления фона: '+value+'. Нода может скачать их при запуске.'};
  }
+ if(kind==='UniversalMiniMaxGGUF')target='universal_minimax_gguf';
  if(/^SeedVR2Load/.test(kind))target='seedvr2';
  if(kind==='UltralyticsDetectorProvider')target='ultralytics';
  if(target&&target!=='auto'){const files=await list(target,fresh);return{missing:files? !files.has(name):null,reason:files?'Файл модели не найден: '+value:'Не удалось проверить доступность модели.'};}

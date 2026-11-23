@@ -1,5 +1,5 @@
 {
-  "version": "1.3.2",
+  "version": "1.3.3",
   "path_base": "ComfyUI/",
   "groups": [
     {
@@ -679,6 +679,25 @@
               "name": "minimax_h3_hybrid_fl2va_ref2va_b25-49-int8.safetensors",
               "url": "https://huggingface.co/smhfacct/Minimax-H3-fl2va-ref2va-hybrid-models/resolve/main/minimax_h3_hybrid_fl2va_ref2va_b25-49-int8.safetensors?download=true",
               "path": "models/diffusion_models/MiniMax/minimax_h3_hybrid_fl2va_ref2va_b25-49-int8.safetensors"
+            }
+          ]
+        },
+        {
+          "label": "MiniMax H3 · облегчённая Hybrid GGUF Q4_0",
+          "label_en": "MiniMax H3 · lightweight Hybrid GGUF Q4_0",
+          "folder": "models/diffusion_models/MiniMax/",
+          "note": "Альтернатива INT8. Нужна только при включённом GGUF. Меньше весов в памяти не означает более быструю генерацию.",
+          "note_en": "INT8 alternative. Only needed when GGUF is enabled. Smaller weights do not guarantee faster generation.",
+          "slots": [
+            "vid_gguf_model"
+          ],
+          "optional": true,
+          "source": "https://huggingface.co/hoidhxd/MiniMax-H3-Hybrid-b25-49-GGUF",
+          "files": [
+            {
+              "name": "minimax_h3_hybrid_fl2va_ref2va_b25-49-Q4_0.gguf",
+              "url": "https://huggingface.co/hoidhxd/MiniMax-H3-Hybrid-b25-49-GGUF/resolve/main/minimax_h3_hybrid_fl2va_ref2va_b25-49-Q4_0.gguf?download=true",
+              "path": "models/diffusion_models/MiniMax/minimax_h3_hybrid_fl2va_ref2va_b25-49-Q4_0.gguf"
             }
           ]
         },

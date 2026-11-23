@@ -3,6 +3,10 @@
 // 61 shared labels adapted from ND UI Builder Chinese translations:
 // Copyright (c) 2026 Ivan Ovchinnikov (Neural Dreamer).
 export default {
+  "Облегчённая модель · GGUF": "轻量模型 · GGUF",
+  "Меньше памяти для весов. Файл выбирается в общих настройках видео.": "减少模型权重占用。在全局视频设置中选择文件。",
+  "MiniMax H3 · облегчённая GGUF": "MiniMax H3 · 轻量 GGUF",
+  "Не найден загрузчик модели MiniMax.": "找不到 MiniMax 模型加载器。",
   "Включить ускоритель": "启用加速器",
   "LC Speed Boost · первая генерация": "LC Speed Boost · 初始生成",
   "Не выбран обязательный файл.": "未选择必需文件。",

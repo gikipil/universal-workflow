@@ -4,6 +4,7 @@ import {interfaceLanguage,translateInterface} from './factory_locale.js';
 import {clearModelPresence,requireModelPresence} from './model_presence.js';
 const FIELDS={
     UNETLoader:[['unet_name','diffusion_models']],
+    UniversalMiniMaxGGUF:[['unet_name','universal_minimax_gguf']],
     UnetLoaderGGUF:[['unet_name','diffusion_models']],
     CLIPLoader:[['clip_name','text_encoders']],
     DualCLIPLoader:[['clip_name1','text_encoders'],['clip_name2','text_encoders']],

@@ -15,7 +15,7 @@ const MODEL_FIELDS = [
     ['vid_ref_model','MiniMax REF · модель','diffusion_models'],['vid_fl_model','MiniMax FL · модель','diffusion_models'],
     ['song_model','ACE-Step · модель','diffusion_models'],['song_clip1','ACE · энкодер 0.6B','text_encoders'],['song_clip2','ACE · энкодер 4B','text_encoders'],['song_vae','ACE · Audio VAE','vae'],
     ['aud_model','Higgs v3 · модель','auto'],['aud_whisper','Whisper · расшифровка','auto'],
-    ['vid_model','MiniMax H3 · универсальная модель','diffusion_models'],['vid_latent_upscaler','MiniMax H3 · увеличение латента','latent_upscale_models'],['vid_clip','MiniMax H3 · энкодер','text_encoders'],['vid_video_vae','MiniMax H3 · Video VAE','vae'],['vid_audio_vae','MiniMax H3 · Audio VAE','vae'],['vid_turbo','MiniMax H3 · общий Turbo-адаптер','loras'],
+    ['vid_model','MiniMax H3 · универсальная модель','diffusion_models'],['vid_gguf_model','MiniMax H3 · облегчённая GGUF','universal_minimax_gguf'],['vid_latent_upscaler','MiniMax H3 · увеличение латента','latent_upscale_models'],['vid_clip','MiniMax H3 · энкодер','text_encoders'],['vid_video_vae','MiniMax H3 · Video VAE','vae'],['vid_audio_vae','MiniMax H3 · Audio VAE','vae'],['vid_turbo','MiniMax H3 · общий Turbo-адаптер','loras'],
     ['out_k_model','Готовая модель Krea Turbo','diffusion_models'],
     ['edit_q21_model','Модель Qwen 2.1','diffusion_models'],['edit_q21_clip','Энкодер Qwen 2.1','text_encoders'],['edit_q21_vae','VAE Qwen 2.1','vae'],
     ['edit_krea_general','General Edit V2 · файл LoRA','loras'],['edit_krea_identity','Identity Edit V2 · файл LoRA','loras'],

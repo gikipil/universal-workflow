@@ -30,3 +30,8 @@ Windows installer releases include the complete unmodified ND UI Builder source 
 ## LC Speed Boost
 
 `nodes/ComfyUI-Universal-Accelerator/lc_speed_boost.py` is distributed unchanged from lonecatone23/ComfyUI_LC123_nodes, revision `2017df1db2b17603b81e95cb7abf460cd415e4d9`, under the MIT License. Copyright (c) 2026 lonecatone23. The MIT notice is included as `LICENSE-LC` in that folder. The adapter in `__init__.py` is Copyright (c) 2026 gikipil, also MIT-licensed. Source: https://github.com/lonecatone23/ComfyUI_LC123_nodes
+
+
+## Isolated MiniMax GGUF loader
+
+`nodes/ComfyUI-Universal-GGUF/vendor` contains the Python runtime of molbal/ComfyUI-GGUF at revision `3ae2b682c5fdb77609171ceb66cc93f18b976ba1`, under Apache-2.0. Original source notices and LICENSE are retained. Its generic node IDs are not registered by this package. The isolated entry point is Copyright (c) 2026 gikipil, Apache-2.0. Source: https://github.com/molbal/ComfyUI-GGUF

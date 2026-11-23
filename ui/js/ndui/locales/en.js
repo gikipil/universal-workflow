@@ -1,6 +1,10 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 // Universal Workflow English UI dictionary, gikipil 2026. Russian source keys.
 export default {
+  "Облегчённая модель · GGUF": "Lightweight model · GGUF",
+  "Меньше памяти для весов. Файл выбирается в общих настройках видео.": "Less memory for weights. Select the file in global Video settings.",
+  "MiniMax H3 · облегчённая GGUF": "MiniMax H3 · lightweight GGUF",
+  "Не найден загрузчик модели MiniMax.": "MiniMax model loader was not found.",
   "Включить ускоритель": "Enable accelerator",
   "LC Speed Boost · первая генерация": "LC Speed Boost · initial generation",
   "Не выбран обязательный файл.": "No required file is selected.",

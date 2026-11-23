@@ -1,0 +1,4 @@
+gguf>=0.13.0
+sentencepiece
+protobuf
+comfy-kitchen>=0.2.27

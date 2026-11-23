@@ -3,12 +3,12 @@
 import {el} from './util.js';
 import {checkModelPresence,lostModelBadge,paintModelBadge,modelPresenceVersion} from '../model_presence.js';
 const K=['k_model','k_clip','k_vae','k_turbo'],Z=['z_model','z_clip','z_vae'],POSE=['pose_lora','pose_bbox','pose_estimator'];
-const SCOPE={video:['vid_model','vid_clip','vid_video_vae','vid_audio_vae','vid_turbo','vid_latent_upscaler'],outpaint:['out_k_model','k_clip','k_vae','edit_model','edit_clip','edit_vae','edit_q21_model','edit_q21_clip','edit_q21_vae'],automask:['sam_model'],generation:[...K,'k_turbo_model',...POSE],refine:[...K,...Z],local:[...K,...Z,'sam_model','face_detector','hand_detector'],upscale:[...K,'up_simple_model','up_ultimate_model','up_seed_dit','up_seed_vae'],edit:[...K,'edit_model','edit_clip','edit_vae','edit_q21_model','edit_q21_clip','edit_q21_vae'],pose:POSE};
+const SCOPE={video:['vid_model','vid_gguf_model','vid_clip','vid_video_vae','vid_audio_vae','vid_turbo','vid_latent_upscaler'],outpaint:['out_k_model','k_clip','k_vae','edit_model','edit_clip','edit_vae','edit_q21_model','edit_q21_clip','edit_q21_vae'],automask:['sam_model'],generation:[...K,'k_turbo_model',...POSE],refine:[...K,...Z],local:[...K,...Z,'sam_model','face_detector','hand_detector'],upscale:[...K,'up_simple_model','up_ultimate_model','up_seed_dit','up_seed_vae'],edit:[...K,'edit_model','edit_clip','edit_vae','edit_q21_model','edit_q21_clip','edit_q21_vae'],pose:POSE};
 export function modeFileSlots(scope){return[...SCOPE[scope].map(key=>({id:'status_'+key,label:key,accepts:['COMBO'],required:false})),...(scope==='generation'?[{id:'status_pose',accepts:['STRING'],required:false}]:[])];}
 function config(ctx){try{return JSON.parse(ctx.get('config')||'{}');}catch{return{};}}
 export function modeModelKeys(ctx,scope){
  const c=['generation','refine'].includes(scope)?{}:config(ctx),mode=['generation','refine'].includes(scope)?Number(ctx.get('mode'))||0:0;
- if(scope==='video')return['vid_model','vid_clip','vid_video_vae','vid_audio_vae','vid_turbo','vid_latent_upscaler'];
+ if(scope==='video')return[c.gguf?'vid_gguf_model':'vid_model','vid_clip','vid_video_vae','vid_audio_vae','vid_turbo','vid_latent_upscaler'];
  if(scope==='outpaint')return c.backend==='krea'?['out_k_model','k_clip','k_vae']:c.backend==='qwen21'?['edit_q21_model','edit_q21_clip','edit_q21_vae']:['edit_model','edit_clip','edit_vae'];
  if(scope==='automask')return['sam_model'];
  if(scope==='generation'){let pose=false;try{pose=!!ctx.w?.slots?.status_pose&&JSON.parse(ctx.get('status_pose')||'{}').enabled===true;}catch{}return[...(mode<2&&ctx.get('lightweight')===true?['k_turbo_model','k_clip','k_vae']:K),...(pose?POSE:[])];}
@@ -19,7 +19,7 @@ export function modeModelKeys(ctx,scope){
  if(scope==='pose')return c.enabled?POSE:[];
  return[];
 }
-const folder=key=>key==='vid_latent_upscaler'?'latent_upscale_models':key==='k_turbo'||key==='pose_lora'||key==='vid_turbo'?'loras':key==='sam_model'?'checkpoints':key.startsWith('up_seed_')?'seedvr2':key.endsWith('_detector')?'ultralytics':key.startsWith('pose_')?'auto':key==='up_simple_model'||key==='up_ultimate_model'?'upscale_models':key.endsWith('_clip')?'text_encoders':key.endsWith('_vae')?'vae':'diffusion_models';
+const folder=key=>key==='vid_gguf_model'?'universal_minimax_gguf':key==='vid_latent_upscaler'?'latent_upscale_models':key==='k_turbo'||key==='pose_lora'||key==='vid_turbo'?'loras':key==='sam_model'?'checkpoints':key.startsWith('up_seed_')?'seedvr2':key.endsWith('_detector')?'ultralytics':key.startsWith('pose_')?'auto':key==='up_simple_model'||key==='up_ultimate_model'?'upscale_models':key.endsWith('_clip')?'text_encoders':key.endsWith('_vae')?'vae':'diffusion_models';
 // Uses the same file bindings and cached catalogs as Settings. Never mutates a node.
 export function mountModePresence(ctx,host,scope){
  const badge=lostModelBadge(el);host.append(badge);let alive=true,ticket=0,stamp='',at=0,pending=null;

@@ -1,6 +1,10 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 // Universal Workflow Japanese interface translation, gikipil 2026.
 export default {
+  "Облегчённая модель · GGUF": "軽量モデル · GGUF",
+  "Меньше памяти для весов. Файл выбирается в общих настройках видео.": "重みのメモリ使用量を削減します。共通の動画設定でファイルを選択してください。",
+  "MiniMax H3 · облегчённая GGUF": "MiniMax H3 · 軽量 GGUF",
+  "Не найден загрузчик модели MiniMax.": "MiniMaxモデルのローダーが見つかりません。",
   "Включить ускоритель": "高速化を有効にする",
   "LC Speed Boost · первая генерация": "LC Speed Boost · 最初の生成",
   "Не выбран обязательный файл.": "必須ファイルが選択されていません。",

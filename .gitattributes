@@ -5,3 +5,4 @@
 *.py text eol=lf
 Universal-Workflow-v*.json -text
 *.patch -whitespace
+nodes/ComfyUI-Universal-GGUF/vendor/** -whitespace

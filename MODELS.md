@@ -314,6 +314,16 @@ Alternative to RMBG-2.0, selectable in settings.
 | --- | --- |
 | [minimax_h3_hybrid_fl2va_ref2va_b25-49-int8.safetensors](https://huggingface.co/smhfacct/Minimax-H3-fl2va-ref2va-hybrid-models/resolve/main/minimax_h3_hybrid_fl2va_ref2va_b25-49-int8.safetensors?download=true) | `models/diffusion_models/MiniMax/minimax_h3_hybrid_fl2va_ref2va_b25-49-int8.safetensors` |
 
+### MiniMax H3 · облегчённая Hybrid GGUF Q4_0
+
+[Source / Источник](https://huggingface.co/hoidhxd/MiniMax-H3-Hybrid-b25-49-GGUF)
+
+Optional alternative for the GGUF switch in Video generation settings. / Необязательная альтернатива для переключателя GGUF в настройках видеогенерации.
+
+| File / Файл | Save to / Куда положить |
+| --- | --- |
+| [minimax_h3_hybrid_fl2va_ref2va_b25-49-Q4_0.gguf](https://huggingface.co/hoidhxd/MiniMax-H3-Hybrid-b25-49-GGUF/resolve/main/minimax_h3_hybrid_fl2va_ref2va_b25-49-Q4_0.gguf?download=true) | `models/diffusion_models/MiniMax/minimax_h3_hybrid_fl2va_ref2va_b25-49-Q4_0.gguf` |
+
 ### MiniMax H3 · штатный энкодер
 
 [Source / Источник](https://huggingface.co/Comfy-Org/MiniMax-H3)
