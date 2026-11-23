@@ -11,12 +11,20 @@ if (-not (Test-Path -LiteralPath (Join-Path $bundle 'package'))) {
     [System.Windows.Forms.MessageBox]::Show('Download and extract the complete Windows installer ZIP from Releases. The GitHub source ZIP is not the installation bundle.','Universal Workflow') | Out-Null
     exit 1
 }
-$ru = (Get-UICulture).Name.StartsWith('ru')
+$script:languageCodes = @('en','ru','fr','es','zh','ja')
+$systemLanguage = (Get-UICulture).TwoLetterISOLanguageName
+$script:languageCode = if($systemLanguage -in $script:languageCodes){$systemLanguage}else{'en'}
+$script:catalog = Get-Content -LiteralPath (Join-Path $PSScriptRoot 'languages.json') -Raw -Encoding UTF8 | ConvertFrom-Json
 $script:translations = @{}
 function T($en, $russian) {
-    $script:translations[$en] = @($en, $russian)
-    $script:translations[$russian] = @($en, $russian)
-    if ($script:ru) { return $russian }; return $en
+    $entry=$script:catalog.PSObject.Properties[$en]
+    if($entry){
+        foreach($text in $entry.Value.PSObject.Properties){$script:translations[$text.Value]=$en}
+        $localized=$entry.Value.PSObject.Properties[$script:languageCode]
+        if($localized){return $localized.Value}
+    }
+    $script:translations[$en]=$en;$script:translations[$russian]=$en
+    if($script:languageCode -eq 'ru'){return $russian};return $en
 }
 $form = New-Object System.Windows.Forms.Form
 $form.Text = T 'Universal Workflow - Setup' 'Universal Workflow — Установка';$form.Size = New-Object System.Drawing.Size(790,694);$form.MinimumSize = $form.Size;$form.StartPosition = 'CenterScreen'
@@ -112,17 +120,17 @@ $form.Add_FormClosing({
 # Reserve a compact language row without changing the installation controls.
 foreach ($control in $form.Controls) { $control.Top += 44 }
 $languageLabel=New-Object System.Windows.Forms.Label
-$languageLabel.Text='Language / Язык';$languageLabel.SetBounds(20,16,170,24);$form.Controls.Add($languageLabel)
+$languageLabel.Text='Language';$languageLabel.SetBounds(20,16,170,24);$form.Controls.Add($languageLabel)
 $language=New-Object System.Windows.Forms.ComboBox
 $language.DropDownStyle='DropDownList';$language.SetBounds(195,12,200,30)
-$language.Items.AddRange(@('English','Русский'))
-$language.SelectedIndex=if($ru){1}else{0};$form.Controls.Add($language)
+$language.Items.AddRange(@('English','Русский','Français','Español','简体中文','日本語'))
+$language.SelectedIndex=[Array]::IndexOf($script:languageCodes,$script:languageCode);$form.Controls.Add($language)
 $language.Add_SelectedIndexChanged({
-    $script:ru=($language.SelectedIndex -eq 1)
+    $script:languageCode=$script:languageCodes[$language.SelectedIndex]
     foreach($control in @($form)+@($form.Controls)) {
         if($script:translations.ContainsKey($control.Text)) {
-            $pair=$script:translations[$control.Text]
-            $control.Text=if($script:ru){$pair[1]}else{$pair[0]}
+            $key=$script:translations[$control.Text]
+            $control.Text=T $key $key
         }
     }
     # An already prepared plan must be displayed in the chosen language again.

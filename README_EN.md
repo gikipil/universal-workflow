@@ -44,7 +44,7 @@ The archive includes ND UI Builder with its licenses, our interface and local mo
 
 Requires Windows, internet and an existing ComfyUI installation with Python/pip. Full video/audio preparation targets NVIDIA; Python 3.12 is recommended and package compatibility is checked; Images only keeps the current PyTorch family. Environment changes require approval. Python libraries may take several GB. Running processes are never stopped automatically: close ComfyUI yourself. Dependency conflicts are logged and are not reported as a successful installation.
 
-The setup wizard follows the Windows display language: Russian on Russian systems, English otherwise. You can change it with **Language / Язык** before checking or installing. Technical logs remain in English.
+The setup wizard follows the Windows display language: English, Russian, French, Spanish, Simplified Chinese or Japanese. Other system languages use English. Change it with **Language** before checking or installing. Technical logs remain in English.
 
 ### Manual installation — alternative to the wizard
 
@@ -214,6 +214,7 @@ UI code and bundled modules retain **AGPL-3.0-only**; the QwenTTS patch retains 
 
 ### 1.2.13
 
+- The updated Windows installer automatically selects one of six system languages and allows manual switching. Processing is unchanged.
 - Removed the processing chain above run buttons. The interface and layout are restored to their 1.2.11 state.
 
 ### 1.2.12

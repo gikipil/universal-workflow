@@ -1,8 +1,9 @@
 UNIVERSAL WORKFLOW — WINDOWS SETUP / УСТАНОВКА ДЛЯ WINDOWS
 
 ENGLISH
-Setup uses the Windows display language (Russian or English). Change it with
-Language / Язык before checking or installing. Technical logs stay in English.
+Setup follows Windows: English, Russian, French, Spanish, Simplified Chinese
+or Japanese. Other languages use English. Change it with Language before
+checking or installing. Technical logs stay in English.
 Manual alternative: open resources/package/README_EN.md, section Manual installation.
 1. Extract the ENTIRE ZIP. Keep the resources folder beside Install.cmd.
 2. Close ComfyUI. Double-click Install.cmd. Administrator rights are not required.
@@ -33,8 +34,9 @@ the model license/signing in on the source website and installing it manually.
 Ordinary Save overwrites the current workflow; Save As exports a separate copy.
 
 РУССКИЙ
-Язык мастера выбирается по языку Windows: русский или английский. Его можно
-сменить в Language / Язык до проверки или установки. Журнал — на английском.
+Языки мастера: русский, английский, французский, испанский, китайский, японский.
+Выбирается язык Windows; для других языков — английский. Изменить можно
+в Language до проверки или установки. Журнал — на английском.
 Ручной способ: откройте resources/package/README.md, раздел «Ручная установка».
 1. Распакуйте ВЕСЬ ZIP. Папка resources должна остаться рядом с Install.cmd.
 2. Закройте ComfyUI. Запустите Install.cmd. Права администратора не требуются.

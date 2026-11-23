@@ -1,0 +1,226 @@
+{
+  "Universal Workflow - Setup": {
+    "en": "Universal Workflow - Setup",
+    "ru": "Universal Workflow — Установка",
+    "fr": "Universal Workflow — Installation",
+    "es": "Universal Workflow — Instalación",
+    "zh": "Universal Workflow — 安装",
+    "ja": "Universal Workflow — セットアップ"
+  },
+  "Select your existing ComfyUI folder (or its portable parent). Models are NOT downloaded.": {
+    "en": "Select your existing ComfyUI folder (or its portable parent). Models are NOT downloaded.",
+    "ru": "Выберите папку установленного ComfyUI или его portable-папку. Модели НЕ скачиваются.",
+    "fr": "Sélectionnez votre dossier ComfyUI existant (ou son dossier portable). Les modèles ne sont PAS téléchargés.",
+    "es": "Selecciona la carpeta de ComfyUI existente (o su carpeta portable). NO se descargan modelos.",
+    "zh": "选择现有 ComfyUI 文件夹或其便携版上级文件夹。不会下载模型。",
+    "ja": "既存の ComfyUI フォルダーまたはポータブル版の親フォルダーを選択してください。モデルはダウンロードされません。"
+  },
+  "Browse...": {
+    "en": "Browse...",
+    "ru": "Выбрать...",
+    "fr": "Parcourir…",
+    "es": "Examinar…",
+    "zh": "浏览…",
+    "ja": "参照…"
+  },
+  "ComfyUI Python (detected automatically; change only if needed)": {
+    "en": "ComfyUI Python (detected automatically; change only if needed)",
+    "ru": "Python вашего ComfyUI (определяется автоматически; можно выбрать вручную)",
+    "fr": "Python de ComfyUI (détection automatique ; à modifier uniquement si nécessaire)",
+    "es": "Python de ComfyUI (detección automática; cambiar solo si es necesario)",
+    "zh": "ComfyUI 的 Python（自动检测，仅在必要时更改）",
+    "ja": "ComfyUI の Python（自動検出。必要な場合のみ変更）"
+  },
+  "Prepare all features, including video and sound (NVIDIA; Python 3.12 recommended)": {
+    "en": "Prepare all features, including video and sound (NVIDIA; Python 3.12 recommended)",
+    "ru": "Подготовить все функции, включая видео и звук (NVIDIA; рекомендуется Python 3.12)",
+    "fr": "Préparer toutes les fonctions, vidéo et audio compris (NVIDIA ; Python 3.12 conseillé)",
+    "es": "Preparar todas las funciones, incluidos vídeo y audio (NVIDIA; Python 3.12 recomendado)",
+    "zh": "准备所有功能，包括视频和音频（NVIDIA；建议 Python 3.12）",
+    "ja": "動画と音声を含む全機能を準備（NVIDIA、Python 3.12 推奨）"
+  },
+  "Checks may download node source and package metadata. Changes to ComfyUI/Python are made only after you approve the plan. Close ComfyUI before setup.": {
+    "en": "Checks may download node source and package metadata. Changes to ComfyUI/Python are made only after you approve the plan. Close ComfyUI before setup.",
+    "ru": "Проверка может скачивать исходники нод и сведения о пакетах. Изменения ComfyUI/Python — только после подтверждения плана. Перед установкой закройте ComfyUI.",
+    "fr": "La vérification peut télécharger le code des nœuds et les métadonnées des paquets. ComfyUI/Python ne sera modifié qu’après votre accord sur le plan. Fermez ComfyUI avant l’installation.",
+    "es": "La comprobación puede descargar código de nodos y metadatos de paquetes. ComfyUI/Python solo se modificará tras aprobar el plan. Cierra ComfyUI antes de instalar.",
+    "zh": "检查时可能下载节点源码和软件包元数据。只有在您批准计划后才会修改 ComfyUI/Python。安装前请关闭 ComfyUI。",
+    "ja": "確認中にノードのソースやパッケージ情報をダウンロードする場合があります。計画の承認後にのみ ComfyUI/Python を変更します。事前に ComfyUI を終了してください。"
+  },
+  "Check and prepare": {
+    "en": "Check and prepare",
+    "ru": "Проверить и подготовить",
+    "fr": "Vérifier et préparer",
+    "es": "Comprobar y preparar",
+    "zh": "检查并准备",
+    "ja": "確認して準備"
+  },
+  "Open log folder": {
+    "en": "Open log folder",
+    "ru": "Открыть журнал",
+    "fr": "Ouvrir les journaux",
+    "es": "Abrir registros",
+    "zh": "打开日志文件夹",
+    "ja": "ログフォルダーを開く"
+  },
+  "Close": {
+    "en": "Close",
+    "ru": "Закрыть",
+    "fr": "Fermer",
+    "es": "Cerrar",
+    "zh": "关闭",
+    "ja": "閉じる"
+  },
+  "Installing...": {
+    "en": "Installing...",
+    "ru": "Установка...",
+    "fr": "Installation…",
+    "es": "Instalando…",
+    "zh": "正在安装…",
+    "ja": "インストール中…"
+  },
+  "Preparing...": {
+    "en": "Preparing...",
+    "ru": "Подготовка...",
+    "fr": "Préparation…",
+    "es": "Preparando…",
+    "zh": "正在准备…",
+    "ja": "準備中…"
+  },
+  "Cancel": {
+    "en": "Cancel",
+    "ru": "Отмена",
+    "fr": "Annuler",
+    "es": "Cancelar",
+    "zh": "取消",
+    "ja": "キャンセル"
+  },
+  "Install the changes shown in the plan?": {
+    "en": "Install the changes shown in the plan?",
+    "ru": "Выполнить изменения из показанного плана?",
+    "fr": "Installer les modifications indiquées dans le plan ?",
+    "es": "¿Instalar los cambios indicados en el plan?",
+    "zh": "是否安装计划中列出的更改？",
+    "ja": "計画に表示された変更をインストールしますか？"
+  },
+  "Select a ComfyUI folder.": {
+    "en": "Select a ComfyUI folder.",
+    "ru": "Выберите папку ComfyUI.",
+    "fr": "Sélectionnez un dossier ComfyUI.",
+    "es": "Selecciona una carpeta de ComfyUI.",
+    "zh": "请选择 ComfyUI 文件夹。",
+    "ja": "ComfyUI フォルダーを選択してください。"
+  },
+  "Select the python.exe used by ComfyUI.": {
+    "en": "Select the python.exe used by ComfyUI.",
+    "ru": "Укажите python.exe, которым запускается ComfyUI.",
+    "fr": "Sélectionnez le fichier python.exe utilisé par ComfyUI.",
+    "es": "Selecciona el archivo python.exe que utiliza ComfyUI.",
+    "zh": "请选择 ComfyUI 使用的 python.exe。",
+    "ja": "ComfyUI が使用する python.exe を選択してください。"
+  },
+  "Checking environment and preparing an installation plan...": {
+    "en": "Checking environment and preparing an installation plan...",
+    "ru": "Проверка окружения и подготовка плана установки...",
+    "fr": "Vérification de l’environnement et préparation du plan d’installation…",
+    "es": "Comprobando el entorno y preparando el plan de instalación…",
+    "zh": "正在检查环境并准备安装计划…",
+    "ja": "環境を確認してインストール計画を準備しています…"
+  },
+  "ComfyUI will be updated to the compatible version (file backup included).": {
+    "en": "ComfyUI will be updated to the compatible version (file backup included).",
+    "ru": "ComfyUI будет обновлён до совместимой версии с резервной копией файлов.",
+    "fr": "ComfyUI sera mis à jour vers la version compatible, avec sauvegarde des fichiers.",
+    "es": "ComfyUI se actualizará a la versión compatible, con copia de seguridad de los archivos.",
+    "zh": "ComfyUI 将更新至兼容版本，并备份文件。",
+    "ja": "ComfyUI を互換バージョンに更新し、ファイルをバックアップします。"
+  },
+  "The CUDA13 video runtime will be installed.": {
+    "en": "The CUDA13 video runtime will be installed.",
+    "ru": "Будет установлен видеорежим CUDA13.",
+    "fr": "L’environnement vidéo CUDA13 sera installé.",
+    "es": "Se instalará el entorno de vídeo CUDA13.",
+    "zh": "将安装 CUDA13 视频运行环境。",
+    "ja": "CUDA13 動画実行環境をインストールします。"
+  },
+  "Nodes and interface:": {
+    "en": "Nodes and interface:",
+    "ru": "Ноды и интерфейс:",
+    "fr": "Nœuds et interface :",
+    "es": "Nodos e interfaz:",
+    "zh": "节点和界面：",
+    "ja": "ノードとインターフェース："
+  },
+  "Update with backup": {
+    "en": "Update with backup",
+    "ru": "Обновить с резервной копией",
+    "fr": "Mettre à jour avec sauvegarde",
+    "es": "Actualizar con copia de seguridad",
+    "zh": "备份后更新",
+    "ja": "バックアップして更新"
+  },
+  "Install": {
+    "en": "Install",
+    "ru": "Установить",
+    "fr": "Installer",
+    "es": "Instalar",
+    "zh": "安装",
+    "ja": "インストール"
+  },
+  "Python package changes:": {
+    "en": "Python package changes:",
+    "ru": "Изменения пакетов Python:",
+    "fr": "Modifications des paquets Python :",
+    "es": "Cambios en los paquetes de Python:",
+    "zh": "Python 软件包更改：",
+    "ja": "Python パッケージの変更："
+  },
+  "Node packs and interface will be installed. Existing files are backed up. No models will be downloaded.": {
+    "en": "Node packs and interface will be installed. Existing files are backed up. No models will be downloaded.",
+    "ru": "Будут установлены ноды и интерфейс. Заменяемые файлы сохраняются в резервной копии. Модели не скачиваются.",
+    "fr": "Les nœuds et l’interface seront installés. Les fichiers existants seront sauvegardés. Aucun modèle ne sera téléchargé.",
+    "es": "Se instalarán los nodos y la interfaz. Se guardará una copia de los archivos existentes. No se descargarán modelos.",
+    "zh": "将安装节点包和界面，备份现有文件。不会下载任何模型。",
+    "ja": "ノードパックとインターフェースをインストールし、既存ファイルをバックアップします。モデルはダウンロードしません。"
+  },
+  "Approve these changes?": {
+    "en": "Approve these changes?",
+    "ru": "Разрешить эти изменения?",
+    "fr": "Autoriser ces modifications ?",
+    "es": "¿Aprobar estos cambios?",
+    "zh": "是否批准这些更改？",
+    "ja": "これらの変更を承認しますか？"
+  },
+  "Install this plan": {
+    "en": "Install this plan",
+    "ru": "Установить по этому плану",
+    "fr": "Installer ce plan",
+    "es": "Instalar este plan",
+    "zh": "按此计划安装",
+    "ja": "この計画でインストール"
+  },
+  "Installed. Start ComfyUI as usual, open the new workflow, and press ND UI. Choose models yourself in Settings / Help. Help is a recommendation catalog, not a mandatory list.": {
+    "en": "Installed. Start ComfyUI as usual, open the new workflow, and press ND UI. Choose models yourself in Settings / Help. Help is a recommendation catalog, not a mandatory list.",
+    "ru": "Установлено. Запустите ComfyUI как обычно, откройте новый workflow и нажмите ND UI. Модели выбирайте сами в Settings / Help. Help — рекомендации, а не обязательный список.",
+    "fr": "Installation terminée. Lancez ComfyUI normalement, ouvrez le nouveau workflow et cliquez sur ND UI. Choisissez les modèles dans Settings / Help. Help propose des recommandations, pas une liste obligatoire.",
+    "es": "Instalado. Inicia ComfyUI normalmente, abre el nuevo workflow y pulsa ND UI. Elige los modelos en Settings / Help. Help ofrece recomendaciones, no una lista obligatoria.",
+    "zh": "安装完成。照常启动 ComfyUI，打开新工作流并点击 ND UI。请在 Settings / Help 中自行选择模型。Help 是推荐目录，并非必装清单。",
+    "ja": "インストール完了。通常どおり ComfyUI を起動し、新しいワークフローを開いて ND UI を押してください。モデルは Settings / Help で選択できます。Help は推奨一覧であり、必須ではありません。"
+  },
+  "Cancel preparation? Installed ComfyUI/Python files have not been changed.": {
+    "en": "Cancel preparation? Installed ComfyUI/Python files have not been changed.",
+    "ru": "Отменить подготовку? Файлы установленного ComfyUI и Python ещё не менялись.",
+    "fr": "Annuler la préparation ? Les fichiers ComfyUI/Python installés n’ont pas été modifiés.",
+    "es": "¿Cancelar la preparación? No se han modificado los archivos de ComfyUI/Python instalados.",
+    "zh": "是否取消准备？已安装的 ComfyUI/Python 文件尚未更改。",
+    "ja": "準備をキャンセルしますか？既存の ComfyUI/Python ファイルは変更されていません。"
+  },
+  "Please wait for installation to finish.": {
+    "en": "Please wait for installation to finish.",
+    "ru": "Дождитесь завершения установки.",
+    "fr": "Veuillez attendre la fin de l’installation.",
+    "es": "Espera a que finalice la instalación.",
+    "zh": "请等待安装完成。",
+    "ja": "インストールが完了するまでお待ちください。"
+  }
+}
