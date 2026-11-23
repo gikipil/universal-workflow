@@ -190,7 +190,10 @@ export class PageView {
             const right = this.rects.get(widget.props?.rightWith);
             if (right && right.vis !== false) box.w = Math.max(1, right.x + right.w - box.x);
             const after = this.rects.get(widget.props?.afterWith);
-            if (after && after.vis !== false) box.y = Math.max(box.y, after.y + after.h + (Number(widget.props.afterGap) || 0));
+            if (after && after.vis !== false) {
+                const nextY = after.y + after.h + (Number(widget.props.afterGap) || 0);
+                box.y = widget.props.afterExact === true ? nextY : Math.max(box.y, nextY);
+            }
         }
 
         if(this.mode!=='edit'&&!this.scope)this.rects=appearanceColumns(this.ui,this.page,this.rects);

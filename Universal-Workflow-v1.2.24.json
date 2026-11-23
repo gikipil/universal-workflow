@@ -90456,7 +90456,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v1.2.23",
+            "text": "🧩 Универсальный воркфлоу · v1.2.24",
             "size": "M",
             "align": "left"
           },
@@ -92780,7 +92780,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v1.2.23",
+            "text": "🧩 Универсальный воркфлоу · v1.2.24",
             "size": "M",
             "align": "left"
           },
@@ -93669,7 +93669,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v1.2.23",
+            "text": "🧩 Универсальный воркфлоу · v1.2.24",
             "size": "M",
             "align": "left"
           },
@@ -94992,7 +94992,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v1.2.23",
+            "text": "🧩 Универсальный воркфлоу · v1.2.24",
             "size": "M",
             "align": "left"
           },
@@ -96334,7 +96334,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "↔️ Дорисовка за границами кадра · v1.2.23",
+            "text": "↔️ Дорисовка за границами кадра · v1.2.24",
             "size": "M",
             "align": "left"
           },
@@ -98265,7 +98265,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v1.2.23",
+            "text": "🧩 Универсальный воркфлоу · v1.2.24",
             "size": "M",
             "align": "left"
           },
@@ -98791,6 +98791,12 @@
             "blur": null,
             "label": "hidden",
             "scale": 100
+          },
+          "adapt": {
+            "mode": "stretch",
+            "max": 10000,
+            "unit": "%",
+            "align": "left"
           }
         },
         {
@@ -98901,7 +98907,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v1.2.23",
+            "text": "🧩 Универсальный воркфлоу · v1.2.24",
             "size": "M",
             "align": "left"
           },
@@ -99475,7 +99481,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🎬 Видео · MiniMax H3 · v1.2.23",
+            "text": "🎬 Видео · MiniMax H3 · v1.2.24",
             "size": "M",
             "align": "left"
           },
@@ -100464,7 +100470,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🎬 Звук · Higgs v3 · v1.2.23",
+            "text": "🎬 Звук · Higgs v3 · v1.2.24",
             "size": "M",
             "align": "left"
           },
@@ -101018,7 +101024,8 @@
           "props": {
             "afterWith": "aud_result",
             "afterGap": 12,
-            "steps": true
+            "steps": true,
+            "afterExact": true
           },
           "look": {
             "style": null,
@@ -101051,7 +101058,8 @@
           "slots": {},
           "props": {
             "afterWith": "aud_result",
-            "afterGap": 12
+            "afterGap": 12,
+            "afterExact": true
           },
           "look": {
             "style": null,
@@ -101092,7 +101100,8 @@
             "text": "💾 Сохранять аудио",
             "description": "Выключено по умолчанию",
             "afterWith": "aud_result",
-            "afterGap": 12
+            "afterGap": 12,
+            "afterExact": true
           },
           "look": {
             "style": null,
@@ -101137,7 +101146,8 @@
             "weights": true,
             "mono": false,
             "afterWith": "aud_progress",
-            "afterGap": 12
+            "afterGap": 12,
+            "afterExact": true
           },
           "look": {
             "style": null,
@@ -101180,7 +101190,8 @@
             "stop": true,
             "stopIdle": false,
             "afterWith": "aud_prompt",
-            "afterGap": 12
+            "afterGap": 12,
+            "afterExact": true
           },
           "look": {
             "style": null,
