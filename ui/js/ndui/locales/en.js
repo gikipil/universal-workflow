@@ -1,17 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 // Universal Workflow English UI dictionary, gikipil 2026. Russian source keys.
 export default {
-  "Видео · генерация MiniMax H3": "Video · MiniMax H3 generation",
-  "Видео · рефайнер": "Video · refiner",
-  "Видео · SeedVR": "Video · SeedVR",
-  "SAM · область": "SAM · region",
-  "Папка изображений": "Image folder",
-  "ACE-Step · планирование песни": "ACE-Step · song planning",
-  "ACE-Step · генерация музыки": "ACE-Step · music generation",
-  "Расшифровка · голос 1": "Transcription · voice 1",
-  "Расшифровка · голос 2": "Transcription · voice 2",
-  "Будет выполнено": "Will run",
-  "Не удалось определить цепочку": "Unable to determine the processing chain",
   "Перетащи вкладку, чтобы изменить порядок": "Drag a tab to change its order",
   "Облегчённая версия": "Lightweight version",
   "Готовая Turbo-модель без Turbo LoRA. Файл — в общих настройках Krea2.": "Ready-made Turbo model without Turbo LoRA. Select its file in shared Krea2 settings.",
