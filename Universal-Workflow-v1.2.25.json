@@ -90456,7 +90456,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v1.2.24",
+            "text": "🧩 Универсальный воркфлоу · v1.2.25",
             "size": "M",
             "align": "left"
           },
@@ -92780,7 +92780,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v1.2.24",
+            "text": "🧩 Универсальный воркфлоу · v1.2.25",
             "size": "M",
             "align": "left"
           },
@@ -93669,7 +93669,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v1.2.24",
+            "text": "🧩 Универсальный воркфлоу · v1.2.25",
             "size": "M",
             "align": "left"
           },
@@ -94992,7 +94992,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v1.2.24",
+            "text": "🧩 Универсальный воркфлоу · v1.2.25",
             "size": "M",
             "align": "left"
           },
@@ -96334,7 +96334,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "↔️ Дорисовка за границами кадра · v1.2.24",
+            "text": "↔️ Дорисовка за границами кадра · v1.2.25",
             "size": "M",
             "align": "left"
           },
@@ -98265,7 +98265,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v1.2.24",
+            "text": "🧩 Универсальный воркфлоу · v1.2.25",
             "size": "M",
             "align": "left"
           },
@@ -98907,7 +98907,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v1.2.24",
+            "text": "🧩 Универсальный воркфлоу · v1.2.25",
             "size": "M",
             "align": "left"
           },
@@ -99481,7 +99481,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🎬 Видео · MiniMax H3 · v1.2.24",
+            "text": "🎬 Видео · MiniMax H3 · v1.2.25",
             "size": "M",
             "align": "left"
           },
@@ -100470,7 +100470,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🎬 Звук · Higgs v3 · v1.2.24",
+            "text": "🎬 Звук · Higgs v3 · v1.2.25",
             "size": "M",
             "align": "left"
           },
@@ -101191,7 +101191,8 @@
             "stopIdle": false,
             "afterWith": "aud_prompt",
             "afterGap": 12,
-            "afterExact": true
+            "afterExact": true,
+            "rightWith": "aud_prompt"
           },
           "look": {
             "style": null,
