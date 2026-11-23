@@ -30,7 +30,9 @@ class UniversalMiniMaxGGUF:
         # custom model roots registered by this isolated loader.
         old_paths=folder_paths.folder_names_and_paths.get('unet_gguf',([],set()))[0]
         folder_paths.folder_names_and_paths['unet_gguf']=(list(dict.fromkeys([*old_paths,*paths])),{'.gguf'})
-        return module.UnetLoaderGGUF().load_unet(unet_name)
+        from .compat import prepare_minimax_model
+        result = module.UnetLoaderGGUF().load_unet(unet_name)
+        return (prepare_minimax_model(result[0]), *result[1:])
 
 NODE_CLASS_MAPPINGS={'UniversalMiniMaxGGUF':UniversalMiniMaxGGUF}
 NODE_DISPLAY_NAME_MAPPINGS={'UniversalMiniMaxGGUF':'MiniMax H3 · GGUF loader'}
