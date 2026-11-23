@@ -7,10 +7,6 @@ Add-Type -AssemblyName System.Drawing
 $env:PYTHONIOENCODING = 'utf-8'
 $env:PYTHONUTF8 = '1'
 $bundle = Split-Path $PSScriptRoot -Parent
-if (-not (Test-Path -LiteralPath (Join-Path $bundle 'package'))) {
-    [System.Windows.Forms.MessageBox]::Show('Download and extract the complete Windows installer ZIP from Releases. The GitHub source ZIP is not the installation bundle.','Universal Workflow') | Out-Null
-    exit 1
-}
 $script:languageCodes = @('en','ru','fr','es','zh','ja')
 $systemLanguage = (Get-UICulture).TwoLetterISOLanguageName
 $script:languageCode = if($systemLanguage -in $script:languageCodes){$systemLanguage}else{'en'}
@@ -25,6 +21,11 @@ function T($en, $russian) {
     }
     $script:translations[$en]=$en;$script:translations[$russian]=$en
     if($script:languageCode -eq 'ru'){return $russian};return $en
+}
+. (Join-Path $PSScriptRoot 'messages.ps1')
+if (-not (Test-Path -LiteralPath (Join-Path $bundle 'package'))) {
+    [System.Windows.Forms.MessageBox]::Show((Translate-SetupError 'Download and extract the complete Windows installer ZIP from Releases. The GitHub source ZIP is not the installation bundle.'),'Universal Workflow') | Out-Null
+    exit 1
 }
 $form = New-Object System.Windows.Forms.Form
 $form.Text = T 'Universal Workflow - Setup' 'Universal Workflow — Установка';$form.Size = New-Object System.Drawing.Size(790,694);$form.MinimumSize = $form.Size;$form.StartPosition = 'CenterScreen'
@@ -77,7 +78,7 @@ $button.Add_Click({
         if(-not (Test-Path -LiteralPath $pythonBox.Text -PathType Leaf)){throw (T 'Select the python.exe used by ComfyUI.' 'Укажите python.exe, которым запускается ComfyUI.')}
         $script:workspace=Join-Path $env:LOCALAPPDATA ('UniversalWorkflow\Setup\'+(Get-Date -Format 'yyyyMMdd-HHmmss-fff'));New-Item -ItemType Directory -Path $script:workspace -Force | Out-Null
         $output.Text=T 'Checking environment and preparing an installation plan...' 'Проверка окружения и подготовка плана установки...';Start-Engine 'prepare'
-    }catch{[System.Windows.Forms.MessageBox]::Show($_.Exception.Message,'Universal Workflow')|Out-Null}
+    }catch{[System.Windows.Forms.MessageBox]::Show((Translate-SetupError $_.Exception.Message),'Universal Workflow')|Out-Null}
 })
 $timer.Add_Tick({
     $path=Join-Path $script:workspace ($script:phase+'.log');if(Test-Path -LiteralPath $path){$output.Text=(Get-Content -LiteralPath $path -Tail 30 -Encoding UTF8)-join "`r`n";$output.SelectionStart=$output.TextLength;$output.ScrollToCaret()}
@@ -109,7 +110,7 @@ $timer.Add_Tick({
             $script:prepared=$false;$button.Text=T 'Check and prepare' 'Проверить и подготовить'
             $output.Text=T 'Installed. Start ComfyUI as usual, open the new workflow, and press ND UI. Choose models yourself in Settings / Help. Help is a recommendation catalog, not a mandatory list.' 'Установлено. Запустите ComfyUI как обычно, откройте новый workflow и нажмите ND UI. Модели выбирайте сами в Settings / Help. Help — рекомендации, а не обязательный список.'
         }
-    }catch{$script:prepared=$false;$button.Text=T 'Check and prepare' 'Проверить и подготовить';$output.Text=$_.Exception.Message;[System.Windows.Forms.MessageBox]::Show($output.Text,'Universal Workflow')|Out-Null}
+    }catch{$script:prepared=$false;$button.Text=T 'Check and prepare' 'Проверить и подготовить';$output.Text=Translate-SetupError $_.Exception.Message;[System.Windows.Forms.MessageBox]::Show($output.Text,'Universal Workflow')|Out-Null}
     $language.Enabled=$true;$button.Enabled=$true;$browse.Enabled=$true;$pickPython.Enabled=$true;$rootBox.ReadOnly=$false;$pythonBox.ReadOnly=$false;$full.Enabled=$true
 })
 function Reset-Plan {$script:prepared=$false;$button.Text=T 'Check and prepare' 'Проверить и подготовить'}

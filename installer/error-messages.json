@@ -1,0 +1,186 @@
+{
+  "Close ComfyUI before installation. No running process will be stopped automatically.": {
+    "en": "Close ComfyUI before installation. No running process will be stopped automatically.",
+    "ru": "Перед установкой закройте ComfyUI. Установщик не будет автоматически завершать работающие процессы.",
+    "fr": "Fermez ComfyUI avant l’installation. Aucun processus en cours ne sera arrêté automatiquement.",
+    "es": "Cierra ComfyUI antes de instalar. No se cerrará automáticamente ningún proceso en ejecución.",
+    "zh": "安装前请关闭 ComfyUI。安装程序不会自动终止正在运行的进程。",
+    "ja": "インストール前に ComfyUI を終了してください。実行中のプロセスが自動で終了されることはありません。"
+  },
+  "Python 3.10 or newer is required; Python 3.12 is recommended.": {
+    "en": "Python 3.10 or newer is required; Python 3.12 is recommended.",
+    "ru": "Нужен Python 3.10 или новее; рекомендуется Python 3.12.",
+    "fr": "Python 3.10 ou ultérieur est requis ; Python 3.12 est recommandé.",
+    "es": "Se necesita Python 3.10 o posterior; se recomienda Python 3.12.",
+    "zh": "需要 Python 3.10 或更高版本，建议使用 Python 3.12。",
+    "ja": "Python 3.10 以降が必要です。Python 3.12 を推奨します。"
+  },
+  "This ComfyUI Python has no pip. Choose the Python used by your ComfyUI installation.": {
+    "en": "This ComfyUI Python has no pip. Choose the Python used by your ComfyUI installation.",
+    "ru": "В выбранном Python нет pip. Укажите Python, которым запускается ваш ComfyUI.",
+    "fr": "Le Python sélectionné ne contient pas pip. Choisissez celui utilisé par votre installation ComfyUI.",
+    "es": "El Python seleccionado no tiene pip. Elige el Python que utiliza tu instalación de ComfyUI.",
+    "zh": "所选 Python 没有 pip。请选择 ComfyUI 实际使用的 Python。",
+    "ja": "選択した Python に pip がありません。ComfyUI が使用する Python を選択してください。"
+  },
+  "Could not check whether ComfyUI is running. Close ComfyUI before installing.": {
+    "en": "Could not check whether ComfyUI is running. Close ComfyUI before installing.",
+    "ru": "Не удалось проверить, запущен ли ComfyUI. Закройте его перед установкой.",
+    "fr": "Impossible de vérifier si ComfyUI est en cours d’exécution. Fermez-le avant l’installation.",
+    "es": "No se pudo comprobar si ComfyUI está abierto. Ciérralo antes de instalar.",
+    "zh": "无法检查 ComfyUI 是否正在运行。请在安装前关闭它。",
+    "ja": "ComfyUI の実行状態を確認できません。インストール前に終了してください。"
+  },
+  "Could not check running processes.": {
+    "en": "Could not check running processes.",
+    "ru": "Не удалось проверить работающие процессы. Проверьте журнал установки.",
+    "fr": "Impossible de vérifier les processus en cours. Consultez les journaux d’installation.",
+    "es": "No se pudieron comprobar los procesos activos. Consulta el registro de instalación.",
+    "zh": "无法检查正在运行的进程。请查看安装日志。",
+    "ja": "実行中のプロセスを確認できません。インストールログを確認してください。"
+  },
+  "The video runtime requires an NVIDIA GPU and its driver. Choose Images only, or install a compatible driver first.": {
+    "en": "The video runtime requires an NVIDIA GPU and its driver. Choose Images only, or install a compatible driver first.",
+    "ru": "Для видео нужна видеокарта NVIDIA и её драйвер. Выберите режим только изображений или сначала установите совместимый драйвер.",
+    "fr": "La vidéo nécessite une carte NVIDIA et son pilote. Choisissez le mode images uniquement ou installez d’abord un pilote compatible.",
+    "es": "El vídeo necesita una GPU NVIDIA y su controlador. Elige solo imágenes o instala primero un controlador compatible.",
+    "zh": "视频功能需要 NVIDIA 显卡及驱动。请选择仅图像模式，或先安装兼容驱动。",
+    "ja": "動画機能には NVIDIA GPU とドライバーが必要です。画像のみを選ぶか、互換ドライバーを先にインストールしてください。"
+  },
+  "The NVIDIA driver does not support CUDA13. Update the driver first, or select Images only. Setup will not change GPU drivers.": {
+    "en": "The NVIDIA driver does not support CUDA13. Update the driver first, or select Images only. Setup will not change GPU drivers.",
+    "ru": "Драйвер NVIDIA не поддерживает CUDA 13. Сначала обновите драйвер или выберите режим только изображений. Установщик не меняет драйверы видеокарты.",
+    "fr": "Le pilote NVIDIA ne prend pas en charge CUDA 13. Mettez-le à jour ou choisissez le mode images uniquement. L’installateur ne modifie pas les pilotes GPU.",
+    "es": "El controlador NVIDIA no admite CUDA 13. Actualízalo o elige solo imágenes. El instalador no modifica los controladores de la GPU.",
+    "zh": "NVIDIA 驱动不支持 CUDA 13。请先更新驱动或选择仅图像模式。安装程序不会修改显卡驱动。",
+    "ja": "NVIDIA ドライバーが CUDA 13 に対応していません。更新するか画像のみを選択してください。GPU ドライバーは変更しません。"
+  },
+  "The accelerated video mode needs an Ampere or newer NVIDIA GPU. Select Images only on this GPU.": {
+    "en": "The accelerated video mode needs an Ampere or newer NVIDIA GPU. Select Images only on this GPU.",
+    "ru": "Для ускоренного видео нужна NVIDIA Ampere или новее. На этой видеокарте выберите режим только изображений.",
+    "fr": "La vidéo accélérée nécessite un GPU NVIDIA Ampere ou plus récent. Sur ce GPU, choisissez le mode images uniquement.",
+    "es": "El vídeo acelerado necesita una GPU NVIDIA Ampere o posterior. En esta GPU, elige solo imágenes.",
+    "zh": "加速视频模式需要 NVIDIA Ampere 或更新架构的显卡。此显卡请选择仅图像模式。",
+    "ja": "高速動画モードには NVIDIA Ampere 以降の GPU が必要です。この GPU では画像のみを選択してください。"
+  },
+  "The environment changed or ComfyUI is running. Run the checks again.": {
+    "en": "The environment changed or ComfyUI is running. Run the checks again.",
+    "ru": "Окружение изменилось или ComfyUI запущен. Закройте ComfyUI и повторите проверку.",
+    "fr": "L’environnement a changé ou ComfyUI est ouvert. Fermez ComfyUI et relancez les vérifications.",
+    "es": "El entorno ha cambiado o ComfyUI está abierto. Ciérralo y repite las comprobaciones.",
+    "zh": "环境已改变或 ComfyUI 正在运行。请关闭 ComfyUI 后重新检查。",
+    "ja": "環境が変更されたか ComfyUI が実行中です。ComfyUI を終了し、再確認してください。"
+  },
+  "Installation files changed. Run the checks again.": {
+    "en": "Installation files changed. Run the checks again.",
+    "ru": "Файлы установки изменились. Повторите проверку.",
+    "fr": "Les fichiers d’installation ont changé. Relancez les vérifications.",
+    "es": "Los archivos de instalación han cambiado. Repite las comprobaciones.",
+    "zh": "安装文件已改变。请重新检查。",
+    "ja": "インストールファイルが変更されました。再確認してください。"
+  },
+  "ComfyUI was started during setup. Close it and prepare a new plan; workflow files were not replaced.": {
+    "en": "ComfyUI was started during setup. Close it and prepare a new plan; workflow files were not replaced.",
+    "ru": "Во время установки был запущен ComfyUI. Закройте его и подготовьте новый план. Файлы workflow не заменялись.",
+    "fr": "ComfyUI a été lancé pendant l’installation. Fermez-le et préparez un nouveau plan. Les fichiers du workflow n’ont pas été remplacés.",
+    "es": "ComfyUI se abrió durante la instalación. Ciérralo y prepara un nuevo plan. Los archivos del workflow no se sustituyeron.",
+    "zh": "安装期间启动了 ComfyUI。请关闭它并重新准备计划。工作流文件尚未替换。",
+    "ja": "インストール中に ComfyUI が起動されました。終了して計画を再作成してください。ワークフローファイルは置き換えていません。"
+  },
+  "Python dependencies could not be resolved while preserving installed versions. Setup does not downgrade packages. No installed environment was changed. See pip-check.log.": {
+    "en": "Python dependencies could not be resolved while preserving installed versions. Setup does not downgrade packages. No installed environment was changed. See pip-check.log.",
+    "ru": "Не удалось подобрать зависимости без понижения установленных версий. Установщик не понижает пакеты. Окружение не изменено. Подробности в pip-check.log.",
+    "fr": "Impossible de résoudre les dépendances sans rétrograder les versions installées. L’installateur ne rétrograde aucun paquet. L’environnement n’a pas été modifié. Consultez pip-check.log.",
+    "es": "No se pudieron resolver las dependencias sin bajar versiones instaladas. El instalador no rebaja paquetes. El entorno no se modificó. Consulta pip-check.log.",
+    "zh": "无法在不降低现有版本的前提下解析依赖。安装程序不会降级软件包，环境未被修改。详情见 pip-check.log。",
+    "ja": "既存バージョンを下げずに依存関係を解決できませんでした。パッケージのダウングレードは行いません。環境は未変更です。詳細は pip-check.log を確認してください。"
+  },
+  "Python dependency installation failed. Workflow files were not replaced. See pip-install.log and packages-before.json.": {
+    "en": "Python dependency installation failed. Workflow files were not replaced. See pip-install.log and packages-before.json.",
+    "ru": "Установка библиотек Python завершилась ошибкой. Файлы workflow не заменялись. Смотрите pip-install.log и packages-before.json.",
+    "fr": "L’installation des paquets Python a échoué. Les fichiers du workflow n’ont pas été remplacés. Consultez pip-install.log et packages-before.json.",
+    "es": "Falló la instalación de las bibliotecas de Python. Los archivos del workflow no se sustituyeron. Consulta pip-install.log y packages-before.json.",
+    "zh": "Python 依赖安装失败，工作流文件未替换。请查看 pip-install.log 和 packages-before.json。",
+    "ja": "Python 依存パッケージのインストールに失敗しました。ワークフローファイルは未変更です。pip-install.log と packages-before.json を確認してください。"
+  },
+  "Files are installed, but Python reports dependency conflicts. Do not treat setup as complete; see pip-after.log.": {
+    "en": "Files are installed, but Python reports dependency conflicts. Do not treat setup as complete; see pip-after.log.",
+    "ru": "Файлы установлены, но Python сообщает о конфликте зависимостей. Установка ещё не завершена корректно. Смотрите pip-after.log.",
+    "fr": "Les fichiers sont installés, mais Python signale des conflits de dépendances. L’installation n’est pas terminée correctement. Consultez pip-after.log.",
+    "es": "Los archivos están instalados, pero Python detecta conflictos de dependencias. La instalación no está completada correctamente. Consulta pip-after.log.",
+    "zh": "文件已安装，但 Python 报告依赖冲突。安装尚未正确完成，请查看 pip-after.log。",
+    "ja": "ファイルはインストールされましたが、Python が依存関係の競合を報告しています。正常完了ではありません。pip-after.log を確認してください。"
+  },
+  "Files are installed, but the video runtime check failed. ": {
+    "en": "Files are installed, but the video runtime check failed. ",
+    "ru": "Файлы установлены, но проверка видеосреды не пройдена. Подробности: ",
+    "fr": "Les fichiers sont installés, mais la vérification vidéo a échoué. Détails : ",
+    "es": "Los archivos están instalados, pero falló la comprobación del entorno de vídeo. Detalles: ",
+    "zh": "文件已安装，但视频运行环境检查失败。详情：",
+    "ja": "ファイルはインストールされましたが、動画実行環境の確認に失敗しました。詳細："
+  },
+  "Could not download node source: ": {
+    "en": "Could not download node source: ",
+    "ru": "Не удалось скачать исходники ноды: ",
+    "fr": "Impossible de télécharger le code du nœud : ",
+    "es": "No se pudo descargar el código del nodo: ",
+    "zh": "无法下载节点源码：",
+    "ja": "ノードのソースをダウンロードできません："
+  },
+  "Duplicate node installations: ": {
+    "en": "Duplicate node installations: ",
+    "ru": "Найдены дубли установленной ноды. Оставьте одну копию. Пути: ",
+    "fr": "Plusieurs copies du même nœud sont installées. N’en conservez qu’une. Chemins : ",
+    "es": "Hay instalaciones duplicadas del nodo. Conserva una sola copia. Rutas: ",
+    "zh": "发现重复安装的节点，请只保留一份。路径：",
+    "ja": "同じノードが重複しています。1 つだけ残してください。パス："
+  },
+  "Select the ComfyUI folder, or its portable parent folder.": {
+    "en": "Select the ComfyUI folder, or its portable parent folder.",
+    "ru": "Выберите папку ComfyUI или родительскую папку portable-версии.",
+    "fr": "Sélectionnez le dossier ComfyUI ou le dossier parent de sa version portable.",
+    "es": "Selecciona la carpeta de ComfyUI o la carpeta superior de la versión portable.",
+    "zh": "请选择 ComfyUI 文件夹或便携版的上级文件夹。",
+    "ja": "ComfyUI フォルダーまたはポータブル版の親フォルダーを選択してください。"
+  },
+  "Setup will not downgrade ": {
+    "en": "Setup will not downgrade ",
+    "ru": "Установщик не выполняет понижение пакетов. Изменений не было. Подробности: ",
+    "fr": "L’installateur ne rétrograde pas les paquets. Aucune installation n’a démarré. Détails : ",
+    "es": "El instalador no rebaja paquetes. No se inició la instalación. Detalles: ",
+    "zh": "安装程序不会降级软件包，尚未开始安装。详情：",
+    "ja": "パッケージのダウングレードは行いません。インストールは開始されていません。詳細："
+  },
+  "Installation requires explicit approval of the prepared plan.": {
+    "en": "Installation requires explicit approval of the prepared plan.",
+    "ru": "Установка требует вашего подтверждения подготовленного плана.",
+    "fr": "L’installation nécessite votre accord sur le plan préparé.",
+    "es": "La instalación requiere que apruebes el plan preparado.",
+    "zh": "安装需要您明确批准准备好的计划。",
+    "ja": "インストールには、準備した計画の承認が必要です。"
+  },
+  "Could not read the setup process exit code. Open the log folder for details.": {
+    "en": "Could not read the setup process exit code. Open the log folder for details.",
+    "ru": "Не удалось получить код завершения установщика. Откройте папку журнала для подробностей.",
+    "fr": "Impossible de lire le code de sortie de l’installation. Ouvrez les journaux pour plus de détails.",
+    "es": "No se pudo leer el código de salida del instalador. Abre los registros para ver los detalles.",
+    "zh": "无法读取安装进程退出码。请打开日志文件夹查看详情。",
+    "ja": "セットアップの終了コードを取得できません。ログフォルダーで詳細を確認してください。"
+  },
+  "Download and extract the complete Windows installer ZIP from Releases. The GitHub source ZIP is not the installation bundle.": {
+    "en": "Download and extract the complete Windows installer ZIP from Releases. The GitHub source ZIP is not the installation bundle.",
+    "ru": "Скачайте и полностью распакуйте Windows-установщик из Releases. Архив исходников GitHub не является установочным.",
+    "fr": "Téléchargez et extrayez entièrement le ZIP d’installation Windows depuis Releases. Le ZIP du code source GitHub n’est pas l’installateur.",
+    "es": "Descarga y extrae el ZIP completo del instalador de Windows desde Releases. El ZIP del código fuente de GitHub no es el instalador.",
+    "zh": "请从 Releases 下载并完整解压 Windows 安装包。GitHub 源码 ZIP 不是安装包。",
+    "ja": "Releases から Windows インストール用 ZIP をダウンロードし、完全に展開してください。GitHub のソース ZIP はインストール用ではありません。"
+  },
+  "_fallback": {
+    "en": "Setup stopped. Open the log folder for details.",
+    "ru": "Установка остановлена. Откройте журнал для подробностей.",
+    "fr": "L’installation s’est arrêtée. Ouvrez les journaux pour plus de détails.",
+    "es": "La instalación se detuvo. Abre los registros para ver los detalles.",
+    "zh": "安装已停止。请打开日志查看详情。",
+    "ja": "インストールが停止しました。ログで詳細を確認してください。"
+  }
+}
