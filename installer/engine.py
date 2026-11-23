@@ -64,8 +64,18 @@ def contained(root, relative):
     return path
 
 
+def filesystem_path(value):
+    """Use Windows extended paths for filesystem I/O, without registry changes."""
+    path = Path(value).resolve()
+    text = str(path)
+    if os.name == 'nt' and not text.startswith('\\\\?\\'):
+        text = '\\\\?\\UNC\\' + text[2:] if text.startswith('\\\\') else '\\\\?\\' + text
+        return Path(text)
+    return path
+
+
 def extract(archive, directory):
-    directory.mkdir(parents=True, exist_ok=True)
+    filesystem_path(directory).mkdir(parents=True, exist_ok=True)
     with zipfile.ZipFile(archive) as z:
         total = 0
         for item in z.infolist():
@@ -77,11 +87,16 @@ def extract(archive, directory):
             path = contained(directory, '/'.join(parts[1:]))
             if item.is_dir() or path.suffix.lower() in WEIGHTS or '.git' in parts:
                 continue
+            # Our workflow does not use authors' example graphs. Some have
+            # very long filenames; retain runtime code, tools and licenses.
+            if parts[1].lower() in ('examples', 'example_workflows', 'workflows') and path.suffix.lower() == '.json':
+                continue
             total += item.file_size
             if total > 2 * 1024**3:
                 raise ValueError('Source archive is unexpectedly large')
-            path.parent.mkdir(parents=True, exist_ok=True)
-            with z.open(item) as src, path.open('wb') as out:
+            output = filesystem_path(path)
+            output.parent.mkdir(parents=True, exist_ok=True)
+            with z.open(item) as src, output.open('wb') as out:
                 shutil.copyfileobj(src, out)
 
 
@@ -89,11 +104,18 @@ def download_source(repository, revision, cache):
     if not re.fullmatch(r'https://github.com/[\w.-]+/[\w.-]+', repository) or not re.fullmatch(r'[0-9a-f]{40}', revision):
         raise ValueError('Unpinned source repository')
     name = repository.rsplit('/', 1)[-1]
-    directory = cache / (name + '-' + revision)
-    if (directory / '.universal-source.json').is_file():
-        return directory
+    key = 'n-' + hashlib.sha256((repository + '@' + revision).encode()).hexdigest()[:16]
+    directory = cache / key
+    marker = directory / '.universal-source.json'
+    expected = {'repository': repository, 'revision': revision}
+    if marker.is_file():
+        try:
+            if json.loads(marker.read_text(encoding='utf-8')) == expected:
+                return directory
+        except (ValueError, OSError):
+            pass
     cache.mkdir(parents=True, exist_ok=True)
-    archive = cache / (name + '-' + revision + '.zip')
+    archive = cache / (key + '.zip')
     url = repository.replace('https://github.com/', 'https://codeload.github.com/') + '/zip/' + revision
     log('Downloading node source: ' + name)
     for attempt in range(3):
@@ -116,7 +138,7 @@ def download_source(repository, revision, cache):
                 break
             time.sleep(1)
     extract(archive, directory)
-    (directory / '.universal-source.json').write_text(json.dumps({'repository': repository, 'revision': revision}), encoding='utf-8')
+    marker.write_text(json.dumps(expected), encoding='utf-8')
     return directory
 
 
@@ -211,7 +233,7 @@ def audit(root, mode):
 
 def has_classes(directory, names):
     remaining = set(names)
-    for p in directory.rglob('*'):
+    for p in filesystem_path(directory).rglob('*'):
         if p.suffix not in ('.py', '.js') or '__pycache__' in p.parts or '.git' in p.parts or not p.is_file():
             continue
         text = p.read_text(encoding='utf-8', errors='ignore')
@@ -293,13 +315,14 @@ def plan(bundle, workspace, root, mode):
 
 
 def copy_files(source, target, backup, changes, core=False, preserve_workflow=False):
+    source = filesystem_path(source)
     for src in source.rglob('*'):
         relative = src.relative_to(source)
         if not src.is_file() or '.git' in relative.parts or '__pycache__' in relative.parts or src.suffix.lower() in WEIGHTS:
             continue
         if core and relative.parts[0] in PROTECTED:
             continue
-        dest = contained(target, relative.as_posix())
+        dest = filesystem_path(contained(target, relative.as_posix()))
         if preserve_workflow and dest.exists():
             continue
         if dest.exists() and dest.read_bytes() == src.read_bytes():
