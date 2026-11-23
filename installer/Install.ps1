@@ -12,9 +12,14 @@ if (-not (Test-Path -LiteralPath (Join-Path $bundle 'package'))) {
     exit 1
 }
 $ru = (Get-UICulture).Name.StartsWith('ru')
-function T($en, $russian) { if ($ru) { return $russian }; return $en }
+$script:translations = @{}
+function T($en, $russian) {
+    $script:translations[$en] = @($en, $russian)
+    $script:translations[$russian] = @($en, $russian)
+    if ($script:ru) { return $russian }; return $en
+}
 $form = New-Object System.Windows.Forms.Form
-$form.Text = 'Universal Workflow - Setup';$form.Size = New-Object System.Drawing.Size(790,650);$form.MinimumSize = $form.Size;$form.StartPosition = 'CenterScreen'
+$form.Text = T 'Universal Workflow - Setup' 'Universal Workflow — Установка';$form.Size = New-Object System.Drawing.Size(790,694);$form.MinimumSize = $form.Size;$form.StartPosition = 'CenterScreen'
 $form.Font = New-Object System.Drawing.Font('Segoe UI',10)
 $label = New-Object System.Windows.Forms.Label
 $label.Text = T 'Select your existing ComfyUI folder (or its portable parent). Models are NOT downloaded.' 'Выберите папку установленного ComfyUI или его portable-папку. Модели НЕ скачиваются.'
@@ -44,7 +49,7 @@ function Start-Engine($action) {
     if($action -eq 'install'){$arguments+='--approved'}
     $script:process=Start-Process -FilePath $pythonBox.Text -ArgumentList $arguments -WindowStyle Hidden -RedirectStandardOutput (Join-Path $script:workspace ($action+'.log')) -RedirectStandardError (Join-Path $script:workspace ($action+'-errors.log')) -PassThru
     $button.Text=if($action -eq 'install'){T 'Installing...' 'Установка...'}else{T 'Preparing...' 'Подготовка...'}
-    $button.Enabled=$false;$browse.Enabled=$false;$pickPython.Enabled=$false;$rootBox.ReadOnly=$true;$pythonBox.ReadOnly=$true;$full.Enabled=$false;$close.Enabled=($action -eq 'prepare');$close.Text=if($action -eq 'prepare'){T 'Cancel' 'Отмена'}else{T 'Close' 'Закрыть'};$logs.Enabled=$true;$timer.Start()
+    $language.Enabled=$false;$button.Enabled=$false;$browse.Enabled=$false;$pickPython.Enabled=$false;$rootBox.ReadOnly=$true;$pythonBox.ReadOnly=$true;$full.Enabled=$false;$close.Enabled=($action -eq 'prepare');$close.Text=if($action -eq 'prepare'){T 'Cancel' 'Отмена'}else{T 'Close' 'Закрыть'};$logs.Enabled=$true;$timer.Start()
 }
 $button.Add_Click({
     try {
@@ -88,7 +93,7 @@ $timer.Add_Tick({
             $output.Text=T 'Installed. Start ComfyUI as usual, open the new workflow, and press ND UI. Choose models yourself in Settings / Help. Help is a recommendation catalog, not a mandatory list.' 'Установлено. Запустите ComfyUI как обычно, откройте новый workflow и нажмите ND UI. Модели выбирайте сами в Settings / Help. Help — рекомендации, а не обязательный список.'
         }
     }catch{$script:prepared=$false;$button.Text=T 'Check and prepare' 'Проверить и подготовить';$output.Text=$_.Exception.Message;[System.Windows.Forms.MessageBox]::Show($output.Text,'Universal Workflow')|Out-Null}
-    $button.Enabled=$true;$browse.Enabled=$true;$pickPython.Enabled=$true;$rootBox.ReadOnly=$false;$pythonBox.ReadOnly=$false;$full.Enabled=$true
+    $language.Enabled=$true;$button.Enabled=$true;$browse.Enabled=$true;$pickPython.Enabled=$true;$rootBox.ReadOnly=$false;$pythonBox.ReadOnly=$false;$full.Enabled=$true
 })
 function Reset-Plan {$script:prepared=$false;$button.Text=T 'Check and prepare' 'Проверить и подготовить'}
 $rootBox.Add_TextChanged({Reset-Plan});$pythonBox.Add_TextChanged({Reset-Plan});$full.Add_CheckedChanged({Reset-Plan})
@@ -103,5 +108,25 @@ $form.Add_FormClosing({
             if($answer -eq 'Yes'){$timer.Stop();Start-Process -FilePath taskkill.exe -ArgumentList @('/PID',$script:process.Id,'/T','/F') -WindowStyle Hidden -Wait;$event.Cancel=$false}
         }else{[System.Windows.Forms.MessageBox]::Show((T 'Please wait for installation to finish.' 'Дождитесь завершения установки.'),'Universal Workflow')|Out-Null}
     }
+})
+# Reserve a compact language row without changing the installation controls.
+foreach ($control in $form.Controls) { $control.Top += 44 }
+$languageLabel=New-Object System.Windows.Forms.Label
+$languageLabel.Text='Language / Язык';$languageLabel.SetBounds(20,16,170,24);$form.Controls.Add($languageLabel)
+$language=New-Object System.Windows.Forms.ComboBox
+$language.DropDownStyle='DropDownList';$language.SetBounds(195,12,200,30)
+$language.Items.AddRange(@('English','Русский'))
+$language.SelectedIndex=if($ru){1}else{0};$form.Controls.Add($language)
+$language.Add_SelectedIndexChanged({
+    $script:ru=($language.SelectedIndex -eq 1)
+    foreach($control in @($form)+@($form.Controls)) {
+        if($script:translations.ContainsKey($control.Text)) {
+            $pair=$script:translations[$control.Text]
+            $control.Text=if($script:ru){$pair[1]}else{$pair[0]}
+        }
+    }
+    # An already prepared plan must be displayed in the chosen language again.
+    Reset-Plan
+    $output.Clear()
 })
 [System.Windows.Forms.Application]::Run($form)

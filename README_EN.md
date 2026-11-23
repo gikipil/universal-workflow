@@ -6,7 +6,7 @@
 
 One interface for image generation, refinement, editing, outpainting, background removal, upscaling, image captions, video and audio. Common settings are on the left, results and comparisons on the right. Less frequent settings open from gear buttons.
 
-**Download:** [1.2.13 release](https://github.com/gikipil/universal-workflow/releases/tag/v1.2.13) · [complete ZIP](https://github.com/gikipil/universal-workflow/releases/download/v1.2.13/Universal-Workflow-v1.2.13.zip) · [workflow JSON](Universal-Workflow-v1.2.13.json).
+**Download:** [1.2.13 release](https://github.com/gikipil/universal-workflow/releases/tag/v1.2.13) · [complete ZIP](https://github.com/gikipil/universal-workflow/releases/download/v1.2.13/Universal-Workflow-v1.2.13-Windows-Setup.zip) · [workflow JSON](Universal-Workflow-v1.2.13.json).
 
 **All versions:** [version history and tagged downloads](https://github.com/gikipil/universal-workflow/tags). The main branch contains the current version; previous versions remain available in the same repository.
 
@@ -43,6 +43,8 @@ The JSON alone is not enough: install the UI files and bundled nodes below. Mode
 The archive includes ND UI Builder with its licenses, our interface and local modules. Setup downloads missing node source and Python libraries, **never model weights**. Help is the author's recommendation catalog, not a mandatory list: other compatible models can also be selected. Direct links remain available for downloads requiring authentication or manual license acceptance.
 
 Requires Windows, internet and an existing ComfyUI installation with Python/pip. Full video/audio preparation targets NVIDIA; Python 3.12 is recommended and package compatibility is checked; Images only keeps the current PyTorch family. Environment changes require approval. Python libraries may take several GB. Running processes are never stopped automatically: close ComfyUI yourself. Dependency conflicts are logged and are not reported as a successful installation.
+
+The setup wizard follows the Windows display language: Russian on Russian systems, English otherwise. You can change it with **Language / Язык** before checking or installing. Technical logs remain in English.
 
 ### Manual installation — alternative to the wizard
 
