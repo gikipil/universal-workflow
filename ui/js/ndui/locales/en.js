@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 // Universal Workflow English UI dictionary, gikipil 2026. Russian source keys.
 export default {
+  "Перетащи вкладку, чтобы изменить порядок": "Drag a tab to change its order",
   "Облегчённая версия": "Lightweight version",
   "Готовая Turbo-модель без Turbo LoRA. Файл — в общих настройках Krea2.": "Ready-made Turbo model without Turbo LoRA. Select its file in shared Krea2 settings.",
   "Готовая модель Krea Turbo": "Ready-made Krea Turbo model",

@@ -3,6 +3,7 @@
 // 61 shared labels adapted from ND UI Builder Chinese translations:
 // Copyright (c) 2026 Ivan Ovchinnikov (Neural Dreamer).
 export default {
+  "Перетащи вкладку, чтобы изменить порядок": "拖动标签页以调整顺序",
   "Облегчённая версия": "轻量版本",
   "Готовая Turbo-модель без Turbo LoRA. Файл — в общих настройках Krea2.": "使用现成的 Turbo 模型，无需 Turbo LoRA。请在 Krea2 通用设置中选择文件。",
   "Готовая модель Krea Turbo": "现成的 Krea Turbo 模型",

@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 // Universal Workflow interface translation, gikipil 2026.
 export default {
+  "Перетащи вкладку, чтобы изменить порядок": "Arrastra una pestaña para cambiar su orden",
   "Облегчённая версия": "Versión ligera",
   "Готовая Turbo-модель без Turbo LoRA. Файл — в общих настройках Krea2.": "Modelo Turbo preparado sin Turbo LoRA. Selecciona su archivo en los ajustes generales de Krea2.",
   "Готовая модель Krea Turbo": "Modelo Krea Turbo preparado",

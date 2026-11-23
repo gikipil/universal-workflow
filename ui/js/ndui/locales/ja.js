@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 // Universal Workflow Japanese interface translation, gikipil 2026.
 export default {
+  "Перетащи вкладку, чтобы изменить порядок": "タブをドラッグして順序を変更",
   "Облегчённая версия": "軽量版",
   "Готовая Turbo-модель без Turbo LoRA. Файл — в общих настройках Krea2.": "Turbo LoRAを使わず、完成済みTurboモデルを使用します。Krea2の共通設定でファイルを選択してください。",
   "Готовая модель Krea Turbo": "完成済みKrea Turboモデル",
