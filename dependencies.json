@@ -1,5 +1,5 @@
 {
-  "version": "1.2.21",
+  "version": "1.2.22",
   "comfyui_repository": "https://github.com/Comfy-Org/ComfyUI",
   "core_node_types": [
     "BasicScheduler",

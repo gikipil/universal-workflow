@@ -174,7 +174,7 @@ export const modelpicker = {
             const text = v == null ? "" : String(v);
             const d = dirName(text);
             const ticket=++presenceTicket;
-            if(ctx.prop('checkModelFile')||shouldCheckModelPresence(fo,ctx.prop('requiredModel')))checkModelPresence(fo,text,ctx.info('value')).then(status=>{if(alive&&ticket===presenceTicket)paintModelBadge(missingBadge,status);});
+            if((ctx.prop('checkModelFile')&&fo!=='loras')||shouldCheckModelPresence(fo,ctx.prop('requiredModel')))checkModelPresence(fo,text,ctx.info('value'),false,fo!=='loras'||ctx.prop('requiredModel')===true).then(status=>{if(alive&&ticket===presenceTicket)paintModelBadge(missingBadge,status);});
             else paintModelBadge(missingBadge,{missing:false});
             const k = `${text}|${info.size}|${fo}`;
             if (k === seen) return;

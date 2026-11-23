@@ -19,7 +19,7 @@ export function modeModelKeys(ctx,scope){
  if(scope==='pose')return c.enabled?POSE:[];
  return[];
 }
-const folder=key=>key==='vid_latent_upscaler'?'latent_upscale_models':key==='k_turbo'||key==='pose_lora'||key==='vid_turbo'?'loras':key==='sam_model'?'checkpoints':key.startsWith('pose_')||key.endsWith('_detector')||key.startsWith('up_seed_')?'auto':key==='up_simple_model'||key==='up_ultimate_model'?'upscale_models':key.endsWith('_clip')?'text_encoders':key.endsWith('_vae')?'vae':'diffusion_models';
+const folder=key=>key==='vid_latent_upscaler'?'latent_upscale_models':key==='k_turbo'||key==='pose_lora'||key==='vid_turbo'?'loras':key==='sam_model'?'checkpoints':key.startsWith('up_seed_')?'seedvr2':key.endsWith('_detector')?'ultralytics':key.startsWith('pose_')?'auto':key==='up_simple_model'||key==='up_ultimate_model'?'upscale_models':key.endsWith('_clip')?'text_encoders':key.endsWith('_vae')?'vae':'diffusion_models';
 // Uses the same file bindings and cached catalogs as Settings. Never mutates a node.
 export function mountModePresence(ctx,host,scope){
  const badge=lostModelBadge(el);host.append(badge);let alive=true,ticket=0,stamp='',at=0,pending=null;
@@ -30,8 +30,8 @@ export function mountModePresence(ctx,host,scope){
   if(signature===stamp&&now-at<30000)return pending||Promise.resolve();
   if(signature!==stamp)paintModelBadge(badge,{missing:false});stamp=signature;at=now;const version=++ticket;
   pending=Promise.all(entries.map(async e=>{const empty=e.value==null||['','none','null'].includes(String(e.value).trim().toLowerCase());const status=empty?{missing:true,reason:'Не выбран обязательный файл.'}:await checkModelPresence(folder(e.key),e.value,e.state||{});return{...e,status};})).then(results=>{
-   if(!alive||version!==ticket)return;const missing=results.filter(e=>e.status.missing===true),reason=missing.map(e=>e.value?e.status.reason+' ('+e.value+')':e.status.reason).join('\n');paintModelBadge(badge,{missing:missing.length>0,reason});if(missing.length)badge.title=reason+'\nВыбери файлы в общих настройках.';badge.setAttribute('aria-label',missing.length?'Потеряны обязательные файлы: '+missing.map(e=>e.value||e.key).join(', '):'');
-  }).catch(()=>{if(alive&&version===ticket)paintModelBadge(badge,{missing:false});});return pending;
+   if(!alive||version!==ticket)return;const missing=results.filter(e=>e.status.missing===true),reason=missing.map(e=>e.value?e.status.reason+' ('+e.value+')':e.status.reason).join('\n');const unknown=results.some(e=>e.status.missing==null);paintModelBadge(badge,{missing:missing.length?true:unknown?null:false,reason:reason||(unknown?'Не удалось проверить доступность модели.':'')});if(missing.length)badge.title=reason+'\nВыбери файлы в общих настройках.';badge.setAttribute('aria-label',missing.length?'Потеряны обязательные файлы: '+missing.map(e=>e.value||e.key).join(', '):'');
+  }).catch(()=>{if(alive&&version===ticket)paintModelBadge(badge,{missing:null});});return pending;
  }
  update();return{update,destroy(){alive=false;ticket++;badge.remove();}};
 }

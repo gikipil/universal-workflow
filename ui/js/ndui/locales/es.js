@@ -1,6 +1,9 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 // Universal Workflow interface translation, gikipil 2026.
 export default {
+  "Не выбран обязательный файл.": "No se ha seleccionado el archivo obligatorio.",
+  "не проверено": "sin verificar",
+  "Не удалось проверить доступность модели.": "No se pudo verificar la disponibilidad del modelo.",
   "Перетащи вкладку, чтобы изменить порядок": "Arrastra una pestaña para cambiar su orden",
   "Облегчённая версия": "Versión ligera",
   "Готовая Turbo-модель без Turbo LoRA. Файл — в общих настройках Krea2.": "Modelo Turbo preparado sin Turbo LoRA. Selecciona su archivo en los ajustes generales de Krea2.",
@@ -925,6 +928,7 @@ export default {
 };
 
 export const patterns=[
+ [/^Файл модели не найден: (.+)$/,'No se encontró el archivo del modelo: $1'],
  [/^сила LoRA (\d+)$/i,"Intensidad de LoRA $1"],
  [/^Удалить ряд (\d+)$/,"Eliminar fila $1"],
  [/^Этап (\d+) из (\d+)$/,"Etapa $1 de $2"],

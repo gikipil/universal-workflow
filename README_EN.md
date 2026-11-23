@@ -2,11 +2,11 @@
 
 [Русский](README.md) · **English**
 
-**Version 1.2.21 · ComfyUI · English interface by default**
+**Version 1.2.22 · ComfyUI · English interface by default**
 
 One interface for image generation, refinement, editing, outpainting, background removal, upscaling, image captions, video and audio. Common settings are on the left, results and comparisons on the right. Less frequent settings open from gear buttons.
 
-**Download:** [1.2.21 release](https://github.com/gikipil/universal-workflow/releases/tag/v1.2.21) · [complete ZIP](https://github.com/gikipil/universal-workflow/releases/download/v1.2.21/Universal-Workflow-v1.2.21.zip) · [workflow JSON](Universal-Workflow-v1.2.21.json).
+**Download:** [1.2.22 release](https://github.com/gikipil/universal-workflow/releases/tag/v1.2.22) · [complete ZIP](https://github.com/gikipil/universal-workflow/releases/download/v1.2.22/Universal-Workflow-v1.2.22.zip) · [workflow JSON](Universal-Workflow-v1.2.22.json).
 
 **All versions:** [version history and tagged downloads](https://github.com/gikipil/universal-workflow/tags). The main branch contains the current version; previous versions remain available in the same repository.
 
@@ -55,7 +55,7 @@ Setup does not downgrade installed packages. Compatible versions are retained, m
 3. Copy the **contents** of `resources/package/ui/js/` into that Builder’s `js/` folder and replace matching files.
 4. Copy the three folders from `resources/package/nodes/` into `ComfyUI/custom_nodes/`. Copy `resources/package/assets/universal-local-empty-mask.png` into `ComfyUI/input/`.
 5. Install the external node packs listed below using ComfyUI-Manager or their author instructions. Install Python requirements into the environment that actually starts ComfyUI; optional video/audio compatibility steps are below.
-6. Restart ComfyUI, refresh the browser with **Ctrl+F5**, and open `resources/package/Universal-Workflow-v1.2.21.json`. Press **ND UI**.
+6. Restart ComfyUI, refresh the browser with **Ctrl+F5**, and open `resources/package/Universal-Workflow-v1.2.22.json`. Press **ND UI**.
 7. Download only the models you need, then select their actual files in Settings. Files may be at the root of their model category or in any subfolder. If an old saved path is marked missing, choose your local file instead; do not recreate the author's folder layout.
 
 <details>
@@ -163,7 +163,7 @@ In **Settings → Models → Help**, recommendation cards have download buttons 
 
 ### 7. Open the workflow
 
-Restart ComfyUI, hard-refresh with **Ctrl+F5**, and drag **`Universal-Workflow-v1.2.21.json`** into ComfyUI. Press **ND UI**. English is the default; change it in **Settings → Appearance → Interface language**.
+Restart ComfyUI, hard-refresh with **Ctrl+F5**, and drag **`Universal-Workflow-v1.2.22.json`** into ComfyUI. Press **ND UI**. English is the default; change it in **Settings → Appearance → Interface language**.
 
 For the first run, select Generation, confirm Krea models and the Turbo adapter, disable uninstalled persistent LoRAs, and leave refinement/local processing/upscaling off until an image succeeds. Enter a prompt and press Generate, then enable other stages one at a time.
 
@@ -213,6 +213,10 @@ The workflow and original documentation are for non-commercial distribution/use,
 UI code and bundled modules retain **AGPL-3.0-only**; the QwenTTS patch retains **GPL-3.0-only**. These licenses permit commercial code use and are not overridden by workflow terms. Nodes, models and LoRAs keep their own licenses; the output exception does not override their restrictions or other people's rights. See [NOTICE.md](NOTICE.md).
 
 ## 📝 Release history
+
+### 1.2.22
+
+- Fixed shared model validation: required none selections and invalid paths, including folder-name case, are marked missing. Help shows Loaded only for an available selected file. Active-branch files are checked before queue submission; disabled stages do not require models. Unavailable checks display not verified.
 
 ### 1.2.21
 

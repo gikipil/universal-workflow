@@ -1,6 +1,9 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 // Universal Workflow English UI dictionary, gikipil 2026. Russian source keys.
 export default {
+  "Не выбран обязательный файл.": "No required file is selected.",
+  "не проверено": "not verified",
+  "Не удалось проверить доступность модели.": "Could not verify model availability.",
   "Перетащи вкладку, чтобы изменить порядок": "Drag a tab to change its order",
   "Облегчённая версия": "Lightweight version",
   "Готовая Turbo-модель без Turbo LoRA. Файл — в общих настройках Krea2.": "Ready-made Turbo model without Turbo LoRA. Select its file in shared Krea2 settings.",
@@ -924,6 +927,7 @@ export default {
   "Выделение маски остановлено.": "Mask selection stopped."
 };
 export const patterns=[
+ [/^Файл модели не найден: (.+)$/,'Model file not found: $1'],
  [/^Этап (\d+) из (\d+)$/,'Stage $1 of $2'],
  [/^Прошло (.+)$/,'Elapsed $1'],
  [/^В очереди: (\d+)$/,'Queued: $1'],
