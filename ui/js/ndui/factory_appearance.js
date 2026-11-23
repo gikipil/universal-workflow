@@ -151,3 +151,11 @@ export function appearanceColumns(ui,page,rects){
  const move=(box,side)=>{const scale=side==='left'?leftWidth/left.w:(rightEnd-newRight)/right.w,origin=side==='left'?leftX:right.x,start=side==='left'?leftX:newRight;return{...box,x:start+(box.x-origin)*scale,w:box.w*scale};};
  return new Map([...rects].map(([id,box])=>{const w=byId.get(id),side=w&&region(w);if(!side)return[id,box];const next=move(box,side);if(box.clip)next.clip=move(box.clip,side);return[id,next];}));
 }
+
+// Keep native paint variables exact when a full palette stops overriding them.
+const appliedAppearanceKeys=new WeakMap();
+export function applyAppearanceVars(element,vars,apply){
+ const previous=appliedAppearanceKeys.get(element);
+ if(previous)for(const key of previous)if(!Object.hasOwn(vars,key))element.style.removeProperty(key);
+ apply(element,vars);appliedAppearanceKeys.set(element,new Set(Object.keys(vars)));
+}

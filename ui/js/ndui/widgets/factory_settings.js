@@ -9,7 +9,7 @@ import {captionModelFields} from './factory_caption.js';
 import {el, closePopup} from './util.js';
 import {modelpicker} from './special.js';
 import {applyVars} from '../kit.js';
-import {APPEARANCE_PROFILES,APPEARANCE_FONTS,APPEARANCE_CONTROL_CSS,PREVIEW_BACKGROUNDS} from '../factory_appearance.js';
+import {applyAppearanceVars,APPEARANCE_PROFILES,APPEARANCE_FONTS,APPEARANCE_CONTROL_CSS,PREVIEW_BACKGROUNDS} from '../factory_appearance.js';
 
 const MODEL_FIELDS = [
     ['vid_ref_model','MiniMax REF · модель','diffusion_models'],['vid_fl_model','MiniMax FL · модель','diffusion_models'],
@@ -215,13 +215,14 @@ export function openFactorySettings(ctx, onClose=()=>{}) {
     const preview=el('div','acf-settings-preview'),previewTitle=el('strong','','Пример поля'),previewText=el('div','','Текст остаётся читаемым, элементы — различимыми.'),previewControls=el('div','acf-settings-preview-controls'),sampleField=el('span','ndk-field','Значение · 1024'),sampleAccent=el('span','','Активный раздел');
     for(const node of[sampleField,sampleAccent]){node.style.padding='8px 12px';node.style.border='1px solid #53776e';}previewControls.append(sampleField,sampleAccent);preview.append(previewTitle,previewText,previewControls);previewCard.append(preview);
     const reset=el('button','acf-settings-reset','↺ Вернуть стандартное оформление');reset.type='button';reset.addEventListener('click',()=>{ctx.resetAppearanceControls?.();update();});previewCard.append(reset);
-    overlay.append(header,tabs,models,visual,helpFooter);applyVars(overlay,ctx.vars());document.body.append(overlay);document.body.style.overflow='hidden';
+    overlay.append(header,tabs,models,visual,helpFooter);applyAppearanceVars(overlay,ctx.vars(),applyVars);document.body.append(overlay);document.body.style.overflow='hidden';
     const palette=themeInterface(overlay,()=>ctx.colorProfile?.()||APPEARANCE_PROFILES.find(p=>p.id===(ctx.appearance?.()||'standard')));
     const localization=localizeInterface(overlay,()=>ctx.appearanceControls?.().language||ctx.language?.()||'ru');
     function update() {
+        applyAppearanceVars(overlay,ctx.vars(),applyVars);
         for(const instance of instances)instance.update?.();for(const fn of updaters)fn();
         const appearance=ctx.appearance?.()||'standard',profile=APPEARANCE_PROFILES.find(p=>p.id===appearance)||APPEARANCE_PROFILES.find(p=>p.id==='standard');overlay.style.background=profile.bg;
-        applyVars(overlay,ctx.vars());for(const[b,id]of profileButtons)b.setAttribute('aria-pressed',String(id===appearance));
+        applyAppearanceVars(overlay,ctx.vars(),applyVars);for(const[b,id]of profileButtons)b.setAttribute('aria-pressed',String(id===appearance));
         for(const[b,value]of glowButtons)b.setAttribute('aria-pressed',String((ctx.prop('glow')||'soft')===value));
         const visualOptions=ctx.appearanceControls?.()||{columnWidth:0,previewBackground:'standard',animations:'normal',font:'inter',fontSize:14,density:'spacious',style:'soft',radius:'default',accentA:ctx.prop('accentA')||'#36cfea',accentB:ctx.prop('accentB')||'#59e68d'};
         overlay.classList.toggle('acf-visual-font',!!ctx.appearanceControls);overlay.classList.toggle('acf-visual-density',!!ctx.appearanceControls);overlay.classList.toggle('acf-visual-style',!!ctx.appearanceControls);overlay.setAttribute('data-field-style',visualOptions.style);overlay.classList.toggle('acf-motion-fast',visualOptions.animations==='fast');overlay.classList.toggle('acf-motion-off',visualOptions.animations==='off');

@@ -10,7 +10,7 @@ import {taskPageUi} from './task_page.js';
 // ND UI — PageView: draws a page of the panel (in the node, in the editor, on the full screen).
 // It keeps one frame per widget, gives each widget its context (ctx), and every frame looks at the bound parameters to keep the widgets in step with the graph.
 
-import {applyAppearanceProfile,appearanceProfile,readAppearanceControls,applyAppearanceControls,resetAppearanceControls,appearanceVars,APPEARANCE_CONTROL_CSS,syncAppearanceRoot,appearanceColumns,activeAppearanceProfile,appearanceRole} from "./factory_appearance.js";
+import {applyAppearanceVars,applyAppearanceProfile,appearanceProfile,readAppearanceControls,applyAppearanceControls,resetAppearanceControls,appearanceVars,APPEARANCE_CONTROL_CSS,syncAppearanceRoot,appearanceColumns,activeAppearanceProfile,appearanceRole} from "./factory_appearance.js";
 import { applyVars, varsFor, tokensOf, pageBackground, injectKit } from "./kit.js";
 import { defOf, defaultProps } from "./widgets/index.js";
 import { resolveSlot, writeSlot, effectiveLimits, stateLabel } from "./bind.js";
@@ -221,7 +221,7 @@ export class PageView {
         this.root.classList.toggle("ndk-edit", this.mode === "edit");
         const tokens = this.tokens;
         syncAppearanceRoot(ui,this.root);
-        applyVars(this.root, appearanceVars(ui,varsFor(tokens, ui.kit, {})));
+        applyAppearanceVars(this.root, appearanceVars(ui,varsFor(tokens, ui.kit, {})),applyVars);
         this.applyBackground(tokens);
         this.computeLayout();
         const wanted = new Map(widgetsOf(ui, this.page).filter((w) => this.rects.has(w.id)).map((w) => [w.id, w]));
@@ -503,7 +503,7 @@ export class PageView {
         if (isPanelLike(w) || w.type === "spoiler") { vars["--ndk-pbg"] = look.bg || vars["--ndk-s1"]; vars["--ndk-ptitle"] = look.labelColor || look.text || vars["--ndk-text"]; vars["--ndk-wbg"] = "transparent"; }
         appearanceVars(this.ui,vars,w);f.frame.setAttribute('data-acf-role',appearanceRole(w));
         f.vars = vars;
-        applyVars(f.frame, vars);
+        applyAppearanceVars(f.frame, vars,applyVars);
         const lp = !def || def.noLabel ? "hidden" : (w.look?.label || "top");
         f.frame.className = `ndk-w lp-${lp}${def?.fill ? " fill" : ""}${look.bg && !isPanelLike(w) && !def?.decor ? " has-wbg" : ""}`;
         f.label.textContent = w.props?.label ?? "";

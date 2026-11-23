@@ -80,7 +80,7 @@ export function themeInterface(root,getProfile){
  function walk(node){
   if(!node||closed)return;if(node!==root&&node.hasAttribute?.('data-acf-themed'))return;
   if(node.nodeType===1){
-   context();if(!cachedProfile)return;
+   if(!cachedProfile)return;
    if(node.tagName==='STYLE'){
     let cached=originals.get(node);if(!cached||node.textContent!==cached.shown)cached={source:node.textContent};
     const next=enabled?cached.source.replace(/([a-z-]+)\s*:\s*([^;{}]+)/gi,(all,property,value)=>PAINT_PROPERTIES.includes(property.toLowerCase())?property+':'+themePaint(value,property,preserve):all):cached.source;
@@ -90,7 +90,7 @@ export function themeInterface(root,getProfile){
   }
   for(const child of node.childNodes||[])walk(child);
  }
- function update(){if(closed)return;const changed=context();if(!cachedProfile)return;for(const[k,v]of Object.entries(cachedVars))if(root.style.getPropertyValue?.(k)!==v)root.style.setProperty(k,v);if(changed)walk(root);}
- const observer=typeof MutationObserver==='undefined'?null:new MutationObserver(records=>{const changed=new Set();for(const r of records){if(r.type==='childList'){for(const node of r.addedNodes)changed.add(node);}else if(r.target!==root||r.type!=='attributes')changed.add(r.target);}for(const node of changed)walk(node);});
+ function update(force=false){if(closed)return;const changed=context();if(!cachedProfile)return;for(const[k,v]of Object.entries(cachedVars))if(root.style.getPropertyValue?.(k)!==v)root.style.setProperty(k,v);if(changed||force)walk(root);}
+ const observer=typeof MutationObserver==='undefined'?null:new MutationObserver(records=>{if(closed)return;if(context()){update(true);return;}const changed=new Set();for(const r of records){if(r.type==='childList'){for(const node of r.addedNodes)changed.add(node);}else if(r.target!==root||r.type!=='attributes')changed.add(r.target);}for(const node of changed)walk(node);});
  observer?.observe(root,{subtree:true,childList:true,attributes:true,attributeFilter:['style'],characterData:true});update();return{update,destroy(){closed=true;observer?.disconnect();}};
 }
