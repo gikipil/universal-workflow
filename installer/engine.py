@@ -232,7 +232,8 @@ def plan(bundle, workspace, root, mode):
     text = '\n'.join('-r "' + str(p).replace('\\', '/') + '"' for p in requirements)
     text += '\naccelerate\nsentencepiece\n'
     if mode == 'all':
-        text += 'transformers==5.5.0\ncomfy-kitchen==0.2.35\n'
+        # Keep the accelerated-video minimum without overriding ComfyUI's own pin.
+        text += 'transformers==5.5.0\ncomfy-kitchen>=0.2.35\n'
     if info['update_video_runtime']:
         text += 'torch==2.10.0+cu130\ntorchvision==0.25.0+cu130\ntorchaudio==2.10.0+cu130\n'
     req.write_text(text, encoding='utf-8')
