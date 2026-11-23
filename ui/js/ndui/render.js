@@ -1,4 +1,3 @@
-import {mountPinnedNavigation} from './factory_pinned_navigation.js';
 import {themeInterface} from './factory_palette.js';
 import {T as nativeUiText,loadLang} from './core/i18n.js';
 import {interfaceLanguage,translateInterface,localizeInterface,isUniversalInterface} from './factory_locale.js';
@@ -80,7 +79,6 @@ export class PageView {
         this.alive = true;
         if(isUniversalInterface(this.ui))loadLang(interfaceLanguage(this.ui)).then(()=>{if(this.alive)this.refresh();});
         this.root.addEventListener("wheel", (e) => this.onWheel(e), { passive: false, capture: true });
-        this.pinnedNavigation=isUniversalInterface(this.ui)?mountPinnedNavigation(this):null;
         this.ro = new ResizeObserver(() => this.resize());
         this.ro.observe(host);
         this.offOpen = this.openState.subscribe(() => { this.relayout(); });
@@ -95,7 +93,6 @@ export class PageView {
     destroy() {
         this.alive = false;
         this.offOpen?.();
-        this.pinnedNavigation?.destroy();
         cancelAnimationFrame(this.raf);
         this.ro.disconnect();
         this.localization?.destroy();this.palette?.destroy();
@@ -318,7 +315,6 @@ export class PageView {
         this.tail.style.top = `${(this.fit === "fill" ? 0 : g.oy) + pt + scrollH}px`; this.tail.style.height = scrolls ? `${this.padBottom}px` : "0";
         this.pageEl.classList.toggle("anim", this.mode === "run" && !matchMedia("(prefers-reduced-motion: reduce)").matches);
         for (const f of this.frames.values()) { this.placeFrame(f); this.resizeFrame(f); }
-        this.pinnedNavigation?.update();
         // the scrollbar came or went: the width that is left changed, once more
         if (this.adaptive() && !this.inResize && Math.abs(this.sbw() - this.usedSb) > 1) { this.inResize = true; try { this.resize(); } finally { this.inResize = false; } }
     }
