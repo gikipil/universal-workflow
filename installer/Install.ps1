@@ -56,6 +56,8 @@ function Start-Engine($action) {
     $arguments=@('-u',(Q (Join-Path $PSScriptRoot 'engine.py')),'--action',$action,'--root',(Q $rootBox.Text),'--bundle',(Q $bundle),'--workspace',(Q $script:workspace),'--mode',$mode)
     if($action -eq 'install'){$arguments+='--approved'}
     $script:process=Start-Process -FilePath $pythonBox.Text -ArgumentList $arguments -WindowStyle Hidden -RedirectStandardOutput (Join-Path $script:workspace ($action+'.log')) -RedirectStandardError (Join-Path $script:workspace ($action+'-errors.log')) -PassThru
+    # Keep the native handle: Windows PowerShell otherwise loses ExitCode after exit.
+    $null=$script:process.Handle
     $button.Text=if($action -eq 'install'){T 'Installing...' 'Установка...'}else{T 'Preparing...' 'Подготовка...'}
     $language.Enabled=$false;$button.Enabled=$false;$browse.Enabled=$false;$pickPython.Enabled=$false;$rootBox.ReadOnly=$true;$pythonBox.ReadOnly=$true;$full.Enabled=$false;$close.Enabled=($action -eq 'prepare');$close.Text=if($action -eq 'prepare'){T 'Cancel' 'Отмена'}else{T 'Close' 'Закрыть'};$logs.Enabled=$true;$timer.Start()
 }
@@ -80,10 +82,17 @@ $button.Add_Click({
 $timer.Add_Tick({
     $path=Join-Path $script:workspace ($script:phase+'.log');if(Test-Path -LiteralPath $path){$output.Text=(Get-Content -LiteralPath $path -Tail 30 -Encoding UTF8)-join "`r`n";$output.SelectionStart=$output.TextLength;$output.ScrollToCaret()}
     if(-not $script:process.HasExited){return}
-    $timer.Stop();$close.Enabled=$true;$close.Text=T 'Close' 'Закрыть'
+    $timer.Stop();$script:process.WaitForExit();$close.Enabled=$true;$close.Text=T 'Close' 'Закрыть'
     try {
         $result=Get-Content -LiteralPath (Join-Path $script:workspace 'result.json') -Raw -Encoding UTF8 | ConvertFrom-Json
-        if(-not $result.ok -or $script:process.ExitCode -ne 0){if($result.error){throw $result.error};throw (Get-Content -LiteralPath (Join-Path $script:workspace ($script:phase+'-errors.log')) -Raw -Encoding UTF8)}
+        $exitCode=$script:process.ExitCode
+        if($null -eq $exitCode){throw 'Could not read the setup process exit code. Open the log folder for details.'}
+        if(-not $result.ok -or $exitCode -ne 0){
+            $detail=[string]$result.error
+            if([string]::IsNullOrWhiteSpace($detail)){$detail=[string](Get-Content -LiteralPath (Join-Path $script:workspace ($script:phase+'-errors.log')) -Raw -Encoding UTF8)}
+            if([string]::IsNullOrWhiteSpace($detail)){$detail='Setup process failed (exit code '+$exitCode+'). Open the log folder for details.'}
+            throw $detail
+        }
         if($script:phase -eq 'prepare'){
             $plan=$result.result
             $lines=@(('ComfyUI: '+$plan.root),('Python: '+$plan.python),('GPU: '+$plan.gpu),'')
