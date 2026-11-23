@@ -2,7 +2,7 @@ import {mountPinnedNavigation} from './factory_pinned_navigation.js';
 import {themeInterface} from './factory_palette.js';
 import {T as nativeUiText,loadLang} from './core/i18n.js';
 import {interfaceLanguage,translateInterface,localizeInterface,isUniversalInterface} from './factory_locale.js';
-import {taskPageUi} from './task_page.js';
+import {taskPageUi,adaptTaskPageUi} from './task_page.js';
 // SPDX-License-Identifier: AGPL-3.0-only
 // Universal Workflow additions/modifications by gikipil, 2026-11-12.
 // Based on ND UI Builder by Ivan Ovchinnikov (Neural Dreamer).
@@ -175,7 +175,8 @@ export class PageView {
         const ad = this.adaptive() ? this.adaptDims() : null;
         this.laidW = ad ? ad.W : 0; this.laidH = ad ? ad.H : 0;
         const base=this.layoutUi(),grow = this.laidW > base.page.w + 0.01 || this.laidH > base.page.h + 0.01;
-        const ui = grow ? adaptedUi(base, this.page, this.laidW, this.laidH) : base;
+        const adapt = isUniversalInterface(this.ui) ? adaptTaskPageUi : adaptedUi;
+        const ui = grow ? adapt(base, this.page, this.laidW, this.laidH) : base;
         const L = layoutFlow(ui, this.page, (id) => this.isOpen(id), this.scope, (id) => this.scrollTops.get(id) || 0);
         this.rects = L.rects; this.bottom = L.bottom; this.scrollInfo = L.info;
         // Optional bottom alignment to a sibling, including expanded spoilers.
