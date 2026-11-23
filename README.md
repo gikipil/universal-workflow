@@ -2,11 +2,11 @@
 
 **Русский** · [English](README_EN.md)
 
-**Версия 1.2.9 · ComfyUI · English по умолчанию**
+**Версия 1.2.10 · ComfyUI · English по умолчанию**
 
 Один интерфейс для генерации изображений, детализации, редактирования, дорисовки, удаления фона, апскейла, описания изображений, видео и звука. Основные настройки слева, результат и сравнения справа, дополнительные параметры открываются по шестерёнке.
 
-**Скачать:** [релиз 1.2.9](https://github.com/gikipil/universal-workflow/releases/tag/v1.2.9) · [полный ZIP](https://github.com/gikipil/universal-workflow/releases/download/v1.2.9/Universal-Workflow-v1.2.9.zip) · [JSON workflow](Universal-Workflow-v1.2.9.json).
+**Скачать:** [релиз 1.2.10](https://github.com/gikipil/universal-workflow/releases/tag/v1.2.10) · [полный ZIP](https://github.com/gikipil/universal-workflow/releases/download/v1.2.10/Universal-Workflow-v1.2.10.zip) · [JSON workflow](Universal-Workflow-v1.2.10.json).
 
 **Все версии:** [история версий и загрузка по меткам](https://github.com/gikipil/universal-workflow/tags). В основной ветке находится актуальная версия; предыдущие доступны в том же репозитории.
 
@@ -51,7 +51,7 @@
 3. Скопируй **содержимое** `resources/package/ui/js/` в папку `js/` этого Builder с заменой совпадающих файлов.
 4. Три папки из `resources/package/nodes/` скопируй в `ComfyUI/custom_nodes/`. Файл `resources/package/assets/universal-local-empty-mask.png` скопируй в `ComfyUI/input/`.
 5. Установи внешние наборы нод из списка ниже через ComfyUI-Manager или по инструкциям авторов. Библиотеки Python ставь в окружение, из которого запускается ComfyUI. Отдельные требования для видео и звука описаны ниже.
-6. Перезапусти ComfyUI, обнови страницу **Ctrl+F5**, открой `resources/package/Universal-Workflow-v1.2.9.json` и нажми **ND UI**.
+6. Перезапусти ComfyUI, обнови страницу **Ctrl+F5**, открой `resources/package/Universal-Workflow-v1.2.10.json` и нажми **ND UI**.
 7. Скачай только нужные модели и выбери реальные файлы в настройках. Они могут лежать в корне соответствующей категории моделей или в любой подпапке. Если сохранённый путь помечен как потерянный, выбери свой файл — повторять структуру папок автора не требуется.
 
 <details>
@@ -159,7 +159,7 @@ SNOFS — заранее назначенная необязательная п�
 
 ### 7. Открой workflow
 
-Перезапусти ComfyUI, обнови страницу через **Ctrl+F5** и перетащи **`Universal-Workflow-v1.2.9.json`** в ComfyUI. Нажми **ND UI**. По умолчанию English; язык меняется через **Settings → Appearance → Interface language**.
+Перезапусти ComfyUI, обнови страницу через **Ctrl+F5** и перетащи **`Universal-Workflow-v1.2.10.json`** в ComfyUI. Нажми **ND UI**. По умолчанию English; язык меняется через **Settings → Appearance → Interface language**.
 
 Для первого запуска выбери Generation, назначь комплект Krea и Turbo-адаптер, выключи неустановленные постоянные LoRA. Рефайнер, локальные режимы и апскейл оставь выключенными до первого успешного кадра. Напиши промт и нажми Generate, затем подключай этапы по одному.
 
@@ -209,6 +209,10 @@ Fit / «Вписать» показывает весь результат. `− 
 Код интерфейса и локальных модулей сохраняет **AGPL-3.0-only**, патч QwenTTS — **GPL-3.0-only**. Эти лицензии разрешают коммерческое использование своего кода и не ограничиваются условиями workflow. У нод, моделей и LoRA свои лицензии; исключение для результатов не отменяет их ограничений и чужих прав. См. [NOTICE.md](NOTICE.md).
 
 ## 📝 История релиза
+
+### 1.2.10
+
+- Исправлена совместимость Get_VAE со схемой генерации: имя VAE подключено к VAE основной Krea, поэтому старые Get-ноды с этим именем находят источник. Выбор модели VAE и параметры генерации не меняются.
 
 ### 1.2.9
 

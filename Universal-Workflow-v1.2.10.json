@@ -1,8 +1,8 @@
 {
   "id": "6156223e-7f85-4578-923d-9d05cf820581",
   "revision": 0,
-  "last_node_id": 1728,
-  "last_link_id": 1995,
+  "last_node_id": 1732,
+  "last_link_id": 2000,
   "nodes": [
     {
       "id": 1585,
@@ -44780,6 +44780,49 @@
       "bgcolor": "#353"
     },
     {
+      "id": 1732,
+      "type": "SetNode",
+      "pos": [
+        56,
+        398.0
+      ],
+      "size": [
+        210,
+        40
+      ],
+      "flags": {
+        "collapsed": true,
+        "pinned": true
+      },
+      "order": 1628,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "link": 2000
+        }
+      ],
+      "outputs": [
+        {
+          "name": "*",
+          "type": "VAE",
+          "links": []
+        }
+      ],
+      "title": "Set_VAE",
+      "properties": {
+        "Node name for S&R": "SetNode",
+        "aux_id": "kijai/ComfyUI-KJNodes",
+        "previousName": "VAE"
+      },
+      "widgets_values": [
+        "VAE"
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
       "id": 3,
       "type": "VAELoader",
       "pos": [
@@ -44816,7 +44859,8 @@
             767,
             770,
             773,
-            1564
+            1564,
+            2000
           ]
         }
       ],
@@ -88154,6 +88198,14 @@
       1609,
       5,
       "INT"
+    ],
+    [
+      2000,
+      3,
+      0,
+      1732,
+      0,
+      "VAE"
     ]
   ],
   "groups": [
@@ -90404,7 +90456,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v1.2.9",
+            "text": "🧩 Универсальный воркфлоу · v1.2.10",
             "size": "M",
             "align": "left"
           },
@@ -92728,7 +92780,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v1.2.9",
+            "text": "🧩 Универсальный воркфлоу · v1.2.10",
             "size": "M",
             "align": "left"
           },
@@ -93617,7 +93669,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v1.2.9",
+            "text": "🧩 Универсальный воркфлоу · v1.2.10",
             "size": "M",
             "align": "left"
           },
@@ -94940,7 +94992,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v1.2.9",
+            "text": "🧩 Универсальный воркфлоу · v1.2.10",
             "size": "M",
             "align": "left"
           },
@@ -96282,7 +96334,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "↔️ Дорисовка за границами кадра · v1.2.9",
+            "text": "↔️ Дорисовка за границами кадра · v1.2.10",
             "size": "M",
             "align": "left"
           },
@@ -98213,7 +98265,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v1.2.9",
+            "text": "🧩 Универсальный воркфлоу · v1.2.10",
             "size": "M",
             "align": "left"
           },
@@ -98849,7 +98901,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v1.2.9",
+            "text": "🧩 Универсальный воркфлоу · v1.2.10",
             "size": "M",
             "align": "left"
           },
@@ -99423,7 +99475,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🎬 Видео · MiniMax H3 · v1.2.9",
+            "text": "🎬 Видео · MiniMax H3 · v1.2.10",
             "size": "M",
             "align": "left"
           },
@@ -100412,7 +100464,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🎬 Звук · Higgs v3 · v1.2.9",
+            "text": "🎬 Звук · Higgs v3 · v1.2.10",
             "size": "M",
             "align": "left"
           },
