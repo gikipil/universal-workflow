@@ -190,16 +190,16 @@ export const modelpicker = {
         const open = () => {
             if (ctx.editing && !ctx.info("value").bound) return;
             const fo = folderOf();
-            const sliderStyle = ["slider", "lora"].includes(ctx.prop("pickerStyle"));
+            const pickerKind = ["slider", "lora"].includes(ctx.prop("pickerStyle")) ? ctx.prop("pickerStyle") : fo === "loras" ? "lora" : "model";
             return popup(ctx, f, {
-                width: sliderStyle ? 640 : 560, maxH: sliderStyle ? 600 : 520,
+                width: 640, maxH: 600,
                 build(box, close) {
                     box.classList.add("ndk-mp-pop");
-                    if (sliderStyle) decorateSliderPicker(box, close, ctx.prop("pickerStyle"));
+                    decorateSliderPicker(box, close, pickerKind);
                     const head = el("div", "ndk-mp-head");
                     const search = el("div", "ndk-pop-search"); search.append(icon("search", 15));
                     const input = el("input", "ndk-input"); input.placeholder = ctx.tr("Search"); input.spellcheck = false; input.style.padding = "0";
-                    if (sliderStyle) input.placeholder = "Поиск LoRA…";
+                    input.placeholder = pickerKind === "model" ? "Поиск" : "Поиск LoRA…";
                     search.append(input);
                     const refresh = el("button", "ndk-iconbtn"); refresh.type = "button"; refresh.title = ctx.tr("Reload the pictures"); refresh.append(icon("refresh", 15));
                     head.append(search, refresh);
@@ -207,7 +207,7 @@ export const modelpicker = {
                     box.append(head, grid);
                     let directory = "", limit = 400, loading = true;
                     const nav = el("div");
-                    if (sliderStyle) nav.classList.add("acf-picker-nav");
+                    nav.classList.add("acf-picker-nav");
                     nav.style.cssText = "display:flex;flex-wrap:wrap;gap:6px;padding:8px 0;align-items:center";
                     head.after(nav);
                     const button = (label, action) => {
@@ -244,7 +244,7 @@ export const modelpicker = {
                         }
                         for (const folder of listing.folders) {
                             const c = el("button", "ndk-mp-card"); c.type = "button";
-                            if (sliderStyle) c.classList.add("acf-picker-folder");
+                            c.classList.add("acf-picker-folder");
                             c.title = folder.path;
                             const pic = el("div", "pic", "📁"); pic.style.fontSize = "32px";
                             c.append(pic, el("div", "nm", folder.name));

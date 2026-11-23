@@ -30,7 +30,28 @@ const CSS=`
 .acf-slider-model-picker button:focus-visible{outline:2px solid #eda6e2;outline-offset:-3px}
 @media(max-width:500px){.acf-slider-model-picker .ndk-mp-grid{grid-template-columns:repeat(2,minmax(0,1fr));padding:10px}.acf-slider-model-picker .acf-picker-folder{grid-template-columns:26px minmax(0,1fr);padding:9px;gap:6px}}
 `;
+// All file pickers share geometry; model fields use the application accent.
+const MODEL_CSS=`
+.ndk.acf-model-picker{background:var(--acf-block,#182126)!important;color:var(--acf-text,#e8eeef)!important;border-color:var(--acf-border,#42676d)!important;box-shadow:0 20px 65px #0009!important;--ndk-accent:var(--acf-accent,#6bdccf);--ndk-text:var(--acf-text,#e8eeef);--ndk-muted:var(--acf-muted,#a5b8c0);--ndk-faint:var(--acf-muted,#a5b8c0);--ndk-border:var(--acf-border,#42676d);--ndk-s2:var(--acf-field,#202a32);--ndk-s3:var(--acf-raised,#2d3c44)}
+.acf-model-picker .acf-picker-title{background:var(--acf-field,#202a32);border-color:var(--acf-border,#42676d)}
+.acf-model-picker .acf-picker-title strong{color:var(--acf-label,#83e4ce)}
+.acf-model-picker .acf-picker-close{background:var(--acf-danger,#3d2934);border-color:var(--acf-negative,#9b6072);color:var(--acf-danger-text,#ffd7df)}
+.acf-model-picker :is(.ndk-pop-search,.ndk-btn,.ndk-mp-head .ndk-iconbtn,.ndk-mp-card){background:var(--acf-field,#202a32);color:var(--acf-text,#e8eeef);border-color:var(--acf-border,#42676d)}
+.acf-model-picker .ndk-pop-search:focus-within{border-color:var(--acf-accent,#6bdccf);box-shadow:inset 0 0 0 1px var(--acf-accent,#6bdccf);background:var(--acf-field,#202a32)}
+.acf-model-picker .ndk-pop-search :is(input,input:focus,input:focus-visible){color:var(--acf-text,#e8eeef)}
+.acf-model-picker .ndk-pop-search input::placeholder,.acf-model-picker .ndk-pop-empty,.acf-model-picker .ndk-mp-card .nm small{color:var(--acf-muted,#a5b8c0)}
+.acf-model-picker .ndk-mp-card .pic{background:var(--acf-field,#202a32);color:var(--acf-label,#83e4ce)}
+.acf-model-picker .acf-picker-folder .pic{background:none}
+.acf-model-picker .acf-picker-nav{border-color:var(--acf-border,#42676d)}
+.acf-model-picker :is(.ndk-btn:hover,.ndk-mp-card:hover,.ndk-mp-card.on){background:var(--acf-active-bg,#263f43);border-color:var(--acf-accent,#6bdccf);box-shadow:none}
+.acf-model-picker .ndk-mp-card.on{box-shadow:inset 0 0 0 1px var(--acf-accent,#6bdccf)}
+.acf-model-picker button:focus-visible{outline-color:var(--acf-accent,#6bdccf)}
+`;
 export function decorateSliderPicker(box,close,kind='slider'){
-    const slider=kind==='slider';box.classList.add('acf-slider-model-picker');box.setAttribute('role','dialog');box.setAttribute('aria-label',slider?'Выбор LoRA слайдера':'Выбор LoRA');
-    const style=el('style'),head=el('div','acf-picker-title'),title=el('strong','',slider?'🎚️ LoRA слайдера':'🧩 Выбор LoRA'),x=el('button','acf-picker-close','×');style.textContent=CSS;x.type='button';x.setAttribute('aria-label','Закрыть выбор LoRA');x.addEventListener('click',close);head.append(title,x);box.append(style,head);
+    const slider=kind==='slider',model=kind==='model';
+    box.classList.add('acf-slider-model-picker');if(model)box.classList.add('acf-model-picker');
+    const caption=model?'Выбор модели':slider?'Выбор LoRA слайдера':'Выбор LoRA';
+    box.setAttribute('role','dialog');box.setAttribute('aria-label',caption);
+    const style=el('style'),head=el('div','acf-picker-title'),title=el('strong','',(model?'📦 ':slider?'🎚️ ':'🧩 ')+caption),x=el('button','acf-picker-close','×');
+    style.textContent=CSS+(model?MODEL_CSS:'');x.type='button';x.setAttribute('aria-label',model?'Закрыть окно':'Закрыть выбор LoRA');x.addEventListener('click',close);head.append(title,x);box.append(style,head);
 }

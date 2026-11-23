@@ -313,6 +313,7 @@ export default {
   "Добавить": "Añadir",
   "Добавить LoRA": "Añadir LoRA",
   "Убрать LoRA": "Quitar LoRA",
+  "Выбор модели": "Selector de modelos",
   "Выбор LoRA": "Selector de LoRA",
   "LoRA пока не выбрана": "Ninguna LoRA seleccionada",
   "LoRA слайдера": "LoRA del deslizador",
