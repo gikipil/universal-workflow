@@ -1,6 +1,8 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 // Universal Workflow Japanese interface translation, gikipil 2026.
 export default {
+  "Включить ускоритель": "高速化を有効にする",
+  "LC Speed Boost · первая генерация": "LC Speed Boost · 最初の生成",
   "Не выбран обязательный файл.": "必須ファイルが選択されていません。",
   "не проверено": "未確認",
   "Не удалось проверить доступность модели.": "モデルの利用可否を確認できませんでした。",

@@ -3,6 +3,8 @@
 // 61 shared labels adapted from ND UI Builder Chinese translations:
 // Copyright (c) 2026 Ivan Ovchinnikov (Neural Dreamer).
 export default {
+  "Включить ускоритель": "启用加速器",
+  "LC Speed Boost · первая генерация": "LC Speed Boost · 初始生成",
   "Не выбран обязательный файл.": "未选择必需文件。",
   "не проверено": "未验证",
   "Не удалось проверить доступность модели.": "无法验证模型是否可用。",

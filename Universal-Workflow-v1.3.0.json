@@ -1,8 +1,8 @@
 {
   "id": "6156223e-7f85-4578-923d-9d05cf820581",
   "revision": 0,
-  "last_node_id": 1732,
-  "last_link_id": 2000,
+  "last_node_id": 1733,
+  "last_link_id": 2003,
   "nodes": [
     {
       "id": 1585,
@@ -45622,7 +45622,7 @@
     },
     {
       "id": 39,
-      "type": "KSampler",
+      "type": "UniversalLCKSampler",
       "pos": [
         2794,
         84
@@ -45714,6 +45714,14 @@
             "name": "denoise"
           },
           "link": null
+        },
+        {
+          "name": "accelerator",
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "accelerator"
+          },
+          "link": 2001
         }
       ],
       "outputs": [
@@ -45728,9 +45736,7 @@
       ],
       "title": "🔴 0 · Обычный Turbo · Euler",
       "properties": {
-        "cnr_id": "comfy-core",
-        "ver": "0.30.2",
-        "Node name for S&R": "KSampler",
+        "Node name for S&R": "UniversalLCKSampler",
         "nd_ui_src": {
           "uid": "src_k2module_ordinary",
           "tag": "k2module-ordinary"
@@ -45743,14 +45749,15 @@
         1,
         "euler",
         "simple",
-        1
+        1,
+        false
       ],
       "color": "#322",
       "bgcolor": "#533"
     },
     {
       "id": 40,
-      "type": "ClownsharKSampler_Beta",
+      "type": "UniversalLCRES4LYF",
       "pos": [
         2794,
         452.0
@@ -45904,6 +45911,14 @@
             "name": "bongmath"
           },
           "link": null
+        },
+        {
+          "name": "accelerator",
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "accelerator"
+          },
+          "link": 2002
         }
       ],
       "outputs": [
@@ -45930,9 +45945,7 @@
       ],
       "title": "🔴 1 · RES4LYF · RES 2S",
       "properties": {
-        "cnr_id": "RES4LYF",
-        "ver": "022c873c6d198c67b3312a1804336533a050df18",
-        "Node name for S&R": "ClownsharKSampler_Beta",
+        "Node name for S&R": "UniversalLCRES4LYF",
         "nd_ui_src": {
           "uid": "src_k2module_res",
           "tag": "k2module-res"
@@ -45949,6 +45962,7 @@
         42,
         "fixed",
         "standard",
+        false,
         false
       ],
       "color": "#322",
@@ -45956,7 +45970,7 @@
     },
     {
       "id": 51,
-      "type": "KreaTwoStageSampler",
+      "type": "UniversalLCRawTurbo",
       "pos": [
         3394,
         84
@@ -46131,6 +46145,14 @@
             "name": "upscale_method"
           },
           "link": null
+        },
+        {
+          "name": "accelerator",
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "accelerator"
+          },
+          "link": 2003
         }
       ],
       "outputs": [
@@ -46145,9 +46167,7 @@
       ],
       "title": "🔴 2 · Raw → Turbo · без RES4LYF",
       "properties": {
-        "cnr_id": "krea2-twostage-sampler",
-        "ver": "df2692f11d5227b440c501b1f22ca5c63987530c",
-        "Node name for S&R": "KreaTwoStageSampler",
+        "Node name for S&R": "UniversalLCRawTurbo",
         "nd_ui_src": {
           "uid": "src_k2module_two",
           "tag": "k2module-two"
@@ -46167,7 +46187,8 @@
         "simple",
         0,
         0,
-        "bislerp"
+        "bislerp",
+        false
       ],
       "color": "#322",
       "bgcolor": "#533"
@@ -78052,6 +78073,57 @@
       ],
       "color": "#232",
       "bgcolor": "#353"
+    },
+    {
+      "id": 1733,
+      "type": "PrimitiveBoolean",
+      "title": "⚡ Включить ускоритель · первая генерация",
+      "pos": [
+        2280,
+        230
+      ],
+      "size": [
+        340,
+        90
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 0,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "value",
+          "type": "BOOLEAN",
+          "link": null,
+          "widget": {
+            "name": "value"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "BOOLEAN",
+          "type": "BOOLEAN",
+          "links": [
+            2001,
+            2002,
+            2003
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PrimitiveBoolean",
+        "nd_ui_src": {
+          "uid": "src_accelerator_enabled",
+          "tag": "accelerator-enabled"
+        }
+      },
+      "widgets_values": [
+        false
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
     }
   ],
   "links": [
@@ -88206,6 +88278,30 @@
       1732,
       0,
       "VAE"
+    ],
+    [
+      2001,
+      1733,
+      0,
+      39,
+      10,
+      "BOOLEAN"
+    ],
+    [
+      2002,
+      1733,
+      0,
+      40,
+      17,
+      "BOOLEAN"
+    ],
+    [
+      2003,
+      1733,
+      0,
+      51,
+      20,
+      "BOOLEAN"
     ]
   ],
   "groups": [
@@ -89085,7 +89181,7 @@
       "id": "krea_two_pass_ui",
       "page": {
         "w": 1200,
-        "h": 2060,
+        "h": 2124,
         "bg": {
           "type": "gradient",
           "color": "#111318",
@@ -89241,19 +89337,19 @@
         {
           "uid": "src_k2module_ordinary",
           "tag": "k2module-ordinary",
-          "class": "KSampler",
+          "class": "UniversalLCKSampler",
           "title": "🔴 0 · Обычный Turbo · Euler"
         },
         {
           "uid": "src_k2module_res",
           "tag": "k2module-res",
-          "class": "ClownsharKSampler_Beta",
+          "class": "UniversalLCRES4LYF",
           "title": "🔴 1 · RES4LYF · RES 2S"
         },
         {
           "uid": "src_k2module_two",
           "tag": "k2module-two",
-          "class": "KreaTwoStageSampler",
+          "class": "UniversalLCRawTurbo",
           "title": "🔴 2 · Raw → Turbo · без RES4LYF"
         },
         {
@@ -90329,6 +90425,12 @@
           "tag": "video-selflift",
           "class": "SelfLiftAvatarH3Sampler",
           "title": "🔴 SelfLift · генерация видео"
+        },
+        {
+          "uid": "src_accelerator_enabled",
+          "tag": "accelerator-enabled",
+          "class": "PrimitiveBoolean",
+          "title": "⚡ Включить ускоритель · первая генерация"
         }
       ],
       "pages": [
@@ -90336,7 +90438,7 @@
           "id": "p1",
           "name": "Генерация",
           "kind": "page",
-          "len": 1148,
+          "len": 1212,
           "control": {
             "nodes": [],
             "groups": [],
@@ -90456,7 +90558,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v1.2.25",
+            "text": "🧩 Универсальный воркфлоу · v1.3.0",
             "size": "M",
             "align": "left"
           },
@@ -90481,7 +90583,7 @@
           "type": "panel",
           "page": "p1",
           "x": 24,
-          "y": 224,
+          "y": 288,
           "w": 336,
           "h": 344,
           "z": 0,
@@ -90514,7 +90616,7 @@
           "type": "seed",
           "page": "p1",
           "x": 36,
-          "y": 344,
+          "y": 408,
           "w": 312,
           "h": 88,
           "z": 2,
@@ -90563,7 +90665,7 @@
           "type": "factorygenmode_v029",
           "page": "p1",
           "x": 36,
-          "y": 280,
+          "y": 344,
           "w": 312,
           "h": 48,
           "z": 2,
@@ -90735,7 +90837,7 @@
           "type": "heading",
           "page": "p1",
           "x": 36,
-          "y": 448,
+          "y": 512,
           "w": 312,
           "h": 28,
           "z": 2,
@@ -90769,7 +90871,7 @@
           "type": "factorysize_v0213",
           "page": "p1",
           "x": 36,
-          "y": 484,
+          "y": 548,
           "w": 312,
           "h": 72,
           "z": 2,
@@ -90816,7 +90918,7 @@
           "type": "image",
           "page": "p1",
           "x": 24,
-          "y": 644,
+          "y": 708,
           "w": 336,
           "h": 48,
           "z": 1,
@@ -90849,7 +90951,7 @@
           "type": "spoiler",
           "page": "p1",
           "x": 24,
-          "y": 644,
+          "y": 708,
           "w": 336,
           "h": 48,
           "z": 2,
@@ -91002,7 +91104,7 @@
           "type": "factoryprogress_v037",
           "page": "p1",
           "x": 384,
-          "y": 828,
+          "y": 892,
           "w": 344,
           "h": 56,
           "z": 2,
@@ -91043,7 +91145,7 @@
           "type": "factorysavetoggle_v023",
           "page": "p1",
           "x": 936,
-          "y": 828,
+          "y": 892,
           "w": 240,
           "h": 56,
           "z": 2,
@@ -91090,7 +91192,7 @@
           "type": "prompt",
           "page": "p1",
           "x": 24,
-          "y": 900,
+          "y": 964,
           "w": 1152,
           "h": 144,
           "z": 2,
@@ -91135,7 +91237,7 @@
           "type": "generate",
           "page": "p1",
           "x": 24,
-          "y": 1060,
+          "y": 1124,
           "w": 1152,
           "h": 56,
           "z": 2,
@@ -91987,7 +92089,7 @@
           "type": "factoryqueuestatus_v023",
           "page": "p1",
           "x": 740,
-          "y": 828,
+          "y": 892,
           "w": 184,
           "h": 56,
           "z": 2,
@@ -92026,7 +92128,7 @@
           "type": "heading",
           "page": "p1",
           "x": 36,
-          "y": 236,
+          "y": 300,
           "w": 312,
           "h": 28,
           "z": 2,
@@ -92061,7 +92163,7 @@
           "type": "factorysliders_v0216",
           "page": "p1",
           "x": 24,
-          "y": 584,
+          "y": 648,
           "w": 336,
           "h": 44,
           "z": 2,
@@ -92780,7 +92882,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v1.2.25",
+            "text": "🧩 Универсальный воркфлоу · v1.3.0",
             "size": "M",
             "align": "left"
           },
@@ -93669,7 +93771,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v1.2.25",
+            "text": "🧩 Универсальный воркфлоу · v1.3.0",
             "size": "M",
             "align": "left"
           },
@@ -94992,7 +95094,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v1.2.25",
+            "text": "🧩 Универсальный воркфлоу · v1.3.0",
             "size": "M",
             "align": "left"
           },
@@ -96334,7 +96436,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "↔️ Дорисовка за границами кадра · v1.2.25",
+            "text": "↔️ Дорисовка за границами кадра · v1.3.0",
             "size": "M",
             "align": "left"
           },
@@ -98265,7 +98367,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v1.2.25",
+            "text": "🧩 Универсальный воркфлоу · v1.3.0",
             "size": "M",
             "align": "left"
           },
@@ -98907,7 +99009,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v1.2.25",
+            "text": "🧩 Универсальный воркфлоу · v1.3.0",
             "size": "M",
             "align": "left"
           },
@@ -99481,7 +99583,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🎬 Видео · MiniMax H3 · v1.2.25",
+            "text": "🎬 Видео · MiniMax H3 · v1.3.0",
             "size": "M",
             "align": "left"
           },
@@ -100470,7 +100572,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🎬 Звук · Higgs v3 · v1.2.25",
+            "text": "🎬 Звук · Higgs v3 · v1.3.0",
             "size": "M",
             "align": "left"
           },
@@ -101411,7 +101513,7 @@
           "type": "spoiler",
           "page": "p1",
           "x": 24,
-          "y": 708,
+          "y": 772,
           "w": 336,
           "h": 48,
           "z": 1,
@@ -101458,7 +101560,7 @@
           "type": "spoiler",
           "page": "p1",
           "x": 24,
-          "y": 772,
+          "y": 836,
           "w": 336,
           "h": 48,
           "z": 1,
@@ -101505,7 +101607,7 @@
           "type": "spoiler",
           "page": "p1",
           "x": 24,
-          "y": 836,
+          "y": 900,
           "w": 336,
           "h": 48,
           "z": 1,
@@ -101733,6 +101835,46 @@
             "max": 10000,
             "unit": "%",
             "align": "center"
+          }
+        },
+        {
+          "id": "generation_accelerator",
+          "type": "toggle",
+          "page": "p1",
+          "x": 24,
+          "y": 224,
+          "w": 336,
+          "h": 56,
+          "z": 2,
+          "parent": null,
+          "hidden": false,
+          "locked": true,
+          "slots": {
+            "value": {
+              "src": "src_accelerator_enabled",
+              "kind": "widget",
+              "name": "value"
+            }
+          },
+          "props": {
+            "text": "⚡ Включить ускоритель",
+            "description": "LC Speed Boost · первая генерация",
+            "rightWith": "left_bg"
+          },
+          "look": {
+            "bg": "#192b2a",
+            "field": "#20252d",
+            "accent": "#59e68d",
+            "text": "#e8eaf0",
+            "border": "#3d726c",
+            "radius": 12,
+            "scale": 100
+          },
+          "adapt": {
+            "mode": "stretch",
+            "max": 10000,
+            "unit": "%",
+            "align": "left"
           }
         }
       ],

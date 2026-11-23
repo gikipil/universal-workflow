@@ -1,6 +1,8 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 // Universal Workflow English UI dictionary, gikipil 2026. Russian source keys.
 export default {
+  "Включить ускоритель": "Enable accelerator",
+  "LC Speed Boost · первая генерация": "LC Speed Boost · initial generation",
   "Не выбран обязательный файл.": "No required file is selected.",
   "не проверено": "not verified",
   "Не удалось проверить доступность модели.": "Could not verify model availability.",

@@ -2,11 +2,11 @@
 
 **Русский** · [English](README_EN.md)
 
-**Версия 1.2.25 · ComfyUI · English по умолчанию**
+**Версия 1.3.0 · ComfyUI · English по умолчанию**
 
 Один интерфейс для генерации изображений, детализации, редактирования, дорисовки, удаления фона, апскейла, описания изображений, видео и звука. Основные настройки слева, результат и сравнения справа, дополнительные параметры открываются по шестерёнке.
 
-**Скачать:** [релиз 1.2.25](https://github.com/gikipil/universal-workflow/releases/tag/v1.2.25) · [полный ZIP](https://github.com/gikipil/universal-workflow/releases/download/v1.2.25/Universal-Workflow-v1.2.25.zip) · [JSON workflow](Universal-Workflow-v1.2.25.json).
+**Скачать:** [релиз 1.3.0](https://github.com/gikipil/universal-workflow/releases/tag/v1.3.0) · [полный ZIP](https://github.com/gikipil/universal-workflow/releases/download/v1.3.0/Universal-Workflow-v1.3.0.zip) · [JSON workflow](Universal-Workflow-v1.3.0.json).
 
 **Все версии:** [история версий и загрузка по меткам](https://github.com/gikipil/universal-workflow/tags). В основной ветке находится актуальная версия; предыдущие доступны в том же репозитории.
 
@@ -16,6 +16,7 @@
 
 | Вкладка / модуль | Для чего нужен |
 | --- | --- |
+| ⚡ Ускоритель | LC Speed Boost для трёх режимов первой генерации. Начало на меньшем разрешении, завершение в заданном размере. По умолчанию выключен; при включении композиция меняется даже с тем же Seed. Новые модели не нужны. |
 | 🖼️ Генерация | Krea с обычным сэмплером, RES4LYF или Raw → Turbo. LoRA, слайдеры, размер и отключаемая поза по референсу. |
 | ✨ Детализация | Второй проход на Krea или Z-Image с отдельными промтом, Seed, denoise и LoRA. Можно отключить. |
 | 🎯 Лицо, руки и маски | Четыре независимых режима: лицо, руки, выделение через SAM 3.1 и ручная маска. Порядок обработки меняется. |
@@ -55,7 +56,7 @@
 3. Скопируй **содержимое** `resources/package/ui/js/` в папку `js/` этого Builder с заменой совпадающих файлов.
 4. Три папки из `resources/package/nodes/` скопируй в `ComfyUI/custom_nodes/`. Файл `resources/package/assets/universal-local-empty-mask.png` скопируй в `ComfyUI/input/`.
 5. Установи внешние наборы нод из списка ниже через ComfyUI-Manager или по инструкциям авторов. Библиотеки Python ставь в окружение, из которого запускается ComfyUI. Отдельные требования для видео и звука описаны ниже.
-6. Перезапусти ComfyUI, обнови страницу **Ctrl+F5**, открой `resources/package/Universal-Workflow-v1.2.25.json` и нажми **ND UI**.
+6. Перезапусти ComfyUI, обнови страницу **Ctrl+F5**, открой `resources/package/Universal-Workflow-v1.3.0.json` и нажми **ND UI**.
 7. Скачай только нужные модели и выбери реальные файлы в настройках. Они могут лежать в корне соответствующей категории моделей или в любой подпапке. Если сохранённый путь помечен как потерянный, выбери свой файл — повторять структуру папок автора не требуется.
 
 <details>
@@ -128,6 +129,7 @@ ui/js/* → ComfyUI/custom_nodes/ComfyUI-ND-UI-Builder/js/*
 nodes/ComfyUI-Universal-Caption → ComfyUI/custom_nodes/ComfyUI-Universal-Caption
 nodes/ComfyUI-Universal-Memory  → ComfyUI/custom_nodes/ComfyUI-Universal-Memory
 nodes/ComfyUI-Universal-Video   → ComfyUI/custom_nodes/ComfyUI-Universal-Video
+nodes/ComfyUI-Universal-Accelerator → ComfyUI/custom_nodes/ComfyUI-Universal-Accelerator
 assets/universal-local-empty-mask.png → ComfyUI/input/universal-local-empty-mask.png
 ```
 
@@ -163,7 +165,7 @@ SNOFS — заранее назначенная необязательная п�
 
 ### 7. Открой workflow
 
-Перезапусти ComfyUI, обнови страницу через **Ctrl+F5** и перетащи **`Universal-Workflow-v1.2.25.json`** в ComfyUI. Нажми **ND UI**. По умолчанию English; язык меняется через **Settings → Appearance → Interface language**.
+Перезапусти ComfyUI, обнови страницу через **Ctrl+F5** и перетащи **`Universal-Workflow-v1.3.0.json`** в ComfyUI. Нажми **ND UI**. По умолчанию English; язык меняется через **Settings → Appearance → Interface language**.
 
 Для первого запуска выбери Generation, назначь комплект Krea и Turbo-адаптер, выключи неустановленные постоянные LoRA. Рефайнер, локальные режимы и апскейл оставь выключенными до первого успешного кадра. Напиши промт и нажми Generate, затем подключай этапы по одному.
 
@@ -213,6 +215,10 @@ Fit / «Вписать» показывает весь результат. `− 
 Код интерфейса и локальных модулей сохраняет **AGPL-3.0-only**, патч QwenTTS — **GPL-3.0-only**. Эти лицензии разрешают коммерческое использование своего кода и не ограничиваются условиями workflow. У нод, моделей и LoRA свои лицензии; исключение для результатов не отменяет их ограничений и чужих прав. См. [NOTICE.md](NOTICE.md).
 
 ## 📝 История релиза
+
+### 1.3.0
+
+- Добавлен отключаемый LC Speed Boost для обычной генерации, RES4LYF и Raw → Turbo. Переключатель занимает всю ширину колонки настроек. По умолчанию ускоритель выключен.
 
 ### 1.2.25
 

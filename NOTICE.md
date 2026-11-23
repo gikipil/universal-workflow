@@ -25,3 +25,8 @@ The compatibility patch in compat/qwentts-transformers5.patch is derived from Co
 
 
 Windows installer releases include the complete unmodified ND UI Builder source at revision ad176bd9731c70e2b3246ea9ff1129606591448c in resources/ND-UI-Builder, with original LICENSE, THIRD_PARTY_NOTICES.md, GPL notices and Inter font license intact. Our AGPL additions are separately provided in resources/package/ui. The installer source in installer/ and Install.cmd, and model-download helpers, are Copyright (c) 2026 gikipil under AGPL-3.0-only. The independent workflow terms do not restrict those third-party works or AGPL-covered code. Node source is fetched from its respective pinned repositories during installation and retains its original licenses. No model weights are bundled or automatically downloaded by setup.
+
+
+## LC Speed Boost
+
+`nodes/ComfyUI-Universal-Accelerator/lc_speed_boost.py` is distributed unchanged from lonecatone23/ComfyUI_LC123_nodes, revision `2017df1db2b17603b81e95cb7abf460cd415e4d9`, under the MIT License. Copyright (c) 2026 lonecatone23. The MIT notice is included as `LICENSE-LC` in that folder. The adapter in `__init__.py` is Copyright (c) 2026 gikipil, also MIT-licensed. Source: https://github.com/lonecatone23/ComfyUI_LC123_nodes
