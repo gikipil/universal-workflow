@@ -1,3 +1,4 @@
+import {cloneJsonData} from './json_data.js';
 // SPDX-License-Identifier: AGPL-3.0-only
 // Universal Workflow additions by gikipil, 2026-11-14.
 import {api} from '../../../scripts/api.js';
@@ -8,7 +9,7 @@ import {queueWithMemory} from './factory_memory.js';
 export function generationPrompt(data){
  const workflow=data?.workflow,nodes=workflow?.nodes||[],tag=t=>nodes.find(n=>n.properties?.nd_ui_src?.tag===t);
  if(!tag('k2module-mode')||!data.output?.['69']||!data.output?.['162']||data.output.ndui_run_target)return null;
- const output=structuredClone(data.output);
+ const output=cloneJsonData(data.output);
  function scalar(value,seen=new Set()){if(!Array.isArray(value))return value;const id=String(value[0]);if(seen.has(id))throw Error('Зацикленный переключатель генерации.');seen.add(id);const n=output[id];if(!n)return undefined;if(['PrimitiveInt','PrimitiveFloat','PrimitiveBoolean'].includes(n.class_type))return scalar(n.inputs.value,seen);return undefined;}
  function index(id){const value=scalar(output[id]?.inputs?.index);return typeof value==='boolean'?Number(value):typeof value==='number'&&Number.isInteger(value)?value:undefined;}
  const generation=tag('k2module-mode'),settings=generation.properties?.acf_generation,mode=index(generation.id);

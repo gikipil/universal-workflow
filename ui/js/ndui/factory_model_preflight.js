@@ -23,7 +23,7 @@ export async function validatePromptModels(data,targets){
     // must not demand models. No model is loaded or path silently substituted.
     clearModelPresence();
     const nodes=new Map((data.workflow?.nodes||[]).map(n=>[String(n.id),n]));
-    const checks=[],seen=new Set();
+    const checks=[],seen=new Set(),editAdapters=new Set((data.workflow?.nodes||[]).map(n=>n.properties?.acf_edit?.kreaAdapter).filter(id=>id!=null).map(String));
     function add(id,node,key,folder,value){
         if(Array.isArray(value))return; // Runtime-provided filename: native validation handles it.
         const signature=JSON.stringify([folder,value]);if(seen.has(signature))return;seen.add(signature);
@@ -56,9 +56,9 @@ export async function validatePromptModels(data,targets){
             add(id,node,'lora_name','loras',node.inputs?.lora_name);
         }
         if(node.class_type==='Power Lora Loader (rgthree)'){
-            const required=/turbo|pose-lora/.test(nodes.get(id)?.properties?.nd_ui_src?.tag||'');
+            const required=editAdapters.has(id)||/turbo|pose-lora/.test(nodes.get(id)?.properties?.nd_ui_src?.tag||'');
             const rows=Object.entries(node.inputs||{}).filter(([key,row])=>/^lora_\d+$/.test(key)&&row&&typeof row==='object'&&'lora' in row);
-            if(required&&rows.length&&!rows.some(([,row])=>row.on!==false&&!empty(row.lora)))add(id,node,'lora','loras',null);
+            if(required&&!rows.some(([,row])=>row.on!==false&&!empty(row.lora)))add(id,node,'lora','loras',null);
             for(const[key,row]of rows)if(row.on!==false&&row.strength!==0&&!empty(row.lora))add(id,node,key,'loras',row.lora);
         }
     }

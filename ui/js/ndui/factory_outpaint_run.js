@@ -1,3 +1,4 @@
+import {cloneJsonData} from './json_data.js';
 // SPDX-License-Identifier: AGPL-3.0-only
 // Universal Workflow by gikipil, 2026-11-17: isolated LanPaint outpainting.
 import {api} from '../../../scripts/api.js';
@@ -10,12 +11,12 @@ import {FactoryProgress,bindFactoryProgress} from './factory_progress.js';
 export const outpaintProgress=new FactoryProgress();
 export function outpaintImageSize(file){return new Promise((resolve,reject)=>{const img=new Image();img.onload=()=>resolve({width:img.naturalWidth,height:img.naturalHeight});img.onerror=()=>reject(Error('Не удалось прочитать размер исходного фото.'));img.src=fileUrl(refFromName(file));});}
 export function outpaintPrompt(data,targets,modes,s,geometry=null){
- const output=structuredClone(data.output||{}),branch=s.branches[s.backend];if(!branch||output[branch.sampler]?.class_type!=='LanPaint_KSampler')throw Error('Не найден LanPaint. Перезапусти ComfyUI и открой актуальный workflow.');if(output[branch.decode]?.class_type!=='LanPaint_ImageDecode')throw Error('Не найдена цепочка декодирования LanPaint.');
+ const output=cloneJsonData(data.output||{}),branch=s.branches[s.backend];if(!branch||output[branch.sampler]?.class_type!=='LanPaint_KSampler')throw Error('Не найден LanPaint. Перезапусти ComfyUI и открой актуальный workflow.');if(output[branch.decode]?.class_type!=='LanPaint_ImageDecode')throw Error('Не найдена цепочка декодирования LanPaint.');
  if(geometry){if(!output[s.pad])throw Error('Не найдено расширение холста.');for(const k of['left','right','top','bottom'])output[s.pad].inputs[k]=geometry[k];}
  if(!output[s.gate])throw Error('Не найден выбор результата дорисовки.');const selected=[String(branch.decode),0];for(const n of Object.values(output))for(const[k,v]of Object.entries(n.inputs||{}))if(Array.isArray(v)&&String(v[0])===String(s.gate))n.inputs[k]=selected;
  const keep=new Set();function visit(id){id=String(id);if(keep.has(id))return;const n=output[id];if(!n)throw Error('Не найден узел дорисовки '+id);keep.add(id);for(const v of Object.values(n.inputs||{}))if(Array.isArray(v)&&v.length===2&&typeof v[1]==='number')visit(v[0]);}for(const id of targets)visit(id);
  const final=Object.fromEntries([...keep].map(id=>[id,output[id]]));if(Object.values(final).filter(n=>n.class_type==='LanPaint_KSampler').length!==1)throw Error('В дорисовке должна выполняться только одна выбранная модель.');
- const workflow=structuredClone(data.workflow);for(const n of workflow?.nodes||[])if(modes.has(n.id))n.mode=modes.get(n.id);return{...data,workflow,output:final};
+ const workflow=cloneJsonData(data.workflow);for(const n of workflow?.nodes||[])if(modes.has(n.id))n.mode=modes.get(n.id);return{...data,workflow,output:final};
 }
 let building=false;const queued=new Set(),owner=()=> (app.graph?._nodes||app.graph?.nodes||[]).find(n=>n.properties?.acf_outpaint?.branches);
 export function outpaintPlan(node){const s=node.properties.acf_outpaint,b=outpaintBranch(node),plan=[{name:'Дорисовка · '+({krea:'Krea2',qwen21:'Qwen 2.1',qwen:'Qwen 2511'}[s.backend])+' · LanPaint',sample:String(b.sampler),ids:new Set(s.nodes.map(String)),finish:[String(s.result)],runningLabel:'продолжение сцены'}];plan.operations=new Map([[String(s.photo),'загрузка исходника'],[String(s.scale),'размер обработки'],[String(s.pad),'расширение холста'],[String(b.decode),'сборка результата'],[String(s.saver),'сохранение']]);return plan;}

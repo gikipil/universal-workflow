@@ -1,3 +1,4 @@
+import {cloneJsonData} from './json_data.js';
 // SPDX-License-Identifier: AGPL-3.0-only
 // Universal Workflow by gikipil, 2026-11-18: isolated MiniMax H3 execution.
 import {api} from '../../../scripts/api.js';
@@ -15,7 +16,7 @@ export class VideoProgress extends FactoryProgress {
 }
 export const videoProgress=new VideoProgress();
 export function videoPrompt(data,targets,modes,s,config){
- const output=structuredClone(data.output||{}),loader=output[s.media],enc=output[s.condition];
+ const output=cloneJsonData(data.output||{}),loader=output[s.media],enc=output[s.condition];
  // Head streaming slices packed Q4 rows as dense weights. The compatible
  // full-context path invokes each GGUF projection's own dequantization/LoRA.
  // Keep the normal INT8 path and the saved graph unchanged.
@@ -44,12 +45,12 @@ export function videoPrompt(data,targets,modes,s,config){
   if(refTurbo.class_type!==mainTurbo.class_type)throw Error('Не найден Turbo-адаптер MiniMax.');
   refTurbo.inputs.lora_name=mainTurbo.inputs.lora_name;
   refTurbo.inputs.strength_model=mainTurbo.inputs.strength_model;
- }else for(const[k,v]of Object.entries(mainTurbo.inputs))if(/^lora_\d+$/.test(k))refTurbo.inputs[k]=structuredClone(v);
+ }else for(const[k,v]of Object.entries(mainTurbo.inputs))if(/^lora_\d+$/.test(k))refTurbo.inputs[k]=cloneJsonData(v);
  const bypass=new Map([[String(s.gate),[String(config.refiner?s.ref:s.main),0]]]);
  if(s.upscale)bypass.set(String(s.upscale.gate),[String(config.upscale?s.upscale.sample:s.vdecode),0]);
  for(const n of Object.values(output))for(const[k,v]of Object.entries(n.inputs||{}))if(Array.isArray(v)&&bypass.has(String(v[0])))n.inputs[k]=bypass.get(String(v[0]));
  const keep=new Set();function visit(id){id=String(id);if(keep.has(id))return;const n=output[id];if(!n)throw Error('Не найден узел видео '+id);keep.add(id);for(const v of Object.values(n.inputs||{}))if(Array.isArray(v)&&v.length===2&&typeof v[1]==='number')visit(v[0]);}
- for(const id of targets)visit(id);const workflow=structuredClone(data.workflow);for(const n of workflow?.nodes||[])if(modes.has(n.id))n.mode=modes.get(n.id);
+ for(const id of targets)visit(id);const workflow=cloneJsonData(data.workflow);for(const n of workflow?.nodes||[])if(modes.has(n.id))n.mode=modes.get(n.id);
  return{...data,workflow,output:Object.fromEntries([...keep].map(id=>[id,output[id]]))};
 }
 const queued=new Set();let building=false;const owner=()=> (app.graph?._nodes||app.graph?.nodes||[]).find(n=>n.properties?.acf_video?.sigmaRefiner);

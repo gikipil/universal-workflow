@@ -1,3 +1,4 @@
+import {cloneJsonData} from './json_data.js';
 // SPDX-License-Identifier: AGPL-3.0-only
 // Universal Workflow, gikipil 2026: detector-only mask previews.
 import {api} from '../../../scripts/api.js';
@@ -7,7 +8,7 @@ const allowed=new Set(['LoadImage','UltralyticsDetectorProvider','BboxDetectorSE
 export function localMaskPrompt(data,s,key,ref){
  if(!['face','hands','sam'].includes(key)||!s?.[key])throw Error('Не найден выбранный режим.');
  if(!ref?.filename||!['input','temp','output'].includes(ref.type||'output'))throw Error('Сначала получи кадр для просмотра маски.');
- const output=structuredClone(data.output||{}),mode=s[key],detect=output[mode.detect];
+ const output=cloneJsonData(data.output||{}),mode=s[key],detect=output[mode.detect];
  if(!detect||detect.class_type!==(key==='sam'?'SAM3_Detect':'BboxDetectorSEGS'))throw Error('Не найден детектор маски.');
  if(key==='sam'&&typeof output[mode.target]?.inputs?.text==='string'&&!output[mode.target].inputs.text.trim())throw Error('Напиши, что выделить, например clothing, hair или sofa.');
  const image='uw_mask_source',combined='uw_mask_combined',rgb='uw_mask_rgb',preview='uw_mask_preview';

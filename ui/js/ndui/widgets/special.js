@@ -1,4 +1,5 @@
-import {checkModelPresence,shouldCheckModelPresence,lostModelBadge,paintModelBadge,clearModelPresence} from '../model_presence.js';
+import {checkModelPresence,shouldCheckModelPresence,lostModelBadge,paintModelBadge,clearModelPresence,availableModelFiles} from '../model_presence.js';
+import {modelPickerOptions} from '../model_picker_options.js';
 // SPDX-License-Identifier: AGPL-3.0-only
 // Universal Workflow additions/modifications by gikipil, 2026-11-12.
 // Based on ND UI Builder by Ivan Ovchinnikov (Neural Dreamer).
@@ -165,8 +166,8 @@ export const modelpicker = {
             const hit = FOLDER_BY_NAME.find(([re]) => re.test(n));
             return hit ? hit[1] : "";
         };
-        let info = new Map(), loadedFor = "", seen = "", alive=true, presenceTicket=0;
-        const load = (fresh) => { const fo = folderOf(); loadedFor = fo; if (!fo) { info = new Map(); show(); return Promise.resolve(); } return catalog(fo, fresh).then((m) => { if (loadedFor === fo) { info = m; seen = ""; show(); } }); };
+        let info = new Map(), files=null, loadedFor = "", seen = "", alive=true, presenceTicket=0, loadTicket=0;
+        const load = (fresh) => { const fo = folderOf(),ticket=++loadTicket; if(fresh||loadedFor!==fo)files=null; loadedFor = fo; if (!fo) { info = new Map(); files=null; show(); return Promise.resolve(); } return Promise.all([catalog(fo, fresh),availableModelFiles(fo,fresh)]).then(([m,names]) => { if (alive&&ticket===loadTicket) { info = m; files=names; seen = ""; show(); } }); };
         const show = () => {
             const v = ctx.get("value");
             const fo = folderOf();
@@ -219,15 +220,11 @@ export const modelpicker = {
                     const draw = () => {
                         const cur = ctx.get("value");
                         const q = input.value.trim();
-                        // A draft/virtual STRING field has no COMBO options. Its folder
-                        // catalog is still a valid source of model names.
-                        const state = ctx.info("value"), boundOptions = state.options;
-                        // Virtual LoRA adapters cache COMBO names independently.
-                        // A refreshed catalog must expose newly installed files
-                        // too. Native COMBO constraints remain authoritative.
-                        const options = state.p?.virtual && fo === "loras"
-                            ? [...new Set([...(Array.isArray(boundOptions) ? boundOptions : []), ...info.keys()])]
-                            : Array.isArray(boundOptions) && boundOptions.length ? boundOptions : [...info.keys()];
+                        // Only actual files may create cards/folders. Saved values and
+                        // metadata previews can outlive files on another computer.
+                        const state=ctx.info('value'),boundOptions=state.options;
+                        const options = fo ? modelPickerOptions(state,files)
+                            : Array.isArray(boundOptions) ? boundOptions : [];
                         const listing = modelFolderEntries(options, directory, q);
                         nav.textContent = "";
                         nav.append(button("📁 Все папки", () => go("")));
@@ -267,9 +264,9 @@ export const modelpicker = {
                     input.addEventListener("input", draw);
                     input.addEventListener("keydown", (e) => { e.stopPropagation(); if (e.key === "Enter") { const first = grid.querySelector(".ndk-mp-card"); first?.click(); } });
                     const finish = () => { loading = false; if (box.isConnected) draw(); };
-                    refresh.addEventListener("click", () => { loading = true; clearModelPresence(); seen=""; show(); draw(); load(true).then(finish); });
-                    draw();
-                    load().then(finish);
+                    refresh.addEventListener("click", () => { loading = true; clearModelPresence(); seen=""; show(); const request=load(true);draw();request.then(finish); });
+                    const request=load(true);draw();
+                    request.then(finish);
                     setTimeout(() => input.focus(), 0);
                 },
             });

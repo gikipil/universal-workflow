@@ -1,3 +1,4 @@
+import {cloneJsonData} from './json_data.js';
 import {rewriteUpscale,upscaleStage} from './factory_upscale_tasks.js';
 // SPDX-License-Identifier: AGPL-3.0-only
 // Universal Workflow additions by gikipil, 2026-11-14.
@@ -11,7 +12,7 @@ export const hasEditImage=file=>typeof file==='string'&&file.trim()!==''&&file!=
 // This compiler removes absent references before collecting dependencies. No empty LoadImage
 // and no duplicate of Picture 1 is substituted as Picture 2.
 export function editPrompt(data,targets,originalModes,s,withReference,withMask=false,upscaleSpec=null){
- const output=structuredClone(data.output||{}),bypass=new Map();
+ const output=cloneJsonData(data.output||{}),bypass=new Map();
  const ref=s.refiner;if(ref){const gate=output[ref.controller],mode=Number(gate?.inputs?.index),value=gate?.inputs?.['value'+mode];if(!Number.isInteger(mode)||mode<0||mode>4||!Array.isArray(value))throw Error('Не найден режим рефайнера редактора.');bypass.set(String(ref.controller),value);}
  const krea=s.backend==='krea',q21=s.backend==='qwen21'?s.qwen21:null;
  const c=s.crop,cropActive=!!c&&Number(output[c.control]?.inputs?.value)===1;
@@ -42,7 +43,7 @@ export function editPrompt(data,targets,originalModes,s,withReference,withMask=f
  const keep=new Set();function visit(id){id=String(id);if(keep.has(id))return;const n=output[id];if(!n)throw Error('Не найден узел редактора '+id);keep.add(id);for(const v of Object.values(n.inputs||{}))if(Array.isArray(v)&&v.length===2&&typeof v[1]==='number'&&Object.hasOwn(output,String(v[0])))visit(v[0]);}for(const id of targets)visit(id);
  if(!withMask&&s.maskFile&&keep.has(String(s.maskFile)))throw Error('Выключенная маска осталась подключена.');
  if(!withReference&&keep.has(String(s.reference)))throw Error('Пустой референс остался подключён.');
- const workflow=structuredClone(data.workflow);for(const n of workflow?.nodes||[])if(originalModes.has(n.id))n.mode=originalModes.get(n.id);
+ const workflow=cloneJsonData(data.workflow);for(const n of workflow?.nodes||[])if(originalModes.has(n.id))n.mode=originalModes.get(n.id);
  return{...data,workflow,output:Object.fromEntries([...keep].map(id=>[id,output[id]]))};
 }
 const activeIds=new Set();let building=false;

@@ -1,3 +1,4 @@
+import {cloneJsonData} from './json_data.js';
 import {videoParams as legacyVideoParams} from './factory_video_legacy_params.js';
 // SPDX-License-Identifier: AGPL-3.0-only
 // Universal Workflow by gikipil, 2026-11-22: hybrid SelfLift video controls.
@@ -20,7 +21,7 @@ export function writeVideo(node,value,touch=()=>{}){
  for(const[id,k,vv]of fields){const w=widget(g.getNodeById(id),k);if(!w)throw Error('Не найдена настройка видео.');const opts=typeof w.options?.values==='function'?w.options.values():w.options?.values;if(Array.isArray(opts)&&!opts.includes(vv))throw Error('Выбери допустимый сэмплер или шедулер.');}
  for(const[id,k,vv]of fields){const w=widget(g.getNodeById(id),k);w.value=vv;w.callback?.(vv);}touch(node);return true;
 }
-export function readVideoMedia(node){const slots=structuredClone(node.properties.acf_video.mediaSlots);for(const kind of Object.keys(VIDEO_LIMITS))slots[kind]||=[];return slots;}
+export function readVideoMedia(node){const slots=cloneJsonData(node.properties.acf_video.mediaSlots);for(const kind of Object.keys(VIDEO_LIMITS))slots[kind]||=[];return slots;}
 export function writeVideoMedia(node,value,touch=()=>{}){
  const v=typeof value==='string'?JSON.parse(value):value,s=node.properties.acf_video,seen=new Set(),next={};
  for(const[k,max]of Object.entries(VIDEO_LIMITS)){if(!Array.isArray(v[k])||v[k].length>max)throw Error('Допустимо: первый и последний кадр, 9 фото, 3 видео и 3 аудио.');next[k]=v[k].map(item=>{if(typeof item.id!=='string'||!item.id||seen.has(item.id)||item.kind!==videoMediaKind(k)||typeof item.file!=='string'||item.file.length>4096)throw Error('Неверный слот референса.');seen.add(item.id);return{...item,enabled:true,...(k==='video'?{audio_mode:'paired'}:{})};});}

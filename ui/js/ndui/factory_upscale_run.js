@@ -1,3 +1,4 @@
+import {cloneJsonData} from './json_data.js';
 // SPDX-License-Identifier: AGPL-3.0-only
 // Universal Workflow additions by gikipil, 2026-11-14.
 import {api} from '../../../scripts/api.js';
@@ -7,7 +8,7 @@ import {FactoryProgress,bindFactoryProgress} from './factory_progress.js';
 import {rewriteUpscale,upscaleStage} from './factory_upscale_tasks.js';
 export const upscaleProgress=new FactoryProgress();
 export function upscalePrompt(data,targets,modes,spec){
- const output=rewriteUpscale(structuredClone(data.output||{}),spec),keep=new Set();
+ const output=rewriteUpscale(cloneJsonData(data.output||{}),spec),keep=new Set();
  function scalar(value,seen=new Set()){
   if(!Array.isArray(value))return typeof value==='boolean'?Number(value):value;
   const id=String(value[0]);if(seen.has(id))throw Error('Зацикленное управление режимом обработки фото.');seen.add(id);
@@ -26,7 +27,7 @@ export function upscalePrompt(data,targets,modes,spec){
    n.inputs[key]=v;if(Array.isArray(v)&&v.length===2&&typeof v[1]==='number'&&Object.hasOwn(output,String(v[0])))visit(v[0]);
   }
  }
- for(const id of targets)visit(id);const workflow=structuredClone(data.workflow);for(const n of workflow?.nodes||[])if(modes.has(n.id))n.mode=modes.get(n.id);
+ for(const id of targets)visit(id);const workflow=cloneJsonData(data.workflow);for(const n of workflow?.nodes||[])if(modes.has(n.id))n.mode=modes.get(n.id);
  return{...data,workflow,output:Object.fromEntries([...keep].map(id=>[id,output[id]]))};
 }
 let building=false;const queued=new Set(),owner=()=> (app.graph?._nodes||app.graph?.nodes||[]).find(n=>n.properties?.acf_upscale_task);

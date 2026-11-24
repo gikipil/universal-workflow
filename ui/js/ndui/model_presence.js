@@ -12,8 +12,9 @@ export async function checkSelectedBundle(kind,value,files,fresh=false){
  const promise=(async()=>{try{const response=await api.fetchApi('/universal/models/selected',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({kind,value,files})});if(!response.ok)return{missing:null};const result=await response.json();return{missing:typeof result.missing==='boolean'?result.missing:null,reason:'Не найден полный комплект выбранной модели: '+value};}catch{return{missing:null};}})();cache.set(key,{at:now,promise});return promise;
 }
 function list(folder,fresh=false){const now=Date.now(),old=cache.get(folder);if(!fresh&&old&&now-old.at<TTL)return old.promise;
- const promise=(async()=>{try{const response=await api.fetchApi('/models/'+encodeURIComponent(folder));if(response.status===404)return new Set();if(!response.ok)return null;const data=await response.json();return Array.isArray(data)&&data.every(x=>typeof x==='string')?new Set(data.map(normalize)):null;}catch{return null;}})();cache.set(folder,{at:now,promise});return promise;
+ const promise=(async()=>{try{const response=await api.fetchApi('/models/'+encodeURIComponent(folder));if(response.status===404)return Object.assign(new Set(),{names:[]});if(!response.ok)return null;const data=await response.json();return Array.isArray(data)&&data.every(x=>typeof x==='string')?Object.assign(new Set(data.map(normalize)),{names:data}):null;}catch{return null;}})();cache.set(folder,{at:now,promise});return promise;
 }
+export async function availableModelFiles(folder,fresh=false){return(await list(folder,fresh))?.names??null;}
 export async function checkModelPresence(folder,value,state={},fresh=false,required=folder!=='loras'){
  if(state.lost)return{missing:true,reason:'Привязка к ноде или параметру потеряна.'};
  if(empty(value))return{missing:required===true,empty:true,reason:required?'Не выбран обязательный файл.':''};

@@ -1,3 +1,4 @@
+import {cloneJsonData} from './json_data.js';
 // SPDX-License-Identifier: AGPL-3.0-only
 // Universal Workflow additions by gikipil, 2026-11-13.
 import {api} from '../../../scripts/api.js';
@@ -11,7 +12,7 @@ const owner=()=>nodes().find(n=>n.properties?.acf_background);
 export function backgroundPlan(n){const s=n.properties.acf_background,plan=[{name:'Удаление фона',sample:String(n.id),ids:new Set(s.nodes.map(String)),finish:[String(s.result),String(s.mask)],runningLabel:'отделение объекта'}];plan.operations=new Map([[String(s.photo),'загрузка фото'],[String(n.id),'отделение объекта'],[String(s.before),'подготовка исходника'],[String(s.result),'подготовка PNG'],[String(s.mask),'подготовка маски'],[String(s.saver),'сохранение PNG']]);return plan;}
 export function backgroundPrompt(data,targets,originalModes){
  const output=data.output||{},keep=new Set();function visit(id){id=String(id);if(keep.has(id))return;if(!output[id])throw Error('Не найден узел удаления фона '+id);keep.add(id);for(const v of Object.values(output[id].inputs||{}))if(Array.isArray(v)&&v.length===2&&typeof v[1]==='number'&&Object.hasOwn(output,String(v[0])))visit(v[0]);}
- for(const id of targets)visit(id);const workflow=structuredClone(data.workflow);for(const n of workflow?.nodes||[])if(originalModes.has(n.id))n.mode=originalModes.get(n.id);
+ for(const id of targets)visit(id);const workflow=cloneJsonData(data.workflow);for(const n of workflow?.nodes||[])if(originalModes.has(n.id))n.mode=originalModes.get(n.id);
  return{...data,workflow,output:Object.fromEntries([...keep].map(id=>[id,output[id]]))};
 }
 export async function queueBackground(node,batch=1){

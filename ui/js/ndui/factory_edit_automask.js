@@ -1,3 +1,4 @@
+import {cloneJsonData} from './json_data.js';
 // SPDX-License-Identifier: AGPL-3.0-only
 // Universal Workflow additions by gikipil, 2026-11-14.
 import {api} from '../../../scripts/api.js';
@@ -12,10 +13,10 @@ export function maskOptions(value){
  return{target,threshold,iterations};
 }
 export function autoMaskPrompt(data,s,options,modes=new Map()){
- const o=maskOptions(options),a=s.autoMask,output=structuredClone(data.output||{});if(!a||!output[a.detect]||!output[a.text]||!output[a.preview])throw Error('В этом файле нет автомаски. Открой актуальную версию workflow.');
+ const o=maskOptions(options),a=s.autoMask,output=cloneJsonData(data.output||{});if(!a||!output[a.detect]||!output[a.text]||!output[a.preview])throw Error('В этом файле нет автомаски. Открой актуальную версию workflow.');
  Object.assign(output[a.detect].inputs,{threshold:o.threshold,refine_iterations:o.iterations,individual_masks:false});output[a.text].inputs.text=o.target;
  const keep=new Set();function visit(id){id=String(id);if(keep.has(id))return;const n=output[id];if(!n)throw Error('Не найден узел автомаски '+id);keep.add(id);for(const v of Object.values(n.inputs||{}))if(Array.isArray(v)&&v.length===2&&typeof v[1]==='number'&&Object.hasOwn(output,String(v[0])))visit(v[0]);}visit(a.preview);
- const workflow=structuredClone(data.workflow);for(const n of workflow?.nodes||[])if(modes.has(n.id))n.mode=modes.get(n.id);
+ const workflow=cloneJsonData(data.workflow);for(const n of workflow?.nodes||[])if(modes.has(n.id))n.mode=modes.get(n.id);
  return{...data,workflow,output:Object.fromEntries([...keep].map(id=>[id,output[id]]))};
 }
 // SAM is a separate queue item. It never starts an editor, refiner, upscale or saver.
