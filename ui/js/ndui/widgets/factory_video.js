@@ -1,4 +1,4 @@
-import {readVideoReferenceState,VIDEO_REFS_NOT_SAVED} from '../video_reference_state.js';
+import {readVideoReferenceState,videoReferenceWriteState,sameVideoReferences,VIDEO_REFS_NOT_SAVED} from '../video_reference_state.js';
 import {forNode} from '../events.js';
 import {fitFactoryContent} from './factory_content_height.js';
 import {factorysize_v0213} from './factory_size_v0213.js';
@@ -20,11 +20,11 @@ const labels={first:'🎞️ Первый кадр',last:'🎞️ Последн
 let nextReferenceSlot=0;
 export function videoReferenceId(kind,slots=[]){let id;do{id=kind+'_'+Date.now().toString(36)+'_'+(++nextReferenceSlot).toString(36);}while(slots.some(item=>item.id===id));return id;}
 export const factoryvidrefs_v0180={type:'factoryvidrefs_v110',label:'Референсы видео',group:'Inputs',live:true,fill:true,noLabel:true,slots:[{id:'media',accepts:['STRING'],required:true},{id:'config',accepts:['STRING'],required:false}],props:[],size:{w:336,h:464,minW:270,minH:128},mount(ctx){
- const root=el('section'),content=el('div'),error=el('small');root.style.cssText=surface;content.style.cssText='display:flex;flex-direction:column;gap:10px';error.style.cssText='color:#ffa7b9;line-height:18px;overflow-wrap:anywhere';error.hidden=true;root.append(content,error);ctx.body.append(root);if(ctx.body.parentElement)ctx.body.parentElement.style.padding='0';let alive=true,stamp='';const tickets=new Map(),contentHeight=fitFactoryContent(ctx,root,{min:128});let stateError=false;const read=()=>readVideoReferenceState(ctx.get('media'),VIDEO_LIMITS,ctx.info?.('media'));const write=v=>{ctx.set('media',JSON.stringify(v));const saved=read();if(Object.keys(VIDEO_LIMITS).some(kind=>JSON.stringify(saved[kind])!==JSON.stringify(v[kind])))throw Error(VIDEO_REFS_NOT_SAVED);show();};
+ const root=el('section'),content=el('div'),error=el('small');root.style.cssText=surface;content.style.cssText='display:flex;flex-direction:column;gap:10px';error.style.cssText='color:#ffa7b9;line-height:18px;overflow-wrap:anywhere';error.hidden=true;root.append(content,error);ctx.body.append(root);if(ctx.body.parentElement)ctx.body.parentElement.style.padding='0';let alive=true,stamp='';const tickets=new Map(),contentHeight=fitFactoryContent(ctx,root,{min:128});let stateError=false;const read=()=>readVideoReferenceState(ctx.get('media'),VIDEO_LIMITS,ctx.info?.('media'));const write=v=>{const expected=videoReferenceWriteState(v,VIDEO_LIMITS);ctx.set('media',JSON.stringify(expected));const saved=read();if(!sameVideoReferences(saved,expected))throw Error(VIDEO_REFS_NOT_SAVED);show();};
  const carry=el('button','ndk-chip acf-fixed-control',ctx.tr('Последний кадр → первый референс'));
  carry.type='button';carry.style.cssText='width:100%;min-height:36px;white-space:normal;line-height:1.3;padding:8px';root.insertBefore(carry,content);
  let extracting=false;
- const resultRef=()=>{const node=ctx.info?.('media')?.node,s=node?.properties?.acf_video,output=node?.graph?.getNodeById(s?.output);return output?forNode(output).video?.[0]:null;};
+ const resultRef=()=>{const binding=ctx.info?.('media'),node=binding?.p?.node||binding?.node,s=node?.properties?.acf_video,output=node?.graph?.getNodeById(s?.output);return output?forNode(output).video?.[0]:null;};
  carry.addEventListener('click',async()=>{
   if(extracting)return;
   const ref=resultRef();if(!ref)return;

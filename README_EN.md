@@ -2,11 +2,11 @@
 
 [Русский](README.md) · **English**
 
-**Version 2.0.1 · ComfyUI · English interface by default**
+**Version 2.0.2 · ComfyUI · English interface by default**
 
 One interface for image generation, refinement, editing, outpainting, background removal, upscaling, image captions, video and audio. Common settings are on the left, results and comparisons on the right. Less frequent settings open from gear buttons.
 
-**Download:** [2.0.1 release](https://github.com/gikipil/universal-workflow/releases/tag/v2.0.1) · [complete ZIP](https://github.com/gikipil/universal-workflow/releases/download/v2.0.1/Universal-Workflow-v2.0.1.zip) · [workflow JSON](Universal-Workflow-v2.0.1.json).
+**Download:** [2.0.2 release](https://github.com/gikipil/universal-workflow/releases/tag/v2.0.2) · [complete ZIP](https://github.com/gikipil/universal-workflow/releases/download/v2.0.2/Universal-Workflow-v2.0.2.zip) · [workflow JSON](Universal-Workflow-v2.0.2.json).
 
 **All versions:** [version history and tagged downloads](https://github.com/gikipil/universal-workflow/tags). The main branch contains the current version; previous versions remain available in the same repository.
 
@@ -56,7 +56,7 @@ Setup does not downgrade installed packages. Compatible versions are retained, m
 3. Copy the **contents** of `resources/package/ui/js/` into that Builder’s `js/` folder and replace matching files.
 4. Copy all five folders from `resources/package/nodes/` into `ComfyUI/custom_nodes/`. Copy `resources/package/assets/universal-local-empty-mask.png` into `ComfyUI/input/`.
 5. Install the external node packs listed below using ComfyUI-Manager or their author instructions. Install Python requirements into the environment that actually starts ComfyUI; optional video/audio compatibility steps are below.
-6. Restart ComfyUI, refresh the browser with **Ctrl+F5**, and open `resources/package/Universal-Workflow-v2.0.1.json`. Press **ND UI**.
+6. Restart ComfyUI, refresh the browser with **Ctrl+F5**, and open `resources/package/Universal-Workflow-v2.0.2.json`. Press **ND UI**.
 7. Download only the models you need, then select their actual files in Settings. Files may be at the root of their model category or in any subfolder. If an old saved path is marked missing, choose your local file instead; do not recreate the author's folder layout.
 
 <details>
@@ -166,7 +166,7 @@ In **Settings → Models → Help**, recommendation cards have download buttons 
 
 ### 7. Open the workflow
 
-Restart ComfyUI, hard-refresh with **Ctrl+F5**, and drag **`Universal-Workflow-v2.0.1.json`** into ComfyUI. Press **ND UI**. English is the default; change it in **Settings → Appearance → Interface language**.
+Restart ComfyUI, hard-refresh with **Ctrl+F5**, and drag **`Universal-Workflow-v2.0.2.json`** into ComfyUI. Press **ND UI**. English is the default; change it in **Settings → Appearance → Interface language**.
 
 For the first run, select Generation, confirm Krea models and the Turbo adapter, disable uninstalled persistent LoRAs, and leave refinement/local processing/upscaling off until an image succeeds. Enter a prompt and press Generate, then enable other stages one at a time.
 
@@ -216,6 +216,10 @@ The workflow and original documentation are for non-commercial distribution/use,
 UI code, the installer and the Caption/Memory/Video modules retain **AGPL-3.0-only**. The Accelerator module is **MIT** and the GGUF module is **Apache-2.0**; the QwenTTS patch retains **GPL-3.0-only**. These licenses permit commercial code use and are not overridden by workflow terms. Nodes, models and LoRAs keep their own licenses; the output exception does not override their restrictions or other people's rights. See [NOTICE.md](NOTICE.md).
 
 ## 📝 Release history
+
+### 2.0.2
+
+- Fixed a false video-reference save error and the last-frame button’s binding to the finished video result.
 
 ### 2.0.1
 

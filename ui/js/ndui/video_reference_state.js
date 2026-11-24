@@ -20,3 +20,15 @@ export function readVideoReferenceState(raw,limits,binding){
     let data;try{data=typeof raw==='string'?JSON.parse(raw):raw;}catch{throw Error(VIDEO_REFS_INVALID);}
     return normalizeVideoReferences(data,limits);
 }
+
+// Match the loader's canonical form before checking persistence. It adds
+// enabled/audio_mode to new slots; JSON property order is not meaningful.
+export function videoReferenceWriteState(slots,limits){
+    const result=normalizeVideoReferences(slots,limits);
+    for(const kind of Object.keys(limits))result[kind]=result[kind].map(item=>({...item,enabled:true,...(kind==='video'?{audio_mode:'paired'}:{})}));
+    return result;
+}
+export function sameVideoReferences(a,b){
+    const ordered=value=>Array.isArray(value)?value.map(ordered):value&&typeof value==='object'?Object.fromEntries(Object.keys(value).sort().map(key=>[key,ordered(value[key])])):value;
+    return JSON.stringify(ordered(a))===JSON.stringify(ordered(b));
+}
