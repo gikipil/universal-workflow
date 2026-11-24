@@ -1,6 +1,10 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 // Universal Workflow interface translation, gikipil 2026.
 export default {
+  "Недоступна нода видеореференсов. Установи зависимости видео, перезапусти ComfyUI и открой актуальный workflow.": "Le nœud des références vidéo est indisponible. Installe les dépendances vidéo, redémarre ComfyUI et ouvre le workflow actuel.",
+  "Повреждены настройки видеореференсов. Открой актуальный workflow заново.": "Les paramètres des références vidéo sont invalides. Rouvre le workflow actuel.",
+  "Не удалось сохранить список видеореференсов. Проверь подключение ноды.": "Impossible d’enregistrer les références vidéo. Vérifie la connexion du nœud.",
+
   "Облегчённая модель · GGUF": "Modèle léger · GGUF",
   "Меньше памяти для весов. Файл выбирается в общих настройках видео.": "Moins de mémoire pour les poids. Choisissez le fichier dans les paramètres généraux Vidéo.",
   "MiniMax H3 · облегчённая GGUF": "MiniMax H3 · GGUF léger",
