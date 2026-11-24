@@ -16,6 +16,12 @@ export class VideoProgress extends FactoryProgress {
 export const videoProgress=new VideoProgress();
 export function videoPrompt(data,targets,modes,s,config){
  const output=structuredClone(data.output||{}),loader=output[s.media],enc=output[s.condition];
+ // Head streaming slices packed Q4 rows as dense weights. The compatible
+ // full-context path invokes each GGUF projection's own dequantization/LoRA.
+ // Keep the normal INT8 path and the saved graph unchanged.
+ if(config.gguf&&output[s.main]?.inputs.highres_tiling_mode==='global_stream'){
+  output[s.main].inputs.highres_tiling_mode='global';
+ }
  // Collapse only the model router before collecting this task's dependencies.
  // An inactive GGUF/INT8 loader is absent from the submitted execution graph.
  if(s.modelSwitch){
