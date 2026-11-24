@@ -1,3 +1,4 @@
+import {firstVideoFrame,readFirstVideoFrameSize} from '../video_frame_size.js';
 import {readVideoReferenceState,videoReferenceWriteState,sameVideoReferences,VIDEO_REFS_NOT_SAVED} from '../video_reference_state.js';
 import {forNode} from '../events.js';
 import {fitFactoryContent} from './factory_content_height.js';
@@ -51,7 +52,7 @@ export const factoryvidrefs_v0180={type:'factoryvidrefs_v110',label:'Рефер�
 }};
 export const factoryvidsettings_v0180={
  type:'factoryvidsettings_v110',label:'Параметры видео',group:'Inputs',live:true,fill:true,noLabel:true,
- slots:[{id:'config',accepts:['STRING'],required:true},{id:'sampler',accepts:['COMBO'],required:true},{id:'scheduler',accepts:['COMBO'],required:true},...modeFileSlots('video')],props:[],
+ slots:[{id:'config',accepts:['STRING'],required:true},{id:'sampler',accepts:['COMBO'],required:true},{id:'scheduler',accepts:['COMBO'],required:true},{id:'firstFrame',accepts:['STRING'],required:false},...modeFileSlots('video')],props:[],
  size:{w:336,h:460,minW:270,minH:256},
  mount(ctx){
   const root=el('div'),error=el('small'),inputs=new Map();
@@ -88,6 +89,20 @@ export const factoryvidsettings_v0180={
   turboLabel.addEventListener('click',()=>turboRange.focus());turboLine.append(turboRange,turboNumber);turboBox.append(turboLabel,turboLine);main.section.append(turboBox);
   const sizeBody=el('div'),sizeHost=el('div'),sizeTitle=el('strong','','📐 Размер видео');sizeBody.style.cssText='display:flex;flex-direction:column;gap:8px';sizeTitle.style.cssText='color:#78e4cd;font-size:14px';sizeBody.append(sizeTitle,sizeHost);main.section.append(sizeBody);
   const sizeControl=factorysize_v0213.mount({...ctx,body:sizeHost,sizeOptions:{multiple:32,min:32,max:4096,noun:'видео',ratioTolerance:.04,megapixels:[.5,1,1.5,2,2.5,3],includeCurrentOption:false},get:k=>read()[k],set:(k,v)=>write(k,v),setSize:(width,height)=>{try{ctx.set('config',JSON.stringify({...read(),width,height}));error.hidden=true;}catch(e){error.hidden=false;error.textContent=e.message;}show();}});
+  const frameSizeNote=note(main.section,'');frameSizeNote.hidden=true;
+  let alive=true,frameFile=null,frameSize=null,frameError='',frameTicket=0;
+  const videoOwner=()=>{const state=ctx.info('config');return state.p?.node||state.node;};
+  function updateFrameSize(){
+   if(ctx.videoPart&&ctx.videoPart!=='main')return false;
+   const file=firstVideoFrame(videoOwner());
+   sizeBody.hidden=!!file;sizeBody.style.display=file?'none':'flex';frameSizeNote.hidden=!file;
+   if(file!==frameFile){
+    frameFile=file;frameSize=null;frameError='';const ticket=++frameTicket;
+    if(file)readFirstVideoFrameSize(videoOwner()).then(size=>{if(!alive||ticket!==frameTicket)return;frameSize=size;show();}).catch(error=>{if(!alive||ticket!==frameTicket)return;frameError=ctx.tr(error.message);show();});
+   }
+   if(file)frameSizeNote.textContent=frameError||(frameSize?ctx.tr('Размер из первого кадра')+' · '+frameSize.width+' × '+frameSize.height+' px'+(frameSize.width!==frameSize.sourceWidth||frameSize.height!==frameSize.sourceHeight?' · '+ctx.tr('Округлено до кратности 32'):''):ctx.tr('Чтение размера первого кадра…'));
+   return !!file;
+  }
   main.gear.addEventListener('click',()=>openSettings('Настройки генерации видео',host=>{
    const gguf=el('div');gguf.style.cssText='width:100%;min-height:52px';host.append(gguf);toggle.mount({...ctx,body:gguf,w:{...ctx.w,slots:{}},get:()=>read().gguf,set:(_,v)=>write('gguf',v),prop:k=>k==='text'?'Облегчённая модель · GGUF':k==='description'?'Меньше памяти для весов. Файл выбирается в общих настройках видео.':ctx.prop(k)});
    const g=grid(host);
@@ -118,10 +133,10 @@ export const factoryvidsettings_v0180={
   root.append(error);const presence=mountModePresence(ctx,main.title,'video');
   function show(){
    const v=read();if(distribution)distribution.textContent=(ctx.tr?.('Низкое разрешение')||'Низкое разрешение')+': '+v.transition+' · '+(ctx.tr?.('Полное разрешение')||'Полное разрешение')+': '+(v.totalSteps-v.transition)+' · '+(ctx.tr?.('Всего шагов')||'Всего шагов')+': '+v.totalSteps;for(const[input,k]of inputs)if(document.activeElement!==input)input.value=String(v[k]);
-   sizeControl.update?.();refToggle.update?.();upToggle.update?.();upFields.hidden=!v.upscale;upFields.style.display=v.upscale?'grid':'none';upUnit.value=String(v.upSize);upAmount.min=v.upSize?'64':'1';upAmount.max=v.upSize?'16384':'4';upAmount.step=v.upSize?'64':'0.1';
-   if(document.activeElement!==upAmount)upAmount.value=String(v.upSize?v.upLong:v.upFactor);presence.update();contentHeight.update((ctx.videoPart==='main'?360:ctx.videoPart==='ref'?112:ctx.videoPart==='up'?(v.upscale?208:112):550+(v.upscale?72:0))+(error.hidden?0:44));
+   const frameSized=updateFrameSize();if(!frameSized)sizeControl.update?.();refToggle.update?.();upToggle.update?.();upFields.hidden=!v.upscale;upFields.style.display=v.upscale?'grid':'none';upUnit.value=String(v.upSize);upAmount.min=v.upSize?'64':'1';upAmount.max=v.upSize?'16384':'4';upAmount.step=v.upSize?'64':'0.1';
+   if(document.activeElement!==upAmount)upAmount.value=String(v.upSize?v.upLong:v.upFactor);presence.update();contentHeight.update((ctx.videoPart==='main'?(frameSized?300:360):ctx.videoPart==='ref'?112:ctx.videoPart==='up'?(v.upscale?208:112):550+(v.upscale?72:0))+(error.hidden?0:44));
   }
-  show();return{update:show,resize:()=>contentHeight.update(),destroy(){dialog?.close();contentHeight.destroy();sizeControl.destroy?.();refToggle.destroy?.();upToggle.destroy?.();presence.destroy();}};
+  show();return{update:show,resize:()=>contentHeight.update(),destroy(){alive=false;frameTicket++;dialog?.close();contentHeight.destroy();sizeControl.destroy?.();refToggle.destroy?.();upToggle.destroy?.();presence.destroy();}};
  }
 };
 

@@ -1,6 +1,14 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 // Universal Workflow interface translation, gikipil 2026.
 export default {
+  "Размер из первого кадра": "Tamaño del primer fotograma",
+  "Округлено до кратности 32": "Redondeado a un múltiplo de 32",
+  "Чтение размера первого кадра…": "Leyendo el tamaño del primer fotograma…",
+  "Не удалось прочитать размер первого кадра.": "No se pudo leer el tamaño del primer fotograma.",
+  "Размер первого кадра должен быть не больше 4096 px по каждой стороне.": "El primer fotograma no debe superar 4096 px en ningún lado.",
+  "Первый кадр изменён. Запусти видео ещё раз.": "El primer fotograma ha cambiado. Inicia el vídeo de nuevo.",
+  "Не найдена настройка размера видео.": "No se encontró el ajuste de tamaño del vídeo.",
+
   "Последний кадр → первый референс": "Último fotograma → primera referencia",
   "Извлечение кадра…": "Extrayendo fotograma…",
   "Не удалось извлечь последний кадр видео.": "No se pudo extraer el último fotograma.",

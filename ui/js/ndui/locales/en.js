@@ -1,6 +1,14 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 // Universal Workflow English UI dictionary, gikipil 2026. Russian source keys.
 export default {
+  "Размер из первого кадра": "Size from first frame",
+  "Округлено до кратности 32": "Rounded to a multiple of 32",
+  "Чтение размера первого кадра…": "Reading first-frame size…",
+  "Не удалось прочитать размер первого кадра.": "Could not read the first-frame size.",
+  "Размер первого кадра должен быть не больше 4096 px по каждой стороне.": "The first frame must not exceed 4096 px on either side.",
+  "Первый кадр изменён. Запусти видео ещё раз.": "The first frame changed. Start the video again.",
+  "Не найдена настройка размера видео.": "Video size setting was not found.",
+
   "Последний кадр → первый референс": "Last frame → first reference",
   "Извлечение кадра…": "Extracting frame…",
   "Не удалось извлечь последний кадр видео.": "Could not extract the last video frame.",
