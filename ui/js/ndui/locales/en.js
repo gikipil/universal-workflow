@@ -1,6 +1,12 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 // Universal Workflow English UI dictionary, gikipil 2026. Russian source keys.
 export default {
+  "Последний кадр → первый референс": "Last frame → first reference",
+  "Извлечение кадра…": "Extracting frame…",
+  "Не удалось извлечь последний кадр видео.": "Could not extract the last video frame.",
+  "Первый референс изменён. Повтори перенос кадра.": "The first reference changed. Try transferring the frame again.",
+  "Последний кадр добавлен в первый референс.": "The last frame was added as the first reference.",
+
   "Недоступна нода видеореференсов. Установи зависимости видео, перезапусти ComfyUI и открой актуальный workflow.": "The video reference node is unavailable. Install the video dependencies, restart ComfyUI and open the current workflow.",
   "Повреждены настройки видеореференсов. Открой актуальный workflow заново.": "Video reference settings are invalid. Reopen the current workflow.",
   "Не удалось сохранить список видеореференсов. Проверь подключение ноды.": "Could not save video references. Check the node connection.",

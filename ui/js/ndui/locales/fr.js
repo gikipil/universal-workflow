@@ -1,6 +1,12 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 // Universal Workflow interface translation, gikipil 2026.
 export default {
+  "Последний кадр → первый референс": "Dernière image → première référence",
+  "Извлечение кадра…": "Extraction de l’image…",
+  "Не удалось извлечь последний кадр видео.": "Impossible d’extraire la dernière image de la vidéo.",
+  "Первый референс изменён. Повтори перенос кадра.": "La première référence a changé. Réessayez le transfert.",
+  "Последний кадр добавлен в первый референс.": "La dernière image a été ajoutée comme première référence.",
+
   "Недоступна нода видеореференсов. Установи зависимости видео, перезапусти ComfyUI и открой актуальный workflow.": "Le nœud des références vidéo est indisponible. Installe les dépendances vidéo, redémarre ComfyUI et ouvre le workflow actuel.",
   "Повреждены настройки видеореференсов. Открой актуальный workflow заново.": "Les paramètres des références vidéo sont invalides. Rouvre le workflow actuel.",
   "Не удалось сохранить список видеореференсов. Проверь подключение ноды.": "Impossible d’enregistrer les références vidéo. Vérifie la connexion du nœud.",

@@ -63,6 +63,22 @@ except ImportError:
     PromptServer = None
 
 if PromptServer is not None:
+    @PromptServer.instance.routes.post('/universal/video/last-frame')
+    async def video_last_frame(request):
+        import asyncio
+        from aiohttp import web
+        from .last_frame import extract_last_frame
+        try:
+            ref = await request.json()
+            result = await asyncio.to_thread(extract_last_frame, ref,
+                {'output': folder_paths.get_output_directory(), 'temp': folder_paths.get_temp_directory()},
+                folder_paths.get_input_directory())
+            return web.json_response(result)
+        except (ValueError, FileNotFoundError):
+            return web.json_response({'error': 'Video result is unavailable or has no readable frames.'}, status=400)
+        except Exception:
+            return web.json_response({'error': 'Could not extract the last frame. Check the video file and PyAV installation.'}, status=500)
+
     @PromptServer.instance.routes.get('/universal/video/runtime')
     async def video_runtime(request):
         import torch
