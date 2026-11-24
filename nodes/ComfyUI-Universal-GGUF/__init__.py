@@ -34,5 +34,29 @@ class UniversalMiniMaxGGUF:
         result = module.UnetLoaderGGUF().load_unet(unet_name)
         return (prepare_minimax_model(result[0]), *result[1:])
 
-NODE_CLASS_MAPPINGS={'UniversalMiniMaxGGUF':UniversalMiniMaxGGUF}
-NODE_DISPLAY_NAME_MAPPINGS={'UniversalMiniMaxGGUF':'MiniMax H3 · GGUF loader'}
+def native_video_sampler():
+    import nodes
+    cls = nodes.NODE_CLASS_MAPPINGS.get('SelfLiftAvatarH3Sampler')
+    if cls is None:
+        raise RuntimeError('MiniMax video requires SelfLiftAvatarH3Sampler. Install the video dependencies and restart ComfyUI.')
+    return cls
+
+
+class UniversalMiniMaxVideoSampler:
+    @classmethod
+    def INPUT_TYPES(cls):
+        return native_video_sampler().INPUT_TYPES()
+
+    RETURN_TYPES = ('LATENT',)
+    FUNCTION = 'sample'
+    CATEGORY = 'Universal Workflow/Video'
+
+    def sample(self, *args, **kwargs):
+        from .streaming import run
+        return run(native_video_sampler(), *args, **kwargs)
+
+
+NODE_CLASS_MAPPINGS={'UniversalMiniMaxGGUF':UniversalMiniMaxGGUF,
+                     'UniversalMiniMaxVideoSampler':UniversalMiniMaxVideoSampler}
+NODE_DISPLAY_NAME_MAPPINGS={'UniversalMiniMaxGGUF':'MiniMax H3 · GGUF loader',
+                           'UniversalMiniMaxVideoSampler':'MiniMax H3 · video generation'}

@@ -77411,7 +77411,7 @@
     },
     {
       "id": 1507,
-      "type": "SelfLiftAvatarH3Sampler",
+      "type": "UniversalMiniMaxVideoSampler",
       "title": "🔴 MiniMax H3 · генерация видео",
       "pos": [
         3590,
@@ -77427,7 +77427,7 @@
       "order": 1507,
       "mode": 0,
       "properties": {
-        "Node name for S&R": "SelfLiftAvatarH3Sampler",
+        "Node name for S&R": "UniversalMiniMaxVideoSampler",
         "nd_ui_src": {
           "uid": "src_video_selflift",
           "tag": "video-selflift"
@@ -90603,7 +90603,7 @@
         {
           "uid": "src_video_selflift",
           "tag": "video-selflift",
-          "class": "SelfLiftAvatarH3Sampler",
+          "class": "UniversalMiniMaxVideoSampler",
           "title": "🔴 SelfLift · генерация видео"
         },
         {
@@ -90744,7 +90744,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v1.3.7",
+            "text": "🧩 Универсальный воркфлоу · v1.3.8",
             "size": "M",
             "align": "left"
           },
@@ -93073,7 +93073,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v1.3.7",
+            "text": "🧩 Универсальный воркфлоу · v1.3.8",
             "size": "M",
             "align": "left"
           },
@@ -93967,7 +93967,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v1.3.7",
+            "text": "🧩 Универсальный воркфлоу · v1.3.8",
             "size": "M",
             "align": "left"
           },
@@ -95305,7 +95305,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v1.3.7",
+            "text": "🧩 Универсальный воркфлоу · v1.3.8",
             "size": "M",
             "align": "left"
           },
@@ -96652,7 +96652,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "↔️ Дорисовка за границами кадра · v1.3.7",
+            "text": "↔️ Дорисовка за границами кадра · v1.3.8",
             "size": "M",
             "align": "left"
           },
@@ -98588,7 +98588,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v1.3.7",
+            "text": "🧩 Универсальный воркфлоу · v1.3.8",
             "size": "M",
             "align": "left"
           },
@@ -99235,7 +99235,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🧩 Универсальный воркфлоу · v1.3.7",
+            "text": "🧩 Универсальный воркфлоу · v1.3.8",
             "size": "M",
             "align": "left"
           },
@@ -99814,7 +99814,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🎬 Видео · MiniMax H3 · v1.3.7",
+            "text": "🎬 Видео · MiniMax H3 · v1.3.8",
             "size": "M",
             "align": "left"
           },
@@ -100813,7 +100813,7 @@
           "locked": true,
           "slots": {},
           "props": {
-            "text": "🎬 Звук · Higgs v3 · v1.3.7",
+            "text": "🎬 Звук · Higgs v3 · v1.3.8",
             "size": "M",
             "align": "left"
           },

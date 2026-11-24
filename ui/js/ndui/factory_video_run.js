@@ -20,7 +20,7 @@ export function videoPrompt(data,targets,modes,s,config){
  // Head streaming slices packed Q4 rows as dense weights. The compatible
  // full-context path invokes each GGUF projection's own dequantization/LoRA.
  // Keep the normal INT8 path and the saved graph unchanged.
- if(config.gguf&&output[s.main]?.inputs.highres_tiling_mode==='global_stream'){
+ if(config.gguf&&output[s.main]?.class_type==='SelfLiftAvatarH3Sampler'&&output[s.main]?.inputs.highres_tiling_mode==='global_stream'){
   output[s.main].inputs.highres_tiling_mode='global';
  }
  // Collapse only the model router before collecting this task's dependencies.

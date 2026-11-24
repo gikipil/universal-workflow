@@ -16,6 +16,7 @@ const FIELDS={
     SeedVR2LoadVAEModel:[['model','seedvr2']],
     UltralyticsDetectorProvider:[['model_name','ultralytics']],
     SelfLiftAvatarH3Sampler:[['upscaler_model','latent_upscale_models']],
+    UniversalMiniMaxVideoSampler:[['upscaler_model','latent_upscale_models']],
 };
 const empty=value=>value==null||['','none','null'].includes(String(value).trim().toLowerCase());
 export async function validatePromptModels(data,targets){

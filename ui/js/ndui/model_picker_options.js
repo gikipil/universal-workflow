@@ -7,6 +7,7 @@ export function modelPickerOptions(state, files) {
     const actual=new Map((files||[]).map(name=>[normalize(name),name]));
     const unrestricted=state.p?.virtual||!options.length;
     const choices=unrestricted?[...actual.values()]:options.filter(name=>!empty(name)&&actual.has(normalize(name))).map(name=>actual.get(normalize(name)));
-    if(options.some(empty))choices.unshift('None');
+    const blank=options.find(empty);
+    if(blank!==undefined)choices.unshift(blank);
     return [...new Set(choices)];
 }
